@@ -1,0 +1,176 @@
+//
+//  Splash.swift
+//  Example
+//
+//  Created by 王芃 on 2018/10/5.
+//  Copyright © 2018年 twigcodes. All rights reserved.
+//
+
+import UIKit
+import Layout
+import pop
+import RxSwift
+import Shallows
+import p2_OAuth2
+
+class SplashViewController: UIViewController, LayoutLoading {
+    
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var countDown: UIButton!
+    private var disposeBag = DisposeBag()
+    private var completeCountDownSubject = PublishSubject<Void>()
+    private let storage = container.resolve(Storage<Filename, AppData>.self)!
+    private let oauth2 = container.resolve(OAuth2PasswordGrant.self)!
+    
+    var layer: CALayer {
+        return imageView.layer
+    }
+    
+    func setUpLayer() {
+        if let anim = POPSpringAnimation(propertyNamed: kPOPLayerBounds) {
+            anim.toValue = NSValue(cgRect: CGRect(x: 0, y: 0, width: 200, height: 200))
+            layer.pop_add(anim, forKey: "size")
+        }
+    }
+    
+    fileprivate func authStream() -> Observable<Bool> {
+        return tourGuidePresentedStream()
+            .filter { (val) -> Bool in
+                log.debug("tourGuidePresented: " + String(val))
+                return val
+            }
+            .flatMap { (_) -> Observable<Bool> in
+                self.oauth2
+                    .rx_authorize()
+                    .map{ (jsonRes) -> Bool in
+                        return true
+                    }
+                    .catchError{ (_) -> Observable<Bool> in
+                        return Observable.of(false)
+                }
+            }
+    }
+    
+    fileprivate func tourGuidePresentedStream() -> Observable<Bool> {
+        return completeCountDownStream().flatMap { (_) -> Observable<Bool> in
+            self.storage
+                .rx_retrieve(forKey: "data")
+                .map{ (val) -> Bool in
+                    let result = val as? AppData
+                    return result?.tourGuidePresented ?? false
+                }
+                .catchError({ (error) -> Observable<Bool> in
+                    Observable.of(false)
+                })
+                .take(1)
+            }
+    }
+    
+    fileprivate func countDownStream() -> Observable<Int> {
+        return Observable<Int>
+            .interval(1, scheduler: ConcurrentDispatchQueueScheduler(qos: .userInitiated))
+            .map { val -> Int in
+                log.debug("value is " + String(val))
+                return 5 - val
+            }
+    }
+    
+    fileprivate func completeCountDownStream() -> Observable<Bool> {
+        return Observable<Bool>
+            .merge([
+                countDownStream()
+                    .map{ (val) -> Bool in
+                        log.debug("value subtracted is " + String(val))
+                        return val <= 0
+                    }
+                    .filter{ (val) -> Bool in
+                        val == true
+                },
+                self.completeCountDownSubject.asObservable().map{ _ in
+                    return true
+                }])
+            .take(1)
+    }
+    
+    fileprivate func countDownForConditionStream() -> Observable<String> {
+        return countDownStream()
+            .map{ (val) -> String in
+                String(val)
+            }
+            .takeUntil(completeCountDownStream())
+    }
+    
+    fileprivate func updateCountDownTick() -> Void {
+        countDownForConditionStream()
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
+            .observeOn(MainScheduler.instance)
+            .subscribe{ event -> Void in
+                switch event {
+                case .error(let error):
+                    log.error(error.localizedDescription)
+                    break
+                case .next(let label):
+                    log.debug(label)
+                    self.countDown.setTitle(label, for: .normal)
+                    break
+                case .completed:
+                    break
+                }
+            }
+            .disposed(by: self.disposeBag)
+    }
+    
+    @objc func completeCountDown() {
+        self.completeCountDownSubject.onNext(())
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.loadLayout(named: "SplashViewController.xml" )
+        setUpLayer()
+        
+        updateCountDownTick()
+        tourGuidePresentedStream()
+            .filter({ (val) -> Bool in
+                !val
+            })
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
+            .observeOn(MainScheduler.instance)
+            .subscribe{ event -> Void in
+                switch event {
+                case .error(let error):
+                    log.error(error.localizedDescription)
+                    break
+                case .next(let result):
+                    log.debug(result)
+                    AppDelegate.shared.rootViewController.switchToTour()
+                    break
+                case .completed:
+                    break
+                }
+            }
+            .disposed(by: self.disposeBag)
+        authStream()
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
+            .observeOn(MainScheduler.instance)
+            .subscribe{ event -> Void in
+                switch event {
+                case .error(let error):
+                    log.error(error.localizedDescription)
+                    AppDelegate.shared.rootViewController.showLoginScreen()
+                    break
+                case .next(let result):
+                    log.debug(result)
+                    if (result) {
+                        AppDelegate.shared.rootViewController.switchToMainScreen()
+                    } else {
+                        AppDelegate.shared.rootViewController.showLoginScreen()
+                    }
+                    break
+                case .completed:
+                    break
+                }
+            }
+            .disposed(by: self.disposeBag)
+    }
+}

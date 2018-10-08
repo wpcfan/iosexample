@@ -7,40 +7,133 @@
 //
 
 import UIKit
+import Layout
+import Swinject
+import SwiftyBeaver
+import p2_OAuth2
+import Moya
+import URLNavigator
+import Shallows
+
+#if swift(>=4.2)
+extension UIApplication {
+    typealias LaunchOptionsKey = UIApplication.LaunchOptionsKey
+}
+#else
+extension UIApplication {
+    typealias LaunchOptionsKey = UIApplicationLaunchOptionsKey
+}
+#endif
+
+let log = SwiftyBeaver.self
+// IoC container
+let container: Container = {
+    let container = Container()
+    container.register(Storage<Filename, AppData>.self) { _ in
+        let diskStorage = DiskStorage.main.folder("appdata", in: .cachesDirectory).mapJSONObject(AppData.self)
+        let storage = MemoryStorage<Filename, AppData>().combined(with: diskStorage)
+        return storage
+    }
+    container.register(OAuth2PasswordGrant.self) { _ in
+        OAuth2PasswordGrant(settings: [
+            "client_id": AppEnv.authClientId,
+            "client_secret": AppEnv.authClientSecret,
+            "authorize_uri": AppEnv.authOpenIdAuthorizeUrl,
+            "token_uri": AppEnv.authOpenIdTokenUrl,   // code grant only
+            "redirect_uris": ["example://com.twigcodes.com/auth"],   // register your own "myapp" scheme in Info.plist
+            "secret_in_body": true,    // Github needs this
+            "keychain": true,         // if you DON'T want keychain integration
+            ] as OAuth2JSON)
+    }
+    container.register(OAuth2Service.self) { _ in
+        OAuth2Service()
+    }
+    #if TARGET_CPU_ARM
+    container.register(SmartCloudService.self) { _ in SmartCloudServiceImpl() }
+    #endif
+    return container
+}()
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
-
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    private var navigator: NavigatorType?
+    private let oauth2 = container.resolve(OAuth2PasswordGrant.self)!
+    
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
+        ) -> Bool {
+        enableLogging()
+        ShortcutParser.shared.registerShortcuts()
+        let navigator = Navigator()
+        // Initialize navigation map
+        NavigationMap.initialize(navigator: navigator)
+        
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.rootViewController = RootViewController()
+        window.makeKeyAndVisible()
+        
+        self.window = window
+        self.navigator = navigator
         return true
     }
-
-    func applicationWillResignActive(_ application: UIApplication) {
-        // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-        // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
+    
+    func application(
+        _ app: UIApplication,
+        open url: URL,
+        options: [UIApplication.OpenURLOptionsKey: Any] = [:]
+        ) -> Bool {
+        if (url.absoluteString == "example://com.twigcodes.ios/auth") {
+            try! self.oauth2.handleRedirectURL(url)
+        }
+        // Try presenting the URL first
+        if self.navigator?.present(url, wrap: UINavigationController.self) != nil {
+            log.debug("[Navigator] present: \(url)")
+            return true
+        }
+        
+        // Try opening the URL
+        if self.navigator?.open(url) == true {
+            log.debug("[Navigator] open: \(url)")
+            return true
+        }
+        
+        return false
     }
-
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-        // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    
+//    func applicationDidBecomeActive(_ application: UIApplication) {
+//        // handle any deeplink
+//        Deeplinker.checkDeepLink()
+//    }
+//
+//    // MARK: Shortcuts
+//    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+//        completionHandler(Deeplinker.handleShortcut(item: shortcutItem))
+//    }
+    
+    fileprivate func enableLogging() {
+        let console = ConsoleDestination()  // log to Xcode Console
+        let appId = AppEnv.swiftyBeaverAppId
+        let appSecret = AppEnv.swiftyBeaverAppSecret
+        let encryptionKey = AppEnv.swiftyBeaverEncryptionKey
+        let cloud = SBPlatformDestination(
+            appID: appId,
+            appSecret: appSecret,
+            encryptionKey: encryptionKey) // to cloud
+        //        console.format = "$Dyyyy-MM-dd HH:mm:ss.SSS$d $C$L$c: $M"
+        // add the destinations to SwiftyBeaver
+        log.addDestination(console)
+        log.addDestination(cloud)
     }
-
-    func applicationWillEnterForeground(_ application: UIApplication) {
-        // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-    }
-
-    func applicationDidBecomeActive(_ application: UIApplication) {
-        // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-    }
-
-    func applicationWillTerminate(_ application: UIApplication) {
-        // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    }
-
-
 }
 
+extension AppDelegate {
+    static var shared: AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
+    var rootViewController: RootViewController {
+        return window!.rootViewController as! RootViewController
+    }
+}

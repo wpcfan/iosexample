@@ -1,0 +1,154 @@
+PODS:
+  - Alamofire (4.7.3)
+  - EAIntroView (2.12.0):
+    - EARestrictedScrollView (~> 1.1.0)
+  - EARestrictedScrollView (1.1.0)
+  - Eureka (4.3.0)
+  - FSPagerView (0.8.0)
+  - KTVJSONWebToken (2.1.0)
+  - Layout (0.6.30):
+    - Layout/Core (= 0.6.30)
+  - Layout/Core (0.6.30)
+  - Moya (11.0.2):
+    - Moya/Core (= 11.0.2)
+  - Moya-ObjectMapper/Core (2.7):
+    - Moya (~> 11)
+    - ObjectMapper (~> 3.3)
+  - Moya-ObjectMapper/RxSwift (2.7):
+    - Moya-ObjectMapper/Core
+    - RxSwift (~> 4.1)
+  - Moya/Core (11.0.2):
+    - Alamofire (~> 4.1)
+    - Result (~> 3.0)
+  - Moya/RxSwift (11.0.2):
+    - Moya/Core
+    - RxSwift (~> 4.0)
+  - ObjectMapper (3.3.0)
+  - p2.OAuth2 (4.0.1)
+  - PMAlertController (3.5.0)
+  - pop (1.0.10)
+  - ReactorKit (1.2.0):
+    - RxSwift (>= 4.0.0)
+  - Result (3.2.4)
+  - RxCocoa (4.3.1):
+    - RxSwift (~> 4.0)
+  - RxSwift (4.3.1)
+  - Shallows (0.9.0)
+  - SnapKit (4.0.1)
+  - SwiftIconFont (2.8.0)
+  - SwiftyBeaver (1.6.1)
+  - Swinject (2.5.0)
+  - Then (2.4.0)
+  - "UITextView+Placeholder (1.2.1)"
+  - URLNavigator (2.1.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - EAIntroView
+  - Eureka
+  - FSPagerView
+  - KTVJSONWebToken (from `https://github.com/kreactive/JSONWebToken`)
+  - Layout (~> 0.6)
+  - Moya-ObjectMapper/RxSwift (~> 2.7)
+  - Moya/RxSwift (~> 11.0)
+  - p2.OAuth2 (from `https://github.com/p2/OAuth2`)
+  - PMAlertController
+  - pop (~> 1.0)
+  - ReactorKit
+  - RxCocoa (~> 4.0)
+  - RxSwift (~> 4.0)
+  - Shallows (from `https://github.com/dreymonde/Shallows`)
+  - SnapKit (~> 4.0.0)
+  - SwiftIconFont (from `https://github.com/0x73/SwiftIconFont`)
+  - SwiftyBeaver
+  - Swinject (~> 2.5)
+  - Then
+  - "UITextView+Placeholder"
+  - URLNavigator (~> 2.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - EAIntroView
+    - EARestrictedScrollView
+    - Eureka
+    - FSPagerView
+    - Layout
+    - Moya
+    - Moya-ObjectMapper
+    - ObjectMapper
+    - PMAlertController
+    - pop
+    - ReactorKit
+    - Result
+    - RxCocoa
+    - RxSwift
+    - SnapKit
+    - SwiftyBeaver
+    - Swinject
+    - Then
+    - "UITextView+Placeholder"
+    - URLNavigator
+
+EXTERNAL SOURCES:
+  KTVJSONWebToken:
+    :git: https://github.com/kreactive/JSONWebToken
+    :submodules: true
+  p2.OAuth2:
+    :git: https://github.com/p2/OAuth2
+    :submodules: true
+  Shallows:
+    :git: https://github.com/dreymonde/Shallows
+    :submodules: true
+  SwiftIconFont:
+    :git: https://github.com/0x73/SwiftIconFont
+    :submodules: true
+
+CHECKOUT OPTIONS:
+  KTVJSONWebToken:
+    :commit: d2e37fa5ee12731ee8e583e43f39645d056ab2a9
+    :git: https://github.com/kreactive/JSONWebToken
+    :submodules: true
+  p2.OAuth2:
+    :commit: e81b4bc4a3cfc3d11b62aba07241ceeb0684ac07
+    :git: https://github.com/p2/OAuth2
+    :submodules: true
+  Shallows:
+    :commit: 82f4f5d57b94ad75d63073cd89e01f49e831b9e0
+    :git: https://github.com/dreymonde/Shallows
+    :submodules: true
+  SwiftIconFont:
+    :commit: b3d70560ba1cf937461e0185df893e44cdd3111c
+    :git: https://github.com/0x73/SwiftIconFont
+    :submodules: true
+
+SPEC CHECKSUMS:
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  EAIntroView: 249559079ddfdbe80e5bcb755c04c3b964b2ac27
+  EARestrictedScrollView: b0c2a3f92fb2610bb44d71c5e4893777c89e45ef
+  Eureka: 6d711cb30ca333b4bc893110285a722ae3840114
+  FSPagerView: 53d0cd11a233d662ff23e37ed8ee4ecea3cec693
+  KTVJSONWebToken: c3cc06e26876d63c62a5c40c5e89939899de48cf
+  Layout: eb0a3b82bc6ae9f2f18ffe3ad87fe2d94729d927
+  Moya: a725035953bc1c0eb1be505ab903984501d82440
+  Moya-ObjectMapper: 441caa307b527331fde59e2577adc632a16f1255
+  ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
+  p2.OAuth2: fdc2effef37793a8f775dd4760bc4c1ea906c956
+  PMAlertController: 06dab8160066fc4ce991c880e3722cd403e2926a
+  pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
+  ReactorKit: 18ca466f1e77fef1827addeb921fba8ae14edd63
+  Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
+  RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
+  RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
+  Shallows: fd53872b476c90fa1d4cb54fb735801d374e41b8
+  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+  SwiftIconFont: ddaccaa3bb90fc21ebc528cfdf793342618a5cc2
+  SwiftyBeaver: ccfcdf85a04d429f1633f668650b0ce8020bda3a
+  Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
+  Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
+  "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
+  URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
+
+PODFILE CHECKSUM: d4766c953a31d53a1b459165d670bd196e16a5ed
+
+COCOAPODS: 1.5.3

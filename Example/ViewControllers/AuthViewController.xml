@@ -1,0 +1,70 @@
+<UIViewController view.backgroundColor="#fff">
+    <UIScrollView
+        contentInset.bottom="safeAreaInsets.bottom + 50"
+        contentInset.left="safeAreaInsets.left + 15"
+        contentInset.right="safeAreaInsets.right + 15"
+        contentInset.top="max(safeAreaInsets.top + 5, 15)"
+        contentInsetAdjustmentBehavior="never"
+        scrollIndicatorInsets.bottom="safeAreaInsets.bottom + 50"
+        scrollIndicatorInsets.top="safeAreaInsets.top">
+
+        <UILabel
+            text="{strings.login.username}"
+            left="safeAreaInsets.left + 15"
+            width="parent.width / 2 - 30"
+            top="10"
+            />
+
+        <UITextField
+            layer.borderWidth="1"
+            left="previous.right + 15"
+            right="parent.right-15"
+            top="previous.top"
+            height="previous.height"
+            autocapitalizationType="none"
+            autocorrectionType="no"
+            outlet="usernameField"
+        />
+
+        <UILabel 
+            text="{strings.login.password}"
+            left="safeAreaInsets.left + 15"
+            width="parent.width / 2 - 30"
+            top="previous.bottom + 15"
+            
+            />
+
+        <UITextField
+            layer.borderWidth="1"
+            left="previous.right + 15"
+            right="parent.right-15"
+            top="previous.top"
+            height="previous.height"
+            isSecureTextEntry="true"
+            autocapitalizationType="none"
+            autocorrectionType="no"
+            outlet="passwordField"
+        />
+
+        <UIButton
+            backgroundColor="blue"
+            layer.cornerRadius="5"
+            left="safeAreaInsets.left + 15"
+            outlet="authAutoButton"
+            width="parent.width-30"
+            title="{strings.login.loginbtn.title}"
+            top="previous.bottom + 10"
+            touchUpInside="doAuth"
+        />
+        <UIButton
+            backgroundColor="blue"
+            layer.cornerRadius="5"
+            left="safeAreaInsets.left + 15"
+            outlet="userinfoButton"
+            width="parent.width-30"
+            title="UserInfo"
+            top="previous.bottom + 10"
+            touchUpInside="displayInfo"
+        />
+    </UIScrollView>
+</UIViewController>

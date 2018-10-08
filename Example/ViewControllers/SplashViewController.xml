@@ -1,0 +1,21 @@
+<UIViewController view.backgroundColor="#4FB2CB">
+	<UIButton
+		top="100"
+		right="400"
+		width="64"
+		height="64"
+		title="5"
+		titleColor="#fff"
+        backgroundColor="#4FB2CB "
+        layer.cornerRadius="0.5 * width"
+        layer.borderWidth="8"
+        layer.borderColor="#fff"
+        outlet="countDown"
+        touchUpInside="completeCountDown"
+		/>
+    <UIImageView image="SplashIcon"
+        center.x="parent.center.x"
+        center.y="parent.center.y"
+        contentMode="scaleAspectFit"
+        outlet="imageView"/>
+</UIViewController>

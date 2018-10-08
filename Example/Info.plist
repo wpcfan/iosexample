@@ -2,6 +2,35 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>APP_ENV</key>
+	<dict>
+		<key>API_BASE_URL</key>
+		<string></string>
+		<key>AUTH</key>
+		<dict>
+			<key>BASE_URL</key>
+			<string>https://auth.twigcodes.com/auth/realms</string>
+			<key>CLIENT_ID</key>
+			<string>login-app</string>
+			<key>CLIENT_SECRET</key>
+			<string>942bfe03-9851-4db8-b100-8393c9c6c9cd</string>
+			<key>GRANT_TYPE</key>
+			<string>password</string>
+			<key>OPENID_URL_TEMPLATE</key>
+			<string>%@/%@/protocol/openid-connect</string>
+			<key>REALM</key>
+			<string>twigcodes</string>
+		</dict>
+		<key>SWIFTY_BEAVER</key>
+		<dict>
+			<key>APP_ID</key>
+			<string>89AgeN</string>
+			<key>APP_SECRET</key>
+			<string>4wfenyegpdnWCegtWm8vkzAmsmwciYyX</string>
+			<key>ENCRYPTION_KEY</key>
+			<string>gwwcsfRgOuGclrstwimcaswVuliledzi</string>
+		</dict>
+	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
@@ -16,6 +45,19 @@
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>example</string>
+			</array>
+		</dict>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
@@ -28,6 +70,8 @@
 	<array>
 		<string>armv7</string>
 	</array>
+	<key>UIStatusBarStyle</key>
+	<string>UIStatusBarStyleDefault</string>
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
@@ -41,5 +85,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>

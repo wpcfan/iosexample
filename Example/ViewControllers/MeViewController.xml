@@ -1,0 +1,13 @@
+<MeViewController
+    view.backgroundColor="#151d2b">
+    <UIButton
+        backgroundColor="blue"
+        layer.cornerRadius="5"
+        left="safeAreaInsets.left + 15"
+        outlet="logoutButton"
+        width="parent.width-30"
+        title="{strings.me.logoutbtn.title}"
+        top="safeAreaInsets.top + 20"
+        touchUpInside="logout"
+        />
+</MeViewController>

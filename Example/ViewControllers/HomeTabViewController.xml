@@ -1,0 +1,27 @@
+<UITabBarController
+    outlet="tabNode"
+    view.backgroundColor="#151d2b">
+
+    <UITabBar tintColor="#77f"/>
+
+    <!-- Home -->
+    <UIViewController
+        tabBarItem.image="{iconTabHome}"
+        title="{strings.home.tabbar.tab_home}"
+        xml="HomeViewController.xml"
+    />
+
+    <!-- Pages -->
+    <UIViewController
+        tabBarItem.image="{iconTabSocial}"
+        title="{strings.home.tabbar.tab_social}"
+        xml="SocialViewController.xml"
+    />
+
+    <!-- Text -->
+    <UIViewController
+        tabBarItem.image="{iconTabMe}"
+        title="{strings.home.tabbar.tab_me}"
+        xml="MeViewController.xml"
+    />
+</UITabBarController>
