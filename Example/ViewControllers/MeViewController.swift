@@ -10,9 +10,9 @@ import UIKit
 
 class MeViewController: UIViewController {
     private let authService = container.resolve(OAuth2Service.self)!
-    @objc private var logoutButton: UIButton?
+    @IBOutlet private weak var logoutButton: UIButton!
     
-    @objc func logout() -> Void {
+    @IBAction func logout() -> Void {
         self.authService.logout()
         AppDelegate.shared.rootViewController.switchToLogout()
     }

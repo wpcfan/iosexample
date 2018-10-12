@@ -5,3 +5,28 @@
   Created by 王芃 on 2018/10/9.
   Copyright © 2018年 twigcodes. All rights reserved.
 */
+"login.username"="用户名";
+"login.password"="密码";
+"login.loginbtn.title"="登录";
+"login.registerbtn.title"="注册";
+"home.tabbar.tab_home"="首页";
+"home.tabbar.tab_social"="动态";
+"home.tabbar.tab_me"="我的";
+"me.logoutbtn.title"="退出";
+"register.usernamefield.title"="用户名";
+"register.usernamefield.placeholder"="请输入用户名";
+"register.usernamefield.validation.regex"="用户名只能接受字母、数字或下划线";
+"register.usernamefield.validation.required"="用户名是必填项";
+"register.passwordfield.title"="密码";
+"register.passwordfield.placeholder"="请输入密码";
+"register.passwordfield.validation.required"="用户名是必填项";
+"register.birthdayfield.title"="生日";
+"home.qrscanner.cancelbtn.title"="返回";
+"main.navigation.home.title"="首页";
+"main.navigation.status.title"="状态";
+"main.navigation.my.title"="我的";
+"home.pulltorefresh.header"="下拉刷新";
+"home.releasetorefresh.header"="抬起手指进行刷新";
+"home.refreshsuccess.header"="刷新成功";
+"home.refreshfailure.header"="刷新失败";
+"home.refreshing.header"="正在刷新";

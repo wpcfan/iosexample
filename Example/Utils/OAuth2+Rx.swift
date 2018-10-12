@@ -22,9 +22,7 @@ extension OAuth2 {
                 }
             }
             // else an error has been thrown
-            return Disposables.create {
-                self.abortAuthorization()
-            }
-            }.share()
+            return Disposables.create()
+        }.share()
     }
 }

@@ -6,4 +6,11 @@
 //  Copyright © 2018年 twigcodes. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class HomeUITableViewDelegate: NSObject, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection _: Int) -> UIView? {
+        let node = tableView.dequeueReusableHeaderFooterNode(withIdentifier: "templateHeader")
+        return node?.view as? UITableViewHeaderFooterView
+    }
+}

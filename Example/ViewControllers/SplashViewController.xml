@@ -1,7 +1,7 @@
 <UIViewController view.backgroundColor="#4FB2CB">
 	<UIButton
-		top="100"
-		right="400"
+		top="safeAreaInsets.top + 15"
+		left="parent.right - 100"
 		width="64"
 		height="64"
 		title="5"

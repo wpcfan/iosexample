@@ -36,7 +36,6 @@ class RootViewController: UIViewController {
     }
     
     func showLoginScreen() {
-        
         let new = UINavigationController(rootViewController: AuthViewController())
         
         addChild(new)
@@ -49,6 +48,19 @@ class RootViewController: UIViewController {
         current.removeFromParent()
         
         current = new
+    }
+    
+    func showRegisterScreen() {
+        let registerScreen = UINavigationController(rootViewController: RegisterViewController())
+        UINavigationBar.appearance().barTintColor = UIColor.accent
+        UINavigationBar.appearance().isTranslucent = false
+        let navigationTitleAttributes = {
+            return [ NSAttributedString.Key.foregroundColor: UIColor.primary ]
+        }()
+        UINavigationBar.appearance().tintColor = UIColor.primary
+        UIBarButtonItem.appearance().setTitleTextAttributes(navigationTitleAttributes as [NSAttributedString.Key : Any], for: .normal)
+        UINavigationBar.appearance().titleTextAttributes = navigationTitleAttributes as [NSAttributedString.Key : Any]
+        animateDismissTransition(to: registerScreen)
     }
     
     func switchToLogout() {
@@ -67,8 +79,16 @@ class RootViewController: UIViewController {
     func switchToMainScreen() {
         let mainViewController = HomeTabViewController(tabName: "app")
         let mainScreen = MainNavigationController(rootViewController: mainViewController)
+        UINavigationBar.appearance().barTintColor = UIColor.accent
+        UINavigationBar.appearance().isTranslucent = false
+        let navigationTitleAttributes = {
+            return [ NSAttributedString.Key.foregroundColor: UIColor.primary ]
+        }()
+        UINavigationBar.appearance().tintColor = .white
+        UIBarButtonItem.appearance().setTitleTextAttributes(navigationTitleAttributes as [NSAttributedString.Key : Any], for: .normal)
+        UINavigationBar.appearance().titleTextAttributes = navigationTitleAttributes as [NSAttributedString.Key : Any]
 //        mainScreen.presentTransparentNavigationBar()
-        mainScreen.hideTransparentNavigationBar()
+//        mainScreen.hideTransparentNavigationBar()
         animateFadeTransition(to: mainScreen) { [weak self] in
             self?.handleDeeplink()
         }

@@ -1,16 +1,3 @@
-<HomeViewController
-    view.backgroundColor="#151d2b">
-    
-    <UIScrollView
-        contentInset.bottom="safeAreaInsets.bottom + 15"
-        contentInset.left="safeAreaInsets.left + 15"
-        contentInset.right="safeAreaInsets.right - 15"
-        contentInset.top="previous.center.y + 30"
-        contentInsetAdjustmentBehavior="never"
-        scrollIndicatorInsets.bottom="safeAreaInsets.bottom + 15"
-        scrollIndicatorInsets.top="previous.center.y + 15">
-        
-        
-    </UIScrollView>
+<HomeViewController>
     
 </HomeViewController>

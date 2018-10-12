@@ -13,15 +13,14 @@ import PMAlertController
 import RxSwift
 
 class AuthViewController: UIViewController, LayoutLoading {
-    
-    private let oauth2Service = container.resolve(OAuth2Service.self)!
-    
-    @IBOutlet private weak var authAutoButton: UIButton!
-    @IBOutlet private weak var userinfoButton: UIButton!
+
+    @IBOutlet private weak var loginButton: UIButton!
+    @IBOutlet private weak var registerButton: UIButton!
     @IBOutlet private weak var usernameField: UITextField!
     @IBOutlet private weak var passwordField: UITextField!
     @IBOutlet private weak var trashButton: UIBarButtonItem!
-    private var disposeBag = DisposeBag()
+    private let disposeBag = DisposeBag()
+    private let oauth2Service = container.resolve(OAuth2Service.self)!
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -37,8 +36,8 @@ class AuthViewController: UIViewController, LayoutLoading {
         self.loadLayout(named: "AuthViewController.xml" )
     }
     
-    @objc func doAuth() -> Void {
-        self.oauth2Service.login(
+    @IBAction func login() -> Void {
+        self.oauth2Service.loginWithUserCredential(
             username: self.usernameField.text!,
             password: self.passwordField.text!)
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
@@ -47,6 +46,7 @@ class AuthViewController: UIViewController, LayoutLoading {
                 switch event {
                 case .error(let error):
                     log.error(error.localizedDescription)
+                    self.oauth2Service.logout()
                     break
                 case .next(_):
                     AppDelegate.shared.rootViewController.switchToMainScreen()
@@ -58,8 +58,8 @@ class AuthViewController: UIViewController, LayoutLoading {
             .disposed(by: self.disposeBag)
     }
     
-    @objc func displayInfo() -> Void {
-        self.present(HomeTabViewController(tabName: "app"), animated: true, completion: nil)
-        
+    
+    @IBAction func register() -> Void {
+        self.navigationController?.pushViewController(RegisterViewController(), animated: true)
     }
 }

@@ -5,3 +5,28 @@
   Created by 王芃 on 2018/10/9.
   Copyright © 2018年 twigcodes. All rights reserved.
 */
+"login.username"="Username";
+"login.password"="Password";
+"login.loginbtn.title"="Signin";
+"login.registerbtn.title"="Signup";
+"home.tabbar.tab_home"="Home";
+"home.tabbar.tab_social"="Status";
+"home.tabbar.tab_me"="My";
+"me.logoutbtn.title"="Logout";
+"register.usernamefield.title"="Username";
+"register.usernamefield.placeholder"="Username";
+"register.usernamefield.validation.regex"="aplabet";
+"register.usernamefield.validation.required"="required";
+"register.passwordfield.title"="Password";
+"register.passwordfield.placeholder"="Password";
+"register.passwordfield.validation.required"="required";
+"register.birthdayfield.title"="birthday";
+"home.qrscanner.cancelbtn.title"="Back";
+"main.navigation.home.title"="Home";
+"main.navigation.status.title"="Status";
+"main.navigation.my.title"="My";
+"home.pulltorefresh.header"="Pull to refresh";
+"home.releasetorefresh.header"="Release to refresh";
+"home.refreshsuccess.header"="Refresh Successfuly";
+"home.refreshfailure.header"="Refresh Failed";
+"home.refreshing.header"="Refreshing";

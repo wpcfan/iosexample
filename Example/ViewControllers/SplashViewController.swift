@@ -11,16 +11,15 @@ import Layout
 import pop
 import RxSwift
 import Shallows
-import p2_OAuth2
 
 class SplashViewController: UIViewController, LayoutLoading {
     
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var countDown: UIButton!
-    private var disposeBag = DisposeBag()
-    private var completeCountDownSubject = PublishSubject<Void>()
+    private let disposeBag = DisposeBag()
+    private let completeCountDownSubject = PublishSubject<Void>()
     private let storage = container.resolve(Storage<Filename, AppData>.self)!
-    private let oauth2 = container.resolve(OAuth2PasswordGrant.self)!
+    private let oauth2Service = container.resolve(OAuth2Service.self)!
     
     var layer: CALayer {
         return imageView.layer
@@ -40,19 +39,20 @@ class SplashViewController: UIViewController, LayoutLoading {
                 return val
             }
             .flatMap { (_) -> Observable<Bool> in
-                self.oauth2
-                    .rx_authorize()
-                    .map{ (jsonRes) -> Bool in
-                        return true
-                    }
-                    .catchError{ (_) -> Observable<Bool> in
-                        return Observable.of(false)
-                }
+                return Observable.of(self.oauth2Service.checkLoginStatus())
+//                return self.oauth2Service
+//                    .autoLogin()
+//                    .map{ (jsonRes) -> Bool in
+//                        return true
+//                    }
+//                    .catchError{ (_) -> Observable<Bool> in
+//                        return Observable.of(false)
+//                }
             }
     }
     
     fileprivate func tourGuidePresentedStream() -> Observable<Bool> {
-        return completeCountDownStream().flatMap { (_) -> Observable<Bool> in
+        return stopCountDownStream().flatMap { (_) -> Observable<Bool> in
             self.storage
                 .rx_retrieve(forKey: "data")
                 .map{ (val) -> Bool in
@@ -75,7 +75,7 @@ class SplashViewController: UIViewController, LayoutLoading {
             }
     }
     
-    fileprivate func completeCountDownStream() -> Observable<Bool> {
+    fileprivate func stopCountDownStream() -> Observable<Bool> {
         return Observable<Bool>
             .merge([
                 countDownStream()
@@ -97,7 +97,7 @@ class SplashViewController: UIViewController, LayoutLoading {
             .map{ (val) -> String in
                 String(val)
             }
-            .takeUntil(completeCountDownStream())
+            .takeUntil(stopCountDownStream())
     }
     
     fileprivate func updateCountDownTick() -> Void {
@@ -120,16 +120,7 @@ class SplashViewController: UIViewController, LayoutLoading {
             .disposed(by: self.disposeBag)
     }
     
-    @objc func completeCountDown() {
-        self.completeCountDownSubject.onNext(())
-    }
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.loadLayout(named: "SplashViewController.xml" )
-        setUpLayer()
-        
-        updateCountDownTick()
+    fileprivate func checkAndNavigateToTourView() -> Void {
         tourGuidePresentedStream()
             .filter({ (val) -> Bool in
                 !val
@@ -150,9 +141,12 @@ class SplashViewController: UIViewController, LayoutLoading {
                 }
             }
             .disposed(by: self.disposeBag)
+    }
+    
+    fileprivate func checkAndNavigateToLogin() {
         authStream()
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
-            .observeOn(MainScheduler.instance)
+            .observeOn(MainScheduler.asyncInstance)
             .subscribe{ event -> Void in
                 switch event {
                 case .error(let error):
@@ -172,5 +166,18 @@ class SplashViewController: UIViewController, LayoutLoading {
                 }
             }
             .disposed(by: self.disposeBag)
+    }
+    
+    @IBAction func completeCountDown() {
+        self.completeCountDownSubject.onNext(())
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.loadLayout(named: "SplashViewController.xml" )
+        setUpLayer()
+        updateCountDownTick()
+        checkAndNavigateToTourView()
+        checkAndNavigateToLogin()
     }
 }

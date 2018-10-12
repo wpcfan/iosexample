@@ -12,7 +12,6 @@ import EAIntroView
 import Shallows
 import RxSwift
 import RxCocoa
-import p2_OAuth2
 
 class TourViewController: UIViewController, LayoutLoading, EAIntroDelegate {
     
@@ -20,7 +19,7 @@ class TourViewController: UIViewController, LayoutLoading, EAIntroDelegate {
     private var introView: EAIntroView?
     private var disposeBag = DisposeBag()
     private let storage = container.resolve(Storage<Filename, AppData>.self)!
-    private let oauth2 = container.resolve(OAuth2PasswordGrant.self)!
+    private let oauth2Service = container.resolve(OAuth2Service.self)!
     
     func preparePages() -> Void {
         let page1 = EAIntroPage()
@@ -55,14 +54,9 @@ class TourViewController: UIViewController, LayoutLoading, EAIntroDelegate {
                 }
             }
             .disposed(by: self.disposeBag)
-        let auth$ = self.oauth2
-            .rx_authorize()
-            .map{ (jsonRes) -> Bool in
-                return true
-            }
-            .catchError{ (_) -> Observable<Bool> in
-                return Observable.of(false)
-            }
+        
+        let auth$ = Observable.of(oauth2Service.checkLoginStatus())
+        
         auth$.subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
             .observeOn(MainScheduler.instance)
             .subscribe{ event -> Void in

@@ -8,19 +8,13 @@
 
 import UIKit
 
-struct ThemeColor {
-    static let primary = UIColor(hexString: "#fff")
-    static let secondary = UIColor(hexString: "#f9f9f9")
-    static let accent = UIColor(hexString: "#4fb2cb")
-    
-    static let colors = [
-        "red": UIColor(hexString: "#f66"),
-        "orange": UIColor(hexString: "#fa7"),
-        "blue": UIColor(hexString: "#09f"),
-        "green": UIColor(hexString: "#0f9"),
-        "pink": UIColor(hexString: "#fcc"),
-        "primary": primary,
-        "second": secondary,
-        "accent": accent
-    ]
+extension UIColor {
+    @objc static let primary = UIColor(hexString: "#fff")
+    @objc static let secondary = UIColor(hexString: "#f9f9f9")
+    @objc static let accent = UIColor(hexString: "#4fb2cb")
+    @objc static let warn = UIColor(hexString: "#f66")
+    @objc static let orange = UIColor(hexString: "#fa7")
+    @objc static let blue = UIColor(hexString: "#09f")
+    @objc static let green = UIColor(hexString: "#0f9")
+    @objc static let pink = UIColor(hexString: "#fcc")
 }

@@ -34,16 +34,24 @@ let container: Container = {
         let storage = MemoryStorage<Filename, AppData>().combined(with: diskStorage)
         return storage
     }
-    container.register(OAuth2PasswordGrant.self) { _ in
-        OAuth2PasswordGrant(settings: [
-            "client_id": AppEnv.authClientId,
-            "client_secret": AppEnv.authClientSecret,
-            "authorize_uri": AppEnv.authOpenIdAuthorizeUrl,
-            "token_uri": AppEnv.authOpenIdTokenUrl,   // code grant only
-            "redirect_uris": ["example://com.twigcodes.com/auth"],   // register your own "myapp" scheme in Info.plist
-            "secret_in_body": true,    // Github needs this
-            "keychain": true,         // if you DON'T want keychain integration
-            ] as OAuth2JSON)
+    container.register(OAuth2JSON.self) { _ in
+        [
+        "client_id": AppEnv.authClientId,
+        "client_secret": AppEnv.authClientSecret,
+        "authorize_uri": AppEnv.authOpenIdAuthorizeUrl,
+        "token_uri": AppEnv.authOpenIdTokenUrl,   // code grant only
+        "redirect_uris": ["example://com.twigcodes.ios/auth"],   // register your own "myapp" scheme in Info.plist
+        "secret_in_body": true,    // Github needs this
+        "keychain": true,         // if you DON'T want keychain integration
+        ] as OAuth2JSON
+    }
+    container.register(OAuth2CodeGrant.self) { c in
+        let settings = c.resolve(OAuth2JSON.self)!
+        return OAuth2CodeGrant(settings: settings)
+    }
+    container.register(OAuth2PasswordGrant.self) { c in
+        let settings = c.resolve(OAuth2JSON.self)!
+        return OAuth2PasswordGrant(settings: settings)
     }
     container.register(OAuth2Service.self) { _ in
         OAuth2Service()
@@ -59,7 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     private var navigator: NavigatorType?
-    private let oauth2 = container.resolve(OAuth2PasswordGrant.self)!
+//    private let oauth2 = container.resolve(OAuth2CodeGrant.self)!
     
     func application(
         _ application: UIApplication,
@@ -85,9 +93,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         open url: URL,
         options: [UIApplication.OpenURLOptionsKey: Any] = [:]
         ) -> Bool {
-        if (url.absoluteString == "example://com.twigcodes.ios/auth") {
-            try! self.oauth2.handleRedirectURL(url)
-        }
+//        if "example" == url.scheme || (url.scheme?.hasPrefix("com.twigcodes.ios"))! {
+//            oauth2.handleRedirectURL(url)
+//            return true
+//        }
         // Try presenting the URL first
         if self.navigator?.present(url, wrap: UINavigationController.self) != nil {
             log.debug("[Navigator] present: \(url)")

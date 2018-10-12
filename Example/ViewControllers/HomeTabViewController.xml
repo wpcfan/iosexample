@@ -1,8 +1,8 @@
 <UITabBarController
     outlet="tabNode"
-    view.backgroundColor="#151d2b">
+    view.backgroundColor="primary">
 
-    <UITabBar tintColor="#77f"/>
+    <UITabBar tintColor="accent" backgroundColor="secondary"/>
 
     <!-- Home -->
     <UIViewController
@@ -20,7 +20,7 @@
 
     <!-- Text -->
     <UIViewController
-        tabBarItem.image="{iconTabMe}"
+        tabBarItem.image="{iconTabMy}"
         title="{strings.home.tabbar.tab_me}"
         xml="MeViewController.xml"
     />

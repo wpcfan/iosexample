@@ -6,4 +6,13 @@
 //  Copyright © 2018年 twigcodes. All rights reserved.
 //
 
-import Foundation
+import Layout
+
+struct AppLayoutClousures {
+    static let upperCase = { (args: [Any]) throws -> Any in
+        guard let string = args.first as? String else {
+            throw LayoutError.message("uppercased() function expects a String argument")
+        }
+        return string.uppercased()
+    }
+}

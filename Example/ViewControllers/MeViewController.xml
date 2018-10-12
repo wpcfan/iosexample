@@ -1,5 +1,4 @@
-<MeViewController
-    view.backgroundColor="#151d2b">
+<MeViewController>
     <UIButton
         backgroundColor="blue"
         layer.cornerRadius="5"

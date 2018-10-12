@@ -1,4 +1,4 @@
-<UIViewController view.backgroundColor="#fff">
+<UIViewController view.backgroundColor="primary">
     <UIScrollView
         contentInset.bottom="safeAreaInsets.bottom + 50"
         contentInset.left="safeAreaInsets.left + 15"
@@ -50,21 +50,21 @@
             backgroundColor="blue"
             layer.cornerRadius="5"
             left="safeAreaInsets.left + 15"
-            outlet="authAutoButton"
+            outlet="loginButton"
             width="parent.width-30"
             title="{strings.login.loginbtn.title}"
             top="previous.bottom + 10"
-            touchUpInside="doAuth"
+            touchUpInside="login"
         />
         <UIButton
             backgroundColor="blue"
             layer.cornerRadius="5"
             left="safeAreaInsets.left + 15"
-            outlet="userinfoButton"
+            outlet="registerButton"
             width="parent.width-30"
-            title="UserInfo"
+            title="{strings.login.registerbtn.title}"
             top="previous.bottom + 10"
-            touchUpInside="displayInfo"
+            touchUpInside="register"
         />
     </UIScrollView>
 </UIViewController>

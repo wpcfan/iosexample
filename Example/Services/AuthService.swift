@@ -7,15 +7,6 @@
 //
 
 import Moya
-import p2_OAuth2
-
-let oauth2 = container.resolve(OAuth2PasswordGrant.self)!
-
-let requestClosure = { (endpoint: Endpoint, done: MoyaProvider.RequestResultClosure) in
-    let request = try! endpoint.urlRequest() // This is the request Moya generates
-    var req = oauth2.request(forURL: request.url!)
-    done(.success(req))
-}
 
 enum AuthService {
     case login(username: String, password: String)
@@ -24,17 +15,7 @@ enum AuthService {
     case profile
 }
 
-private func JSONResponseDataFormatter(_ data: Data) -> Data {
-    do {
-        let dataAsJSON = try JSONSerialization.jsonObject(with: data)
-        let prettyData =  try JSONSerialization.data(withJSONObject: dataAsJSON, options: .prettyPrinted)
-        return prettyData
-    } catch {
-        return data //fallback to original data if it cant be serialized
-    }
-}
-
-let AuthProvider = MoyaProvider<AuthService>(requestClosure: requestClosure, plugins: [NetworkLoggerPlugin(verbose: true, responseDataFormatter: JSONResponseDataFormatter)]).rx
+let AuthProvider = MoyaProvider<AuthService>(requestClosure: MoyaUtils.requestClosure, plugins: [MoyaUtils.networkPlugin]).rx
 
 // MARK: - TargetType Protocol Implementation
 extension AuthService: TargetType {
@@ -83,15 +64,5 @@ extension AuthService: TargetType {
     }
     var headers: [String: String]? {
         return ["Content-type": "application/json"]
-    }
-}
-// MARK: - Helpers
-private extension String {
-    var urlEscaped: String {
-        return addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
-    }
-    
-    var utf8Encoded: Data {
-        return data(using: .utf8)!
     }
 }
