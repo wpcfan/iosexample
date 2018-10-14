@@ -23,7 +23,7 @@
 "register.birthdayfield.title"="生日";
 "home.qrscanner.cancelbtn.title"="返回";
 "main.navigation.home.title"="首页";
-"main.navigation.status.title"="状态";
+"main.navigation.social.title"="状态";
 "main.navigation.my.title"="我的";
 "home.pulltorefresh.header"="下拉刷新";
 "home.releasetorefresh.header"="抬起手指进行刷新";

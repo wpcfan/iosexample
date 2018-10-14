@@ -8,28 +8,28 @@
 
 import ObjectMapper
 
-struct ScriptCondition: Mappable {
+struct ScriptTask: Mappable {
     var id: String?
-    var cronExpr: String?
-    var imageUrl: String?
-    var countOfDevices: Int?
+    var deviceAttributes: Dictionary<String, String>?
+    var nextId: String?
+    var delay: Int?
     
     init?(map: Map) {
         
     }
     
-    init(id: String?, deviceId: String, gatewayId: String, product: Product) {
+    init(id: String?, deviceAttributes: Dictionary<String, String>, nextId: String, delay: Int) {
         self.id = id
-        self.deviceId = deviceId
-        self.gatewayId = gatewayId
-        self.product = product
+        self.deviceAttributes = deviceAttributes
+        self.nextId = nextId
+        self.delay = delay
     }
     
     mutating func mapping(map: Map) {
         id <- map["id"]
-        deviceId <- map["deviceId"]
-        gatewayId <- map["gatewayId"]
-        product <- map["product"]
+        deviceAttributes <- map["deviceAttributes"]
+        nextId <- map["nextId"]
+        delay <- map["delay"]
     }
     
 }

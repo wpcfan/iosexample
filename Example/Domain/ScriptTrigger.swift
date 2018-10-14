@@ -8,28 +8,34 @@
 
 import ObjectMapper
 
+enum TriggerType {
+    case manual
+    case anyOf
+    case allOf
+}
+
 struct ScriptTrigger: Mappable {
     var id: String?
+    var type: TriggerType?
     var cronExpr: String?
-    var device: Device?
-    var countOfDevices: Int?
+    var deviceAttributes: Dictionary<String, String>?
     
     init?(map: Map) {
         
     }
     
-    init(id: String?, deviceId: String, gatewayId: String, product: Product) {
+    init(id: String?, type: TriggerType, cronExpr: String, deviceAttributes: Dictionary<String, String>) {
         self.id = id
-        self.deviceId = deviceId
-        self.gatewayId = gatewayId
-        self.product = product
+        self.type = type
+        self.cronExpr = cronExpr
+        self.deviceAttributes = deviceAttributes
     }
     
     mutating func mapping(map: Map) {
         id <- map["id"]
-        deviceId <- map["deviceId"]
-        gatewayId <- map["gatewayId"]
-        product <- map["product"]
+        type <- map["type"]
+        cronExpr <- map["cronExpr"]
+        deviceAttributes <- map["deviceAttributes"]
     }
     
 }

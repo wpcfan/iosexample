@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftIconFont
 
 struct AppIcons {
     static let DEFAULT_ICON_WIDTH = 48

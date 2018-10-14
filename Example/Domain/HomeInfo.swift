@@ -8,28 +8,29 @@
 
 import ObjectMapper
 
-struct ProjectApp: Mappable {
+struct HomeInfo: Mappable {
     var projectId: String?
     var banners: Array<Banner>?
-    var location: String?
-    var projectName: String?
+    var channels: Array<Banner>?
+    var scenes: Array<Scene>?
+    
     
     init?(map: Map) {
         
     }
     
-    init(id: String?, houseNo: String, location: String, projectName: String) {
-        self.id = id
-        self.houseNo = houseNo
-        self.location = location
-        self.projectName = projectName
+    init(projectId: String?, banners: Array<Banner>, channels: Array<Banner>, scenes: Array<Scene>) {
+        self.projectId = projectId
+        self.banners = banners
+        self.channels = channels
+        self.scenes = scenes
     }
     
     mutating func mapping(map: Map) {
-        id <- map["id"]
-        houseNo <- map["houseNo"]
-        location <- map["location"]
-        projectName <- map["projectName"]
+        projectId <- map["projectId"]
+        banners <- map["banners"]
+        channels <- map["channels"]
+        scenes <- map["scenes"]
     }
     
 }

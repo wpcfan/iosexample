@@ -12,92 +12,119 @@ import FSPagerView
 import AlamofireImage
 import RxSwift
 import RxCocoa
+import QRCodeReader
+import AVFoundation
 
-
-class HomeViewController: UIViewController, LayoutLoading {
+class HomeViewController: UIViewController {
     
-    fileprivate let REUSE_IDENTIFIER = "cell"
-    fileprivate var dataSource: BannerDataSource?
-    fileprivate var delegate: BannerViewDelegate?
+    // Good practice: create the reader lazily to avoid cpu overload during the
+    // initialization and each time we need to scan a QRCode
+    private lazy var reader: QRCodeReader = QRCodeReader()
+    private lazy var readerVC: QRCodeReaderViewController = {
+        let builder = QRCodeReaderViewControllerBuilder {
+            $0.reader = QRCodeReader(metadataObjectTypes: [.qr], captureDevicePosition: .back)
+//            $0.showSwitchCameraButton = false
+            $0.showTorchButton = false
+            $0.showCancelButton = false
+            $0.preferredStatusBarStyle = .lightContent
+            $0.cancelButtonTitle = NSLocalizedString("home.qrscanner.cancelbtn.title", comment: "")
+            $0.reader.stopScanningWhenCodeIsFound = false
+        }
+        
+        return QRCodeReaderViewController(builder: builder)
+    }()
+    
+    private let viewModel = HomeViewModel()
+    
     @IBOutlet var tableView: UITableView? {
         didSet {
-            tableView?.registerLayout(
-                named: "HomeTableCell.xml",
-                forCellReuseIdentifier: "standaloneCell"
-            )
-        }
-    }
-    
-    @IBOutlet weak var pagerView: FSPagerView! {
-        didSet {
-            self.pagerView.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "cell")
-            self.pagerView.itemSize = FSPagerView.automaticSize
-        }
-    }
-
-    @IBOutlet weak var pageControl: FSPageControl! {
-        didSet {
-            
-            self.pageControl.contentHorizontalAlignment = .center
-            self.pageControl.contentInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.layoutNode = LayoutNode(
-            view: UITableView.self,
-            expressions: [
-                "backgroundColor": "tintColor",
-                "contentInset.bottom": "safeAreaInsets.bottom",
-                "contentInset.top": "safeAreaInsets.top",
-                "contentInsetAdjustmentBehavior": "never",
-                "contentOffset.y": "-safeAreaInsets.top",
-                "estimatedSectionHeaderHeight": "20",
-                "outlet": "tableView",
-                "scrollIndicatorInsets.bottom": "safeAreaInsets.bottom",
-                "scrollIndicatorInsets.top": "safeAreaInsets.top",
-                "style": "plain"
-            ],
-            children: [
-                LayoutNode(
-                    view: UIView.self,
-                    expressions: [
-                        "height": "parent.height/4"
-                    ],
-                    children: [
-                        LayoutNode(
-                            view: FSPagerView.self,
-                            expressions: [
-                                "height": "parent.height",
-                                "outlet": "pagerView"
-                            ]
-                        ),
-                        LayoutNode(
-                            view: FSPageControl.self,
-                            expressions: [
-                                "outlet": "pageControl",
-                                "height": "30",
-                                "bottom": "previous.bottom"
-                            ]
-                        )
-                    ]
-                )
-            ]
-        )
-        dataSource = BannerDataSource()
-        pagerView.dataSource = dataSource
-        pageControl.numberOfPages = dataSource?.imageUrls.count ?? 0
-        delegate = BannerViewDelegate(pageControl: pageControl)
-        pagerView.delegate = delegate
-        
-        self.tableView?.configRefreshHeader(
-            with: TableViewUtils.createHeader(),
-            container: self,
-            action: {
-                log.debug("add refresh header to table view")
-                self.tableView?.reloadData()
-                self.tableView?.switchRefreshHeader(to: .normal(.success, 0.3))
+            tableView?.delegate = viewModel
+            tableView?.dataSource = viewModel
+            tableView?.register(BannerCell.nib, forCellReuseIdentifier: BannerCell.identifier)
+            tableView?.register(ChannelCell.nib, forCellReuseIdentifier: ChannelCell.identifier)
+            tableView?.configRefreshHeader(
+                with: TableViewUtils.createHeader(),
+                container: self,
+                action: {
+                    log.debug("add refresh header to table view")
+                    self.tableView?.reloadData()
+                    self.tableView?.switchRefreshHeader(to: .normal(.success, 0.3))
             })
+        }
+    }
+    
+    @IBAction public func scanInModalAction() {
+        guard checkScanPermissions() else { return }
+        
+        readerVC.modalPresentationStyle = .formSheet
+        readerVC.delegate               = self
+        
+        readerVC.completionBlock = { (result: QRCodeReaderResult?) in
+            if let result = result {
+                print("Completion with result: \(result.value) of type \(result.metadataType)")
+            }
+        }
+        
+        present(readerVC, animated: true, completion: nil)
+    }
+    
+    private func checkScanPermissions() -> Bool {
+        do {
+            return try QRCodeReader.supportsMetadataObjectTypes()
+        } catch let error as NSError {
+            let alert: UIAlertController
+            
+            switch error.code {
+            case -11852:
+                alert = UIAlertController(title: "Error", message: "This app is not authorized to use Back Camera.", preferredStyle: .alert)
+                
+                alert.addAction(UIAlertAction(title: "Setting", style: .default, handler: { (_) in
+                    DispatchQueue.main.async {
+                        if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
+                            UIApplication.shared.openURL(settingsURL)
+                        }
+                    }
+                }))
+                
+                alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            default:
+                alert = UIAlertController(title: "Error", message: "Reader not supported by the current device", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            }
+            
+            present(alert, animated: true, completion: nil)
+            
+            return false
+        }
+    }
+}
+
+extension HomeViewController: QRCodeReaderViewControllerDelegate {
+    func reader(_ reader: QRCodeReaderViewController, didScanResult result: QRCodeReaderResult) {
+        reader.stopScanning()
+        
+        dismiss(animated: true) { [weak self] in
+            let alert = UIAlertController(
+                title: "QRCodeReader",
+                message: String (format:"%@ (of type %@)", result.value, result.metadataType),
+                preferredStyle: .alert
+            )
+            alert.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+            
+            self?.present(alert, animated: true, completion: nil)
+        }
+    }
+    
+    
+    //This is an optional delegate method, that allows you to be notified when the user switches the cameraName
+    //By pressing on the switch camera button
+    func reader(_ reader: QRCodeReaderViewController, didSwitchCamera newCaptureDevice: AVCaptureDeviceInput) {
+        
+    }
+    
+    func readerDidCancel(_ reader: QRCodeReaderViewController) {
+        reader.stopScanning()
+        
+        dismiss(animated: true, completion: nil)
     }
 }

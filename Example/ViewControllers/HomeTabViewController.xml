@@ -1,27 +1,38 @@
 <UITabBarController
-    outlet="tabNode"
     view.backgroundColor="primary">
 
     <UITabBar tintColor="accent" backgroundColor="secondary"/>
 
-    <!-- Home -->
-    <UIViewController
-        tabBarItem.image="{iconTabHome}"
-        title="{strings.home.tabbar.tab_home}"
-        xml="HomeViewController.xml"
-    />
-
-    <!-- Pages -->
-    <UIViewController
-        tabBarItem.image="{iconTabSocial}"
-        title="{strings.home.tabbar.tab_social}"
-        xml="SocialViewController.xml"
-    />
-
-    <!-- Text -->
-    <UIViewController
-        tabBarItem.image="{iconTabMy}"
-        title="{strings.home.tabbar.tab_me}"
-        xml="MeViewController.xml"
-    />
+    <UINavigationController>
+        <!-- Home -->
+        <UIViewController
+            navigationItem.title="{strings.main.navigation.home.title}"
+            navigationItem.rightBarButtonItem.image="iconAdd"
+            navigationItem.rightBarButtonItem.action="scanInModalAction"
+            tabBarItem.image="{iconTabHome}"
+            title="{strings.home.tabbar.tab_home}"
+            xml="HomeViewController.xml"
+        />
+    </UINavigationController>
+    
+    <UINavigationController>
+        <!-- Pages -->
+        <UIViewController
+            navigationItem.title="{strings.main.navigation.social.title}"
+            tabBarItem.image="{iconTabSocial}"
+            title="{strings.home.tabbar.tab_social}"
+            xml="SocialViewController.xml"
+        />
+    </UINavigationController>
+    
+    <UINavigationController>
+        <!-- Text -->
+        <UIViewController
+            navigationItem.title="{strings.main.navigation.my.title}"
+            navigationItem.rightBarButtonItem.title="settings"
+            tabBarItem.image="{iconTabMy}"
+            title="{strings.home.tabbar.tab_me}"
+            xml="MeViewController.xml"
+        />
+    </UINavigationController>
 </UITabBarController>

@@ -23,7 +23,7 @@
 "register.birthdayfield.title"="birthday";
 "home.qrscanner.cancelbtn.title"="Back";
 "main.navigation.home.title"="Home";
-"main.navigation.status.title"="Status";
+"main.navigation.social.title"="Status";
 "main.navigation.my.title"="My";
 "home.pulltorefresh.header"="Pull to refresh";
 "home.releasetorefresh.header"="Release to refresh";
