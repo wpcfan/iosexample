@@ -7,16 +7,15 @@
 //
 import RxFlow
 
-enum AppStep: Step {
+enum AuthStep: Step {
     case apiKey
     case apiKeyIsComplete
     
-    case movieList
+    case login
+    case splash
+    case splashComplete
+    case tourGuide
+    case tourGuideComplete
     
-    case moviePicked (withMovieId: Int)
-    case castPicked (withCastId: Int)
-    
-    case settings
-    case settingsDone
-    case about
+    case mainScreen
 }

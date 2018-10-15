@@ -42,10 +42,10 @@ class HomeTabViewController: UIViewController {
             ],
             constants: [
                 "uppercased": AppLayoutClousures.upperCase,
-                "iconTabHome": AppIcons.tabHome,
-                "iconTabSocial": AppIcons.tabSocial,
-                "iconTabMy": AppIcons.tabMy,
-                "iconAdd": AppIcons.btnAdd
+                "iconTabHome": AppIcons.home,
+                "iconTabSocial": AppIcons.social,
+                "iconTabMy": AppIcons.user,
+                "iconAdd": AppIcons.add
                 ]
         )
     }

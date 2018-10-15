@@ -42,6 +42,7 @@ class HomeViewController: UIViewController {
             tableView?.dataSource = viewModel
             tableView?.register(BannerCell.nib, forCellReuseIdentifier: BannerCell.identifier)
             tableView?.register(ChannelCell.nib, forCellReuseIdentifier: ChannelCell.identifier)
+//            tableView?.register(SceneCell.nib, forCellReuseIdentifier: SceneCell.identifier)
             tableView?.configRefreshHeader(
                 with: TableViewUtils.createHeader(),
                 container: self,

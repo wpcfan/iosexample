@@ -32,6 +32,9 @@
 		AA3E0E9F2171275C00958937 /* BannerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA3E0E9E2171275C00958937 /* BannerCell.xib */; };
 		AA3E0EA12171DDF900958937 /* ChannelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA3E0EA02171DDF900958937 /* ChannelCell.xib */; };
 		AA3E0EA52172328100958937 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0EA42172328100958937 /* UIStackView+.swift */; };
+		AA3E0EB22173149300958937 /* AuthStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0EB12173149300958937 /* AuthStep.swift */; };
+		AA3E0EB921734B6D00958937 /* SceneCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA3E0EB821734B6D00958937 /* SceneCell.xib */; };
+		AA3E0EBB21737D0600958937 /* UIImageView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0EBA21737D0600958937 /* UIImageView+Layout.swift */; };
 		AA6839D8216DE04F00E4097B /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6839D7216DE04F00E4097B /* UIColor+Theme.swift */; };
 		AA6839DA216DE1EA00E4097B /* AppIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6839D9216DE1EA00E4097B /* AppIcons.swift */; };
 		AA6839DC216E08EC00E4097B /* AppAttributedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6839DB216E08EC00E4097B /* AppAttributedStrings.swift */; };
@@ -40,7 +43,6 @@
 		AA683A05216F3BD700E4097B /* MoyaUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA683A04216F3BD700E4097B /* MoyaUtils.swift */; };
 		AA683A07216F3D5400E4097B /* String+UrlEncode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA683A06216F3D5400E4097B /* String+UrlEncode.swift */; };
 		AA683A09216F434C00E4097B /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA683A08216F434C00E4097B /* Banner.swift */; };
-		AA683A14216F76A700E4097B /* HomeTableCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA683A13216F76A700E4097B /* HomeTableCell.xml */; };
 		AA693DB3215FC7BC0063D749 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA693DB2215FC7BC0063D749 /* Router.swift */; };
 		AA693DB72160EEB70063D749 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA693DB62160EEB70063D749 /* HomeViewController.swift */; };
 		AA693DB92160EF4C0063D749 /* HomeViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA693DB82160EF4C0063D749 /* HomeViewController.xml */; };
@@ -110,6 +112,9 @@
 		AA3E0E9E2171275C00958937 /* BannerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BannerCell.xib; sourceTree = "<group>"; };
 		AA3E0EA02171DDF900958937 /* ChannelCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChannelCell.xib; sourceTree = "<group>"; };
 		AA3E0EA42172328100958937 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
+		AA3E0EB12173149300958937 /* AuthStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStep.swift; sourceTree = "<group>"; };
+		AA3E0EB821734B6D00958937 /* SceneCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SceneCell.xib; sourceTree = "<group>"; };
+		AA3E0EBA21737D0600958937 /* UIImageView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Layout.swift"; sourceTree = "<group>"; };
 		AA6839D7216DE04F00E4097B /* UIColor+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Theme.swift"; sourceTree = "<group>"; };
 		AA6839D9216DE1EA00E4097B /* AppIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcons.swift; sourceTree = "<group>"; };
 		AA6839DB216E08EC00E4097B /* AppAttributedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAttributedStrings.swift; sourceTree = "<group>"; };
@@ -118,7 +123,6 @@
 		AA683A04216F3BD700E4097B /* MoyaUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaUtils.swift; sourceTree = "<group>"; };
 		AA683A06216F3D5400E4097B /* String+UrlEncode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+UrlEncode.swift"; sourceTree = "<group>"; };
 		AA683A08216F434C00E4097B /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
-		AA683A13216F76A700E4097B /* HomeTableCell.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HomeTableCell.xml; sourceTree = "<group>"; };
 		AA693DB2215FC7BC0063D749 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		AA693DB62160EEB70063D749 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		AA693DB82160EF4C0063D749 /* HomeViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HomeViewController.xml; sourceTree = "<group>"; };
@@ -211,6 +215,7 @@
 				AA3E0E92217099BC00958937 /* ChannelCell.swift */,
 				AA3E0EA02171DDF900958937 /* ChannelCell.xib */,
 				AA3E0E9421709A7A00958937 /* SceneCell.swift */,
+				AA3E0EB821734B6D00958937 /* SceneCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -304,6 +309,7 @@
 			children = (
 				AA693DB2215FC7BC0063D749 /* Router.swift */,
 				AA693DC22161FF620063D749 /* NavigationMap.swift */,
+				AA3E0EB12173149300958937 /* AuthStep.swift */,
 			);
 			path = Navigator;
 			sourceTree = "<group>";
@@ -329,6 +335,7 @@
 				AA683A06216F3D5400E4097B /* String+UrlEncode.swift */,
 				AA3E0E772170478200958937 /* TableViewUtils.swift */,
 				AA3E0EA42172328100958937 /* UIStackView+.swift */,
+				AA3E0EBA21737D0600958937 /* UIImageView+Layout.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -342,7 +349,6 @@
 				AAC5EBA6215F5860008EBA1F /* HomeTabViewController.xml */,
 				AA693DB62160EEB70063D749 /* HomeViewController.swift */,
 				AA693DB82160EF4C0063D749 /* HomeViewController.xml */,
-				AA683A13216F76A700E4097B /* HomeTableCell.xml */,
 				AA693DBA2161F6010063D749 /* SocialViewController.swift */,
 				AA693DBC2161F61D0063D749 /* SocialViewController.xml */,
 				AA693DC02161F6460063D749 /* MeViewController.swift */,
@@ -466,11 +472,11 @@
 				AA3E0E9B2171176300958937 /* data.json in Resources */,
 				AAC5EBA1215E7F10008EBA1F /* AuthViewController.xml in Resources */,
 				AAC5EB75215E7BB9008EBA1F /* Assets.xcassets in Resources */,
-				AA683A14216F76A700E4097B /* HomeTableCell.xml in Resources */,
 				AA693DB92160EF4C0063D749 /* HomeViewController.xml in Resources */,
 				AA353296216293EC0012A1D7 /* Main.storyboard in Resources */,
 				AA693DBF2161F6330063D749 /* MeViewController.xml in Resources */,
 				AAE49EF82169D315004BDBD7 /* TourViewController.xml in Resources */,
+				AA3E0EB921734B6D00958937 /* SceneCell.xib in Resources */,
 				AAC5EBA7215F5860008EBA1F /* HomeTabViewController.xml in Resources */,
 				AA30C0612167561E00B9E0EB /* SplashViewController.xml in Resources */,
 				AA3E0EA12171DDF900958937 /* ChannelCell.xib in Resources */,
@@ -532,6 +538,7 @@
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${PODS_ROOT}/Reveal-SDK/RevealServer-18/iOS/RevealServer.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxFlow/RxFlow.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Shallows/Shallows.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -566,6 +573,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealServer.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxFlow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Shallows.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
@@ -601,6 +609,7 @@
 				AAE49EF62169D2FB004BDBD7 /* TourViewController.swift in Sources */,
 				AA3E0E8621705B4C00958937 /* ScriptTask.swift in Sources */,
 				AAC5EB9E215E7EB4008EBA1F /* UIColor+Hex.swift in Sources */,
+				AA3E0EB22173149300958937 /* AuthStep.swift in Sources */,
 				AA3E0E822170589F00958937 /* Scene.swift in Sources */,
 				AA30C06421679A4F00B9E0EB /* DeepLinkManager.swift in Sources */,
 				AAC5EB93215E7DE8008EBA1F /* User.swift in Sources */,
@@ -614,6 +623,7 @@
 				AA3E0E7E2170540F00958937 /* Product.swift in Sources */,
 				AA3E0E8F2170894B00958937 /* HomeViewModel.swift in Sources */,
 				AA683A05216F3BD700E4097B /* MoyaUtils.swift in Sources */,
+				AA3E0EBB21737D0600958937 /* UIImageView+Layout.swift in Sources */,
 				AA6839D8216DE04F00E4097B /* UIColor+Theme.swift in Sources */,
 				AA3E0E8821707DD400958937 /* ScriptTrigger.swift in Sources */,
 				AAC5EBA3215E808D008EBA1F /* OAuth2Service.swift in Sources */,

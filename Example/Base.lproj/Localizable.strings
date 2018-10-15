@@ -30,3 +30,4 @@
 "home.refreshsuccess.header"="Refresh Successfuly";
 "home.refreshfailure.header"="Refresh Failed";
 "home.refreshing.header"="Refreshing";
+"home.table.scene.header"="Scenes";

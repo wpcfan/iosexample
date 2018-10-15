@@ -10,6 +10,9 @@ import UIKit
 
 class SceneCell: UITableViewCell {
     
+    @IBOutlet weak var imageVIew: UIImageView!
+    @IBOutlet weak var descLabel: UILabel!
+    
     @IBOutlet weak var stackView: UIStackView? {
         didSet {
             self.stackView?.axis = .horizontal
@@ -17,21 +20,13 @@ class SceneCell: UITableViewCell {
         }
     }
     
-    var item: HomeViewModelItem? {
+    var item: Scene? {
         didSet {
-            guard let item = item as? HomeViewModelSceneItem else {
+            guard let item = item else {
                 return
             }
-            
-            let scenes = item.scenes
-            scenes.forEach { (scene) in
-                let imageView = UIImageView()
-                imageView.af_setImage(withURL: URL(string: scene.imageUrl!)!)
-                let label = UILabel()
-                label.text = scene.name
-                self.stackView?.addSubview(imageView)
-                self.stackView?.addSubview(label)
-            }
+            imageView?.af_setImage(withURL: URL(string: (item.imageUrl!))!)
+            descLabel.text = item.name
         }
     }
     

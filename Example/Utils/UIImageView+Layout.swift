@@ -1,5 +1,5 @@
 //
-//  UIImage+Layout.swift
+//  UIImageView+Layout.swift
 //  Example
 //
 //  Created by 王芃 on 2018/10/14.

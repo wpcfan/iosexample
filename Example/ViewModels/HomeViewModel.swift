@@ -6,8 +6,8 @@
 //  Copyright © 2018年 twigcodes. All rights reserved.
 //
 
-import Foundation
 import UIKit
+import AlamofireImage
 
 enum HomeViewModelItemType {
     case banners
@@ -62,7 +62,10 @@ class HomeViewModelSceneItem: HomeViewModelItem {
         return .scenes
     }
     var sectionTitle: String? {
-        return "Scenes"
+        return NSLocalizedString("home.table.scene.header", comment: "")
+    }
+    var rowCount: Int {
+        return scenes.count
     }
 }
 
@@ -78,6 +81,8 @@ class HomeViewModel: NSObject {
         items.append(bannersItem)
         let channelsItem = HomeViewModelChannelItem(channels: (homeInfo?.channels)!)
         items.append(channelsItem)
+        let scenesItem = HomeViewModelSceneItem(scenes: (homeInfo?.scenes)!)
+        items.append(scenesItem)
     }
 }
 
@@ -104,10 +109,22 @@ extension HomeViewModel: UITableViewDataSource {
                 return cell
             }
         case .scenes:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: SceneCell.identifier, for: indexPath) as? SceneCell {
-                cell.item = item
-                return cell
+            if let item = item as? HomeViewModelSceneItem {
+                let node = tableView.dequeueReusableCellNode(withIdentifier: "SceneCell", for: indexPath)
+                let scene = item.scenes[indexPath.row]
+                node.setState([
+                    "title": scene.name!,
+                    "imageUrl": scene.imageUrl
+                    ])
+                
+                return node.view as! UITableViewCell
             }
+            
+//            if let item = item as? HomeViewModelSceneItem, let cell = tableView.dequeueReusableCell(withIdentifier: SceneCell.identifier, for: indexPath) as? SceneCell {
+//                let scene = item.scenes[indexPath.row]
+//                cell.item = scene
+//                return cell
+//            }
         }
         return UITableViewCell()
     }
@@ -119,10 +136,11 @@ extension HomeViewModel: UITableViewDataSource {
 
 extension HomeViewModel: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        switch indexPath.section {
-        case 0:
+        let item = items[indexPath.section]
+        switch item.type {
+        case .banners:
             return tableView.frame.size.height / 4
-        case 1:
+        case .channels:
             return 88
         default:
             return UITableView.automaticDimension

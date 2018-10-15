@@ -30,6 +30,7 @@ target 'Example' do
   pod 'AlamofireImage'
   pod 'FSPagerView'
   pod 'PullToRefreshKit'
+  pod 'RxFlow'
   pod 'FantasticSnowflake', git: 'https://github.com/onmyway133/Snowflake', :submodules => true
   pod 'Shallows', :git => 'https://github.com/dreymonde/Shallows', :submodules => true
   pod 'p2.OAuth2', :git => 'https://github.com/p2/OAuth2', :submodules => true

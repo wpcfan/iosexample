@@ -30,3 +30,4 @@
 "home.refreshsuccess.header"="刷新成功";
 "home.refreshfailure.header"="刷新失败";
 "home.refreshing.header"="正在刷新";
+"home.table.scene.header"="场景";

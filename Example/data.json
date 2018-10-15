@@ -52,5 +52,17 @@
         }
     ],
     "scenes": [
+    	{
+    		"id": "1",
+    		"name": "go home",
+            "imageUrl": "https://image.flaticon.com/icons/png/512/1006/1006555.png",
+            "countOfDevices": 1
+    	},
+    	{
+    		"id": "2",
+    		"name": "go to school",
+            "imageUrl": "https://image.flaticon.com/icons/png/512/1006/1006555.png",
+            "countOfDevices": 2
+    	}
     ]
 }

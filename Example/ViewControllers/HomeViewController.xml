@@ -11,6 +11,23 @@
         scrollIndicatorInsets.top="safeAreaInsets.top"
         style="plain"
         >
-        
+        <UITableViewCell
+            height="60"
+            reuseIdentifier="SceneCell"
+            selectedBackgroundView.backgroundColor="tintColor"
+            style="subtitle">
+            <UIImageView
+                imgUrl="{imageUrl}"
+                width="48"
+                height="48"
+                left="20"
+                top="10"
+                />
+            <UILabel 
+                left="previous.right + 20"
+                center.y="previous.center.y"
+                text="{title}"
+                />
+        </UITableViewCell>
     </UITableView>
 </HomeViewController>
