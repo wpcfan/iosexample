@@ -11,10 +11,10 @@ import Foundation
 struct AppEnv {
     static let appEnv: Dictionary<String, Any> = Bundle.main.infoDictionary!["APP_ENV"] as! Dictionary
     static let apiBaseUrl: String = appEnv["API_BASE_URL"] as! String
-    static let swiftyBeaver: Dictionary<String, String> = appEnv["SWIFTY_BEAVER"] as! Dictionary
-    static let swiftyBeaverAppId = swiftyBeaver["APP_ID"]!
-    static let swiftyBeaverAppSecret = swiftyBeaver["APP_SECRET"]!
-    static let swiftyBeaverEncryptionKey = swiftyBeaver["ENCRYPTION_KEY"]!
+    static let logz: Dictionary<String, String> = appEnv["LOGZ"] as! Dictionary
+    static let logzPort = UInt16(logz["PORT"]!)!
+    static let logzHost = logz["HOST"]!
+    static let logzToken = logz["TOKEN"]!
     static let auth: Dictionary<String, String> = appEnv["AUTH"] as! Dictionary
     static let authBaseUrl = auth["BASE_URL"]!
     static let authRealm = auth["REALM"]!

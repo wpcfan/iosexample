@@ -56,7 +56,7 @@ class HomeViewController: BaseViewController, LayoutLoading {
             })
             .take(1)
             .subscribe(onNext: { result in
-                log.debug(result)
+                log.debug(result!)
             })
             .disposed(by: disposeBag)
     }

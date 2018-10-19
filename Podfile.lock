@@ -1,5 +1,7 @@
 PODS:
   - Alamofire (4.7.3)
+  - CocoaAsyncSocket (7.6.3)
+  - CocoaDebug (0.1.4)
   - Differentiator (3.1.0)
   - EAIntroView (2.12.0):
     - EARestrictedScrollView (~> 1.1.0)
@@ -9,6 +11,9 @@ PODS:
     - Reindeers
   - FLAnimatedImage (1.0.12)
   - FSPagerView (0.8.1)
+  - JustLog (2.4.0):
+    - CocoaAsyncSocket (~> 7.6.3)
+    - SwiftyBeaver (~> 1.5.2)
   - KTVJSONWebToken (2.1.0)
   - Layout (0.6.32):
     - Layout/Core (= 0.6.32)
@@ -64,16 +69,18 @@ PODS:
   - Shallows (0.9.0)
   - SnapKit (4.0.1)
   - SwiftIconFont (2.8.0)
-  - SwiftyBeaver (1.6.1)
+  - SwiftyBeaver (1.5.2)
   - Swinject (2.5.0)
   - "UITextView+Placeholder (1.2.1)"
   - URLNavigator (2.1.0)
 
 DEPENDENCIES:
+  - CocoaDebug
   - EAIntroView
   - Eureka
   - FantasticSnowflake (from `https://github.com/onmyway133/Snowflake`)
   - FSPagerView
+  - JustLog
   - KTVJSONWebToken (from `https://github.com/kreactive/JSONWebToken`)
   - Layout (~> 0.6)
   - Moya-ObjectMapper/RxSwift (~> 2.7)
@@ -95,7 +102,6 @@ DEPENDENCIES:
   - Shallows (from `https://github.com/dreymonde/Shallows`)
   - SnapKit (~> 4.0.0)
   - SwiftIconFont (from `https://github.com/0x73/SwiftIconFont`)
-  - SwiftyBeaver
   - Swinject (~> 2.5)
   - "UITextView+Placeholder"
   - URLNavigator (~> 2.0)
@@ -103,12 +109,15 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - CocoaAsyncSocket
+    - CocoaDebug
     - Differentiator
     - EAIntroView
     - EARestrictedScrollView
     - Eureka
     - FLAnimatedImage
     - FSPagerView
+    - JustLog
     - Layout
     - Moya
     - Moya-ObjectMapper
@@ -175,6 +184,8 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
+  CocoaDebug: e8c15c3115b83ad54bb05e8cf6ef3d8dce802f70
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   EAIntroView: 249559079ddfdbe80e5bcb755c04c3b964b2ac27
   EARestrictedScrollView: b0c2a3f92fb2610bb44d71c5e4893777c89e45ef
@@ -182,6 +193,7 @@ SPEC CHECKSUMS:
   FantasticSnowflake: e6f5ee104de61b2843cb1ba98ea1927e7472d9a7
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   FSPagerView: 4e865526acc0b0e3077e2abb29b8d10a9f395476
+  JustLog: 943987a94d86c6e837ac6da0362c122b157d183a
   KTVJSONWebToken: c3cc06e26876d63c62a5c40c5e89939899de48cf
   Layout: 799364f35fc1881e8a73c43b48b1e334bcd301b1
   Moya: a725035953bc1c0eb1be505ab903984501d82440
@@ -206,11 +218,11 @@ SPEC CHECKSUMS:
   Shallows: fd53872b476c90fa1d4cb54fb735801d374e41b8
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SwiftIconFont: ddaccaa3bb90fc21ebc528cfdf793342618a5cc2
-  SwiftyBeaver: ccfcdf85a04d429f1633f668650b0ce8020bda3a
+  SwiftyBeaver: 85daaaa2b3ae6e31b7b55c99430e8b91dac088af
   Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
   "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
 
-PODFILE CHECKSUM: 25b7c477d386c15c3a95f1a3518cc9fded180fa6
+PODFILE CHECKSUM: 86fb17bcc9560201c3a5f4c70f5c10597f28593e
 
 COCOAPODS: 1.5.3

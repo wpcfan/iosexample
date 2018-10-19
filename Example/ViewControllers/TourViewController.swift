@@ -47,7 +47,6 @@ class TourViewController: UIViewController, LayoutLoading, EAIntroDelegate {
                     log.error(error.localizedDescription)
                     break
                 case .next(let result):
-                    log.debug(result)
                     break
                 case .completed:
                     break

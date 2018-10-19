@@ -9,12 +9,16 @@
 import UIKit
 import Layout
 import Swinject
-import SwiftyBeaver
+import JustLog
 import p2_OAuth2
 import Moya
 import URLNavigator
 import Shallows
 import RxSwift
+#if DEBUG
+import CocoaDebug
+#endif
+
 
 #if swift(>=4.2)
 extension UIApplication {
@@ -26,7 +30,7 @@ extension UIApplication {
 }
 #endif
 
-let log = SwiftyBeaver.self
+let log = Logger.shared
 // IoC container
 let container: Container = {
     let container = Container()
@@ -73,6 +77,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     let disposeBag = DisposeBag()
+    private var sessionID = UUID().uuidString
     private var navigator: NavigatorType?
 //    private let oauth2 = container.resolve(OAuth2CodeGrant.self)!
     
@@ -81,7 +86,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
         ) -> Bool {
         enableLogging()
-        log.debug(AppEnv.authBaseUrl)
+        enableDebug()
         ShortcutParser.shared.registerShortcuts()
         let navigator = Navigator()
         // Initialize navigation map
@@ -119,29 +124,72 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return false
     }
     
-//    func applicationDidBecomeActive(_ application: UIApplication) {
-//        // handle any deeplink
-//        Deeplinker.checkDeepLink()
-//    }
-//
-//    // MARK: Shortcuts
-//    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
-//        completionHandler(Deeplinker.handleShortcut(item: shortcutItem))
-//    }
+    //    func applicationDidBecomeActive(_ application: UIApplication) {
+    //        // handle any deeplink
+    //        Deeplinker.checkDeepLink()
+    //    }
+    //
+    //    // MARK: Shortcuts
+    //    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+    //        completionHandler(Deeplinker.handleShortcut(item: shortcutItem))
+    //    }
+    
+    func applicationDidEnterBackground(_ application: UIApplication) {
+        forceSendLogs(application)
+    }
+    
+    func applicationWillTerminate(_ application: UIApplication) {
+        forceSendLogs(application)
+    }
+    
+    private func forceSendLogs(_ application: UIApplication) {
+        
+        var identifier: UIBackgroundTaskIdentifier = UIBackgroundTaskIdentifier(rawValue: 0)
+        
+        identifier = application.beginBackgroundTask(expirationHandler: {
+            application.endBackgroundTask(identifier)
+            identifier = UIBackgroundTaskIdentifier.invalid
+        })
+        
+        Logger.shared.forceSend { completionHandler in
+            application.endBackgroundTask(identifier)
+            identifier = UIBackgroundTaskIdentifier.invalid
+        }
+    }
     
     fileprivate func enableLogging() {
-        let console = ConsoleDestination()  // log to Xcode Console
-        let appId = AppEnv.swiftyBeaverAppId
-        let appSecret = AppEnv.swiftyBeaverAppSecret
-        let encryptionKey = AppEnv.swiftyBeaverEncryptionKey
-        let cloud = SBPlatformDestination(
-            appID: appId,
-            appSecret: appSecret,
-            encryptionKey: encryptionKey) // to cloud
-        //        console.format = "$Dyyyy-MM-dd HH:mm:ss.SSS$d $C$L$c: $M"
-        // add the destinations to SwiftyBeaver
-        log.addDestination(console)
-        log.addDestination(cloud)
+        
+        // file destination
+        log.logFilename = "example.log"
+        
+        // logstash destination
+        log.logstashHost = AppEnv.logzHost
+        log.logstashPort = AppEnv.logzPort
+        log.logzioToken = AppEnv.logzToken
+        log.logstashTimeout = 5
+        log.logLogstashSocketActivity = true
+        // default info
+        log.defaultUserInfo = [
+            "app": "Example",
+            "environment": "development",
+            "tenant": "TwigCodes",
+            "session": sessionID]
+        log.setup()
+    }
+    
+    fileprivate func enableDebug() {
+        #if DEBUG
+        CocoaDebug.serverURL = "twigcodes.com" //default value is `nil`
+//        CocoaDebug.ignoredURLs = nil //default value is `nil`
+//        CocoaDebug.onlyURLs = nil //default value is `nil`
+//        CocoaDebug.tabBarControllers = [UIViewController(), UIViewController()] //default value is `nil`
+        CocoaDebug.recordCrash = true //default value is `false`
+        CocoaDebug.logMaxCount = 1000 //default value is `500`
+        CocoaDebug.emailToRecipients = ["wpcfan@163.com"] //default value is `nil`
+//        CocoaDebug.emailCcRecipients = ["ccc@gmail.com", "ddd@gmail.com"] //default value is `nil`
+        CocoaDebug.mainColor = "#fd9727" //default value is `#42d459`
+        CocoaDebug.enable()
+        #endif
     }
 }
 
@@ -152,4 +200,10 @@ extension AppDelegate {
     var rootViewController: RootViewController {
         return window!.rootViewController as! RootViewController
     }
+}
+
+public func print<T>(file: String = #file, function: String = #function, line: Int = #line, _ message: T, color: UIColor = .white) {
+    #if DEBUG
+    swiftLog(file, function, line, message, color)
+    #endif
 }

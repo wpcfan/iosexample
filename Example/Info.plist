@@ -21,14 +21,14 @@
 			<key>REALM</key>
 			<string>${AUTH_REALM}</string>
 		</dict>
-		<key>SWIFTY_BEAVER</key>
+		<key>LOGZ</key>
 		<dict>
-			<key>APP_ID</key>
-			<string>${SWIFTY_BEAVER_APP_ID}</string>
-			<key>APP_SECRET</key>
-			<string>${SWIFTY_BEAVER_APP_SECRET}</string>
-			<key>ENCRYPTION_KEY</key>
-			<string>${SWIFTY_BEAVER_ENCRYPTION_KEY}</string>
+			<key>HOST</key>
+			<string>${LOGZ_HOST}</string>
+			<key>PORT</key>
+			<string>${LOGZ_PORT}</string>
+			<key>TOKEN</key>
+			<string>${LOGZ_TOKEN}</string>
 		</dict>
 	</dict>
 	<key>CFBundleDevelopmentRegion</key>

@@ -39,14 +39,6 @@ class SplashViewController: BaseViewController, LayoutLoading {
             }
             .flatMap { (_) -> Observable<Bool> in
                 return Observable.of(self.oauth2Service.checkLoginStatus())
-//                return self.oauth2Service
-//                    .autoLogin()
-//                    .map{ (jsonRes) -> Bool in
-//                        return true
-//                    }
-//                    .catchError{ (_) -> Observable<Bool> in
-//                        return Observable.of(false)
-//                }
             }
     }
     
@@ -68,23 +60,15 @@ class SplashViewController: BaseViewController, LayoutLoading {
     fileprivate func countDownStream() -> Observable<Int> {
         return Observable<Int>
             .interval(1, scheduler: ConcurrentDispatchQueueScheduler(qos: .userInitiated))
-            .map { val -> Int in
-                log.debug("value is " + String(val))
-                return 5 - val
-            }
+            .map { val -> Int in 5 - val }
     }
     
     fileprivate func stopCountDownStream() -> Observable<Bool> {
         return Observable<Bool>
             .merge([
                 countDownStream()
-                    .map{ (val) -> Bool in
-                        log.debug("value subtracted is " + String(val))
-                        return val <= 0
-                    }
-                    .filter{ (val) -> Bool in
-                        val == true
-                },
+                    .map{ (val) -> Bool in val <= 0 }
+                    .filter{ (val) -> Bool in val == true },
                 self.completeCountDownSubject.asObservable().map{ _ in
                     return true
                 }])
@@ -109,7 +93,6 @@ class SplashViewController: BaseViewController, LayoutLoading {
                     log.error(error.localizedDescription)
                     break
                 case .next(let label):
-                    log.debug(label)
                     self.countDown.setTitle(label, for: .normal)
                     break
                 case .completed:
@@ -131,8 +114,8 @@ class SplashViewController: BaseViewController, LayoutLoading {
                 case .error(let error):
                     log.error(error.localizedDescription)
                     break
-                case .next(let result):
-                    log.debug(result)
+                case .next(_):
+                    log.info("will switch to Tour Screen soon")
                     AppDelegate.shared.rootViewController.switchToTour()
                     break
                 case .completed:
@@ -153,7 +136,6 @@ class SplashViewController: BaseViewController, LayoutLoading {
                     AppDelegate.shared.rootViewController.showLoginScreen()
                     break
                 case .next(let result):
-                    log.debug(result)
                     if (result) {
                         AppDelegate.shared.rootViewController.switchToMainScreen()
                     } else {

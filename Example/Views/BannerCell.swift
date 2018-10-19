@@ -43,7 +43,7 @@ class BannerCell: UITableViewCell, FSPagerViewDataSource, FSPagerViewDelegate {
                 return
             }
             self.banners = item.banners
-            log.debug(banners)
+            log.debug("banners assigned to HomeViewModelItem", userInfo: ["banners": banners])
         }
     }
     

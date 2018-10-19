@@ -16,7 +16,7 @@ target 'Example' do
   pod 'Moya-ObjectMapper/RxSwift', '~> 2.7'
   pod 'Swinject', '~> 2.5'
   pod 'URLNavigator', '~> 2.0'
-  pod 'SwiftyBeaver'
+  pod 'JustLog'
   pod 'PMAlertController'
   pod 'ReactorKit'
   pod 'SnapKit', '~> 4.0.0'
@@ -37,4 +37,5 @@ target 'Example' do
   pod 'KTVJSONWebToken', :git => 'https://github.com/kreactive/JSONWebToken', :submodules => true
   pod 'SwiftIconFont', :git => 'https://github.com/0x73/SwiftIconFont', :submodules => true
   pod 'Reveal-SDK', :configurations => ['Debug']
+  pod 'CocoaDebug', :configurations => ['Debug']
 end
