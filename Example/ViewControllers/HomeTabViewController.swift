@@ -45,7 +45,8 @@ class HomeTabViewController: UIViewController {
                 "iconTabHome": AppIcons.home,
                 "iconTabSocial": AppIcons.social,
                 "iconTabMy": AppIcons.user,
-                "iconAdd": AppIcons.add
+                "iconAdd": AppIcons.add,
+                "iconSettings": AppIcons.settingsAccent
                 ]
         )
     }

@@ -5,30 +5,30 @@
 	<key>APP_ENV</key>
 	<dict>
 		<key>API_BASE_URL</key>
-		<string></string>
+		<string>${API_BASE_URL}</string>
 		<key>AUTH</key>
 		<dict>
 			<key>BASE_URL</key>
-			<string>https://auth.twigcodes.com/auth/realms</string>
+			<string>${AUTH_BASE_URL}</string>
 			<key>CLIENT_ID</key>
-			<string>login-app</string>
+			<string>${AUTH_CLIENT_ID}</string>
 			<key>CLIENT_SECRET</key>
-			<string>942bfe03-9851-4db8-b100-8393c9c6c9cd</string>
+			<string>${AUTH_CLIENT_SECRET}</string>
 			<key>GRANT_TYPE</key>
-			<string>password</string>
+			<string>${AUTH_GRANT_TYPE}</string>
 			<key>OPENID_URL_TEMPLATE</key>
-			<string>%@/%@/protocol/openid-connect</string>
+			<string>${AUTH_OPENID_URL_TEMPLATE}</string>
 			<key>REALM</key>
-			<string>twigcodes</string>
+			<string>${AUTH_REALM}</string>
 		</dict>
 		<key>SWIFTY_BEAVER</key>
 		<dict>
 			<key>APP_ID</key>
-			<string>89AgeN</string>
+			<string>${SWIFTY_BEAVER_APP_ID}</string>
 			<key>APP_SECRET</key>
-			<string>4wfenyegpdnWCegtWm8vkzAmsmwciYyX</string>
+			<string>${SWIFTY_BEAVER_APP_SECRET}</string>
 			<key>ENCRYPTION_KEY</key>
-			<string>gwwcsfRgOuGclrstwimcaswVuliledzi</string>
+			<string>${SWIFTY_BEAVER_ENCRYPTION_KEY}</string>
 		</dict>
 	</dict>
 	<key>CFBundleDevelopmentRegion</key>

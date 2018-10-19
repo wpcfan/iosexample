@@ -8,27 +8,14 @@
 
 import UIKit
 import Layout
-import URLNavigator
-import PMAlertController
-import RxSwift
+import ReactorKit
 
-class AuthViewController: UIViewController, LayoutLoading {
+class AuthViewController: BaseViewController, LayoutLoading, StoryboardView {
 
-    @IBOutlet private weak var loginButton: UIButton!
-    @IBOutlet private weak var registerButton: UIButton!
-    @IBOutlet private weak var usernameField: UITextField!
-    @IBOutlet private weak var passwordField: UITextField!
-    @IBOutlet private weak var trashButton: UIBarButtonItem!
-    private let disposeBag = DisposeBag()
-    private let oauth2Service = container.resolve(OAuth2Service.self)!
-    
-    init() {
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var registerButton: UIButton!
+    @IBOutlet weak var usernameField: UITextField!
+    @IBOutlet weak var passwordField: UITextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,30 +23,22 @@ class AuthViewController: UIViewController, LayoutLoading {
         self.loadLayout(named: "AuthViewController.xml" )
     }
     
-    @IBAction func login() -> Void {
-        self.oauth2Service.loginWithUserCredential(
-            username: self.usernameField.text!,
-            password: self.passwordField.text!)
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
-            .observeOn(MainScheduler.instance)
-            .subscribe{ event -> Void in
-                switch event {
-                case .error(let error):
-                    log.error(error.localizedDescription)
-                    self.oauth2Service.logout()
-                    break
-                case .next(_):
-                    AppDelegate.shared.rootViewController.switchToMainScreen()
-                    break
-                case .completed:
-                    break
-                }
-            }
-            .disposed(by: self.disposeBag)
-    }
-    
-    
     @IBAction func register() -> Void {
         self.navigationController?.pushViewController(RegisterViewController(), animated: true)
     }
+    
+    func layoutDidLoad(_: LayoutNode) {
+        self.reactor = AuthViewReactor()
+    }
+    
+    func bind(reactor: AuthViewReactor) {
+        loginButton.rx.tap
+            .map{ Reactor.Action.login(
+                username: (self.usernameField.text)!,
+                password: (self.passwordField.text)!)
+            }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+    }
 }
+

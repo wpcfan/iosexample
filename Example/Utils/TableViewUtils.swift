@@ -26,7 +26,7 @@ struct TableViewUtils {
         header.setText(
         NSLocalizedString("home.refreshfailure.header", comment: ""),
         mode: .refreshFailure)
-        header.tintColor = UIColor.secondary
+        header.tintColor = UIColor.accent
         header.imageRenderingWithTintColor = true
         header.durationWhenHide = 0.4
         return header

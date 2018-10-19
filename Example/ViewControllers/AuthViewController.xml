@@ -50,12 +50,12 @@
             backgroundColor="blue"
             layer.cornerRadius="5"
             left="safeAreaInsets.left + 15"
-            outlet="loginButton"
             width="parent.width-30"
             title="{strings.login.loginbtn.title}"
             top="previous.bottom + 10"
-            touchUpInside="login"
+            outlet="loginButton"
         />
+        
         <UIButton
             backgroundColor="blue"
             layer.cornerRadius="5"

@@ -19,7 +19,7 @@ struct Scene: Mappable {
         
     }
     
-    init(id: String?, name: String, imageUrl: String, countOfDevices: Int, trigger: ScriptTrigger, tasks: Array<ScriptTask> = []) {
+    init(id: String?, name: String, imageUrl: String, countOfDevices: Int, trigger: ScriptTrigger?, tasks: Array<ScriptTask>? = []) {
         self.id = id
         self.name = name
         self.imageUrl = imageUrl

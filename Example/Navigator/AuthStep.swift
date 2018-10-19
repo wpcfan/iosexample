@@ -11,11 +11,11 @@ enum AuthStep: Step {
     case apiKey
     case apiKeyIsComplete
     
-    case login
     case splash
     case splashComplete
     case tourGuide
     case tourGuideComplete
+    case login
     
     case mainScreen
 }

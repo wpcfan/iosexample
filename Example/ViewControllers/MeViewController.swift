@@ -8,9 +8,12 @@
 
 import UIKit
 import Eureka
+import URLNavigator
+import SafariServices
 
 class MeViewController: FormViewController {
     private let authService = container.resolve(OAuth2Service.self)!
+    private let navigator = container.resolve(NavigatorType.self)!
     @IBOutlet private weak var logoutButton: UIButton!
     
     override func viewDidLoad() {
@@ -47,4 +50,3 @@ class MeViewController: FormViewController {
         AppDelegate.shared.rootViewController.switchToLogout()
     }
 }
-

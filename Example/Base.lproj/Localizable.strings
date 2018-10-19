@@ -31,3 +31,11 @@
 "home.refreshfailure.header"="Refresh Failed";
 "home.refreshing.header"="Refreshing";
 "home.table.scene.header"="Scenes";
+"register.person.section"="Personal Information";
+"register.genderfield.title"="gender";
+"register.genderselector.title"="gender";
+"register.genderfield.male"="Male";
+"register.genderfield.female"="Female";
+"qrscanner.navigation.title"="Scan QR";
+"qrscanner.navigation.right.title"="Album";
+"qrscanner.navigation.left.title"="Cancel";

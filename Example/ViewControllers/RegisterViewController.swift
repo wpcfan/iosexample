@@ -51,22 +51,20 @@ class RegisterViewController: FormViewController {
             }
             
             
-            +++ Section(header: "个人信息", footer: "")
-            <<< DateTimeRow() {
+            +++ Section(header: NSLocalizedString("register.person.section", comment: ""), footer: "")
+            <<< DateRow() {
                 $0.title = NSLocalizedString("register.birthdayfield.title", comment: "")
-                $0.minimumDate = formatter.date(from: "1900-01-01")
+                $0.minimumDate = formatter.date(from: "1920-01-01")
+                $0.maximumDate = Date()
             }
             
             <<< PushRow<String>() { //1
-                $0.title = "Repeats" //2
-                $0.selectorTitle = "Remind me"
-                $0.options = ["One", "Two", "Three"]
+                $0.title = NSLocalizedString("register.genderfield.title", comment: "") //2
+                $0.selectorTitle = NSLocalizedString("register.genderselector.title", comment: "")
+                $0.options = [
+                    NSLocalizedString("register.genderfield.male", comment: ""),
+                    NSLocalizedString("register.genderfield.female", comment: "")]
             }
-            
-            <<< AlertRow<String>() {
-                $0.title = "Reminder"
-                $0.selectorTitle = "Remind me"
-                $0.options = ["One", "Two", "Three"]
-            }
+        
     }
 }

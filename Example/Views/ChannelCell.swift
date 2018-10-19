@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import AlamofireImage
+import PINRemoteImage
 
 class ChannelCell: UITableViewCell {
     
@@ -32,11 +32,11 @@ class ChannelCell: UITableViewCell {
                 let label = UILabel()
                 label.text = channel.label
                 let imageView = UIImageView()
-                imageView.af_setImage(withURL: URL(string: channel.imageUrl!)!)
+                imageView.pin_setImage(from: URL(string: channel.imageUrl!))
                 let button = UIButton()
                 button.addSubview(imageView)
                 button.addSubview(label)
-                button.imageView?.af_setImage(withURL: URL(string: channel.imageUrl!)!)
+//                button.imageView?.pin_setImage(from: URL(string: channel.imageUrl!))
                 imageView.snp.makeConstraints { make in
                     make.top.equalToSuperview().offset(8)
                     make.centerX.equalToSuperview()

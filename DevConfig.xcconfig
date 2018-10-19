@@ -8,3 +8,13 @@
 
 // Configuration settings file format documentation can be found at:
 // https://help.apple.com/xcode/#/dev745c5c974
+API_BASE_URL = http://localhost:3000
+SWIFTY_BEAVER_APP_ID = 89AgeN
+SWIFTY_BEAVER_APP_SECRET = 4wfenyegpdnWCegtWm8vkzAmsmwciYyX
+SWIFTY_BEAVER_ENCRYPTION_KEY = gwwcsfRgOuGclrstwimcaswVuliledzi
+AUTH_BASE_URL = https:/$()/auth.twigcodes.com/auth/realms
+AUTH_CLIENT_ID = login-app
+AUTH_CLIENT_SECRET = 942bfe03-9851-4db8-b100-8393c9c6c9cd
+AUTH_GRANT_TYPE = password
+AUTH_OPENID_URL_TEMPLATE = %@/%@/protocol/openid-connect
+AUTH_REALM = twigcodes

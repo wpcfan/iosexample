@@ -1,0 +1,14 @@
+<UIView clipsToBounds="true">
+    <FSPagerView.FSPagerView
+        outlet="pagerView"
+        height="parent.height"
+        width="parent.width"
+    />
+    <FSPagerView.FSPageControl
+        outlet="pagerControl"
+        bottom="previous.bottom"
+        height="32"
+        left="previous.left"
+        right="previous.right"
+    />
+</UIView>

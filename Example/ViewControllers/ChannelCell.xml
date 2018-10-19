@@ -1,0 +1,8 @@
+<UITableViewCell
+    height="80"
+    width="64"
+    top="20% + 5"
+    clipsToBounds="true"
+    reuseIdentifier="ChannelCell">
+    
+</UITableViewCell>

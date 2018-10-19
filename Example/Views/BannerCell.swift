@@ -9,6 +9,9 @@
 import UIKit
 import FSPagerView
 import SnapKit
+import PINRemoteImage
+import RxGesture
+import SafariServices
 
 class BannerCell: UITableViewCell, FSPagerViewDataSource, FSPagerViewDelegate {
     
@@ -27,6 +30,11 @@ class BannerCell: UITableViewCell, FSPagerViewDataSource, FSPagerViewDelegate {
             self.pageControl?.contentHorizontalAlignment = .center
             self.pageControl?.contentInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         }
+    }
+    
+    @IBAction func presentWebView(url: NSString) -> Void {
+        let vc = SFSafariViewController(url: URL(string: url as String)!)
+        self.window?.rootViewController?.present(vc, animated: true, completion: nil)
     }
     
     var item: HomeViewModelItem? {
@@ -69,10 +77,15 @@ class BannerCell: UITableViewCell, FSPagerViewDataSource, FSPagerViewDelegate {
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: REUSE_IDENTIFIER, at: index)
-        cell.imageView?.af_setImage(withURL: URL(string: banners[index].imageUrl!)!)
+        cell.imageView?.pin_setImage(from: URL(string: banners[index].imageUrl!)!)
         cell.imageView?.contentMode = .scaleAspectFill
         cell.imageView?.clipsToBounds = true
         cell.textLabel?.text = banners[index].label
+        cell.imageView?.rx.tapGesture().when(.recognized)
+            .subscribe({ _ in
+                self.presentWebView(url: self.banners[index].link! as NSString)
+            })
+            .disposed(by: cell.rx.reuseBag)
         return cell
     }
     

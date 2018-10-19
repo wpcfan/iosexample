@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class RootViewController: UIViewController {
     private var current: UIViewController
@@ -92,6 +93,12 @@ class RootViewController: UIViewController {
         animateFadeTransition(to: mainViewController) { [weak self] in
             self?.handleDeeplink()
         }
+    }
+    
+    func switchWebView(url: String) {
+        let viewController = SFSafariViewController(url: URL(string: url)!)
+        let viewScreen = UINavigationController(rootViewController: viewController)
+        animateDismissTransition(to: viewScreen)
     }
     
     private func animateFadeTransition(to new: UIViewController, completion: (() -> Void)? = nil) {

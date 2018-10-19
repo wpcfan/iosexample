@@ -1,16 +1,13 @@
-<UICollectionViewCell
-    height="240"
+<UITableViewCell
     clipsToBounds="true"
-    reuseIdentifier="BannerCell">
+    reuseIdentifier="BannerCell"
+    width="100%"
+    height="20%"
+    left="parent.left">
 
-    <FSPagerView.FSPagerView 
-    	width="parent.width"
-    	height="parent.height"
-    	/>
-    <FSPagerView.FSPageControl 
-    	left="parent.left"
-    	right="parent.right"
-    	bottom="parent.bottom"
-    	height="32"
-    	/>
-</UICollectionViewCell>
+    <SliderView
+        left="parent.left"
+        right="parent.right"
+        top="parent.top"
+        bottom="parent.bottom"/>
+</UITableViewCell>

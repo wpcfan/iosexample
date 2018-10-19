@@ -14,6 +14,7 @@ import p2_OAuth2
 import Moya
 import URLNavigator
 import Shallows
+import RxSwift
 
 #if swift(>=4.2)
 extension UIApplication {
@@ -45,16 +46,21 @@ let container: Container = {
         "keychain": true,         // if you DON'T want keychain integration
         ] as OAuth2JSON
     }
-    container.register(OAuth2CodeGrant.self) { c in
-        let settings = c.resolve(OAuth2JSON.self)!
-        return OAuth2CodeGrant(settings: settings)
-    }
+//    container.register(OAuth2CodeGrant.self) { c in
+//        let settings = c.resolve(OAuth2JSON.self)!
+//        return OAuth2CodeGrant(settings: settings)
+//    }
     container.register(OAuth2PasswordGrant.self) { c in
         let settings = c.resolve(OAuth2JSON.self)!
         return OAuth2PasswordGrant(settings: settings)
     }
     container.register(OAuth2Service.self) { _ in
         OAuth2Service()
+    }
+    container.register(NavigatorType.self) { _ in
+        var navigator = Navigator()
+        NavigationMap.initialize(navigator: navigator)
+        return navigator
     }
     #if TARGET_CPU_ARM
     container.register(SmartCloudService.self) { _ in SmartCloudServiceImpl() }
@@ -66,6 +72,7 @@ let container: Container = {
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    let disposeBag = DisposeBag()
     private var navigator: NavigatorType?
 //    private let oauth2 = container.resolve(OAuth2CodeGrant.self)!
     
@@ -74,11 +81,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
         ) -> Bool {
         enableLogging()
+        log.debug(AppEnv.authBaseUrl)
         ShortcutParser.shared.registerShortcuts()
         let navigator = Navigator()
         // Initialize navigation map
         NavigationMap.initialize(navigator: navigator)
-        
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = RootViewController()
         window.makeKeyAndVisible()

@@ -11,6 +11,8 @@ import p2_OAuth2
 
 enum HomeService {
     case banners
+    case channels
+    case scenes
 }
 
 let HomeProvider = MoyaProvider<HomeService>(requestClosure: MoyaUtils.requestClosure, plugins: [MoyaUtils.networkPlugin]).rx
@@ -22,23 +24,31 @@ extension HomeService: TargetType {
         switch self {
         case .banners:
             return "/banners"
+        case .channels:
+            return "/channels"
+        case .scenes:
+            return "/scenes"
         }
     }
     var method: Moya.Method {
         switch self {
-        case .banners:
+        case .banners, .channels, .scenes:
             return .get
         }
     }
     var task: Task {
         switch self {
-        case .banners:// Send no parameters
+        case .banners, .channels, .scenes:// Send no parameters
             return .requestPlain
         }
     }
     var sampleData: Data {
         switch self {
         case .banners:
+            return "[{\"id\":  \"123\", \"imageUrl\": \"http://image.loc/1.png\", \"label\": \"the first image\", \"link\": \"http://google.com\"}]".utf8Encoded
+        case .channels:
+            return "[{\"id\":  \"123\", \"imageUrl\": \"http://image.loc/1.png\", \"label\": \"the first image\", \"link\": \"http://google.com\"}]".utf8Encoded
+        case .scenes:
             return "[{\"id\":  \"123\", \"imageUrl\": \"http://image.loc/1.png\", \"label\": \"the first image\", \"link\": \"http://google.com\"}]".utf8Encoded
         }
     }

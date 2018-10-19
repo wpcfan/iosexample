@@ -6,4 +6,15 @@
 //  Copyright © 2018年 twigcodes. All rights reserved.
 //
 
-import Foundation
+import RxSwift
+import RxCocoa
+import Layout
+
+extension Reactive where Base: LayoutNode {
+    
+    func state<T>(_ key: String) -> Binder<T> {
+        return Binder(base) { node, value in
+            node.setState([key: value])
+        }
+    }
+}

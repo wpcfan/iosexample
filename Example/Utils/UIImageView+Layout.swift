@@ -8,7 +8,7 @@
 
 import UIKit
 import Layout
-import AlamofireImage
+import PINRemoteImage
 
 extension UIImageView {
     
@@ -21,7 +21,7 @@ extension UIImageView {
     @objc open override func setValue(_ value: Any, forExpression name: String) throws {
         switch name {
         case "imgUrl":
-            self.af_setImage(withURL: URL(string: (value as? String)!)!)
+            self.pin_setImage(from: URL(string: (value as? String)!))
         default:
             try super.setValue(value, forExpression: name)
         }

@@ -12,11 +12,10 @@ import pop
 import RxSwift
 import Shallows
 
-class SplashViewController: UIViewController, LayoutLoading {
+class SplashViewController: BaseViewController, LayoutLoading {
     
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var countDown: UIButton!
-    private let disposeBag = DisposeBag()
     private let completeCountDownSubject = PublishSubject<Void>()
     private let storage = container.resolve(Storage<Filename, AppData>.self)!
     private let oauth2Service = container.resolve(OAuth2Service.self)!

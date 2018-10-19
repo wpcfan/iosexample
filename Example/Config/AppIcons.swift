@@ -54,4 +54,11 @@ struct AppIcons {
         textColor: UIColor.accent!,
         backgroundColor: .clear,
         size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
+    
+    static let settingsAccent = UIImage(
+        from: .ionicon,
+        code: "ios-cog",
+        textColor: UIColor.accent!,
+        backgroundColor: .clear,
+        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
 }

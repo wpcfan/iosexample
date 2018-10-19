@@ -4,6 +4,12 @@
     <UITabBar tintColor="accent" backgroundColor="secondary"/>
 
     <UINavigationController>
+        <UINavigationBar 
+            barTintColor="accent"
+            barStyle="black"
+            tintColor="#fff"
+            titleColor="#fff"
+            />
         <!-- Home -->
         <UIViewController
             navigationItem.title="{strings.main.navigation.home.title}"
@@ -16,6 +22,12 @@
     </UINavigationController>
     
     <UINavigationController>
+        <UINavigationBar 
+            barTintColor="accent"
+            barStyle="black"
+            tintColor="#fff"
+            titleColor="#fff"
+            />
         <!-- Pages -->
         <UIViewController
             navigationItem.title="{strings.main.navigation.social.title}"
@@ -26,10 +38,16 @@
     </UINavigationController>
     
     <UINavigationController>
+        <UINavigationBar 
+            barTintColor="accent"
+            barStyle="black"
+            tintColor="#fff"
+            titleColor="#fff"
+            />
         <!-- Text -->
         <UIViewController
             navigationItem.title="{strings.main.navigation.my.title}"
-            navigationItem.rightBarButtonItem.title="settings"
+            navigationItem.rightBarButtonItem.image="iconSettings"
             tabBarItem.image="{iconTabMy}"
             title="{strings.home.tabbar.tab_me}"
             xml="MeViewController.xml"

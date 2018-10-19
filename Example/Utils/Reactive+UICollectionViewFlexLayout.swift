@@ -6,4 +6,7 @@
 //  Copyright © 2018年 twigcodes. All rights reserved.
 //
 
-import Foundation
+import RxCocoa
+
+extension _RXDelegateProxy: UICollectionViewDelegateFlexLayout {
+}

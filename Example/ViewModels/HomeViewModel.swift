@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import AlamofireImage
 
 enum HomeViewModelItemType {
     case banners
@@ -74,14 +73,26 @@ class HomeViewModel: NSObject {
     
     override init() {
         super.init()
-        let result = dataFromFile("data")
-        let homeInfo = HomeInfo(JSONString: result!)
-        log.debug(homeInfo!)
-        let bannersItem = HomeViewModelBannerItem(banners: (homeInfo?.banners)!)
+        let homeInfo = HomeInfo(
+            projectId: "1", banners: [
+                Banner(id: "1", imageUrl: "https://images.unsplash.com/photo-1432679963831-2dab49187847?w=1080", label: "first", link: "http://baidu.com"),
+                Banner(id: "1", imageUrl: "https://images.unsplash.com/photo-1447746249824-4be4e1b76d66?w=1080", label: "second", link: "http://baidu.com"),
+                Banner(id: "1", imageUrl: "https://images.unsplash.com/photo-1463595373836-6e0b0a8ee322?w=1080", label: "third", link: "http://baidu.com")
+            ], channels: [
+                Banner(id: "1", imageUrl: "https://image.flaticon.com/icons/png/512/138/138281.png", label: "first", link: "http://baidu.com"),
+                Banner(id: "1", imageUrl: "https://image.flaticon.com/icons/png/512/148/148982.png", label: "second", link: "http://baidu.com"),
+                Banner(id: "1", imageUrl: "https://image.flaticon.com/icons/png/512/1006/1006555.png", label: "third", link: "http://baidu.com"),
+                Banner(id: "1", imageUrl: "https://image.flaticon.com/icons/png/512/1087/1087840.png", label: "third", link: "http://baidu.com"),
+                Banner(id: "1", imageUrl: "https://image.flaticon.com/icons/png/512/148/148717.png", label: "third", link: "http://baidu.com")
+            ], scenes: [
+                Scene(id: "1", name: "go home", imageUrl: "https://image.flaticon.com/icons/png/512/1006/1006555.png", countOfDevices: 2, trigger: nil, tasks: []),
+                Scene(id: "2", name: "go to school", imageUrl: "https://image.flaticon.com/icons/png/512/1006/1006555.png", countOfDevices: 3, trigger: nil, tasks: [])
+            ])
+        let bannersItem = HomeViewModelBannerItem(banners: (homeInfo.banners)!)
         items.append(bannersItem)
-        let channelsItem = HomeViewModelChannelItem(channels: (homeInfo?.channels)!)
+        let channelsItem = HomeViewModelChannelItem(channels: (homeInfo.channels)!)
         items.append(channelsItem)
-        let scenesItem = HomeViewModelSceneItem(scenes: (homeInfo?.scenes)!)
+        let scenesItem = HomeViewModelSceneItem(scenes: (homeInfo.scenes)!)
         items.append(scenesItem)
     }
 }
@@ -95,6 +106,10 @@ extension HomeViewModel: UITableViewDataSource {
         return items[section].rowCount
     }
     
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return items[section].sectionTitle
+    }
+
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = items[indexPath.section]
         switch item.type {
@@ -119,18 +134,8 @@ extension HomeViewModel: UITableViewDataSource {
                 
                 return node.view as! UITableViewCell
             }
-            
-//            if let item = item as? HomeViewModelSceneItem, let cell = tableView.dequeueReusableCell(withIdentifier: SceneCell.identifier, for: indexPath) as? SceneCell {
-//                let scene = item.scenes[indexPath.row]
-//                cell.item = scene
-//                return cell
-//            }
         }
         return UITableViewCell()
-    }
-    
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return items[section].sectionTitle
     }
 }
 

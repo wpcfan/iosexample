@@ -1,0 +1,8 @@
+<UITableViewCell
+    height="32"
+    clipsToBounds="true"
+    reuseIdentifier="SceneCell">
+    <UIImageView 
+    	imgUrl="{imageUrl}" width="32" height="32" left="parent.left + 16"/>
+    <UILabel text="{title}" left="previous.right + 10"/>
+</UITableViewCell>
