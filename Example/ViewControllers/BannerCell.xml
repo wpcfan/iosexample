@@ -1,0 +1,16 @@
+<UICollectionViewCell
+    height="240"
+    clipsToBounds="true"
+    reuseIdentifier="BannerCell">
+
+    <FSPagerView.FSPagerView 
+    	width="parent.width"
+    	height="parent.height"
+    	/>
+    <FSPagerView.FSPageControl 
+    	left="parent.left"
+    	right="parent.right"
+    	bottom="parent.bottom"
+    	height="32"
+    	/>
+</UICollectionViewCell>
