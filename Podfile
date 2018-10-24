@@ -6,36 +6,58 @@ target 'Example' do
   use_frameworks!
   # inherit! :search_paths
 
-  # Pods for Example
+  # Pods for Layout
   pod 'Layout', '~> 0.6'
+  pod 'ManualLayout', git: 'https://github.com/isair/ManualLayout', :submodules => true
+  pod 'SnapKit', '~> 4.0.0'
+  # Pods for Rx
   pod 'RxSwift', '~> 4.0'
+  pod 'RxSwiftExt'
   pod 'RxCocoa', '~> 4.0'
-  pod 'Moya/RxSwift', '~> 11.0'
-  pod 'RxGesture'
-  pod 'ObjectMapper', '~> 3.3'
-  pod 'Moya-ObjectMapper/RxSwift', '~> 2.7'
-  pod 'Swinject', '~> 2.5'
-  pod 'URLNavigator', '~> 2.0'
-  pod 'JustLog'
-  pod 'PMAlertController'
-  pod 'ReactorKit'
-  pod 'SnapKit', '~> 4.0.0'
-  pod 'UITextView+Placeholder'
-  pod 'pop', '~> 1.0'
-  pod 'EAIntroView'
-  pod 'Eureka'
-  pod 'SnapKit', '~> 4.0.0'
-  pod 'FSPagerView'
-  pod 'PullToRefreshKit'
-  pod 'RxFlow'
-  pod 'PINRemoteImage'
   pod 'RxDataSources', '~> 3.0'
   pod 'RxQRScanner'
-  pod 'FantasticSnowflake', git: 'https://github.com/onmyway133/Snowflake', :submodules => true
+  pod 'RxGesture'
+  pod 'ReactorKit'
+  pod 'RxFlow'
+  # Pods for Http
+  pod 'Moya/RxSwift', '~> 11.0'
+  pod 'ObjectMapper', '~> 3.3'
+  pod 'Moya-ObjectMapper/RxSwift', '~> 2.7'
+  pod 'PINRemoteImage'
+  # Pods for Infrastructures
+  pod 'Dollar'
+  # IoC
+  pod 'Swinject', '~> 2.5'
+  # Log
+  pod 'JustLog'
+  pod 'URLNavigator', '~> 2.0'
+  # Pods for UI extension
+  pod 'PMAlertController'
+  pod 'UITextView+Placeholder'
+  # Animation
+  pod 'pop', '~> 1.0'
+  # For Tour Guide View
+  pod 'EAIntroView'
+  # Quick Form
+  pod 'Eureka'
+  # Image Slider
+  pod 'FSPagerView'
+  # Pull to refresh
+  pod 'PullToRefreshKit'
+  # Parallax Header
+  pod 'MXParallaxHeader'
+  # SVG
+#  pod 'FantasticSnowflake', git: 'https://github.com/onmyway133/Snowflake', :submodules => true
+  # Persistence Library
   pod 'Shallows', :git => 'https://github.com/dreymonde/Shallows', :submodules => true
+  # OAuth2 Library
   pod 'p2.OAuth2', :git => 'https://github.com/p2/OAuth2', :submodules => true
+  # JWT Library
   pod 'KTVJSONWebToken', :git => 'https://github.com/kreactive/JSONWebToken', :submodules => true
+  # Icon Font
   pod 'SwiftIconFont', :git => 'https://github.com/0x73/SwiftIconFont', :submodules => true
+  # Reveal UI Components
   pod 'Reveal-SDK', :configurations => ['Debug']
+  # Make float button to debug app
   pod 'CocoaDebug', :configurations => ['Debug']
 end

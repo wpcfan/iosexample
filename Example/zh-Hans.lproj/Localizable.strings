@@ -9,6 +9,7 @@
 "login.password"="密码";
 "login.loginbtn.title"="登录";
 "login.registerbtn.title"="注册";
+"login.navigation.title"="登录";
 "home.tabbar.tab_home"="首页";
 "home.tabbar.tab_social"="动态";
 "home.tabbar.tab_me"="我的";

@@ -70,7 +70,8 @@ class HomeViewModelSceneItem: HomeViewModelItem {
 
 class HomeViewModel: NSObject {
     var items = [HomeViewModelItem]()
-    
+    var headerImageHeight: CGFloat  = 200
+    var headerToolbarHeight: CGFloat = 75
     override init() {
         super.init()
         let homeInfo = HomeInfo(
@@ -85,8 +86,8 @@ class HomeViewModel: NSObject {
                 Banner(id: "1", imageUrl: "https://image.flaticon.com/icons/png/512/1087/1087840.png", label: "third", link: "http://baidu.com"),
                 Banner(id: "1", imageUrl: "https://image.flaticon.com/icons/png/512/148/148717.png", label: "third", link: "http://baidu.com")
             ], scenes: [
-                Scene(id: "1", name: "go home", imageUrl: "https://image.flaticon.com/icons/png/512/1006/1006555.png", countOfDevices: 2, trigger: nil, tasks: []),
-                Scene(id: "2", name: "go to school", imageUrl: "https://image.flaticon.com/icons/png/512/1006/1006555.png", countOfDevices: 3, trigger: nil, tasks: [])
+                Scene(id: "1", name: "go home", sceneIcon: SceneIcon.goHome, builtIn: true, order: 1, countOfDevices: 2, trigger: nil, tasks: []),
+                Scene(id: "2", name: "go to school", sceneIcon: SceneIcon.goHome, builtIn: true, order: 1, countOfDevices: 3, trigger: nil, tasks: [])
             ])
         let bannersItem = HomeViewModelBannerItem(banners: (homeInfo.banners)!)
         items.append(bannersItem)
@@ -106,20 +107,25 @@ extension HomeViewModel: UITableViewDataSource {
         return items[section].rowCount
     }
     
-    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return items[section].sectionTitle
+//    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+//        return items[section].sectionTitle
+//    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection _: Int) -> UIView? {
+        let node = tableView.dequeueReusableHeaderFooterNode(withIdentifier: "templateHeader")
+        return node?.view as? UITableViewHeaderFooterView
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let item = items[indexPath.section]
         switch item.type {
         case .banners:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: BannerCell.identifier, for: indexPath) as? BannerCell {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: BannerCell.reuseIdentifier, for: indexPath) as? BannerCell {
                 cell.item = item
                 return cell
             }
         case .channels:
-            if let cell = tableView.dequeueReusableCell(withIdentifier: ChannelCell.identifier, for: indexPath) as? ChannelCell {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: ChannelCell.reuseIdentifier, for: indexPath) as? ChannelCell {
                 cell.item = item
                 return cell
             }
@@ -129,7 +135,7 @@ extension HomeViewModel: UITableViewDataSource {
                 let scene = item.scenes[indexPath.row]
                 node.setState([
                     "title": scene.name!,
-                    "imageUrl": scene.imageUrl
+                    "icon": scene.sceneIcon
                     ])
                 
                 return node.view as! UITableViewCell
@@ -140,6 +146,7 @@ extension HomeViewModel: UITableViewDataSource {
 }
 
 extension HomeViewModel: UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let item = items[indexPath.section]
         switch item.type {
@@ -160,7 +167,16 @@ extension HomeViewModel: UITableViewDelegate {
             return UITableView.automaticDimension
         }
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print(scrollView.contentOffset.y)
+        let y = -scrollView.contentOffset.y
+        let height = min(max(y, 60), 400)
+        print("y", y)
+        headerImageHeight = height
+    }
 }
+
 
 public func dataFromFile(_ filename: String) -> String? {
     @objc class TestClass: NSObject { }

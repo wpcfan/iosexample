@@ -1,0 +1,15 @@
+<UIView>
+    <BannerView
+        height="200"
+        outlet="bannerView"
+        top="parent.top"
+        width="parent.width"
+    />
+    <ChannelView
+        height="75"
+        left="parent.left"
+        outlet="channelView"
+        top="previous.bottom"
+        width="parent.width"
+    />
+</UIView>

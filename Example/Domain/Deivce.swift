@@ -7,8 +7,9 @@
 //
 
 import ObjectMapper
+import RxDataSources
 
-struct Device: Mappable {
+struct Device: Mappable, ModelType, IdentifiableType, Equatable {
     var id: String?
     var deviceId: String?
     var gatewayId: String?
@@ -32,4 +33,7 @@ struct Device: Mappable {
         product <- map["product"]
     }
     
+    var identity: String? {
+        return id
+    }
 }

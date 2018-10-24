@@ -11,6 +11,8 @@ import UIKit
 import RxSwift
 
 class BaseViewController: UIViewController {
+    // MARK: Rx
+    var disposeBag = DisposeBag()
     
     // MARK: Initializing
     init() {
@@ -21,27 +23,14 @@ class BaseViewController: UIViewController {
         self.init()
     }
     
-    // MARK: Rx
-    var disposeBag = DisposeBag()
-    
-    
-    // MARK: Layout Constraints
-    private(set) var didSetupConstraints = false
-    
     override func viewDidLoad() {
+        super.viewDidLoad()
+        
         self.view.setNeedsUpdateConstraints()
     }
     
-    override func updateViewConstraints() {
-        if !self.didSetupConstraints {
-            self.setupConstraints()
-            self.didSetupConstraints = true
-        }
-        super.updateViewConstraints()
-    }
-    
-    func setupConstraints() {
-        // Override point
+    func initialize() -> Void {
+        
     }
     
 }

@@ -61,4 +61,25 @@ struct AppIcons {
         textColor: UIColor.accent!,
         backgroundColor: .clear,
         size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
+    
+    static let sceneHomeAccent = UIImage(
+        from: .segoeMDL2,
+        code: "Home",
+        textColor: UIColor.accent!,
+        backgroundColor: .clear,
+        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
+    
+    static let sceneWorkAccent = UIImage(
+        from: .segoeMDL2,
+        code: "ParkingLocation",
+        textColor: UIColor.accent!,
+        backgroundColor: .clear,
+        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
+    
+    static let scenePlaceholderAccent = UIImage(
+        from: .segoeMDL2,
+        code: "DeviceDiscovery",
+        textColor: UIColor.accent!,
+        backgroundColor: .clear,
+        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
 }

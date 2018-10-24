@@ -11,8 +11,10 @@ import Layout
 import FSPagerView
 import RxGesture
 import SafariServices
+import ReactorKit
 
-class SliderView: UIView, LayoutLoading {
+class BannerView: BaseView, LayoutLoading, ReactorKit.View {
+    typealias Reactor = BannerViewReactor
     fileprivate let REUSE_IDENTIFIER = "fspager"
     var banners: [Banner] = [
         Banner(id: "1", imageUrl: "https://images.unsplash.com/photo-1432679963831-2dab49187847?w=1080", label: "first", link: "http://baidu.com"),
@@ -43,7 +45,7 @@ class SliderView: UIView, LayoutLoading {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        loadLayout(named: "SliderView.xml")
+        loadLayout(named: "BannerView.xml")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -56,9 +58,13 @@ class SliderView: UIView, LayoutLoading {
         // Ensure layout is updated after screen rotation, etc
         self.layoutNode?.view.frame = self.bounds
     }
+    
+    func bind(reactor: Reactor) {
+        
+    }
 }
 
-extension SliderView: FSPagerViewDataSource {
+extension BannerView: FSPagerViewDataSource {
     func numberOfItems(in pagerView: FSPagerView) -> Int {
         return banners.count
     }
@@ -69,7 +75,7 @@ extension SliderView: FSPagerViewDataSource {
         cell.imageView?.contentMode = .scaleAspectFill
         cell.imageView?.clipsToBounds = true
         cell.textLabel?.text = banners[index].label
-        cell.imageView?.rx.tapGesture().when(.recognized)
+        cell.rx.imageTap
             .subscribe({ _ in
                 self.presentWebView(url: self.banners[index].link! as NSString)
             })
@@ -78,7 +84,7 @@ extension SliderView: FSPagerViewDataSource {
     }
 }
 
-extension SliderView: FSPagerViewDelegate {
+extension BannerView: FSPagerViewDelegate {
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
         pagerView.deselectItem(at: index, animated: true)
         pagerView.scrollToItem(at: index, animated: true)

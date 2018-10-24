@@ -1,0 +1,14 @@
+
+@BASE_URL=https://lantouzi.com/api/bianxianjihua/datalist?page=1&order=0&dir=1&tag=5&subtag=4
+
+###
+
+curl -H 'Host: lantouzi.com' -H 'Accept: application/json, text/plain, */*' -H 'Cookie: Hm_lpvt_6dea39ac37df9c6f3e7b096755b73949=1540178275; Hm_lvt_6dea39ac37df9c6f3e7b096755b73949=1540133637,1540176737,1540177952,1540177965; DWJUC_S=v2_501466_c202f6efd8fdccd6603f46203ff9870b; LTZ_S=v1_501466_28fa4750e0907706e3727a560e86e425' -H 'User-Agent: ltz-app-iphone_Apple_iPhone X (A1865/A1902)_12.0.1_812*375_appstore_appstore_3.11.1_embed  kdtUnion_0541848e4c8ff8aaf4 UIWebView' -H 'Accept-Language: zh-cn' -H 'Referer: https://lantouzi.com/bianxianjihua/mobile_list?order=0&dir=1&tag=5&subtag=4' --compressed 'https://lantouzi.com/api/bianxianjihua/datalist?page=1&order=0&dir=1&tag=5&subtag=4'
+
+###
+GET {{BASE_URL}}
+Accept: application/application/json, text/plain, */*
+Cookie: Hm_lpvt_6dea39ac37df9c6f3e7b096755b73949=1540178275; Hm_lvt_6dea39ac37df9c6f3e7b096755b73949=1540133637,1540176737,1540177952,1540177965; DWJUC_S=v2_501466_c202f6efd8fdccd6603f46203ff9870b; LTZ_S=v1_501466_28fa4750e0907706e3727a560e86e425
+User-Agent: ltz-app-iphone_Apple_iPhone X (A1865/A1902)_12.0.1_812*375_appstore_appstore_3.11.1_embed  kdtUnion_0541848e4c8ff8aaf4 UIWebView
+Referer: https://lantouzi.com/bianxianjihua/mobile_list?order=0&dir=1&tag=5&subtag=4
+Accept-Language: zh-cn

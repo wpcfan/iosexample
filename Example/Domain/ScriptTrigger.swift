@@ -7,6 +7,7 @@
 //
 
 import ObjectMapper
+import RxDataSources
 
 enum TriggerType {
     case manual
@@ -14,7 +15,7 @@ enum TriggerType {
     case allOf
 }
 
-struct ScriptTrigger: Mappable {
+struct ScriptTrigger: Mappable, ModelType, IdentifiableType, Equatable {
     var id: String?
     var type: TriggerType?
     var cronExpr: String?
@@ -38,4 +39,7 @@ struct ScriptTrigger: Mappable {
         deviceAttributes <- map["deviceAttributes"]
     }
     
+    var identity: String? {
+        return id
+    }
 }

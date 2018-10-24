@@ -6,35 +6,24 @@
 //  Copyright © 2018年 twigcodes. All rights reserved.
 //
 
-import UIKit
 import FSPagerView
-import SnapKit
-import PINRemoteImage
 import RxGesture
 import SafariServices
+import ReactorKit
 
-class BannerCell: UITableViewCell, FSPagerViewDataSource, FSPagerViewDelegate {
-    
-    fileprivate let REUSE_IDENTIFIER = "fspager"
-    fileprivate var banners: Array<Banner> = []
-    
-    @IBOutlet weak var pagerView: FSPagerView? {
-        didSet {
-            self.pagerView?.register(FSPagerViewCell.self, forCellWithReuseIdentifier: REUSE_IDENTIFIER)
-            self.pagerView?.itemSize = FSPagerView.automaticSize
-        }
+class BannerCell: BaseItemCell, ReactorKit.View {
+    typealias Reactor = BannerViewReactor
+    fileprivate static let REUSE_IDENTIFIER = "fspager"
+    var banners: Array<Banner> = []
+
+    private var pagerView = FSPagerView().then {
+        $0.register(FSPagerViewCell.self, forCellWithReuseIdentifier: REUSE_IDENTIFIER)
+        $0.itemSize = FSPagerView.automaticSize
     }
     
-    @IBOutlet weak var pageControl: FSPageControl? {
-        didSet {
-            self.pageControl?.contentHorizontalAlignment = .center
-            self.pageControl?.contentInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        }
-    }
-    
-    @IBAction func presentWebView(url: NSString) -> Void {
-        let vc = SFSafariViewController(url: URL(string: url as String)!)
-        self.window?.rootViewController?.present(vc, animated: true, completion: nil)
+    private var pageControl = FSPageControl().then {
+        $0.contentHorizontalAlignment = .center
+        $0.contentInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
     
     var item: HomeViewModelItem? {
@@ -47,58 +36,67 @@ class BannerCell: UITableViewCell, FSPagerViewDataSource, FSPagerViewDelegate {
         }
     }
     
-    static var nib:UINib {
-        return UINib(nibName: identifier, bundle: nil)
+    @IBAction func presentWebView(url: NSString) -> Void {
+        let vc = SFSafariViewController(url: URL(string: url as String)!)
+        self.window?.rootViewController?.present(vc, animated: true, completion: nil)
     }
     
-    static var identifier: String {
-        return String(describing: self)
+    override func initialize() {
+        pagerView.delegate = self
+        pagerView.dataSource = self
+        self.contentView.addSubview(pagerView)
+        self.contentView.addSubview(pageControl)
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        self.contentView.addSubview(pagerView!)
-        self.pagerView?.snp.makeConstraints { make in
-            make.width.equalToSuperview()
-            make.height.equalToSuperview()
+        contentView.sizeToFit()
+        pagerView.snp.makeConstraints { make in
+            make.size.equalToSuperview()
         }
-        self.contentView.addSubview(pageControl!)
-        pageControl?.numberOfPages = banners.count
-        pageControl?.snp.makeConstraints { make in
-            make.width.equalToSuperview()
-            make.bottom.equalTo((self.pagerView?.snp.bottom)!)
+        pageControl.snp.makeConstraints { make in
+            make.left.bottom.right.equalToSuperview()
             make.height.equalTo(32)
         }
+        pageControl.numberOfPages = banners.count
     }
     
+    func bind(reactor: Reactor) {
+        
+    }
+}
+
+extension BannerCell: FSPagerViewDataSource {
     func numberOfItems(in pagerView: FSPagerView) -> Int {
         return banners.count
     }
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
-        let cell = pagerView.dequeueReusableCell(withReuseIdentifier: REUSE_IDENTIFIER, at: index)
+        let cell = pagerView.dequeueReusableCell(withReuseIdentifier: BannerCell.REUSE_IDENTIFIER, at: index)
         cell.imageView?.pin_setImage(from: URL(string: banners[index].imageUrl!)!)
         cell.imageView?.contentMode = .scaleAspectFill
         cell.imageView?.clipsToBounds = true
         cell.textLabel?.text = banners[index].label
-        cell.imageView?.rx.tapGesture().when(.recognized)
+        cell.rx.imageTap
             .subscribe({ _ in
                 self.presentWebView(url: self.banners[index].link! as NSString)
             })
             .disposed(by: cell.rx.reuseBag)
         return cell
     }
-    
+}
+
+extension BannerCell: FSPagerViewDelegate {
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
         pagerView.deselectItem(at: index, animated: true)
         pagerView.scrollToItem(at: index, animated: true)
     }
     
     func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int) {
-        self.pageControl?.currentPage = targetIndex
+        self.pageControl.currentPage = targetIndex
     }
     
     func pagerViewDidEndScrollAnimation(_ pagerView: FSPagerView) {
-        self.pageControl?.currentPage = pagerView.currentIndex
+        self.pageControl.currentPage = pagerView.currentIndex
     }
 }

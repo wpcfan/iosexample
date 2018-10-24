@@ -1,0 +1,33 @@
+<UIView clipsToBounds="true">
+    <UIView
+        left="parent.left + 10"
+        width="(parent.width - 60) / 5"
+        template="IconLabelButton.xml"
+        imgUrl="{imageUrls[0]}"
+        title="{labels[0]}"
+        />
+    <UIView
+        left="previous.right + 10"
+        width="(parent.width - 60) / 5"
+        template="IconLabelButton.xml"
+        imgUrl="{imageUrls[1]}"
+        title="{labels[1]}" />
+    <UIView
+        left="previous.right + 10"
+        width="(parent.width - 60) / 5"
+        template="IconLabelButton.xml"
+        imgUrl="{imageUrls[2]}"
+        title="{labels[2]}" />
+    <UIView
+        left="previous.right + 10"
+        width="(parent.width - 60) / 5"
+        template="IconLabelButton.xml"
+        imgUrl="{imageUrls[3]}"
+        title="{labels[3]}" />
+    <UIView
+        left="previous.right + 10"
+        width="(parent.width - 60) / 5"
+        template="IconLabelButton.xml"
+        imgUrl="{imageUrls[4]}"
+        title="{labels[4]}" />
+</UIView>

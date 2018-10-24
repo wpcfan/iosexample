@@ -7,8 +7,9 @@
 //
 
 import ObjectMapper
+import RxDataSources
 
-struct HomeInfo: Mappable {
+struct HomeInfo: Mappable, ModelType, IdentifiableType, Equatable {
     var projectId: String?
     var banners: Array<Banner>?
     var channels: Array<Banner>?
@@ -33,4 +34,7 @@ struct HomeInfo: Mappable {
         scenes <- map["scenes"]
     }
     
+    var identity: String? {
+        return projectId
+    }
 }

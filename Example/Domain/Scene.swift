@@ -7,11 +7,24 @@
 //
 
 import ObjectMapper
+import RxDataSources
 
-struct Scene: Mappable {
+enum SceneIcon {
+    case goHome
+    case leaveHome
+    case placeholder
+}
+
+struct Scene: Mappable, ModelType, IdentifiableType, Equatable {
+    static func == (lhs: Scene, rhs: Scene) -> Bool {
+        return lhs.identity == rhs.identity
+    }
+    
     var id: String?
     var name: String?
-    var imageUrl: String?
+    var sceneIcon: SceneIcon?
+    var builtIn: Bool?
+    var order: Int?
     var countOfDevices: Int?
     var trigger: ScriptTrigger?
     var tasks: Array<ScriptTask>?
@@ -19,10 +32,12 @@ struct Scene: Mappable {
         
     }
     
-    init(id: String?, name: String, imageUrl: String, countOfDevices: Int, trigger: ScriptTrigger?, tasks: Array<ScriptTask>? = []) {
+    init(id: String?, name: String, sceneIcon: SceneIcon, builtIn: Bool, order: Int, countOfDevices: Int, trigger: ScriptTrigger?, tasks: Array<ScriptTask>? = []) {
         self.id = id
         self.name = name
-        self.imageUrl = imageUrl
+        self.sceneIcon = sceneIcon
+        self.builtIn = builtIn
+        self.order = order
         self.countOfDevices = countOfDevices
         self.trigger = trigger
         self.tasks = tasks
@@ -31,10 +46,15 @@ struct Scene: Mappable {
     mutating func mapping(map: Map) {
         id <- map["id"]
         name <- map["name"]
-        imageUrl <- map["imageUrl"]
+        sceneIcon <- map["sceneIcon"]
+        builtIn <- map["builtIn"]
+        order <- map["order"]
         countOfDevices <- map["countOfDevices"]
         trigger <- map["trigger"]
         tasks <- map["tasks"]
     }
     
+    var identity: String? {
+        return id
+    }
 }

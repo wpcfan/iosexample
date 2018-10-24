@@ -7,8 +7,9 @@
 //
 
 import ObjectMapper
+import RxDataSources
 
-struct User: Mappable {
+struct User: Mappable, ModelType, IdentifiableType, Equatable {
     var id: String?
     var login: String?
     var password: String?
@@ -39,6 +40,10 @@ struct User: Mappable {
         name <- map["name"]
         avatar <- map["avatar"]
         authorities <- map["authorities"]
+    }
+    
+    var identity: String? {
+        return id
     }
     
 }

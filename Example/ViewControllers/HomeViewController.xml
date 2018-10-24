@@ -1,10 +1,13 @@
-<HomeViewController>
+<HomeViewController outlet="layoutNode">
+    <UIView height="headerHeight" width="100%" top="safeAreaInsets.top" backgroundColor="black">
+        
+    </UIView>
     <UITableView
         outlet="tableView"
+        backgroundColor="clear"
         contentInset.bottom="safeAreaInsets.bottom"
-        contentInset.top="safeAreaInsets.top"
+        contentInset.top="previous.bottom"
         contentInsetAdjustmentBehavior="never"
-        contentOffset.y="-safeAreaInsets.top"
         estimatedSectionHeaderHeight="20"
         scrollIndicatorInsets.bottom="safeAreaInsets.bottom"
         scrollIndicatorInsets.top="safeAreaInsets.top"

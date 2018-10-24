@@ -10,7 +10,7 @@ import UIKit
 import Layout
 import ReactorKit
 
-class AuthViewController: BaseViewController, LayoutLoading, StoryboardView {
+class AuthViewController: BaseViewController, LayoutLoading, View {
 
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
@@ -21,6 +21,12 @@ class AuthViewController: BaseViewController, LayoutLoading, StoryboardView {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         self.loadLayout(named: "AuthViewController.xml" )
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.navigationController?.title = NSLocalizedString("login.navigation.title", comment: "")
+        self.navigationController?.navigationBar.barStyle = .black
+        self.navigationController?.navigationBar.barTintColor = UIColor.accent
     }
     
     @IBAction func register() -> Void {

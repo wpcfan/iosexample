@@ -7,8 +7,9 @@
 //
 
 import ObjectMapper
+import RxDataSources
 
-struct ProductCategory: Mappable {
+struct ProductCategory: Mappable, ModelType, IdentifiableType, Equatable {
     var id: String?
     var name: String?
     var imageUrl: String?
@@ -29,4 +30,7 @@ struct ProductCategory: Mappable {
         imageUrl <- map["imageUrl"]
     }
     
+    var identity: String? {
+        return id
+    }
 }

@@ -9,7 +9,6 @@
 import UIKit
 import RxCocoa
 import RxSwift
-import FSPagerView
 
 private var prepareForReuseBag: Int8 = 0
 
@@ -39,9 +38,43 @@ extension Reactive where Base: Reusable {
         _ = sentMessage(#selector(Base.prepareForReuse))
             .subscribe(onNext: { [weak base] _ in
                 let newBag = DisposeBag()
-                objc_setAssociatedObject(base, &prepareForReuseBag, newBag, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
+                objc_setAssociatedObject(base!, &prepareForReuseBag, newBag, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN)
             })
         
         return bag
+    }
+}
+
+protocol ReusableView: class {
+    static var reuseIdentifier: String {get}
+}
+
+extension ReusableView {
+    static var reuseIdentifier: String {
+        return String(describing: self)
+    }
+}
+
+extension UITableViewCell: ReusableView {}
+extension UICollectionViewCell: ReusableView {}
+
+extension UITableView {
+    
+    func dequeueReusableCell<T: UITableViewCell>(forIndexPath indexPath: IndexPath) -> T {
+        guard let cell = dequeueReusableCell(withIdentifier: T.reuseIdentifier, for: indexPath) as? T else {
+            fatalError("Could not dequeue cell with identifier: \(T.reuseIdentifier)")
+        }
+        
+        return cell
+    }
+}
+
+extension UICollectionView {
+    func dequeueReusableCell<T: UICollectionViewCell>(forIndexPath indexPath: IndexPath) -> T {
+        guard let cell = dequeueReusableCell(withReuseIdentifier: T.reuseIdentifier, for: indexPath) as? T else {
+            fatalError("Could not dequeue cell with identifier: \(T.reuseIdentifier)")
+        }
+        
+        return cell
     }
 }

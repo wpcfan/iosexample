@@ -1,0 +1,21 @@
+<UIView>
+    <param name="imgUrl" type="String"/>
+    <param name="title" type="String"/>
+
+    <UIButton
+        top="parent.top + 5"
+        left="parent.left + 5"
+        height="48">
+        <UIImageView
+            height="48"
+            width="48"
+            imgUrl="{imgUrl}"
+        />
+    </UIButton>
+    <UILabel
+        top="previous.bottom + 5"
+        height="12"
+        center.x="parent.center.x"
+        text="{title}"
+        />
+</UIView>

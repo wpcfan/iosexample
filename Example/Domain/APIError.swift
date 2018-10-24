@@ -34,5 +34,4 @@ struct APIError: Mappable {
         type <- map["type"]
         stacktrace <- map["stacktrace"]
     }
-    
 }

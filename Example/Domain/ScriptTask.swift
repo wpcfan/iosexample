@@ -7,8 +7,9 @@
 //
 
 import ObjectMapper
+import RxDataSources
 
-struct ScriptTask: Mappable {
+struct ScriptTask: Mappable, ModelType, IdentifiableType, Equatable {
     var id: String?
     var deviceAttributes: Dictionary<String, String>?
     var nextId: String?
@@ -31,5 +32,8 @@ struct ScriptTask: Mappable {
         nextId <- map["nextId"]
         delay <- map["delay"]
     }
-    
+ 
+    var identity: String? {
+        return id
+    }
 }

@@ -7,10 +7,11 @@
 //
 
 import UIKit
-import SafariServices
+import p2_OAuth2
 
 class RootViewController: UIViewController {
     private var current: UIViewController
+    private let oauth2 = container.resolve(OAuth2PasswordGrant.self)!
     
     var deeplink: DeeplinkType? {
         didSet {
@@ -37,8 +38,8 @@ class RootViewController: UIViewController {
     }
     
     func showLoginScreen() {
+        oauth2.forgetTokens()
         let new = UINavigationController(rootViewController: AuthViewController())
-        
         addChild(new)
         new.view.frame = view.bounds
         view.addSubview(new.view)
@@ -93,12 +94,6 @@ class RootViewController: UIViewController {
         animateFadeTransition(to: mainViewController) { [weak self] in
             self?.handleDeeplink()
         }
-    }
-    
-    func switchWebView(url: String) {
-        let viewController = SFSafariViewController(url: URL(string: url)!)
-        let viewScreen = UINavigationController(rootViewController: viewController)
-        animateDismissTransition(to: viewScreen)
     }
     
     private func animateFadeTransition(to new: UIViewController, completion: (() -> Void)? = nil) {

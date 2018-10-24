@@ -9,6 +9,7 @@
 "login.password"="Password";
 "login.loginbtn.title"="Signin";
 "login.registerbtn.title"="Signup";
+"login.navigation.title"="Login";
 "home.tabbar.tab_home"="Home";
 "home.tabbar.tab_social"="Status";
 "home.tabbar.tab_me"="My";

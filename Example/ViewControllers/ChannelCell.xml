@@ -4,5 +4,12 @@
     top="20% + 5"
     clipsToBounds="true"
     reuseIdentifier="ChannelCell">
-    
+    <UIStackView 
+        axis="horizontal"
+        distribution="fillEqually"
+        spacing="16"
+        alignment="fill"
+        >
+        
+    </UIStackView>
 </UITableViewCell>
