@@ -1,8 +1,0 @@
-<UIView>
-    <UILabel
-    height="200"
-    top="parent.top"
-    width="parent.width"
-    text="hello"
-    />
-</UIView>
