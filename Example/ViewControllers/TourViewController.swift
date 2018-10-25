@@ -13,14 +13,22 @@ import Shallows
 import RxSwift
 import RxCocoa
 
-class TourViewController: UIViewController, LayoutLoading, EAIntroDelegate {
+class TourViewController: BaseViewController, LayoutLoading {
     
     fileprivate let imageNames = ["Tour_1","Tour_2"]
     private var introView: EAIntroView?
-    private var disposeBag = DisposeBag()
     private let storage = container.resolve(Storage<Filename, AppData>.self)!
     private let oauth2Service = container.resolve(OAuth2Service.self)!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        self.loadLayout(named: "TourViewController.xml" )
+        preparePages()
+    }
+}
+
+extension TourViewController: EAIntroDelegate {
     func preparePages() -> Void {
         let page1 = EAIntroPage()
         page1.title = "Hello"
@@ -46,7 +54,7 @@ class TourViewController: UIViewController, LayoutLoading, EAIntroDelegate {
                 case .error(let error):
                     log.error(error.localizedDescription)
                     break
-                case .next(let result):
+                case .next(_):
                     break
                 case .completed:
                     break
@@ -75,12 +83,5 @@ class TourViewController: UIViewController, LayoutLoading, EAIntroDelegate {
                 }
             }
             .disposed(by: self.disposeBag)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.loadLayout(named: "TourViewController.xml" )
-        preparePages()
     }
 }

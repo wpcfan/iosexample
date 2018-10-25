@@ -45,7 +45,7 @@ extension AuthService: TargetType {
         case .profile:// Send no parameters
             return .requestPlain
         case .updateUser(_, let user), .register(let user):  // Always sends parameters in URL, regardless of which HTTP method is used
-            return .requestParameters(parameters: ["login": user.login, "mobile": user.mobile, "email": user.email, "name": user.name], encoding: JSONEncoding.default)
+            return .requestParameters(parameters: ["login": user.login!, "mobile": user.mobile!, "email": user.email!, "name": user.name!], encoding: JSONEncoding.default)
         case .login(let login, let password): // Always send parameters as JSON in request body
             return .requestParameters(parameters: ["login": login, "password": password], encoding: JSONEncoding.default)
         }

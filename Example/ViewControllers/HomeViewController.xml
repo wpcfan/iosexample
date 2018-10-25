@@ -1,18 +1,22 @@
 <HomeViewController outlet="layoutNode">
-    <UIView height="headerHeight" width="100%" top="safeAreaInsets.top" backgroundColor="black">
-        
-    </UIView>
+    <HeaderView
+        height="headerHeight"
+        id="headerView"
+        top="safeAreaInsets.top"
+        width="100%"
+        alpha="headerAlpha"
+    />
     <UITableView
-        outlet="tableView"
         backgroundColor="clear"
+        top="previous.bottom"
         contentInset.bottom="safeAreaInsets.bottom"
-        contentInset.top="previous.bottom"
+        contentInset.top="safeAreaInsets.top"
+        contentOffset.y="0"
         contentInsetAdjustmentBehavior="never"
         estimatedSectionHeaderHeight="20"
+        outlet="tableView"
         scrollIndicatorInsets.bottom="safeAreaInsets.bottom"
         scrollIndicatorInsets.top="safeAreaInsets.top"
         style="plain"
-        >
-        
-    </UITableView>
+    />
 </HomeViewController>

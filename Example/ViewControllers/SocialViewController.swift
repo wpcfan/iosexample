@@ -8,6 +8,6 @@
 
 import UIKit
 
-class SocialViewController: UIViewController {
+class SocialViewController: BaseViewController {
     
 }

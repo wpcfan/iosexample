@@ -8,7 +8,6 @@ target 'Example' do
 
   # Pods for Layout
   pod 'Layout', '~> 0.6'
-  pod 'ManualLayout', git: 'https://github.com/isair/ManualLayout', :submodules => true
   pod 'SnapKit', '~> 4.0.0'
   # Pods for Rx
   pod 'RxSwift', '~> 4.0'
@@ -44,16 +43,15 @@ target 'Example' do
   pod 'FSPagerView'
   # Pull to refresh
   pod 'PullToRefreshKit'
-  # Parallax Header
-  pod 'MXParallaxHeader'
   # SVG
 #  pod 'FantasticSnowflake', git: 'https://github.com/onmyway133/Snowflake', :submodules => true
   # Persistence Library
+  pod 'RxRealm'
   pod 'Shallows', :git => 'https://github.com/dreymonde/Shallows', :submodules => true
   # OAuth2 Library
   pod 'p2.OAuth2', :git => 'https://github.com/p2/OAuth2', :submodules => true
   # JWT Library
-  pod 'KTVJSONWebToken', :git => 'https://github.com/kreactive/JSONWebToken', :submodules => true
+  pod 'JWTDecode', '~> 2.1'
   # Icon Font
   pod 'SwiftIconFont', :git => 'https://github.com/0x73/SwiftIconFont', :submodules => true
   # Reveal UI Components

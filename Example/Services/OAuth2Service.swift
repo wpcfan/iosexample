@@ -7,7 +7,7 @@
 //
 
 import p2_OAuth2
-import KTVJSONWebToken
+import JWTDecode
 import RxSwift
 import RxCocoa
 
@@ -26,11 +26,14 @@ class OAuth2Service {
         if (oauth2.refreshToken == nil) {
             return false
         }
-        let validator = RegisteredClaimValidator.expiration &
-            RegisteredClaimValidator.notBefore.optional
-        let jwt : JSONWebToken = try! JSONWebToken(string: oauth2.refreshToken!)
-        let validationResult = validator.validateToken(jwt)
-        guard case ValidationResult.success = validationResult else { return false }
-        return true
+        do {
+            let jwt = try decode(jwt: oauth2.refreshToken!)
+            return !jwt.expired
+        } catch _ {
+            log.debug("jwt decode error: ", userInfo: ["refresh_token": oauth2.refreshToken!])
+            return false
+        }
+        
+        
     }
 }

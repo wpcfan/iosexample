@@ -13,11 +13,10 @@ PODS:
   - JustLog (2.4.0):
     - CocoaAsyncSocket (~> 7.6.3)
     - SwiftyBeaver (~> 1.5.2)
-  - KTVJSONWebToken (2.1.0)
+  - JWTDecode (2.1.1)
   - Layout (0.6.32):
     - Layout/Core (= 0.6.32)
   - Layout/Core (0.6.32)
-  - ManualLayout (1.3.0)
   - Moya (11.0.2):
     - Moya/Core (= 11.0.2)
   - Moya-ObjectMapper/Core (2.7):
@@ -32,7 +31,6 @@ PODS:
   - Moya/RxSwift (11.0.2):
     - Moya/Core
     - RxSwift (~> 4.0)
-  - MXParallaxHeader (0.6.1)
   - ObjectMapper (3.3.0)
   - p2.OAuth2 (4.0.1)
   - PINCache (2.3)
@@ -44,10 +42,15 @@ PODS:
     - FLAnimatedImage (>= 1.0)
     - PINRemoteImage/Core
   - PMAlertController (3.5.0)
-  - pop (1.0.10)
+  - pop (1.0.12)
   - PullToRefreshKit (0.8.8)
   - ReactorKit (1.2.0):
     - RxSwift (>= 4.0.0)
+  - Realm (3.11.1):
+    - Realm/Headers (= 3.11.1)
+  - Realm/Headers (3.11.1)
+  - RealmSwift (3.11.1):
+    - Realm (= 3.11.1)
   - Result (3.2.4)
   - Reveal-SDK (18)
   - RxCocoa (4.3.1):
@@ -65,6 +68,9 @@ PODS:
   - RxQRScanner (1.4.1):
     - RxCocoa (~> 4.3)
     - RxSwift (~> 4.3)
+  - RxRealm (0.7.5):
+    - RealmSwift (~> 3.0)
+    - RxSwift (~> 4.0)
   - RxSwift (4.3.1)
   - RxSwiftExt (3.3.0):
     - RxSwiftExt/Core (= 3.3.0)
@@ -72,7 +78,7 @@ PODS:
     - RxSwift (~> 4.0)
   - Shallows (0.9.0)
   - SnapKit (4.0.1)
-  - SwiftIconFont (2.8.0)
+  - SwiftIconFont (2.9.1)
   - SwiftyBeaver (1.5.2)
   - Swinject (2.5.0)
   - "UITextView+Placeholder (1.2.1)"
@@ -85,12 +91,10 @@ DEPENDENCIES:
   - Eureka
   - FSPagerView
   - JustLog
-  - KTVJSONWebToken (from `https://github.com/kreactive/JSONWebToken`)
+  - JWTDecode (~> 2.1)
   - Layout (~> 0.6)
-  - ManualLayout (from `https://github.com/isair/ManualLayout`)
   - Moya-ObjectMapper/RxSwift (~> 2.7)
   - Moya/RxSwift (~> 11.0)
-  - MXParallaxHeader
   - ObjectMapper (~> 3.3)
   - p2.OAuth2 (from `https://github.com/p2/OAuth2`)
   - PINRemoteImage
@@ -104,6 +108,7 @@ DEPENDENCIES:
   - RxFlow
   - RxGesture
   - RxQRScanner
+  - RxRealm
   - RxSwift (~> 4.0)
   - RxSwiftExt
   - Shallows (from `https://github.com/dreymonde/Shallows`)
@@ -126,10 +131,10 @@ SPEC REPOS:
     - FLAnimatedImage
     - FSPagerView
     - JustLog
+    - JWTDecode
     - Layout
     - Moya
     - Moya-ObjectMapper
-    - MXParallaxHeader
     - ObjectMapper
     - PINCache
     - PINRemoteImage
@@ -137,6 +142,8 @@ SPEC REPOS:
     - pop
     - PullToRefreshKit
     - ReactorKit
+    - Realm
+    - RealmSwift
     - Result
     - Reveal-SDK
     - RxCocoa
@@ -144,6 +151,7 @@ SPEC REPOS:
     - RxFlow
     - RxGesture
     - RxQRScanner
+    - RxRealm
     - RxSwift
     - RxSwiftExt
     - SnapKit
@@ -153,12 +161,6 @@ SPEC REPOS:
     - URLNavigator
 
 EXTERNAL SOURCES:
-  KTVJSONWebToken:
-    :git: https://github.com/kreactive/JSONWebToken
-    :submodules: true
-  ManualLayout:
-    :git: https://github.com/isair/ManualLayout
-    :submodules: true
   p2.OAuth2:
     :git: https://github.com/p2/OAuth2
     :submodules: true
@@ -170,14 +172,6 @@ EXTERNAL SOURCES:
     :submodules: true
 
 CHECKOUT OPTIONS:
-  KTVJSONWebToken:
-    :commit: d2e37fa5ee12731ee8e583e43f39645d056ab2a9
-    :git: https://github.com/kreactive/JSONWebToken
-    :submodules: true
-  ManualLayout:
-    :commit: 3c7e77143a45d6cd5fdb24e9f1153442b65d3136
-    :git: https://github.com/isair/ManualLayout
-    :submodules: true
   p2.OAuth2:
     :commit: e81b4bc4a3cfc3d11b62aba07241ceeb0684ac07
     :git: https://github.com/p2/OAuth2
@@ -187,7 +181,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/dreymonde/Shallows
     :submodules: true
   SwiftIconFont:
-    :commit: b3d70560ba1cf937461e0185df893e44cdd3111c
+    :commit: 3ea53779831e6ad31fdd5462d285cda6c40537ca
     :git: https://github.com/0x73/SwiftIconFont
     :submodules: true
 
@@ -203,20 +197,20 @@ SPEC CHECKSUMS:
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   FSPagerView: 4e865526acc0b0e3077e2abb29b8d10a9f395476
   JustLog: 943987a94d86c6e837ac6da0362c122b157d183a
-  KTVJSONWebToken: c3cc06e26876d63c62a5c40c5e89939899de48cf
+  JWTDecode: 83e8b381aafe27158d9f692cbdca2b12d61d460c
   Layout: 799364f35fc1881e8a73c43b48b1e334bcd301b1
-  ManualLayout: 68ac8cfa6b5f656f7a9fadec3730208b95986880
   Moya: a725035953bc1c0eb1be505ab903984501d82440
   Moya-ObjectMapper: 441caa307b527331fde59e2577adc632a16f1255
-  MXParallaxHeader: 858c403532ed933b381556a81ce333d7065ad182
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   p2.OAuth2: fdc2effef37793a8f775dd4760bc4c1ea906c956
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
   PINRemoteImage: 4ac4011c5caefd6befd99758e09becede05d3226
   PMAlertController: 06dab8160066fc4ce991c880e3722cd403e2926a
-  pop: 82ca6b068ce9278fd350fd9dd09482a0ce9492e6
+  pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   PullToRefreshKit: 7cc53e720e69f135cffa1a57784dfb534f0222ab
   ReactorKit: 18ca466f1e77fef1827addeb921fba8ae14edd63
+  Realm: 037c5919b9ceb59d6beed5d3b031096856b119b3
+  RealmSwift: c9580133e73ef40ed340401af2dbc9a5790dfea7
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   Reveal-SDK: cce79388da3fd0bbb6ae19d769b906cfc3a33a89
   RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
@@ -224,16 +218,17 @@ SPEC CHECKSUMS:
   RxFlow: d5b398955d82bc01c1a43597435e800282c612e0
   RxGesture: 26ede4ed13ffc6336d29dbd9a8dff229bdb72de7
   RxQRScanner: b523a276be9a5f53603b85a0efb871e7bf480180
+  RxRealm: a6c6c0a07cb61f34209969ca6657734edfdfff30
   RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
   RxSwiftExt: 81afb48ab0602f503147417baeb3989d64c7687d
   Shallows: fd53872b476c90fa1d4cb54fb735801d374e41b8
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
-  SwiftIconFont: ddaccaa3bb90fc21ebc528cfdf793342618a5cc2
+  SwiftIconFont: c6d0073f1fa7e03a81b6daf2d8fa8d6ac62b7711
   SwiftyBeaver: 85daaaa2b3ae6e31b7b55c99430e8b91dac088af
   Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
   "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
 
-PODFILE CHECKSUM: 8275b3d76c3417b288b1e6cf86e41add86715c15
+PODFILE CHECKSUM: fef77a431968501646a13065181af7df9db470c3
 
 COCOAPODS: 1.5.3

@@ -10,18 +10,12 @@ import UIKit
 import Layout
 import ReactorKit
 
-class AuthViewController: BaseViewController, LayoutLoading, View {
+class AuthViewController: BaseViewController {
 
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
     @IBOutlet weak var usernameField: UITextField!
     @IBOutlet weak var passwordField: UITextField!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.loadLayout(named: "AuthViewController.xml" )
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.title = NSLocalizedString("login.navigation.title", comment: "")
@@ -29,15 +23,15 @@ class AuthViewController: BaseViewController, LayoutLoading, View {
         self.navigationController?.navigationBar.barTintColor = UIColor.accent
     }
     
-    @IBAction func register() -> Void {
+    @objc func register() -> Void {
         self.navigationController?.pushViewController(RegisterViewController(), animated: true)
     }
+}
+
+extension AuthViewController: View {
+    typealias Reactor = AuthViewReactor
     
-    func layoutDidLoad(_: LayoutNode) {
-        self.reactor = AuthViewReactor()
-    }
-    
-    func bind(reactor: AuthViewReactor) {
+    func bind(reactor: Reactor) {
         loginButton.rx.tap
             .map{ Reactor.Action.login(
                 username: (self.usernameField.text)!,
@@ -48,3 +42,15 @@ class AuthViewController: BaseViewController, LayoutLoading, View {
     }
 }
 
+extension AuthViewController: LayoutLoading {
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        self.loadLayout(named: "AuthViewController.xml" )
+    }
+    
+    func layoutDidLoad(_: LayoutNode) {
+        self.reactor = AuthViewReactor()
+    }
+}

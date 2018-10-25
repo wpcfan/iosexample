@@ -12,12 +12,12 @@ import URLNavigator
 
 class MainNavigationController: UINavigationController { }
 
-class HomeTabViewController: UIViewController {
+class HomeTabViewController: BaseViewController {
     
     private var selectedTab = 0
     
     init(tabName: String) {
-        super.init(nibName: nil, bundle: nil)
+        super.init()
         if (tabName == "status") {
             selectedTab = 2
         } else if (tabName == "home") {
@@ -25,13 +25,24 @@ class HomeTabViewController: UIViewController {
         } else {
             selectedTab = 1
         }
-        
     }
     
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+    required convenience init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
+}
+
+extension HomeTabViewController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        guard let index = tabBarController.viewControllers?.index(of: viewController) else {
+            return
+        }
+        selectedTab = index
+    }
+}
+
+extension HomeTabViewController: LayoutLoading {
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -47,22 +58,10 @@ class HomeTabViewController: UIViewController {
                 "iconTabMy": AppIcons.user,
                 "iconAdd": AppIcons.add,
                 "iconSettings": AppIcons.settingsAccent
-                ]
+            ]
         )
     }
     
-}
-
-extension HomeTabViewController: UITabBarControllerDelegate {
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        guard let index = tabBarController.viewControllers?.index(of: viewController) else {
-            return
-        }
-        selectedTab = index
-    }
-}
-
-extension HomeTabViewController: LayoutLoading {
     func layoutDidLoad(_ layoutNode: LayoutNode) {
         guard let tabBarController = layoutNode.viewController as? UITabBarController else {
             return
