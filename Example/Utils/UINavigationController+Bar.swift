@@ -14,6 +14,7 @@ extension UINavigationController {
         navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationBar.isTranslucent = true
         navigationBar.shadowImage = UIImage()
+        navigationBar.tintColor = light ? UIColor.white : UIColor.black
         setNavigationBarHidden(false, animated:true)
     }
     
@@ -22,5 +23,12 @@ extension UINavigationController {
         navigationBar.setBackgroundImage(UINavigationBar.appearance().backgroundImage(for: UIBarMetrics.default), for:.default)
         navigationBar.isTranslucent = UINavigationBar.appearance().isTranslucent
         navigationBar.shadowImage = UINavigationBar.appearance().shadowImage
+    }
+    
+    public func presentLightNavigationBar() {
+        navigationBar.barStyle = .default
+        navigationBar.barTintColor = UIColor.white
+        navigationBar.tintColor = UIColor.black
+        navigationBar.isTranslucent = false
     }
 }

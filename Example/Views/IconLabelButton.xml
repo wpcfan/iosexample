@@ -3,19 +3,22 @@
     <param name="title" type="String"/>
 
     <UIButton
-        top="parent.top + 5"
+        height="48"
         left="parent.left + 5"
-        height="48">
+        top="parent.top + 5"
+        width="48">
+
         <UIImageView
-            height="48"
-            width="48"
+            height="100%"
+            id="icon"
             imgUrl="{imgUrl}"
+            width="100%"
         />
     </UIButton>
     <UILabel
-        top="previous.bottom + 5"
+        center.x="previous.center.x"
         height="12"
-        center.x="parent.center.x"
         text="{title}"
-        />
+        top="previous.bottom + 5"
+    />
 </UIView>

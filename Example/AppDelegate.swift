@@ -78,8 +78,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     let disposeBag = DisposeBag()
     private var sessionID = UUID().uuidString
-    private var navigator: NavigatorType?
-//    private let oauth2 = container.resolve(OAuth2CodeGrant.self)!
+    private let navigator = container.resolve(NavigatorType.self)!
     
     func application(
         _ application: UIApplication,
@@ -88,15 +87,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         enableLogging()
         enableDebug()
         ShortcutParser.shared.registerShortcuts()
-        let navigator = Navigator()
-        // Initialize navigation map
-        NavigationMap.initialize(navigator: navigator)
+        
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = RootViewController()
         window.makeKeyAndVisible()
         
         self.window = window
-        self.navigator = navigator
         return true
     }
     
@@ -110,13 +106,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            return true
 //        }
         // Try presenting the URL first
-        if self.navigator?.present(url, wrap: UINavigationController.self) != nil {
+        if self.navigator.present(url) != nil {
             log.debug("[Navigator] present: \(url)")
             return true
         }
         
         // Try opening the URL
-        if self.navigator?.open(url) == true {
+        if self.navigator.open(url) == true {
             log.debug("[Navigator] open: \(url)")
             return true
         }

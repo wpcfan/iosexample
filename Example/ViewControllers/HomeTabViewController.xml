@@ -4,11 +4,14 @@
     <UITabBar tintColor="accent" backgroundColor="secondary"/>
 
     <UINavigationController>
-        <UINavigationBar 
-            barTintColor="accent"
-            barStyle="black"
-            tintColor="#fff"
-            titleColor="#fff"
+        <UINavigationBar
+            shadowImage="emptyImage"
+            backgroundImage="emptyImage"
+            backgroundColor="clear"
+            isTranslucent="isHomeBarTranslucent"
+            barTintColor="homeBarTintColor"
+            barStyle="isLightStyle ? default : black"
+            tintColor="homeTintColor"
             />
         <!-- Home -->
         <UIViewController

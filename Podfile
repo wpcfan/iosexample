@@ -17,7 +17,6 @@ target 'Example' do
   pod 'RxQRScanner'
   pod 'RxGesture'
   pod 'ReactorKit'
-  pod 'RxFlow'
   # Pods for Http
   pod 'Moya/RxSwift', '~> 11.0'
   pod 'ObjectMapper', '~> 3.3'

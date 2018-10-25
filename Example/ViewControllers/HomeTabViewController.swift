@@ -18,12 +18,12 @@ class HomeTabViewController: BaseViewController {
     
     init(tabName: String) {
         super.init()
-        if (tabName == "status") {
+        if (tabName == "me") {
             selectedTab = 2
-        } else if (tabName == "home") {
-            selectedTab = 0
-        } else {
+        } else if (tabName == "social") {
             selectedTab = 1
+        } else {
+            selectedTab = 0
         }
     }
     
@@ -49,7 +49,11 @@ extension HomeTabViewController: LayoutLoading {
         loadLayout(
             named: "HomeTabViewController.xml",
             state: [
-                "selectedTab": selectedTab
+                "selectedTab": selectedTab,
+                "isHomeBarTranslucent": true,
+                "homeBarTintColor": UIColor.white,
+                "isLightStyle": false,
+                "homeTintColor": UIColor.white,
             ],
             constants: [
                 "uppercased": AppLayoutClousures.upperCase,
@@ -57,7 +61,8 @@ extension HomeTabViewController: LayoutLoading {
                 "iconTabSocial": AppIcons.social,
                 "iconTabMy": AppIcons.user,
                 "iconAdd": AppIcons.add,
-                "iconSettings": AppIcons.settingsAccent
+                "iconSettings": AppIcons.settingsAccent,
+                "emptyImage": UIImage(),
             ]
         )
     }

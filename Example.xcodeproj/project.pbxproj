@@ -24,10 +24,8 @@
 		AA3E0E8621705B4C00958937 /* ScriptTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E8521705B4C00958937 /* ScriptTask.swift */; };
 		AA3E0E8821707DD400958937 /* ScriptTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E8721707DD400958937 /* ScriptTrigger.swift */; };
 		AA3E0E8A2170841700958937 /* HomeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E892170841700958937 /* HomeInfo.swift */; };
-		AA3E0E8F2170894B00958937 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E8E2170894B00958937 /* HomeViewModel.swift */; };
 		AA3E0E9B2171176300958937 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = AA3E0E9A2171176300958937 /* data.json */; };
 		AA3E0EA52172328100958937 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0EA42172328100958937 /* UIStackView+.swift */; };
-		AA3E0EB22173149300958937 /* AuthStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0EB12173149300958937 /* AuthStep.swift */; };
 		AA3E0EBB21737D0600958937 /* LayoutExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0EBA21737D0600958937 /* LayoutExtensions.swift */; };
 		AA420586217AD80C0068ABC0 /* ModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA420585217AD80C0068ABC0 /* ModelType.swift */; };
 		AA420588217B66210068ABC0 /* UIView+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA420587217B66210068ABC0 /* UIView+Blur.swift */; };
@@ -48,7 +46,6 @@
 		AA4B48F621772EE800A60C11 /* AuthViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B48F521772EE800A60C11 /* AuthViewReactor.swift */; };
 		AA4B48F8217736D900A60C11 /* Reactive+OAuth2.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B48F7217736D900A60C11 /* Reactive+OAuth2.swift */; };
 		AA4B48FA217768CE00A60C11 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B48F9217768CE00A60C11 /* BaseViewController.swift */; };
-		AA4B48FE217791CC00A60C11 /* AuthFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B48FD217791CC00A60C11 /* AuthFlow.swift */; };
 		AA4B49162178800A00A60C11 /* Reactive+FSPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B49152178800A00A60C11 /* Reactive+FSPagerView.swift */; };
 		AA4B491E2178883F00A60C11 /* Reactive+UICollectionViewFlexLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B49172178883E00A60C11 /* Reactive+UICollectionViewFlexLayout.swift */; };
 		AA4B491F2178883F00A60C11 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B49182178883E00A60C11 /* Then.swift */; };
@@ -140,10 +137,8 @@
 		AA3E0E8521705B4C00958937 /* ScriptTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptTask.swift; sourceTree = "<group>"; };
 		AA3E0E8721707DD400958937 /* ScriptTrigger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptTrigger.swift; sourceTree = "<group>"; };
 		AA3E0E892170841700958937 /* HomeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInfo.swift; sourceTree = "<group>"; };
-		AA3E0E8E2170894B00958937 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		AA3E0E9A2171176300958937 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		AA3E0EA42172328100958937 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
-		AA3E0EB12173149300958937 /* AuthStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthStep.swift; sourceTree = "<group>"; };
 		AA3E0EBA21737D0600958937 /* LayoutExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutExtensions.swift; sourceTree = "<group>"; };
 		AA420585217AD80C0068ABC0 /* ModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelType.swift; sourceTree = "<group>"; };
 		AA420587217B66210068ABC0 /* UIView+Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Blur.swift"; sourceTree = "<group>"; };
@@ -166,7 +161,6 @@
 		AA4B48F521772EE800A60C11 /* AuthViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewReactor.swift; sourceTree = "<group>"; };
 		AA4B48F7217736D900A60C11 /* Reactive+OAuth2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+OAuth2.swift"; sourceTree = "<group>"; };
 		AA4B48F9217768CE00A60C11 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		AA4B48FD217791CC00A60C11 /* AuthFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthFlow.swift; sourceTree = "<group>"; };
 		AA4B49152178800A00A60C11 /* Reactive+FSPagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+FSPagerView.swift"; sourceTree = "<group>"; };
 		AA4B49172178883E00A60C11 /* Reactive+UICollectionViewFlexLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reactive+UICollectionViewFlexLayout.swift"; sourceTree = "<group>"; };
 		AA4B49182178883E00A60C11 /* Then.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
@@ -283,7 +277,8 @@
 		AA3E0E8D2170891800958937 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				AA3E0E8E2170894B00958937 /* HomeViewModel.swift */,
+				AA420585217AD80C0068ABC0 /* ModelType.swift */,
+				AAFA6621217D8031000217C9 /* MultipleSectionModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -403,8 +398,6 @@
 				AA3E0E8721707DD400958937 /* ScriptTrigger.swift */,
 				AA4B48EF2175E4D000A60C11 /* APIError.swift */,
 				AA4B48F121761F7400A60C11 /* AuthError.swift */,
-				AA420585217AD80C0068ABC0 /* ModelType.swift */,
-				AAFA6621217D8031000217C9 /* MultipleSectionModel.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -413,8 +406,6 @@
 			isa = PBXGroup;
 			children = (
 				AA693DC22161FF620063D749 /* NavigationMap.swift */,
-				AA3E0EB12173149300958937 /* AuthStep.swift */,
-				AA4B48FD217791CC00A60C11 /* AuthFlow.swift */,
 			);
 			path = Navigator;
 			sourceTree = "<group>";
@@ -432,32 +423,32 @@
 		AAC5EB9C215E7EA4008EBA1F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				AA4B493B2179BBD900A60C11 /* Permission.swift */,
+				AA3E0EBA21737D0600958937 /* LayoutExtensions.swift */,
+				AA683A04216F3BD700E4097B /* MoyaUtils.swift */,
+				AA420597217C7CD90068ABC0 /* ParallaxHeader.swift */,
+				AA420599217C7D170068ABC0 /* ParallaxHeaderMode.swift */,
+				AA4B49152178800A00A60C11 /* Reactive+FSPagerView.swift */,
+				AA4B48E32175006100A60C11 /* Reactive+Layout.swift */,
+				AA4B48F7217736D900A60C11 /* Reactive+OAuth2.swift */,
+				AA4B48E12174E1D300A60C11 /* Reactive+Reuseable.swift */,
+				AA38DCA6217EF4D70046D82D /* Reactive+StatusBar.swift */,
 				AA4B49172178883E00A60C11 /* Reactive+UICollectionViewFlexLayout.swift */,
 				AA4B491A2178883E00A60C11 /* Reactive+UIViewController.swift */,
+				AA38DCA4217EF41F0046D82D /* RxUtil.swift */,
 				AA4B491C2178883F00A60C11 /* RxKeyboard.swift */,
+				AAE49EFD216AE281004BDBD7 /* Shallows+Rx.swift */,
+				AA683A06216F3D5400E4097B /* String+UrlEncode.swift */,
 				AA4B491B2178883E00A60C11 /* SwiftyColor.swift */,
+				AA3E0E772170478200958937 /* TableViewUtils.swift */,
 				AA4B49182178883E00A60C11 /* Then.swift */,
 				AA4B49192178883E00A60C11 /* UICollectionViewDelegateFlexLayout.swift */,
 				AA4B491D2178883F00A60C11 /* UICollectionViewFlexLayout.swift */,
 				AAC5EB9D215E7EB4008EBA1F /* UIColor+Hex.swift */,
 				AA30C0672167AA3600B9E0EB /* UINavigationController+Bar.swift */,
-				AAE49EFD216AE281004BDBD7 /* Shallows+Rx.swift */,
-				AA683A04216F3BD700E4097B /* MoyaUtils.swift */,
-				AA683A06216F3D5400E4097B /* String+UrlEncode.swift */,
-				AA3E0E772170478200958937 /* TableViewUtils.swift */,
-				AA3E0EA42172328100958937 /* UIStackView+.swift */,
-				AA3E0EBA21737D0600958937 /* LayoutExtensions.swift */,
-				AA420587217B66210068ABC0 /* UIView+Blur.swift */,
-				AA4B48E12174E1D300A60C11 /* Reactive+Reuseable.swift */,
-				AA4B48E32175006100A60C11 /* Reactive+Layout.swift */,
-				AA4B48F7217736D900A60C11 /* Reactive+OAuth2.swift */,
-				AA4B49152178800A00A60C11 /* Reactive+FSPagerView.swift */,
-				AA4B493B2179BBD900A60C11 /* Permission.swift */,
-				AA420597217C7CD90068ABC0 /* ParallaxHeader.swift */,
-				AA420599217C7D170068ABC0 /* ParallaxHeaderMode.swift */,
 				AA42059B217C7D410068ABC0 /* UIScrollView+ParallaxHeader.swift */,
-				AA38DCA4217EF41F0046D82D /* RxUtil.swift */,
-				AA38DCA6217EF4D70046D82D /* Reactive+StatusBar.swift */,
+				AA3E0EA42172328100958937 /* UIStackView+.swift */,
+				AA420587217B66210068ABC0 /* UIView+Blur.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -755,7 +746,6 @@
 				AA3E0E8621705B4C00958937 /* ScriptTask.swift in Sources */,
 				AAC5EB9E215E7EB4008EBA1F /* UIColor+Hex.swift in Sources */,
 				AA4B49232178883F00A60C11 /* RxKeyboard.swift in Sources */,
-				AA3E0EB22173149300958937 /* AuthStep.swift in Sources */,
 				AA3E0E822170589F00958937 /* Scene.swift in Sources */,
 				AA30C06421679A4F00B9E0EB /* DeepLinkManager.swift in Sources */,
 				AA4B49202178883F00A60C11 /* UICollectionViewDelegateFlexLayout.swift in Sources */,
@@ -772,7 +762,6 @@
 				AA683A03216F128800E4097B /* HomeService.swift in Sources */,
 				AA3E0E7E2170540F00958937 /* Product.swift in Sources */,
 				AA4B49212178883F00A60C11 /* Reactive+UIViewController.swift in Sources */,
-				AA3E0E8F2170894B00958937 /* HomeViewModel.swift in Sources */,
 				AA4B48F02175E4D000A60C11 /* APIError.swift in Sources */,
 				AA683A05216F3BD700E4097B /* MoyaUtils.swift in Sources */,
 				AA420586217AD80C0068ABC0 /* ModelType.swift in Sources */,
@@ -817,7 +806,6 @@
 				AA6839DE216E0A0500E4097B /* AppLayoutClousures.swift in Sources */,
 				AA42058E217B8C680068ABC0 /* ChannelView.swift in Sources */,
 				AA38DCA5217EF41F0046D82D /* RxUtil.swift in Sources */,
-				AA4B48FE217791CC00A60C11 /* AuthFlow.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

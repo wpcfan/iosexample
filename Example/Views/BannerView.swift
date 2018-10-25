@@ -16,6 +16,11 @@ import ReactorKit
 class BannerView: BaseView, LayoutLoading, ReactorKit.View {
     typealias Reactor = BannerViewReactor
     fileprivate let REUSE_IDENTIFIER = "fspager"
+    var currentImage: String = "" {
+        didSet {
+            layoutNode?.setState(["currentImage": currentImage], animated: true)
+        }
+    }
     var banners: [Banner] = [
         Banner(id: "1", imageUrl: "https://images.unsplash.com/photo-1432679963831-2dab49187847?w=1080", label: "first", link: "http://baidu.com"),
         Banner(id: "1", imageUrl: "https://images.unsplash.com/photo-1447746249824-4be4e1b76d66?w=1080", label: "second", link: "http://baidu.com"),
@@ -26,6 +31,9 @@ class BannerView: BaseView, LayoutLoading, ReactorKit.View {
         didSet {
             pagerView?.register(FSPagerViewCell.self, forCellWithReuseIdentifier: REUSE_IDENTIFIER)
             pagerView?.itemSize = FSPagerView.automaticSize
+            pagerView?.automaticSlidingInterval = 3.0
+            pagerView?.isInfinite = true
+            pagerView?.transformer = FSPagerViewTransformer(type: .crossFading)
         }
     }
     
@@ -45,7 +53,13 @@ class BannerView: BaseView, LayoutLoading, ReactorKit.View {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        loadLayout(named: "BannerView.xml")
+        
+        self.loadLayout(
+            named: "BannerView.xml",
+            state: [
+                "currentImage": banners[0].imageUrl
+            ]
+        )
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -92,9 +106,11 @@ extension BannerView: FSPagerViewDelegate {
     
     func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int) {
         self.pagerControl?.currentPage = targetIndex
+        currentImage = banners[targetIndex].imageUrl!
     }
     
     func pagerViewDidEndScrollAnimation(_ pagerView: FSPagerView) {
         self.pagerControl?.currentPage = pagerView.currentIndex
+        currentImage = banners[pagerView.currentIndex].imageUrl!
     }
 }

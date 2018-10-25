@@ -27,8 +27,6 @@ class ChannelCell: BaseItemCell, View {
         }
     }
     
-    var item: HomeViewModelItem?
-    
     override func layoutSubviews() {
         super.layoutSubviews()
         stackView.snp.makeConstraints { make in
@@ -64,7 +62,7 @@ class ChannelCell: BaseItemCell, View {
             }
             label.snp.makeConstraints { make in
                 make.top.equalTo(imageView.snp.bottom).offset(8)
-                make.centerX.equalToSuperview()
+                make.centerX.equalTo(imageView)
                 make.height.equalTo(16)
             }
             stackView.addArrangedSubview(button)

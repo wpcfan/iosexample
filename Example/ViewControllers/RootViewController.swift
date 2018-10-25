@@ -80,17 +80,6 @@ class RootViewController: UIViewController {
     
     func switchToMainScreen() {
         let mainViewController = HomeTabViewController(tabName: "app")
-//        let mainScreen = MainNavigationController(rootViewController: mainViewController)
-//        UINavigationBar.appearance().barTintColor = UIColor.accent
-//        UINavigationBar.appearance().isTranslucent = false
-//        let navigationTitleAttributes = {
-//            return [ NSAttributedString.Key.foregroundColor: UIColor.primary ]
-//        }()
-//        UINavigationBar.appearance().tintColor = .white
-//        UIBarButtonItem.appearance().setTitleTextAttributes(navigationTitleAttributes as [NSAttributedString.Key : Any], for: .normal)
-//        UINavigationBar.appearance().titleTextAttributes = navigationTitleAttributes as [NSAttributedString.Key : Any]
-//        mainScreen.presentTransparentNavigationBar()
-//        mainScreen.hideTransparentNavigationBar()
         animateFadeTransition(to: mainViewController) { [weak self] in
             self?.handleDeeplink()
         }

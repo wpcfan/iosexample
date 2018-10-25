@@ -26,16 +26,6 @@ class BannerCell: BaseItemCell, ReactorKit.View {
         $0.contentInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
     }
     
-    var item: HomeViewModelItem? {
-        didSet {
-            guard let item = item as? HomeViewModelBannerItem else {
-                return
-            }
-            self.banners = item.banners
-            log.debug("banners assigned to HomeViewModelItem", userInfo: ["banners": banners])
-        }
-    }
-    
     @IBAction func presentWebView(url: NSString) -> Void {
         let vc = SFSafariViewController(url: URL(string: url as String)!)
         self.window?.rootViewController?.present(vc, animated: true, completion: nil)

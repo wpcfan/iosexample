@@ -15,18 +15,44 @@ import RxQRScanner
 
 class HomeViewController: BaseViewController {
 
-    private static let maxHeaderHeight: CGFloat = 192
-    private static let minHeaderHeight: CGFloat = 0
+    private static let MAX_TOOLBAR_WIDTH: CGFloat = 1.0
+    private static let MIN_TOOLBAR_WIDTH: CGFloat = 0.5
     
-    private var previousScrollOffset: CGFloat = -88
-    private var headerHeight: CGFloat = maxHeaderHeight {
+    private var previousScrollOffset: CGFloat = 0
+    
+    private var homeTintColor: UIColor = UIColor.white {
+        didSet {
+            layoutNode?.setState(["homeTintColor": homeTintColor])
+        }
+    }
+    
+    private var isLightStyle: Bool = true {
+        didSet {
+            layoutNode?.setState(["isLightStyle": isLightStyle])
+        }
+    }
+    
+    private var homeBarTintColor: UIColor = UIColor.white {
+        didSet {
+            layoutNode?.setState(["homeBarTintColor": homeBarTintColor])
+        }
+    }
+    
+    private var homeBarTranslucent: Bool = false {
+        didSet {
+            layoutNode?.setState(["isHomeBarTranslucent": homeBarTranslucent])
+        }
+    }
+    
+    private var headerHeight: CGFloat = 280 {
         didSet {
             layoutNode?.setState(["headerHeight": headerHeight])
         }
     }
-    private var headerAlpha: CGFloat = 1 {
+    
+    private var toolbarWidth: CGFloat = 0.8 {
         didSet {
-            layoutNode?.setState(["headerAlpha": headerAlpha])
+            layoutNode?.setState(["toolbarWidth": toolbarWidth])
         }
     }
     
@@ -39,8 +65,12 @@ class HomeViewController: BaseViewController {
     @objc var layoutNode: LayoutNode? {
         didSet {
             layoutNode?.setState([
+                "toolbarWidth": toolbarWidth,
                 "headerHeight": headerHeight,
-                "headerAlpha": headerAlpha
+                "isHomeBarTranslucent": homeBarTranslucent,
+                "homeBarTintColor": homeBarTintColor,
+                "isLightStyle": isLightStyle,
+                "homeTintColor": homeTintColor,
                 ])
         }
     }
@@ -85,80 +115,77 @@ extension HomeViewController: UITableViewDataSource {
 }
 
 extension HomeViewController: UIScrollViewDelegate {
-    private func canAnimateHeader(_ scrollView: UIScrollView) -> Bool {
-        // Calculate the size of the scrollView when header is collapsed
-        let scrollViewMaxHeight = scrollView.frame.height + self.headerHeight - HomeViewController.minHeaderHeight
-        
-        // Make sure that when header is collapsed, there is still room to scroll
-        return scrollView.contentSize.height > scrollViewMaxHeight
-    }
-    
-    private func scrollViewDidStopScrolling() {
-        let range = HomeViewController.maxHeaderHeight - HomeViewController.minHeaderHeight
-        let midPoint = HomeViewController.minHeaderHeight + (range / 2)
-        
-        if self.headerHeight > midPoint {
-            self.expandHeader()
-        } else {
-            self.collapseHeader()
-        }
-    }
-    
-    private func collapseHeader() {
-        self.view.layoutIfNeeded()
-        UIView.animate(withDuration: 0.2, animations: {
-            self.headerHeight = HomeViewController.minHeaderHeight
-            self.updateHeader()
-            self.view.layoutIfNeeded()
-        })
-    }
-    
-    private func expandHeader() {
-        self.view.layoutIfNeeded()
-        UIView.animate(withDuration: 0.2, animations: {
-            self.headerHeight = HomeViewController.maxHeaderHeight
-            self.updateHeader()
-            self.view.layoutIfNeeded()
-        })
-    }
-    
+
+//    private func scrollViewDidStopScrolling() {
+//        let range = 100 * (HomeViewController.MAX_TOOLBAR_WIDTH - HomeViewController.MIN_TOOLBAR_WIDTH)
+//            UIView.animate(withDuration: 0.2, animations: {
+//                self.headerHeight = HomeViewController.maxHeaderHeight
+//                self.updateHeader()
+//                self.view.layoutIfNeeded()
+//            })
+//    }
+
     private func setScrollPosition(_ position: CGFloat) {
         self.tableView!.contentOffset = CGPoint(x: self.tableView!.contentOffset.x, y: position)
     }
     
-    private func updateHeader() {
-        let range = HomeViewController.maxHeaderHeight - HomeViewController.minHeaderHeight
-        let openAmount = self.headerHeight - HomeViewController.minHeaderHeight
-        let percentage = openAmount / range
-        
-        self.headerAlpha = percentage
+    private func getTopMargin() -> CGFloat {
+        var top: CGFloat = 0
+        if #available(iOS 11.0, *) {
+            top = self.additionalSafeAreaInsets.top
+        }
+        return top
     }
+
     // MARK: methods from UIScrollViewDelegate protocol
+    fileprivate func animateToolbar(_ isScrollingUp: Bool, _ offsetY: CGFloat, _ isScrollingDown: Bool) {
+        let distance = 0.8 * headerHeight - self.navigationController!.navigationBar.frame.size.height
+        let widthDiff = HomeViewController.MAX_TOOLBAR_WIDTH - HomeViewController.MIN_TOOLBAR_WIDTH
+        if (isScrollingUp && offsetY < headerHeight) {
+            let calcWidth = HomeViewController.MAX_TOOLBAR_WIDTH - (abs(offsetY)/distance) * widthDiff
+            self.toolbarWidth = max(calcWidth, HomeViewController.MIN_TOOLBAR_WIDTH)
+        }
+        if (isScrollingDown && offsetY > 0) {
+            let calcWidth = ((headerHeight-abs(offsetY))/distance) * widthDiff  + HomeViewController.MIN_TOOLBAR_WIDTH
+            self.toolbarWidth = min(calcWidth, HomeViewController.MAX_TOOLBAR_WIDTH)
+        }
+    }
+    
+    fileprivate func animateNavigationBar(_ offsetY: CGFloat, _ distance: CGFloat) {
+        if (offsetY >= distance) {
+            self.navigationController?.presentLightNavigationBar()
+            let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
+            self.navigationController?.navigationBar.titleTextAttributes = textAttributes
+        } else {
+            self.navigationController?.presentTransparentNavigationBar(light: true)
+            let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
+            self.navigationController?.navigationBar.titleTextAttributes = textAttributes
+        }
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
+        print("offsetY", offsetY)
         let scrollDiff = offsetY - self.previousScrollOffset
+        print("scrollDiff", scrollDiff)
         let isScrollingDown = scrollDiff < 0
         let isScrollingUp = scrollDiff > 0
-        if isScrollingDown {
-            self.headerHeight -= abs(scrollDiff)
-            self.updateHeader()
-            self.setScrollPosition(self.previousScrollOffset)
-        }
-        if isScrollingUp {
-            self.headerHeight += abs(scrollDiff)
-            self.updateHeader()
-            self.setScrollPosition(self.previousScrollOffset)
-        }
+        animateToolbar(isScrollingUp, offsetY, isScrollingDown)
+        let distance = 0.8 * headerHeight - self.navigationController!.navigationBar.frame.size.height
+        print("distance", distance)
+        animateNavigationBar(offsetY, distance)
         self.previousScrollOffset = offsetY
+        print("isScrollingUp: ", isScrollingUp)
+        print("toolbarWidth: ", self.toolbarWidth)
     }
-    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        if !decelerate {
-            self.scrollViewDidStopScrolling()
-        }
-    }
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        self.scrollViewDidStopScrolling()
-    }
+//    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+//        if !decelerate {
+//            self.scrollViewDidStopScrolling()
+//        }
+//    }
+//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+//        self.scrollViewDidStopScrolling()
+//    }
 }
 
 extension HomeViewController: UITableViewDelegate {

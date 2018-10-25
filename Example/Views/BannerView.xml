@@ -1,14 +1,29 @@
 <UIView clipsToBounds="true">
-    <FSPagerView.FSPagerView
-        outlet="pagerView"
-        height="parent.height"
-        width="parent.width"
+    <UIImageView
+        alpha="0.4"
+        bottom="parent.bottom"
+        imgUrl="{currentImage}"
+        left="parent.left"
+        right="parent.right"
+        top="parent.top"
     />
-    <FSPagerView.FSPageControl
-        outlet="pagerControl"
-        bottom="previous.bottom"
-        height="32"
-        left="previous.left"
-        right="previous.right"
-    />
+    <UIView
+        bottom="parent.bottom"
+        center.x="parent.center.x"
+        height="80%"
+        width="80%">
+
+        <FSPagerView.FSPagerView
+            height="parent.height"
+            outlet="pagerView"
+            width="parent.width"
+        />
+        <FSPagerView.FSPageControl
+            bottom="previous.bottom"
+            height="32"
+            left="previous.left"
+            outlet="pagerControl"
+            right="previous.right"
+        />
+    </UIView>
 </UIView>

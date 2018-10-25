@@ -1,22 +1,37 @@
 <HomeViewController outlet="layoutNode">
-    <HeaderView
-        height="headerHeight"
-        id="headerView"
-        top="safeAreaInsets.top"
-        width="100%"
-        alpha="headerAlpha"
-    />
     <UITableView
         backgroundColor="clear"
-        top="previous.bottom"
+        top="parent.top"
         contentInset.bottom="safeAreaInsets.bottom"
-        contentInset.top="safeAreaInsets.top"
+        contentInset.top="parent.top"
         contentOffset.y="0"
         contentInsetAdjustmentBehavior="never"
-        estimatedSectionHeaderHeight="20"
+        estimatedSectionHeaderHeight="0"
         outlet="tableView"
         scrollIndicatorInsets.bottom="safeAreaInsets.bottom"
-        scrollIndicatorInsets.top="safeAreaInsets.top"
-        style="plain"
-    />
+        scrollIndicatorInsets.top="parent.top"
+        style="plain">
+        <UIView height="headerHeight" width="100%">
+            <BannerView
+                width="100%"
+                height="80%"
+                top="parent.top" />
+            <UIView
+                width="100%"
+                height="20%"
+                bottom="parent.bottom">
+                <UIStackView
+                    width="toolbarWidth * parent.width"
+                    height="100%"
+                    alignment="center"
+                    distribution="fillEqually"
+                    axis="horizontal"
+                    center.x="parent.center.x"
+                    spacing="10">
+                    <UIButton title="hello" titleColor="#000"/>
+                    <UIButton title="world" titleColor="#000"/>
+                </UIStackView>
+            </UIView>
+        </UIView>
+    </UITableView>
 </HomeViewController>
