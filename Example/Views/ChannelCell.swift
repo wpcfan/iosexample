@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import PINRemoteImage
 import ReactorKit
 
 class ChannelCell: BaseItemCell, View {

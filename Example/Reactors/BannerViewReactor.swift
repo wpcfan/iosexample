@@ -10,6 +10,7 @@ import RxSwift
 import ReactorKit
 import Moya_ObjectMapper
 import Moya
+import URLNavigator
 
 class BannerViewReactor: Reactor {
     
@@ -17,14 +18,16 @@ class BannerViewReactor: Reactor {
         case load
         case loadSuccess(_ banners: [Banner])
         case loadFail(_ error: APIError)
+        case selected(_ idx: Int)
     }
     
     struct State {
         var banners: [Banner]
+        var selectedIndex: Int?
         var error: APIError?
     }
     
-    let initialState: State = State(banners: [], error: nil)
+    let initialState: State = State(banners: [], selectedIndex: nil, error: nil)
     
     func mutate(action: Action) -> Observable<Action> {
         switch action {
@@ -54,6 +57,10 @@ class BannerViewReactor: Reactor {
         case let .loadFail(error):
             var newState = state
             newState.error = error
+            return newState
+        case let .selected(idx):
+            var newState = state
+            newState.selectedIndex = idx
             return newState
         default:
             return state

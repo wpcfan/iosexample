@@ -19,7 +19,7 @@ let HomeProvider = MoyaProvider<HomeService>(requestClosure: MoyaUtils.requestCl
 
 // MARK: - TargetType Protocol Implementation
 extension HomeService: TargetType {
-    var baseURL: URL { return URL(string: AppEnv.authOpenIdBaseUrl)! }
+    var baseURL: URL { return URL(string: AppEnv.apiBaseUrl)! }
     var path: String {
         switch self {
         case .banners:

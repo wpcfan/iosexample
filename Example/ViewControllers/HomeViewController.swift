@@ -116,15 +116,6 @@ extension HomeViewController: UITableViewDataSource {
 
 extension HomeViewController: UIScrollViewDelegate {
 
-//    private func scrollViewDidStopScrolling() {
-//        let range = 100 * (HomeViewController.MAX_TOOLBAR_WIDTH - HomeViewController.MIN_TOOLBAR_WIDTH)
-//            UIView.animate(withDuration: 0.2, animations: {
-//                self.headerHeight = HomeViewController.maxHeaderHeight
-//                self.updateHeader()
-//                self.view.layoutIfNeeded()
-//            })
-//    }
-
     private func setScrollPosition(_ position: CGFloat) {
         self.tableView!.contentOffset = CGPoint(x: self.tableView!.contentOffset.x, y: position)
     }
@@ -138,20 +129,19 @@ extension HomeViewController: UIScrollViewDelegate {
     }
 
     // MARK: methods from UIScrollViewDelegate protocol
-    fileprivate func animateToolbar(_ isScrollingUp: Bool, _ offsetY: CGFloat, _ isScrollingDown: Bool) {
-        let distance = 0.8 * headerHeight - self.navigationController!.navigationBar.frame.size.height
+    fileprivate func animateToolbar(_ alpha: CGFloat) {
         let widthDiff = HomeViewController.MAX_TOOLBAR_WIDTH - HomeViewController.MIN_TOOLBAR_WIDTH
-        if (isScrollingUp && offsetY < headerHeight) {
-            let calcWidth = HomeViewController.MAX_TOOLBAR_WIDTH - (abs(offsetY)/distance) * widthDiff
-            self.toolbarWidth = max(calcWidth, HomeViewController.MIN_TOOLBAR_WIDTH)
-        }
-        if (isScrollingDown && offsetY > 0) {
-            let calcWidth = ((headerHeight-abs(offsetY))/distance) * widthDiff  + HomeViewController.MIN_TOOLBAR_WIDTH
-            self.toolbarWidth = min(calcWidth, HomeViewController.MAX_TOOLBAR_WIDTH)
-        }
+        
+        self.toolbarWidth = max(HomeViewController.MAX_TOOLBAR_WIDTH  - alpha * widthDiff, HomeViewController.MIN_TOOLBAR_WIDTH)
+        
+    }
+    
+    fileprivate func fadingNavigationBar(_ alpha: CGFloat) {
+        self.navigationController?.fadingNavigationBar(alpha: alpha)
     }
     
     fileprivate func animateNavigationBar(_ offsetY: CGFloat, _ distance: CGFloat) {
+        
         if (offsetY >= distance) {
             self.navigationController?.presentLightNavigationBar()
             let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
@@ -163,28 +153,46 @@ extension HomeViewController: UIScrollViewDelegate {
         }
     }
     
+    fileprivate func animateNavigationBarAndToolBarTransition(_ scrollView: UIScrollView) {
+        
+        let offsetY = scrollView.contentOffset.y
+        guard offsetY > 0 else { return }
+        let bannerHeight = 0.8 * headerHeight
+        let toolbarHeight = 0.2 * headerHeight
+        let statusBarHeight = self.navigationController!.getStatusBarHeight()
+        let navigationBarHeight = self.navigationController!.getNavigationBarHeight()
+        let offsetToSet = bannerHeight + toolbarHeight - navigationBarHeight + toolbarHeight
+        if offsetY >= navigationBarHeight + statusBarHeight  {
+            scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: offsetToSet), animated: true)
+        } else {
+            scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: 0), animated: true)
+        }
+         self.view.layoutIfNeeded()
+    }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let offsetY = scrollView.contentOffset.y
         print("offsetY", offsetY)
         let scrollDiff = offsetY - self.previousScrollOffset
         print("scrollDiff", scrollDiff)
-        let isScrollingDown = scrollDiff < 0
-        let isScrollingUp = scrollDiff > 0
-        animateToolbar(isScrollingUp, offsetY, isScrollingDown)
-        let distance = 0.8 * headerHeight - self.navigationController!.navigationBar.frame.size.height
-        print("distance", distance)
+        
+        let bannerHeight = 0.8 * headerHeight
+        let statusBarHeight = self.navigationController!.getStatusBarHeight()
+        let distance = bannerHeight - statusBarHeight
+        let preAlpha = offsetY / distance
+        let alpha = offsetY <= 0 ? 0 : preAlpha > 1 ? 1 : preAlpha
+        animateToolbar(alpha)
+        fadingNavigationBar(alpha)
         animateNavigationBar(offsetY, distance)
         self.previousScrollOffset = offsetY
-        print("isScrollingUp: ", isScrollingUp)
-        print("toolbarWidth: ", self.toolbarWidth)
     }
-//    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-//        if !decelerate {
-//            self.scrollViewDidStopScrolling()
-//        }
-//    }
+    func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        if !decelerate {
+            animateNavigationBarAndToolBarTransition(scrollView)
+        }
+    }
 //    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//        self.scrollViewDidStopScrolling()
+//        animateNavigationBarAndToolBarTransition(scrollView)
 //    }
 }
 

@@ -1,35 +1,82 @@
 <HomeViewController outlet="layoutNode">
     <UITableView
         backgroundColor="clear"
-        top="parent.top"
         contentInset.bottom="safeAreaInsets.bottom"
         contentInset.top="parent.top"
-        contentOffset.y="0"
         contentInsetAdjustmentBehavior="never"
+        contentOffset.y="0"
         estimatedSectionHeaderHeight="0"
         outlet="tableView"
         scrollIndicatorInsets.bottom="safeAreaInsets.bottom"
         scrollIndicatorInsets.top="parent.top"
-        style="plain">
-        <UIView height="headerHeight" width="100%">
+        style="plain"
+        top="parent.top">
+
+        <UIView
+            height="headerHeight"
+            width="100%">
+
             <BannerView
-                width="100%"
                 height="80%"
-                top="parent.top" />
-            <UIView
+                top="parent.top"
                 width="100%"
+            />
+            <UIView
+                bottom="parent.bottom"
                 height="20%"
-                bottom="parent.bottom">
+                width="100%">
+
                 <UIStackView
-                    width="toolbarWidth * parent.width"
-                    height="100%"
                     alignment="center"
-                    distribution="fillEqually"
                     axis="horizontal"
                     center.x="parent.center.x"
-                    spacing="10">
-                    <UIButton title="hello" titleColor="#000"/>
-                    <UIButton title="world" titleColor="#000"/>
+                    distribution="fillEqually"
+                    height="100%"
+                    spacing="10"
+                    width="toolbarWidth * parent.width">
+
+                    <UIView
+                        left="parent.left + 10"
+                        top="parent.top"
+                        width="(parent.width - 30) / 2">
+
+                        <UIButton
+                            height="16"
+                            center.x="parent.center.x"
+                            title="hello"
+                            titleColor="#000"
+                            top="parent.top + 10"
+                            width="64"
+                        />
+                        <UIView
+                            backgroundColor="blue"
+                            center.x="previous.center.x"
+                            height="2"
+                            top="previous.bottom + 10"
+                            width="previous.width + 10"
+                        />
+                    </UIView>
+                    <UIView
+                        left="previous.right + 10"
+                        top="previous.top"
+                        width="previous.width">
+
+                        <UIButton
+                            height="16"
+                            center.x="parent.center.x"
+                            title="world"
+                            titleColor="#000"
+                            top="parent.top + 10"
+                            width="64"
+                        />
+                        <UIView
+                            backgroundColor="blue"
+                            center.x="previous.center.x"
+                            height="2"
+                            top="previous.bottom + 10"
+                            width="previous.width + 10"
+                        />
+                    </UIView>
                 </UIStackView>
             </UIView>
         </UIView>

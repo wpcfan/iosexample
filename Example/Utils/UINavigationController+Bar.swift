@@ -14,7 +14,8 @@ extension UINavigationController {
         navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationBar.isTranslucent = true
         navigationBar.shadowImage = UIImage()
-        navigationBar.tintColor = light ? UIColor.white : UIColor.black
+        let color = light ? UIColor.white : UIColor.black
+        navigationBar.tintColor = color
         setNavigationBarHidden(false, animated:true)
     }
     
@@ -30,5 +31,26 @@ extension UINavigationController {
         navigationBar.barTintColor = UIColor.white
         navigationBar.tintColor = UIColor.black
         navigationBar.isTranslucent = false
+    }
+    
+    public func fadingNavigationBar(color: UIColor = UIColor.white, alpha: CGFloat) {
+        UIApplication.shared.statusBarView?.backgroundColor = color.withAlphaComponent(alpha)
+        navigationBar.backgroundColor = color.withAlphaComponent(alpha)
+    }
+    
+    public func showNavigationBarShadow() {
+        navigationBar.layer.shadowColor = UIColor.lightGray.cgColor
+        navigationBar.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
+        navigationBar.layer.shadowRadius = 1.0
+        navigationBar.layer.shadowOpacity = 1.0
+        navigationBar.layer.masksToBounds = false
+    }
+    
+    public func getStatusBarHeight() -> CGFloat {
+        return UIApplication.shared.statusBarView?.frame.height ?? 0
+    }
+    
+    public func getNavigationBarHeight() -> CGFloat {
+        return navigationBar.frame.height
     }
 }

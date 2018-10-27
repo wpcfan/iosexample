@@ -1,8 +1,6 @@
-<UIView clipsToBounds="true">
+<UIView clipsToBounds="true" outlet="layoutNode">
     <UIImageView
-        alpha="0.4"
         bottom="parent.bottom"
-        imgUrl="{currentImage}"
         left="parent.left"
         right="parent.right"
         top="parent.top"

@@ -59,12 +59,12 @@ PODS:
     - Differentiator (~> 3.0)
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
-  - RxFlow (1.6.1):
-    - RxCocoa (>= 4.3.0)
-    - RxSwift (>= 4.3.0)
   - RxGesture (2.0.1):
     - RxCocoa (~> 4.3.1)
     - RxSwift (~> 4.3.1)
+  - RxOptional (3.5.0):
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
   - RxQRScanner (1.4.1):
     - RxCocoa (~> 4.3)
     - RxSwift (~> 4.3)
@@ -105,8 +105,8 @@ DEPENDENCIES:
   - Reveal-SDK
   - RxCocoa (~> 4.0)
   - RxDataSources (~> 3.0)
-  - RxFlow
   - RxGesture
+  - RxOptional
   - RxQRScanner
   - RxRealm
   - RxSwift (~> 4.0)
@@ -148,8 +148,8 @@ SPEC REPOS:
     - Reveal-SDK
     - RxCocoa
     - RxDataSources
-    - RxFlow
     - RxGesture
+    - RxOptional
     - RxQRScanner
     - RxRealm
     - RxSwift
@@ -215,8 +215,8 @@ SPEC CHECKSUMS:
   Reveal-SDK: cce79388da3fd0bbb6ae19d769b906cfc3a33a89
   RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
-  RxFlow: d5b398955d82bc01c1a43597435e800282c612e0
   RxGesture: 26ede4ed13ffc6336d29dbd9a8dff229bdb72de7
+  RxOptional: bd32ff8ca9df4177683d56ffeb618a9d4d5d5cad
   RxQRScanner: b523a276be9a5f53603b85a0efb871e7bf480180
   RxRealm: a6c6c0a07cb61f34209969ca6657734edfdfff30
   RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
@@ -229,6 +229,6 @@ SPEC CHECKSUMS:
   "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
 
-PODFILE CHECKSUM: fef77a431968501646a13065181af7df9db470c3
+PODFILE CHECKSUM: 1a10fce8f93fec33ca65fa75cb4f361b2ab0ec94
 
 COCOAPODS: 1.5.3

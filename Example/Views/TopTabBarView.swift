@@ -6,4 +6,17 @@
 //  Copyright © 2018 twigcodes. All rights reserved.
 //
 
-import Foundation
+import ReactorKit
+import Layout
+
+class TopTabBarView: BaseView {
+    
+    
+}
+
+extension TopTabBarView : View {
+    typealias Reactor = BannerViewReactor
+    func bind(reactor: Reactor) {
+        
+    }
+}

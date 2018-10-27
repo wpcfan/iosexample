@@ -63,7 +63,7 @@ extension BannerCell: FSPagerViewDataSource {
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: BannerCell.REUSE_IDENTIFIER, at: index)
-        cell.imageView?.pin_setImage(from: URL(string: banners[index].imageUrl!)!)
+        cell.imageView?.pin_setImage(from: URL(string: banners[index].imageUrl!))
         cell.imageView?.contentMode = .scaleAspectFill
         cell.imageView?.clipsToBounds = true
         cell.textLabel?.text = banners[index].label

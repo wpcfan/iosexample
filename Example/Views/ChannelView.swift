@@ -9,8 +9,8 @@
 import Layout
 import ReactorKit
 
-class ChannelView: BaseView, LayoutLoading, View {
-    typealias Reactor = ChannelViewReactor
+class ChannelView: BaseView {
+    
     var channels: [Banner] = [
         Banner(id: "1", imageUrl: "https://image.flaticon.com/icons/png/512/138/138281.png", label: "first", link: "http://baidu.com"),
         Banner(id: "1", imageUrl: "https://image.flaticon.com/icons/png/512/148/148982.png", label: "second", link: "http://baidu.com"),
@@ -33,14 +33,10 @@ class ChannelView: BaseView, LayoutLoading, View {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        // Ensure layout is updated after screen rotation, etc
-        self.layoutNode?.view.frame = self.bounds
-    }
-    
+}
+
+extension ChannelView: ReactorKit.View {
+    typealias Reactor = ChannelViewReactor
     func bind(reactor: Reactor) {
         
     }

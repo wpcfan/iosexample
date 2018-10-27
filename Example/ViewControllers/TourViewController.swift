@@ -12,20 +12,13 @@ import EAIntroView
 import Shallows
 import RxSwift
 import RxCocoa
+import ReactorKit
 
-class TourViewController: BaseViewController, LayoutLoading {
+class TourViewController: BaseViewController {
     
-    fileprivate let imageNames = ["Tour_1","Tour_2"]
+    private let imageNames = ["Tour_1","Tour_2"]
     private var introView: EAIntroView?
-    private let storage = container.resolve(Storage<Filename, AppData>.self)!
-    private let oauth2Service = container.resolve(OAuth2Service.self)!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.loadLayout(named: "TourViewController.xml" )
-        preparePages()
-    }
+    private var tourCompleted = PublishSubject<Void>()
 }
 
 extension TourViewController: EAIntroDelegate {
@@ -45,43 +38,34 @@ extension TourViewController: EAIntroDelegate {
     }
     
     func introDidFinish(_ introView: EAIntroView!, wasSkipped: Bool) {
-        self.storage
-            .rx_set(value: AppData(tourGuidePresented: true), forKey: "data")
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
-            .observeOn(MainScheduler.instance)
-            .subscribe{ event -> Void in
-                switch event {
-                case .error(let error):
-                    log.error(error.localizedDescription)
-                    break
-                case .next(_):
-                    break
-                case .completed:
-                    break
-                }
-            }
-            .disposed(by: self.disposeBag)
+        tourCompleted.onNext(())
+    }
+}
+
+extension TourViewController: LayoutLoading {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        self.loadLayout(named: "TourViewController.xml" )
+        preparePages()
+    }
+    
+    func layoutDidLoad(_: LayoutNode) {
+        self.reactor = TourViewControllerReactor()
+    }
+}
+
+extension TourViewController: ReactorKit.View {
+    typealias Reactor = TourViewControllerReactor
+    
+    func bind(reactor: Reactor) {
         
-        let auth$ = Observable.of(oauth2Service.checkLoginStatus())
+        reactor.action.onNext(.checkAuth)
         
-        auth$.subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
-            .observeOn(MainScheduler.instance)
-            .subscribe{ event -> Void in
-                switch event {
-                case .error(let error):
-                    log.error(error.localizedDescription)
-                    break
-                case .next(let result):
-                    if (result) {
-                        AppDelegate.shared.rootViewController.switchToMainScreen()
-                    } else {
-                        AppDelegate.shared.rootViewController.showLoginScreen()
-                    }
-                    break
-                case .completed:
-                    break
-                }
-            }
+        tourCompleted.asObservable()
+            .withLatestFrom(reactor.state)
+            .map{ _ in Reactor.Action.navigateTo }
+            .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
     }
 }

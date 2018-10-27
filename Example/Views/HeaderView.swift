@@ -9,8 +9,7 @@
 import Layout
 import ReactorKit
 
-class HeaderView: BaseView, LayoutLoading, View {
-    typealias Reactor = HomeViewReactor
+class HeaderView: BaseView {
     
     @IBOutlet var bannerView: BannerView? {
         didSet {
@@ -43,13 +42,11 @@ class HeaderView: BaseView, LayoutLoading, View {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        // Ensure layout is updated after screen rotation, etc
-        self.layoutNode?.view.frame = self.bounds
-    }
-    
+
+}
+
+extension HeaderView: ReactorKit.View {
+    typealias Reactor = HomeViewReactor
     func bind(reactor: Reactor) {
         
     }

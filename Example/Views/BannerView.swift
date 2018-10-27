@@ -6,28 +6,28 @@
 //  Copyright © 2018年 twigcodes. All rights reserved.
 //
 
-import UIKit
 import Layout
 import FSPagerView
 import RxGesture
 import SafariServices
 import ReactorKit
+import RxSwift
+import URLNavigator
 
-class BannerView: BaseView, LayoutLoading, ReactorKit.View {
-    typealias Reactor = BannerViewReactor
+class BannerView: BaseView {
+    
     fileprivate let REUSE_IDENTIFIER = "fspager"
-    var currentImage: String = "" {
+    private let selectedIndex = PublishSubject<Int?>()
+    private let navigator = container.resolve(NavigatorType.self)!
+    
+    @objc var layoutNode: LayoutNode? {
         didSet {
-            layoutNode?.setState(["currentImage": currentImage], animated: true)
+            self.reactor = BannerViewReactor()
         }
     }
-    var banners: [Banner] = [
-        Banner(id: "1", imageUrl: "https://images.unsplash.com/photo-1432679963831-2dab49187847?w=1080", label: "first", link: "http://baidu.com"),
-        Banner(id: "1", imageUrl: "https://images.unsplash.com/photo-1447746249824-4be4e1b76d66?w=1080", label: "second", link: "http://baidu.com"),
-        Banner(id: "1", imageUrl: "https://images.unsplash.com/photo-1463595373836-6e0b0a8ee322?w=1080", label: "third", link: "http://baidu.com")
-    ]
+    var banners: [Banner] = []
     
-    @IBOutlet var pagerView: FSPagerView? {
+    @objc var pagerView: FSPagerView? {
         didSet {
             pagerView?.register(FSPagerViewCell.self, forCellWithReuseIdentifier: REUSE_IDENTIFIER)
             pagerView?.itemSize = FSPagerView.automaticSize
@@ -37,7 +37,7 @@ class BannerView: BaseView, LayoutLoading, ReactorKit.View {
         }
     }
     
-    @IBOutlet weak var pagerControl: FSPageControl? {
+    @objc weak var pagerControl: FSPageControl? {
         didSet {
             self.pagerControl?.numberOfPages = banners.count
             self.pagerControl?.contentHorizontalAlignment = .center
@@ -46,35 +46,35 @@ class BannerView: BaseView, LayoutLoading, ReactorKit.View {
         }
     }
     
-    @IBAction func presentWebView(url: NSString) -> Void {
-        let vc = SFSafariViewController(url: URL(string: url as String)!)
-        self.window?.rootViewController?.present(vc, animated: true, completion: nil)
-    }
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.loadLayout(
-            named: "BannerView.xml",
-            state: [
-                "currentImage": banners[0].imageUrl
-            ]
+            named: "BannerView.xml"
         )
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        // Ensure layout is updated after screen rotation, etc
-        self.layoutNode?.view.frame = self.bounds
-    }
-    
+}
+
+extension BannerView: ReactorKit.View {
+    typealias Reactor = BannerViewReactor
     func bind(reactor: Reactor) {
-        
+        reactor.action.onNext(.load)
+        selectedIndex.asObservable()
+            .filter { (idx) -> Bool in idx != nil }
+            .map { idx in Reactor.Action.selected(idx!) }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        reactor.state.map { $0.banners }
+            .debug()
+            .subscribe { ev in
+                self.banners = ev.element!
+                self.pagerView?.reloadData()
+            }
+            .disposed(by: self.disposeBag)
     }
 }
 
@@ -85,14 +85,13 @@ extension BannerView: FSPagerViewDataSource {
     
     func pagerView(_ pagerView: FSPagerView, cellForItemAt index: Int) -> FSPagerViewCell {
         let cell = pagerView.dequeueReusableCell(withReuseIdentifier: "fspager", at: index)
-        cell.imageView?.pin_setImage(from: URL(string: banners[index].imageUrl!)!)
+        cell.imageView?.pin_setImage(from: URL(string: banners[index].imageUrl!))
         cell.imageView?.contentMode = .scaleAspectFill
         cell.imageView?.clipsToBounds = true
         cell.textLabel?.text = banners[index].label
         cell.rx.imageTap
-            .subscribe({ _ in
-                self.presentWebView(url: self.banners[index].link! as NSString)
-            })
+            .map { _ in index }
+            .subscribe{ ev in  self.navigator.present(self.banners[ev.element!].link!) }
             .disposed(by: cell.rx.reuseBag)
         return cell
     }
@@ -106,11 +105,11 @@ extension BannerView: FSPagerViewDelegate {
     
     func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int) {
         self.pagerControl?.currentPage = targetIndex
-        currentImage = banners[targetIndex].imageUrl!
+        self.selectedIndex.onNext(targetIndex)
     }
     
     func pagerViewDidEndScrollAnimation(_ pagerView: FSPagerView) {
         self.pagerControl?.currentPage = pagerView.currentIndex
-        currentImage = banners[pagerView.currentIndex].imageUrl!
+        self.selectedIndex.onNext(pagerView.currentIndex)
     }
 }
