@@ -10,7 +10,7 @@ import RxSwift
 import ReactorKit
 import Moya_ObjectMapper
 
-class AuthViewReactor: Reactor {
+class AuthViewControllerReactor: Reactor {
     let oauthService = container.resolve(OAuth2Service.self)!
     enum Action {
         case login(username: String, password: String)
