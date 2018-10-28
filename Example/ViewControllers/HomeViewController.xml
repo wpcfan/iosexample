@@ -11,7 +11,6 @@
             right="parent.right"
             top="parent.top"
         />
-        
     </UIView>
     <UITableView
         backgroundColor="clear"
@@ -52,21 +51,21 @@
                     width="toolbarWidth * parent.width">
 
                     <TabButton
+                        color="red"
+                        height="100%"
                         left="parent.left + 10"
+                        title="hello"
                         top="parent.top"
                         width="(parent.width - 30) / 2"
-                        height="100%"
-                        title="hello"
-                        color="red"/>
-
+                    />
                     <TabButton
+                        color="blue"
+                        height="100%"
                         left="previous.right + 10"
+                        title="world"
                         top="previous.top"
                         width="previous.width"
-                        height="100%"
-                        title="world"
-                        color="blue" />
-
+                    />
                 </UIStackView>
             </UIView>
         </UIView>

@@ -1,4 +1,7 @@
-<UIView clipsToBounds="true" outlet="layoutNode">
+<UIView
+    clipsToBounds="true"
+    outlet="layoutNode">
+
     <UIImageView
         bottom="parent.bottom"
         left="parent.left"

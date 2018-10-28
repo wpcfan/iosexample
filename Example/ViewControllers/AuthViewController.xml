@@ -9,62 +9,56 @@
         scrollIndicatorInsets.top="safeAreaInsets.top">
 
         <UILabel
-            text="{strings.login.username}"
             left="safeAreaInsets.left + 15"
-            width="parent.width / 2 - 30"
+            text="{strings.login.username}"
             top="10"
-            />
-
+            width="parent.width / 2 - 30"
+        />
         <UITextField
-            layer.borderWidth="1"
-            left="previous.right + 15"
-            right="parent.right-15"
-            top="previous.top"
-            height="previous.height"
             autocapitalizationType="none"
             autocorrectionType="no"
-            outlet="usernameField"
-        />
-
-        <UILabel 
-            text="{strings.login.password}"
-            left="safeAreaInsets.left + 15"
-            width="parent.width / 2 - 30"
-            top="previous.bottom + 15"
-            
-            />
-
-        <UITextField
+            height="previous.height"
             layer.borderWidth="1"
             left="previous.right + 15"
-            right="parent.right-15"
+            outlet="usernameField"
+            right="parent.right - 15"
             top="previous.top"
+        />
+        <UILabel
+            left="safeAreaInsets.left + 15"
+            text="{strings.login.password}"
+            top="previous.bottom + 15"
+            width="parent.width / 2 - 30"
+        />
+        <UITextField
+            autocapitalizationType="none"
+            autocorrectionType="no"
             height="previous.height"
             isSecureTextEntry="true"
-            autocapitalizationType="none"
-            autocorrectionType="no"
+            layer.borderWidth="1"
+            left="previous.right + 15"
             outlet="passwordField"
+            right="parent.right - 15"
+            top="previous.top"
         />
-
         <UIButton
             backgroundColor="blue"
             layer.cornerRadius="5"
             left="safeAreaInsets.left + 15"
-            width="parent.width-30"
+            outlet="loginButton"
             title="{strings.login.loginbtn.title}"
             top="previous.bottom + 10"
-            outlet="loginButton"
+            width="parent.width - 30"
         />
-        
         <UIButton
             backgroundColor="blue"
             layer.cornerRadius="5"
             left="safeAreaInsets.left + 15"
             outlet="registerButton"
-            width="parent.width-30"
             title="{strings.login.registerbtn.title}"
             top="previous.bottom + 10"
             touchUpInside="register"
+            width="parent.width - 30"
         />
     </UIScrollView>
 </UIViewController>

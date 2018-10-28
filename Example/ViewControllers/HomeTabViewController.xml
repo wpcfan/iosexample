@@ -1,37 +1,38 @@
-<UITabBarController
-    view.backgroundColor="primary">
-
-    <UITabBar tintColor="accent" backgroundColor="secondary"/>
-
+<UITabBarController view.backgroundColor="primary">
+    <UITabBar
+        backgroundColor="secondary"
+        tintColor="accent"
+    />
     <UINavigationController>
         <UINavigationBar
-            shadowImage="emptyImage"
-            backgroundImage="emptyImage"
             backgroundColor="clear"
-            isTranslucent="isHomeBarTranslucent"
-            barTintColor="homeBarTintColor"
+            backgroundImage="emptyImage"
             barStyle="isLightStyle ? default : black"
+            barTintColor="homeBarTintColor"
+            isTranslucent="isHomeBarTranslucent"
+            shadowImage="emptyImage"
             tintColor="homeTintColor"
-            />
+        />
+
         <!-- Home -->
         <UIViewController
-            navigationItem.title="{strings.main.navigation.home.title}"
-            navigationItem.rightBarButtonItem.image="iconAdd"
             navigationItem.rightBarButtonItem.action="scanInModalAction"
-            navigationItem.titleView="{homeTitleView}"
+            navigationItem.rightBarButtonItem.image="iconAdd"
+            navigationItem.title="{strings.main.navigation.home.title}"
+            navigationItem.titleView="homeTitleView"
             tabBarItem.image="{iconTabHome}"
             title="{strings.home.tabbar.tab_home}"
             xml="HomeViewController.xml"
         />
     </UINavigationController>
-    
     <UINavigationController>
-        <UINavigationBar 
-            barTintColor="accent"
+        <UINavigationBar
             barStyle="black"
+            barTintColor="accent"
             tintColor="#fff"
             titleColor="#fff"
-            />
+        />
+
         <!-- Pages -->
         <UIViewController
             navigationItem.title="{strings.main.navigation.social.title}"
@@ -40,18 +41,18 @@
             xml="SocialViewController.xml"
         />
     </UINavigationController>
-    
     <UINavigationController>
-        <UINavigationBar 
-            barTintColor="accent"
+        <UINavigationBar
             barStyle="black"
+            barTintColor="accent"
             tintColor="#fff"
             titleColor="#fff"
-            />
+        />
+
         <!-- Text -->
         <UIViewController
-            navigationItem.title="{strings.main.navigation.my.title}"
             navigationItem.rightBarButtonItem.image="iconSettings"
+            navigationItem.title="{strings.main.navigation.my.title}"
             tabBarItem.image="{iconTabMy}"
             title="{strings.home.tabbar.tab_me}"
             xml="MeViewController.xml"

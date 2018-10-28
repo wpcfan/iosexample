@@ -1,20 +1,22 @@
 <UIViewController view.backgroundColor="#4FB2CB">
-	<UIButton
-		top="safeAreaInsets.top + 15"
-		left="parent.right - 100"
-		width="64"
-		height="64"
-        title="{countDownTitle}"
-		titleColor="#fff"
+    <UIButton
         backgroundColor="#4FB2CB "
-        layer.cornerRadius="0.5 * width"
-        layer.borderWidth="8"
+        height="64"
         layer.borderColor="#fff"
+        layer.borderWidth="8"
+        layer.cornerRadius="0.5 * width"
+        left="parent.right - 100"
         outlet="countDown"
-		/>
-    <UIImageView image="SplashIcon"
+        title="{countDownTitle}"
+        titleColor="#fff"
+        top="safeAreaInsets.top + 15"
+        width="64"
+    />
+    <UIImageView
         center.x="parent.center.x"
         center.y="parent.center.y"
         contentMode="scaleAspectFit"
-        outlet="imageView"/>
+        image="SplashIcon"
+        outlet="imageView"
+    />
 </UIViewController>

@@ -1,15 +1,14 @@
 <UITableViewCell
-    height="80"
-    width="64"
-    top="20% + 5"
     clipsToBounds="true"
-    reuseIdentifier="ChannelCell">
-    <UIStackView 
+    height="80"
+    reuseIdentifier="ChannelCell"
+    top="20% + 5"
+    width="64">
+
+    <UIStackView
+        alignment="fill"
         axis="horizontal"
         distribution="fillEqually"
         spacing="16"
-        alignment="fill"
-        >
-        
-    </UIStackView>
+    />
 </UITableViewCell>
