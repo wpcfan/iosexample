@@ -11,6 +11,7 @@
             right="parent.right"
             top="parent.top"
         />
+        
     </UIView>
     <UITableView
         backgroundColor="clear"
@@ -50,48 +51,22 @@
                     spacing="10"
                     width="toolbarWidth * parent.width">
 
-                    <UIView
+                    <TabButton
                         left="parent.left + 10"
                         top="parent.top"
-                        width="(parent.width - 30) / 2">
+                        width="(parent.width - 30) / 2"
+                        height="100%"
+                        title="hello"
+                        color="red"/>
 
-                        <UIButton
-                            center.x="parent.center.x"
-                            height="16"
-                            title="hello"
-                            titleColor="#000"
-                            top="parent.top + 10"
-                            width="64"
-                        />
-                        <UIView
-                            backgroundColor="blue"
-                            center.x="previous.center.x"
-                            height="2"
-                            top="previous.bottom + 10"
-                            width="previous.width + 10"
-                        />
-                    </UIView>
-                    <UIView
+                    <TabButton
                         left="previous.right + 10"
                         top="previous.top"
-                        width="previous.width">
+                        width="previous.width"
+                        height="100%"
+                        title="world"
+                        color="blue" />
 
-                        <UIButton
-                            center.x="parent.center.x"
-                            height="16"
-                            title="world"
-                            titleColor="#000"
-                            top="parent.top + 10"
-                            width="64"
-                        />
-                        <UIView
-                            backgroundColor="blue"
-                            center.x="previous.center.x"
-                            height="2"
-                            top="previous.bottom + 10"
-                            width="previous.width + 10"
-                        />
-                    </UIView>
                 </UIStackView>
             </UIView>
         </UIView>

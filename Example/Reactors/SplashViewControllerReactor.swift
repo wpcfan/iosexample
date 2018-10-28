@@ -24,51 +24,60 @@ class SplashViewControllerReactor: Reactor {
     }
     
     enum Action {
-        case tick(countDown: Int)
-        case setNaviTarget(target: NavTarget)
+        case tick
         case navigateTo
         case checkFirstLaunch
         case checkAuth
     }
     
+    enum Mutation {
+        case setTick
+        case setTour
+        case setNaviTarget(target: NavTarget)
+    }
+    
     struct State {
         var countDown: Int
         var nav: NavTarget
+        var tourPresented: Bool
     }
     
-    let initialState: State = State(countDown: 5, nav: .login)
+    let initialState: State = State(countDown: 5, nav: .login, tourPresented: false)
     
-    func mutate(action: Action) -> Observable<Action> {
+    func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .checkFirstLaunch:
             return self.storage
                 .rx_retrieve(forKey: "data")
                 .debug()
-                .flatMap { (val) -> Observable<SplashViewControllerReactor.Action> in
+                .map { (val) -> Mutation in
                     let result = val as? AppData
-                    if (result?.tourGuidePresented ?? false) {
-                        return Observable.of(Mutation.checkAuth)
+                    let tourPresented = result?.tourGuidePresented ?? false
+                    print("tourPresentd: ", tourPresented)
+                    if (tourPresented) {
+                        return Mutation.setTour
                     } else {
-                        return Observable.of(Mutation.setNaviTarget(target: .tour))
+                        return Mutation.setNaviTarget(target: .tour)
                     }
                 }
-                .catchError({ (error) -> Observable<Action> in
-                    Observable.of(Mutation.setNaviTarget(target: .tour))
-                })
+                .catchErrorJustReturn(Mutation.setNaviTarget(target: .tour))
         case .checkAuth:
+            print("checkAuth alled")
             return Observable.of(self.oauth2Service.checkLoginStatus())
-                .flatMap({ (auth) -> Observable<SplashViewControllerReactor.Action> in
+                .debug()
+                .map{ (auth) -> Mutation in
+                    log.debug("auth is " + String(auth))
                     if (auth) {
-                        return Observable.of(Mutation.setNaviTarget(target: .main))
+                        return Mutation.setNaviTarget(target: .main)
                     } else {
-                        return Observable.of(Mutation.setNaviTarget(target: .login))
+                        return Mutation.setNaviTarget(target: .login)
                     }
-                })
+                }
         case .navigateTo:
             return state
                 .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
                 .observeOn(MainScheduler.asyncInstance)
-                .flatMap{ (state) -> Observable<Action> in
+                .flatMap{ (state) -> Observable<Mutation> in
                     switch state.nav {
                     case .login:
                         AppDelegate.shared.rootViewController.showLoginScreen()
@@ -79,23 +88,25 @@ class SplashViewControllerReactor: Reactor {
                     }
                     return Observable.empty()
                 }
-        default:
-            return Observable.of(action)
+        case .tick:
+            return Observable.of(Mutation.setTick)
         }
     }
     
-    func reduce(state: State, mutation: Action) -> State {
+    func reduce(state: State, mutation: Mutation) -> State {
         switch mutation {
-        case .tick(let countDown):
+        case .setTick:
             var newState = state
-            newState.countDown = countDown
+            newState.countDown -= 1
             return newState
         case .setNaviTarget(let target):
             var newState = state
             newState.nav = target
             return newState
-        default:
-            return state
+        case .setTour:
+            var newState = state
+            newState.tourPresented = true
+            return newState
         }
     }
     

@@ -18,8 +18,7 @@
 		AA38DCA7217EF4D70046D82D /* Reactive+StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA38DCA6217EF4D70046D82D /* Reactive+StatusBar.swift */; };
 		AA3AB88E21841ABA00470276 /* SplashViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3AB88D21841ABA00470276 /* SplashViewControllerReactor.swift */; };
 		AA3AB8902184828800470276 /* TourViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3AB88F2184828800470276 /* TourViewControllerReactor.swift */; };
-		AA3AB8962184C65600470276 /* LinedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3AB8952184C65600470276 /* LinedButton.swift */; };
-		AA3AB8982184C66800470276 /* LinedButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA3AB8972184C66800470276 /* LinedButton.xml */; };
+		AA3AB8962184C65600470276 /* HomeTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3AB8952184C65600470276 /* HomeTitleView.swift */; };
 		AA3E0E782170478200958937 /* TableViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E772170478200958937 /* TableViewUtils.swift */; };
 		AA3E0E7A21704E6F00958937 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E7921704E6F00958937 /* House.swift */; };
 		AA3E0E7C217053BD00958937 /* Deivce.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E7B217053BD00958937 /* Deivce.swift */; };
@@ -88,6 +87,9 @@
 		AA8978652185658C005A61CA /* Reactive+UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8978642185658C005A61CA /* Reactive+UIScrollView.swift */; };
 		AA89786721856D88005A61CA /* ImageEffects+Accelerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA89786621856D88005A61CA /* ImageEffects+Accelerate.swift */; };
 		AA8978692185759F005A61CA /* Reactive+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8978682185759F005A61CA /* Reactive+UIImageView.swift */; };
+		AA89786F21858891005A61CA /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA89786E21858891005A61CA /* TabButton.swift */; };
+		AA897871218588A2005A61CA /* TabButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA897870218588A2005A61CA /* TabButton.xml */; };
+		AA897873218590E4005A61CA /* HomeTitleView.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA897872218590E4005A61CA /* HomeTitleView.xml */; };
 		AAC5EB6E215E7BB7008EBA1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC5EB6D215E7BB7008EBA1F /* AppDelegate.swift */; };
 		AAC5EB70215E7BB7008EBA1F /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC5EB6F215E7BB7008EBA1F /* AuthViewController.swift */; };
 		AAC5EB75215E7BB9008EBA1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC5EB74215E7BB9008EBA1F /* Assets.xcassets */; };
@@ -138,8 +140,7 @@
 		AA38DCA6217EF4D70046D82D /* Reactive+StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+StatusBar.swift"; sourceTree = "<group>"; };
 		AA3AB88D21841ABA00470276 /* SplashViewControllerReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewControllerReactor.swift; sourceTree = "<group>"; };
 		AA3AB88F2184828800470276 /* TourViewControllerReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourViewControllerReactor.swift; sourceTree = "<group>"; };
-		AA3AB8952184C65600470276 /* LinedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinedButton.swift; sourceTree = "<group>"; };
-		AA3AB8972184C66800470276 /* LinedButton.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = LinedButton.xml; sourceTree = "<group>"; };
+		AA3AB8952184C65600470276 /* HomeTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTitleView.swift; sourceTree = "<group>"; };
 		AA3E0E772170478200958937 /* TableViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewUtils.swift; sourceTree = "<group>"; };
 		AA3E0E7921704E6F00958937 /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
 		AA3E0E7B217053BD00958937 /* Deivce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deivce.swift; sourceTree = "<group>"; };
@@ -210,6 +211,9 @@
 		AA8978642185658C005A61CA /* Reactive+UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+UIScrollView.swift"; sourceTree = "<group>"; };
 		AA89786621856D88005A61CA /* ImageEffects+Accelerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageEffects+Accelerate.swift"; sourceTree = "<group>"; };
 		AA8978682185759F005A61CA /* Reactive+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+UIImageView.swift"; sourceTree = "<group>"; };
+		AA89786E21858891005A61CA /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
+		AA897870218588A2005A61CA /* TabButton.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TabButton.xml; sourceTree = "<group>"; };
+		AA897872218590E4005A61CA /* HomeTitleView.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HomeTitleView.xml; sourceTree = "<group>"; };
 		AAC5EB6A215E7BB7008EBA1F /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC5EB6D215E7BB7008EBA1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAC5EB6F215E7BB7008EBA1F /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -319,8 +323,10 @@
 				AA4205A5217C9B5F0068ABC0 /* HeaderView.swift */,
 				AA4205A3217C9B510068ABC0 /* HeaderView.xml */,
 				AAFA6623217D886B000217C9 /* SceneCell.swift */,
-				AA3AB8952184C65600470276 /* LinedButton.swift */,
-				AA3AB8972184C66800470276 /* LinedButton.xml */,
+				AA3AB8952184C65600470276 /* HomeTitleView.swift */,
+				AA897872218590E4005A61CA /* HomeTitleView.xml */,
+				AA89786E21858891005A61CA /* TabButton.swift */,
+				AA897870218588A2005A61CA /* TabButton.xml */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -598,12 +604,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA4205A4217C9B510068ABC0 /* HeaderView.xml in Resources */,
+				AA897871218588A2005A61CA /* TabButton.xml in Resources */,
 				AAC5EB78215E7BB9008EBA1F /* LaunchScreen.storyboard in Resources */,
 				AA693DBD2161F61D0063D749 /* SocialViewController.xml in Resources */,
 				AAE49F13216CCBCD004BDBD7 /* Localizable.strings in Resources */,
 				AA420596217C0C2E0068ABC0 /* IconLabelButton.xml in Resources */,
 				AA3E0E9B2171176300958937 /* data.json in Resources */,
-				AA3AB8982184C66800470276 /* LinedButton.xml in Resources */,
 				AA4B49262178B0A900A60C11 /* BannerCell.xml in Resources */,
 				AAC5EBA1215E7F10008EBA1F /* AuthViewController.xml in Resources */,
 				AAC5EB75215E7BB9008EBA1F /* Assets.xcassets in Resources */,
@@ -615,6 +621,7 @@
 				AA420592217B94820068ABC0 /* ChannelView.xml in Resources */,
 				AAE49EF82169D315004BDBD7 /* TourViewController.xml in Resources */,
 				AAC5EBA7215F5860008EBA1F /* HomeTabViewController.xml in Resources */,
+				AA897873218590E4005A61CA /* HomeTitleView.xml in Resources */,
 				AA30C0612167561E00B9E0EB /* SplashViewController.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -777,7 +784,7 @@
 				AA4B49202178883F00A60C11 /* UICollectionViewDelegateFlexLayout.swift in Sources */,
 				AA4B4944217A462200A60C11 /* BannerViewReactor.swift in Sources */,
 				AA4B49222178883F00A60C11 /* SwiftyColor.swift in Sources */,
-				AA3AB8962184C65600470276 /* LinedButton.swift in Sources */,
+				AA3AB8962184C65600470276 /* HomeTitleView.swift in Sources */,
 				AA4B48EE2175CA4D00A60C11 /* HomeViewControllerReactor.swift in Sources */,
 				AAC5EB93215E7DE8008EBA1F /* User.swift in Sources */,
 				AA89786721856D88005A61CA /* ImageEffects+Accelerate.swift in Sources */,
@@ -827,6 +834,7 @@
 				AAC5EB9B215E7E89008EBA1F /* AuthService.swift in Sources */,
 				AAFA6622217D8032000217C9 /* MultipleSectionModel.swift in Sources */,
 				AA683A07216F3D5400E4097B /* String+UrlEncode.swift in Sources */,
+				AA89786F21858891005A61CA /* TabButton.swift in Sources */,
 				AA4B4942217A112200A60C11 /* BaseView.swift in Sources */,
 				AA4B491E2178883F00A60C11 /* Reactive+UICollectionViewFlexLayout.swift in Sources */,
 				AAC5EB90215E7D56008EBA1F /* AppEnv.swift in Sources */,

@@ -20,7 +20,6 @@ class HomeViewController: BaseViewController {
     private static let MAX_TOOLBAR_WIDTH: CGFloat = 1.0
     private static let MIN_TOOLBAR_WIDTH: CGFloat = 0.5
     private let navigator = container.resolve(NavigatorType.self)!
-    
     private var previousScrollOffset: CGFloat = 0
     
     private var homeTintColor: UIColor = UIColor.white {

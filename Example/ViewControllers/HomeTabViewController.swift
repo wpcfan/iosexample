@@ -46,6 +46,11 @@ extension HomeTabViewController: LayoutLoading {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let homeTitleView = HomeTitleView()
+        homeTitleView.snp.makeConstraints { make in
+            make.width.equalTo(300)
+            make.height.equalTo(44)
+        }
         loadLayout(
             named: "HomeTabViewController.xml",
             state: [
@@ -63,6 +68,7 @@ extension HomeTabViewController: LayoutLoading {
                 "iconAdd": AppIcons.add,
                 "iconSettings": AppIcons.settingsAccent,
                 "emptyImage": UIImage(),
+                "homeTitleView": homeTitleView
             ]
         )
     }

@@ -8,12 +8,16 @@
 
 import UIKit
 
-class LinedButton: BaseView {
+class HomeTitleView: BaseView {
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.loadLayout(
-            named: "LinedButton.xml"
+            named: "HomeTitleView.xml",
+            state: [
+                "toolbarWidth": 0.5
+            ]
         )
     }
     

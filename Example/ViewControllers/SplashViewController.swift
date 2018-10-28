@@ -67,7 +67,7 @@ extension SplashViewController: ReactorKit.View {
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         countDownStream
-            .map { Reactor.Action.tick(countDown: $0) }
+            .map { _ in Reactor.Action.tick }
             .takeUntil(reactor.action.filter {
                 if case .navigateTo = $0 {
                     return true
@@ -81,6 +81,12 @@ extension SplashViewController: ReactorKit.View {
             .map { $0.countDown }
             .distinctUntilChanged()
             .bind(to: self.layoutNode!.rx.state("countDownTitle"))
+            .disposed(by: self.disposeBag)
+        reactor.state
+            .map { $0.tourPresented }
+            .filter{ (status) -> Bool in status }
+            .map{ _ in Reactor.Action.checkAuth }
+            .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
     }
 }
