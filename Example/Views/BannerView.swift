@@ -40,7 +40,6 @@ class BannerView: BaseView {
     
     @objc weak var pagerControl: FSPageControl? {
         didSet {
-            self.pagerControl?.numberOfPages = banners.count
             self.pagerControl?.contentHorizontalAlignment = .center
             self.pagerControl?.contentInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
             self.pagerControl?.hidesForSinglePage = false
@@ -57,25 +56,6 @@ class BannerView: BaseView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-}
-
-extension BannerView: ReactorKit.View {
-    typealias Reactor = BannerViewReactor
-    func bind(reactor: Reactor) {
-        reactor.action.onNext(.load)
-        selectedIndex.asObservable()
-            .filter { (idx) -> Bool in idx != nil }
-            .map { idx in Reactor.Action.selected(idx!) }
-            .bind(to: reactor.action)
-            .disposed(by: self.disposeBag)
-        reactor.state.map { $0.banners }
-            .debug()
-            .subscribe { ev in
-                self.banners = ev.element!
-                self.pagerView?.reloadData()
-            }
-            .disposed(by: self.disposeBag)
     }
 }
 
@@ -112,6 +92,26 @@ extension BannerView: FSPagerViewDelegate {
     func pagerViewDidEndScrollAnimation(_ pagerView: FSPagerView) {
         self.pagerControl?.currentPage = pagerView.currentIndex
         self.selectedIndex.onNext(pagerView.currentIndex)
+    }
+}
+
+extension BannerView: ReactorKit.View {
+    typealias Reactor = BannerViewReactor
+    func bind(reactor: Reactor) {
+        reactor.action.onNext(.load)
+        selectedIndex.asObservable()
+            .filter { (idx) -> Bool in idx != nil }
+            .map { idx in Reactor.Action.selected(idx!) }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        reactor.state.map { $0.banners }
+            .debug()
+            .subscribe { ev in
+                self.banners = ev.element!
+                self.pagerControl?.numberOfPages = ev.element!.count
+                self.pagerView?.reloadData()
+            }
+            .disposed(by: self.disposeBag)
     }
 }
 
