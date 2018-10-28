@@ -10,6 +10,7 @@ import UIKit
 import Layout
 import RxSwift
 import RxCocoa
+import RxOptional
 import ReactorKit
 import RxQRScanner
 import URLNavigator
@@ -57,6 +58,8 @@ class HomeViewController: BaseViewController {
             layoutNode?.setState(["toolbarWidth": toolbarWidth])
         }
     }
+    
+    @objc var imageView: UIImageView!
     
     @objc var tableView: UITableView? {
         didSet {
@@ -215,14 +218,16 @@ extension HomeViewController: ReactorKit.StoryboardView {
     typealias Reactor = HomeViewControllerReactor
     
     func bind(reactor: Reactor) {
-        bannerView.rx.bannerImageSelect
-            .bind(to: self.tableView!.rx.backgroundImage())
+        
+        self.bannerView.rx.bannerImageSelect
+            .bind(to: self.imageView.rx.blurImage())
             .disposed(by: self.disposeBag)
         
-        bannerView.rx.bannerImageTap
-            .debug()
+        self.bannerView.rx.bannerImageTap
             .subscribe { ev in
-                self.navigator.present(ev.element!)
+                if (ev.element != nil) {
+                    self.navigator.present(ev.element!)
+                }
             }
             .disposed(by: self.disposeBag)
     }

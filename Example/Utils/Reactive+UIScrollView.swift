@@ -16,7 +16,11 @@ public extension Reactive where Base: UIScrollView {
         return Binder(base) { scrollview, value in
             let imageManager = PINRemoteImageManager.shared()
             imageManager.downloadImage(with: URL(string: value as! String)!) { result in
-                scrollview.backgroundColor = UIColor(patternImage: result.image!.appliedBlur(withRadius: 0.2)!)
+                if (result.error == nil) {
+                    self.base.backgroundColor = UIColor(patternImage: result.image!.appliedBlur(withRadius: 0.2)!)
+                } else {
+                    self.base.backgroundColor = UIColor.white
+                }
             }
         }
     }

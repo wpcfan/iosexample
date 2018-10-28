@@ -86,6 +86,8 @@
 		AA693DC12161F6460063D749 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA693DC02161F6460063D749 /* MeViewController.swift */; };
 		AA693DC32161FF620063D749 /* NavigationMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA693DC22161FF620063D749 /* NavigationMap.swift */; };
 		AA8978652185658C005A61CA /* Reactive+UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8978642185658C005A61CA /* Reactive+UIScrollView.swift */; };
+		AA89786721856D88005A61CA /* ImageEffects+Accelerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA89786621856D88005A61CA /* ImageEffects+Accelerate.swift */; };
+		AA8978692185759F005A61CA /* Reactive+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8978682185759F005A61CA /* Reactive+UIImageView.swift */; };
 		AAC5EB6E215E7BB7008EBA1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC5EB6D215E7BB7008EBA1F /* AppDelegate.swift */; };
 		AAC5EB70215E7BB7008EBA1F /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC5EB6F215E7BB7008EBA1F /* AuthViewController.swift */; };
 		AAC5EB75215E7BB9008EBA1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC5EB74215E7BB9008EBA1F /* Assets.xcassets */; };
@@ -206,6 +208,8 @@
 		AA693DC02161F6460063D749 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		AA693DC22161FF620063D749 /* NavigationMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMap.swift; sourceTree = "<group>"; };
 		AA8978642185658C005A61CA /* Reactive+UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+UIScrollView.swift"; sourceTree = "<group>"; };
+		AA89786621856D88005A61CA /* ImageEffects+Accelerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageEffects+Accelerate.swift"; sourceTree = "<group>"; };
+		AA8978682185759F005A61CA /* Reactive+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+UIImageView.swift"; sourceTree = "<group>"; };
 		AAC5EB6A215E7BB7008EBA1F /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC5EB6D215E7BB7008EBA1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAC5EB6F215E7BB7008EBA1F /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -458,6 +462,8 @@
 				AA42059B217C7D410068ABC0 /* UIScrollView+ParallaxHeader.swift */,
 				AA3E0EA42172328100958937 /* UIStackView+.swift */,
 				AA420587217B66210068ABC0 /* UIView+Blur.swift */,
+				AA89786621856D88005A61CA /* ImageEffects+Accelerate.swift */,
+				AA8978682185759F005A61CA /* Reactive+UIImageView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -774,6 +780,7 @@
 				AA3AB8962184C65600470276 /* LinedButton.swift in Sources */,
 				AA4B48EE2175CA4D00A60C11 /* HomeViewControllerReactor.swift in Sources */,
 				AAC5EB93215E7DE8008EBA1F /* User.swift in Sources */,
+				AA89786721856D88005A61CA /* ImageEffects+Accelerate.swift in Sources */,
 				AA4B493C2179BBD900A60C11 /* Permission.swift in Sources */,
 				AAD40D1B216CEDD300818DAA /* AMInputView.swift in Sources */,
 				AA693DBB2161F6010063D749 /* SocialViewController.swift in Sources */,
@@ -810,6 +817,7 @@
 				AA3E0E782170478200958937 /* TableViewUtils.swift in Sources */,
 				AA4B493A2179A1DC00A60C11 /* ChannelCell.swift in Sources */,
 				AA38DCA7217EF4D70046D82D /* Reactive+StatusBar.swift in Sources */,
+				AA8978692185759F005A61CA /* Reactive+UIImageView.swift in Sources */,
 				AA3E0E7A21704E6F00958937 /* House.swift in Sources */,
 				AA4B48F221761F7400A60C11 /* AuthError.swift in Sources */,
 				AA693DB72160EEB70063D749 /* HomeViewController.swift in Sources */,
