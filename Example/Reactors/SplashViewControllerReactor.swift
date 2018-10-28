@@ -43,7 +43,8 @@ class SplashViewControllerReactor: Reactor {
         case .checkFirstLaunch:
             return self.storage
                 .rx_retrieve(forKey: "data")
-                .flatMap { (val) -> Observable<Action> in
+                .debug()
+                .flatMap { (val) -> Observable<SplashViewControllerReactor.Action> in
                     let result = val as? AppData
                     if (result?.tourGuidePresented ?? false) {
                         return Observable.of(Mutation.checkAuth)
@@ -54,10 +55,9 @@ class SplashViewControllerReactor: Reactor {
                 .catchError({ (error) -> Observable<Action> in
                     Observable.of(Mutation.setNaviTarget(target: .tour))
                 })
-                .take(1)
         case .checkAuth:
             return Observable.of(self.oauth2Service.checkLoginStatus())
-                .flatMap({ (auth) -> Observable<Action> in
+                .flatMap({ (auth) -> Observable<SplashViewControllerReactor.Action> in
                     if (auth) {
                         return Observable.of(Mutation.setNaviTarget(target: .main))
                     } else {

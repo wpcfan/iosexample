@@ -29,7 +29,7 @@ class AuthViewController: BaseViewController {
 }
 
 extension AuthViewController: View {
-    typealias Reactor = AuthViewReactor
+    typealias Reactor = AuthViewControllerReactor
     
     func bind(reactor: Reactor) {
         loginButton.rx.tap
@@ -51,6 +51,6 @@ extension AuthViewController: LayoutLoading {
     }
     
     func layoutDidLoad(_: LayoutNode) {
-        self.reactor = AuthViewReactor()
+        self.reactor = AuthViewControllerReactor()
     }
 }

@@ -9,7 +9,6 @@
 import UIKit
 import Layout
 import EAIntroView
-import Shallows
 import RxSwift
 import RxCocoa
 import ReactorKit
@@ -61,7 +60,10 @@ extension TourViewController: ReactorKit.View {
     func bind(reactor: Reactor) {
         
         reactor.action.onNext(.checkAuth)
-        
+        tourCompleted.asObservable()
+            .map { _ in Reactor.Action.setFirstLaunch }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
         tourCompleted.asObservable()
             .withLatestFrom(reactor.state)
             .map{ _ in Reactor.Action.navigateTo }

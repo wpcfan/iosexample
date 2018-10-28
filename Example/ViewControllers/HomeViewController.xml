@@ -20,6 +20,7 @@
                 height="80%"
                 top="parent.top"
                 width="100%"
+                outlet="bannerView"
             />
             <UIView
                 bottom="parent.bottom"

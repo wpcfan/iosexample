@@ -12,7 +12,7 @@ import Shallows
 public extension Storage {
 
     public func rx_retrieve(forKey: Key) -> Observable<Any> {
-        return Observable.create{ (observer) -> Disposable in
+        return Observable.create{ observer -> Disposable in
             self.retrieve(forKey: forKey) { result in
                 switch result {
                 case .success(let value):

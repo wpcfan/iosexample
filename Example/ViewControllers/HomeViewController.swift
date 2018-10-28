@@ -12,11 +12,13 @@ import RxSwift
 import RxCocoa
 import ReactorKit
 import RxQRScanner
+import URLNavigator
 
 class HomeViewController: BaseViewController {
 
     private static let MAX_TOOLBAR_WIDTH: CGFloat = 1.0
     private static let MIN_TOOLBAR_WIDTH: CGFloat = 0.5
+    private let navigator = container.resolve(NavigatorType.self)!
     
     private var previousScrollOffset: CGFloat = 0
     
@@ -70,10 +72,12 @@ class HomeViewController: BaseViewController {
                 "isHomeBarTranslucent": homeBarTranslucent,
                 "homeBarTintColor": homeBarTintColor,
                 "isLightStyle": isLightStyle,
-                "homeTintColor": homeTintColor,
+                "homeTintColor": homeTintColor
                 ])
         }
     }
+    
+    @objc var bannerView: BannerView!
     
     @objc public func scanInModalAction() {
         var config = QRScanConfig.instance
@@ -207,9 +211,19 @@ extension HomeViewController: UITableViewDelegate {
     }
 }
 
-extension HomeViewController: View {
-    typealias Reactor = HomeViewReactor
+extension HomeViewController: ReactorKit.StoryboardView {
+    typealias Reactor = HomeViewControllerReactor
+    
     func bind(reactor: Reactor) {
+        bannerView.rx.bannerImageSelect
+            .bind(to: self.tableView!.rx.backgroundImage())
+            .disposed(by: self.disposeBag)
         
+        bannerView.rx.bannerImageTap
+            .debug()
+            .subscribe { ev in
+                self.navigator.present(ev.element!)
+            }
+            .disposed(by: self.disposeBag)
     }
 }

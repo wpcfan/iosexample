@@ -10,67 +10,31 @@ import RxSwift
 import ReactorKit
 import Moya_ObjectMapper
 
-class HomeViewReactor: Reactor {
+class HomeViewControllerReactor: Reactor {
     enum Action {
-        case loadBanners
-        case loadChannels
-        case loadScenes
+        case changeBackground
+        case bannerTap
     }
-    
-    enum Mutation {
-        case loadBannersSuccess(_ banners: [Banner])
-        case loadChannelsSuccess(_ channels: [Banner])
-        case loadScenesSuccess(_ scenes: [Scene])
-    }
-    
+
     struct State {
-        var banners: [Banner] = []
-        var channels: [Banner] = []
-        var scenes: [Scene] = []
-        var loadingBanners: Bool = false
-        var loadingChannels: Bool = false
-        var loadingScenes: Bool = false
+        var loggedIn: Bool = false
+        var logging: Bool = false
     }
     
     let initialState: State = State()
     
-    func mutate(action: Action) -> Observable<Mutation> {
+    func mutate(action: Action) -> Observable<Action> {
         switch action {
-        case .loadBanners:
-            return HomeProvider
-                .request(.banners)
-                .mapArray(Banner.self)
-                .map { Mutation.loadBannersSuccess($0) }
-                .asObservable()
-        case .loadChannels:
-            return HomeProvider
-                .request(.channels)
-                .mapArray(Banner.self)
-                .map { Mutation.loadChannelsSuccess($0) }
-                .asObservable()
-        case .loadScenes:
-            return HomeProvider
-                .request(.scenes)
-                .mapArray(Scene.self)
-                .map { Mutation.loadScenesSuccess($0) }
-                .asObservable()
+        default:
+            return Observable.of(action)
         }
     }
     
-    func reduce(state: State, mutation: Mutation) -> State {
+    func reduce(state: State, mutation: Action) -> State {
         switch mutation {
-        case .loadBannersSuccess(let banners):
-            var newState = state
-            newState.banners = banners
-            return newState
-        case .loadChannelsSuccess(let channels):
-            var newState = state
-            newState.channels = channels
-            return newState
-        case .loadScenesSuccess(let scenes):
-            var newState = state
-            newState.scenes = scenes
-            return newState
+        
+        default:
+            return state
         }
     }
 }

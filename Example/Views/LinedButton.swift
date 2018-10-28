@@ -6,4 +6,18 @@
 //  Copyright © 2018 twigcodes. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class LinedButton: BaseView {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        self.loadLayout(
+            named: "LinedButton.xml"
+        )
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}

@@ -46,7 +46,7 @@ class HeaderView: BaseView {
 }
 
 extension HeaderView: ReactorKit.View {
-    typealias Reactor = HomeViewReactor
+    typealias Reactor = HomeViewControllerReactor
     func bind(reactor: Reactor) {
         
     }

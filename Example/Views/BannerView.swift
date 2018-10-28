@@ -13,12 +13,13 @@ import SafariServices
 import ReactorKit
 import RxSwift
 import URLNavigator
+import RxOptional
 
 class BannerView: BaseView {
     
     fileprivate let REUSE_IDENTIFIER = "fspager"
-    private let selectedIndex = PublishSubject<Int?>()
-    private let navigator = container.resolve(NavigatorType.self)!
+    var selectedIndex = PublishSubject<Int?>()
+    var tappedIndex = PublishSubject<Int?>()
     
     @objc var layoutNode: LayoutNode? {
         didSet {
@@ -91,7 +92,7 @@ extension BannerView: FSPagerViewDataSource {
         cell.textLabel?.text = banners[index].label
         cell.rx.imageTap
             .map { _ in index }
-            .subscribe{ ev in  self.navigator.present(self.banners[ev.element!].link!) }
+            .bind(to: self.tappedIndex)
             .disposed(by: cell.rx.reuseBag)
         return cell
     }
@@ -111,5 +112,23 @@ extension BannerView: FSPagerViewDelegate {
     func pagerViewDidEndScrollAnimation(_ pagerView: FSPagerView) {
         self.pagerControl?.currentPage = pagerView.currentIndex
         self.selectedIndex.onNext(pagerView.currentIndex)
+    }
+}
+
+extension Reactive where Base: BannerView {
+    var bannerImageTap: Observable<String> {
+        return base.tappedIndex.asObservable()
+            .filterNil()
+            .distinctUntilChanged()
+            .map { (idx) -> String? in self.base.banners[idx].link }
+            .filterNil()
+    }
+    
+    var bannerImageSelect: Observable<String> {
+        return base.selectedIndex.asObservable()
+            .filterNil()
+            .distinctUntilChanged()
+            .map { (idx) -> String? in self.base.banners[idx].imageUrl }
+            .filterNil()
     }
 }

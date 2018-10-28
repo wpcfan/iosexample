@@ -74,5 +74,9 @@ extension HomeTabViewController: LayoutLoading {
         
         tabBarController.selectedIndex = selectedTab
         tabBarController.delegate = self
+        let vcs = tabBarController.viewControllers
+        let navVc = vcs?[0] as! UINavigationController
+        let homeVc = navVc.topViewController as! HomeViewController
+        homeVc.reactor = HomeViewControllerReactor()
     }
 }

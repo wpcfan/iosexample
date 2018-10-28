@@ -33,6 +33,7 @@ class SplashViewController: BaseViewController {
 extension SplashViewController: LayoutLoading {
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.loadLayout(
             named: "SplashViewController.xml",
             state: ["countDownTitle": 5])
