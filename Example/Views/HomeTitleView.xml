@@ -1,28 +1,18 @@
-<UIView clipsToBounds="true">
-    <UIStackView
-        alignment="center"
-        axis="horizontal"
-        center.x="parent.center.x"
-        distribution="fillEqually"
+<UIView clipsToBounds="true" alpha="{titleAlpha}">
+    <TabButton
+        color="red"
         height="100%"
-        spacing="10"
-        width="parent.width">
-
-        <TabButton
-            color="red"
-            height="100%"
-            left="parent.left + 10"
-            title="hello"
-            top="parent.top"
-            width="(parent.width - 30) / 2"
-        />
-        <TabButton
-            color="blue"
-            height="100%"
-            left="previous.right + 10"
-            title="world"
-            top="previous.top"
-            width="previous.width"
-        />
-    </UIStackView>
+        left="parent.left + 10 + 45"
+        title="hello"
+        top="parent.top"
+        width="(parent.width - 30 - 40) / 2"
+    />
+    <TabButton
+        color="blue"
+        height="100%"
+        left="previous.right + 10"
+        title="world"
+        top="previous.top"
+        width="previous.width"
+    />
 </UIView>

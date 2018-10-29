@@ -10,13 +10,19 @@ import UIKit
 
 class HomeTitleView: BaseView {
     
+    @objc var titleAlpha: CGFloat = 0 {
+        didSet {
+            layoutNode?.setState(["titleAlpha": titleAlpha])
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         self.loadLayout(
             named: "HomeTitleView.xml",
             state: [
-                "toolbarWidth": 0.5
+                "titleAlpha": titleAlpha
             ]
         )
     }

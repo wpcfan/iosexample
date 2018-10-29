@@ -20,7 +20,7 @@ class AuthViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.title = NSLocalizedString("login.navigation.title", comment: "")
         self.navigationController?.navigationBar.barStyle = .black
-        self.navigationController?.navigationBar.barTintColor = UIColor.accent
+        self.navigationController?.navigationBar.barTintColor = UIColor.primaryDark
     }
     
     @objc func register() -> Void {

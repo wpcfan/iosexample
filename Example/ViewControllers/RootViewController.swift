@@ -54,12 +54,14 @@ class RootViewController: UIViewController {
     
     func showRegisterScreen() {
         let registerScreen = UINavigationController(rootViewController: RegisterViewController())
-        UINavigationBar.appearance().barTintColor = UIColor.accent
+        UINavigationBar.appearance().barTintColor = UIColor.textIcon
         UINavigationBar.appearance().isTranslucent = false
+        
         let navigationTitleAttributes = {
-            return [ NSAttributedString.Key.foregroundColor: UIColor.primary ]
+            return [ NSAttributedString.Key.foregroundColor: UIColor.textIcon ]
         }()
-        UINavigationBar.appearance().tintColor = UIColor.primary
+        UINavigationBar.appearance().tintColor = UIColor.textIcon
+        
         UIBarButtonItem.appearance().setTitleTextAttributes(navigationTitleAttributes as [NSAttributedString.Key : Any], for: .normal)
         UINavigationBar.appearance().titleTextAttributes = navigationTitleAttributes as [NSAttributedString.Key : Any]
         animateDismissTransition(to: registerScreen)

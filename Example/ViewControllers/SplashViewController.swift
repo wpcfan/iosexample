@@ -84,6 +84,7 @@ extension SplashViewController: ReactorKit.View {
             .disposed(by: self.disposeBag)
         reactor.state
             .map { $0.tourPresented }
+            .distinctUntilChanged()
             .filter{ (status) -> Bool in status }
             .map{ _ in Reactor.Action.checkAuth }
             .bind(to: reactor.action)

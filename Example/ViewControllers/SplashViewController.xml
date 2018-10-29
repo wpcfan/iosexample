@@ -1,14 +1,13 @@
-<UIViewController view.backgroundColor="#4FB2CB">
+<UIViewController view.backgroundColor="primary">
     <UIButton
-        backgroundColor="#4FB2CB "
         height="64"
-        layer.borderColor="#fff"
+        layer.borderColor="textIcon"
         layer.borderWidth="8"
         layer.cornerRadius="0.5 * width"
         left="parent.right - 100"
         outlet="countDown"
         title="{countDownTitle}"
-        titleColor="#fff"
+        titleColor="textIcon"
         top="safeAreaInsets.top + 15"
         width="64"
     />

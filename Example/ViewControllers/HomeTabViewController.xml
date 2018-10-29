@@ -1,6 +1,6 @@
-<UITabBarController view.backgroundColor="primary">
+<UITabBarController view.backgroundColor="white">
     <UITabBar
-        backgroundColor="secondary"
+        backgroundColor="white"
         tintColor="accent"
     />
     <UINavigationController>
@@ -28,9 +28,9 @@
     <UINavigationController>
         <UINavigationBar
             barStyle="black"
-            barTintColor="accent"
-            tintColor="#fff"
-            titleColor="#fff"
+            barTintColor="primaryDark"
+            tintColor="textIcon"
+            titleColor="textIcon"
         />
 
         <!-- Pages -->
@@ -44,9 +44,9 @@
     <UINavigationController>
         <UINavigationBar
             barStyle="black"
-            barTintColor="accent"
-            tintColor="#fff"
-            titleColor="#fff"
+            barTintColor="primaryDark"
+            tintColor="textIcon"
+            titleColor="textIcon"
         />
 
         <!-- Text -->

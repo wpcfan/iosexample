@@ -56,9 +56,9 @@ extension HomeTabViewController: LayoutLoading {
             state: [
                 "selectedTab": selectedTab,
                 "isHomeBarTranslucent": true,
-                "homeBarTintColor": UIColor.white,
+                "homeBarTintColor": UIColor.primaryDark!,
                 "isLightStyle": false,
-                "homeTintColor": UIColor.white,
+                "homeTintColor": UIColor.textIcon!,
             ],
             constants: [
                 "uppercased": AppLayoutClousures.upperCase,

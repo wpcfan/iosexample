@@ -14,7 +14,7 @@
     </UIView>
     <UITableView
         backgroundColor="clear"
-        contentInset.bottom="safeAreaInsets.bottom"
+        contentInset.bottom="safeAreaInsets.bottom + 88"
         contentInset.top="parent.top"
         contentInsetAdjustmentBehavior="never"
         contentOffset.y="0"

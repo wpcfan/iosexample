@@ -11,8 +11,15 @@ import UIKit
 
 class RegisterViewController: FormViewController {
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.navigationBar.tintColor = .textIcon
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         DateTimeRow.defaultCellSetup = { cell, row in
             cell.datePicker.locale = Locale(identifier: "zh_CN")
         }

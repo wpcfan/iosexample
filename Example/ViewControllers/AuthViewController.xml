@@ -1,4 +1,4 @@
-<UIViewController view.backgroundColor="primary">
+<UIViewController view.backgroundColor="white">
     <UIScrollView
         contentInset.bottom="safeAreaInsets.bottom + 50"
         contentInset.left="safeAreaInsets.left + 15"
@@ -42,7 +42,7 @@
             top="previous.top"
         />
         <UIButton
-            backgroundColor="blue"
+            backgroundColor="primary"
             layer.cornerRadius="5"
             left="safeAreaInsets.left + 15"
             outlet="loginButton"
@@ -51,7 +51,7 @@
             width="parent.width - 30"
         />
         <UIButton
-            backgroundColor="blue"
+            backgroundColor="primary"
             layer.cornerRadius="5"
             left="safeAreaInsets.left + 15"
             outlet="registerButton"

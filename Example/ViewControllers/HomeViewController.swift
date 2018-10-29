@@ -144,6 +144,7 @@ extension HomeViewController: UIScrollViewDelegate {
     
     fileprivate func fadingNavigationBar(_ alpha: CGFloat) {
         self.navigationController?.fadingNavigationBar(alpha: alpha)
+        
     }
     
     fileprivate func animateNavigationBar(_ offsetY: CGFloat, _ distance: CGFloat) {
@@ -197,9 +198,9 @@ extension HomeViewController: UIScrollViewDelegate {
             animateNavigationBarAndToolBarTransition(scrollView)
         }
     }
-//    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-//        animateNavigationBarAndToolBarTransition(scrollView)
-//    }
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        animateNavigationBarAndToolBarTransition(scrollView)
+    }
 }
 
 extension HomeViewController: UITableViewDelegate {
