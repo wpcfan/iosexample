@@ -60,10 +60,6 @@ extension HomeTabViewController: LayoutLoading {
             named: "HomeTabViewController.xml",
             state: [
                 "selectedTab": selectedTab,
-                "isHomeBarTranslucent": true,
-                "homeBarTintColor": UIColor.primaryDark!,
-                "isLightStyle": false,
-                "homeTintColor": UIColor.textIcon!,
             ],
             constants: [
                 "uppercased": AppLayoutClousures.upperCase,

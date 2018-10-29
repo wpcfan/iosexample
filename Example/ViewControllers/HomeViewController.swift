@@ -29,30 +29,6 @@ class HomeViewController: BaseViewController {
     
     private var titleForTranslucent = HomeTitleView()
     
-    private var homeTintColor: UIColor = UIColor.white {
-        didSet {
-            layoutNode?.setState(["homeTintColor": homeTintColor])
-        }
-    }
-    
-    private var isLightStyle: Bool = true {
-        didSet {
-            layoutNode?.setState(["isLightStyle": isLightStyle])
-        }
-    }
-    
-    private var homeBarTintColor: UIColor = UIColor.white {
-        didSet {
-            layoutNode?.setState(["homeBarTintColor": homeBarTintColor])
-        }
-    }
-    
-    private var homeBarTranslucent: Bool = false {
-        didSet {
-            layoutNode?.setState(["isHomeBarTranslucent": homeBarTranslucent])
-        }
-    }
-    
     private var bannerHeight: CGFloat = 220 {
         didSet {
             layoutNode?.setState(["bannerHeight": bannerHeight])
@@ -85,10 +61,6 @@ class HomeViewController: BaseViewController {
                 "toolbarWidth": toolbarWidth,
                 "bannerHeight": bannerHeight,
                 "toolbarHeight": toolbarHeight,
-                "isHomeBarTranslucent": homeBarTranslucent,
-                "homeBarTintColor": homeBarTintColor,
-                "isLightStyle": isLightStyle,
-                "homeTintColor": homeTintColor
                 ])
         }
     }

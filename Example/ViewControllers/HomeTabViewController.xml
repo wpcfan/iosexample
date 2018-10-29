@@ -7,11 +7,11 @@
         <UINavigationBar
             backgroundColor="clear"
             backgroundImage="emptyImage"
-            barStyle="isLightStyle ? default : black"
-            barTintColor="homeBarTintColor"
-            isTranslucent="isHomeBarTranslucent"
+            barStyle="black"
+            barTintColor="primaryDark"
+            isTranslucent="true"
             shadowImage="emptyImage"
-            tintColor="homeTintColor"
+            tintColor="textIcon"
         />
 
         <!-- Home -->

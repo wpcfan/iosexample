@@ -53,7 +53,6 @@ class SplashViewControllerReactor: Reactor {
                 .map { (val) -> Mutation in
                     let result = val as? AppData
                     let tourPresented = result?.tourGuidePresented ?? false
-                    print("tourPresentd: ", tourPresented)
                     if (tourPresented) {
                         return Mutation.setTour
                     } else {
@@ -62,11 +61,9 @@ class SplashViewControllerReactor: Reactor {
                 }
                 .catchErrorJustReturn(Mutation.setNaviTarget(target: .tour))
         case .checkAuth:
-            print("checkAuth alled")
             return Observable.of(self.oauth2Service.checkLoginStatus())
                 .debug()
                 .map{ (auth) -> Mutation in
-                    log.debug("auth is " + String(auth))
                     if (auth) {
                         return Mutation.setNaviTarget(target: .main)
                     } else {
@@ -75,6 +72,7 @@ class SplashViewControllerReactor: Reactor {
                 }
         case .navigateTo:
             return state
+                .take(1)
                 .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
                 .observeOn(MainScheduler.asyncInstance)
                 .flatMap{ (state) -> Observable<Mutation> in

@@ -83,6 +83,7 @@ extension SplashViewController: ReactorKit.View {
             .bind(to: self.layoutNode!.rx.state("countDownTitle"))
             .disposed(by: self.disposeBag)
         reactor.state
+            .debug()
             .map { $0.tourPresented }
             .distinctUntilChanged()
             .filter{ (status) -> Bool in status }
