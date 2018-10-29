@@ -32,6 +32,7 @@
 "home.refreshfailure.header"="刷新失败";
 "home.refreshing.header"="正在刷新";
 "home.table.scene.header"="场景";
+"home.navigation.title"="首页";
 "register.person.section"="个人信息";
 "register.genderfield.title"="性别";
 "register.genderselector.title"="性别";

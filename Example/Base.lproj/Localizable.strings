@@ -32,6 +32,7 @@
 "home.refreshfailure.header"="Refresh Failed";
 "home.refreshing.header"="Refreshing";
 "home.table.scene.header"="Scenes";
+"home.navigation.title"="Home";
 "register.person.section"="Personal Information";
 "register.genderfield.title"="gender";
 "register.genderselector.title"="gender";

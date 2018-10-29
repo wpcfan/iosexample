@@ -16,7 +16,7 @@ class HomeTabViewController: BaseViewController {
     
     private var selectedTab = 0
     private let homeTitleView = UILabel().then {
-        $0.text = "Home"
+        $0.text = NSLocalizedString("home.navigation.title", comment: "")
         $0.textColor = UIColor.textIcon
         $0.textAlignment = .center
     }

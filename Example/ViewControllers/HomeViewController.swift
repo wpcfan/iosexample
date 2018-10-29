@@ -22,7 +22,7 @@ class HomeViewController: BaseViewController {
     private var previousScrollOffset: CGFloat = 0
     
     private var titleForDefault = UILabel().then {
-        $0.text = "Home"
+        $0.text = NSLocalizedString("home.navigation.title", comment: "")
         $0.textColor = UIColor.textIcon
         $0.textAlignment = .center
     }
