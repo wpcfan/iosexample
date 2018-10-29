@@ -14,7 +14,7 @@
     </UIView>
     <UITableView
         backgroundColor="clear"
-        contentInset.bottom="safeAreaInsets.bottom + 88"
+        contentInset.bottom="safeAreaInsets.bottom"
         contentInset.top="parent.top"
         contentInsetAdjustmentBehavior="never"
         contentOffset.y="0"
@@ -26,19 +26,21 @@
         top="parent.top">
 
         <UIView
-            height="headerHeight"
+            height="#banner.height + #toolbar.height"
             width="100%">
 
             <BannerView
-                height="80%"
+                id="banner"
+                height="bannerHeight"
                 outlet="bannerView"
                 top="parent.top"
                 width="100%"
             />
             <UIView
+                id="toolbar"
                 backgroundColor="white"
                 bottom="parent.bottom"
-                height="20%"
+                height="toolbarHeight"
                 width="100%">
 
                 <UIStackView

@@ -15,6 +15,11 @@ class MainNavigationController: UINavigationController { }
 class HomeTabViewController: BaseViewController {
     
     private var selectedTab = 0
+    private let homeTitleView = UILabel().then {
+        $0.text = "Home"
+        $0.textColor = UIColor.textIcon
+        $0.textAlignment = .center
+    }
     
     init(tabName: String) {
         super.init()
@@ -46,10 +51,10 @@ extension HomeTabViewController: LayoutLoading {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let homeTitleView = HomeTitleView()
-        homeTitleView.snp.makeConstraints { make in
-            make.width.equalTo(300)
-            make.height.equalTo(44)
+        self.navigationItem.titleView?.snp.makeConstraints { make in
+            make.width.equalToSuperview()
+            make.height.equalToSuperview()
+            make.centerX.equalToSuperview()
         }
         loadLayout(
             named: "HomeTabViewController.xml",

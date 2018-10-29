@@ -10,17 +10,24 @@ import UIKit
 import Layout
 import RxSwift
 import RxCocoa
-import RxOptional
 import ReactorKit
 import RxQRScanner
 import URLNavigator
 
 class HomeViewController: BaseViewController {
 
-    private static let MAX_TOOLBAR_WIDTH: CGFloat = 1.0
+    private static let MAX_TOOLBAR_WIDTH: CGFloat = 0.8
     private static let MIN_TOOLBAR_WIDTH: CGFloat = 0.5
     private let navigator = container.resolve(NavigatorType.self)!
     private var previousScrollOffset: CGFloat = 0
+    
+    private var titleForDefault = UILabel().then {
+        $0.text = "Home"
+        $0.textColor = UIColor.textIcon
+        $0.textAlignment = .center
+    }
+    
+    private var titleForTranslucent = HomeTitleView()
     
     private var homeTintColor: UIColor = UIColor.white {
         didSet {
@@ -46,13 +53,19 @@ class HomeViewController: BaseViewController {
         }
     }
     
-    private var headerHeight: CGFloat = 280 {
+    private var bannerHeight: CGFloat = 220 {
         didSet {
-            layoutNode?.setState(["headerHeight": headerHeight])
+            layoutNode?.setState(["bannerHeight": bannerHeight])
         }
     }
     
-    private var toolbarWidth: CGFloat = 0.8 {
+    private var toolbarHeight: CGFloat = 44 {
+        didSet {
+            layoutNode?.setState(["toolbarHeight": toolbarHeight])
+        }
+    }
+    
+    private var toolbarWidth: CGFloat = MAX_TOOLBAR_WIDTH {
         didSet {
             layoutNode?.setState(["toolbarWidth": toolbarWidth])
         }
@@ -70,7 +83,8 @@ class HomeViewController: BaseViewController {
         didSet {
             layoutNode?.setState([
                 "toolbarWidth": toolbarWidth,
-                "headerHeight": headerHeight,
+                "bannerHeight": bannerHeight,
+                "toolbarHeight": toolbarHeight,
                 "isHomeBarTranslucent": homeBarTranslucent,
                 "homeBarTintColor": homeBarTintColor,
                 "isLightStyle": isLightStyle,
@@ -121,85 +135,57 @@ extension HomeViewController: UITableViewDataSource {
 }
 
 extension HomeViewController: UIScrollViewDelegate {
-
-    private func setScrollPosition(_ position: CGFloat) {
-        self.tableView!.contentOffset = CGPoint(x: self.tableView!.contentOffset.x, y: position)
+    
+    fileprivate func getAlpha(_ scrollView: UIScrollView) -> CGFloat {
+        let offsetY = scrollView.contentOffset.y
+        let statusBarHeight = self.navigationController!.getStatusBarHeight()
+        let preAlpha = offsetY / (bannerHeight - statusBarHeight)
+        return offsetY <= 0 ? 0 : preAlpha > 1 ? 1 : preAlpha
     }
     
-    private func getTopMargin() -> CGFloat {
-        var top: CGFloat = 0
-        if #available(iOS 11.0, *) {
-            top = self.additionalSafeAreaInsets.top
-        }
-        return top
-    }
-
-    // MARK: methods from UIScrollViewDelegate protocol
-    fileprivate func animateToolbar(_ alpha: CGFloat) {
+    fileprivate func animateToolbar(_ scrollView: UIScrollView) {
+        let alpha = getAlpha(scrollView)
         let widthDiff = HomeViewController.MAX_TOOLBAR_WIDTH - HomeViewController.MIN_TOOLBAR_WIDTH
-        
         self.toolbarWidth = max(HomeViewController.MAX_TOOLBAR_WIDTH  - alpha * widthDiff, HomeViewController.MIN_TOOLBAR_WIDTH)
-        
-    }
-    
-    fileprivate func fadingNavigationBar(_ alpha: CGFloat) {
         self.navigationController?.fadingNavigationBar(alpha: alpha)
-        
-    }
-    
-    fileprivate func animateNavigationBar(_ offsetY: CGFloat, _ distance: CGFloat) {
-        
-        if (offsetY >= distance) {
-            self.navigationController?.presentLightNavigationBar()
-            let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
-            self.navigationController?.navigationBar.titleTextAttributes = textAttributes
-        } else {
-            self.navigationController?.presentTransparentNavigationBar(light: true)
-            let textAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
-            self.navigationController?.navigationBar.titleTextAttributes = textAttributes
+        self.navigationController?.navigationBar.tintColor = alpha > 0.5 ? UIColor.black : UIColor.white
+        self.navigationItem.titleView = alpha == 1 ? titleForTranslucent : titleForDefault
+        self.navigationItem.titleView?.snp.makeConstraints{ make in
+            make.height.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.width.equalTo(toolbarWidth * self.view.frame.width)
         }
     }
-    
+
     fileprivate func animateNavigationBarAndToolBarTransition(_ scrollView: UIScrollView) {
-        
         let offsetY = scrollView.contentOffset.y
         guard offsetY > 0 else { return }
-        let bannerHeight = 0.8 * headerHeight
-        let toolbarHeight = 0.2 * headerHeight
         let statusBarHeight = self.navigationController!.getStatusBarHeight()
         let navigationBarHeight = self.navigationController!.getNavigationBarHeight()
-        let offsetToSet = bannerHeight + toolbarHeight - navigationBarHeight + toolbarHeight
-        if offsetY >= navigationBarHeight + statusBarHeight  {
-            scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: offsetToSet), animated: true)
-        } else {
+        // translucent bar
+        if offsetY >= 0 && offsetY <= bannerHeight - statusBarHeight - navigationBarHeight {
             scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: 0), animated: true)
         }
-         self.view.layoutIfNeeded()
+        // default bar
+        if offsetY > bannerHeight - statusBarHeight - navigationBarHeight {
+            scrollView.setContentOffset(CGPoint(x: scrollView.contentOffset.x, y: bannerHeight - statusBarHeight), animated: true)
+        }
+        self.view.layoutIfNeeded()
     }
     
+    // MARK: methods from UIScrollViewDelegate protocol
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        let offsetY = scrollView.contentOffset.y
-        print("offsetY", offsetY)
-        let scrollDiff = offsetY - self.previousScrollOffset
-        print("scrollDiff", scrollDiff)
-        
-        let bannerHeight = 0.8 * headerHeight
-        let statusBarHeight = self.navigationController!.getStatusBarHeight()
-        let distance = bannerHeight - statusBarHeight
-        let preAlpha = offsetY / distance
-        let alpha = offsetY <= 0 ? 0 : preAlpha > 1 ? 1 : preAlpha
-        animateToolbar(alpha)
-        fadingNavigationBar(alpha)
-        animateNavigationBar(offsetY, distance)
-        self.previousScrollOffset = offsetY
+        animateToolbar(scrollView)
     }
+
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
             animateNavigationBarAndToolBarTransition(scrollView)
         }
     }
-    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        animateNavigationBarAndToolBarTransition(scrollView)
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        self.previousScrollOffset = scrollView.contentOffset.y
     }
 }
 

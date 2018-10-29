@@ -1,11 +1,11 @@
-<UIView clipsToBounds="true" alpha="{titleAlpha}">
+<UIView clipsToBounds="true">
     <TabButton
         color="red"
         height="100%"
-        left="parent.left + 10 + 45"
+        left="parent.left + 10"
         title="hello"
         top="parent.top"
-        width="(parent.width - 30 - 40) / 2"
+        width="(parent.width - 30) / 2"
     />
     <TabButton
         color="blue"

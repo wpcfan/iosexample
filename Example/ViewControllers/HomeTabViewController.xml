@@ -19,7 +19,7 @@
             navigationItem.rightBarButtonItem.action="scanInModalAction"
             navigationItem.rightBarButtonItem.image="iconAdd"
             navigationItem.title="{strings.main.navigation.home.title}"
-            navigationItem.titleView="homeTitleView"
+            navigationItem.titleView="{homeTitleView}"
             tabBarItem.image="{iconTabHome}"
             title="{strings.home.tabbar.tab_home}"
             xml="HomeViewController.xml"
