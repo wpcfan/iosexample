@@ -13,6 +13,7 @@ import RxCocoa
 import ReactorKit
 import RxQRScanner
 import URLNavigator
+import CoreGraphics
 
 class HomeViewController: BaseViewController {
 
@@ -87,6 +88,7 @@ class HomeViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
     }
+    
 }
 
 extension HomeViewController: UITableViewDataSource {
@@ -115,6 +117,13 @@ extension HomeViewController: UIScrollViewDelegate {
         return offsetY <= 0 ? 0 : preAlpha > 1 ? 1 : preAlpha
     }
     
+    fileprivate func scaleHeaderImage(_ scrollView: UIScrollView) {
+        let offsetY = scrollView.contentOffset.y
+        guard offsetY < 0 else { return }
+        let scaleTo = 1 - offsetY / scrollView.frame.size.height
+        self.imageView.transform = CGAffineTransform(scaleX: scaleTo, y: scaleTo)
+    }
+    
     fileprivate func animateToolbar(_ scrollView: UIScrollView) {
         let alpha = getAlpha(scrollView)
         let widthDiff = HomeViewController.MAX_TOOLBAR_WIDTH - HomeViewController.MIN_TOOLBAR_WIDTH
@@ -122,10 +131,10 @@ extension HomeViewController: UIScrollViewDelegate {
         self.navigationController?.fadingNavigationBar(alpha: alpha)
         self.navigationController?.navigationBar.tintColor = alpha > 0.5 ? UIColor.black : UIColor.white
         self.navigationItem.titleView = alpha == 1 ? titleForTranslucent : titleForDefault
-        self.navigationItem.titleView?.snp.updateConstraints{ make in
+        self.navigationItem.titleView?.snp.makeConstraints { make in
             make.height.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.width.equalTo(toolbarWidth * self.view.frame.width)
+            make.width.equalTo(alpha == 1 ? HomeViewController.MIN_TOOLBAR_WIDTH * self.view.frame.width : HomeViewController.MAX_TOOLBAR_WIDTH * self.view.frame.width)
         }
     }
 
@@ -148,6 +157,7 @@ extension HomeViewController: UIScrollViewDelegate {
     // MARK: methods from UIScrollViewDelegate protocol
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         animateToolbar(scrollView)
+        scaleHeaderImage(scrollView)
     }
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
