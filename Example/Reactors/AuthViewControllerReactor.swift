@@ -30,14 +30,14 @@ class AuthViewControllerReactor: Reactor {
         case let .login(username, password):
             return
                 oauthService.loginWithUserCredential(username: username, password: password)
-                .map { _ -> Action in
-                    Action.loginSuccess
-                }
-                .do(onNext: { (_) in
-                    AppDelegate.shared.rootViewController.switchToMainScreen()
-                })
-                .debug()
-                .catchErrorJustReturn(Mutation.loginFail)
+                    .map { _ -> Action in
+                        Action.loginSuccess
+                    }
+                    .do(onNext: { (_) in
+                        AppDelegate.shared.rootViewController.switchToMainScreen()
+                    })
+                    .debug()
+                    .catchErrorJustReturn(Mutation.loginFail)
         default:
             return Observable.of(action)
         }

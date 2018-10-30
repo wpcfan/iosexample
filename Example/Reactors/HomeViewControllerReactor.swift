@@ -15,7 +15,7 @@ class HomeViewControllerReactor: Reactor {
         case changeBackground
         case bannerTap
     }
-
+    
     struct State {
         var loggedIn: Bool = false
         var logging: Bool = false
@@ -32,7 +32,7 @@ class HomeViewControllerReactor: Reactor {
     
     func reduce(state: State, mutation: Action) -> State {
         switch mutation {
-        
+            
         default:
             return state
         }

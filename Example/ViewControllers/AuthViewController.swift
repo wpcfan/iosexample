@@ -12,10 +12,10 @@ import ReactorKit
 
 class AuthViewController: BaseViewController {
 
-    @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var registerButton: UIButton!
-    @IBOutlet weak var usernameField: UITextField!
-    @IBOutlet weak var passwordField: UITextField!
+    @objc weak var loginButton: UIButton!
+    @objc weak var registerButton: UIButton!
+    @objc weak var usernameField: UITextField!
+    @objc weak var passwordField: UITextField!
     
     override func viewWillAppear(_ animated: Bool) {
         self.navigationController?.title = NSLocalizedString("login.navigation.title", comment: "")

@@ -69,7 +69,7 @@ class SplashViewControllerReactor: Reactor {
                     } else {
                         return Mutation.setNaviTarget(target: .login)
                     }
-                }
+            }
         case .navigateTo:
             return state
                 .take(1)
@@ -85,7 +85,7 @@ class SplashViewControllerReactor: Reactor {
                         AppDelegate.shared.rootViewController.switchToTour()
                     }
                     return Observable.empty()
-                }
+            }
         case .tick:
             return Observable.of(Mutation.setTick)
         }

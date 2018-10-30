@@ -49,10 +49,10 @@ class HomeViewController: BaseViewController {
     }
     
     @objc var imageView: UIImageView!
-    
+    @objc var bannerView: BannerView!
     @objc var tableView: UITableView? {
         didSet {
-            tableView?.register(UITableViewCell.self,forCellReuseIdentifier: "cell")
+            tableView?.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         }
     }
     
@@ -65,8 +65,6 @@ class HomeViewController: BaseViewController {
                 ])
         }
     }
-    
-    @objc var bannerView: BannerView!
     
     @objc public func scanInModalAction() {
         var config = QRScanConfig.instance
@@ -129,12 +127,13 @@ extension HomeViewController: UIScrollViewDelegate {
         let widthDiff = HomeViewController.MAX_TOOLBAR_WIDTH - HomeViewController.MIN_TOOLBAR_WIDTH
         self.toolbarWidth = max(HomeViewController.MAX_TOOLBAR_WIDTH  - alpha * widthDiff, HomeViewController.MIN_TOOLBAR_WIDTH)
         self.navigationController?.fadingNavigationBar(alpha: alpha)
-        self.navigationController?.navigationBar.tintColor = alpha > 0.5 ? UIColor.black : UIColor.white
+        self.navigationController?.navigationBar.tintColor = alpha == 1 ? .black : .white
         self.navigationItem.titleView = alpha == 1 ? titleForTranslucent : titleForDefault
+        
         self.navigationItem.titleView?.snp.makeConstraints { make in
             make.height.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.width.equalTo(alpha == 1 ? HomeViewController.MIN_TOOLBAR_WIDTH * self.view.frame.width : HomeViewController.MAX_TOOLBAR_WIDTH * self.view.frame.width)
+            make.width.equalTo(HomeViewController.MIN_TOOLBAR_WIDTH * self.view.frame.width)
         }
     }
 
