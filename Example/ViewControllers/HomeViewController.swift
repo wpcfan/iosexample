@@ -122,7 +122,7 @@ extension HomeViewController: UIScrollViewDelegate {
         self.navigationController?.fadingNavigationBar(alpha: alpha)
         self.navigationController?.navigationBar.tintColor = alpha > 0.5 ? UIColor.black : UIColor.white
         self.navigationItem.titleView = alpha == 1 ? titleForTranslucent : titleForDefault
-        self.navigationItem.titleView?.snp.makeConstraints{ make in
+        self.navigationItem.titleView?.snp.updateConstraints{ make in
             make.height.equalToSuperview()
             make.centerX.equalToSuperview()
             make.width.equalTo(toolbarWidth * self.view.frame.width)

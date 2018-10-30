@@ -52,7 +52,7 @@ extension HomeTabViewController: LayoutLoading {
         super.viewDidLoad()
         
         self.navigationItem.titleView?.snp.makeConstraints { make in
-            make.width.equalToSuperview()
+            make.width.equalTo(0.8 * self.view.frame.width)
             make.height.equalToSuperview()
             make.centerX.equalToSuperview()
         }
