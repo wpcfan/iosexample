@@ -12,20 +12,20 @@ struct TableViewUtils {
     static func createHeader() -> DefaultRefreshHeader {
         let header = DefaultRefreshHeader.header()
         header.setText(
-        NSLocalizedString("home.pulltorefresh.header", comment: ""),
-        mode: .pullToRefresh)
+            NSLocalizedString("home.pulltorefresh.header", comment: ""),
+            mode: .pullToRefresh)
         header.setText(
-        NSLocalizedString("home.releasetorefresh.header", comment: ""),
-        mode: .releaseToRefresh)
+            NSLocalizedString("home.releasetorefresh.header", comment: ""),
+            mode: .releaseToRefresh)
         header.setText(
-        NSLocalizedString("home.refreshsuccess.header", comment: ""),
-        mode: .refreshSuccess)
+            NSLocalizedString("home.refreshsuccess.header", comment: ""),
+            mode: .refreshSuccess)
         header.setText(
-        NSLocalizedString("home.refreshing.header", comment: ""),
-        mode: .refreshing)
+            NSLocalizedString("home.refreshing.header", comment: ""),
+            mode: .refreshing)
         header.setText(
-        NSLocalizedString("home.refreshfailure.header", comment: ""),
-        mode: .refreshFailure)
+            NSLocalizedString("home.refreshfailure.header", comment: ""),
+            mode: .refreshFailure)
         header.tintColor = UIColor.accent
         header.imageRenderingWithTintColor = true
         header.durationWhenHide = 0.4
