@@ -82,4 +82,26 @@ struct AppIcons {
         textColor: UIColor.accent!,
         backgroundColor: .clear,
         size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
+    
+    static let refreshCircle = UIImage(
+        from: .ionicon,
+        code: "ios-aperture",
+        textColor: .white,
+        backgroundColor: .clear,
+        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
+    
+    static let pullToRefresh = UIImage(
+        from: .themify,
+        code: "angle.double.down",
+        textColor: .white,
+        backgroundColor: .clear,
+        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
+    
+    static let release = UIImage(
+        from: .themify,
+        code: "angle.double.up",
+        textColor: .white,
+        backgroundColor: .clear,
+        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
+    
 }

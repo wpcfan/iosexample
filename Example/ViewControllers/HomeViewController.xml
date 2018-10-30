@@ -2,7 +2,7 @@
     <UIView
         height="100%"
         width="100%">
-
+        
         <UIImageView
             bottom="parent.bottom"
             contentMode="scaleAspectFill"
@@ -10,7 +10,8 @@
             outlet="imageView"
             right="parent.right"
             top="parent.top"
-        />
+        >
+        </UIImageView>
     </UIView>
     <UITableView
         backgroundColor="clear"

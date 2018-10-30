@@ -19,7 +19,7 @@
 		AA3AB88E21841ABA00470276 /* SplashViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3AB88D21841ABA00470276 /* SplashViewControllerReactor.swift */; };
 		AA3AB8902184828800470276 /* TourViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3AB88F2184828800470276 /* TourViewControllerReactor.swift */; };
 		AA3AB8962184C65600470276 /* HomeTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3AB8952184C65600470276 /* HomeTitleView.swift */; };
-		AA3E0E782170478200958937 /* TableViewUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E772170478200958937 /* TableViewUtils.swift */; };
+		AA3E0E782170478200958937 /* PullToRefreshUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E772170478200958937 /* PullToRefreshUtil.swift */; };
 		AA3E0E7A21704E6F00958937 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E7921704E6F00958937 /* House.swift */; };
 		AA3E0E7C217053BD00958937 /* Deivce.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E7B217053BD00958937 /* Deivce.swift */; };
 		AA3E0E7E2170540F00958937 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E7D2170540F00958937 /* Product.swift */; };
@@ -37,9 +37,6 @@
 		AA420590217B939B0068ABC0 /* ChannelViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA42058F217B939B0068ABC0 /* ChannelViewReactor.swift */; };
 		AA420592217B94820068ABC0 /* ChannelView.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA420591217B94820068ABC0 /* ChannelView.xml */; };
 		AA420596217C0C2E0068ABC0 /* IconLabelButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA420595217C0C2E0068ABC0 /* IconLabelButton.xml */; };
-		AA420598217C7CD90068ABC0 /* ParallaxHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA420597217C7CD90068ABC0 /* ParallaxHeader.swift */; };
-		AA42059A217C7D170068ABC0 /* ParallaxHeaderMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA420599217C7D170068ABC0 /* ParallaxHeaderMode.swift */; };
-		AA42059C217C7D410068ABC0 /* UIScrollView+ParallaxHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA42059B217C7D410068ABC0 /* UIScrollView+ParallaxHeader.swift */; };
 		AA4205A4217C9B510068ABC0 /* HeaderView.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA4205A3217C9B510068ABC0 /* HeaderView.xml */; };
 		AA4205A6217C9B5F0068ABC0 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4205A5217C9B5F0068ABC0 /* HeaderView.swift */; };
 		AA4B48E22174E1D300A60C11 /* Reactive+Reuseable.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B48E12174E1D300A60C11 /* Reactive+Reuseable.swift */; };
@@ -69,6 +66,7 @@
 		AA4B493E217A0B5000A60C11 /* BaseItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B493D217A0B5000A60C11 /* BaseItemCell.swift */; };
 		AA4B4942217A112200A60C11 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B4941217A112200A60C11 /* BaseView.swift */; };
 		AA4B4944217A462200A60C11 /* BannerViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B4943217A462200A60C11 /* BannerViewReactor.swift */; };
+		AA54DF432188424000CE0CA0 /* AnimationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA54DF422188424000CE0CA0 /* AnimationExtensions.swift */; };
 		AA6839D8216DE04F00E4097B /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6839D7216DE04F00E4097B /* UIColor+Theme.swift */; };
 		AA6839DA216DE1EA00E4097B /* AppIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6839D9216DE1EA00E4097B /* AppIcons.swift */; };
 		AA6839DC216E08EC00E4097B /* AppAttributedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6839DB216E08EC00E4097B /* AppAttributedStrings.swift */; };
@@ -141,7 +139,7 @@
 		AA3AB88D21841ABA00470276 /* SplashViewControllerReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewControllerReactor.swift; sourceTree = "<group>"; };
 		AA3AB88F2184828800470276 /* TourViewControllerReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourViewControllerReactor.swift; sourceTree = "<group>"; };
 		AA3AB8952184C65600470276 /* HomeTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTitleView.swift; sourceTree = "<group>"; };
-		AA3E0E772170478200958937 /* TableViewUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewUtils.swift; sourceTree = "<group>"; };
+		AA3E0E772170478200958937 /* PullToRefreshUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefreshUtil.swift; sourceTree = "<group>"; };
 		AA3E0E7921704E6F00958937 /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
 		AA3E0E7B217053BD00958937 /* Deivce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deivce.swift; sourceTree = "<group>"; };
 		AA3E0E7D2170540F00958937 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -159,9 +157,6 @@
 		AA42058F217B939B0068ABC0 /* ChannelViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewReactor.swift; sourceTree = "<group>"; };
 		AA420591217B94820068ABC0 /* ChannelView.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ChannelView.xml; sourceTree = "<group>"; };
 		AA420595217C0C2E0068ABC0 /* IconLabelButton.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = IconLabelButton.xml; sourceTree = "<group>"; };
-		AA420597217C7CD90068ABC0 /* ParallaxHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxHeader.swift; sourceTree = "<group>"; };
-		AA420599217C7D170068ABC0 /* ParallaxHeaderMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParallaxHeaderMode.swift; sourceTree = "<group>"; };
-		AA42059B217C7D410068ABC0 /* UIScrollView+ParallaxHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+ParallaxHeader.swift"; sourceTree = "<group>"; };
 		AA4205A3217C9B510068ABC0 /* HeaderView.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HeaderView.xml; sourceTree = "<group>"; };
 		AA4205A5217C9B5F0068ABC0 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		AA4B48E12174E1D300A60C11 /* Reactive+Reuseable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+Reuseable.swift"; sourceTree = "<group>"; };
@@ -193,6 +188,7 @@
 		AA4B493D217A0B5000A60C11 /* BaseItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseItemCell.swift; sourceTree = "<group>"; };
 		AA4B4941217A112200A60C11 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		AA4B4943217A462200A60C11 /* BannerViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewReactor.swift; sourceTree = "<group>"; };
+		AA54DF422188424000CE0CA0 /* AnimationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationExtensions.swift; sourceTree = "<group>"; };
 		AA6839D7216DE04F00E4097B /* UIColor+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Theme.swift"; sourceTree = "<group>"; };
 		AA6839D9216DE1EA00E4097B /* AppIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcons.swift; sourceTree = "<group>"; };
 		AA6839DB216E08EC00E4097B /* AppAttributedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAttributedStrings.swift; sourceTree = "<group>"; };
@@ -298,12 +294,12 @@
 			isa = PBXGroup;
 			children = (
 				AA4B48F521772EE800A60C11 /* AuthViewControllerReactor.swift */,
-				AA4B48ED2175CA4D00A60C11 /* HomeViewControllerReactor.swift */,
-				AA3AB88D21841ABA00470276 /* SplashViewControllerReactor.swift */,
-				AA3AB88F2184828800470276 /* TourViewControllerReactor.swift */,
 				AA4B4943217A462200A60C11 /* BannerViewReactor.swift */,
 				AA42058F217B939B0068ABC0 /* ChannelViewReactor.swift */,
+				AA4B48ED2175CA4D00A60C11 /* HomeViewControllerReactor.swift */,
 				AAFA6625217D88F9000217C9 /* SceneViewReactor.swift */,
+				AA3AB88D21841ABA00470276 /* SplashViewControllerReactor.swift */,
+				AA3AB88F2184828800470276 /* TourViewControllerReactor.swift */,
 			);
 			path = Reactors;
 			sourceTree = "<group>";
@@ -440,17 +436,19 @@
 		AAC5EB9C215E7EA4008EBA1F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				AA4B493B2179BBD900A60C11 /* Permission.swift */,
+				AA54DF422188424000CE0CA0 /* AnimationExtensions.swift */,
+				AA89786621856D88005A61CA /* ImageEffects+Accelerate.swift */,
 				AA3E0EBA21737D0600958937 /* LayoutExtensions.swift */,
 				AA683A04216F3BD700E4097B /* MoyaUtils.swift */,
-				AA420597217C7CD90068ABC0 /* ParallaxHeader.swift */,
-				AA420599217C7D170068ABC0 /* ParallaxHeaderMode.swift */,
+				AA4B493B2179BBD900A60C11 /* Permission.swift */,
+				AA3E0E772170478200958937 /* PullToRefreshUtil.swift */,
 				AA4B49152178800A00A60C11 /* Reactive+FSPagerView.swift */,
 				AA4B48E32175006100A60C11 /* Reactive+Layout.swift */,
 				AA4B48F7217736D900A60C11 /* Reactive+OAuth2.swift */,
 				AA4B48E12174E1D300A60C11 /* Reactive+Reuseable.swift */,
 				AA38DCA6217EF4D70046D82D /* Reactive+StatusBar.swift */,
 				AA4B49172178883E00A60C11 /* Reactive+UICollectionViewFlexLayout.swift */,
+				AA8978682185759F005A61CA /* Reactive+UIImageView.swift */,
 				AA8978642185658C005A61CA /* Reactive+UIScrollView.swift */,
 				AA4B491A2178883E00A60C11 /* Reactive+UIViewController.swift */,
 				AA38DCA4217EF41F0046D82D /* RxUtil.swift */,
@@ -458,18 +456,14 @@
 				AAE49EFD216AE281004BDBD7 /* Shallows+Rx.swift */,
 				AA683A06216F3D5400E4097B /* String+UrlEncode.swift */,
 				AA4B491B2178883E00A60C11 /* SwiftyColor.swift */,
-				AA3E0E772170478200958937 /* TableViewUtils.swift */,
 				AA4B49182178883E00A60C11 /* Then.swift */,
 				AAF5CA4821821F3B006DE332 /* UIApplication+StatusBar.swift */,
 				AA4B49192178883E00A60C11 /* UICollectionViewDelegateFlexLayout.swift */,
 				AA4B491D2178883F00A60C11 /* UICollectionViewFlexLayout.swift */,
 				AAC5EB9D215E7EB4008EBA1F /* UIColor+Hex.swift */,
 				AA30C0672167AA3600B9E0EB /* UINavigationController+Bar.swift */,
-				AA42059B217C7D410068ABC0 /* UIScrollView+ParallaxHeader.swift */,
 				AA3E0EA42172328100958937 /* UIStackView+.swift */,
 				AA420587217B66210068ABC0 /* UIView+Blur.swift */,
-				AA89786621856D88005A61CA /* ImageEffects+Accelerate.swift */,
-				AA8978682185759F005A61CA /* Reactive+UIImageView.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -765,7 +759,6 @@
 				AA30C05B2167533E00B9E0EB /* SplashViewController.swift in Sources */,
 				AA3AB88E21841ABA00470276 /* SplashViewControllerReactor.swift in Sources */,
 				AA693DC12161F6460063D749 /* MeViewController.swift in Sources */,
-				AA42059C217C7D410068ABC0 /* UIScrollView+ParallaxHeader.swift in Sources */,
 				AA6839DA216DE1EA00E4097B /* AppIcons.swift in Sources */,
 				AA30C0682167AA3600B9E0EB /* UINavigationController+Bar.swift in Sources */,
 				AA420590217B939B0068ABC0 /* ChannelViewReactor.swift in Sources */,
@@ -804,7 +797,7 @@
 				AA3E0EBB21737D0600958937 /* LayoutExtensions.swift in Sources */,
 				AA6839D8216DE04F00E4097B /* UIColor+Theme.swift in Sources */,
 				AA3E0E8821707DD400958937 /* ScriptTrigger.swift in Sources */,
-				AA42059A217C7D170068ABC0 /* ParallaxHeaderMode.swift in Sources */,
+				AA54DF432188424000CE0CA0 /* AnimationExtensions.swift in Sources */,
 				AA4205A6217C9B5F0068ABC0 /* HeaderView.swift in Sources */,
 				AAC5EBA3215E808D008EBA1F /* OAuth2Service.swift in Sources */,
 				AA3AB8902184828800470276 /* TourViewControllerReactor.swift in Sources */,
@@ -815,13 +808,12 @@
 				AA4B48E42175006100A60C11 /* Reactive+Layout.swift in Sources */,
 				AA8978652185658C005A61CA /* Reactive+UIScrollView.swift in Sources */,
 				AA4B48FA217768CE00A60C11 /* BaseViewController.swift in Sources */,
-				AA420598217C7CD90068ABC0 /* ParallaxHeader.swift in Sources */,
 				AA4B491F2178883F00A60C11 /* Then.swift in Sources */,
 				AAE49F02216BA2EE004BDBD7 /* RegisterViewController.swift in Sources */,
 				AAC5EB6E215E7BB7008EBA1F /* AppDelegate.swift in Sources */,
 				AA693DC32161FF620063D749 /* NavigationMap.swift in Sources */,
 				AA4B49302178EB2500A60C11 /* BannerView.swift in Sources */,
-				AA3E0E782170478200958937 /* TableViewUtils.swift in Sources */,
+				AA3E0E782170478200958937 /* PullToRefreshUtil.swift in Sources */,
 				AA4B493A2179A1DC00A60C11 /* ChannelCell.swift in Sources */,
 				AA38DCA7217EF4D70046D82D /* Reactive+StatusBar.swift in Sources */,
 				AA8978692185759F005A61CA /* Reactive+UIImageView.swift in Sources */,

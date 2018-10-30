@@ -27,7 +27,7 @@ class HomeViewController: BaseViewController {
         $0.textColor = UIColor.textIcon
         $0.textAlignment = .center
     }
-    
+
     private var titleForTranslucent = HomeTitleView()
     
     private var bannerHeight: CGFloat = 220 {
@@ -47,12 +47,19 @@ class HomeViewController: BaseViewController {
             layoutNode?.setState(["toolbarWidth": toolbarWidth])
         }
     }
-    
-    @objc var imageView: UIImageView!
+    @objc var imageView: UIImageView?
     @objc var bannerView: BannerView!
     @objc var tableView: UITableView? {
         didSet {
-            tableView?.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+            guard let tableView = tableView else { return }
+            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+            let refreshHeader = HomeRefreshHeader()
+            tableView.configRefreshHeader(with: refreshHeader, container:self) { [weak self] in
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
+                    self?.tableView?.reloadData()
+                    self?.tableView?.switchRefreshHeader(to: .normal(.success, 0.3))
+                }
+            }
         }
     }
     
@@ -86,7 +93,6 @@ class HomeViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
     }
-    
 }
 
 extension HomeViewController: UITableViewDataSource {
@@ -119,7 +125,7 @@ extension HomeViewController: UIScrollViewDelegate {
         let offsetY = scrollView.contentOffset.y
         guard offsetY < 0 else { return }
         let scaleTo = 1 - offsetY / scrollView.frame.size.height
-        self.imageView.transform = CGAffineTransform(scaleX: scaleTo, y: scaleTo)
+        self.imageView!.transform = CGAffineTransform(scaleX: scaleTo, y: scaleTo)
     }
     
     fileprivate func animateToolbar(_ scrollView: UIScrollView) {
@@ -187,7 +193,7 @@ extension HomeViewController: ReactorKit.StoryboardView {
     func bind(reactor: Reactor) {
         
         self.bannerView.rx.bannerImageSelect
-            .bind(to: self.imageView.rx.blurImage())
+            .bind(to: self.imageView!.rx.blurImage())
             .disposed(by: self.disposeBag)
         
         self.bannerView.rx.bannerImageTap
