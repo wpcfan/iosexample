@@ -51,6 +51,7 @@ target 'Example' do
   pod 'PullToRefreshKit'
   # SVG
 #  pod 'FantasticSnowflake', git: 'https://github.com/onmyway133/Snowflake', :submodules => true
+  # easy persistence
   pod 'Shallows', :git => 'https://github.com/dreymonde/Shallows', :submodules => true
   # OAuth2 Library
   pod 'p2.OAuth2', :git => 'https://github.com/p2/OAuth2', :submodules => true
