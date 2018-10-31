@@ -56,39 +56,31 @@ extension SplashViewController: ReactorKit.View {
             .interval(1, scheduler: ConcurrentDispatchQueueScheduler(qos: .userInitiated))
             .map { val -> Int in 5 - val }
             .takeWhile { val -> Bool in val >= 0 }
-        countDownStream
-            .filter { (count) -> Bool in  count == 0 }
-            .map{ _ in Reactor.Action.navigateTo }
-            .bind(to: reactor.action)
-            .disposed(by: self.disposeBag)
-        countDown.rx.tap
+        Observable.merge(
+            countDown.rx.tap.map { _ in 0 },
+            countDownStream.filter { (count) -> Bool in  count == 0 })
             .withLatestFrom(reactor.state)
-            .map{ _ in Reactor.Action.navigateTo }
-            .bind(to: reactor.action)
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
+            .observeOn(MainScheduler.asyncInstance)
+            .subscribe { ev in
+                switch ev.element!.nav {
+                case .login:
+                    AppDelegate.shared.rootViewController.showLoginScreen()
+                case .main:
+                    AppDelegate.shared.rootViewController.switchToMainScreen()
+                case .tour:
+                    AppDelegate.shared.rootViewController.switchToTour()
+                }
+            }
             .disposed(by: self.disposeBag)
         countDownStream
             .map { _ in Reactor.Action.tick }
-            .takeUntil(reactor.action.filter {
-                if case .navigateTo = $0 {
-                    return true
-                } else {
-                    return false
-                }
-            })
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         reactor.state
             .map { $0.countDown }
             .distinctUntilChanged()
             .bind(to: self.layoutNode!.rx.state("countDownTitle"))
-            .disposed(by: self.disposeBag)
-        reactor.state
-            .debug()
-            .map { $0.tourPresented }
-            .distinctUntilChanged()
-            .filter{ (status) -> Bool in status }
-            .map{ _ in Reactor.Action.checkAuth }
-            .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
     }
 }

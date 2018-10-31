@@ -6,4 +6,16 @@
 //  Copyright © 2018 twigcodes. All rights reserved.
 //
 
-import Foundation
+import ReactorKit
+import RxSwift
+
+#if DEBUG
+extension Reactor {
+    func transform(action: Observable<Action>) -> Observable<Action> {
+        return action.debug("action") // Use RxSwift's debug() operator
+    }
+    func transform(action: Observable<Mutation>) -> Observable<Mutation> {
+        return action.debug("action") // Use RxSwift's debug() operator
+    }
+}
+#endif

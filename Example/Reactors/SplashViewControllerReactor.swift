@@ -25,15 +25,13 @@ class SplashViewControllerReactor: Reactor {
     
     enum Action {
         case tick
-        case navigateTo
         case checkFirstLaunch
-        case checkAuth
     }
     
     enum Mutation {
         case setTick
         case setTour
-        case setNaviTarget(target: NavTarget)
+        case setNavTarget(target: NavTarget)
     }
     
     struct State {
@@ -50,44 +48,26 @@ class SplashViewControllerReactor: Reactor {
             return self.storage
                 .rx_retrieve(forKey: "data")
                 .debug()
-                .map { (val) -> Mutation in
+                .flatMap { (val) -> Observable<Mutation> in
                     let result = val as? AppData
                     let tourPresented = result?.tourGuidePresented ?? false
                     if (tourPresented) {
-                        return Mutation.setTour
+                        return Observable.of(self.oauth2Service.checkLoginStatus())
+                            .debug()
+                            .map{ (auth) -> Mutation in
+                                if (auth) {
+                                    return .setNavTarget(target: .main)
+                                } else {
+                                    return .setNavTarget(target: .login)
+                                }
+                            }
                     } else {
-                        return Mutation.setNaviTarget(target: .tour)
+                        return Observable.of(.setNavTarget(target: .tour))
                     }
                 }
-                .catchErrorJustReturn(Mutation.setNaviTarget(target: .tour))
-        case .checkAuth:
-            return Observable.of(self.oauth2Service.checkLoginStatus())
-                .debug()
-                .map{ (auth) -> Mutation in
-                    if (auth) {
-                        return Mutation.setNaviTarget(target: .main)
-                    } else {
-                        return Mutation.setNaviTarget(target: .login)
-                    }
-            }
-        case .navigateTo:
-            return state
-                .take(1)
-                .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
-                .observeOn(MainScheduler.asyncInstance)
-                .flatMap{ (state) -> Observable<Mutation> in
-                    switch state.nav {
-                    case .login:
-                        AppDelegate.shared.rootViewController.showLoginScreen()
-                    case .main:
-                        AppDelegate.shared.rootViewController.switchToMainScreen()
-                    case .tour:
-                        AppDelegate.shared.rootViewController.switchToTour()
-                    }
-                    return Observable.empty()
-            }
+                .catchErrorJustReturn(.setNavTarget(target: .tour))
         case .tick:
-            return Observable.of(Mutation.setTick)
+            return Observable.of(.setTick)
         }
     }
     
@@ -97,7 +77,7 @@ class SplashViewControllerReactor: Reactor {
             var newState = state
             newState.countDown -= 1
             return newState
-        case .setNaviTarget(let target):
+        case .setNavTarget(let target):
             var newState = state
             newState.nav = target
             return newState
@@ -106,9 +86,5 @@ class SplashViewControllerReactor: Reactor {
             newState.tourPresented = true
             return newState
         }
-    }
-    
-    func transform(action: Observable<Action>) -> Observable<Action> {
-        return action.debug("action") // Use RxSwift's debug() operator
     }
 }

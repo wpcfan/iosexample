@@ -16,21 +16,24 @@ class HomeViewControllerReactor: Reactor {
         case bannerTap
     }
     
-    struct State {
-        var loggedIn: Bool = false
-        var logging: Bool = false
+    enum Mutation {
+        case tabSelected(idx: Int)
     }
     
-    let initialState: State = State()
+    struct State {
+        var selectedTopTab: Int
+    }
     
-    func mutate(action: Action) -> Observable<Action> {
+    let initialState: State = State(selectedTopTab: 0)
+    
+    func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         default:
-            return Observable.of(action)
+            return Observable.empty()
         }
     }
     
-    func reduce(state: State, mutation: Action) -> State {
+    func reduce(state: State, mutation: Mutation) -> State {
         switch mutation {
             
         default:

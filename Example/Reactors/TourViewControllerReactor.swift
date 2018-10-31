@@ -85,9 +85,5 @@ class TourViewControllerReactor: Reactor {
             return state
         }
     }
-    
-    func transform(action: Observable<Action>) -> Observable<Action> {
-        return action.debug("action") // Use RxSwift's debug() operator
-    }
 }
 
