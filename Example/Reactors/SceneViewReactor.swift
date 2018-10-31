@@ -15,6 +15,9 @@ class SceneViewReactor: Reactor {
     
     enum Action {
         case load
+    }
+    
+    enum Mutation {
         case loadSuccess(_ banners: [Banner])
         case loadFail(_ error: APIError)
     }
@@ -26,26 +29,24 @@ class SceneViewReactor: Reactor {
     
     let initialState: State = State(banners: [], error: nil)
     
-    func mutate(action: Action) -> Observable<Action> {
+    func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .load:
             return
                 HomeProvider.request(.banners)
                     .mapArray(Banner.self)
-                    .map { Action.loadSuccess($0) }
+                    .map { .loadSuccess($0) }
                     .asObservable()
-                    .catchError({ err -> Observable<SceneViewReactor.Action> in
+                    .catchError({ err -> Observable<Mutation> in
                         if let error = err as? MoyaError, let body = try! error.response?.mapObject(APIError.self) {
-                            return Observable.of(Mutation.loadFail(body))
+                            return Observable.of(.loadFail(body))
                         }
-                        return Observable.of(Mutation.loadFail(APIError(title: "Uncatched Exception", status: -1, detail: "Unkown Reason", type: "UnkownHttpError", stacktrace: [])))
+                        return Observable.of(.loadFail(APIError(title: "Uncatched Exception", status: -1, detail: "Unkown Reason", type: "UnkownHttpError", stacktrace: [])))
                     })
-        default:
-            return Observable.of(action)
         }
     }
     
-    func reduce(state: State, mutation: Action) -> State {
+    func reduce(state: State, mutation: Mutation) -> State {
         switch mutation {
         case let .loadSuccess(banners):
             var newState = state

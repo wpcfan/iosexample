@@ -14,6 +14,9 @@ class AuthViewControllerReactor: Reactor {
     let oauthService = container.resolve(OAuth2Service.self)!
     enum Action {
         case login(username: String, password: String)
+    }
+    
+    enum Mutation {
         case loginSuccess
         case loginFail
     }
@@ -25,25 +28,21 @@ class AuthViewControllerReactor: Reactor {
     
     let initialState: State = State()
     
-    func mutate(action: Action) -> Observable<Action> {
+    func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case let .login(username, password):
             return
                 oauthService.loginWithUserCredential(username: username, password: password)
-                    .map { _ -> Action in
-                        Action.loginSuccess
-                    }
+                    .map { _ -> Mutation in .loginSuccess }
                     .do(onNext: { (_) in
                         AppDelegate.shared.rootViewController.switchToMainScreen()
                     })
                     .debug()
-                    .catchErrorJustReturn(Mutation.loginFail)
-        default:
-            return Observable.of(action)
+                    .catchErrorJustReturn(.loginFail)
         }
     }
     
-    func reduce(state: State, mutation: Action) -> State {
+    func reduce(state: State, mutation: Mutation) -> State {
         switch mutation {
         case .loginSuccess:
             var newState = state
@@ -54,10 +53,6 @@ class AuthViewControllerReactor: Reactor {
             var newState = state
             newState.loggedIn = false
             newState.logging = false
-            return newState
-        case .login(_, _):
-            var newState = state
-            newState.logging = true
             return newState
         }
     }

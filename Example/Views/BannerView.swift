@@ -99,11 +99,7 @@ extension BannerView: ReactorKit.View {
     typealias Reactor = BannerViewReactor
     func bind(reactor: Reactor) {
         reactor.action.onNext(.load)
-        selectedIndex.asObservable()
-            .filter { (idx) -> Bool in idx != nil }
-            .map { idx in Reactor.Action.selected(idx!) }
-            .bind(to: reactor.action)
-            .disposed(by: self.disposeBag)
+
         reactor.state.map { $0.banners }
             .debug()
             .subscribe { ev in

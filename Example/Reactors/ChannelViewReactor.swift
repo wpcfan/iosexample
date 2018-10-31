@@ -15,6 +15,9 @@ class ChannelViewReactor: Reactor {
     
     enum Action {
         case load
+    }
+    
+    enum Mutation {
         case loadSuccess(_ channels: [Banner])
         case loadFail(_ error: APIError)
     }
@@ -26,26 +29,24 @@ class ChannelViewReactor: Reactor {
     
     let initialState: State = State(channels: [], error: nil)
     
-    func mutate(action: Action) -> Observable<Action> {
+    func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .load:
             return
                 HomeProvider.request(.channels)
                     .mapArray(Banner.self)
-                    .map { Action.loadSuccess($0) }
+                    .map { .loadSuccess($0) }
                     .asObservable()
-                    .catchError({ err -> Observable<ChannelViewReactor.Action> in
+                    .catchError({ err -> Observable<ChannelViewReactor.Mutation> in
                         if let error = err as? MoyaError, let body = try! error.response?.mapObject(APIError.self) {
-                            return Observable.of(Mutation.loadFail(body))
+                            return Observable.of(.loadFail(body))
                         }
-                        return Observable.of(Mutation.loadFail(APIError(title: "Uncatched Exception", status: -1, detail: "Unkown Reason", type: "UnkownHttpError", stacktrace: [])))
+                        return Observable.of(.loadFail(APIError(title: "Uncatched Exception", status: -1, detail: "Unkown Reason", type: "UnkownHttpError", stacktrace: [])))
                     })
-        default:
-            return Observable.of(action)
         }
     }
     
-    func reduce(state: State, mutation: Action) -> State {
+    func reduce(state: State, mutation: Mutation) -> State {
         switch mutation {
         case let .loadSuccess(channels):
             var newState = state
@@ -55,8 +56,6 @@ class ChannelViewReactor: Reactor {
             var newState = state
             newState.error = error
             return newState
-        default:
-            return state
         }
     }
 }

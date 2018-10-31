@@ -8,8 +8,6 @@
 
 import RxSwift
 import ReactorKit
-import Moya_ObjectMapper
-import Moya
 import URLNavigator
 import Shallows
 
@@ -23,71 +21,57 @@ class TourViewControllerReactor: Reactor {
     }
     
     enum Action {
-        case setNaviTarget(target: NavTarget)
-        case navigateTo
-        case setFirstLaunch
         case checkAuth
+        case completeTour
+    }
+    
+    enum Mutation {
+        case setNav(target: NavTarget)
+        case setTour(completed: Bool)
     }
     
     struct State {
         var nav: NavTarget
+        var tourGuidePresented: Bool
     }
     
-    let initialState: State = State(nav: .login)
+    let initialState: State = State(nav: .login, tourGuidePresented: false)
     
-    func mutate(action: Action) -> Observable<Action> {
+    func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .setFirstLaunch:
+        case .completeTour:
             return self.storage
                 .rx_set(value: AppData(tourGuidePresented: true), forKey: "data")
-                .flatMap { (val) -> Observable<Action> in
-                    return Observable.empty()
+                .flatMap { (val) -> Observable<Mutation> in
+                    return Observable.of(.setTour(completed: true))
                 }
-                .catchError({ (error) -> Observable<Action> in
+                .catchError({ (error) -> Observable<Mutation> in
                     log.error("storage saving error: " + error.localizedDescription)
-                    return Observable.empty()
+                    return Observable.of(.setTour(completed: false))
                 })
-                .take(1)
         case .checkAuth:
             return Observable.of(self.oauth2Service.checkLoginStatus())
-                .flatMap({ (auth) -> Observable<Action> in
+                .flatMap({ (auth) -> Observable<Mutation> in
                     if (auth) {
-                        return Observable.of(Mutation.setNaviTarget(target: .main))
+                        return Observable.of(.setNav(target: .main))
                     } else {
-                        return Observable.of(Mutation.setNaviTarget(target: .login))
+                        return Observable.of(.setNav(target: .login))
                     }
                 })
-        case .navigateTo:
-            return state
-                .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
-                .observeOn(MainScheduler.asyncInstance)
-                .flatMap{ (state) -> Observable<Action> in
-                    switch state.nav {
-                    case .login:
-                        AppDelegate.shared.rootViewController.showLoginScreen()
-                    case .main:
-                        AppDelegate.shared.rootViewController.switchToMainScreen()
-                    }
-                    return Observable.empty()
-            }
-        default:
-            return Observable.of(action)
         }
     }
     
-    func reduce(state: State, mutation: Action) -> State {
+    func reduce(state: State, mutation: Mutation) -> State {
         switch mutation {
-        case .setNaviTarget(let target):
+        case .setNav(let target):
             var newState = state
             newState.nav = target
             return newState
-        default:
-            return state
+        case .setTour(let completed):
+            var newState = state
+            newState.tourGuidePresented = completed
+            return newState
         }
-    }
-    
-    func transform(action: Observable<Action>) -> Observable<Action> {
-        return action.debug("action") // Use RxSwift's debug() operator
     }
 }
 

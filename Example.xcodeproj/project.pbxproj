@@ -60,13 +60,13 @@
 		AA4B492C2178CA0F00A60C11 /* SceneCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA4B492B2178CA0F00A60C11 /* SceneCell.xml */; };
 		AA4B49302178EB2500A60C11 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B492F2178EB2500A60C11 /* BannerView.swift */; };
 		AA4B49322178EBA400A60C11 /* BannerView.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA4B49312178EBA400A60C11 /* BannerView.xml */; };
-		AA4B49382179A1DC00A60C11 /* BannerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B49342179A1DC00A60C11 /* BannerCell.swift */; };
 		AA4B493A2179A1DC00A60C11 /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B49362179A1DC00A60C11 /* ChannelCell.swift */; };
 		AA4B493C2179BBD900A60C11 /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B493B2179BBD900A60C11 /* Permission.swift */; };
 		AA4B493E217A0B5000A60C11 /* BaseItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B493D217A0B5000A60C11 /* BaseItemCell.swift */; };
 		AA4B4942217A112200A60C11 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B4941217A112200A60C11 /* BaseView.swift */; };
 		AA4B4944217A462200A60C11 /* BannerViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B4943217A462200A60C11 /* BannerViewReactor.swift */; };
 		AA54DF432188424000CE0CA0 /* AnimationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA54DF422188424000CE0CA0 /* AnimationExtensions.swift */; };
+		AA54DF4821892C9F00CE0CA0 /* ReactorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA54DF4721892C9F00CE0CA0 /* ReactorExtension.swift */; };
 		AA6839D8216DE04F00E4097B /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6839D7216DE04F00E4097B /* UIColor+Theme.swift */; };
 		AA6839DA216DE1EA00E4097B /* AppIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6839D9216DE1EA00E4097B /* AppIcons.swift */; };
 		AA6839DC216E08EC00E4097B /* AppAttributedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6839DB216E08EC00E4097B /* AppAttributedStrings.swift */; };
@@ -182,13 +182,13 @@
 		AA4B492B2178CA0F00A60C11 /* SceneCell.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SceneCell.xml; sourceTree = "<group>"; };
 		AA4B492F2178EB2500A60C11 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		AA4B49312178EBA400A60C11 /* BannerView.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BannerView.xml; sourceTree = "<group>"; };
-		AA4B49342179A1DC00A60C11 /* BannerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BannerCell.swift; sourceTree = "<group>"; };
 		AA4B49362179A1DC00A60C11 /* ChannelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
 		AA4B493B2179BBD900A60C11 /* Permission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
 		AA4B493D217A0B5000A60C11 /* BaseItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseItemCell.swift; sourceTree = "<group>"; };
 		AA4B4941217A112200A60C11 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		AA4B4943217A462200A60C11 /* BannerViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerViewReactor.swift; sourceTree = "<group>"; };
 		AA54DF422188424000CE0CA0 /* AnimationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationExtensions.swift; sourceTree = "<group>"; };
+		AA54DF4721892C9F00CE0CA0 /* ReactorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorExtension.swift; sourceTree = "<group>"; };
 		AA6839D7216DE04F00E4097B /* UIColor+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Theme.swift"; sourceTree = "<group>"; };
 		AA6839D9216DE1EA00E4097B /* AppIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcons.swift; sourceTree = "<group>"; };
 		AA6839DB216E08EC00E4097B /* AppAttributedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAttributedStrings.swift; sourceTree = "<group>"; };
@@ -300,6 +300,7 @@
 				AAFA6625217D88F9000217C9 /* SceneViewReactor.swift */,
 				AA3AB88D21841ABA00470276 /* SplashViewControllerReactor.swift */,
 				AA3AB88F2184828800470276 /* TourViewControllerReactor.swift */,
+				AA54DF4721892C9F00CE0CA0 /* ReactorExtension.swift */,
 			);
 			path = Reactors;
 			sourceTree = "<group>";
@@ -307,7 +308,6 @@
 		AA6839D4216DB8B000E4097B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AA4B49342179A1DC00A60C11 /* BannerCell.swift */,
 				AA4B492F2178EB2500A60C11 /* BannerView.swift */,
 				AA4B49312178EBA400A60C11 /* BannerView.xml */,
 				AA4B4941217A112200A60C11 /* BaseView.swift */,
@@ -565,9 +565,11 @@
 					AAC5EB69215E7BB7008EBA1F = {
 						CreatedOnToolsVersion = 10.0;
 						LastSwiftMigration = 1000;
+						ProvisioningStyle = Manual;
 					};
 					AAC5EB7D215E7BB9008EBA1F = {
 						CreatedOnToolsVersion = 10.0;
+						ProvisioningStyle = Manual;
 						TestTargetID = AAC5EB69215E7BB7008EBA1F;
 					};
 				};
@@ -655,6 +657,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Example/Pods-Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaDebug/CocoaDebug.framework",
@@ -671,6 +674,8 @@
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya-ObjectMapper/Moya_ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper+Realm/ObjectMapper_Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapperAdditions/ObjectMapperAdditions.framework",
 				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
 				"${BUILT_PRODUCTS_DIR}/PINRemoteImage/PINRemoteImage.framework",
 				"${BUILT_PRODUCTS_DIR}/PMAlertController/PMAlertController.framework",
@@ -679,7 +684,7 @@
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
-				"${PODS_ROOT}/Reveal-SDK/RevealServer-18/iOS/RevealServer.framework",
+				"${PODS_ROOT}/Reveal-SDK/RevealServer-19/iOS/RevealServer.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxGesture/RxGesture.framework",
@@ -700,6 +705,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Action.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaDebug.framework",
@@ -716,6 +722,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya_ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper_Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapperAdditions.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINRemoteImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PMAlertController.framework",
@@ -765,7 +773,6 @@
 				AA4B49162178800A00A60C11 /* Reactive+FSPagerView.swift in Sources */,
 				AAFA6624217D886B000217C9 /* SceneCell.swift in Sources */,
 				AA4B48F621772EE800A60C11 /* AuthViewControllerReactor.swift in Sources */,
-				AA4B49382179A1DC00A60C11 /* BannerCell.swift in Sources */,
 				AA4B493E217A0B5000A60C11 /* BaseItemCell.swift in Sources */,
 				AA3E0E7C217053BD00958937 /* Deivce.swift in Sources */,
 				AAE49EF62169D2FB004BDBD7 /* TourViewController.swift in Sources */,
@@ -781,6 +788,7 @@
 				AA4B48EE2175CA4D00A60C11 /* HomeViewControllerReactor.swift in Sources */,
 				AAC5EB93215E7DE8008EBA1F /* User.swift in Sources */,
 				AA89786721856D88005A61CA /* ImageEffects+Accelerate.swift in Sources */,
+				AA54DF4821892C9F00CE0CA0 /* ReactorExtension.swift in Sources */,
 				AA4B493C2179BBD900A60C11 /* Permission.swift in Sources */,
 				AAD40D1B216CEDD300818DAA /* AMInputView.swift in Sources */,
 				AA693DBB2161F6010063D749 /* SocialViewController.swift in Sources */,
@@ -1009,7 +1017,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = U4F2KFJUHF;
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1017,8 +1026,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "--BUNDLE-IDENTIFIER-";
+				PRODUCT_BUNDLE_IDENTIFIER = com.twigcodes.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = Example;
 				SWIFT_OBJC_BRIDGING_HEADER = "Example/Example-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -1032,7 +1042,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = U4F2KFJUHF;
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1040,8 +1051,9 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "--BUNDLE-IDENTIFIER-";
+				PRODUCT_BUNDLE_IDENTIFIER = com.twigcodes.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "com.twigcodes.Example AppStore";
 				SWIFT_OBJC_BRIDGING_HEADER = "Example/Example-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1053,7 +1065,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = U4F2KFJUHF;
 				INFOPLIST_FILE = ExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1074,7 +1086,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = U4F2KFJUHF;
 				INFOPLIST_FILE = ExampleTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
