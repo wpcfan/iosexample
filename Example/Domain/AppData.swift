@@ -9,5 +9,5 @@
 import Foundation
 
 struct AppData: Codable {
-    let tourGuidePresented: Bool
+    var tourGuidePresented: Bool
 }

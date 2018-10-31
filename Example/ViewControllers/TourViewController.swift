@@ -58,16 +58,26 @@ extension TourViewController: ReactorKit.View {
     typealias Reactor = TourViewControllerReactor
     
     func bind(reactor: Reactor) {
-        
         reactor.action.onNext(.checkAuth)
+        
         tourCompleted.asObservable()
-            .map { _ in Reactor.Action.setFirstLaunch }
+            .map { _ in Reactor.Action.completeTour }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
-        tourCompleted.asObservable()
-            .withLatestFrom(reactor.state)
-            .map{ _ in Reactor.Action.navigateTo }
-            .bind(to: reactor.action)
+        
+        reactor.state
+            .filter { $0.tourGuidePresented }
+            .distinctUntilChanged { $0.tourGuidePresented }
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
+            .observeOn(MainScheduler.asyncInstance)
+            .subscribe { ev in
+                switch ev.element!.nav {
+                case .login:
+                    AppDelegate.shared.rootViewController.showLoginScreen()
+                case .main:
+                    AppDelegate.shared.rootViewController.switchToMainScreen()
+                }
+            }
             .disposed(by: self.disposeBag)
     }
 }

@@ -14,8 +14,11 @@ extension Reactor {
     func transform(action: Observable<Action>) -> Observable<Action> {
         return action.debug("action") // Use RxSwift's debug() operator
     }
-    func transform(action: Observable<Mutation>) -> Observable<Mutation> {
-        return action.debug("action") // Use RxSwift's debug() operator
+    func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
+        return mutation.debug("mutation") // Use RxSwift's debug() operator
+    }
+    func transform(state: Observable<State>) -> Observable<State> {
+        return state.debug("state") // Use RxSwift's debug() operator
     }
 }
 #endif

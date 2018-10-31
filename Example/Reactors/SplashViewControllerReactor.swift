@@ -30,17 +30,15 @@ class SplashViewControllerReactor: Reactor {
     
     enum Mutation {
         case setTick
-        case setTour
         case setNavTarget(target: NavTarget)
     }
     
     struct State {
         var countDown: Int
         var nav: NavTarget
-        var tourPresented: Bool
     }
     
-    let initialState: State = State(countDown: 5, nav: .login, tourPresented: false)
+    let initialState: State = State(countDown: 5, nav: .login)
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
@@ -80,10 +78,6 @@ class SplashViewControllerReactor: Reactor {
         case .setNavTarget(let target):
             var newState = state
             newState.nav = target
-            return newState
-        case .setTour:
-            var newState = state
-            newState.tourPresented = true
             return newState
         }
     }
