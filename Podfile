@@ -13,14 +13,20 @@ target 'Example' do
   pod 'RxSwift', '~> 4.0'
   pod 'RxSwiftExt'
   pod 'RxOptional'
+  pod 'Action'
   pod 'RxCocoa', '~> 4.0'
   pod 'RxDataSources', '~> 3.0'
   pod 'RxQRScanner'
   pod 'RxGesture'
   pod 'ReactorKit'
+  # Persistence Library
+  pod 'RxRealm'
   # Pods for Http
   pod 'Moya/RxSwift', '~> 11.0'
   pod 'ObjectMapper', '~> 3.3'
+  pod 'ObjectMapper+Realm'
+  pod 'ObjectMapperAdditions/Core', '~> 4.1'
+  pod 'ObjectMapperAdditions/Realm', '~> 4.1'
   pod 'Moya-ObjectMapper/RxSwift', '~> 2.7'
   pod 'PINRemoteImage'
   # Pods for Infrastructures
@@ -45,8 +51,6 @@ target 'Example' do
   pod 'PullToRefreshKit'
   # SVG
 #  pod 'FantasticSnowflake', git: 'https://github.com/onmyway133/Snowflake', :submodules => true
-  # Persistence Library
-  pod 'RxRealm'
   pod 'Shallows', :git => 'https://github.com/dreymonde/Shallows', :submodules => true
   # OAuth2 Library
   pod 'p2.OAuth2', :git => 'https://github.com/p2/OAuth2', :submodules => true
