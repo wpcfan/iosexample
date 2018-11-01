@@ -1,5 +1,5 @@
 <UIView clipsToBounds="true">
-    <TabButton
+    <Example.TabButton
         color="red"
         height="100%"
         left="parent.left + 10"
@@ -7,7 +7,7 @@
         top="parent.top"
         width="(parent.width - 30) / 2"
     />
-    <TabButton
+    <Example.TabButton
         color="blue"
         height="100%"
         left="previous.right + 10"
