@@ -229,6 +229,7 @@
 		AAC5EBA6215F5860008EBA1F /* HomeTabViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HomeTabViewController.xml; sourceTree = "<group>"; };
 		AAC5EBAB215F6A9E008EBA1F /* Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		AAD40D1A216CEDD300818DAA /* AMInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMInputView.swift; sourceTree = "<group>"; };
+		AADD25B8218AC2660080DA61 /* LocalConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = LocalConfig.xcconfig; sourceTree = "<group>"; };
 		AAE49EF32168EF89004BDBD7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AAE49EF52169D2FB004BDBD7 /* TourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourViewController.swift; sourceTree = "<group>"; };
 		AAE49EF72169D315004BDBD7 /* TourViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TourViewController.xml; sourceTree = "<group>"; };
@@ -330,6 +331,7 @@
 		AAC5EB61215E7BB7008EBA1F = {
 			isa = PBXGroup;
 			children = (
+				AADD25B8218AC2660080DA61 /* LocalConfig.xcconfig */,
 				AA4B48F42177193900A60C11 /* ProdConfig.xcconfig */,
 				AA4B48F3217718EA00A60C11 /* DevConfig.xcconfig */,
 				AAC5EB6C215E7BB7008EBA1F /* Example */,
@@ -1013,7 +1015,7 @@
 		};
 		AAC5EB88215E7BB9008EBA1F /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 83DACA3EE6BE698B8AB9D41F /* Pods-Example.debug.xcconfig */;
+			baseConfigurationReference = AA4B48F3217718EA00A60C11 /* DevConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1038,7 +1040,7 @@
 		};
 		AAC5EB89215E7BB9008EBA1F /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8E5FD09C8718DB4DD6F6C2D9 /* Pods-Example.release.xcconfig */;
+			baseConfigurationReference = AA4B48F42177193900A60C11 /* ProdConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1062,6 +1064,7 @@
 		};
 		AAC5EB8B215E7BB9008EBA1F /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA4B48F3217718EA00A60C11 /* DevConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1083,6 +1086,7 @@
 		};
 		AAC5EB8C215E7BB9008EBA1F /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AA4B48F42177193900A60C11 /* ProdConfig.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1102,6 +1106,117 @@
 			};
 			name = Release;
 		};
+		AADD25B9218AC3030080DA61 /* Local */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AADD25B8218AC2660080DA61 /* LocalConfig.xcconfig */;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+			};
+			name = Local;
+		};
+		AADD25BA218AC3030080DA61 /* Local */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AADD25B8218AC2660080DA61 /* LocalConfig.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = U4F2KFJUHF;
+				INFOPLIST_FILE = Example/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.twigcodes.Example;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = Example;
+				SWIFT_OBJC_BRIDGING_HEADER = "Example/Example-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Local;
+		};
+		AADD25BB218AC3030080DA61 /* Local */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AADD25B8218AC2660080DA61 /* LocalConfig.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = U4F2KFJUHF;
+				INFOPLIST_FILE = ExampleTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.twigcodes.ExampleTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Example.app/Example";
+			};
+			name = Local;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1109,6 +1224,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AAC5EB85215E7BB9008EBA1F /* Debug */,
+				AADD25B9218AC3030080DA61 /* Local */,
 				AAC5EB86215E7BB9008EBA1F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1118,6 +1234,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AAC5EB88215E7BB9008EBA1F /* Debug */,
+				AADD25BA218AC3030080DA61 /* Local */,
 				AAC5EB89215E7BB9008EBA1F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
@@ -1127,6 +1244,7 @@
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AAC5EB8B215E7BB9008EBA1F /* Debug */,
+				AADD25BB218AC3030080DA61 /* Local */,
 				AAC5EB8C215E7BB9008EBA1F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;

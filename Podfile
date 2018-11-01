@@ -60,7 +60,7 @@ target 'Example' do
   # Icon Font
   pod 'SwiftIconFont', :git => 'https://github.com/0x73/SwiftIconFont', :submodules => true
   # Reveal UI Components
-  pod 'Reveal-SDK', :configurations => ['Debug']
+  pod 'Reveal-SDK', :configurations => ['Debug', 'Local']
   # Make float button to debug app
-  pod 'CocoaDebug', :configurations => ['Debug']
+  pod 'CocoaDebug', :configurations => ['Debug', 'Local']
 end
