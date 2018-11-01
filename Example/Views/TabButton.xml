@@ -3,7 +3,7 @@
         center.x="parent.center.x"
         height="32"
         title="{title}"
-        titleColor="#000"
+        titleColor="black"
         top="parent.top + 5"
         width="48"
     />

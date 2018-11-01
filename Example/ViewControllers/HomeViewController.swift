@@ -96,10 +96,9 @@ class HomeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationItem.titleView?.snp.makeConstraints { make in
-            make.height.equalToSuperview()
-            make.centerX.equalToSuperview()
+
+        self.titleForTranslucent.snp.makeConstraints { make in
+            make.height.equalTo(44)
             make.width.equalTo(HomeViewController.MIN_TOOLBAR_WIDTH * self.view.frame.width)
         }
     }
