@@ -93,6 +93,16 @@ class HomeViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
     }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.navigationItem.titleView?.snp.makeConstraints { make in
+            make.height.equalToSuperview()
+            make.centerX.equalToSuperview()
+            make.width.equalTo(HomeViewController.MIN_TOOLBAR_WIDTH * self.view.frame.width)
+        }
+    }
 }
 
 extension HomeViewController: UITableViewDataSource {
@@ -135,12 +145,6 @@ extension HomeViewController: UIScrollViewDelegate {
         self.navigationController?.fadingNavigationBar(alpha: alpha)
         self.navigationController?.navigationBar.tintColor = alpha == 1 ? .black : .white
         self.navigationItem.titleView = alpha == 1 ? titleForTranslucent : titleForDefault
-        
-        self.navigationItem.titleView?.snp.makeConstraints { make in
-            make.height.equalToSuperview()
-            make.centerX.equalToSuperview()
-            make.width.equalTo(HomeViewController.MIN_TOOLBAR_WIDTH * self.view.frame.width)
-        }
     }
 
     fileprivate func animateNavigationBarAndToolBarTransition(_ scrollView: UIScrollView) {
