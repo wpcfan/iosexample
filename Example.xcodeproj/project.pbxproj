@@ -351,6 +351,16 @@
 			path = Rx;
 			sourceTree = "<group>";
 		};
+		AA433F11218C525500BA60A1 /* IDEConfig */ = {
+			isa = PBXGroup;
+			children = (
+				AADD25B8218AC2660080DA61 /* LocalConfig.xcconfig */,
+				AA4B48F42177193900A60C11 /* ProdConfig.xcconfig */,
+				AA4B48F3217718EA00A60C11 /* DevConfig.xcconfig */,
+			);
+			path = IDEConfig;
+			sourceTree = "<group>";
+		};
 		AA4B48EC2175CA1B00A60C11 /* Reactors */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,9 +401,7 @@
 		AAC5EB61215E7BB7008EBA1F = {
 			isa = PBXGroup;
 			children = (
-				AADD25B8218AC2660080DA61 /* LocalConfig.xcconfig */,
-				AA4B48F42177193900A60C11 /* ProdConfig.xcconfig */,
-				AA4B48F3217718EA00A60C11 /* DevConfig.xcconfig */,
+				AA433F11218C525500BA60A1 /* IDEConfig */,
 				AAC5EB6C215E7BB7008EBA1F /* Example */,
 				AAC5EB81215E7BB9008EBA1F /* ExampleTests */,
 				AAC5EB6B215E7BB7008EBA1F /* Products */,
