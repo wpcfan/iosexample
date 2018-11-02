@@ -30,6 +30,13 @@
 			<key>TOKEN</key>
 			<string>${LOGZ_TOKEN}</string>
 		</dict>
+        <key>JPUSH</key>
+        <dict>
+            <key>APP_KEY</key>
+            <string>${JPUSH_APP_KEY}</string>
+            <key>APP_SECRET</key>
+            <string>${JPUSH_APP_KEY}</string>
+        </dict>
 	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>

@@ -25,6 +25,9 @@ struct AppEnv {
     static let authOpenIdBaseUrl = String(format: authOpenIdUrlTemplate, authBaseUrl, authRealm)
     static let authOpenIdAuthorizeUrl = authOpenIdBaseUrl + "/auth"
     static let authOpenIdTokenUrl = authOpenIdBaseUrl + "/token"
+    static let push: Dictionary<String, String> = appEnv["JPUSH"] as! Dictionary
+    static let pushKey = push["APP_KEY"]!
+    static let pushSecret = push["APP_SECRET"]!
 //    static let urlTypes = Bundle.main.infoDictionary!["CFBundleURLTypes"]
 //    static let urlScheme: String = (urlTypes![1] as Dictionary)["CFBundleURLSchemes"]![0]
 }
