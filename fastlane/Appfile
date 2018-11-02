@@ -1,6 +1,14 @@
-# app_identifier("[[APP_IDENTIFIER]]") # The bundle identifier of your app
-# apple_id("[[APPLE_ID]]") # Your Apple email address
+app_identifier("com.twigcodes.Example") # The bundle identifier of your app
+apple_id("wpcfan@gmail.com") # Your Apple email address
+team_id "U4F2KFJUHF"
 
+
+for_platform :ios do
+  team_id="U4F2KFJUHF"
+  for_lane :dev do
+    app_identifier 'com.twigcodes.Example-dev'
+  end
+end
 
 # For more information about the Appfile, see:
 #     https://docs.fastlane.tools/advanced/#appfile

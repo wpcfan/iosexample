@@ -13,6 +13,9 @@ PODS:
   - Eureka (4.3.0)
   - FLAnimatedImage (1.0.12)
   - FSPagerView (0.8.1)
+  - JCore (1.2.5)
+  - JPush (3.1.1.1):
+    - JCore (~> 1.2.5)
   - JustLog (2.4.0):
     - CocoaAsyncSocket (~> 7.6.3)
     - SwiftyBeaver (~> 1.5.2)
@@ -35,15 +38,6 @@ PODS:
     - Moya/Core
     - RxSwift (~> 4.0)
   - ObjectMapper (3.3.0)
-  - "ObjectMapper+Realm (0.6)":
-    - ObjectMapper
-    - RealmSwift
-  - ObjectMapperAdditions/Core (4.2.1):
-    - ObjectMapper
-  - ObjectMapperAdditions/Realm (4.2.1):
-    - ObjectMapper
-    - ObjectMapperAdditions/Core
-    - RealmSwift
   - p2.OAuth2 (4.0.1)
   - PINCache (2.3)
   - PINRemoteImage (2.1.4):
@@ -58,11 +52,6 @@ PODS:
   - PullToRefreshKit (0.8.8)
   - ReactorKit (1.2.1):
     - RxSwift (>= 4.0.0)
-  - Realm (3.11.1):
-    - Realm/Headers (= 3.11.1)
-  - Realm/Headers (3.11.1)
-  - RealmSwift (3.11.1):
-    - Realm (= 3.11.1)
   - Result (3.2.4)
   - Reveal-SDK (19)
   - RxCocoa (4.3.1):
@@ -80,9 +69,6 @@ PODS:
   - RxQRScanner (1.4.1):
     - RxCocoa (~> 4.3)
     - RxSwift (~> 4.3)
-  - RxRealm (0.7.6):
-    - RealmSwift (~> 3.0)
-    - RxSwift (~> 4.0)
   - RxSwift (4.3.1)
   - RxSwiftExt (3.3.0):
     - RxSwiftExt/Core (= 3.3.0)
@@ -103,15 +89,13 @@ DEPENDENCIES:
   - EAIntroView
   - Eureka
   - FSPagerView
+  - JPush
   - JustLog
   - JWTDecode (~> 2.1)
   - Layout (~> 0.6)
   - Moya-ObjectMapper/RxSwift (~> 2.7)
   - Moya/RxSwift (~> 11.0)
   - ObjectMapper (~> 3.3)
-  - "ObjectMapper+Realm"
-  - ObjectMapperAdditions/Core (~> 4.1)
-  - ObjectMapperAdditions/Realm (~> 4.1)
   - p2.OAuth2 (from `https://github.com/p2/OAuth2`)
   - PINRemoteImage
   - PMAlertController
@@ -124,7 +108,6 @@ DEPENDENCIES:
   - RxGesture
   - RxOptional
   - RxQRScanner
-  - RxRealm
   - RxSwift (~> 4.0)
   - RxSwiftExt
   - Shallows (from `https://github.com/dreymonde/Shallows`)
@@ -147,22 +130,20 @@ SPEC REPOS:
     - Eureka
     - FLAnimatedImage
     - FSPagerView
+    - JCore
+    - JPush
     - JustLog
     - JWTDecode
     - Layout
     - Moya
     - Moya-ObjectMapper
     - ObjectMapper
-    - "ObjectMapper+Realm"
-    - ObjectMapperAdditions
     - PINCache
     - PINRemoteImage
     - PMAlertController
     - pop
     - PullToRefreshKit
     - ReactorKit
-    - Realm
-    - RealmSwift
     - Result
     - Reveal-SDK
     - RxCocoa
@@ -170,7 +151,6 @@ SPEC REPOS:
     - RxGesture
     - RxOptional
     - RxQRScanner
-    - RxRealm
     - RxSwift
     - RxSwiftExt
     - SnapKit
@@ -216,14 +196,14 @@ SPEC CHECKSUMS:
   Eureka: 6d711cb30ca333b4bc893110285a722ae3840114
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   FSPagerView: 4e865526acc0b0e3077e2abb29b8d10a9f395476
+  JCore: 14706de2640b25fb77dbd02332696491407f37c9
+  JPush: 25dd9013fbe106082c14f9f30a82364ee98852fb
   JustLog: 943987a94d86c6e837ac6da0362c122b157d183a
   JWTDecode: 83e8b381aafe27158d9f692cbdca2b12d61d460c
   Layout: 799364f35fc1881e8a73c43b48b1e334bcd301b1
   Moya: a725035953bc1c0eb1be505ab903984501d82440
   Moya-ObjectMapper: 441caa307b527331fde59e2577adc632a16f1255
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
-  "ObjectMapper+Realm": 4cf44ed3202a73f08594e21e13eb3f8aa9b5a664
-  ObjectMapperAdditions: e11586bce98cf1090a36c24d4628ae5720a95d85
   p2.OAuth2: fdc2effef37793a8f775dd4760bc4c1ea906c956
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
   PINRemoteImage: 4ac4011c5caefd6befd99758e09becede05d3226
@@ -231,8 +211,6 @@ SPEC CHECKSUMS:
   pop: d582054913807fd11fd50bfe6a539d91c7e1a55a
   PullToRefreshKit: 7cc53e720e69f135cffa1a57784dfb534f0222ab
   ReactorKit: 8be57f0527ad1ac2963cd5c338274a46a01e57a3
-  Realm: 037c5919b9ceb59d6beed5d3b031096856b119b3
-  RealmSwift: c9580133e73ef40ed340401af2dbc9a5790dfea7
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   Reveal-SDK: 9f0d2c6c12eb7507921e5454ac165b7aa21140a4
   RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
@@ -240,7 +218,6 @@ SPEC CHECKSUMS:
   RxGesture: 26ede4ed13ffc6336d29dbd9a8dff229bdb72de7
   RxOptional: bd32ff8ca9df4177683d56ffeb618a9d4d5d5cad
   RxQRScanner: b523a276be9a5f53603b85a0efb871e7bf480180
-  RxRealm: 5379eddd74f8d617ca7681d1f8d144af25b432b0
   RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
   RxSwiftExt: 81afb48ab0602f503147417baeb3989d64c7687d
   Shallows: fd53872b476c90fa1d4cb54fb735801d374e41b8
@@ -251,6 +228,6 @@ SPEC CHECKSUMS:
   "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
 
-PODFILE CHECKSUM: 068d339b5c04a66987189d77ddbf411d2f792ca5
+PODFILE CHECKSUM: 847895077b870730a12bf0164bd5f1e028c3323d
 
 COCOAPODS: 1.5.3

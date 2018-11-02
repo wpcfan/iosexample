@@ -17,7 +17,7 @@ default_platform(:ios)
 
 platform :ios do
   desc "make release build"
-  lane :beta do
+  lane :dev do
     # invokes cert
     get_certificates(
       development: "true",
@@ -26,12 +26,18 @@ platform :ios do
     # invokes sigh
     get_provisioning_profile(
       development: "true",
-      app_identifier: "com.twigcodes.Example",
+      app_identifier: "com.twigcodes.Example-dev",
       username: "wpcfan@gmail.com"
     )
     disable_automatic_code_signing(path: "Example.xcodeproj")
-    build_app
-    enable_automatic_code_signing(path: "Example.xcodeproj")
+    build_app(scheme: "Dev",
+              configuration: "Debug",
+              workspace: "Example.xcworkspace",
+              include_bitcode: true)
+    enable_automatic_code_signing(
+      path: "Example.xcodeproj",
+      bundle_identifier: "com.twigcodes.Example-dev"
+      )
   end
   desc "make release build"
   lane :release do

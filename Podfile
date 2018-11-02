@@ -20,17 +20,19 @@ target 'Example' do
   pod 'RxGesture'
   pod 'ReactorKit'
   # Persistence Library
-  pod 'RxRealm'
+  # pod 'RxRealm'
   # Pods for Http
   pod 'Moya/RxSwift', '~> 11.0'
   pod 'ObjectMapper', '~> 3.3'
-  pod 'ObjectMapper+Realm'
-  pod 'ObjectMapperAdditions/Core', '~> 4.1'
-  pod 'ObjectMapperAdditions/Realm', '~> 4.1'
+  # pod 'ObjectMapper+Realm'
+  # pod 'ObjectMapperAdditions/Core', '~> 4.1'
+  # pod 'ObjectMapperAdditions/Realm', '~> 4.1'
   pod 'Moya-ObjectMapper/RxSwift', '~> 2.7'
   pod 'PINRemoteImage'
   # Pods for Infrastructures
   pod 'Dollar'
+  # Push
+  pod 'JPush'
   # IoC
   pod 'Swinject', '~> 2.5'
   # Log

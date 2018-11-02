@@ -20,7 +20,6 @@ import RxSwift
 import CocoaDebug
 #endif
 
-
 #if swift(>=4.2)
 extension UIApplication {
     typealias LaunchOptionsKey = UIApplication.LaunchOptionsKey
@@ -188,6 +187,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         CocoaDebug.enable()
         #endif
     }
+    
+    fileprivate func setupJPush() {
+        if #available(iOS 10, *) {
+        let entity = JPUSHRegisterEntity()
+        entity.types = NSInteger(UNAuthorizationOptions.alert.rawValue) |
+        NSInteger(UNAuthorizationOptions.sound.rawValue) |
+        NSInteger(UNAuthorizationOptions.badge.rawValue)
+        JPUSHService.register(forRemoteNotificationConfig: entity, delegate: self)
+        }  else {
+        // 可以自定义 categories
+        JPUSHService.register(
+        forRemoteNotificationTypes: UIUserNotificationType.badge.rawValue |
+        UIUserNotificationType.sound.rawValue |
+        UIUserNotificationType.alert.rawValue,
+        categories: nil)
+        }
+//        JPUSHService.setupWithOption(launchOptions, appKey: appKey, channel: channel, apsForProduction: isProduction)
+    }
 }
 
 extension AppDelegate {
@@ -203,4 +220,22 @@ public func print<T>(file: String = #file, function: String = #function, line: I
     #if DEBUG
     swiftLog(file, function, line, message, color)
     #endif
+}
+
+@available(iOS 10.0, *)
+extension AppDelegate: JPUSHRegisterDelegate {
+    
+    func jpushNotificationCenter(_ center: UNUserNotificationCenter!, willPresent notification: UNNotification!, withCompletionHandler completionHandler: ((Int) -> Void)!) {
+        
+    }
+    
+    func jpushNotificationCenter(_ center: UNUserNotificationCenter!, didReceive response: UNNotificationResponse!, withCompletionHandler completionHandler: (() -> Void)!) {
+        
+    }
+    
+    func jpushNotificationCenter(_ center: UNUserNotificationCenter!, openSettingsFor notification: UNNotification?) {
+        
+    }
+    
+    
 }

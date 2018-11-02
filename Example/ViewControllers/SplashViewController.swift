@@ -55,10 +55,11 @@ extension SplashViewController: ReactorKit.View {
         let countDownStream =  Observable<Int>
             .interval(1, scheduler: ConcurrentDispatchQueueScheduler(qos: .userInitiated))
             .map { val -> Int in 5 - val }
-            .takeWhile { val -> Bool in val >= 0 }
+            .takeWhile { val -> Bool in val > 0 }
+        
         Observable.merge(
             countDown.rx.tap.map { _ in 0 },
-            countDownStream.filter { (count) -> Bool in  count == 0 })
+            countDownStream.filter { (count) -> Bool in  count == 1 })
             .withLatestFrom(reactor.state)
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
             .observeOn(MainScheduler.asyncInstance)
@@ -73,10 +74,12 @@ extension SplashViewController: ReactorKit.View {
                 }
             }
             .disposed(by: self.disposeBag)
+        
         countDownStream
             .map { _ in Reactor.Action.tick }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
+        
         reactor.state
             .map { $0.countDown }
             .distinctUntilChanged()
