@@ -1,0 +1,3 @@
+[submodule "IDEConfig"]
+	path = IDEConfig
+	url = https://gitee.com/peng.wong/ExampleIDEConfig
