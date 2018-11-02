@@ -1,18 +1,10 @@
 //
-//  ImageEffects+Accelerate.swift
-//  Pods
+//  AppDelegate+Navigation.swift
+//  Example
 //
-//  Created by Antoine Cœur on 07/08/2017.
+//  Created by 王芃 on 2018/11/2.
+//  Copyright © 2018 twigcodes. All rights reserved.
 //
-//
-/*
- Abstract: This class contains methods to apply blur and tint effects to an image.
- This is the code you’ll want to look out to find out how to use vImage to efficiently calculate a blur.
- Version: 1.1.Coeur
- 
- Swift implementation of https://developer.apple.com/library/content/samplecode/UIImageEffects/
- Copyright (C) 2014 Apple Inc. All Rights Reserved.
- */
 
 import UIKit
 import Accelerate

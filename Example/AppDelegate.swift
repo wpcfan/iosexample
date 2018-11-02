@@ -16,7 +16,7 @@ extension UIApplication {
 }
 #else
 extension UIApplication {
-typealias LaunchOptionsKey = UIApplicationLaunchOptionsKey
+    typealias LaunchOptionsKey = UIApplicationLaunchOptionsKey
 }
 #endif
 
