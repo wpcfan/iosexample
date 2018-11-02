@@ -302,6 +302,55 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		AA433F0E218C511F00BA60A1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				AA433F0F218C515D00BA60A1 /* Rx */,
+				AA433F0A218C4B2D00BA60A1 /* AppDelegate+CocoaDebug.swift */,
+				AA433F06218C4A1900BA60A1 /* AppDelegate+Logging.swift */,
+				AA433F02218C491100BA60A1 /* AppDelegate+Push.swift */,
+				AA433F04218C49A500BA60A1 /* AppDelegate+Navigation.swift */,
+				AA54DF422188424000CE0CA0 /* AnimationExtensions.swift */,
+				AA89786621856D88005A61CA /* ImageEffects+Accelerate.swift */,
+				AA3E0EBA21737D0600958937 /* LayoutExtensions.swift */,
+				AA683A06216F3D5400E4097B /* String+UrlEncode.swift */,
+				AAF5CA4821821F3B006DE332 /* UIApplication+StatusBar.swift */,
+				AA4B49192178883E00A60C11 /* UICollectionViewDelegateFlexLayout.swift */,
+				AA4B491D2178883F00A60C11 /* UICollectionViewFlexLayout.swift */,
+				AAC5EB9D215E7EB4008EBA1F /* UIColor+Hex.swift */,
+				AA30C0672167AA3600B9E0EB /* UINavigationController+Bar.swift */,
+				AA3E0EA42172328100958937 /* UIStackView+.swift */,
+				AA420587217B66210068ABC0 /* UIView+Blur.swift */,
+				AA4B49182178883E00A60C11 /* Then.swift */,
+				AA4B491B2178883E00A60C11 /* SwiftyColor.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		AA433F0F218C515D00BA60A1 /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+				AA4B49152178800A00A60C11 /* Reactive+FSPagerView.swift */,
+				AA4B48E32175006100A60C11 /* Reactive+Layout.swift */,
+				AA4B48F7217736D900A60C11 /* Reactive+OAuth2.swift */,
+				AA4B48E12174E1D300A60C11 /* Reactive+Reuseable.swift */,
+				AA38DCA6217EF4D70046D82D /* Reactive+StatusBar.swift */,
+				AA4B49172178883E00A60C11 /* Reactive+UICollectionViewFlexLayout.swift */,
+				AA8978682185759F005A61CA /* Reactive+UIImageView.swift */,
+				AA8978642185658C005A61CA /* Reactive+UIScrollView.swift */,
+				AA4B491A2178883E00A60C11 /* Reactive+UIViewController.swift */,
+				AAE49EFD216AE281004BDBD7 /* Shallows+Rx.swift */,
+			);
+			path = Rx;
+			sourceTree = "<group>";
+		};
+		AA433F10218C519A00BA60A1 /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Rx;
+			sourceTree = "<group>";
+		};
 		AA4B48EC2175CA1B00A60C11 /* Reactors */ = {
 			isa = PBXGroup;
 			children = (
@@ -370,6 +419,7 @@
 				AAD40D19216CEDB000818DAA /* Controls */,
 				AA30C06221679A3000B9E0EB /* DeepLink */,
 				AAC5EB91215E7DD9008EBA1F /* Domain */,
+				AA433F0E218C511F00BA60A1 /* Extensions */,
 				AAC5EB96215E7E2E008EBA1F /* Navigator */,
 				AA4B48EC2175CA1B00A60C11 /* Reactors */,
 				AAC5EB99215E7E71008EBA1F /* Services */,
@@ -450,39 +500,13 @@
 		AAC5EB9C215E7EA4008EBA1F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				AA433F0A218C4B2D00BA60A1 /* AppDelegate+CocoaDebug.swift */,
-				AA433F06218C4A1900BA60A1 /* AppDelegate+Logging.swift */,
-				AA433F02218C491100BA60A1 /* AppDelegate+Push.swift */,
-				AA433F04218C49A500BA60A1 /* AppDelegate+Navigation.swift */,
-				AA54DF422188424000CE0CA0 /* AnimationExtensions.swift */,
+				AA433F10218C519A00BA60A1 /* Rx */,
 				AA433F08218C4AB300BA60A1 /* Global.swift */,
-				AA89786621856D88005A61CA /* ImageEffects+Accelerate.swift */,
-				AA3E0EBA21737D0600958937 /* LayoutExtensions.swift */,
 				AA683A04216F3BD700E4097B /* MoyaUtils.swift */,
 				AA4B493B2179BBD900A60C11 /* Permission.swift */,
 				AA3E0E772170478200958937 /* PullToRefreshUtil.swift */,
-				AA4B49152178800A00A60C11 /* Reactive+FSPagerView.swift */,
-				AA4B48E32175006100A60C11 /* Reactive+Layout.swift */,
-				AA4B48F7217736D900A60C11 /* Reactive+OAuth2.swift */,
-				AA4B48E12174E1D300A60C11 /* Reactive+Reuseable.swift */,
-				AA38DCA6217EF4D70046D82D /* Reactive+StatusBar.swift */,
-				AA4B49172178883E00A60C11 /* Reactive+UICollectionViewFlexLayout.swift */,
-				AA8978682185759F005A61CA /* Reactive+UIImageView.swift */,
-				AA8978642185658C005A61CA /* Reactive+UIScrollView.swift */,
-				AA4B491A2178883E00A60C11 /* Reactive+UIViewController.swift */,
 				AA38DCA4217EF41F0046D82D /* RxUtil.swift */,
 				AA4B491C2178883F00A60C11 /* RxKeyboard.swift */,
-				AAE49EFD216AE281004BDBD7 /* Shallows+Rx.swift */,
-				AA683A06216F3D5400E4097B /* String+UrlEncode.swift */,
-				AA4B491B2178883E00A60C11 /* SwiftyColor.swift */,
-				AA4B49182178883E00A60C11 /* Then.swift */,
-				AAF5CA4821821F3B006DE332 /* UIApplication+StatusBar.swift */,
-				AA4B49192178883E00A60C11 /* UICollectionViewDelegateFlexLayout.swift */,
-				AA4B491D2178883F00A60C11 /* UICollectionViewFlexLayout.swift */,
-				AAC5EB9D215E7EB4008EBA1F /* UIColor+Hex.swift */,
-				AA30C0672167AA3600B9E0EB /* UINavigationController+Bar.swift */,
-				AA3E0EA42172328100958937 /* UIStackView+.swift */,
-				AA420587217B66210068ABC0 /* UIView+Blur.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
