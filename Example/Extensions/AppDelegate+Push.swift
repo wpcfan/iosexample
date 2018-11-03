@@ -8,10 +8,10 @@
 
 import UIKit
 
-// for JPush integration
-// JPUSHRegisterDelegate is a drop-in replacement for UNUserNotificationCenterDelegate
+// 极光消息集成
+// 如果实现 JPUSHRegisterDelegate 则不用实现 UNUserNotificationCenterDelegate
 extension AppDelegate: JPUSHRegisterDelegate {
-    
+    /// 极光服务初始化
     func setupPushNotification(_ launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         if #available(iOS 10, *) {
             let entity = JPUSHRegisterEntity()
@@ -39,9 +39,13 @@ extension AppDelegate: JPUSHRegisterDelegate {
             JPUSHService.setLogOFF()
         #endif
         let defaultCenter = NotificationCenter.default
-        defaultCenter.addObserver(self, selector: #selector(networkDidReceiveMessage(_:)), name: NSNotification.Name.jpfNetworkDidReceiveMessage, object: nil)
+        // 订阅自定义消息
+        defaultCenter.addObserver(self,
+                                  selector: #selector(networkDidReceiveMessage(_:)),
+                                  name: NSNotification.Name.jpfNetworkDidReceiveMessage,
+                                  object: nil)
     }
-    // 自定义消息
+    // 处理自定义消息
     @objc func networkDidReceiveMessage(_ notification: Notification) -> Void {
         let userInfo = notification.userInfo
         guard userInfo != nil else {
@@ -66,10 +70,12 @@ extension AppDelegate: JPUSHRegisterDelegate {
         }
     }
     
+    // 应用在后台时，处理通知逻辑
     @available(iOS 10.0, *)
     func jpushNotificationCenter(_ center: UNUserNotificationCenter!, didReceive response: UNNotificationResponse!, withCompletionHandler completionHandler: (() -> Void)!) {
         
         let userInfo = response.notification.request.content.userInfo
+        
         let request = response.notification.request // 收到推送的请求
         let content = request.content // 收到推送的消息内容
         let badge = content.badge // 推送消息的角标
@@ -81,21 +87,22 @@ extension AppDelegate: JPUSHRegisterDelegate {
             JPUSHService.handleRemoteNotification(userInfo)
         }
         
+        print("[JPush][APN][后台] 参数： \(userInfo)")
         print("[JPush][APN][后台] 内容： \(content)")
         print("[JPush][APN][后台] 标题： \(title)")
         print("[JPush][APN][后台] 副标题： \(subtitle)")
         print("[JPush][APN][后台] 声音： \(String(describing: sound))")
         print("[JPush][APN][后台] 角标： \(String(describing: badge))")
         print("[JPush][APN][后台] 消息体： \(body)")
+        // 通知栏消息弹出
         completionHandler()
     }
     
-    // Handle notification when app is foreground
+    // 应用在前台时，处理通知逻辑
     @available(iOS 10.0, *)
     func jpushNotificationCenter(_ center: UNUserNotificationCenter!, willPresent notification: UNNotification!,
                                  withCompletionHandler completionHandler: (Int) -> Void) {
         let userInfo = notification.request.content.userInfo
-        
         let request = notification.request // 收到推送的请求
         let content = request.content // 收到推送的消息内容
         let badge = content.badge // 推送消息的角标
@@ -106,13 +113,15 @@ extension AppDelegate: JPUSHRegisterDelegate {
         if ((notification.request.trigger?.isKind(of: UNPushNotificationTrigger.self))!) {
             JPUSHService.handleRemoteNotification(userInfo)
         }
+        
+        print("[JPush][APN][前台] 参数： \(userInfo)")
         print("[JPush][APN][前台] 内容： \(content)")
         print("[JPush][APN][前台] 标题： \(title)")
         print("[JPush][APN][前台] 副标题： \(subtitle)")
         print("[JPush][APN][前台] 声音： \(String(describing: sound))")
         print("[JPush][APN][前台] 角标： \(String(describing: badge))")
         print("[JPush][APN][前台] 消息体： \(body)")
-        // remind user
+        // 通知栏消息弹出
         completionHandler(Int(UNNotificationPresentationOptions.alert.rawValue))
     }
     

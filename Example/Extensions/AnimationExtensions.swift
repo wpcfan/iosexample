@@ -22,8 +22,6 @@ extension CGPath {
 
 /*
  Finds the first point in a path. Uses the CGPath extension created above.
- This is used to add the flying-saucer image at the beginning of
- the path it will animate on.
  */
 extension UIBezierPath {
     func firstPoint() -> CGPoint? {

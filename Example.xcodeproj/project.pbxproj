@@ -476,7 +476,9 @@
 			isa = PBXGroup;
 			children = (
 				AAC5EB92215E7DE8008EBA1F /* User.swift */,
+				AA4B48EF2175E4D000A60C11 /* APIError.swift */,
 				AAE49EF9216A2783004BDBD7 /* AppData.swift */,
+				AA4B48F121761F7400A60C11 /* AuthError.swift */,
 				AA683A08216F434C00E4097B /* Banner.swift */,
 				AA3E0E7B217053BD00958937 /* Deivce.swift */,
 				AA3E0E892170841700958937 /* HomeInfo.swift */,
@@ -486,8 +488,6 @@
 				AA3E0E812170589F00958937 /* Scene.swift */,
 				AA3E0E8521705B4C00958937 /* ScriptTask.swift */,
 				AA3E0E8721707DD400958937 /* ScriptTrigger.swift */,
-				AA4B48EF2175E4D000A60C11 /* APIError.swift */,
-				AA4B48F121761F7400A60C11 /* AuthError.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -713,6 +713,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Example/Pods-Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Cent/Cent.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaDebug/CocoaDebug.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
@@ -756,6 +757,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Action.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cent.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaDebug.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",

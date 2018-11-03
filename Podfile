@@ -31,6 +31,7 @@ target 'Example' do
   pod 'PINRemoteImage'
   # Pods for Infrastructures
   pod 'Dollar'
+  pod 'Cent'
   # Push
   pod 'JPush'
   # IoC

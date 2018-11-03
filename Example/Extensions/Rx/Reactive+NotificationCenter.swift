@@ -9,7 +9,7 @@
 import RxSwift
 
 extension Reactive where Base: NotificationCenter {
-    func notification(_ name: AppNotification, object: AnyObject? = nil) -> Observable<Notification> {
+    func notification(_ name: AppNotificationType, object: AnyObject? = nil) -> Observable<Notification> {
         return notification(name.notificationName, object: object)
     }
 }

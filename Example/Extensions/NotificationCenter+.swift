@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum AppNotification: String {
+enum AppNotificationType: String {
     case jPushAddNotificationCount = "AddNotificationCount"
     case jPushDidRegisterRemoteNotification = "DidRegisterRemoteNotification"
     
@@ -18,7 +18,7 @@ enum AppNotification: String {
 }
 
 extension NotificationCenter {
-    static func post(_ name: AppNotification, object: Any? = nil){
+    static func post(_ name: AppNotificationType, object: Any? = nil){
         NotificationCenter.default.post(name: name.notificationName, object: object)
     }
 }

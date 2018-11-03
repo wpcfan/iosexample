@@ -28,28 +28,3 @@ extension AppDelegate {
         #endif
     }
 }
-
-public func print<T>(file: String = #file,
-                     function: String = #function,
-                     line: Int = #line,
-                     _ message: T,
-                     color: UIColor = .white) {
-    #if DEBUG
-    swiftLog(file, function, line, message, color)
-    #else
-    log.debug("\(message)")
-    #endif
-}
-
-public func printError<T>(file: String = #file,
-                     function: String = #function,
-                     line: Int = #line,
-                     _ message: T,
-                     color: UIColor = .red) {
-    #if DEBUG
-    swiftLog(file, function, line, message, color)
-    #else
-    log.error("\(message)")
-    #endif
-}
-
