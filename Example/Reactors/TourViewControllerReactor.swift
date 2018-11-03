@@ -46,7 +46,7 @@ class TourViewControllerReactor: Reactor {
                     return Observable.of(.setTour(completed: true))
                 }
                 .catchError({ (error) -> Observable<Mutation> in
-                    log.error("storage saving error: " + error.localizedDescription)
+                    print("storage saving error: " + error.localizedDescription)
                     return Observable.of(.setTour(completed: false))
                 })
         case .checkAuth:

@@ -30,7 +30,7 @@ class OAuth2Service {
             let jwt = try decode(jwt: oauth2.refreshToken!)
             return !jwt.expired
         } catch _ {
-            log.debug("jwt decode error: ", userInfo: ["refresh_token": oauth2.refreshToken!])
+            print("jwt decode error - refresh_token \(String(describing: oauth2.refreshToken))")
             return false
         }
         

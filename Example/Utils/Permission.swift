@@ -14,25 +14,25 @@ struct Permission {
         return Observable.create({ (observer) -> Disposable in
             switch AVCaptureDevice.authorizationStatus(for: .video) {
             case .denied:
-                log.error("Denied, request permission from settings")
+                printError("Denied, request permission from settings")
                 observer.onNext(false)
                 observer.onCompleted()
             case .restricted:
-                log.error("Restricted, device owner must approve")
+                printError("Restricted, device owner must approve")
                 observer.onNext(false)
                 observer.onCompleted()
             case .authorized:
-                log.debug("Authorized, proceed")
+                print("Authorized, proceed")
                 observer.onNext(true)
                 observer.onCompleted()
             case .notDetermined:
                 AVCaptureDevice.requestAccess(for: .video) { success in
                     if success {
-                        log.debug("Permission granted, proceed")
+                        print("Permission granted, proceed")
                         observer.onNext(true)
                         observer.onCompleted()
                     } else {
-                        log.error("Permission denied")
+                        printError("Permission denied")
                         observer.onNext(false)
                         observer.onCompleted()
                     }

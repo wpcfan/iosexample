@@ -88,7 +88,7 @@ class HomeViewController: BaseViewController {
             .take(1)
             .subscribe(onNext: { result in
                 if (result != nil) {
-                    log.debug(result!)
+                    print(result!)
                 }
             })
             .disposed(by: disposeBag)

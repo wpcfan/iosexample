@@ -7,7 +7,7 @@
 //
 import SafariServices
 import UIKit
-
+import PMAlertController
 import URLNavigator
 
 enum NavigationMap {
@@ -23,7 +23,7 @@ enum NavigationMap {
         navigator.handle("example://alert", self.alert(navigator: navigator))
         navigator.handle("example://<path:_>") { (url, values, context) -> Bool in
             // No navigator match, do analytics or fallback function here
-            log.debug("[Navigator] NavigationMap.\(#function):\(#line) - global fallback function is called")
+            print("[Navigator] NavigationMap.\(#function):\(#line) - global fallback function is called")
             return true
         }
     }
@@ -41,9 +41,24 @@ enum NavigationMap {
         return { url, values, context in
             guard let title = url.queryParameters["title"] else { return false }
             let message = url.queryParameters["message"]
-            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
-            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            navigator.present(alertController)
+            let alertVC = PMAlertController(title: title, description: message ?? "", image: AppIcons.sceneHomeAccent, style: .alert)
+            
+            alertVC.addAction(PMAlertAction(title: "Cancel", style: .cancel, action: { () -> Void in
+                print("Capture action Cancel")
+            }))
+            
+            alertVC.addAction(PMAlertAction(title: "OK", style: .default, action: { () in
+                print("Capture action OK")
+            }))
+            
+            alertVC.addTextField { (textField) in
+                textField?.placeholder = "Location..."
+            }
+            
+            navigator.present(alertVC)
+//            let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+//            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+//            navigator.present(alertController)
             return true
         }
     }

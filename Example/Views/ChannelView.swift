@@ -21,7 +21,7 @@ class ChannelView: BaseView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        log.debug("channels", userInfo: ["channels" : channels])
+        
         loadLayout(
             named: "ChannelView.xml",
             constants: [

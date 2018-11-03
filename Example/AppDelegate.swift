@@ -24,7 +24,7 @@ extension UIApplication {
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var disposeBag = DisposeBag()
     var window: UIWindow?
-    private let navigator = container.resolve(NavigatorType.self)!
+    let navigator = container.resolve(NavigatorType.self)!
     
     func application(
         _ application: UIApplication,
@@ -34,7 +34,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         enableDebug()
         ShortcutParser.shared.registerShortcuts()
         setupPushNotification(launchOptions)
-        
+        NotificationCenter.default.rx.notification(.jPushAddNotificationCount, object: nil)
+            .subscribe{ print("收到消息 \(String(describing: $0.element))") }
+            .disposed(by: self.disposeBag)
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = RootViewController()
         window.makeKeyAndVisible()
@@ -54,13 +56,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //        }
         // Try presenting the URL first
         if self.navigator.present(url) != nil {
-            log.debug("[Navigator] present: \(url)")
+            print("[Navigator] present: \(url)")
             return true
         }
         
         // Try opening the URL
         if self.navigator.open(url) == true {
-            log.debug("[Navigator] open: \(url)")
+            print("[Navigator] open: \(url)")
             return true
         }
         
