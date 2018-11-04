@@ -41,3 +41,7 @@
 "qrscanner.navigation.title"="Scan QR";
 "qrscanner.navigation.right.title"="Album";
 "qrscanner.navigation.left.title"="Cancel";
+"shortcuts.scan.title"="Scan";
+"shortcuts.task.title"="Task";
+"pmalert.cancel.title"="Cancel";
+"pmalert.ok.title"="Ok";

@@ -24,6 +24,7 @@ extension UIApplication {
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var disposeBag = DisposeBag()
     var window: UIWindow?
+    var quickActions: QuickActions<AppShortcut>?
     let navigator = container.resolve(NavigatorType.self)!
     
     func application(
@@ -32,15 +33,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ) -> Bool {
         enableLogging()
         enableDebug()
-        ShortcutParser.shared.registerShortcuts()
         setupPushNotification(launchOptions)
+        ShortcutParser.shared.registerShortcuts()
         NotificationCenter.default.rx.notification(.jPushAddNotificationCount, object: nil)
             .subscribe{ print("收到消息 \(String(describing: $0.element))") }
             .disposed(by: self.disposeBag)
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = RootViewController()
         window.makeKeyAndVisible()
-        
         self.window = window
         return true
     }
@@ -81,13 +81,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         clearNotification(application)
     }
     
-//    // MARK: Shortcuts
-//    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
-//        completionHandler(Deeplinker.handleShortcut(item: shortcutItem))
-//    }
-//
-//    func applicationDidBecomeActive(_ application: UIApplication) {
-//        // handle any deeplink
-//        Deeplinker.checkDeepLink()
-//    }
+    // MARK: Shortcuts
+    func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        completionHandler(Deeplinker.handleShortcut(item: shortcutItem))
+    }
+
+    func applicationDidBecomeActive(_ application: UIApplication) {
+        // handle any deeplink
+        Deeplinker.checkDeepLink()
+    }
 }

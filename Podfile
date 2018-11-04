@@ -17,7 +17,7 @@ target 'Example' do
   pod 'RxCocoa', '~> 4.0'
   pod 'RxDataSources', '~> 3.0'
   pod 'RxQRScanner'
-  pod 'RxGesture'
+  pod 'RxGesture', '~> 2.0.1'
   pod 'ReactorKit'
   # Persistence Library
   # pod 'RxRealm'
@@ -31,7 +31,6 @@ target 'Example' do
   pod 'PINRemoteImage'
   # Pods for Infrastructures
   pod 'Dollar'
-  pod 'Cent'
   # Push
   pod 'JPush'
   # IoC

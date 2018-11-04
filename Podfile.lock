@@ -3,8 +3,6 @@ PODS:
     - RxCocoa (~> 4.3.0)
     - RxSwift (~> 4.3.0)
   - Alamofire (4.7.3)
-  - Cent (7.0.0):
-    - Dollar (~> 7.1.0)
   - CocoaAsyncSocket (7.6.3)
   - CocoaDebug (0.1.5)
   - Differentiator (3.1.0)
@@ -86,7 +84,6 @@ PODS:
 
 DEPENDENCIES:
   - Action
-  - Cent
   - CocoaDebug
   - Dollar
   - EAIntroView
@@ -108,7 +105,7 @@ DEPENDENCIES:
   - Reveal-SDK
   - RxCocoa (~> 4.0)
   - RxDataSources (~> 3.0)
-  - RxGesture
+  - RxGesture (~> 2.0.1)
   - RxOptional
   - RxQRScanner
   - RxSwift (~> 4.0)
@@ -124,7 +121,6 @@ SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Action
     - Alamofire
-    - Cent
     - CocoaAsyncSocket
     - CocoaDebug
     - Differentiator
@@ -191,7 +187,6 @@ CHECKOUT OPTIONS:
 SPEC CHECKSUMS:
   Action: 2275d04a407ecaf46a58d58a304388a28155a0a1
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
-  Cent: fb5ef7da981cc382a3562da5d86a01461cfb5ac4
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
   CocoaDebug: e3531fc0dfd6f32e6f9cacaecc88b10123b58dec
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
@@ -233,6 +228,6 @@ SPEC CHECKSUMS:
   "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
 
-PODFILE CHECKSUM: 9e92bfe5d19fa050500dea87816d43732a0954ee
+PODFILE CHECKSUM: 93087b324ff15b3a0d3df924ee6b51586300ddfb
 
 COCOAPODS: 1.5.3

@@ -11,8 +11,6 @@
 		AA30C05B2167533E00B9E0EB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30C05A2167533E00B9E0EB /* SplashViewController.swift */; };
 		AA30C05F2167555C00B9E0EB /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30C05E2167555C00B9E0EB /* RootViewController.swift */; };
 		AA30C0612167561E00B9E0EB /* SplashViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA30C0602167561E00B9E0EB /* SplashViewController.xml */; };
-		AA30C06421679A4F00B9E0EB /* DeepLinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30C06321679A4F00B9E0EB /* DeepLinkManager.swift */; };
-		AA30C06621679A7400B9E0EB /* ShortcutParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30C06521679A7400B9E0EB /* ShortcutParser.swift */; };
 		AA30C0682167AA3600B9E0EB /* UINavigationController+Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30C0672167AA3600B9E0EB /* UINavigationController+Bar.swift */; };
 		AA38DCA5217EF41F0046D82D /* RxUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA38DCA4217EF41F0046D82D /* RxUtil.swift */; };
 		AA38DCA7217EF4D70046D82D /* Reactive+StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA38DCA6217EF4D70046D82D /* Reactive+StatusBar.swift */; };
@@ -90,6 +88,9 @@
 		AA693DC32161FF620063D749 /* NavigationMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA693DC22161FF620063D749 /* NavigationMap.swift */; };
 		AA78BB46218D6814000B4CD8 /* NotificationCenter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA78BB45218D6814000B4CD8 /* NotificationCenter+.swift */; };
 		AA78BB48218D6D27000B4CD8 /* Reactive+NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA78BB47218D6D27000B4CD8 /* Reactive+NotificationCenter.swift */; };
+		AA78BB54218EB31C000B4CD8 /* ShortcutParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA78BB53218EB31C000B4CD8 /* ShortcutParser.swift */; };
+		AA78BB56218EB37C000B4CD8 /* DeepLinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA78BB55218EB37C000B4CD8 /* DeepLinkManager.swift */; };
+		AA78BB58218EBB5B000B4CD8 /* RxQRUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA78BB57218EBB5B000B4CD8 /* RxQRUtil.swift */; };
 		AA8978652185658C005A61CA /* Reactive+UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8978642185658C005A61CA /* Reactive+UIScrollView.swift */; };
 		AA89786721856D88005A61CA /* ImageEffects+Accelerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA89786621856D88005A61CA /* ImageEffects+Accelerate.swift */; };
 		AA8978692185759F005A61CA /* Reactive+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8978682185759F005A61CA /* Reactive+UIImageView.swift */; };
@@ -138,8 +139,6 @@
 		AA30C05A2167533E00B9E0EB /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		AA30C05E2167555C00B9E0EB /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		AA30C0602167561E00B9E0EB /* SplashViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SplashViewController.xml; sourceTree = "<group>"; };
-		AA30C06321679A4F00B9E0EB /* DeepLinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkManager.swift; sourceTree = "<group>"; };
-		AA30C06521679A7400B9E0EB /* ShortcutParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutParser.swift; sourceTree = "<group>"; };
 		AA30C0672167AA3600B9E0EB /* UINavigationController+Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Bar.swift"; sourceTree = "<group>"; };
 		AA38DCA4217EF41F0046D82D /* RxUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxUtil.swift; sourceTree = "<group>"; };
 		AA38DCA6217EF4D70046D82D /* Reactive+StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+StatusBar.swift"; sourceTree = "<group>"; };
@@ -220,6 +219,9 @@
 		AA693DC22161FF620063D749 /* NavigationMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMap.swift; sourceTree = "<group>"; };
 		AA78BB45218D6814000B4CD8 /* NotificationCenter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+.swift"; sourceTree = "<group>"; };
 		AA78BB47218D6D27000B4CD8 /* Reactive+NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+NotificationCenter.swift"; sourceTree = "<group>"; };
+		AA78BB53218EB31C000B4CD8 /* ShortcutParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutParser.swift; sourceTree = "<group>"; };
+		AA78BB55218EB37C000B4CD8 /* DeepLinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkManager.swift; sourceTree = "<group>"; };
+		AA78BB57218EBB5B000B4CD8 /* RxQRUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxQRUtil.swift; sourceTree = "<group>"; };
 		AA8978642185658C005A61CA /* Reactive+UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+UIScrollView.swift"; sourceTree = "<group>"; };
 		AA89786621856D88005A61CA /* ImageEffects+Accelerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageEffects+Accelerate.swift"; sourceTree = "<group>"; };
 		AA8978682185759F005A61CA /* Reactive+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+UIImageView.swift"; sourceTree = "<group>"; };
@@ -288,13 +290,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		AA30C06221679A3000B9E0EB /* DeepLink */ = {
+		AA30C06221679A3000B9E0EB /* Shortcuts */ = {
 			isa = PBXGroup;
 			children = (
-				AA30C06321679A4F00B9E0EB /* DeepLinkManager.swift */,
-				AA30C06521679A7400B9E0EB /* ShortcutParser.swift */,
+				AA78BB53218EB31C000B4CD8 /* ShortcutParser.swift */,
+				AA78BB55218EB37C000B4CD8 /* DeepLinkManager.swift */,
 			);
-			path = DeepLink;
+			path = Shortcuts;
 			sourceTree = "<group>";
 		};
 		AA3E0E8D2170891800958937 /* ViewModels */ = {
@@ -430,7 +432,7 @@
 			children = (
 				AA433F01218B40B100BA60A1 /* Example.entitlements */,
 				AAC5EB8E215E7D48008EBA1F /* Config */,
-				AA30C06221679A3000B9E0EB /* DeepLink */,
+				AA30C06221679A3000B9E0EB /* Shortcuts */,
 				AAC5EB91215E7DD9008EBA1F /* Domain */,
 				AA433F0E218C511F00BA60A1 /* Extensions */,
 				AAC5EB96215E7E2E008EBA1F /* Navigator */,
@@ -521,6 +523,7 @@
 				AA3E0E772170478200958937 /* PullToRefreshUtil.swift */,
 				AA38DCA4217EF41F0046D82D /* RxUtil.swift */,
 				AA4B491C2178883F00A60C11 /* RxKeyboard.swift */,
+				AA78BB57218EBB5B000B4CD8 /* RxQRUtil.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -713,7 +716,6 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Example/Pods-Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/Cent/Cent.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaDebug/CocoaDebug.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
@@ -757,7 +759,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Action.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cent.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaDebug.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
@@ -820,6 +821,7 @@
 				AA4B49162178800A00A60C11 /* Reactive+FSPagerView.swift in Sources */,
 				AAFA6624217D886B000217C9 /* SceneCell.swift in Sources */,
 				AA4B48F621772EE800A60C11 /* AuthViewControllerReactor.swift in Sources */,
+				AA78BB54218EB31C000B4CD8 /* ShortcutParser.swift in Sources */,
 				AA4B493E217A0B5000A60C11 /* BaseItemCell.swift in Sources */,
 				AA3E0E7C217053BD00958937 /* Deivce.swift in Sources */,
 				AA433F13218C8D9700BA60A1 /* NotificationService.swift in Sources */,
@@ -827,10 +829,10 @@
 				AA3E0E8621705B4C00958937 /* ScriptTask.swift in Sources */,
 				AAC5EB9E215E7EB4008EBA1F /* UIColor+Hex.swift in Sources */,
 				AA4B49232178883F00A60C11 /* RxKeyboard.swift in Sources */,
+				AA78BB56218EB37C000B4CD8 /* DeepLinkManager.swift in Sources */,
 				AA433F09218C4AB300BA60A1 /* Global.swift in Sources */,
 				AA3E0E822170589F00958937 /* Scene.swift in Sources */,
 				AA433F05218C49A500BA60A1 /* AppDelegate+Navigation.swift in Sources */,
-				AA30C06421679A4F00B9E0EB /* DeepLinkManager.swift in Sources */,
 				AA4B49202178883F00A60C11 /* UICollectionViewDelegateFlexLayout.swift in Sources */,
 				AA4B4944217A462200A60C11 /* BannerViewReactor.swift in Sources */,
 				AA4B49222178883F00A60C11 /* SwiftyColor.swift in Sources */,
@@ -851,6 +853,7 @@
 				AA4B48F02175E4D000A60C11 /* APIError.swift in Sources */,
 				AA683A05216F3BD700E4097B /* MoyaUtils.swift in Sources */,
 				AA420586217AD80C0068ABC0 /* ModelType.swift in Sources */,
+				AA78BB58218EBB5B000B4CD8 /* RxQRUtil.swift in Sources */,
 				AA433F07218C4A1900BA60A1 /* AppDelegate+Logging.swift in Sources */,
 				AA433F0B218C4B2D00BA60A1 /* AppDelegate+CocoaDebug.swift in Sources */,
 				AA3E0EBB21737D0600958937 /* LayoutExtensions.swift in Sources */,
@@ -864,7 +867,6 @@
 				AA78BB48218D6D27000B4CD8 /* Reactive+NotificationCenter.swift in Sources */,
 				AAC5EB70215E7BB7008EBA1F /* AuthViewController.swift in Sources */,
 				AA3E0E802170543D00958937 /* ProductCategory.swift in Sources */,
-				AA30C06621679A7400B9E0EB /* ShortcutParser.swift in Sources */,
 				AA4B48E42175006100A60C11 /* Reactive+Layout.swift in Sources */,
 				AA8978652185658C005A61CA /* Reactive+UIScrollView.swift in Sources */,
 				AA4B48FA217768CE00A60C11 /* BaseViewController.swift in Sources */,

@@ -41,3 +41,7 @@
 "qrscanner.navigation.title"="扫描二维码";
 "qrscanner.navigation.right.title"="相册";
 "qrscanner.navigation.left.title"="返回";
+"shortcuts.scan.title"="扫描";
+"shortcuts.task.title"="任务";
+"pmalert.cancel.title"="取消";
+"pmalert.ok.title"="确定";

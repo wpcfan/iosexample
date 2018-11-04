@@ -74,24 +74,7 @@ class HomeViewController: BaseViewController {
     }
     
     @objc public func scanInModalAction() {
-        var config = QRScanConfig.instance
-        config.titleText = NSLocalizedString("qrscanner.navigation.title", comment: "")
-        config.albumText = NSLocalizedString("qrscanner.navigation.right.title", comment: "")
-        config.cancelText = NSLocalizedString("qrscanner.navigation.left.title", comment: "")
-        Permission.checkCameraAccess()
-            .filter { (hasAccess) -> Bool in hasAccess }
-            .flatMap{ _ in QRScanner.popup(on: self, config: config) }
-            .map({ (result) -> String? in
-                if case let .success(str) = result { return str }
-                return nil
-            })
-            .take(1)
-            .subscribe(onNext: { result in
-                if (result != nil) {
-                    print(result!)
-                }
-            })
-            .disposed(by: disposeBag)
+        RxQRUtil().scanQR(self)
     }
     
     override func viewDidLoad() {

@@ -8,24 +8,23 @@
 
 import UIKit
 import p2_OAuth2
+import RxQRScanner
+import RxSwift
 
-class RootViewController: UIViewController {
+class RootViewController: BaseViewController {
     private var current: UIViewController
     private let oauth2 = container.resolve(OAuth2PasswordGrant.self)!
     
     var deeplink: DeeplinkType? {
         didSet {
-            handleDeeplink()
+            handleDeeplink(deeplink)
         }
     }
     
-    init() {
+    override init() {
         self.current = SplashViewController()
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        
+        super.init()
     }
     
     override func viewDidLoad() {
@@ -83,7 +82,7 @@ class RootViewController: UIViewController {
     func switchToMainScreen() {
         let mainViewController = HomeTabViewController(tabName: "app")
         animateFadeTransition(to: mainViewController) { [weak self] in
-            self?.handleDeeplink()
+            self?.handleDeeplink(self?.deeplink)
         }
     }
     
@@ -117,18 +116,21 @@ class RootViewController: UIViewController {
         }
     }
     
-    private func handleDeeplink() {
-        if let mainNavigationController = current as? MainNavigationController, let deeplink = deeplink {
-            switch deeplink {
-            case .activity:
-                mainNavigationController.popToRootViewController(animated: false)
-            default:
-                // handle any other types of Deeplinks here
-                break
-            }
-            
-            // reset the deeplink back no nil, so it will not be triggered more than once
-            self.deeplink = nil
+    private func handleDeeplink(_ deepLink: DeeplinkType?) {
+        guard deeplink != nil else { return }
+//        let mainNavigationController = current as? MainNavigationController
+        switch deepLink! {
+        case .activity:
+//            mainNavigationController?.popToRootViewController(animated: false)
+//            (mainNavigationController?.topViewController as? HomeViewController)?.scanInModalAction()
+            RxQRUtil().scanQR(self)
+            print("[DeepLink] 捕获到 3D 触摸")
+        default:
+            // handle any other types of Deeplinks here
+            break
         }
+        
+        // reset the deeplink back no nil, so it will not be triggered more than once
+        self.deeplink = nil
     }
 }
