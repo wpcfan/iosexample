@@ -24,6 +24,10 @@ class MeViewController: BaseViewController {
                 named: "CollectionCell.xml",
                 forCellReuseIdentifier: "standaloneCell"
             )
+            collectionView?.registerLayout(
+                named: "MeHeaderCell.xml",
+                forCellReuseIdentifier: "meHeaderCell"
+            )
         }
     }
     
@@ -38,7 +42,7 @@ extension MeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let identifier = (indexPath.row % 2 == 0) ? "templateCell" : "standaloneCell"
+        let identifier = (indexPath.row % 2 == 0) ? "meHeaderCell" : "standaloneCell"
         let node = collectionView.dequeueReusableCellNode(withIdentifier: identifier, for: indexPath)
         let image = images[indexPath.row % images.count]!
         

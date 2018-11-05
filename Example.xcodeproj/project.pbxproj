@@ -84,13 +84,16 @@
 		AA693DBB2161F6010063D749 /* SocialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA693DBA2161F6010063D749 /* SocialViewController.swift */; };
 		AA693DBD2161F61D0063D749 /* SocialViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA693DBC2161F61D0063D749 /* SocialViewController.xml */; };
 		AA693DBF2161F6330063D749 /* MeViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA693DBE2161F6330063D749 /* MeViewController.xml */; };
-		AA693DC12161F6460063D749 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA693DC02161F6460063D749 /* MeViewController.swift */; };
+		AA693DC12161F6460063D749 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA693DC02161F6460063D749 /* SettingViewController.swift */; };
 		AA693DC32161FF620063D749 /* NavigationMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA693DC22161FF620063D749 /* NavigationMap.swift */; };
 		AA78BB46218D6814000B4CD8 /* NotificationCenter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA78BB45218D6814000B4CD8 /* NotificationCenter+.swift */; };
 		AA78BB48218D6D27000B4CD8 /* Reactive+NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA78BB47218D6D27000B4CD8 /* Reactive+NotificationCenter.swift */; };
 		AA78BB54218EB31C000B4CD8 /* ShortcutParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA78BB53218EB31C000B4CD8 /* ShortcutParser.swift */; };
 		AA78BB56218EB37C000B4CD8 /* DeepLinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA78BB55218EB37C000B4CD8 /* DeepLinkManager.swift */; };
 		AA78BB58218EBB5B000B4CD8 /* RxQRUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA78BB57218EBB5B000B4CD8 /* RxQRUtil.swift */; };
+		AA78BB5A218F04F2000B4CD8 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA78BB59218F04F2000B4CD8 /* MeViewController.swift */; };
+		AA78BB5C218F14F0000B4CD8 /* CollectionCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA78BB5B218F14F0000B4CD8 /* CollectionCell.xml */; };
+		AA78BB5E218F331B000B4CD8 /* MeHeaderCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA78BB5D218F331B000B4CD8 /* MeHeaderCell.xml */; };
 		AA8978652185658C005A61CA /* Reactive+UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8978642185658C005A61CA /* Reactive+UIScrollView.swift */; };
 		AA89786721856D88005A61CA /* ImageEffects+Accelerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA89786621856D88005A61CA /* ImageEffects+Accelerate.swift */; };
 		AA8978692185759F005A61CA /* Reactive+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8978682185759F005A61CA /* Reactive+UIImageView.swift */; };
@@ -215,13 +218,16 @@
 		AA693DBA2161F6010063D749 /* SocialViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialViewController.swift; sourceTree = "<group>"; };
 		AA693DBC2161F61D0063D749 /* SocialViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SocialViewController.xml; sourceTree = "<group>"; };
 		AA693DBE2161F6330063D749 /* MeViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MeViewController.xml; sourceTree = "<group>"; };
-		AA693DC02161F6460063D749 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
+		AA693DC02161F6460063D749 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		AA693DC22161FF620063D749 /* NavigationMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMap.swift; sourceTree = "<group>"; };
 		AA78BB45218D6814000B4CD8 /* NotificationCenter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+.swift"; sourceTree = "<group>"; };
 		AA78BB47218D6D27000B4CD8 /* Reactive+NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+NotificationCenter.swift"; sourceTree = "<group>"; };
 		AA78BB53218EB31C000B4CD8 /* ShortcutParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutParser.swift; sourceTree = "<group>"; };
 		AA78BB55218EB37C000B4CD8 /* DeepLinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkManager.swift; sourceTree = "<group>"; };
 		AA78BB57218EBB5B000B4CD8 /* RxQRUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxQRUtil.swift; sourceTree = "<group>"; };
+		AA78BB59218F04F2000B4CD8 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
+		AA78BB5B218F14F0000B4CD8 /* CollectionCell.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CollectionCell.xml; sourceTree = "<group>"; };
+		AA78BB5D218F331B000B4CD8 /* MeHeaderCell.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MeHeaderCell.xml; sourceTree = "<group>"; };
 		AA8978642185658C005A61CA /* Reactive+UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+UIScrollView.swift"; sourceTree = "<group>"; };
 		AA89786621856D88005A61CA /* ImageEffects+Accelerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageEffects+Accelerate.swift"; sourceTree = "<group>"; };
 		AA8978682185759F005A61CA /* Reactive+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+UIImageView.swift"; sourceTree = "<group>"; };
@@ -540,8 +546,11 @@
 				AAC5EBA6215F5860008EBA1F /* HomeTabViewController.xml */,
 				AA693DB62160EEB70063D749 /* HomeViewController.swift */,
 				AA693DB82160EF4C0063D749 /* HomeViewController.xml */,
-				AA693DC02161F6460063D749 /* MeViewController.swift */,
+				AA693DC02161F6460063D749 /* SettingViewController.swift */,
+				AA78BB59218F04F2000B4CD8 /* MeViewController.swift */,
 				AA693DBE2161F6330063D749 /* MeViewController.xml */,
+				AA78BB5D218F331B000B4CD8 /* MeHeaderCell.xml */,
+				AA78BB5B218F14F0000B4CD8 /* CollectionCell.xml */,
 				AAE49F01216BA2EE004BDBD7 /* RegisterViewController.swift */,
 				AA30C05E2167555C00B9E0EB /* RootViewController.swift */,
 				AA4B492B2178CA0F00A60C11 /* SceneCell.xml */,
@@ -665,12 +674,14 @@
 				AA3E0E9B2171176300958937 /* data.json in Resources */,
 				AA4B49262178B0A900A60C11 /* BannerCell.xml in Resources */,
 				AAC5EBA1215E7F10008EBA1F /* AuthViewController.xml in Resources */,
+				AA78BB5C218F14F0000B4CD8 /* CollectionCell.xml in Resources */,
 				AAC5EB75215E7BB9008EBA1F /* Assets.xcassets in Resources */,
 				AA4B492A2178BADD00A60C11 /* ChannelCell.xml in Resources */,
 				AA693DB92160EF4C0063D749 /* HomeViewController.xml in Resources */,
 				AA4B492C2178CA0F00A60C11 /* SceneCell.xml in Resources */,
 				AA4B49322178EBA400A60C11 /* BannerView.xml in Resources */,
 				AA693DBF2161F6330063D749 /* MeViewController.xml in Resources */,
+				AA78BB5E218F331B000B4CD8 /* MeHeaderCell.xml in Resources */,
 				AA420592217B94820068ABC0 /* ChannelView.xml in Resources */,
 				AAE49EF82169D315004BDBD7 /* TourViewController.xml in Resources */,
 				AAC5EBA7215F5860008EBA1F /* HomeTabViewController.xml in Resources */,
@@ -813,7 +824,7 @@
 				AA3E0EA52172328100958937 /* UIStackView+.swift in Sources */,
 				AA30C05B2167533E00B9E0EB /* SplashViewController.swift in Sources */,
 				AA3AB88E21841ABA00470276 /* SplashViewControllerReactor.swift in Sources */,
-				AA693DC12161F6460063D749 /* MeViewController.swift in Sources */,
+				AA693DC12161F6460063D749 /* SettingViewController.swift in Sources */,
 				AA6839DA216DE1EA00E4097B /* AppIcons.swift in Sources */,
 				AA30C0682167AA3600B9E0EB /* UINavigationController+Bar.swift in Sources */,
 				AA78BB46218D6814000B4CD8 /* NotificationCenter+.swift in Sources */,
@@ -828,6 +839,7 @@
 				AAE49EF62169D2FB004BDBD7 /* TourViewController.swift in Sources */,
 				AA3E0E8621705B4C00958937 /* ScriptTask.swift in Sources */,
 				AAC5EB9E215E7EB4008EBA1F /* UIColor+Hex.swift in Sources */,
+				AA78BB5A218F04F2000B4CD8 /* MeViewController.swift in Sources */,
 				AA4B49232178883F00A60C11 /* RxKeyboard.swift in Sources */,
 				AA78BB56218EB37C000B4CD8 /* DeepLinkManager.swift in Sources */,
 				AA433F09218C4AB300BA60A1 /* Global.swift in Sources */,

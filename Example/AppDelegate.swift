@@ -24,7 +24,6 @@ extension UIApplication {
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var disposeBag = DisposeBag()
     var window: UIWindow?
-    var quickActions: QuickActions<AppShortcut>?
     let navigator = container.resolve(NavigatorType.self)!
     
     func application(

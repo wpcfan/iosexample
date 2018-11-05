@@ -75,9 +75,7 @@ extension HomeTabViewController: LayoutLoading {
     }
     
     func layoutDidLoad(_ layoutNode: LayoutNode) {
-        guard let tabBarController = layoutNode.viewController as? UITabBarController else {
-            return
-        }
+        guard let tabBarController = layoutNode.viewController as? UITabBarController else { return }
         
         tabBarController.selectedIndex = selectedTab
         tabBarController.delegate = self

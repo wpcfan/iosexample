@@ -18,6 +18,10 @@ enum NavigationMap {
             let homeTabViewController = HomeTabViewController(tabName: tabname)
             return homeTabViewController;
         }
+        navigator.register("example://me/settings") { url, values, context in
+            let viewController = SettingViewController()
+            return viewController;
+        }
         navigator.register("http://<path:_>", self.webViewControllerFactory)
         navigator.register("https://<path:_>", self.webViewControllerFactory)
         

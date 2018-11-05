@@ -43,15 +43,19 @@
     </UINavigationController>
     <UINavigationController>
         <UINavigationBar
+            backgroundColor="clear"
+            backgroundImage="emptyImage"
             barStyle="black"
             barTintColor="primaryDark"
+            isTranslucent="true"
+            shadowImage="emptyImage"
             tintColor="textIcon"
-            titleColor="textIcon"
         />
 
         <!-- Text -->
         <UIViewController
             navigationItem.rightBarButtonItem.image="iconSettings"
+            navigationItem.rightBarButtonItem.action="navigateToSettings"
             navigationItem.title="{strings.main.navigation.my.title}"
             tabBarItem.image="{iconTabMy}"
             title="{strings.home.tabbar.tab_me}"

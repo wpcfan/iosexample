@@ -16,4 +16,8 @@ extension String {
     var utf8Encoded: Data {
         return data(using: .utf8)!
     }
+    
+    var containsChineseCharacters: Bool {
+        return self.range(of: "\\p{Han}", options: .regularExpression) != nil
+    }
 }
