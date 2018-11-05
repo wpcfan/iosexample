@@ -1,53 +1,57 @@
 //
-//  MeViewController.swift
+//  MyViewController.swift
 //  Example
 //
-//  Created by 王芃 on 2018/10/1.
-//  Copyright © 2018年 twigcodes. All rights reserved.
+//  Created by 王芃 on 2018/11/4.
+//  Copyright © 2018 twigcodes. All rights reserved.
 //
 
 import UIKit
-import Eureka
 import URLNavigator
-import SafariServices
 
-class MeViewController: FormViewController {
-    private let authService = container.resolve(OAuth2Service.self)!
+private let images = [
+    UIImage(named: "Scan"),
+    UIImage(named: "Task"),
+]
+
+class MeViewController: BaseViewController {
+    
     private let navigator = container.resolve(NavigatorType.self)!
-    @IBOutlet private weak var logoutButton: UIButton!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        form
-            +++ Section(header: "通知", footer: "")
-            
-            <<< PasswordRow() {
-                $0.title = NSLocalizedString("register.passwordfield.title", comment: "")
-                $0.cell.imageView?.image = AppIcons.lockAccent
-                $0.placeholder = NSLocalizedString("register.passwordfield.placeholder", comment: "")
-                let ruleRequiredViaClosure = RuleClosure<String> { rowValue in
-                    return (rowValue == nil || rowValue!.isEmpty) ? ValidationError(msg: NSLocalizedString("register.passwordfield.validation.required", comment: "")) : nil
-                }
-                $0.add(rule: ruleRequiredViaClosure)
-                $0.cellUpdate { (cell, row) in //3
-                    if !row.isValid {
-                        cell.titleLabel?.textColor = .red
-                    }
-                }
-            }
-            
-            +++ Section(footer: "")
-            <<< ButtonRow() {
-                
-                $0.title = NSLocalizedString("me.logoutbtn.title", comment: "")
-            }
-            .onCellSelection { [weak self] (cell, row) in
-                self?.logout()
-            }
+    @objc var collectionView: UICollectionView? {
+        didSet {
+            collectionView?.registerLayout(
+                named: "CollectionCell.xml",
+                forCellReuseIdentifier: "standaloneCell"
+            )
+        }
     }
     
-    @IBAction func logout() -> Void {
-        self.authService.logout()
-        AppDelegate.shared.rootViewController.switchToLogout()
+    @objc func navigateToSettings() {
+        self.navigator.push("example://me/settings")
     }
+}
+
+extension MeViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 500
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let identifier = (indexPath.row % 2 == 0) ? "templateCell" : "standaloneCell"
+        let node = collectionView.dequeueReusableCellNode(withIdentifier: identifier, for: indexPath)
+        let image = images[indexPath.row % images.count]!
+        
+        node.setState([
+            "row": indexPath.row,
+            "image": image,
+            "whiteImage": image.withRenderingMode(.alwaysOriginal),
+            ])
+        
+        return node.view as! UICollectionViewCell
+    }
+}
+
+extension MeViewController: UICollectionViewDelegate {
+    
 }
