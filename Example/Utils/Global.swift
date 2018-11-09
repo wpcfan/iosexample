@@ -1,18 +1,18 @@
-//
 //  AppInitializer.swift
 //  Example
 //
 //  Created by 王芃 on 2018/11/2.
 //  Copyright © 2018 twigcodes. All rights reserved.
 //
-import Swinject
 import JustLog
-import p2_OAuth2
 import Moya
-import URLNavigator
+import p2_OAuth2
 import Shallows
-import CocoaDebug
-
+import Swinject
+import URLNavigator
+#if DEBUG
+    import CocoaDebug
+#endif
 // 全局 log ，基于 JustLog ，但使用上通过全局的 print 和 printError 进行了封装
 let log = Logger.shared
 // 为 CocoaDebug 和 JustLog 提供一个统一的调用形式，Debug 模式下采用 CocoaDebug，而在 Release 模式下使用 JustLog 上传到 logz.io
@@ -22,9 +22,9 @@ public func print<T>(file: String = #file,
                      _ message: T,
                      color: UIColor = .white) {
     #if DEBUG
-    swiftLog(file, function, line, message, color)
+        swiftLog(file, function, line, message, color)
     #else
-    log.debug("\(message)")
+        log.debug("\(message)")
     #endif
 }
 
@@ -34,9 +34,9 @@ public func printError<T>(file: String = #file,
                           _ message: T,
                           color: UIColor = .red) {
     #if DEBUG
-    swiftLog(file, function, line, message, color)
+        swiftLog(file, function, line, message, color)
     #else
-    log.error("\(message)")
+        log.error("\(message)")
     #endif
 }
 
@@ -45,11 +45,11 @@ let oauth2Settings = [
     "client_id": AppEnv.authClientId,
     "client_secret": AppEnv.authClientSecret,
     "authorize_uri": AppEnv.authOpenIdAuthorizeUrl,
-    "token_uri": AppEnv.authOpenIdTokenUrl,   // code grant only
-    "redirect_uris": ["example://com.twigcodes.ios/auth"],   // register your own "myapp" scheme in Info.plist
-    "secret_in_body": true,    // Github needs this
-    "keychain": true,         // if you DON'T want keychain integration
-    ] as OAuth2JSON
+    "token_uri": AppEnv.authOpenIdTokenUrl, // code grant only
+    "redirect_uris": ["example://com.twigcodes.ios/auth"], // register your own "myapp" scheme in Info.plist
+    "secret_in_body": true, // Github needs this
+    "keychain": true, // if you DON'T want keychain integration
+] as OAuth2JSON
 
 // IoC 容器初始化
 let container: Container = {
@@ -59,7 +59,7 @@ let container: Container = {
         let storage = MemoryStorage<Filename, AppData>().combined(with: diskStorage)
         return storage
     }
-    container.register(OAuth2PasswordGrant.self) { c in
+    container.register(OAuth2PasswordGrant.self) { _ in
         return OAuth2PasswordGrant(settings: oauth2Settings)
     }
     container.register(OAuth2Service.self) { _ in
@@ -71,7 +71,7 @@ let container: Container = {
         return navigator
     }
     #if TARGET_CPU_ARM
-    container.register(SmartCloudService.self) { _ in SmartCloudServiceImpl() }
+        container.register(SmartCloudService.self) { _ in SmartCloudServiceImpl() }
     #endif
     return container
 }()

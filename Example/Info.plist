@@ -21,6 +21,13 @@
 			<key>REALM</key>
 			<string>${AUTH_REALM}</string>
 		</dict>
+		<key>JPUSH</key>
+		<dict>
+			<key>APP_KEY</key>
+			<string>${JPUSH_APP_KEY}</string>
+			<key>APP_SECRET</key>
+			<string>${JPUSH_APP_KEY}</string>
+		</dict>
 		<key>LOGZ</key>
 		<dict>
 			<key>HOST</key>
@@ -30,13 +37,6 @@
 			<key>TOKEN</key>
 			<string>${LOGZ_TOKEN}</string>
 		</dict>
-        <key>JPUSH</key>
-        <dict>
-            <key>APP_KEY</key>
-            <string>${JPUSH_APP_KEY}</string>
-            <key>APP_SECRET</key>
-            <string>${JPUSH_APP_KEY}</string>
-        </dict>
 	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
@@ -51,7 +51,7 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
+	<string>1.0.10</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleURLTypes</key>
@@ -66,7 +66,7 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>1.0</string>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>

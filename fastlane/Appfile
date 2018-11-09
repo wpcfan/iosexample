@@ -1,7 +1,7 @@
 app_identifier("com.twigcodes.Example") # The bundle identifier of your app
 apple_id("wpcfan@gmail.com") # Your Apple email address
 team_id "U4F2KFJUHF"
-
+itc_team_id "117793734"
 
 for_platform :ios do
   team_id="U4F2KFJUHF"

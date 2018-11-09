@@ -16,28 +16,16 @@ update_fastlane
 default_platform(:ios)
 
 platform :ios do
-  desc "make release build"
-  lane :dev do
-    # invokes cert
-    get_certificates(
-      development: "true",
-      username: "wpcfan@gmail.com"
+  desc "Push a new beta build to TestFlight"
+  lane :beta do
+    increment_version_number(
+      bump_type: "patch" # Automatically increment patch version number
     )
-    # invokes sigh
-    get_provisioning_profile(
-      development: "true",
-      app_identifier: "com.twigcodes.Example-dev",
-      username: "wpcfan@gmail.com"
-    )
-    disable_automatic_code_signing(path: "Example.xcodeproj")
-    build_app(scheme: "Dev",
-              configuration: "Debug",
-              workspace: "Example.xcworkspace",
-              include_bitcode: true)
-    enable_automatic_code_signing(
-      path: "Example.xcodeproj",
-      bundle_identifier: "com.twigcodes.Example-dev"
-      )
+    build_app(
+      configuration: "Release",
+      workspace: "Example.xcworkspace",
+      scheme: "Example")
+    upload_to_testflight
   end
   desc "make release build"
   lane :release do
@@ -48,13 +36,16 @@ platform :ios do
     )
     # invokes sigh
     get_provisioning_profile(
+      development: "false",
+      force: true,
       app_identifier: "com.twigcodes.Example",
       username: "wpcfan@gmail.com"
     )
     disable_automatic_code_signing(path: "Example.xcodeproj")
     build_app(scheme: "Example",
+              configuration: "Release",
               workspace: "Example.xcworkspace",
-              include_bitcode: true)
+              include_bitcode: false)
     enable_automatic_code_signing(path: "Example.xcodeproj")
     upload_to_testflight
   end
