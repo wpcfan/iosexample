@@ -100,7 +100,7 @@
 		AA89786F21858891005A61CA /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA89786E21858891005A61CA /* TabButton.swift */; };
 		AA897871218588A2005A61CA /* TabButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA897870218588A2005A61CA /* TabButton.xml */; };
 		AA897873218590E4005A61CA /* HomeTitleView.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA897872218590E4005A61CA /* HomeTitleView.xml */; };
-		AAA920B32198114300EFC581 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AAA920B52198114300EFC581 /* InfoPlist.strings */; };
+		AAA920BA2198289700EFC581 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AAA920B82198289700EFC581 /* InfoPlist.strings */; };
 		AAC5EB6E215E7BB7008EBA1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC5EB6D215E7BB7008EBA1F /* AppDelegate.swift */; };
 		AAC5EB70215E7BB7008EBA1F /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC5EB6F215E7BB7008EBA1F /* AuthViewController.swift */; };
 		AAC5EB75215E7BB9008EBA1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC5EB74215E7BB9008EBA1F /* Assets.xcassets */; };
@@ -235,8 +235,8 @@
 		AA89786E21858891005A61CA /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
 		AA897870218588A2005A61CA /* TabButton.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TabButton.xml; sourceTree = "<group>"; };
 		AA897872218590E4005A61CA /* HomeTitleView.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HomeTitleView.xml; sourceTree = "<group>"; };
-		AAA920B42198114300EFC581 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
-		AAA920B62198115300EFC581 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AAA920B92198289700EFC581 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Example/Base.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
+		AAA920BC219828F200EFC581 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "../zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		AAC5EB6A215E7BB7008EBA1F /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC5EB6D215E7BB7008EBA1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAC5EB6F215E7BB7008EBA1F /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -415,6 +415,17 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		AAA920B72198280600EFC581 /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				AAC5EB76215E7BB9008EBA1F /* LaunchScreen.storyboard */,
+				AAE49F11216CCBCD004BDBD7 /* Localizable.strings */,
+				AAC5EB79215E7BB9008EBA1F /* Info.plist */,
+				AAA920B82198289700EFC581 /* InfoPlist.strings */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
 		AAC5EB61215E7BB7008EBA1F = {
 			isa = PBXGroup;
 			children = (
@@ -447,18 +458,15 @@
 				AAC5EB96215E7E2E008EBA1F /* Navigator */,
 				AA4B48EC2175CA1B00A60C11 /* Reactors */,
 				AAC5EB99215E7E71008EBA1F /* Services */,
+				AAA920B72198280600EFC581 /* SupportFiles */,
 				AAC5EB9C215E7EA4008EBA1F /* Utils */,
 				AA6839D4216DB8B000E4097B /* Views */,
 				AAC5EB9F215E7ED8008EBA1F /* ViewControllers */,
 				AA3E0E8D2170891800958937 /* ViewModels */,
 				AAC5EB6D215E7BB7008EBA1F /* AppDelegate.swift */,
-				AAC5EB74215E7BB9008EBA1F /* Assets.xcassets */,
-				AAC5EB76215E7BB9008EBA1F /* LaunchScreen.storyboard */,
-				AAC5EB79215E7BB9008EBA1F /* Info.plist */,
 				AAC5EBAB215F6A9E008EBA1F /* Example-Bridging-Header.h */,
-				AAE49F11216CCBCD004BDBD7 /* Localizable.strings */,
+				AAC5EB74215E7BB9008EBA1F /* Assets.xcassets */,
 				AA3E0E9A2171176300958937 /* data.json */,
-				AAA920B52198114300EFC581 /* InfoPlist.strings */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -629,7 +637,6 @@
 				TargetAttributes = {
 					AAC5EB69215E7BB7008EBA1F = {
 						CreatedOnToolsVersion = 10.0;
-						DevelopmentTeam = U4F2KFJUHF;
 						LastSwiftMigration = 1000;
 						SystemCapabilities = {
 							com.apple.Push = {
@@ -671,6 +678,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AA4205A4217C9B510068ABC0 /* HeaderView.xml in Resources */,
+				AAA920BA2198289700EFC581 /* InfoPlist.strings in Resources */,
 				AA897871218588A2005A61CA /* TabButton.xml in Resources */,
 				AAC5EB78215E7BB9008EBA1F /* LaunchScreen.storyboard in Resources */,
 				AA693DBD2161F61D0063D749 /* SocialViewController.xml in Resources */,
@@ -679,7 +687,6 @@
 				AA3E0E9B2171176300958937 /* data.json in Resources */,
 				AA4B49262178B0A900A60C11 /* BannerCell.xml in Resources */,
 				AAC5EBA1215E7F10008EBA1F /* AuthViewController.xml in Resources */,
-				AAA920B32198114300EFC581 /* InfoPlist.strings in Resources */,
 				AA78BB5C218F14F0000B4CD8 /* CollectionCell.xml in Resources */,
 				AAC5EB75215E7BB9008EBA1F /* Assets.xcassets in Resources */,
 				AA4B492A2178BADD00A60C11 /* ChannelCell.xml in Resources */,
@@ -941,11 +948,11 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		AAA920B52198114300EFC581 /* InfoPlist.strings */ = {
+		AAA920B82198289700EFC581 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AAA920B42198114300EFC581 /* zh-Hans */,
-				AAA920B62198115300EFC581 /* en */,
+				AAA920B92198289700EFC581 /* Base */,
+				AAA920BC219828F200EFC581 /* zh-Hans */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -1101,10 +1108,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Example/Example.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Example/Info.plist;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = U4F2KFJUHF;
+				INFOPLIST_FILE = "$(SRCROOT)/Example/SupportFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1112,7 +1119,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.twigcodes.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.twigcodes.Example";
 				SWIFT_OBJC_BRIDGING_HEADER = "Example/Example-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
@@ -1128,11 +1135,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Example/Example.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Example/Info.plist;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = U4F2KFJUHF;
+				INFOPLIST_FILE = "$(SRCROOT)/Example/SupportFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1140,7 +1147,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.twigcodes.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.twigcodes.Example";
 				SWIFT_OBJC_BRIDGING_HEADER = "Example/Example-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1264,10 +1271,10 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Example/Example.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2;
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = Example/Info.plist;
+				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 4;
+				DEVELOPMENT_TEAM = U4F2KFJUHF;
+				INFOPLIST_FILE = "$(SRCROOT)/Example/SupportFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1275,7 +1282,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.twigcodes.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = "match Development com.twigcodes.Example";
 				SWIFT_OBJC_BRIDGING_HEADER = "Example/Example-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;

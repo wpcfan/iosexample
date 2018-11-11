@@ -32,7 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ) -> Bool {
         enableLogging()
         enableDebug()
+        #if TARGET_CPU_ARM
         setupPushNotification(launchOptions)
+        #endif
         ShortcutParser.shared.registerShortcuts()
         NotificationCenter.default.rx.notification(.jPushAddNotificationCount, object: nil)
             .subscribe{ print("收到消息 \(String(describing: $0.element))") }
@@ -77,7 +79,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationWillEnterForeground(_ application: UIApplication) {
+        #if TARGET_CPU_ARM
         clearNotification(application)
+        #endif
     }
     
     // MARK: Shortcuts

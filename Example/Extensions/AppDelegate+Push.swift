@@ -8,6 +8,7 @@
 
 import UIKit
 
+#if TARGET_CPU_ARM
 // 极光消息集成
 // 如果实现 JPUSHRegisterDelegate 则不用实现 UNUserNotificationCenterDelegate
 extension AppDelegate: JPUSHRegisterDelegate {
@@ -170,3 +171,4 @@ extension AppDelegate: JPUSHRegisterDelegate {
         
     }
 }
+#endif
