@@ -100,6 +100,7 @@
 		AA89786F21858891005A61CA /* TabButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA89786E21858891005A61CA /* TabButton.swift */; };
 		AA897871218588A2005A61CA /* TabButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA897870218588A2005A61CA /* TabButton.xml */; };
 		AA897873218590E4005A61CA /* HomeTitleView.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA897872218590E4005A61CA /* HomeTitleView.xml */; };
+		AAA920B32198114300EFC581 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AAA920B52198114300EFC581 /* InfoPlist.strings */; };
 		AAC5EB6E215E7BB7008EBA1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC5EB6D215E7BB7008EBA1F /* AppDelegate.swift */; };
 		AAC5EB70215E7BB7008EBA1F /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC5EB6F215E7BB7008EBA1F /* AuthViewController.swift */; };
 		AAC5EB75215E7BB9008EBA1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAC5EB74215E7BB9008EBA1F /* Assets.xcassets */; };
@@ -234,6 +235,8 @@
 		AA89786E21858891005A61CA /* TabButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabButton.swift; sourceTree = "<group>"; };
 		AA897870218588A2005A61CA /* TabButton.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TabButton.xml; sourceTree = "<group>"; };
 		AA897872218590E4005A61CA /* HomeTitleView.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HomeTitleView.xml; sourceTree = "<group>"; };
+		AAA920B42198114300EFC581 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
+		AAA920B62198115300EFC581 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AAC5EB6A215E7BB7008EBA1F /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAC5EB6D215E7BB7008EBA1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AAC5EB6F215E7BB7008EBA1F /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -455,6 +458,7 @@
 				AAC5EBAB215F6A9E008EBA1F /* Example-Bridging-Header.h */,
 				AAE49F11216CCBCD004BDBD7 /* Localizable.strings */,
 				AA3E0E9A2171176300958937 /* data.json */,
+				AAA920B52198114300EFC581 /* InfoPlist.strings */,
 			);
 			path = Example;
 			sourceTree = "<group>";
@@ -675,6 +679,7 @@
 				AA3E0E9B2171176300958937 /* data.json in Resources */,
 				AA4B49262178B0A900A60C11 /* BannerCell.xml in Resources */,
 				AAC5EBA1215E7F10008EBA1F /* AuthViewController.xml in Resources */,
+				AAA920B32198114300EFC581 /* InfoPlist.strings in Resources */,
 				AA78BB5C218F14F0000B4CD8 /* CollectionCell.xml in Resources */,
 				AAC5EB75215E7BB9008EBA1F /* Assets.xcassets in Resources */,
 				AA4B492A2178BADD00A60C11 /* ChannelCell.xml in Resources */,
@@ -936,6 +941,15 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		AAA920B52198114300EFC581 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AAA920B42198114300EFC581 /* zh-Hans */,
+				AAA920B62198115300EFC581 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		AAC5EB76215E7BB9008EBA1F /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -1088,7 +1102,7 @@
 				CODE_SIGN_ENTITLEMENTS = Example/Example.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1116,7 +1130,7 @@
 				CODE_SIGN_ENTITLEMENTS = Example/Example.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1251,7 +1265,7 @@
 				CODE_SIGN_ENTITLEMENTS = Example/Example.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = Example/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
