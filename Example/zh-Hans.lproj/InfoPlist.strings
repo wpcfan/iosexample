@@ -1,10 +1,10 @@
-/*
- InfoPlist.strings
- Example
- 
- Created by 王芃 on 2018/11/11.
- Copyright © 2018 twigcodes. All rights reserved.
- */
-"NSCameraUsageDescription"="应用需要访问相机来识别二维码";
-"NSPhotoLibraryUsageDescription"="应用需要访问相册来存储和展示应用生成的图片和视频";
-"CFBundleDisplayName"="推码案例"
+/* 
+  InfoPlist.strings
+  Example
+
+  Created by 王芃 on 2018/11/11.
+  Copyright © 2018 twigcodes. All rights reserved.
+*/
+"NSCameraUsageDescription"="The app needs camera to scan QR codes";
+"NSPhotoLibraryUsageDescription"="The app needs to access your photo library to save the capture";
+"CFBundleDisplayName"="TwigExample";
