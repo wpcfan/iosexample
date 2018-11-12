@@ -75,6 +75,7 @@ PODS:
     - RxSwiftExt/Core (= 3.3.0)
   - RxSwiftExt/Core (3.3.0):
     - RxSwift (~> 4.0)
+  - SCMSDK (0.1.0)
   - Shallows (0.9.0)
   - SnapKit (4.0.1)
   - SwiftIconFont (2.9.1)
@@ -89,7 +90,7 @@ PODS:
 DEPENDENCIES:
   - Action
   - Bugly
-  - CocoaDebug
+  - CocoaDebug (from `https://github.com/CocoaDebug/CocoaDebug`)
   - Dollar
   - EAIntroView
   - Eureka
@@ -115,6 +116,7 @@ DEPENDENCIES:
   - RxQRScanner
   - RxSwift (~> 4.0)
   - RxSwiftExt
+  - SCMSDK (from `libs/SCMSDK`)
   - Shallows (from `https://github.com/dreymonde/Shallows`)
   - SnapKit (~> 4.0.0)
   - SwiftIconFont (from `https://github.com/0x73/SwiftIconFont`)
@@ -130,7 +132,6 @@ SPEC REPOS:
     - Alamofire
     - Bugly
     - CocoaAsyncSocket
-    - CocoaDebug
     - Differentiator
     - Dollar
     - EAIntroView
@@ -170,9 +171,14 @@ SPEC REPOS:
     - URLNavigator
 
 EXTERNAL SOURCES:
+  CocoaDebug:
+    :git: https://github.com/CocoaDebug/CocoaDebug
+    :submodules: true
   p2.OAuth2:
     :git: https://github.com/p2/OAuth2
     :submodules: true
+  SCMSDK:
+    :path: libs/SCMSDK
   Shallows:
     :git: https://github.com/dreymonde/Shallows
     :submodules: true
@@ -181,6 +187,10 @@ EXTERNAL SOURCES:
     :submodules: true
 
 CHECKOUT OPTIONS:
+  CocoaDebug:
+    :commit: ea53074a6fe9f2f4fe9e1f11a0af8e8c4b372288
+    :git: https://github.com/CocoaDebug/CocoaDebug
+    :submodules: true
   p2.OAuth2:
     :commit: e81b4bc4a3cfc3d11b62aba07241ceeb0684ac07
     :git: https://github.com/p2/OAuth2
@@ -231,6 +241,7 @@ SPEC CHECKSUMS:
   RxQRScanner: b523a276be9a5f53603b85a0efb871e7bf480180
   RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
   RxSwiftExt: 81afb48ab0602f503147417baeb3989d64c7687d
+  SCMSDK: ce94cf8a2b24657fad4b3edcf5fc7449fa38e768
   Shallows: fd53872b476c90fa1d4cb54fb735801d374e41b8
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SwiftIconFont: c6d0073f1fa7e03a81b6daf2d8fa8d6ac62b7711
@@ -241,6 +252,6 @@ SPEC CHECKSUMS:
   UMCCommon: 016af43c0f769feb1ae1861d65aaf2b23b89c9c7
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
 
-PODFILE CHECKSUM: 640de6760d111de7e4cef6b1a73a797609fa3d4d
+PODFILE CHECKSUM: 004ed0b81c2830b4a2a77692e2d8834252049fc3
 
 COCOAPODS: 1.5.3

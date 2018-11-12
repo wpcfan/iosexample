@@ -10,16 +10,6 @@ import UIKit
 import URLNavigator
 import RxSwift
 
-#if swift(>=4.2)
-extension UIApplication {
-    typealias LaunchOptionsKey = UIApplication.LaunchOptionsKey
-}
-#else
-extension UIApplication {
-    typealias LaunchOptionsKey = UIApplicationLaunchOptionsKey
-}
-#endif
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var disposeBag = DisposeBag()
@@ -30,13 +20,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
         ) -> Bool {
-        enableLogging()
-        enableDebug()
+        setupLogging()
+        setupDebug()
         setupBugly()
         setupUMeng()
-        #if TARGET_CPU_ARM
         setupPushNotification(launchOptions)
-        #endif
+        setupJdSmartCloud()
+        
         ShortcutParser.shared.registerShortcuts()
         NotificationCenter.default.rx.notification(.jPushAddNotificationCount, object: nil)
             .subscribe{ print("收到消息 \(String(describing: $0.element))") }

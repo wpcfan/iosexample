@@ -12,40 +12,7 @@ import UIKit
 // 极光消息集成
 // 如果实现 JPUSHRegisterDelegate 则不用实现 UNUserNotificationCenterDelegate
 extension AppDelegate: JPUSHRegisterDelegate {
-    /// 极光服务初始化
-    func setupPushNotification(_ launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        if #available(iOS 10, *) {
-            let entity = JPUSHRegisterEntity()
-            entity.types = NSInteger(UNAuthorizationOptions.alert.rawValue) |
-                NSInteger(UNAuthorizationOptions.sound.rawValue) |
-                NSInteger(UNAuthorizationOptions.badge.rawValue)
-            JPUSHService.register(forRemoteNotificationConfig: entity, delegate: self)
-        }  else {
-            // 可以自定义 categories
-            JPUSHService.register(
-                forRemoteNotificationTypes: UIUserNotificationType.badge.rawValue |
-                    UIUserNotificationType.sound.rawValue |
-                    UIUserNotificationType.alert.rawValue,
-                categories: nil)
-        }
-        let channel = "App Store"
-        var isProd = true
-        #if DEBUG
-            isProd = false
-        #endif
-        JPUSHService.setup(withOption: launchOptions, appKey: AppEnv.pushKey, channel: channel, apsForProduction: isProd)
-        #if DEBUG
-            JPUSHService.setDebugMode()
-        #else
-            JPUSHService.setLogOFF()
-        #endif
-        let defaultCenter = NotificationCenter.default
-        // 订阅自定义消息
-        defaultCenter.addObserver(self,
-                                  selector: #selector(networkDidReceiveMessage(_:)),
-                                  name: NSNotification.Name.jpfNetworkDidReceiveMessage,
-                                  object: nil)
-    }
+    
     // 处理自定义消息
     @objc func networkDidReceiveMessage(_ notification: Notification) -> Void {
         let userInfo = notification.userInfo
@@ -172,3 +139,42 @@ extension AppDelegate: JPUSHRegisterDelegate {
     }
 }
 #endif
+
+extension AppDelegate {
+    /// 极光服务初始化
+    func setupPushNotification(_ launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
+        #if TARGET_CPU_ARM
+        if #available(iOS 10, *) {
+            let entity = JPUSHRegisterEntity()
+            entity.types = NSInteger(UNAuthorizationOptions.alert.rawValue) |
+                NSInteger(UNAuthorizationOptions.sound.rawValue) |
+                NSInteger(UNAuthorizationOptions.badge.rawValue)
+            JPUSHService.register(forRemoteNotificationConfig: entity, delegate: self)
+        }  else {
+            // 可以自定义 categories
+            JPUSHService.register(
+                forRemoteNotificationTypes: UIUserNotificationType.badge.rawValue |
+                    UIUserNotificationType.sound.rawValue |
+                    UIUserNotificationType.alert.rawValue,
+                categories: nil)
+        }
+        let channel = "App Store"
+        var isProd = true
+        #if DEBUG
+        isProd = false
+        #endif
+        JPUSHService.setup(withOption: launchOptions, appKey: AppEnv.pushKey, channel: channel, apsForProduction: isProd)
+        #if DEBUG
+        JPUSHService.setDebugMode()
+        #else
+        JPUSHService.setLogOFF()
+        #endif
+        let defaultCenter = NotificationCenter.default
+        // 订阅自定义消息
+        defaultCenter.addObserver(self,
+                                  selector: #selector(networkDidReceiveMessage(_:)),
+                                  name: NSNotification.Name.jpfNetworkDidReceiveMessage,
+                                  object: nil)
+        #endif
+    }
+}

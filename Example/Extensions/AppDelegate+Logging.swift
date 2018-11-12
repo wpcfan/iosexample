@@ -9,7 +9,7 @@
 import UIKit
 
 extension AppDelegate {
-    func enableLogging() {
+    func setupLogging() {
         let sessionID = UUID().uuidString
         // file destination
         log.logFilename = "example.log"

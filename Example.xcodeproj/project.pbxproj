@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02B8F87CD296365A395B3FC5 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E8EC781EC77D036B2F62E0 /* Pods_Example.framework */; };
+		7660BA7942EE1A79746DFDBE /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 924B94AF7FA18718F2D35876 /* Pods_Example.framework */; };
 		AA01F49F2198828600CE6457 /* AppDelegate+UMeng.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01F49E2198828600CE6457 /* AppDelegate+UMeng.swift */; };
 		AA01F4A1219886A400CE6457 /* AppDelegate+Bugly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01F4A0219886A400CE6457 /* AppDelegate+Bugly.swift */; };
+		AA01F4A32199497000CE6457 /* JdSmartCloudService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01F4A22199497000CE6457 /* JdSmartCloudService.swift */; };
+		AA01F4A521994AE500CE6457 /* AppDelegate+JdSmartCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01F4A421994AE500CE6457 /* AppDelegate+JdSmartCloud.swift */; };
+		AA01F4A72199511500CE6457 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01F4A62199511500CE6457 /* UIApplication+.swift */; };
 		AA30C05B2167533E00B9E0EB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30C05A2167533E00B9E0EB /* SplashViewController.swift */; };
 		AA30C05F2167555C00B9E0EB /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30C05E2167555C00B9E0EB /* RootViewController.swift */; };
 		AA30C0612167561E00B9E0EB /* SplashViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA30C0602167561E00B9E0EB /* SplashViewController.xml */; };
@@ -139,9 +142,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		21E8EC781EC77D036B2F62E0 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		924B94AF7FA18718F2D35876 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA01F49E2198828600CE6457 /* AppDelegate+UMeng.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+UMeng.swift"; sourceTree = "<group>"; };
 		AA01F4A0219886A400CE6457 /* AppDelegate+Bugly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Bugly.swift"; sourceTree = "<group>"; };
+		AA01F4A22199497000CE6457 /* JdSmartCloudService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JdSmartCloudService.swift; sourceTree = "<group>"; };
+		AA01F4A421994AE500CE6457 /* AppDelegate+JdSmartCloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+JdSmartCloud.swift"; sourceTree = "<group>"; };
+		AA01F4A62199511500CE6457 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
 		AA30C05A2167533E00B9E0EB /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		AA30C05E2167555C00B9E0EB /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		AA30C0602167561E00B9E0EB /* SplashViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SplashViewController.xml; sourceTree = "<group>"; };
@@ -278,7 +284,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02B8F87CD296365A395B3FC5 /* Pods_Example.framework in Frameworks */,
+				7660BA7942EE1A79746DFDBE /* Pods_Example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,9 +302,16 @@
 			isa = PBXGroup;
 			children = (
 				AAE49EF32168EF89004BDBD7 /* QuartzCore.framework */,
-				21E8EC781EC77D036B2F62E0 /* Pods_Example.framework */,
+				924B94AF7FA18718F2D35876 /* Pods_Example.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		683F3DDAA279CAA956E10215 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		AA30C06221679A3000B9E0EB /* Shortcuts */ = {
@@ -326,6 +339,7 @@
 				AA01F4A0219886A400CE6457 /* AppDelegate+Bugly.swift */,
 				AA433F0A218C4B2D00BA60A1 /* AppDelegate+CocoaDebug.swift */,
 				AA433F06218C4A1900BA60A1 /* AppDelegate+Logging.swift */,
+				AA01F4A421994AE500CE6457 /* AppDelegate+JdSmartCloud.swift */,
 				AA433F02218C491100BA60A1 /* AppDelegate+Push.swift */,
 				AA433F04218C49A500BA60A1 /* AppDelegate+Navigation.swift */,
 				AA01F49E2198828600CE6457 /* AppDelegate+UMeng.swift */,
@@ -334,6 +348,7 @@
 				AA3E0EBA21737D0600958937 /* LayoutExtensions.swift */,
 				AA78BB45218D6814000B4CD8 /* NotificationCenter+.swift */,
 				AA683A06216F3D5400E4097B /* String+UrlEncode.swift */,
+				AA01F4A62199511500CE6457 /* UIApplication+.swift */,
 				AAF5CA4821821F3B006DE332 /* UIApplication+StatusBar.swift */,
 				AA4B49192178883E00A60C11 /* UICollectionViewDelegateFlexLayout.swift */,
 				AA4B491D2178883F00A60C11 /* UICollectionViewFlexLayout.swift */,
@@ -437,7 +452,7 @@
 				AAC5EB81215E7BB9008EBA1F /* ExampleTests */,
 				AAC5EB6B215E7BB7008EBA1F /* Products */,
 				2D24BCDECDE01F1A9890896E /* Frameworks */,
-				DD637071783A26C5EBAD81E0 /* Pods */,
+				683F3DDAA279CAA956E10215 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -531,6 +546,7 @@
 				AA683A02216F128800E4097B /* HomeService.swift */,
 				AAC5EBA2215E808D008EBA1F /* OAuth2Service.swift */,
 				AA433F12218C8D9700BA60A1 /* NotificationService.swift */,
+				AA01F4A22199497000CE6457 /* JdSmartCloudService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -580,13 +596,6 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		DD637071783A26C5EBAD81E0 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -594,11 +603,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AAC5EB87215E7BB9008EBA1F /* Build configuration list for PBXNativeTarget "Example" */;
 			buildPhases = (
-				C3053EA7519E1565F2AF91CB /* [CP] Check Pods Manifest.lock */,
+				0159BD0F5869FEB20A584D9E /* [CP] Check Pods Manifest.lock */,
 				AAC5EB66215E7BB7008EBA1F /* Sources */,
 				AAC5EB67215E7BB7008EBA1F /* Frameworks */,
 				AAC5EB68215E7BB7008EBA1F /* Resources */,
-				BBE0C022F956022CA2D60FC2 /* [CP] Embed Pods Frameworks */,
+				2F9C6590B2D442DB9BADA81E /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -718,7 +727,29 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		BBE0C022F956022CA2D60FC2 /* [CP] Embed Pods Frameworks */ = {
+		0159BD0F5869FEB20A584D9E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		2F9C6590B2D442DB9BADA81E /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -818,28 +849,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C3053EA7519E1565F2AF91CB /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Example-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -912,6 +921,7 @@
 				AA4B491F2178883F00A60C11 /* Then.swift in Sources */,
 				AAE49F02216BA2EE004BDBD7 /* RegisterViewController.swift in Sources */,
 				AAC5EB6E215E7BB7008EBA1F /* AppDelegate.swift in Sources */,
+				AA01F4A72199511500CE6457 /* UIApplication+.swift in Sources */,
 				AA693DC32161FF620063D749 /* NavigationMap.swift in Sources */,
 				AA4B49302178EB2500A60C11 /* BannerView.swift in Sources */,
 				AA3E0E782170478200958937 /* PullToRefreshUtil.swift in Sources */,
@@ -923,6 +933,7 @@
 				AA4B48F221761F7400A60C11 /* AuthError.swift in Sources */,
 				AA693DB72160EEB70063D749 /* HomeViewController.swift in Sources */,
 				AAE49EFE216AE281004BDBD7 /* Shallows+Rx.swift in Sources */,
+				AA01F4A521994AE500CE6457 /* AppDelegate+JdSmartCloud.swift in Sources */,
 				AA3E0E8A2170841700958937 /* HomeInfo.swift in Sources */,
 				AA01F49F2198828600CE6457 /* AppDelegate+UMeng.swift in Sources */,
 				AAC5EBA5215F5849008EBA1F /* HomeTabViewController.swift in Sources */,
@@ -936,6 +947,7 @@
 				AA4B48F8217736D900A60C11 /* Reactive+OAuth2.swift in Sources */,
 				AA420588217B66210068ABC0 /* UIView+Blur.swift in Sources */,
 				AA683A09216F434C00E4097B /* Banner.swift in Sources */,
+				AA01F4A32199497000CE6457 /* JdSmartCloudService.swift in Sources */,
 				AA4B48E22174E1D300A60C11 /* Reactive+Reuseable.swift in Sources */,
 				AAE49EFA216A2783004BDBD7 /* AppData.swift in Sources */,
 				AA6839DE216E0A0500E4097B /* AppLayoutClousures.swift in Sources */,

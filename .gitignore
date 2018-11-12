@@ -72,3 +72,4 @@ fastlane/test_output
 *.cer*
 *.p12
 .env.*
+libs/

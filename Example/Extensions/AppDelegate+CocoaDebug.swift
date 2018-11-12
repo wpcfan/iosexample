@@ -13,7 +13,7 @@ import CocoaDebug
 #endif
 
 extension AppDelegate {
-    func enableDebug() {
+    func setupDebug() {
         #if DEBUG
         CocoaDebug.serverURL = "twigcodes.com" //default value is `nil`
         //        CocoaDebug.ignoredURLs = nil //default value is `nil`

@@ -69,5 +69,6 @@ target 'Example' do
   # Reveal UI Components
   pod 'Reveal-SDK', :configurations => ['Debug', 'Local']
   # Make float button to debug app
-  pod 'CocoaDebug', :configurations => ['Debug', 'Local']
+  pod 'CocoaDebug', :configurations => ['Debug', 'Local'], :git => 'https://github.com/CocoaDebug/CocoaDebug', :submodules => true
+  pod 'SCMSDK', :path => 'libs/SCMSDK'
 end

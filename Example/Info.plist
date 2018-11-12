@@ -41,6 +41,13 @@
 			<key>TOKEN</key>
 			<string>${LOGZ_TOKEN}</string>
 		</dict>
+        <key>SMART_CLOUD</key>
+        <dict>
+            <key>APP_KEY</key>
+            <string>${SMART_CLOUD_APP_KEY}</string>
+            <key>APP_SECRET</key>
+            <string>${SMART_CLOUD_APP_SECRET}</string>
+        </dict>
 	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>

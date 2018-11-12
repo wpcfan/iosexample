@@ -6,4 +6,12 @@
 //  Copyright © 2018 twigcodes. All rights reserved.
 //
 
-import Foundation
+#if swift(>=4.2)
+extension UIApplication {
+    typealias LaunchOptionsKey = UIApplication.LaunchOptionsKey
+}
+#else
+extension UIApplication {
+    typealias LaunchOptionsKey = UIApplicationLaunchOptionsKey
+}
+#endif

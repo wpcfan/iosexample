@@ -6,4 +6,11 @@
 //  Copyright © 2018 twigcodes. All rights reserved.
 //
 
-import Foundation
+extension AppDelegate {
+    func setupJdSmartCloud() -> Void {
+        #if TARGET_CPU_ARM
+        let smartCloudServie = container.resolve(JdSmartCloudService.self)!
+        smartCloudServie.initSmartCloud()
+        #endif
+    }
+}

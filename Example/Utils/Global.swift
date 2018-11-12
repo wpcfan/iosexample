@@ -71,7 +71,7 @@ let container: Container = {
         return navigator
     }
     #if TARGET_CPU_ARM
-        container.register(SmartCloudService.self) { _ in SmartCloudServiceImpl() }
+        container.register(JdSmartCloudService.self) { _ in JdSmartCloudServiceImpl() }
     #endif
     return container
 }()
