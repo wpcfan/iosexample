@@ -33,6 +33,11 @@ target 'Example' do
   pod 'Dollar'
   # Push
   pod 'JPush'
+  # UMeng
+  pod 'UMCCommon'
+  pod 'UMCAnalytics'
+  # Bugly
+  pod 'Bugly'
   # IoC
   pod 'Swinject', '~> 2.5'
   # Log

@@ -7,3 +7,10 @@
 //
 
 import Foundation
+
+extension AppDelegate {
+    func setupUMeng() -> Void {
+        UMConfigure.initWithAppkey(AppEnv.umengAppId, channel: "appstore")
+        MobClick.setScenarioType(.E_UM_NORMAL)
+    }
+}

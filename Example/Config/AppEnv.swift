@@ -28,6 +28,8 @@ struct AppEnv {
     static let push: Dictionary<String, String> = appEnv["JPUSH"] as! Dictionary
     static let pushKey = push["APP_KEY"]!
     static let pushSecret = push["APP_SECRET"]!
+    static let umengAppId: String = appEnv["UMENG_APPID"] as! String
+    static let buglyAppId: String = appEnv["BUGLY_APPID"] as! String
 //    static let urlTypes = Bundle.main.infoDictionary!["CFBundleURLTypes"]
 //    static let urlScheme: String = (urlTypes![1] as Dictionary)["CFBundleURLSchemes"]![0]
 }

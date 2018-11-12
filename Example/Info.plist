@@ -21,6 +21,10 @@
 			<key>REALM</key>
 			<string>${AUTH_REALM}</string>
 		</dict>
+		<key>UMENG_APPID</key>
+		<string>${UMENG_APPID}</string>
+        <key>BUGLY_APPID</key>
+        <string>${BUGLY_APPID}</string>
 		<key>JPUSH</key>
 		<dict>
 			<key>APP_KEY</key>
@@ -40,6 +44,8 @@
 	</dict>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleDisplayName</key>
+	<string>TwigExample</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -66,7 +72,9 @@
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
-	<string>7</string>
+	<string>12</string>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>LSApplicationCategoryType</key>
 	<string></string>
 	<key>LSRequiresIPhoneOS</key>
@@ -86,6 +94,12 @@
 	</dict>
 	<key>NSCameraUsageDescription</key>
 	<string>The app needs camera to scan QR codes</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>The app needs to access your photo library to save the capture</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -107,12 +121,8 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>The app needs to access your photo library to save the capture</string>
-	<key>ITSAppUsesNonExemptEncryption</key>
-	<false/>
-	<key>CFBundleDisplayName</key>
-	<string>TwigExample</string>
+	<key>NSHumanReadableCopyright</key>
+	<string></string>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
 </dict>

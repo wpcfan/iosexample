@@ -6,4 +6,17 @@
 //  Copyright © 2018 twigcodes. All rights reserved.
 //
 
-import Foundation
+extension AppDelegate {
+    func setupBugly() -> Void {
+        let config = BuglyConfig()
+        // 设置自定义日志上报的级别，默认不上报自定义日志
+        #if DEBUG
+        config.debugMode = true
+        config.reportLogLevel = .debug
+        #else
+        config.reportLogLevel = .error
+        #endif
+        
+        Bugly.start(withAppId: AppEnv.buglyAppId, config:config)
+    }
+}

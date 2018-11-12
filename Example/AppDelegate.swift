@@ -32,6 +32,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ) -> Bool {
         enableLogging()
         enableDebug()
+        setupBugly()
+        setupUMeng()
         #if TARGET_CPU_ARM
         setupPushNotification(launchOptions)
         #endif
