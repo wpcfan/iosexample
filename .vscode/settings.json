@@ -1,3 +1,16 @@
 {
-  "python.pythonPath": "/usr/local/bin/python3"
+  "python.pythonPath": "/usr/local/bin/python3",
+  "swift.targets": [
+    {
+      "name": "Example",
+      "path": "./Example",
+      "sources": ["**/*.swift"],
+      "compilerArguments": [
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk",
+        "-target",
+        "arm64-apple-ios11.0"
+      ]
+    }
+  ]
 }
