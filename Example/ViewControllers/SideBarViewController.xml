@@ -2,15 +2,35 @@
     <UITableView
         backgroundColor="clear"
         contentInset.bottom="safeAreaInsets.bottom"
-        contentInset.top="safeAreaInsets.top"
+        contentInset.top="parent.top"
         contentInsetAdjustmentBehavior="never"
         contentOffset.y="0"
         estimatedSectionHeaderHeight="0"
         outlet="tableView"
         scrollIndicatorInsets.bottom="safeAreaInsets.bottom"
-        scrollIndicatorInsets.top="safeAreaInsets.top"
-        style="plain"
-        top="parent.top">
+        scrollIndicatorInsets.top="parent.top"
+        style="plain">
+        <UIView height="15%" backgroundColor="white">
+            <UIImageView
+                left="parent.left + 16"
+                bottom="parent.bottom - 5"
+                imgUrl="https://tinyfac.es/data/avatars/AEF44435-B547-4B84-A2AE-887DFAEE6DDF-200w.jpeg"
+                width="64"
+                height="64"
+                layer.cornerRadius="32"
+                clipsToBounds="true"
+                contentMode="scaleAspectFill"/>
+            <UILabel
+                left="previous.right + 10"
+                top="previous.top + 5"
+                height="26"
+                text="Peng Wang" />
+            <UILabel
+                left="previous.left"
+                top="previous.bottom + 5"
+                height="26"
+                text="13898810892" />
+        </UIView>
         <!-- Table cell template -->
         <UITableViewCell
             detailTextLabel.highlightedTextColor="#fff7"

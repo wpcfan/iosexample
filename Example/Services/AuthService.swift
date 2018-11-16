@@ -57,9 +57,9 @@ extension AuthService: TargetType {
         case .login(_, _):
             return "{\"id_token\": \"123.446.789\", \"refresh_token\": \"123.456.789\"}".utf8Encoded
         case .updateUser(let id, let user):
-            return User(id: id, login: user.login!, mobile: user.mobile!, email: user.email!, name: user.name!).toJSONString()!.utf8Encoded
+            return User(id: id, login: user.login!, mobile: user.mobile!, email: user.email!, name: user.name!, avatar: user.avatar!).toJSONString()!.utf8Encoded
         case .register(let user):
-            return User(id: "123", login: user.login!, mobile: user.mobile!, email: user.email!, name: user.name!).toJSONString()!.utf8Encoded
+            return User(id: "123", login: user.login!, mobile: user.mobile!, email: user.email!, name: user.name!, avatar: user.avatar!).toJSONString()!.utf8Encoded
         }
     }
     var headers: [String: String]? {

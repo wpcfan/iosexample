@@ -23,12 +23,13 @@ struct User: Mappable, ModelType, IdentifiableType, Equatable {
         
     }
     
-    init(id: String?, login: String, mobile: String, email: String, name: String) {
+    init(id: String?, login: String, mobile: String, email: String, name: String, avatar: String) {
         self.id = id
         self.login = login
         self.mobile = mobile
         self.email = email
         self.name = name
+        self.avatar = avatar
     }
     
     mutating func mapping(map: Map) {

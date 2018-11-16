@@ -104,4 +104,11 @@ struct AppIcons {
         backgroundColor: .clear,
         size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
     
+    static let menu = UIImage(
+        from: .ionicon,
+        code: "ios-menu",
+        textColor: UIColor.white,
+        backgroundColor: .clear,
+        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
+    
 }

@@ -68,6 +68,7 @@ extension HomeTabViewController: LayoutLoading {
                 "iconTabMy": AppIcons.user,
                 "iconAdd": AppIcons.add,
                 "iconSettings": AppIcons.settingsAccent,
+                "iconMenu": AppIcons.menu,
                 "emptyImage": UIImage(),
                 "homeTitleView": homeTitleView
             ]

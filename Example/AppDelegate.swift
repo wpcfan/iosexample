@@ -25,8 +25,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupBugly()
         setupUMeng()
         setupPushNotification(launchOptions)
-        setupJdSmartCloud()
-        
         ShortcutParser.shared.registerShortcuts()
         NotificationCenter.default.rx.notification(.jPushAddNotificationCount, object: nil)
             .subscribe{ print("收到消息 \(String(describing: $0.element))") }

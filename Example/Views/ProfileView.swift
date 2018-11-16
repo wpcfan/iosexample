@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ProfileCell: BaseItemCell {
+class ProfileView: BaseView {
     
     private let avatarView = UIImageView().then {
         $0.layer.cornerRadius = 25
@@ -29,14 +29,15 @@ class ProfileCell: BaseItemCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        contentView.snp.makeConstraints { make in
-            if #available(iOS 11.0, *) {
-                make.edges.equalTo(self.safeAreaLayoutGuide)
-            }
-        }
+//        self.snp.makeConstraints { make in
+//            if #available(iOS 11.0, *) {
+//                make.top.equalTo(self.safeAreaLayoutGuide.snp.bottom)
+//            }
+//        }
         avatarView.snp.makeConstraints { make in
             make.width.height.equalTo(48)
-            make.left.top.equalToSuperview().offset(5)
+            make.left.equalToSuperview().offset(5)
+            make.bottom.equalToSuperview().inset(5)
         }
         nameLabel.snp.makeConstraints { make in
             make.top.equalTo(avatarView.snp.top).offset(5)
@@ -50,13 +51,19 @@ class ProfileCell: BaseItemCell {
         }
     }
     
-    override func initialize() {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
         labelView.addSubview(mobileLabel)
         labelView.addSubview(nameLabel)
-        contentView.addSubview(avatarView)
-        contentView.addSubview(labelView)
+        self.addSubview(avatarView)
+        self.addSubview(labelView)
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     private func initControls(profile: User) {
         avatarView.pin_setImage(from: URL(string: profile.avatar!))
         mobileLabel.text = profile.mobile

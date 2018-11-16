@@ -6,8 +6,6 @@
 //  Copyright © 2018年 twigcodes. All rights reserved.
 //
 
-import UIKit
-
 class SocialViewController: BaseViewController {
     
 }

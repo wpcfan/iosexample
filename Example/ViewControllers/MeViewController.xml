@@ -1,4 +1,4 @@
-<Example.MeViewController>
+<Example.MeViewController outlet="layoutNode">
     <UIView
         top="parent.top "
         height="25%"

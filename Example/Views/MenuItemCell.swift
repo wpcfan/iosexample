@@ -6,4 +6,27 @@
 //  Copyright © 2018 twigcodes. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class MenuItemCell: BaseItemCell {
+
+    var menuItem: MenuItem? {
+        didSet {
+            guard let menuItem = menuItem else { return }
+            initControls(menuItem: menuItem)
+        }
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+    }
+    
+    override func initialize() {
+    }
+    
+    
+    private func initControls(menuItem: MenuItem) {
+        
+    }
+}

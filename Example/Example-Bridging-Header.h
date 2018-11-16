@@ -13,9 +13,3 @@
 #import <UMCommon/UMCommon.h>           // 公共组件是所有友盟产品的基础组件，必选
 #import <UMAnalytics/MobClick.h>        // 友盟统计组件
 #import <Bugly/Bugly.h>                 // Bugly 崩溃分析组件
-
-#ifdef DEBUG
-#define NSLog(fmt, ...) [CocoaDebug objcLog:[[NSString stringWithUTF8String:__FILE__] lastPathComponent] :NSStringFromSelector(_cmd) :__LINE__ :(fmt, ##__VA_ARGS__) :[UIColor whiteColor]]
-#else
-#define NSLog(fmt, ...) nil
-#endif

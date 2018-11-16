@@ -5,7 +5,7 @@
 import URLNavigator
 import Layout
 
-class SideBar2ViewController: BaseViewController {
+class SideBarViewController: BaseViewController {
     private let CELL_REUSE_IDENTIFIER = "sidebarCell"
     private let navigator = container.resolve(NavigatorType.self)!
     @objc var tableView: UITableView? {
@@ -15,7 +15,7 @@ class SideBar2ViewController: BaseViewController {
     }
 }
 
-extension SideBar2ViewController: UITableViewDataSource {
+extension SideBarViewController: UITableViewDataSource {
     // Section Header Title
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return nil
@@ -32,10 +32,10 @@ extension SideBar2ViewController: UITableViewDataSource {
     }
 }
 
-extension SideBar2ViewController: LayoutLoading {
+extension SideBarViewController: LayoutLoading {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.loadLayout(named: "SideBar2ViewController.xml")
+        self.loadLayout(named: "SideBarViewController.xml")
     }
 }

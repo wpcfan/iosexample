@@ -54,6 +54,8 @@
 
         <!-- Text -->
         <UIViewController
+            navigationItem.leftBarButtonItem.action="toggle"
+            navigationItem.leftBarButtonItem.image="iconMenu"
             navigationItem.rightBarButtonItem.image="iconSettings"
             navigationItem.rightBarButtonItem.action="navigateToSettings"
             navigationItem.title="{strings.main.navigation.my.title}"

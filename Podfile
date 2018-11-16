@@ -16,6 +16,8 @@ target 'Example' do
   pod 'Action'
   pod 'RxCocoa', '~> 4.0'
   pod 'RxDataSources', '~> 3.0'
+  pod 'ReusableKit'
+  pod 'ReusableKit/RxSwift'  # with RxSwift extension
   pod 'RxQRScanner'
   pod 'RxGesture', '~> 2.0.1'
   pod 'ReactorKit'
@@ -57,7 +59,7 @@ target 'Example' do
   # Pull to refresh
   pod 'PullToRefreshKit'
   # SVG
-#  pod 'FantasticSnowflake', git: 'https://github.com/onmyway133/Snowflake', :submodules => true
+#  pod 'FantasticSnowflake', :git: 'https://github.com/onmyway133/Snowflake', :submodules => true
   # easy persistence
   pod 'Shallows', :git => 'https://github.com/dreymonde/Shallows', :submodules => true
   # OAuth2 Library
@@ -69,6 +71,5 @@ target 'Example' do
   # Reveal UI Components
   pod 'Reveal-SDK', :configurations => ['Debug', 'Local']
   # Make float button to debug app
-  pod 'CocoaDebug', :configurations => ['Debug', 'Local'], :git => 'https://github.com/CocoaDebug/CocoaDebug', :submodules => true
-  pod 'SCMSDK', :path => 'libs/SCMSDK'
+  pod 'CocoaDebug', :configurations => ['Debug', 'Local']
 end

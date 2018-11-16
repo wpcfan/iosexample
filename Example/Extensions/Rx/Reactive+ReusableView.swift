@@ -12,15 +12,15 @@ import RxSwift
 
 private var prepareForReuseBag: Int8 = 0
 
-@objc public protocol Reusable : class {
+@objc public protocol ReusableView : class {
     func prepareForReuse()
 }
 
-extension UITableViewCell: Reusable {}
-extension UITableViewHeaderFooterView: Reusable {}
-extension UICollectionReusableView: Reusable {}
+extension UITableViewCell: ReusableView {}
+extension UITableViewHeaderFooterView: ReusableView {}
+extension UICollectionReusableView: ReusableView {}
 
-extension Reactive where Base: Reusable {
+extension Reactive where Base: ReusableView {
     var prepareForReuse: Observable<Void> {
         return Observable.of(sentMessage(#selector(Base.prepareForReuse)).map { _ in }, deallocated).merge()
     }

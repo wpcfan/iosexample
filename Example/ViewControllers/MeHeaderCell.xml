@@ -1,10 +1,13 @@
 <UICollectionViewCell clipsToBounds="true">
-    <UIImageView
-        contentMode="scaleAspectFit"
-        height="100%"
-        initialName="Peng Wang"
-        tintColor="red"
-        width="100%"
-    />
+    <UIView >
+        <UIImageView
+            layer.cornerRadius="25"
+            clipsToBounds="true"
+            contentMode="scaleAspectFit"
+            height="100%"
+            imgUrl="https://tinyfac.es/data/avatars/E0B4CAB3-F491-4322-BEF2-208B46748D4A-200w.jpeg"
+            tintColor="red"
+            width="100%"
+            />
+    </UIView>
 </UICollectionViewCell>
-

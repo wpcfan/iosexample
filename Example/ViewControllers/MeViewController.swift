@@ -6,8 +6,8 @@
 //  Copyright © 2018 twigcodes. All rights reserved.
 //
 
-import UIKit
 import URLNavigator
+import Layout
 
 private let images = [
     UIImage(named: "Scan"),
@@ -16,7 +16,18 @@ private let images = [
 
 class MeViewController: BaseViewController {
     
+    var leftMenu: UIViewController?
+    var leftDrawerTransition: DrawerTransition?
     private let navigator = container.resolve(NavigatorType.self)!
+    @objc var layoutNode: LayoutNode? {
+        didSet {
+            leftMenu = SideBarViewController()
+            leftDrawerTransition = DrawerTransition(target: self, drawer: leftMenu)
+            leftDrawerTransition?.setPresentCompletion { print("left present...") }
+            leftDrawerTransition?.setDismissCompletion { print("left dismiss...") }
+            leftDrawerTransition?.edgeType = .left
+        }
+    }
     
     @objc var collectionView: UICollectionView? {
         didSet {
@@ -58,4 +69,10 @@ extension MeViewController: UICollectionViewDataSource {
 
 extension MeViewController: UICollectionViewDelegate {
     
+}
+
+extension MeViewController: DrawerTransitionDelegate {
+    @objc func toggle()  {
+        self.leftDrawerTransition?.presentDrawerViewController(animated: true)
+    }
 }
