@@ -1,0 +1,29 @@
+<UIViewController>
+    <UITableView
+        backgroundColor="clear"
+        contentInset.bottom="safeAreaInsets.bottom"
+        contentInset.top="safeAreaInsets.top"
+        contentInsetAdjustmentBehavior="never"
+        contentOffset.y="0"
+        estimatedSectionHeaderHeight="0"
+        outlet="tableView"
+        scrollIndicatorInsets.bottom="safeAreaInsets.bottom"
+        scrollIndicatorInsets.top="safeAreaInsets.top"
+        style="plain"
+        top="parent.top">
+        <!-- Table cell template -->
+        <UITableViewCell
+            detailTextLabel.highlightedTextColor="#fff7"
+            detailTextLabel.text="This cell is defined as a template in Table.xml"
+            detailTextLabel.textColor="#aaa"
+            height="auto + 20"
+            reuseIdentifier="sidebarCell"
+            selectedBackgroundView.backgroundColor="tintColor"
+            style="subtitle"
+            textLabel.highlightedTextColor="white"
+            textLabel.text="Title #{row}">
+            
+        </UITableViewCell>
+        
+    </UITableView>
+</UIViewController>

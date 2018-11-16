@@ -1,9 +1,9 @@
 //
-//  Reactive+Reuseable.swift
+//  Reactive+Reusable.swift
 //  Example
 //
-//  Created by 王芃 on 2018/10/15.
-//  Copyright © 2018年 twigcodes. All rights reserved.
+//  Created by 王芃 on 2018/11/15.
+//  Copyright © 2018 twigcodes. All rights reserved.
 //
 
 import UIKit
@@ -42,39 +42,5 @@ extension Reactive where Base: Reusable {
             })
         
         return bag
-    }
-}
-
-protocol ReusableView: class {
-    static var reuseIdentifier: String {get}
-}
-
-extension ReusableView {
-    static var reuseIdentifier: String {
-        return String(describing: self)
-    }
-}
-
-extension UITableViewCell: ReusableView {}
-extension UICollectionViewCell: ReusableView {}
-
-extension UITableView {
-    
-    func dequeueReusableCell<T: UITableViewCell>(forIndexPath indexPath: IndexPath) -> T {
-        guard let cell = dequeueReusableCell(withIdentifier: T.reuseIdentifier, for: indexPath) as? T else {
-            fatalError("Could not dequeue cell with identifier: \(T.reuseIdentifier)")
-        }
-        
-        return cell
-    }
-}
-
-extension UICollectionView {
-    func dequeueReusableCell<T: UICollectionViewCell>(forIndexPath indexPath: IndexPath) -> T {
-        guard let cell = dequeueReusableCell(withReuseIdentifier: T.reuseIdentifier, for: indexPath) as? T else {
-            fatalError("Could not dequeue cell with identifier: \(T.reuseIdentifier)")
-        }
-        
-        return cell
     }
 }
