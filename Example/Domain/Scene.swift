@@ -15,7 +15,7 @@ enum SceneIcon {
     case placeholder
 }
 
-struct Scene: Mappable, ModelType, IdentifiableType, Equatable {
+struct Scene: Mappable {
     static func == (lhs: Scene, rhs: Scene) -> Bool {
         return lhs.identity == rhs.identity
     }

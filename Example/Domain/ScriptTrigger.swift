@@ -15,7 +15,7 @@ enum TriggerType {
     case allOf
 }
 
-struct ScriptTrigger: Mappable, ModelType, IdentifiableType, Equatable {
+struct ScriptTrigger: Mappable {
     var id: String?
     var type: TriggerType?
     var cronExpr: String?
@@ -37,9 +37,5 @@ struct ScriptTrigger: Mappable, ModelType, IdentifiableType, Equatable {
         type <- map["type"]
         cronExpr <- map["cronExpr"]
         deviceAttributes <- map["deviceAttributes"]
-    }
-    
-    var identity: String? {
-        return id
     }
 }

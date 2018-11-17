@@ -9,7 +9,7 @@
 import ObjectMapper
 import RxDataSources
 
-struct House: Mappable, ModelType, IdentifiableType, Equatable {
+struct House: Mappable {
     var id: String?
     var houseNo: String?
     var location: String?
@@ -31,9 +31,5 @@ struct House: Mappable, ModelType, IdentifiableType, Equatable {
         houseNo <- map["houseNo"]
         location <- map["location"]
         projectName <- map["projectName"]
-    }
-    
-    var identity: String? {
-        return id
     }
 }

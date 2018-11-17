@@ -9,7 +9,7 @@
 import ObjectMapper
 import RxDataSources
 
-struct Banner: Mappable, ModelType, IdentifiableType, Equatable {
+struct Banner: Mappable {
     
     var id: String?
     var imageUrl: String?
@@ -31,9 +31,5 @@ struct Banner: Mappable, ModelType, IdentifiableType, Equatable {
         imageUrl <- map["imageUrl"]
         label <- map["label"]
         link <- map["link"]
-    }
-    
-    var identity: String? {
-        return id
     }
 }
