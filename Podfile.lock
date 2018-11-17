@@ -21,9 +21,9 @@ PODS:
     - CocoaAsyncSocket (~> 7.6.3)
     - SwiftyBeaver (~> 1.5.2)
   - JWTDecode (2.1.1)
-  - Layout (0.6.32):
-    - Layout/Core (= 0.6.32)
-  - Layout/Core (0.6.32)
+  - Layout (0.6.33):
+    - Layout/Core (= 0.6.33)
+  - Layout/Core (0.6.33)
   - Moya (11.0.2):
     - Moya/Core (= 11.0.2)
   - Moya-ObjectMapper/Core (2.7):
@@ -38,7 +38,7 @@ PODS:
   - Moya/RxSwift (11.0.2):
     - Moya/Core
     - RxSwift (~> 4.0)
-  - ObjectMapper (3.3.0)
+  - ObjectMapper (3.4.1)
   - p2.OAuth2 (4.0.1)
   - PINCache (2.3)
   - PINRemoteImage (2.1.4):
@@ -71,17 +71,21 @@ PODS:
   - RxGesture (2.0.1):
     - RxCocoa (~> 4.3.1)
     - RxSwift (~> 4.3.1)
-  - RxOptional (3.5.0):
+  - RxOptional (3.6.2):
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
   - RxQRScanner (1.4.1):
     - RxCocoa (~> 4.3)
     - RxSwift (~> 4.3)
   - RxSwift (4.3.1)
-  - RxSwiftExt (3.3.0):
-    - RxSwiftExt/Core (= 3.3.0)
-  - RxSwiftExt/Core (3.3.0):
+  - RxSwiftExt (3.4.0):
+    - RxSwiftExt/Core (= 3.4.0)
+    - RxSwiftExt/RxCocoa (= 3.4.0)
+  - RxSwiftExt/Core (3.4.0):
     - RxSwift (~> 4.0)
+  - RxSwiftExt/RxCocoa (3.4.0):
+    - RxCocoa (~> 4.0)
+    - RxSwiftExt/Core
   - Shallows (0.9.0)
   - SnapKit (4.0.1)
   - SwiftIconFont (2.9.1)
@@ -221,10 +225,10 @@ SPEC CHECKSUMS:
   JPush: 25dd9013fbe106082c14f9f30a82364ee98852fb
   JustLog: fd0ac5898f76de4b9ec96ffd9a6cae63cbda37b2
   JWTDecode: 83e8b381aafe27158d9f692cbdca2b12d61d460c
-  Layout: 799364f35fc1881e8a73c43b48b1e334bcd301b1
+  Layout: 0c8da2fea07a76000bf05377af703456f59b3e22
   Moya: a725035953bc1c0eb1be505ab903984501d82440
   Moya-ObjectMapper: 441caa307b527331fde59e2577adc632a16f1255
-  ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
+  ObjectMapper: 5311bd50ca732930959e7ca1a2de43ab823a5ced
   p2.OAuth2: fdc2effef37793a8f775dd4760bc4c1ea906c956
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
   PINRemoteImage: 4ac4011c5caefd6befd99758e09becede05d3226
@@ -238,10 +242,10 @@ SPEC CHECKSUMS:
   RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxGesture: 26ede4ed13ffc6336d29dbd9a8dff229bdb72de7
-  RxOptional: bd32ff8ca9df4177683d56ffeb618a9d4d5d5cad
+  RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
   RxQRScanner: b523a276be9a5f53603b85a0efb871e7bf480180
   RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
-  RxSwiftExt: 81afb48ab0602f503147417baeb3989d64c7687d
+  RxSwiftExt: 01f8ecbeeb355698e9c75365ebe908b00dacf45d
   Shallows: fd53872b476c90fa1d4cb54fb735801d374e41b8
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SwiftIconFont: c6d0073f1fa7e03a81b6daf2d8fa8d6ac62b7711
@@ -252,6 +256,6 @@ SPEC CHECKSUMS:
   UMCCommon: 016af43c0f769feb1ae1861d65aaf2b23b89c9c7
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
 
-PODFILE CHECKSUM: 2534bf69a2156639c1713d1714e0c7340922acbb
+PODFILE CHECKSUM: 35bb4e2a6bbcf69ba419c9c215a67653217d2834
 
 COCOAPODS: 1.5.3

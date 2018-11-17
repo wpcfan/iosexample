@@ -1,0 +1,22 @@
+name: Example
+options:
+  bundleIdPrefix: com.twigcodes
+  minimumXcodeGenVersion: 2.0.0
+configFiles:
+  Debug: IDEConfig/DevConfig.xcconfig
+  Release: IDEConfig/ProdConfig.xcconfig
+targets:
+  Example:
+    type: application
+    platform: iOS
+    deploymentTarget: '9.0'
+    sources: [Example]
+    settings:
+      configs:
+        Debug:
+          DEBUG_MODE: YES
+        Release:
+          DEBUG_MODE: NO
+  postBuildScripts:
+    - path: scripts/uploadSymbolToBugly.sh
+      name: UploadSymbolToBugly
