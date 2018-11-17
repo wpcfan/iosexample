@@ -3,20 +3,31 @@ options:
   bundleIdPrefix: com.twigcodes
   minimumXcodeGenVersion: 2.0.0
 configFiles:
-  Debug: IDEConfig/DevConfig.xcconfig
-  Release: IDEConfig/ProdConfig.xcconfig
+  Local: IDEConfig/LocalConfig.xcconfig
+  Dev: IDEConfig/DevConfig.xcconfig
+  Prod: IDEConfig/ProdConfig.xcconfig
+configs:
+  Local: debug
+  Dev: debug
+  Prod: release
 targets:
   Example:
     type: application
     platform: iOS
     deploymentTarget: '9.0'
     sources: [Example]
+    configVariants:
+      - Local
+      - Dev
+      - Prod
     settings:
       configs:
-        Debug:
+        Local:
           DEBUG_MODE: YES
-        Release:
+        Dev:
+          DEBUG_MODE: YES
+        Prod:
           DEBUG_MODE: NO
-  postBuildScripts:
-    - path: scripts/uploadSymbolToBugly.sh
-      name: UploadSymbolToBugly
+    postBuildScripts:
+      - path: Scripts/uploadSymbolToBugly.sh
+        name: Upload Symbol To Bugly

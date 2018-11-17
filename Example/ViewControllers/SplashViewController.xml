@@ -15,8 +15,8 @@
         center.x="parent.center.x"
         center.y="parent.center.y"
         contentMode="scaleAspectFit"
-        width="64"
-        height="64"
+        width="150"
+        height="150"
         image="SplashIcon"
         outlet="imageView"
     />
