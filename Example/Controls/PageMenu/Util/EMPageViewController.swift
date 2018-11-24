@@ -45,7 +45,7 @@ import UIKit
      - parameter startingViewController: The currently selected view controller the transition is starting from
      - parameter destinationViewController: The view controller that will be scrolled to, where the transition should end
      */
-    @objc optional func em_pageViewController(_ pageViewController: EMPageViewController, willStartScrollingFrom startingViewController: UIViewController, destinationViewController:UIViewController, direction: EMPageViewControllerNavigationDirection)
+    @objc optional func em_pageViewController(_ pageViewController: EMPageViewController, willStartScrollingFrom startingViewController: UIViewController, destinationViewController:UIViewController, direction: PageViewControllerNavigationDirection)
     
     /**
      Called whenever there has been a scroll position change in a page transition. This method is very useful if you need to know the exact progress of the page transition animation.
@@ -55,7 +55,7 @@ import UIKit
      - parameter destinationViewController: The view controller being scrolled to where the transition should end
      - parameter progress: The progress of the transition, where 0 is a neutral scroll position, >= 1 is a complete transition to the right view controller in a horizontal orientation, or the below view controller in a vertical orientation, and <= -1 is a complete transition to the left view controller in a horizontal orientation, or the above view controller in a vertical orientation. Values may be greater than 1 or less than -1 if bouncing is enabled and the scroll velocity is quick enough.
      */
-    @objc optional func em_pageViewController(_ pageViewController: EMPageViewController, isScrollingFrom startingViewController: UIViewController, destinationViewController: UIViewController?, direction: EMPageViewControllerNavigationDirection, progress: CGFloat)
+    @objc optional func em_pageViewController(_ pageViewController: EMPageViewController, isScrollingFrom startingViewController: UIViewController, destinationViewController: UIViewController?, direction: PageViewControllerNavigationDirection, progress: CGFloat)
     
     /**
      Called after a page transition attempt has completed.
@@ -65,13 +65,13 @@ import UIKit
      - parameter destinationViewController: The view controller that has been attempted to be selected
      - parameter transitionSuccessful: A Boolean whether the transition to the destination view controller was successful or not. If `true`, the new selected view controller is `destinationViewController`. If `false`, the transition returned to the view controller it started from, so the selected view controller is still `startingViewController`.
      */
-    @objc optional func em_pageViewController(_ pageViewController: EMPageViewController, didFinishScrollingFrom startingViewController: UIViewController?, destinationViewController:UIViewController, direction: EMPageViewControllerNavigationDirection, transitionSuccessful: Bool)
+    @objc optional func em_pageViewController(_ pageViewController: EMPageViewController, didFinishScrollingFrom startingViewController: UIViewController?, destinationViewController:UIViewController, direction: PageViewControllerNavigationDirection, transitionSuccessful: Bool)
 }
 
 /**
  The navigation scroll direction.
  */
-@objc enum EMPageViewControllerNavigationDirection : Int {
+@objc enum PageViewControllerNavigationDirection : Int {
     /// Forward direction. Can be right in a horizontal orientation or down in a vertical orientation.
     case forward
     /// Reverse direction. Can be left in a horizontal orientation or up in a vertical orientation.
@@ -143,7 +143,7 @@ class EMPageViewController: UIViewController, UIScrollViewDelegate {
     open private(set) var scrolling = false
     
     /// The direction the page controller is scrolling towards.
-    open private(set) var navigationDirection: EMPageViewControllerNavigationDirection?
+    open private(set) var navigationDirection: PageViewControllerNavigationDirection?
     
     private var adjustingContentOffset = false // Flag used to prevent isScrolling delegate when shifting scrollView
     private var loadNewAdjoiningViewControllersOnFinish = false
@@ -166,7 +166,7 @@ class EMPageViewController: UIViewController, UIScrollViewDelegate {
      - parameter direction: The direction of the navigation and animation, if applicable.
      - parameter completion: A block that's called after the transition is finished. The block parameter `transitionSuccessful` is `true` if the transition to the selected view controller was completed successfully.
      */
-    open func selectViewController(_ viewController: UIViewController, direction: EMPageViewControllerNavigationDirection, animated: Bool, completion: ((_ transitionSuccessful: Bool) -> Void)?) {
+    open func selectViewController(_ viewController: UIViewController, direction: PageViewControllerNavigationDirection, animated: Bool, completion: ((_ transitionSuccessful: Bool) -> Void)?) {
         
         if viewController == self.selectedViewController {
             return

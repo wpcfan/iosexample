@@ -15,7 +15,7 @@
     case reverse
 }
 
-extension EMPageViewControllerNavigationDirection {
+extension PageViewControllerNavigationDirection {
     
     var toPageMenuNavigationDirection: PageMenuNavigationDirection {
         switch self {

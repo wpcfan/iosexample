@@ -56,7 +56,7 @@ open class PageMenuController: UIViewController {
     fileprivate(set) lazy var tabView: TabMenuView = {
         let tabView = TabMenuView(options: self.options)
         
-        tabView.pageItemPressedBlock = { [weak self] (index: Int, direction: EMPageViewControllerNavigationDirection) in
+        tabView.pageItemPressedBlock = { [weak self] (index: Int, direction: PageViewControllerNavigationDirection) in
             guard let `self` = self else { return }
             
             self.displayController(with: index,
@@ -160,7 +160,7 @@ open class PageMenuController: UIViewController {
      - parameter direction: The direction of the navigation and animation
      - parameter animated: A Boolean whether or not to animate the transition
      */
-    fileprivate func displayController(with index: Int, direction: EMPageViewControllerNavigationDirection, animated: Bool) {
+    fileprivate func displayController(with index: Int, direction: PageViewControllerNavigationDirection, animated: Bool) {
         if self.pageViewController.scrolling {
             return
         }
@@ -258,29 +258,43 @@ open class PageMenuController: UIViewController {
             
             // setup page view controller layout
             self.pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
-            self.pageViewController.view.topAnchor.constraint(equalTo: self.tabView.bottomAnchor).isActive = true
-            self.pageViewController.view.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-            self.pageViewController.view.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+            self.pageViewController.view.snp.makeConstraints {
+                $0.top.equalTo(self.tabView.snp.bottom)
+                $0.left.right.equalTo(self.view)
+            }
             
             // setup tab view layout
             self.tabView.translatesAutoresizingMaskIntoConstraints = false
-            self.tabView.heightAnchor.constraint(equalToConstant: options.menuItemSize.height).isActive = true
-            self.tabView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-            self.tabView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+            self.tabView.snp.makeConstraints {
+                $0.height.equalTo(options.menuItemSize.height)
+                $0.left.right.equalTo(self.view)
+            }
             
             // use layout guide or edge
             switch self.options.layout {
             case .layoutGuide:
                 if #available(iOS 11.0, *) {
-                    self.pageViewController.view.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
-                    self.tabView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
+                    self.pageViewController.view.snp.makeConstraints {
+                        $0.bottom.equalTo(self.view.safeAreaLayoutGuide)
+                    }
+                    self.tabView.snp.makeConstraints {
+                        $0.top.equalTo(self.view.safeAreaLayoutGuide)
+                    }
                 } else {
-                    self.pageViewController.view.bottomAnchor.constraint(equalTo: self.bottomLayoutGuide.topAnchor).isActive = true
-                    self.tabView.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor).isActive = true
+                    self.pageViewController.view.snp.makeConstraints {
+                        $0.bottom.equalTo(self.bottomLayoutGuide.snp.top)
+                    }
+                    self.tabView.snp.makeConstraints {
+                        $0.top.equalTo(self.topLayoutGuide.snp.bottom)
+                    }
                 }
             case .edge:
-                self.pageViewController.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
-                self.tabView.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
+                self.pageViewController.view.snp.makeConstraints {
+                    $0.bottom.equalTo(self.view.snp.bottom)
+                }
+                self.tabView.snp.makeConstraints {
+                    $0.top.equalTo(self.view.snp.top)
+                }
             }
         case .bottom:
             // add tab view
@@ -288,50 +302,69 @@ open class PageMenuController: UIViewController {
             
             // setup page view controller layout
             self.pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
-            self.pageViewController.view.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-            self.pageViewController.view.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
-            self.pageViewController.view.bottomAnchor.constraint(equalTo: self.tabView.topAnchor).isActive = true
+            self.pageViewController.view.snp.makeConstraints {
+                $0.left.right.equalTo(self.view)
+                $0.bottom.equalTo(self.tabView.snp.top)
+            }
             
             // setup tab view layout
             self.tabView.translatesAutoresizingMaskIntoConstraints = false
-            self.tabView.heightAnchor.constraint(equalToConstant: options.menuItemSize.height).isActive = true
-            self.tabView.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-            self.tabView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+            self.tabView.snp.makeConstraints {
+                $0.height.equalTo(options.menuItemSize.height)
+                $0.left.right.equalTo(self.view)
+            }
             
             // use layout guide or edge
             switch self.options.layout {
             case .layoutGuide:
                 if #available(iOS 11.0, *) {
-                    self.pageViewController.view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-                    self.tabView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+                    self.pageViewController.view.snp.makeConstraints {
+                        $0.top.equalTo(self.view.safeAreaLayoutGuide)
+                    }
+                    self.tabView.snp.makeConstraints {
+                        $0.bottom.equalTo(self.view.safeAreaLayoutGuide)
+                    }
                 } else {
-                    self.pageViewController.view.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor).isActive = true
-                    self.tabView.bottomAnchor.constraint(equalTo: self.bottomLayoutGuide.topAnchor).isActive = true
+                    self.pageViewController.view.snp.makeConstraints {
+                        $0.top.equalTo(self.topLayoutGuide.snp.bottom)
+                    }
+                    self.tabView.snp.makeConstraints {
+                        $0.bottom.equalTo(self.bottomLayoutGuide.snp.top)
+                    }
                 }
             case .edge:
-                self.pageViewController.view.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-                self.tabView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+                self.pageViewController.view.snp.makeConstraints {
+                    $0.top.equalTo(self.view.snp.top)
+                }
+                self.tabView.snp.makeConstraints {
+                    $0.bottom.equalTo(self.view.snp.bottom)
+                }
             }
         case .custom:
             
             // setup page view controller layout
             self.pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
-            self.pageViewController.view.leftAnchor.constraint(equalTo: self.view.leftAnchor).isActive = true
-            self.pageViewController.view.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
+            self.pageViewController.view.snp.makeConstraints {
+                $0.left.right.equalTo(self.view)
+            }
             
             // use layout guide or edge
             switch self.options.layout {
             case .layoutGuide:
                 if #available(iOS 11.0, *) {
-                    self.pageViewController.view.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor).isActive = true
-                    self.pageViewController.view.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor).isActive = true
+                    self.pageViewController.view.snp.makeConstraints {
+                        $0.top.bottom.equalTo(self.view.safeAreaLayoutGuide)
+                    }
                 } else {
-                    self.pageViewController.view.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor).isActive = true
-                    self.pageViewController.view.bottomAnchor.constraint(equalTo: self.bottomLayoutGuide.topAnchor).isActive = true
+                    self.pageViewController.view.snp.makeConstraints {
+                        $0.top.equalTo(self.topLayoutGuide.snp.bottom)
+                        $0.bottom.equalTo(self.bottomLayoutGuide.snp.top)
+                    }
                 }
             case .edge:
-                self.pageViewController.view.topAnchor.constraint(equalTo: self.view.topAnchor).isActive = true
-                self.pageViewController.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
+                self.pageViewController.view.snp.makeConstraints {
+                    $0.top.bottom.equalTo(self.view)
+                }
             }
         }
         
@@ -344,7 +377,7 @@ open class PageMenuController: UIViewController {
 extension PageMenuController: EMPageViewControllerDelegate {
     func em_pageViewController(_ pageViewController: EMPageViewController,
                                willStartScrollingFrom startingViewController: UIViewController,
-                               destinationViewController: UIViewController, direction: EMPageViewControllerNavigationDirection) {
+                               destinationViewController: UIViewController, direction: PageViewControllerNavigationDirection) {
         
         // Order to prevent the the hit repeatedly during animation
         self.tabView.updateCollectionViewUserInteractionEnabled(false)
@@ -354,7 +387,7 @@ extension PageMenuController: EMPageViewControllerDelegate {
     func em_pageViewController(_ pageViewController: EMPageViewController,
                                didFinishScrollingFrom startingViewController: UIViewController?,
                                destinationViewController: UIViewController,
-                               direction: EMPageViewControllerNavigationDirection,
+                               direction: PageViewControllerNavigationDirection,
                                transitionSuccessful: Bool) {
         
         if let currentIndex = self.currentIndex, currentIndex < self.tabItemCount {
@@ -369,7 +402,7 @@ extension PageMenuController: EMPageViewControllerDelegate {
     func em_pageViewController(_ pageViewController: EMPageViewController,
                                isScrollingFrom startingViewController: UIViewController,
                                destinationViewController: UIViewController?,
-                               direction: EMPageViewControllerNavigationDirection,
+                               direction: PageViewControllerNavigationDirection,
                                progress: CGFloat) {
         
         guard let beforeIndex = self.beforeIndex else { return }

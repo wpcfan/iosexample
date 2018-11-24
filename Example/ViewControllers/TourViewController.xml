@@ -1,1 +1,40 @@
-<UIViewController/>
+<UIViewController>
+    <UIScrollView
+        contentInset.bottom="0"
+        contentInset.top="0"
+        contentInsetAdjustmentBehavior="never"
+        contentSize.height="100%"
+        contentSize.width="totalPages * 100%"
+        isPagingEnabled="true"
+        outlet="scrollView"
+        showsHorizontalScrollIndicator="false">
+
+        <!-- Page 1 -->
+        <UIView
+            image="Tour_1"
+            template="TourPageTemplate.xml"
+            text="Page 1"
+        />
+
+        <!-- Page 2 -->
+        <UIView
+            image="Tour_2"
+            left="previous.right"
+            template="TourPageTemplate.xml"
+            text="Page 2"
+        />
+    </UIScrollView>
+    <UIPageControl
+        bottom="previous.bottom - 100"
+        center.x="previous.center.x"
+        isUserInteractionEnabled="false"
+        numberOfPages="{totalPages}"
+        outlet="pageControl"
+    />
+    <UIButton
+        bottom="previous.bottom + 30"
+        right="parent.right - 50"
+        title="{lastPage ? 'Complete' : 'Skip'}"
+        touchUpInside="skipOrFinish"
+    />
+</UIViewController>

@@ -48,10 +48,6 @@ target 'Example' do
   # Pods for UI extension
   pod 'PMAlertController'
   pod 'UITextView+Placeholder'
-  # Animation
-  pod 'pop', '~> 1.0'
-  # For Tour Guide View
-  pod 'EAIntroView'
   # Quick Form
   pod 'Eureka'
   # Image Slider

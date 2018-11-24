@@ -7,26 +7,28 @@
 //
 
 import Layout
-import pop
 import RxSwift
 import Shallows
 import ReactorKit
 
 class SplashViewController: BaseViewController {
     
-    @IBOutlet private weak var imageView: UIImageView!
-    @IBOutlet private weak var countDown: UIButton!
-
-    var layer: CALayer {
-        return imageView.layer
-    }
-    
-    func setUpLayer() {
-        if let anim = POPSpringAnimation(propertyNamed: kPOPLayerBounds) {
-            anim.toValue = NSValue(cgRect: CGRect(x: 0, y: 0, width: 200, height: 200))
-            layer.pop_add(anim, forKey: "size")
+    @objc weak var imageView: UIImageView? {
+        didSet {
+            guard let imageView = imageView else { return }
+            imageView.transform = CGAffineTransform(scaleX: 0.6, y: 0.6)
+            
+            UIView.animate(withDuration: 5.0,
+                           delay: 0,
+                           usingSpringWithDamping: CGFloat(0.20),
+                           initialSpringVelocity: CGFloat(6.0),
+                           options: UIView.AnimationOptions.allowUserInteraction,
+                           animations: { imageView.transform = CGAffineTransform.identity },
+                           completion: { Void in() }
+            )
         }
     }
+    @objc weak var countDown: UIButton!
 }
 
 extension SplashViewController: LayoutLoading {
@@ -39,7 +41,6 @@ extension SplashViewController: LayoutLoading {
     }
     
     func layoutDidLoad(_: LayoutNode) {
-        setUpLayer()
         self.reactor = SplashViewControllerReactor()
     }
 }

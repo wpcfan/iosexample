@@ -56,6 +56,7 @@ extension HomeTabViewController: LayoutLoading {
             make.height.equalToSuperview()
             make.centerX.equalToSuperview()
         }
+        
         loadLayout(
             named: "HomeTabViewController.xml",
             state: [

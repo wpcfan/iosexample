@@ -17,7 +17,7 @@ public protocol DrawerTransitionDelegate:NSObjectProtocol {
 }
 
 @objc
-public class DrawerTransition: UIPercentDrivenInteractiveTransition, UIViewControllerAnimatedTransitioning, UIViewControllerTransitioningDelegate, UIGestureRecognizerDelegate {
+public class DrawerTransition: UIPercentDrivenInteractiveTransition {
     
     public var edgeType:EdgeType = .left {
         didSet {
@@ -415,52 +415,6 @@ public class DrawerTransition: UIPercentDrivenInteractiveTransition, UIViewContr
         
     }
     
-    //MARK: - UIVieControllerTransitioningDelegate methods
-    
-    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return self
-    }
-    
-    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        return self
-    }
-    
-    public func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        guard self.hasInteraction == true else { return nil }
-        return self
-    }
-    
-    public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-        guard self.hasInteraction == true else { return nil }
-        return self
-    }
-    
-    //MARK: - UIViewControllerAnimatedTransitioning methods
-    
-    public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-        return isPresentedDrawer ? dismissDuration : presentDuration
-    }
-    
-    public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
-        
-        guard let fromVc = transitionContext.viewController(forKey: .from) else { return }
-        guard let toVc = transitionContext.viewController(forKey: .to)     else { return }
-        
-        if (toVc === self.drawer) {
-            self.presentAnimation(from: fromVc, to: toVc, container: transitionContext.containerView, context: transitionContext)
-        } else {
-            self.dismissAnimation(from: fromVc, to: toVc, container: transitionContext.containerView, context: transitionContext)
-        }
-    }
-    
-    //MARK - gesture delegate methods
-    
-    private func gestureRecognizerShouldBegin(_ panGestureRecognizer: UIPanGestureRecognizer) -> Bool {
-        guard let drawer = self.drawer else { return false }
-        let velocity = panGestureRecognizer.velocity(in: drawer.view)
-        return abs(velocity.x) > abs(velocity.y)
-    }
-    
     //MARK: - public methods
     @objc
     public func presentDrawerViewController() {
@@ -524,5 +478,57 @@ extension DrawerTransition {
     public enum EdgeType:Int {
         case left
         case right
+    }
+}
+
+extension DrawerTransition: UIViewControllerTransitioningDelegate {
+    //MARK: - UIVieControllerTransitioningDelegate methods
+    public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return self
+    }
+    
+    public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        return self
+    }
+    
+    public func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        guard self.hasInteraction == true else { return nil }
+        return self
+    }
+    
+    public func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+        guard self.hasInteraction == true else { return nil }
+        return self
+    }
+}
+
+extension DrawerTransition: UIViewControllerAnimatedTransitioning {
+    //MARK: - UIViewControllerAnimatedTransitioning methods
+    
+    public func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
+        return isPresentedDrawer ? dismissDuration : presentDuration
+    }
+    
+    public func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
+        
+        guard let fromVc = transitionContext.viewController(forKey: .from) else { return }
+        guard let toVc = transitionContext.viewController(forKey: .to)     else { return }
+        
+        if (toVc === self.drawer) {
+            self.presentAnimation(from: fromVc, to: toVc, container: transitionContext.containerView, context: transitionContext)
+        } else {
+            self.dismissAnimation(from: fromVc, to: toVc, container: transitionContext.containerView, context: transitionContext)
+        }
+    }
+}
+
+extension DrawerTransition: UIGestureRecognizerDelegate {
+    
+    //MARK - gesture delegate methods
+    
+    private func gestureRecognizerShouldBegin(_ panGestureRecognizer: UIPanGestureRecognizer) -> Bool {
+        guard let drawer = self.drawer else { return false }
+        let velocity = panGestureRecognizer.velocity(in: drawer.view)
+        return abs(velocity.x) > abs(velocity.y)
     }
 }

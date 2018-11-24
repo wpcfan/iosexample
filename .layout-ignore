@@ -1,0 +1,7 @@
+# Ignore these
+ExampleTests
+Pods
+IDEConfig
+libs
+fastlane
+scripts

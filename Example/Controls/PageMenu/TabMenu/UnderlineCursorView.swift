@@ -26,15 +26,18 @@ class UnderlineCursorView: UIView, TabMenuItemCursor {
         self.translatesAutoresizingMaskIntoConstraints = false
         if isInfinite {
             parent.addSubview(self)
-            self.heightAnchor.constraint(equalToConstant: options.menuCursor.height).isActive = true
-            self.centerXAnchor.constraint(equalTo: parent.centerXAnchor).isActive = true
-            self.bottomAnchor.constraint(equalTo: parent.bottomAnchor).isActive = true
+            self.snp.makeConstraints {
+                $0.height.equalTo(options.menuCursor.height)
+                $0.centerX.bottom.equalToSuperview()
+            }
             self.currentBarViewWidthConstraint = self.widthAnchor.constraint(equalToConstant: 100)
             self.currentBarViewWidthConstraint?.isActive = true
         } else {
             parent.addSubview(self)
-            self.heightAnchor.constraint(equalToConstant: options.menuCursor.height).isActive = true
-            self.topAnchor.constraint(equalTo: parent.topAnchor, constant: options.menuItemSize.height - options.menuCursor.height).isActive = true
+            self.snp.makeConstraints {
+                $0.height.equalTo(options.menuCursor.height)
+                $0.top.equalToSuperview().offset(options.menuItemSize.height - options.menuCursor.height)
+            }
             self.currentBarViewWidthConstraint = self.widthAnchor.constraint(equalToConstant: 100)
             self.currentBarViewWidthConstraint?.isActive = true
             self.currentBarViewLeftConstraint = self.leftAnchor.constraint(equalTo: parent.leftAnchor)

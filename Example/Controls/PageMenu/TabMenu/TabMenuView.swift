@@ -11,7 +11,7 @@ import UIKit
 class TabMenuView: UIView {
     
     /// This callback function is called when tab menu item is selected
-    var pageItemPressedBlock: ((_ index: Int, _ direction: EMPageViewControllerNavigationDirection) -> Void)?
+    var pageItemPressedBlock: ((_ index: Int, _ direction: PageViewControllerNavigationDirection) -> Void)?
     
     /// tab menu titles
     var pageTabItems: [String] = [] {
@@ -84,20 +84,11 @@ class TabMenuView: UIView {
         
         // content view
         addSubview(self.contentView)
-        self.contentView.translatesAutoresizingMaskIntoConstraints = false
-        self.contentView.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        self.contentView.leftAnchor.constraint(equalTo: self.leftAnchor).isActive = true
-        self.contentView.rightAnchor.constraint(equalTo: self.rightAnchor).isActive = true
-        self.contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
-        
         // collection view
         self.contentView.addSubview(self.collectionView)
+        
         self.collectionView.register(TabMenuItemCell.self, forCellWithReuseIdentifier: TabMenuItemCell.cellIdentifier)
-        self.collectionView.translatesAutoresizingMaskIntoConstraints = false
-        self.collectionView.topAnchor.constraint(equalTo: self.contentView.topAnchor).isActive = true
-        self.collectionView.leftAnchor.constraint(equalTo: self.contentView.leftAnchor).isActive = true
-        self.collectionView.rightAnchor.constraint(equalTo: self.contentView.rightAnchor).isActive = true
-        self.collectionView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor).isActive = true
+        
         self.cellForSize = TabMenuItemCell()
         self.collectionView.scrollsToTop = false
         self.collectionView.reloadData()
@@ -132,6 +123,19 @@ class TabMenuView: UIView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        self.contentView.translatesAutoresizingMaskIntoConstraints = false
+        self.collectionView.translatesAutoresizingMaskIntoConstraints = false
+        self.contentView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
+        self.collectionView.snp.makeConstraints {
+            $0.edges.equalToSuperview()
+        }
     }
 }
 
@@ -194,8 +198,8 @@ extension TabMenuView {
                 currentCell.unHighlightTitle(progress: -1 * progress)
             }
             
-            let width = fabs(progress) * (nextCell.frame.width - currentCell.frame.width)
-            let scroll = fabs(progress) * self.distance
+            let width = abs(progress) * (nextCell.frame.width - currentCell.frame.width)
+            let scroll = abs(progress) * self.distance
             
             if self.isInfinite {
                 self.collectionView.contentOffset.x = (collectionViewContentOffsetX ?? 0) + scroll
@@ -349,7 +353,7 @@ extension TabMenuView {
     fileprivate func deselectVisibleCells() {
         self.collectionView
             .visibleCells
-            .flatMap { $0 as? TabMenuItemCell }
+            .compactMap { $0 as? TabMenuItemCell }
             .forEach {
                 $0.unHighlightTitle()
                 $0.isDecorationHidden = true
@@ -362,7 +366,7 @@ extension TabMenuView {
     fileprivate func hiddenVisibleDecorations() {
         self.collectionView
             .visibleCells
-            .flatMap { $0 as? TabMenuItemCell }
+            .compactMap { $0 as? TabMenuItemCell }
             .forEach { $0.isDecorationHidden = true }
     }
 }
@@ -415,7 +419,7 @@ extension TabMenuView: UICollectionViewDataSource {
 extension TabMenuView: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let fixedIndex = self.isInfinite ? indexPath.item % self.pageTabItemsCount : indexPath.item
-        var direction: EMPageViewControllerNavigationDirection = .forward
+        var direction: PageViewControllerNavigationDirection = .forward
         
         if self.isInfinite == true {
             if (indexPath.item < self.pageTabItemsCount) || (indexPath.item < self.currentIndex) {

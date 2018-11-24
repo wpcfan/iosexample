@@ -1,0 +1,24 @@
+<UIView
+    height="100%"
+    width="100%">
+
+    <param name="text" type="String"/>
+    <param name="image" type="UIImage"/>
+
+    <UIImageView
+        height="parent.height"
+        image="{image}"
+        width="parent.width"
+    />
+    <UILabel
+        bottom="parent.bottom - 200"
+        center.x="parent.center.x"
+        font="30 bold"
+        height="40"
+        text="{text}"
+        textAlignment="center"
+        textColor="white"
+        width="100%"
+    />
+    <children/>
+</UIView>

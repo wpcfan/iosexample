@@ -14,7 +14,7 @@ extension Reactive where Base: LayoutNode {
     
     func state<T>(_ key: String) -> Binder<T> {
         return Binder(base) { node, value in
-            node.setState([key: value])
+            node.setState([key: value], animated: true)
         }
     }
 }
