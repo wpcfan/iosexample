@@ -1,5 +1,5 @@
 //
-//  TopTabController.swift
+//  DeviceListViewController.swift
 //  Example
 //
 //  Created by 王芃 on 2018/11/26.
