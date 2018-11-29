@@ -10,6 +10,10 @@
 		AA01F49F2198828600CE6457 /* AppDelegate+UMeng.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01F49E2198828600CE6457 /* AppDelegate+UMeng.swift */; };
 		AA01F4A1219886A400CE6457 /* AppDelegate+Bugly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01F4A0219886A400CE6457 /* AppDelegate+Bugly.swift */; };
 		AA01F4A72199511500CE6457 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01F4A62199511500CE6457 /* UIApplication+.swift */; };
+		AA0AF3B421ABCAE2003C1FF2 /* SceneListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0AF3B321ABCAE2003C1FF2 /* SceneListViewController.swift */; };
+		AA0AF3B821ABCC24003C1FF2 /* DeviceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0AF3B721ABCC24003C1FF2 /* DeviceListViewController.swift */; };
+		AA0AF3BC21ABCCC3003C1FF2 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0AF3BB21ABCCC3003C1FF2 /* HomePageViewController.swift */; };
+		AA0AF3C321AC365F003C1FF2 /* TopTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0AF3C221AC365F003C1FF2 /* TopTabController.swift */; };
 		AA30C05B2167533E00B9E0EB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30C05A2167533E00B9E0EB /* SplashViewController.swift */; };
 		AA30C05F2167555C00B9E0EB /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30C05E2167555C00B9E0EB /* RootViewController.swift */; };
 		AA30C0612167561E00B9E0EB /* SplashViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA30C0602167561E00B9E0EB /* SplashViewController.xml */; };
@@ -76,8 +80,6 @@
 		AA4B9B39219F225100E194CE /* SideBarViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA4B9B38219F225100E194CE /* SideBarViewController.xml */; };
 		AA54DF432188424000CE0CA0 /* AnimationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA54DF422188424000CE0CA0 /* AnimationExtensions.swift */; };
 		AA54DF4821892C9F00CE0CA0 /* ReactorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA54DF4721892C9F00CE0CA0 /* ReactorExtension.swift */; };
-		AA639CC621A117F30058D3A1 /* UnderlinePagerOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA639CC521A117F30058D3A1 /* UnderlinePagerOption.swift */; };
-		AA639CC821A118B90058D3A1 /* PageTabMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA639CC721A118B90058D3A1 /* PageTabMenuViewController.swift */; };
 		AA6839D8216DE04F00E4097B /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6839D7216DE04F00E4097B /* UIColor+Theme.swift */; };
 		AA6839DA216DE1EA00E4097B /* AppIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6839D9216DE1EA00E4097B /* AppIcons.swift */; };
 		AA6839DC216E08EC00E4097B /* AppAttributedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6839DB216E08EC00E4097B /* AppAttributedStrings.swift */; };
@@ -101,6 +103,11 @@
 		AA78BB5A218F04F2000B4CD8 /* MeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA78BB59218F04F2000B4CD8 /* MeViewController.swift */; };
 		AA78BB5C218F14F0000B4CD8 /* CollectionCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA78BB5B218F14F0000B4CD8 /* CollectionCell.xml */; };
 		AA78BB5E218F331B000B4CD8 /* MeHeaderCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA78BB5D218F331B000B4CD8 /* MeHeaderCell.xml */; };
+		AA82251321AE49BA00FDDC8F /* ScrollingStackController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA82251221AE49BA00FDDC8F /* ScrollingStackController.swift */; };
+		AA82251521AE5D2900FDDC8F /* HomeBannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA82251421AE5D2900FDDC8F /* HomeBannerViewController.swift */; };
+		AA82251921AE94EC00FDDC8F /* HomeTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA82251821AE94EC00FDDC8F /* HomeTabBarViewController.swift */; };
+		AA82251B21AEA12300FDDC8F /* HomeTabBarViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA82251A21AEA12300FDDC8F /* HomeTabBarViewController.xml */; };
+		AA82251D21AEA33B00FDDC8F /* HomeBannerViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA82251C21AEA33B00FDDC8F /* HomeBannerViewController.xml */; };
 		AA8978652185658C005A61CA /* Reactive+UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8978642185658C005A61CA /* Reactive+UIScrollView.swift */; };
 		AA89786721856D88005A61CA /* ImageEffects+Accelerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA89786621856D88005A61CA /* ImageEffects+Accelerate.swift */; };
 		AA8978692185759F005A61CA /* Reactive+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8978682185759F005A61CA /* Reactive+UIImageView.swift */; };
@@ -108,21 +115,6 @@
 		AA897871218588A2005A61CA /* TabButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA897870218588A2005A61CA /* TabButton.xml */; };
 		AA897873218590E4005A61CA /* HomeTitleView.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA897872218590E4005A61CA /* HomeTitleView.xml */; };
 		AA91EDD221A7B73F00C07A4E /* TourPageTemplate.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA91EDD121A7B73F00C07A4E /* TourPageTemplate.xml */; };
-		AA91EDD421A844C300C07A4E /* TabTableViewController1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91EDD321A844C300C07A4E /* TabTableViewController1.swift */; };
-		AA91EDD621A844DA00C07A4E /* TabTableViewController1.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA91EDD521A844DA00C07A4E /* TabTableViewController1.xml */; };
-		AA91EDD921A9410900C07A4E /* TopTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA91EDD821A9410900C07A4E /* TopTabController.swift */; };
-		AA99E997219B2D0800FD1C6F /* PageMenuController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99E996219B2D0800FD1C6F /* PageMenuController.swift */; };
-		AA99E999219B2D3200FD1C6F /* PageMenuControllerDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99E998219B2D3200FD1C6F /* PageMenuControllerDataSource.swift */; };
-		AA99E99B219B2D5800FD1C6F /* PageMenuControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99E99A219B2D5800FD1C6F /* PageMenuControllerDelegate.swift */; };
-		AA99E99E219B2D8600FD1C6F /* PageMenuOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99E99D219B2D8600FD1C6F /* PageMenuOptions.swift */; };
-		AA99E9A0219B2DAF00FD1C6F /* PageMenuNavigationDirection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99E99F219B2DAF00FD1C6F /* PageMenuNavigationDirection.swift */; };
-		AA99E9A3219B2DD500FD1C6F /* RoundRectCursorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99E9A2219B2DD500FD1C6F /* RoundRectCursorView.swift */; };
-		AA99E9A5219B2DF400FD1C6F /* TabMenuItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99E9A4219B2DF400FD1C6F /* TabMenuItemCell.swift */; };
-		AA99E9A7219B2E1200FD1C6F /* TabMenuItemCursor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99E9A6219B2E1200FD1C6F /* TabMenuItemCursor.swift */; };
-		AA99E9A9219B2E6C00FD1C6F /* TabMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99E9A8219B2E6C00FD1C6F /* TabMenuView.swift */; };
-		AA99E9AB219B2E9500FD1C6F /* UnderlineCursorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99E9AA219B2E9500FD1C6F /* UnderlineCursorView.swift */; };
-		AA99E9AE219B2EC300FD1C6F /* EMPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99E9AD219B2EC300FD1C6F /* EMPageViewController.swift */; };
-		AA99E9B0219B2EF900FD1C6F /* PanBlockGestureRecognizerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99E9AF219B2EF900FD1C6F /* PanBlockGestureRecognizerDelegate.swift */; };
 		AA99E9B2219B2F3300FD1C6F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99E9B1219B2F3300FD1C6F /* UIColor+.swift */; };
 		AA99E9B4219B2F6200FD1C6F /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99E9B3219B2F6200FD1C6F /* UIScrollView+.swift */; };
 		AA99E9DC219BE35000FD1C6F /* DrawerTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99E9DB219BE35000FD1C6F /* DrawerTransition.swift */; };
@@ -168,6 +160,10 @@
 		AA01F49E2198828600CE6457 /* AppDelegate+UMeng.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+UMeng.swift"; sourceTree = "<group>"; };
 		AA01F4A0219886A400CE6457 /* AppDelegate+Bugly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Bugly.swift"; sourceTree = "<group>"; };
 		AA01F4A62199511500CE6457 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
+		AA0AF3B321ABCAE2003C1FF2 /* SceneListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneListViewController.swift; sourceTree = "<group>"; };
+		AA0AF3B721ABCC24003C1FF2 /* DeviceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListViewController.swift; sourceTree = "<group>"; };
+		AA0AF3BB21ABCCC3003C1FF2 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		AA0AF3C221AC365F003C1FF2 /* TopTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabController.swift; sourceTree = "<group>"; };
 		AA30C05A2167533E00B9E0EB /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		AA30C05E2167555C00B9E0EB /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		AA30C0602167561E00B9E0EB /* SplashViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SplashViewController.xml; sourceTree = "<group>"; };
@@ -237,8 +233,6 @@
 		AA4B9B38219F225100E194CE /* SideBarViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SideBarViewController.xml; sourceTree = "<group>"; };
 		AA54DF422188424000CE0CA0 /* AnimationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationExtensions.swift; sourceTree = "<group>"; };
 		AA54DF4721892C9F00CE0CA0 /* ReactorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorExtension.swift; sourceTree = "<group>"; };
-		AA639CC521A117F30058D3A1 /* UnderlinePagerOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlinePagerOption.swift; sourceTree = "<group>"; };
-		AA639CC721A118B90058D3A1 /* PageTabMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTabMenuViewController.swift; sourceTree = "<group>"; };
 		AA6839D7216DE04F00E4097B /* UIColor+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Theme.swift"; sourceTree = "<group>"; };
 		AA6839D9216DE1EA00E4097B /* AppIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcons.swift; sourceTree = "<group>"; };
 		AA6839DB216E08EC00E4097B /* AppAttributedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAttributedStrings.swift; sourceTree = "<group>"; };
@@ -262,6 +256,11 @@
 		AA78BB59218F04F2000B4CD8 /* MeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeViewController.swift; sourceTree = "<group>"; };
 		AA78BB5B218F14F0000B4CD8 /* CollectionCell.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = CollectionCell.xml; sourceTree = "<group>"; };
 		AA78BB5D218F331B000B4CD8 /* MeHeaderCell.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MeHeaderCell.xml; sourceTree = "<group>"; };
+		AA82251221AE49BA00FDDC8F /* ScrollingStackController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollingStackController.swift; sourceTree = "<group>"; };
+		AA82251421AE5D2900FDDC8F /* HomeBannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeBannerViewController.swift; sourceTree = "<group>"; };
+		AA82251821AE94EC00FDDC8F /* HomeTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarViewController.swift; sourceTree = "<group>"; };
+		AA82251A21AEA12300FDDC8F /* HomeTabBarViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HomeTabBarViewController.xml; sourceTree = "<group>"; };
+		AA82251C21AEA33B00FDDC8F /* HomeBannerViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HomeBannerViewController.xml; sourceTree = "<group>"; };
 		AA8978642185658C005A61CA /* Reactive+UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+UIScrollView.swift"; sourceTree = "<group>"; };
 		AA89786621856D88005A61CA /* ImageEffects+Accelerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageEffects+Accelerate.swift"; sourceTree = "<group>"; };
 		AA8978682185759F005A61CA /* Reactive+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+UIImageView.swift"; sourceTree = "<group>"; };
@@ -269,21 +268,6 @@
 		AA897870218588A2005A61CA /* TabButton.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TabButton.xml; sourceTree = "<group>"; };
 		AA897872218590E4005A61CA /* HomeTitleView.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HomeTitleView.xml; sourceTree = "<group>"; };
 		AA91EDD121A7B73F00C07A4E /* TourPageTemplate.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TourPageTemplate.xml; sourceTree = "<group>"; };
-		AA91EDD321A844C300C07A4E /* TabTableViewController1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabTableViewController1.swift; sourceTree = "<group>"; };
-		AA91EDD521A844DA00C07A4E /* TabTableViewController1.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TabTableViewController1.xml; sourceTree = "<group>"; };
-		AA91EDD821A9410900C07A4E /* TopTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabController.swift; sourceTree = "<group>"; };
-		AA99E996219B2D0800FD1C6F /* PageMenuController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageMenuController.swift; sourceTree = "<group>"; };
-		AA99E998219B2D3200FD1C6F /* PageMenuControllerDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageMenuControllerDataSource.swift; sourceTree = "<group>"; };
-		AA99E99A219B2D5800FD1C6F /* PageMenuControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageMenuControllerDelegate.swift; sourceTree = "<group>"; };
-		AA99E99D219B2D8600FD1C6F /* PageMenuOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageMenuOptions.swift; sourceTree = "<group>"; };
-		AA99E99F219B2DAF00FD1C6F /* PageMenuNavigationDirection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageMenuNavigationDirection.swift; sourceTree = "<group>"; };
-		AA99E9A2219B2DD500FD1C6F /* RoundRectCursorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundRectCursorView.swift; sourceTree = "<group>"; };
-		AA99E9A4219B2DF400FD1C6F /* TabMenuItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabMenuItemCell.swift; sourceTree = "<group>"; };
-		AA99E9A6219B2E1200FD1C6F /* TabMenuItemCursor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabMenuItemCursor.swift; sourceTree = "<group>"; };
-		AA99E9A8219B2E6C00FD1C6F /* TabMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabMenuView.swift; sourceTree = "<group>"; };
-		AA99E9AA219B2E9500FD1C6F /* UnderlineCursorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineCursorView.swift; sourceTree = "<group>"; };
-		AA99E9AD219B2EC300FD1C6F /* EMPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EMPageViewController.swift; sourceTree = "<group>"; };
-		AA99E9AF219B2EF900FD1C6F /* PanBlockGestureRecognizerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PanBlockGestureRecognizerDelegate.swift; sourceTree = "<group>"; };
 		AA99E9B1219B2F3300FD1C6F /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		AA99E9B3219B2F6200FD1C6F /* UIScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
 		AA99E9DB219BE35000FD1C6F /* DrawerTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerTransition.swift; sourceTree = "<group>"; };
@@ -356,6 +340,21 @@
 			children = (
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		AA0AF3BD21ABCD60003C1FF2 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		AA0AF3C121AC3636003C1FF2 /* TopTab */ = {
+			isa = PBXGroup;
+			children = (
+				AA0AF3C221AC365F003C1FF2 /* TopTabController.swift */,
+			);
+			path = TopTab;
 			sourceTree = "<group>";
 		};
 		AA30C06221679A3000B9E0EB /* Shortcuts */ = {
@@ -475,70 +474,26 @@
 				AA897872218590E4005A61CA /* HomeTitleView.xml */,
 				AA89786E21858891005A61CA /* TabButton.swift */,
 				AA897870218588A2005A61CA /* TabButton.xml */,
-				AA639CC521A117F30058D3A1 /* UnderlinePagerOption.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		AA91EDD721A940EE00C07A4E /* TopTab */ = {
+		AA82251121AE49A600FDDC8F /* ScrollingStackContainer */ = {
 			isa = PBXGroup;
 			children = (
-				AA91EDD821A9410900C07A4E /* TopTabController.swift */,
+				AA82251221AE49BA00FDDC8F /* ScrollingStackController.swift */,
 			);
-			path = TopTab;
+			path = ScrollingStackContainer;
 			sourceTree = "<group>";
 		};
 		AA99E994219B2CCD00FD1C6F /* Controls */ = {
 			isa = PBXGroup;
 			children = (
-				AA91EDD721A940EE00C07A4E /* TopTab */,
+				AA82251121AE49A600FDDC8F /* ScrollingStackContainer */,
+				AA0AF3C121AC3636003C1FF2 /* TopTab */,
 				AA99E9DA219BE33400FD1C6F /* DrawerTransition */,
-				AA99E995219B2CEB00FD1C6F /* PageMenu */,
 			);
 			path = Controls;
-			sourceTree = "<group>";
-		};
-		AA99E995219B2CEB00FD1C6F /* PageMenu */ = {
-			isa = PBXGroup;
-			children = (
-				AA99E9AC219B2EAE00FD1C6F /* Util */,
-				AA99E9A1219B2DC600FD1C6F /* TabMenu */,
-				AA99E99C219B2D6D00FD1C6F /* Enum */,
-				AA99E996219B2D0800FD1C6F /* PageMenuController.swift */,
-				AA99E998219B2D3200FD1C6F /* PageMenuControllerDataSource.swift */,
-				AA99E99A219B2D5800FD1C6F /* PageMenuControllerDelegate.swift */,
-			);
-			path = PageMenu;
-			sourceTree = "<group>";
-		};
-		AA99E99C219B2D6D00FD1C6F /* Enum */ = {
-			isa = PBXGroup;
-			children = (
-				AA99E99D219B2D8600FD1C6F /* PageMenuOptions.swift */,
-				AA99E99F219B2DAF00FD1C6F /* PageMenuNavigationDirection.swift */,
-			);
-			path = Enum;
-			sourceTree = "<group>";
-		};
-		AA99E9A1219B2DC600FD1C6F /* TabMenu */ = {
-			isa = PBXGroup;
-			children = (
-				AA99E9A2219B2DD500FD1C6F /* RoundRectCursorView.swift */,
-				AA99E9A4219B2DF400FD1C6F /* TabMenuItemCell.swift */,
-				AA99E9A6219B2E1200FD1C6F /* TabMenuItemCursor.swift */,
-				AA99E9A8219B2E6C00FD1C6F /* TabMenuView.swift */,
-				AA99E9AA219B2E9500FD1C6F /* UnderlineCursorView.swift */,
-			);
-			path = TabMenu;
-			sourceTree = "<group>";
-		};
-		AA99E9AC219B2EAE00FD1C6F /* Util */ = {
-			isa = PBXGroup;
-			children = (
-				AA99E9AD219B2EC300FD1C6F /* EMPageViewController.swift */,
-				AA99E9AF219B2EF900FD1C6F /* PanBlockGestureRecognizerDelegate.swift */,
-			);
-			path = Util;
 			sourceTree = "<group>";
 		};
 		AA99E9DA219BE33400FD1C6F /* DrawerTransition */ = {
@@ -685,6 +640,7 @@
 		AAC5EB9F215E7ED8008EBA1F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				AA0AF3BD21ABCD60003C1FF2 /* Home */,
 				AAC5EB6F215E7BB7008EBA1F /* AuthViewController.swift */,
 				AAC5EBA0215E7F10008EBA1F /* AuthViewController.xml */,
 				AA4B48F9217768CE00A60C11 /* BaseViewController.swift */,
@@ -699,7 +655,6 @@
 				AA693DBE2161F6330063D749 /* MeViewController.xml */,
 				AA78BB5D218F331B000B4CD8 /* MeHeaderCell.xml */,
 				AA78BB5B218F14F0000B4CD8 /* CollectionCell.xml */,
-				AA639CC721A118B90058D3A1 /* PageTabMenuViewController.swift */,
 				AAE49F01216BA2EE004BDBD7 /* RegisterViewController.swift */,
 				AA30C05E2167555C00B9E0EB /* RootViewController.swift */,
 				AA4B492B2178CA0F00A60C11 /* SceneCell.xml */,
@@ -712,8 +667,13 @@
 				AAE49EF52169D2FB004BDBD7 /* TourViewController.swift */,
 				AAE49EF72169D315004BDBD7 /* TourViewController.xml */,
 				AA91EDD121A7B73F00C07A4E /* TourPageTemplate.xml */,
-				AA91EDD321A844C300C07A4E /* TabTableViewController1.swift */,
-				AA91EDD521A844DA00C07A4E /* TabTableViewController1.xml */,
+				AA0AF3B321ABCAE2003C1FF2 /* SceneListViewController.swift */,
+				AA0AF3B721ABCC24003C1FF2 /* DeviceListViewController.swift */,
+				AA0AF3BB21ABCCC3003C1FF2 /* HomePageViewController.swift */,
+				AA82251421AE5D2900FDDC8F /* HomeBannerViewController.swift */,
+				AA82251C21AEA33B00FDDC8F /* HomeBannerViewController.xml */,
+				AA82251821AE94EC00FDDC8F /* HomeTabBarViewController.swift */,
+				AA82251A21AEA12300FDDC8F /* HomeTabBarViewController.xml */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -817,10 +777,12 @@
 				AA4205A4217C9B510068ABC0 /* HeaderView.xml in Resources */,
 				AAA920BA2198289700EFC581 /* InfoPlist.strings in Resources */,
 				AA897871218588A2005A61CA /* TabButton.xml in Resources */,
+				AA82251D21AEA33B00FDDC8F /* HomeBannerViewController.xml in Resources */,
 				AAC5EB78215E7BB9008EBA1F /* LaunchScreen.storyboard in Resources */,
 				AA693DBD2161F61D0063D749 /* SocialViewController.xml in Resources */,
 				AAE49F13216CCBCD004BDBD7 /* Localizable.strings in Resources */,
 				AA420596217C0C2E0068ABC0 /* IconLabelButton.xml in Resources */,
+				AA82251B21AEA12300FDDC8F /* HomeTabBarViewController.xml in Resources */,
 				AA3E0E9B2171176300958937 /* data.json in Resources */,
 				AA4B49262178B0A900A60C11 /* BannerCell.xml in Resources */,
 				AAC5EBA1215E7F10008EBA1F /* AuthViewController.xml in Resources */,
@@ -837,7 +799,6 @@
 				AA420592217B94820068ABC0 /* ChannelView.xml in Resources */,
 				AAE49EF82169D315004BDBD7 /* TourViewController.xml in Resources */,
 				AAC5EBA7215F5860008EBA1F /* HomeTabViewController.xml in Resources */,
-				AA91EDD621A844DA00C07A4E /* TabTableViewController1.xml in Resources */,
 				AA897873218590E4005A61CA /* HomeTitleView.xml in Resources */,
 				AA30C0612167561E00B9E0EB /* SplashViewController.xml in Resources */,
 			);
@@ -868,11 +829,10 @@
 				"${BUILT_PRODUCTS_DIR}/CocoaDebug/CocoaDebug.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/Dollar/Dollar.framework",
-				"${BUILT_PRODUCTS_DIR}/EAIntroView/EAIntroView.framework",
-				"${BUILT_PRODUCTS_DIR}/EARestrictedScrollView/EARestrictedScrollView.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
 				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
 				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
+				"${BUILT_PRODUCTS_DIR}/FlexLayout/FlexLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/JWTDecode/JWTDecode.framework",
 				"${BUILT_PRODUCTS_DIR}/JustLog/JustLog.framework",
 				"${BUILT_PRODUCTS_DIR}/Layout/Layout.framework",
@@ -882,6 +842,8 @@
 				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
 				"${BUILT_PRODUCTS_DIR}/PINRemoteImage/PINRemoteImage.framework",
 				"${BUILT_PRODUCTS_DIR}/PMAlertController/PMAlertController.framework",
+				"${BUILT_PRODUCTS_DIR}/Pageboy/Pageboy.framework",
+				"${BUILT_PRODUCTS_DIR}/PinLayout/PinLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/PullToRefreshKit/PullToRefreshKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
@@ -902,7 +864,6 @@
 				"${BUILT_PRODUCTS_DIR}/UITextView+Placeholder/UITextView_Placeholder.framework",
 				"${BUILT_PRODUCTS_DIR}/URLNavigator/URLNavigator.framework",
 				"${BUILT_PRODUCTS_DIR}/p2.OAuth2/p2_OAuth2.framework",
-				"${BUILT_PRODUCTS_DIR}/pop/pop.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
@@ -914,11 +875,10 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaDebug.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Dollar.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EAIntroView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EARestrictedScrollView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FlexLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JWTDecode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JustLog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Layout.framework",
@@ -928,6 +888,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINRemoteImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PMAlertController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pageboy.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PinLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PullToRefreshKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
@@ -948,7 +910,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UITextView_Placeholder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/URLNavigator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/p2_OAuth2.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/pop.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1003,20 +964,20 @@
 			files = (
 				AA3E0EA52172328100958937 /* UIStackView+.swift in Sources */,
 				AA30C05B2167533E00B9E0EB /* SplashViewController.swift in Sources */,
-				AA639CC821A118B90058D3A1 /* PageTabMenuViewController.swift in Sources */,
 				AA3AB88E21841ABA00470276 /* SplashViewControllerReactor.swift in Sources */,
-				AA99E9A9219B2E6C00FD1C6F /* TabMenuView.swift in Sources */,
 				AA693DC12161F6460063D749 /* SettingViewController.swift in Sources */,
 				AA6839DA216DE1EA00E4097B /* AppIcons.swift in Sources */,
 				AA30C0682167AA3600B9E0EB /* UINavigationController+Bar.swift in Sources */,
 				AA78BB46218D6814000B4CD8 /* NotificationCenter+.swift in Sources */,
 				AA420590217B939B0068ABC0 /* ChannelViewReactor.swift in Sources */,
+				AA0AF3BC21ABCCC3003C1FF2 /* HomePageViewController.swift in Sources */,
 				AA4B49162178800A00A60C11 /* Reactive+FSPagerView.swift in Sources */,
 				AAFA6624217D886B000217C9 /* SceneCell.swift in Sources */,
 				AA4B48F621772EE800A60C11 /* AuthViewControllerReactor.swift in Sources */,
 				AA78BB54218EB31C000B4CD8 /* ShortcutParser.swift in Sources */,
 				AA4B493E217A0B5000A60C11 /* BaseItemCell.swift in Sources */,
 				AA4B9B37219F223A00E194CE /* SideBarViewController.swift in Sources */,
+				AA0AF3C321AC365F003C1FF2 /* TopTabController.swift in Sources */,
 				AA3E0E7C217053BD00958937 /* Deivce.swift in Sources */,
 				AA433F13218C8D9700BA60A1 /* NotificationService.swift in Sources */,
 				AAE49EF62169D2FB004BDBD7 /* TourViewController.swift in Sources */,
@@ -1024,15 +985,11 @@
 				AA3E0E8621705B4C00958937 /* ScriptTask.swift in Sources */,
 				AAC5EB9E215E7EB4008EBA1F /* UIColor+Hex.swift in Sources */,
 				AA78BB5A218F04F2000B4CD8 /* MeViewController.swift in Sources */,
-				AA99E9A3219B2DD500FD1C6F /* RoundRectCursorView.swift in Sources */,
 				AA4B49232178883F00A60C11 /* RxKeyboard.swift in Sources */,
 				AA78BB56218EB37C000B4CD8 /* DeepLinkManager.swift in Sources */,
-				AA99E9A0219B2DAF00FD1C6F /* PageMenuNavigationDirection.swift in Sources */,
 				AA433F09218C4AB300BA60A1 /* Global.swift in Sources */,
-				AA639CC621A117F30058D3A1 /* UnderlinePagerOption.swift in Sources */,
 				AA3E0E822170589F00958937 /* Scene.swift in Sources */,
 				AA433F05218C49A500BA60A1 /* AppDelegate+Navigation.swift in Sources */,
-				AA99E9A7219B2E1200FD1C6F /* TabMenuItemCursor.swift in Sources */,
 				AA4B49202178883F00A60C11 /* UICollectionViewDelegateFlexLayout.swift in Sources */,
 				AA4B4944217A462200A60C11 /* BannerViewReactor.swift in Sources */,
 				AA4B49222178883F00A60C11 /* SwiftyColor.swift in Sources */,
@@ -1048,12 +1005,13 @@
 				AAFA6626217D88F9000217C9 /* SceneViewReactor.swift in Sources */,
 				AAF5CA4921821F3B006DE332 /* UIApplication+StatusBar.swift in Sources */,
 				AA683A03216F128800E4097B /* HomeService.swift in Sources */,
-				AA91EDD921A9410900C07A4E /* TopTabController.swift in Sources */,
 				AA3E0E7E2170540F00958937 /* Product.swift in Sources */,
 				AA4B49212178883F00A60C11 /* Reactive+UIViewController.swift in Sources */,
-				AA99E997219B2D0800FD1C6F /* PageMenuController.swift in Sources */,
 				AA4B48F02175E4D000A60C11 /* APIError.swift in Sources */,
+				AA0AF3B821ABCC24003C1FF2 /* DeviceListViewController.swift in Sources */,
+				AA82251521AE5D2900FDDC8F /* HomeBannerViewController.swift in Sources */,
 				AA683A05216F3BD700E4097B /* MoyaUtils.swift in Sources */,
+				AA82251921AE94EC00FDDC8F /* HomeTabBarViewController.swift in Sources */,
 				AA420586217AD80C0068ABC0 /* ModelType.swift in Sources */,
 				AA78BB58218EBB5B000B4CD8 /* RxQRUtil.swift in Sources */,
 				AA433F07218C4A1900BA60A1 /* AppDelegate+Logging.swift in Sources */,
@@ -1068,15 +1026,13 @@
 				AAC5EBA3215E808D008EBA1F /* OAuth2Service.swift in Sources */,
 				AA3AB8902184828800470276 /* TourViewControllerReactor.swift in Sources */,
 				AA4B49242178883F00A60C11 /* UICollectionViewFlexLayout.swift in Sources */,
-				AA99E9AB219B2E9500FD1C6F /* UnderlineCursorView.swift in Sources */,
+				AA82251321AE49BA00FDDC8F /* ScrollingStackController.swift in Sources */,
 				AA78BB48218D6D27000B4CD8 /* Reactive+NotificationCenter.swift in Sources */,
 				AA01F4A1219886A400CE6457 /* AppDelegate+Bugly.swift in Sources */,
 				AAC5EB70215E7BB7008EBA1F /* AuthViewController.swift in Sources */,
 				AA3E0E802170543D00958937 /* ProductCategory.swift in Sources */,
 				AA4B48E42175006100A60C11 /* Reactive+Layout.swift in Sources */,
 				AA8978652185658C005A61CA /* Reactive+UIScrollView.swift in Sources */,
-				AA99E99B219B2D5800FD1C6F /* PageMenuControllerDelegate.swift in Sources */,
-				AA91EDD421A844C300C07A4E /* TabTableViewController1.swift in Sources */,
 				AA4B48FA217768CE00A60C11 /* BaseViewController.swift in Sources */,
 				AA4B491F2178883F00A60C11 /* Then.swift in Sources */,
 				AAE49F02216BA2EE004BDBD7 /* RegisterViewController.swift in Sources */,
@@ -1084,16 +1040,12 @@
 				AA01F4A72199511500CE6457 /* UIApplication+.swift in Sources */,
 				AA693DC32161FF620063D749 /* NavigationMap.swift in Sources */,
 				AA4B49302178EB2500A60C11 /* BannerView.swift in Sources */,
-				AA99E99E219B2D8600FD1C6F /* PageMenuOptions.swift in Sources */,
-				AA99E9A5219B2DF400FD1C6F /* TabMenuItemCell.swift in Sources */,
 				AA3E0E782170478200958937 /* PullToRefreshUtil.swift in Sources */,
 				AA4B493A2179A1DC00A60C11 /* ChannelCell.swift in Sources */,
 				AA38DCA7217EF4D70046D82D /* Reactive+StatusBar.swift in Sources */,
 				AA8978692185759F005A61CA /* Reactive+UIImageView.swift in Sources */,
-				AA99E9AE219B2EC300FD1C6F /* EMPageViewController.swift in Sources */,
 				AA3E0E7A21704E6F00958937 /* House.swift in Sources */,
 				AA433F03218C491100BA60A1 /* AppDelegate+Push.swift in Sources */,
-				AA99E999219B2D3200FD1C6F /* PageMenuControllerDataSource.swift in Sources */,
 				AA4B48F221761F7400A60C11 /* AuthError.swift in Sources */,
 				AA693DB72160EEB70063D749 /* HomeViewController.swift in Sources */,
 				AAE49EFE216AE281004BDBD7 /* Shallows+Rx.swift in Sources */,
@@ -1116,7 +1068,7 @@
 				AA42058E217B8C680068ABC0 /* ChannelView.swift in Sources */,
 				AA99E9B4219B2F6200FD1C6F /* UIScrollView+.swift in Sources */,
 				AA38DCA5217EF41F0046D82D /* RxUtil.swift in Sources */,
-				AA99E9B0219B2EF900FD1C6F /* PanBlockGestureRecognizerDelegate.swift in Sources */,
+				AA0AF3B421ABCAE2003C1FF2 /* SceneListViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

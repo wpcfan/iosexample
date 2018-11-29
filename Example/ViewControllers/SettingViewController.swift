@@ -14,7 +14,7 @@ import SafariServices
 class SettingViewController: FormViewController {
     private let authService = container.resolve(OAuth2Service.self)!
     private let navigator = container.resolve(NavigatorType.self)!
-    @IBOutlet private weak var logoutButton: UIButton!
+    @objc private weak var logoutButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()

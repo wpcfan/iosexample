@@ -156,6 +156,17 @@ public class ScrollingStackController: UIViewController, UIScrollViewDelegate {
         }
     }
     
+    // Reconnect a ViewController, this is useful when using a UIPageViewController, and switch between child ViewControllers
+    public func reconnect(with: StackContainable) {
+        items = items.map { item in
+            if (item.controller == (with as! UIViewController)) {
+                item.appearance = with.preferredAppearanceInStack()
+            }
+            return item
+        }
+        relayoutItems()
+    }
+    
     /// This function is used to calculate the rect of each item into the stack
     /// and put it in place. It's called when a new array of items is set.
     public func relayoutItems() {

@@ -5,26 +5,30 @@
 //  Created by 王芃 on 2018/10/1.
 //  Copyright © 2018年 twigcodes. All rights reserved.
 //
+import RxSwift
 
-class SocialViewController: BaseViewController {
+class SocialViewController: ScrollingStackController {
+    
+    // MARK: Rx
+    var disposeBag = DisposeBag()
+    let bannerVC = HomeBannerViewController()
+    let tabBarVC = HomeTabBarViewController()
+    let tabPaneVC = HomePageViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let vc1 = TabTableViewController1().then {
-            $0.pageIndex = 0
-        }
-        let vc2 = TabTableViewController1().then {
-            $0.pageIndex = 1
-        }
-        
-        let topTabItems = [
-            TopTabItem(index: 0, title: "tab1", viewController: vc1),
-            TopTabItem(index: 1, title: "tab2", viewController: vc2)
-        ]
-        let topTabController = TopTabController(topTabItems)
-        addChild(topTabController)
-        self.view.addSubview(topTabController.view)
-        topTabController.didMove(toParent: self)
+        self.scrollView = UIScrollView()
+        self.view = self.scrollView!
+        self.reload()
+        tabPaneVC.rx.pageSwitched
+            .subscribe { _ in
+                self.reconnect(with: self.tabPaneVC)
+            }
+            .disposed(by: disposeBag)
+    }
+    
+    func reload() {
+        self.viewControllers = [bannerVC, tabBarVC, tabPaneVC]
     }
 }

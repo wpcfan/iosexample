@@ -41,7 +41,7 @@ class BannerViewReactor: Reactor {
                     .map { .loadSuccess($0) }
                     .asObservable()
                     .catchError({ err -> Observable<BannerViewReactor.Mutation> in
-                        if let error = err as? MoyaError, let body = try! error.response?.mapObject(APIError.self) {
+                        if let error = err as? MoyaError, let body = try error.response?.mapObject(APIError.self) {
                             return Observable.of(.loadFail(body))
                         }
                         return Observable.of(.loadFail(APIError(title: "Uncatched Exception", status: -1, detail: "Unkown Reason", type: "UnkownHttpError", stacktrace: [])))

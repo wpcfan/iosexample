@@ -9,6 +9,8 @@ target 'Example' do
   # Pods for Layout
   pod 'Layout', '~> 0.6'
   pod 'SnapKit', '~> 4.0.0'
+  pod 'PinLayout'
+  pod 'FlexLayout'
   # Pods for Rx
   pod 'RxSwift', '~> 4.0'
   pod 'RxSwiftExt'
@@ -52,6 +54,8 @@ target 'Example' do
   pod 'Eureka'
   # Image Slider
   pod 'FSPagerView'
+  # Better PageViewController
+  pod 'Pageboy'
   # Pull to refresh
   pod 'PullToRefreshKit'
   # SVG
