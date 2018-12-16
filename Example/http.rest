@@ -1,5 +1,5 @@
 
-@BASE_URL=https://lantouzi.com/api/bianxianjihua/datalist?page=1&order=0&dir=1&tag=5&subtag=4
+@BASE_URL=https://lantouzi.com/api/bianxianjihua/datalist?page=1&order=0&dir=1&tag=5&subtag=0
 
 ###
 
@@ -8,9 +8,9 @@ curl -H 'Host: lantouzi.com' -H 'Accept: application/json, text/plain, */*' -H '
 ###
 GET {{BASE_URL}}
 Accept: application/application/json, text/plain, */*
-Cookie: Hm_lpvt_6dea39ac37df9c6f3e7b096755b73949=1540178275; Hm_lvt_6dea39ac37df9c6f3e7b096755b73949=1540133637,1540176737,1540177952,1540177965; DWJUC_S=v2_501466_c202f6efd8fdccd6603f46203ff9870b; LTZ_S=v1_501466_28fa4750e0907706e3727a560e86e425
+Cookie: Hm_lpvt_6dea39ac37df9c6f3e7b096755b73949=1544360667; Hm_lvt_6dea39ac37df9c6f3e7b096755b73949=1544232991,1544246517,1544353898,1544357088; DWJUC_S=v2_501466_4c99e48660e996eb3c7138459713cb3f; LTZ_S=v1_501466_a66e2d1c3cad9d70272073a43de0f124
 User-Agent: ltz-app-iphone_Apple_iPhone X (A1865/A1902)_12.0.1_812*375_appstore_appstore_3.11.1_embed  kdtUnion_0541848e4c8ff8aaf4 UIWebView
-Referer: https://lantouzi.com/bianxianjihua/mobile_list?order=0&dir=1&tag=5&subtag=4
+Referer: https://lantouzi.com/bianxianjihua/mobile_list?order=0&dir=1&tag=5&subtag=0
 Accept-Language: zh-cn
 
 ###

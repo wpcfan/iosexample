@@ -5,23 +5,23 @@ PODS:
   - Alamofire (4.8.0)
   - Bugly (2.5.0)
   - CocoaAsyncSocket (7.6.3)
-  - CocoaDebug (0.1.5)
+  - CocoaDebug (0.2.2)
   - Differentiator (3.1.0)
   - Dollar (7.1.0)
   - Eureka (4.3.0)
   - FLAnimatedImage (1.0.12)
   - FlexLayout (1.3.11)
-  - FSPagerView (0.8.1)
+  - FSPagerView (0.8.2)
   - JCore (1.2.5)
   - JPush (3.1.1.1):
     - JCore (~> 1.2.5)
-  - JustLog (2.4.1):
+  - JustLog (2.5.0):
     - CocoaAsyncSocket (~> 7.6.3)
-    - SwiftyBeaver (~> 1.5.2)
+    - SwiftyBeaver (~> 1.6.1)
   - JWTDecode (2.1.1)
-  - Layout (0.6.34):
-    - Layout/Core (= 0.6.34)
-  - Layout/Core (0.6.34)
+  - Layout (0.6.35):
+    - Layout/Core (= 0.6.35)
+  - Layout/Core (0.6.35)
   - Moya (11.0.2):
     - Moya/Core (= 11.0.2)
   - Moya-ObjectMapper/Core (2.7):
@@ -38,7 +38,7 @@ PODS:
     - RxSwift (~> 4.0)
   - ObjectMapper (3.4.1)
   - p2.OAuth2 (4.0.1)
-  - Pageboy (3.0.0)
+  - Pageboy (3.0.1)
   - PINCache (2.3)
   - PinLayout (1.8.6)
   - PINRemoteImage (2.1.4):
@@ -88,7 +88,7 @@ PODS:
   - Shallows (0.9.0)
   - SnapKit (4.0.1)
   - SwiftIconFont (3.0.0)
-  - SwiftyBeaver (1.5.2)
+  - SwiftyBeaver (1.6.1)
   - Swinject (2.5.0)
   - "UITextView+Placeholder (1.2.1)"
   - UMCAnalytics (5.5.2):
@@ -204,7 +204,7 @@ CHECKOUT OPTIONS:
     :git: https://github.com/dreymonde/Shallows
     :submodules: true
   SwiftIconFont:
-    :commit: d83b8c72c740c1023dd1bd31c1efdeae58c7756c
+    :commit: 794125e0f7c9702309fc329ddf0b5958af54343f
     :git: https://github.com/0x73/SwiftIconFont
     :submodules: true
 
@@ -213,23 +213,23 @@ SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
-  CocoaDebug: e3531fc0dfd6f32e6f9cacaecc88b10123b58dec
+  CocoaDebug: 48e26e0ceec52b16afe7455b451cac3e8bd1fb52
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   Dollar: dc69a2997fa5df12ae7a91fec897963664c26750
   Eureka: 6d711cb30ca333b4bc893110285a722ae3840114
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   FlexLayout: b008184d23aae0c56e1c916e803445a13a6f4e5a
-  FSPagerView: 4e865526acc0b0e3077e2abb29b8d10a9f395476
+  FSPagerView: 816a18842306973cc7cc6df8a5332272f7815c30
   JCore: 14706de2640b25fb77dbd02332696491407f37c9
   JPush: 25dd9013fbe106082c14f9f30a82364ee98852fb
-  JustLog: fd0ac5898f76de4b9ec96ffd9a6cae63cbda37b2
+  JustLog: 24d4dbdd4d4b65fc04069f222ee34b1d9c9004cf
   JWTDecode: 83e8b381aafe27158d9f692cbdca2b12d61d460c
-  Layout: b7cec1cee7b63b2f3aba0e651b5136ffd3cc8aad
+  Layout: a970a8bb1cc1e5db8b1cafde341a26bf5b0c386b
   Moya: a725035953bc1c0eb1be505ab903984501d82440
   Moya-ObjectMapper: 441caa307b527331fde59e2577adc632a16f1255
   ObjectMapper: 5311bd50ca732930959e7ca1a2de43ab823a5ced
   p2.OAuth2: fdc2effef37793a8f775dd4760bc4c1ea906c956
-  Pageboy: 044ba3f3ed0e8db42622edb12241769cdc7b8c22
+  Pageboy: ec0170fd880ea6fa3589219edfd64b554443ff6e
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
   PinLayout: fe2a2432d6982588e208572005c941aeeae417ab
   PINRemoteImage: 4ac4011c5caefd6befd99758e09becede05d3226
@@ -249,13 +249,13 @@ SPEC CHECKSUMS:
   Shallows: fd53872b476c90fa1d4cb54fb735801d374e41b8
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SwiftIconFont: 2ba18554a77c44948dc35b561b344e3c23834a84
-  SwiftyBeaver: 85daaaa2b3ae6e31b7b55c99430e8b91dac088af
+  SwiftyBeaver: ccfcdf85a04d429f1633f668650b0ce8020bda3a
   Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
   "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
   UMCAnalytics: 6654fd3c8201ff6da5c86a3ae29cd5c8436d3b7b
   UMCCommon: 016af43c0f769feb1ae1861d65aaf2b23b89c9c7
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
 
-PODFILE CHECKSUM: c53474bf35d082303504a8047c1a1aa766bb2430
+PODFILE CHECKSUM: 547bcbead8e71f50e2720691cff00297abe176a3
 
 COCOAPODS: 1.5.3
