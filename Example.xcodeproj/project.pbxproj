@@ -10,6 +10,7 @@
 		AA01F49F2198828600CE6457 /* AppDelegate+UMeng.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01F49E2198828600CE6457 /* AppDelegate+UMeng.swift */; };
 		AA01F4A1219886A400CE6457 /* AppDelegate+Bugly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01F4A0219886A400CE6457 /* AppDelegate+Bugly.swift */; };
 		AA01F4A72199511500CE6457 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01F4A62199511500CE6457 /* UIApplication+.swift */; };
+		AA0ACFD121ECB49E00CE6D1D /* AppDelegate+SmartCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0ACFD021ECB49E00CE6D1D /* AppDelegate+SmartCloud.swift */; };
 		AA0AF3B421ABCAE2003C1FF2 /* SceneListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0AF3B321ABCAE2003C1FF2 /* SceneListViewController.swift */; };
 		AA0AF3B821ABCC24003C1FF2 /* DeviceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0AF3B721ABCC24003C1FF2 /* DeviceListViewController.swift */; };
 		AA0AF3BC21ABCCC3003C1FF2 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0AF3BB21ABCCC3003C1FF2 /* HomePageViewController.swift */; };
@@ -160,6 +161,7 @@
 		AA01F49E2198828600CE6457 /* AppDelegate+UMeng.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+UMeng.swift"; sourceTree = "<group>"; };
 		AA01F4A0219886A400CE6457 /* AppDelegate+Bugly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Bugly.swift"; sourceTree = "<group>"; };
 		AA01F4A62199511500CE6457 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
+		AA0ACFD021ECB49E00CE6D1D /* AppDelegate+SmartCloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+SmartCloud.swift"; sourceTree = "<group>"; };
 		AA0AF3B321ABCAE2003C1FF2 /* SceneListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneListViewController.swift; sourceTree = "<group>"; };
 		AA0AF3B721ABCC24003C1FF2 /* DeviceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListViewController.swift; sourceTree = "<group>"; };
 		AA0AF3BB21ABCCC3003C1FF2 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
@@ -384,6 +386,7 @@
 				AA433F06218C4A1900BA60A1 /* AppDelegate+Logging.swift */,
 				AA433F02218C491100BA60A1 /* AppDelegate+Push.swift */,
 				AA433F04218C49A500BA60A1 /* AppDelegate+Navigation.swift */,
+				AA0ACFD021ECB49E00CE6D1D /* AppDelegate+SmartCloud.swift */,
 				AA01F49E2198828600CE6457 /* AppDelegate+UMeng.swift */,
 				AA54DF422188424000CE0CA0 /* AnimationExtensions.swift */,
 				AA89786621856D88005A61CA /* ImageEffects+Accelerate.swift */,
@@ -1014,6 +1017,7 @@
 				AA4B48F02175E4D000A60C11 /* APIError.swift in Sources */,
 				AA0AF3B821ABCC24003C1FF2 /* DeviceListViewController.swift in Sources */,
 				AA82251521AE5D2900FDDC8F /* HomeBannerViewController.swift in Sources */,
+				AA0ACFD121ECB49E00CE6D1D /* AppDelegate+SmartCloud.swift in Sources */,
 				AA683A05216F3BD700E4097B /* MoyaUtils.swift in Sources */,
 				AA82251921AE94EC00FDDC8F /* HomeTabBarViewController.swift in Sources */,
 				AA420586217AD80C0068ABC0 /* ModelType.swift in Sources */,
