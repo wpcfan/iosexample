@@ -2,6 +2,21 @@ PODS:
   - Action (3.9.1):
     - RxCocoa (~> 4.3)
     - RxSwift (~> 4.3)
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
   - Alamofire (4.8.0)
   - Bugly (2.5.0)
   - CocoaAsyncSocket (7.6.3)
@@ -101,6 +116,7 @@ PODS:
 
 DEPENDENCIES:
   - Action
+  - AFNetworking (~> 3.0)
   - Bugly
   - CocoaDebug
   - Dollar
@@ -114,7 +130,7 @@ DEPENDENCIES:
   - Moya-ObjectMapper/RxSwift (~> 2.7)
   - Moya/RxSwift (~> 11.0)
   - ObjectMapper (~> 3.3)
-  - p2.OAuth2 (from `https://github.com/p2/OAuth2`)
+  - p2.OAuth2
   - Pageboy
   - PinLayout
   - PINRemoteImage
@@ -132,9 +148,9 @@ DEPENDENCIES:
   - RxQRScanner
   - RxSwift (~> 4.0)
   - RxSwiftExt
-  - Shallows (from `https://github.com/dreymonde/Shallows`)
+  - Shallows
   - SnapKit (~> 4.0.0)
-  - SwiftIconFont (from `https://github.com/0x73/SwiftIconFont`)
+  - SwiftIconFont
   - Swinject (~> 2.5)
   - "UITextView+Placeholder"
   - UMCAnalytics
@@ -142,8 +158,9 @@ DEPENDENCIES:
   - URLNavigator (~> 2.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://mirrors.tuna.tsinghua.edu.cn/git/cocoapods/specs.git:
     - Action
+    - AFNetworking
     - Alamofire
     - Bugly
     - CocoaAsyncSocket
@@ -163,6 +180,7 @@ SPEC REPOS:
     - Moya
     - Moya-ObjectMapper
     - ObjectMapper
+    - p2.OAuth2
     - Pageboy
     - PINCache
     - PinLayout
@@ -181,7 +199,9 @@ SPEC REPOS:
     - RxQRScanner
     - RxSwift
     - RxSwiftExt
+    - Shallows
     - SnapKit
+    - SwiftIconFont
     - SwiftyBeaver
     - Swinject
     - "UITextView+Placeholder"
@@ -189,33 +209,9 @@ SPEC REPOS:
     - UMCCommon
     - URLNavigator
 
-EXTERNAL SOURCES:
-  p2.OAuth2:
-    :git: https://github.com/p2/OAuth2
-    :submodules: true
-  Shallows:
-    :git: https://github.com/dreymonde/Shallows
-    :submodules: true
-  SwiftIconFont:
-    :git: https://github.com/0x73/SwiftIconFont
-    :submodules: true
-
-CHECKOUT OPTIONS:
-  p2.OAuth2:
-    :commit: ddc80ff83ba597ba580a9be74fcd08fe5496f90a
-    :git: https://github.com/p2/OAuth2
-    :submodules: true
-  Shallows:
-    :commit: 82f4f5d57b94ad75d63073cd89e01f49e831b9e0
-    :git: https://github.com/dreymonde/Shallows
-    :submodules: true
-  SwiftIconFont:
-    :commit: 794125e0f7c9702309fc329ddf0b5958af54343f
-    :git: https://github.com/0x73/SwiftIconFont
-    :submodules: true
-
 SPEC CHECKSUMS:
   Action: 2f461c203c480b17aa99b3bb166e4329ecff6908
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
@@ -254,7 +250,7 @@ SPEC CHECKSUMS:
   RxQRScanner: b523a276be9a5f53603b85a0efb871e7bf480180
   RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
   RxSwiftExt: 01f8ecbeeb355698e9c75365ebe908b00dacf45d
-  Shallows: fd53872b476c90fa1d4cb54fb735801d374e41b8
+  Shallows: b7d12cd044d1754dd7d57cb7cdec88b5487e3401
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SwiftIconFont: 2ba18554a77c44948dc35b561b344e3c23834a84
   SwiftyBeaver: ccfcdf85a04d429f1633f668650b0ce8020bda3a
@@ -264,6 +260,6 @@ SPEC CHECKSUMS:
   UMCCommon: 79b5a614c958db367113eed5740109d9a98e1223
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
 
-PODFILE CHECKSUM: da66da49940c8f614fac4d9d4812fb0c678c0feb
+PODFILE CHECKSUM: 085dffe5e1ded496d36281628d31d27855601bbf
 
 COCOAPODS: 1.5.3

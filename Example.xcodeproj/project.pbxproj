@@ -148,6 +148,7 @@
 		AA9B94BB21ECBE82000AE906 /* JdSmartCloudService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9B94BA21ECBE82000AE906 /* JdSmartCloudService.swift */; };
 		AA9B94BD21ECBEAD000AE906 /* IndoorPhoneService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9B94BC21ECBEAD000AE906 /* IndoorPhoneService.swift */; };
 		AA9B94BF21ECBED1000AE906 /* LeChangeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9B94BE21ECBED1000AE906 /* LeChangeService.swift */; };
+		AA9B94C121ECC778000AE906 /* QiNiu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9B94C021ECC778000AE906 /* QiNiu.swift */; };
 		AAA920BA2198289700EFC581 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AAA920B82198289700EFC581 /* InfoPlist.strings */; };
 		AAC5EB6E215E7BB7008EBA1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC5EB6D215E7BB7008EBA1F /* AppDelegate.swift */; };
 		AAC5EB70215E7BB7008EBA1F /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC5EB6F215E7BB7008EBA1F /* AuthViewController.swift */; };
@@ -330,6 +331,7 @@
 		AA9B94BA21ECBE82000AE906 /* JdSmartCloudService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JdSmartCloudService.swift; sourceTree = "<group>"; };
 		AA9B94BC21ECBEAD000AE906 /* IndoorPhoneService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndoorPhoneService.swift; sourceTree = "<group>"; };
 		AA9B94BE21ECBED1000AE906 /* LeChangeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeChangeService.swift; sourceTree = "<group>"; };
+		AA9B94C021ECC778000AE906 /* QiNiu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiNiu.swift; sourceTree = "<group>"; };
 		AAA920B92198289700EFC581 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Example/Base.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		AAA920BC219828F200EFC581 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "../zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		AAC5EB6A215E7BB7008EBA1F /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -746,6 +748,7 @@
 				AA38DCA4217EF41F0046D82D /* RxUtil.swift */,
 				AA4B491C2178883F00A60C11 /* RxKeyboard.swift */,
 				AA78BB57218EBB5B000B4CD8 /* RxQRUtil.swift */,
+				AA9B94C021ECC778000AE906 /* QiNiu.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -936,6 +939,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Example/Pods-Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
 				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
@@ -984,6 +988,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Action.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
@@ -1100,6 +1105,7 @@
 				AA433F13218C8D9700BA60A1 /* NotificationService.swift in Sources */,
 				AAE49EF62169D2FB004BDBD7 /* TourViewController.swift in Sources */,
 				AA99E9B2219B2F3300FD1C6F /* UIColor+.swift in Sources */,
+				AA9B94C121ECC778000AE906 /* QiNiu.swift in Sources */,
 				AA3E0E8621705B4C00958937 /* ScriptTask.swift in Sources */,
 				AAC5EB9E215E7EB4008EBA1F /* UIColor+Hex.swift in Sources */,
 				AA78BB5A218F04F2000B4CD8 /* MeViewController.swift in Sources */,

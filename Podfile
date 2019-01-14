@@ -1,3 +1,4 @@
+source 'https://mirrors.tuna.tsinghua.edu.cn/git/CocoaPods/Specs.git'
 # Uncomment the next line to define a global platform for your project
 platform :ios, '9.0'
 
@@ -43,7 +44,8 @@ target 'Example' do
   # Bugly
   pod 'Bugly'
   # QiNiu
-  pod "Qiniu", "~> 7.1"
+  pod 'AFNetworking', '~> 3.0'
+  pod 'Qiniu', '~> 7.1'
   # IoC
   pod 'Swinject', '~> 2.5'
   # Log
@@ -63,13 +65,13 @@ target 'Example' do
   # SVG
 #  pod 'FantasticSnowflake', :git: 'https://github.com/onmyway133/Snowflake', :submodules => true
   # easy persistence
-  pod 'Shallows', :git => 'https://github.com/dreymonde/Shallows', :submodules => true
+  pod 'Shallows'
   # OAuth2 Library
-  pod 'p2.OAuth2', :git => 'https://github.com/p2/OAuth2', :submodules => true
+  pod 'p2.OAuth2'
   # JWT Library
   pod 'JWTDecode', '~> 2.1'
   # Icon Font
-  pod 'SwiftIconFont', :git => 'https://github.com/0x73/SwiftIconFont', :submodules => true
+  pod 'SwiftIconFont'
   # Reveal UI Components
   pod 'Reveal-SDK', :configurations => ['Debug', 'Local']
   # Make float button to debug app
