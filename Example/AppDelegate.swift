@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var disposeBag = DisposeBag()
     var window: UIWindow?
     let navigator = container.resolve(NavigatorType.self)!
-    
+
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
@@ -24,6 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupDebug()
         setupBugly()
         setupUMeng()
+        setupJdSmartCloud()
+        setupLeChange()
         setupPushNotification(launchOptions)
         ShortcutParser.shared.registerShortcuts()
         NotificationCenter.default.rx.notification(.jPushAddNotificationCount, object: nil)
@@ -35,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = window
         return true
     }
-    
+
     func application(
         _ app: UIApplication,
         open url: URL,
@@ -50,30 +52,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("[Navigator] present: \(url)")
             return true
         }
-        
+
         // Try opening the URL
         if self.navigator.open(url) == true {
             print("[Navigator] open: \(url)")
             return true
         }
-        
+
         return false
     }
-    
+
     func applicationDidEnterBackground(_ application: UIApplication) {
         forceSendLogs(application)
     }
-    
+
     func applicationWillTerminate(_ application: UIApplication) {
         forceSendLogs(application)
     }
-    
+
     func applicationWillEnterForeground(_ application: UIApplication) {
         #if TARGET_CPU_ARM
         clearNotification(application)
         #endif
     }
-    
+
     // MARK: Shortcuts
     func application(_ application: UIApplication, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         completionHandler(Deeplinker.handleShortcut(item: shortcutItem))
