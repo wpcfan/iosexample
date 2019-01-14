@@ -11,6 +11,7 @@
 		AA01F4A1219886A400CE6457 /* AppDelegate+Bugly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01F4A0219886A400CE6457 /* AppDelegate+Bugly.swift */; };
 		AA01F4A72199511500CE6457 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01F4A62199511500CE6457 /* UIApplication+.swift */; };
 		AA0ACFD121ECB49E00CE6D1D /* AppDelegate+SmartCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0ACFD021ECB49E00CE6D1D /* AppDelegate+SmartCloud.swift */; };
+		AA0ACFD321ECB8AC00CE6D1D /* AppDelegate+LeChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0ACFD221ECB8AC00CE6D1D /* AppDelegate+LeChange.swift */; };
 		AA0AF3B421ABCAE2003C1FF2 /* SceneListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0AF3B321ABCAE2003C1FF2 /* SceneListViewController.swift */; };
 		AA0AF3B821ABCC24003C1FF2 /* DeviceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0AF3B721ABCC24003C1FF2 /* DeviceListViewController.swift */; };
 		AA0AF3BC21ABCCC3003C1FF2 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0AF3BB21ABCCC3003C1FF2 /* HomePageViewController.swift */; };
@@ -162,6 +163,7 @@
 		AA01F4A0219886A400CE6457 /* AppDelegate+Bugly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Bugly.swift"; sourceTree = "<group>"; };
 		AA01F4A62199511500CE6457 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
 		AA0ACFD021ECB49E00CE6D1D /* AppDelegate+SmartCloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+SmartCloud.swift"; sourceTree = "<group>"; };
+		AA0ACFD221ECB8AC00CE6D1D /* AppDelegate+LeChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+LeChange.swift"; sourceTree = "<group>"; };
 		AA0AF3B321ABCAE2003C1FF2 /* SceneListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneListViewController.swift; sourceTree = "<group>"; };
 		AA0AF3B721ABCC24003C1FF2 /* DeviceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListViewController.swift; sourceTree = "<group>"; };
 		AA0AF3BB21ABCCC3003C1FF2 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 				AA433F0F218C515D00BA60A1 /* Rx */,
 				AA01F4A0219886A400CE6457 /* AppDelegate+Bugly.swift */,
 				AA433F0A218C4B2D00BA60A1 /* AppDelegate+CocoaDebug.swift */,
+				AA0ACFD221ECB8AC00CE6D1D /* AppDelegate+LeChange.swift */,
 				AA433F06218C4A1900BA60A1 /* AppDelegate+Logging.swift */,
 				AA433F02218C491100BA60A1 /* AppDelegate+Push.swift */,
 				AA433F04218C49A500BA60A1 /* AppDelegate+Navigation.swift */,
@@ -1002,6 +1005,7 @@
 				AA4B49222178883F00A60C11 /* SwiftyColor.swift in Sources */,
 				AA3AB8962184C65600470276 /* HomeTitleView.swift in Sources */,
 				AA4B48EE2175CA4D00A60C11 /* HomeViewControllerReactor.swift in Sources */,
+				AA0ACFD321ECB8AC00CE6D1D /* AppDelegate+LeChange.swift in Sources */,
 				AAC5EB93215E7DE8008EBA1F /* User.swift in Sources */,
 				AA89786721856D88005A61CA /* ImageEffects+Accelerate.swift in Sources */,
 				AA54DF4821892C9F00CE0CA0 /* ReactorExtension.swift in Sources */,
