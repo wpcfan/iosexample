@@ -145,6 +145,9 @@
 		AA99E9B2219B2F3300FD1C6F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99E9B1219B2F3300FD1C6F /* UIColor+.swift */; };
 		AA99E9B4219B2F6200FD1C6F /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99E9B3219B2F6200FD1C6F /* UIScrollView+.swift */; };
 		AA99E9DC219BE35000FD1C6F /* DrawerTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99E9DB219BE35000FD1C6F /* DrawerTransition.swift */; };
+		AA9B94BB21ECBE82000AE906 /* JdSmartCloudService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9B94BA21ECBE82000AE906 /* JdSmartCloudService.swift */; };
+		AA9B94BD21ECBEAD000AE906 /* IndoorPhoneService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9B94BC21ECBEAD000AE906 /* IndoorPhoneService.swift */; };
+		AA9B94BF21ECBED1000AE906 /* LeChangeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9B94BE21ECBED1000AE906 /* LeChangeService.swift */; };
 		AAA920BA2198289700EFC581 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AAA920B82198289700EFC581 /* InfoPlist.strings */; };
 		AAC5EB6E215E7BB7008EBA1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC5EB6D215E7BB7008EBA1F /* AppDelegate.swift */; };
 		AAC5EB70215E7BB7008EBA1F /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC5EB6F215E7BB7008EBA1F /* AuthViewController.swift */; };
@@ -324,6 +327,9 @@
 		AA99E9B1219B2F3300FD1C6F /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		AA99E9B3219B2F6200FD1C6F /* UIScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
 		AA99E9DB219BE35000FD1C6F /* DrawerTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerTransition.swift; sourceTree = "<group>"; };
+		AA9B94BA21ECBE82000AE906 /* JdSmartCloudService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JdSmartCloudService.swift; sourceTree = "<group>"; };
+		AA9B94BC21ECBEAD000AE906 /* IndoorPhoneService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndoorPhoneService.swift; sourceTree = "<group>"; };
+		AA9B94BE21ECBED1000AE906 /* LeChangeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeChangeService.swift; sourceTree = "<group>"; };
 		AAA920B92198289700EFC581 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Example/Base.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		AAA920BC219828F200EFC581 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "../zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		AAC5EB6A215E7BB7008EBA1F /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -722,6 +728,9 @@
 				AA683A02216F128800E4097B /* HomeService.swift */,
 				AAC5EBA2215E808D008EBA1F /* OAuth2Service.swift */,
 				AA433F12218C8D9700BA60A1 /* NotificationService.swift */,
+				AA9B94BA21ECBE82000AE906 /* JdSmartCloudService.swift */,
+				AA9B94BC21ECBEAD000AE906 /* IndoorPhoneService.swift */,
+				AA9B94BE21ECBED1000AE906 /* LeChangeService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1078,6 +1087,7 @@
 				AA30C0682167AA3600B9E0EB /* UINavigationController+Bar.swift in Sources */,
 				AA78BB46218D6814000B4CD8 /* NotificationCenter+.swift in Sources */,
 				AA420590217B939B0068ABC0 /* ChannelViewReactor.swift in Sources */,
+				AA9B94BF21ECBED1000AE906 /* LeChangeService.swift in Sources */,
 				AA0AF3BC21ABCCC3003C1FF2 /* HomePageViewController.swift in Sources */,
 				AA4B49162178800A00A60C11 /* Reactive+FSPagerView.swift in Sources */,
 				AAFA6624217D886B000217C9 /* SceneCell.swift in Sources */,
@@ -1163,6 +1173,7 @@
 				AA01F49F2198828600CE6457 /* AppDelegate+UMeng.swift in Sources */,
 				AAC5EBA5215F5849008EBA1F /* HomeTabViewController.swift in Sources */,
 				AAC5EB9B215E7E89008EBA1F /* AuthService.swift in Sources */,
+				AA9B94BD21ECBEAD000AE906 /* IndoorPhoneService.swift in Sources */,
 				AAFA6622217D8032000217C9 /* MultipleSectionModel.swift in Sources */,
 				AA683A07216F3D5400E4097B /* String+UrlEncode.swift in Sources */,
 				AA89786F21858891005A61CA /* TabButton.swift in Sources */,
@@ -1179,6 +1190,7 @@
 				AA99E9B4219B2F6200FD1C6F /* UIScrollView+.swift in Sources */,
 				AA38DCA5217EF41F0046D82D /* RxUtil.swift in Sources */,
 				AA0AF3B421ABCAE2003C1FF2 /* SceneListViewController.swift in Sources */,
+				AA9B94BB21ECBE82000AE906 /* JdSmartCloudService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
