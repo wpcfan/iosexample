@@ -5,20 +5,21 @@ PODS:
   - Alamofire (4.8.0)
   - Bugly (2.5.0)
   - CocoaAsyncSocket (7.6.3)
-  - CocoaDebug (0.2.2)
+  - CocoaDebug (0.5.5)
   - Differentiator (3.1.0)
   - Dollar (7.1.0)
-  - Eureka (4.3.0)
+  - Eureka (4.3.1)
   - FLAnimatedImage (1.0.12)
   - FlexLayout (1.3.11)
   - FSPagerView (0.8.2)
-  - JCore (1.2.5)
-  - JPush (3.1.1.1):
-    - JCore (~> 1.2.5)
+  - HappyDNS (0.3.14)
+  - JCore (1.2.6)
+  - JPush (3.1.2):
+    - JCore (~> 1.2.6)
   - JustLog (2.5.0):
     - CocoaAsyncSocket (~> 7.6.3)
     - SwiftyBeaver (~> 1.6.1)
-  - JWTDecode (2.1.1)
+  - JWTDecode (2.2.0)
   - Layout (0.6.35):
     - Layout/Core (= 0.6.35)
   - Layout/Core (0.6.35)
@@ -36,8 +37,8 @@ PODS:
   - Moya/RxSwift (11.0.2):
     - Moya/Core
     - RxSwift (~> 4.0)
-  - ObjectMapper (3.4.1)
-  - p2.OAuth2 (4.0.1)
+  - ObjectMapper (3.4.2)
+  - p2.OAuth2 (4.2.0)
   - Pageboy (3.0.1)
   - PINCache (2.3)
   - PinLayout (1.8.6)
@@ -50,6 +51,8 @@ PODS:
     - PINRemoteImage/Core
   - PMAlertController (3.5.0)
   - PullToRefreshKit (0.8.8)
+  - Qiniu (7.2.5):
+    - HappyDNS (~> 0.3)
   - ReactorKit (1.2.1):
     - RxSwift (>= 4.0.0)
   - Result (3.2.4)
@@ -91,9 +94,9 @@ PODS:
   - SwiftyBeaver (1.6.1)
   - Swinject (2.5.0)
   - "UITextView+Placeholder (1.2.1)"
-  - UMCAnalytics (5.5.2):
+  - UMCAnalytics (6.0.1):
     - UMCCommon
-  - UMCCommon (1.5.3)
+  - UMCCommon (2.0.0)
   - URLNavigator (2.1.0)
 
 DEPENDENCIES:
@@ -117,6 +120,7 @@ DEPENDENCIES:
   - PINRemoteImage
   - PMAlertController
   - PullToRefreshKit
+  - Qiniu (~> 7.1)
   - ReactorKit
   - ReusableKit
   - ReusableKit/RxSwift
@@ -150,6 +154,7 @@ SPEC REPOS:
     - FLAnimatedImage
     - FlexLayout
     - FSPagerView
+    - HappyDNS
     - JCore
     - JPush
     - JustLog
@@ -164,6 +169,7 @@ SPEC REPOS:
     - PINRemoteImage
     - PMAlertController
     - PullToRefreshKit
+    - Qiniu
     - ReactorKit
     - Result
     - ReusableKit
@@ -196,7 +202,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   p2.OAuth2:
-    :commit: e81b4bc4a3cfc3d11b62aba07241ceeb0684ac07
+    :commit: ddc80ff83ba597ba580a9be74fcd08fe5496f90a
     :git: https://github.com/p2/OAuth2
     :submodules: true
   Shallows:
@@ -213,28 +219,30 @@ SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
-  CocoaDebug: 48e26e0ceec52b16afe7455b451cac3e8bd1fb52
+  CocoaDebug: 80a420dbddedbeee7d3ba6ed71e22cd86b59635f
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   Dollar: dc69a2997fa5df12ae7a91fec897963664c26750
-  Eureka: 6d711cb30ca333b4bc893110285a722ae3840114
+  Eureka: 28ea296f06710f6745266b71f17862048941a32d
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   FlexLayout: b008184d23aae0c56e1c916e803445a13a6f4e5a
   FSPagerView: 816a18842306973cc7cc6df8a5332272f7815c30
-  JCore: 14706de2640b25fb77dbd02332696491407f37c9
-  JPush: 25dd9013fbe106082c14f9f30a82364ee98852fb
+  HappyDNS: dc6a164ee81979093123c241c6353bcf0218add6
+  JCore: cae516dd2bf1a73b578ce6e1065abd49e709e0f7
+  JPush: d0cead70ba223a6a3b52749899ebda830dfbc49a
   JustLog: 24d4dbdd4d4b65fc04069f222ee34b1d9c9004cf
-  JWTDecode: 83e8b381aafe27158d9f692cbdca2b12d61d460c
+  JWTDecode: 85a405ab16d5473e99bd89ded1d535090ebd6a0e
   Layout: a970a8bb1cc1e5db8b1cafde341a26bf5b0c386b
   Moya: a725035953bc1c0eb1be505ab903984501d82440
   Moya-ObjectMapper: 441caa307b527331fde59e2577adc632a16f1255
-  ObjectMapper: 5311bd50ca732930959e7ca1a2de43ab823a5ced
-  p2.OAuth2: fdc2effef37793a8f775dd4760bc4c1ea906c956
+  ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
+  p2.OAuth2: d5ea9b928fc5d10d088d419db6f3380578b6f866
   Pageboy: ec0170fd880ea6fa3589219edfd64b554443ff6e
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
   PinLayout: fe2a2432d6982588e208572005c941aeeae417ab
   PINRemoteImage: 4ac4011c5caefd6befd99758e09becede05d3226
   PMAlertController: 06dab8160066fc4ce991c880e3722cd403e2926a
   PullToRefreshKit: 7cc53e720e69f135cffa1a57784dfb534f0222ab
+  Qiniu: 909b408ee489ea54827e9717be90b94bc9dfbc48
   ReactorKit: 8be57f0527ad1ac2963cd5c338274a46a01e57a3
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   ReusableKit: d0b040de03b293288b0ca27a78602691d3346d9b
@@ -252,10 +260,10 @@ SPEC CHECKSUMS:
   SwiftyBeaver: ccfcdf85a04d429f1633f668650b0ce8020bda3a
   Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
   "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
-  UMCAnalytics: 6654fd3c8201ff6da5c86a3ae29cd5c8436d3b7b
-  UMCCommon: 016af43c0f769feb1ae1861d65aaf2b23b89c9c7
+  UMCAnalytics: c267acd9bb4a87e5f01735c158b63a617908f92e
+  UMCCommon: 79b5a614c958db367113eed5740109d9a98e1223
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
 
-PODFILE CHECKSUM: 547bcbead8e71f50e2720691cff00297abe176a3
+PODFILE CHECKSUM: da66da49940c8f614fac4d9d4812fb0c678c0feb
 
 COCOAPODS: 1.5.3

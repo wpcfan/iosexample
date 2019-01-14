@@ -42,6 +42,8 @@ target 'Example' do
   pod 'UMCAnalytics'
   # Bugly
   pod 'Bugly'
+  # QiNiu
+  pod "Qiniu", "~> 7.1"
   # IoC
   pod 'Swinject', '~> 2.5'
   # Log
