@@ -158,7 +158,7 @@ DEPENDENCIES:
   - URLNavigator (~> 2.0)
 
 SPEC REPOS:
-  https://mirrors.tuna.tsinghua.edu.cn/git/cocoapods/specs.git:
+  https://github.com/cocoapods/specs.git:
     - Action
     - AFNetworking
     - Alamofire
@@ -260,6 +260,6 @@ SPEC CHECKSUMS:
   UMCCommon: 79b5a614c958db367113eed5740109d9a98e1223
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
 
-PODFILE CHECKSUM: 085dffe5e1ded496d36281628d31d27855601bbf
+PODFILE CHECKSUM: c23d87891b751efd9bb1ff9008de3a691b1826c9
 
 COCOAPODS: 1.5.3
