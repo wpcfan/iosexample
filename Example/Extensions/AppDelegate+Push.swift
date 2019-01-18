@@ -8,7 +8,7 @@
 
 import UIKit
 
-#if TARGET_CPU_ARM
+#if !targetEnvironment(simulator)
 // 极光消息集成
 // 如果实现 JPUSHRegisterDelegate 则不用实现 UNUserNotificationCenterDelegate
 extension AppDelegate: JPUSHRegisterDelegate {
@@ -143,7 +143,7 @@ extension AppDelegate: JPUSHRegisterDelegate {
 extension AppDelegate {
     /// 极光服务初始化
     func setupPushNotification(_ launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        #if TARGET_CPU_ARM
+        #if !targetEnvironment(simulator)
         if #available(iOS 10, *) {
             let entity = JPUSHRegisterEntity()
             entity.types = NSInteger(UNAuthorizationOptions.alert.rawValue) |

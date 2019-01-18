@@ -8,20 +8,26 @@
 
 class IndoorPhoneService {
     func initVideo() -> Void {
-        #if TARGET_CPU_ARM
+        print("enter initVideo")
+        #if !targetEnvironment(simulator)
         DongDongManager.share()?.initVideo()
         #endif
+        print("leave initVideo")
     }
     
     func startVideo(_ with: UIView, remoteIp: String, remotePort: Int, localPort: Int) -> Void {
-        #if TARGET_CPU_ARM
-        DongDongManager.share()?.startVideo(with: with, remoteIp: remoteIp, remotePort: remotePort, localPort: localPort)
+        print("enter startVideo")
+        #if !targetEnvironment(simulator)
+        DongDongManager.share()?.startVideo(with: with, remoteIp: remoteIp, remotePort: Int32(remotePort), localPort: Int32(localPort))
         #endif
+        print("leave startVideo")
     }
     
     func stopVideo() -> Void {
-        #if TARGET_CPU_ARM
+        print("enter stopVideo")
+        #if !targetEnvironment(simulator)
         DongDongManager.share()?.stopVideo()
         #endif
+        print("leave stopVideo")
     }
 }

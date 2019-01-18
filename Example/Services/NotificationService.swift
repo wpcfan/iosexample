@@ -10,8 +10,9 @@ import RxSwift
 
 class NotificationService {
     func addTag(_ tag: String) -> Observable<String> {
+        print("enter addTag")
         return Observable.create({ (observer) -> Disposable in
-            #if TARGET_CPU_ARM
+            #if !targetEnvironment(simulator)
             JPUSHService.addTags([tag], completion: { (res, tags, seq) in
                 if (res == 0) {
                     observer.onNext(tag)
@@ -26,9 +27,10 @@ class NotificationService {
     }
     
     func addTags(_ tags: [String]) -> Observable<[String]> {
+        print("enter addTags")
         return Observable.create({ (observer) -> Disposable in
+            #if !targetEnvironment(simulator)
             let tagSet = Set(tags)
-            #if TARGET_CPU_ARM
             JPUSHService.addTags(tagSet, completion: { (res, tag_set, seq) in
                 if (res == 0) {
                     observer.onNext(Array(tag_set!) as! [String])
@@ -43,8 +45,9 @@ class NotificationService {
     }
     
     func deleteTag(_ tag: String) -> Observable<Void> {
+        print("enter deleteTag")
         return Observable.create({ (observer) -> Disposable in
-            #if TARGET_CPU_ARM
+            #if !targetEnvironment(simulator)
             JPUSHService.deleteTags([tag], completion: { (res, tags, seq) in
                 if (res == 0) {
                     observer.onNext(())
@@ -59,8 +62,9 @@ class NotificationService {
     }
     
     func deleteTags(_ tags: [String]) -> Observable<Void> {
+        print("enter deleteTags")
         return Observable.create({ (observer) -> Disposable in
-            #if TARGET_CPU_ARM
+            #if !targetEnvironment(simulator)
             let tagSet = Set(tags)
             JPUSHService.deleteTags(tagSet, completion: { (res, tag_set, seq) in
                 if (res == 0) {
@@ -76,8 +80,9 @@ class NotificationService {
     }
     
     func cleanTags() -> Observable<Void> {
+        print("enter cleanTags")
         return Observable.create({ (observer) -> Disposable in
-            #if TARGET_CPU_ARM
+            #if !targetEnvironment(simulator)
             JPUSHService.cleanTags({ (res, tag_set, seq) in
                 if (res == 0) {
                     observer.onNext(())
@@ -92,8 +97,9 @@ class NotificationService {
     }
     
     func getAllTags() -> Observable<[String]> {
+        print("enter getAllTags")
         return Observable.create({ (observer) -> Disposable in
-            #if TARGET_CPU_ARM
+            #if !targetEnvironment(simulator)
             JPUSHService.getAllTags({ (res, tag_set, seq) in
                 if (res == 0) {
                     let allTags = Array(tag_set ?? []) as! [String]
@@ -109,8 +115,9 @@ class NotificationService {
     }
     
     func setMobile(_ mobile: String) -> Observable<Void> {
+        print("enter setMobile")
         return Observable.create({ (observer) -> Disposable in
-            #if TARGET_CPU_ARM
+            #if !targetEnvironment(simulator)
             JPUSHService.setMobileNumber(mobile) { err in
                 if (err != nil) {
                     printError("mobile not set \(String(describing: err))")

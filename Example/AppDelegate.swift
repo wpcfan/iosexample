@@ -71,7 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {
-        #if TARGET_CPU_ARM
+        #if !targetEnvironment(simulator)
         clearNotification(application)
         #endif
     }

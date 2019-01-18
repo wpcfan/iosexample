@@ -16,13 +16,9 @@ import URLNavigator
 // 全局 log ，基于 JustLog ，但使用上通过全局的 print 和 printError 进行了封装
 let log = Logger.shared
 // 为 CocoaDebug 和 JustLog 提供一个统一的调用形式，Debug 模式下采用 CocoaDebug，而在 Release 模式下使用 JustLog 上传到 logz.io
-public func print<T>(file: String = #file,
-                     function: String = #function,
-                     line: Int = #line,
-                     _ message: T,
-                     color: UIColor = .white) {
+public func print<T>(file: String = #file, function: String = #function, line: Int = #line, _ message: T, color: UIColor = .white) {
     #if DEBUG
-        swiftLog(file, function, line, message, color)
+        swiftLog(file, function, line, message, color, false)
     #else
         log.debug("\(message)")
     #endif
@@ -34,7 +30,7 @@ public func printError<T>(file: String = #file,
                           _ message: T,
                           color: UIColor = .red) {
     #if DEBUG
-        swiftLog(file, function, line, message, color)
+        swiftLog(file, function, line, message, color, false)
     #else
         log.error("\(message)")
     #endif
@@ -70,8 +66,9 @@ let container: Container = {
         NavigationMap.initialize(navigator: navigator)
         return navigator
     }
-    #if TARGET_CPU_ARM
-        container.register(JdSmartCloudService.self) { _ in JdSmartCloudServiceImpl() }
+    #if !targetEnvironment(simulator)
+        container.register(JdSmartCloudService.self) { _ in JdSmartCloudService() }
+        container.register(IndoorPhoneService.self) { _ in IndoorPhoneService() }
     #endif
     return container
 }()

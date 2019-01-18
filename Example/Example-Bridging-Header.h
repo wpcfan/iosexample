@@ -32,8 +32,9 @@
 #import "LCOpenSDK/LCOpenSDK_Utils.h"
 
 #import <SCMSDK/SCMSDK.h>               // 京东智能 SDK
-#import "DongDongManager.h"             // 京东智能 门内机
-
+// 京东智能 门内机
+#import "Integration/IndoorVideoPhone/SCMInterphoneManager.h"
+#import "Integration/IndoorVideoPhone/DongDong/DongDongManager.h"
 // CocoaDebug 日志宏定义
 #ifdef DEBUG
 #define NSLog(fmt, ...) [CocoaDebug objcLog:[[NSString stringWithUTF8String:__FILE__] lastPathComponent] :NSStringFromSelector(_cmd) :__LINE__ :(fmt, ##__VA_ARGS__) :[UIColor whiteColor]]

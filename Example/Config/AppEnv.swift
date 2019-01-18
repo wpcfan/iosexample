@@ -30,6 +30,13 @@ struct AppEnv {
     static let pushSecret = push["APP_SECRET"]!
     static let umengAppId: String = appEnv["UMENG_APPID"] as! String
     static let buglyAppId: String = appEnv["BUGLY_APPID"] as! String
+    static let smartCloud: Dictionary<String, String> = Bundle.main.infoDictionary!["SMART_CLOUD"] as! Dictionary
+    static let smartCloudAppKey = smartCloud["APP_KEY"]!
+    static let smartCloudAppSecret = smartCloud["APP_SECRET"]!
+    static let leChange: Dictionary<String, String> = Bundle.main.infoDictionary!["LECHANGE"] as! Dictionary
+    static let leChangeApiUrl = leChange["API_URL"]!
+    static let leChangeAppId = leChange["APP_ID"]!
+    static let leChangeAppSecret = leChange["APP_SECRET"]!
 //    static let urlTypes = Bundle.main.infoDictionary!["CFBundleURLTypes"]
 //    static let urlScheme: String = (urlTypes![1] as Dictionary)["CFBundleURLSchemes"]![0]
 }

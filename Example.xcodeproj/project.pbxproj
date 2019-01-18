@@ -13,8 +13,6 @@
 		AA0ACFD121ECB49E00CE6D1D /* AppDelegate+SmartCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0ACFD021ECB49E00CE6D1D /* AppDelegate+SmartCloud.swift */; };
 		AA0ACFD321ECB8AC00CE6D1D /* AppDelegate+LeChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0ACFD221ECB8AC00CE6D1D /* AppDelegate+LeChange.swift */; };
 		AA0ACFD521ECB95F00CE6D1D /* SCMSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0ACFD421ECB95F00CE6D1D /* SCMSDK.framework */; };
-		AA0ACFD821ECB9DF00CE6D1D /* libvideo_engine_core_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0ACFD621ECB9DF00CE6D1D /* libvideo_engine_core_ios.a */; };
-		AA0ACFD921ECB9DF00CE6D1D /* libjdrtc_sdk_static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0ACFD721ECB9DF00CE6D1D /* libjdrtc_sdk_static.a */; };
 		AA0ACFDB21ECB9FA00CE6D1D /* libLechangeSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0ACFDA21ECB9FA00CE6D1D /* libLechangeSDK.a */; };
 		AA0ACFDD21ECBA0500CE6D1D /* MediaAccessibility.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0ACFDC21ECBA0500CE6D1D /* MediaAccessibility.framework */; };
 		AA0ACFDF21ECBA1500CE6D1D /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0ACFDE21ECBA1500CE6D1D /* VideoToolbox.framework */; };
@@ -149,6 +147,9 @@
 		AA9B94BD21ECBEAD000AE906 /* IndoorPhoneService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9B94BC21ECBEAD000AE906 /* IndoorPhoneService.swift */; };
 		AA9B94BF21ECBED1000AE906 /* LeChangeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9B94BE21ECBED1000AE906 /* LeChangeService.swift */; };
 		AA9B94C121ECC778000AE906 /* QiNiu.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9B94C021ECC778000AE906 /* QiNiu.swift */; };
+		AA9B94CD21EDC317000AE906 /* libjdrtc_sdk_static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9B94CB21EDC317000AE906 /* libjdrtc_sdk_static.a */; };
+		AA9B94CE21EDC317000AE906 /* libvideo_engine_core_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9B94CC21EDC317000AE906 /* libvideo_engine_core_ios.a */; };
+		AA9B94D021EDC482000AE906 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9B94CF21EDC482000AE906 /* libc++.tbd */; };
 		AAA920BA2198289700EFC581 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AAA920B82198289700EFC581 /* InfoPlist.strings */; };
 		AAC5EB6E215E7BB7008EBA1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC5EB6D215E7BB7008EBA1F /* AppDelegate.swift */; };
 		AAC5EB70215E7BB7008EBA1F /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC5EB6F215E7BB7008EBA1F /* AuthViewController.swift */; };
@@ -163,6 +164,24 @@
 		AAC5EBA3215E808D008EBA1F /* OAuth2Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC5EBA2215E808D008EBA1F /* OAuth2Service.swift */; };
 		AAC5EBA5215F5849008EBA1F /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC5EBA4215F5849008EBA1F /* HomeTabViewController.swift */; };
 		AAC5EBA7215F5860008EBA1F /* HomeTabViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AAC5EBA6215F5860008EBA1F /* HomeTabViewController.xml */; };
+		AAD7E0B821F1A412000D8D6A /* SCMSDK.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AAD7E0B721F1A412000D8D6A /* SCMSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		AAD7E0E721F1AEB1000D8D6A /* UIButton+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD7E0C021F1AEB1000D8D6A /* UIButton+XS.m */; };
+		AAD7E0E821F1AEB1000D8D6A /* XSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD7E0C121F1AEB1000D8D6A /* XSAlertView.m */; };
+		AAD7E0E921F1AEB1000D8D6A /* XSQRCode.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD7E0C221F1AEB1000D8D6A /* XSQRCode.m */; };
+		AAD7E0EA21F1AEB1000D8D6A /* XSGetIpAddress.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD7E0C321F1AEB1000D8D6A /* XSGetIpAddress.m */; };
+		AAD7E0EB21F1AEB1000D8D6A /* WXApiResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD7E0C921F1AEB1000D8D6A /* WXApiResponseHandler.m */; };
+		AAD7E0EC21F1AEB1000D8D6A /* GetMessageFromWXResp+responseWithTextOrMediaMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD7E0CA21F1AEB1000D8D6A /* GetMessageFromWXResp+responseWithTextOrMediaMessage.m */; };
+		AAD7E0ED21F1AEB1000D8D6A /* WXApiRequestHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD7E0CB21F1AEB1000D8D6A /* WXApiRequestHandler.m */; };
+		AAD7E0EE21F1AEB1000D8D6A /* SendMessageToWXReq+requestWithTextOrMediaMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD7E0CD21F1AEB1000D8D6A /* SendMessageToWXReq+requestWithTextOrMediaMessage.m */; };
+		AAD7E0EF21F1AEB1000D8D6A /* WXMediaMessage+messageConstruct.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD7E0CE21F1AEB1000D8D6A /* WXMediaMessage+messageConstruct.m */; };
+		AAD7E0F021F1AEB1000D8D6A /* WXApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD7E0D221F1AEB1000D8D6A /* WXApiManager.m */; };
+		AAD7E0F121F1AEB1000D8D6A /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = AAD7E0D721F1AEB1000D8D6A /* README.txt */; };
+		AAD7E0F221F1AEB1000D8D6A /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AAD7E0D921F1AEB1000D8D6A /* libWeChatSDK.a */; };
+		AAD7E0F321F1AEB1000D8D6A /* SCMInterphoneManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD7E0DA21F1AEB1000D8D6A /* SCMInterphoneManager.m */; };
+		AAD7E0F421F1AEB1000D8D6A /* DongDongManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = AAD7E0DC21F1AEB1000D8D6A /* DongDongManager.mm */; };
+		AAD7E0F521F1AEB1000D8D6A /* MyMediaStackCallback.cpp in Sources */ = {isa = PBXBuildFile; fileRef = AAD7E0E021F1AEB1000D8D6A /* MyMediaStackCallback.cpp */; };
+		AAD7E0F621F1AEB1000D8D6A /* SCMCallReminderController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD7E0E321F1AEB1000D8D6A /* SCMCallReminderController.m */; };
+		AAD7E0F721F1AEB1000D8D6A /* SCMQRCodeUnlockController.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD7E0E421F1AEB1000D8D6A /* SCMQRCodeUnlockController.m */; };
 		AAE49EF62169D2FB004BDBD7 /* TourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE49EF52169D2FB004BDBD7 /* TourViewController.swift */; };
 		AAE49EF82169D315004BDBD7 /* TourViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AAE49EF72169D315004BDBD7 /* TourViewController.xml */; };
 		AAE49EFA216A2783004BDBD7 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE49EF9216A2783004BDBD7 /* AppData.swift */; };
@@ -185,6 +204,19 @@
 			remoteInfo = Example;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		AAD7E0B621F1A3E3000D8D6A /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				AAD7E0B821F1A412000D8D6A /* SCMSDK.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		76544CF2F05B8A278880AA92 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -332,6 +364,9 @@
 		AA9B94BC21ECBEAD000AE906 /* IndoorPhoneService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndoorPhoneService.swift; sourceTree = "<group>"; };
 		AA9B94BE21ECBED1000AE906 /* LeChangeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeChangeService.swift; sourceTree = "<group>"; };
 		AA9B94C021ECC778000AE906 /* QiNiu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QiNiu.swift; sourceTree = "<group>"; };
+		AA9B94CB21EDC317000AE906 /* libjdrtc_sdk_static.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjdrtc_sdk_static.a; path = libs/IndoorVideoPhone/DongDong/jl_ios_sdk_libs/libjdrtc_sdk_static.a; sourceTree = "<group>"; };
+		AA9B94CC21EDC317000AE906 /* libvideo_engine_core_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvideo_engine_core_ios.a; path = libs/IndoorVideoPhone/DongDong/jl_ios_sdk_libs/libvideo_engine_core_ios.a; sourceTree = "<group>"; };
+		AA9B94CF21EDC482000AE906 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		AAA920B92198289700EFC581 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Example/Base.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		AAA920BC219828F200EFC581 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "../zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		AAC5EB6A215E7BB7008EBA1F /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -352,6 +387,44 @@
 		AAC5EBA4215F5849008EBA1F /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
 		AAC5EBA6215F5860008EBA1F /* HomeTabViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HomeTabViewController.xml; sourceTree = "<group>"; };
 		AAC5EBAB215F6A9E008EBA1F /* Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Example-Bridging-Header.h"; sourceTree = "<group>"; };
+		AAD7E0B721F1A412000D8D6A /* SCMSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SCMSDK.framework; path = libs/SCMSDK/SCMSDK.framework; sourceTree = "<group>"; };
+		AAD7E0BE21F1AEB1000D8D6A /* XSGetIpAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSGetIpAddress.h; sourceTree = "<group>"; };
+		AAD7E0BF21F1AEB1000D8D6A /* XSQRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSQRCode.h; sourceTree = "<group>"; };
+		AAD7E0C021F1AEB1000D8D6A /* UIButton+XS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+XS.m"; sourceTree = "<group>"; };
+		AAD7E0C121F1AEB1000D8D6A /* XSAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSAlertView.m; sourceTree = "<group>"; };
+		AAD7E0C221F1AEB1000D8D6A /* XSQRCode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSQRCode.m; sourceTree = "<group>"; };
+		AAD7E0C321F1AEB1000D8D6A /* XSGetIpAddress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XSGetIpAddress.m; sourceTree = "<group>"; };
+		AAD7E0C421F1AEB1000D8D6A /* XSAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSAlertView.h; sourceTree = "<group>"; };
+		AAD7E0C521F1AEB1000D8D6A /* UIButton+XS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+XS.h"; sourceTree = "<group>"; };
+		AAD7E0C621F1AEB1000D8D6A /* SCMInterphoneManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCMInterphoneManager.h; sourceTree = "<group>"; };
+		AAD7E0C821F1AEB1000D8D6A /* WXApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiManager.h; sourceTree = "<group>"; };
+		AAD7E0C921F1AEB1000D8D6A /* WXApiResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXApiResponseHandler.m; sourceTree = "<group>"; };
+		AAD7E0CA21F1AEB1000D8D6A /* GetMessageFromWXResp+responseWithTextOrMediaMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GetMessageFromWXResp+responseWithTextOrMediaMessage.m"; sourceTree = "<group>"; };
+		AAD7E0CB21F1AEB1000D8D6A /* WXApiRequestHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXApiRequestHandler.m; sourceTree = "<group>"; };
+		AAD7E0CC21F1AEB1000D8D6A /* WXMediaMessage+messageConstruct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "WXMediaMessage+messageConstruct.h"; sourceTree = "<group>"; };
+		AAD7E0CD21F1AEB1000D8D6A /* SendMessageToWXReq+requestWithTextOrMediaMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SendMessageToWXReq+requestWithTextOrMediaMessage.m"; sourceTree = "<group>"; };
+		AAD7E0CE21F1AEB1000D8D6A /* WXMediaMessage+messageConstruct.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "WXMediaMessage+messageConstruct.m"; sourceTree = "<group>"; };
+		AAD7E0CF21F1AEB1000D8D6A /* WXApiRequestHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiRequestHandler.h; sourceTree = "<group>"; };
+		AAD7E0D021F1AEB1000D8D6A /* GetMessageFromWXResp+responseWithTextOrMediaMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GetMessageFromWXResp+responseWithTextOrMediaMessage.h"; sourceTree = "<group>"; };
+		AAD7E0D121F1AEB1000D8D6A /* WXApiResponseHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiResponseHandler.h; sourceTree = "<group>"; };
+		AAD7E0D221F1AEB1000D8D6A /* WXApiManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXApiManager.m; sourceTree = "<group>"; };
+		AAD7E0D321F1AEB1000D8D6A /* SendMessageToWXReq+requestWithTextOrMediaMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SendMessageToWXReq+requestWithTextOrMediaMessage.h"; sourceTree = "<group>"; };
+		AAD7E0D521F1AEB1000D8D6A /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		AAD7E0D621F1AEB1000D8D6A /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		AAD7E0D721F1AEB1000D8D6A /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		AAD7E0D821F1AEB1000D8D6A /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		AAD7E0D921F1AEB1000D8D6A /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		AAD7E0DA21F1AEB1000D8D6A /* SCMInterphoneManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCMInterphoneManager.m; sourceTree = "<group>"; };
+		AAD7E0DC21F1AEB1000D8D6A /* DongDongManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DongDongManager.mm; sourceTree = "<group>"; };
+		AAD7E0DE21F1AEB1000D8D6A /* jdrtc_mediastack_ios.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jdrtc_mediastack_ios.h; sourceTree = "<group>"; };
+		AAD7E0DF21F1AEB1000D8D6A /* MyMediaStackCallback.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MyMediaStackCallback.hpp; sourceTree = "<group>"; };
+		AAD7E0E021F1AEB1000D8D6A /* MyMediaStackCallback.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MyMediaStackCallback.cpp; sourceTree = "<group>"; };
+		AAD7E0E121F1AEB1000D8D6A /* DongDongManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DongDongManager.h; sourceTree = "<group>"; };
+		AAD7E0E321F1AEB1000D8D6A /* SCMCallReminderController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCMCallReminderController.m; sourceTree = "<group>"; };
+		AAD7E0E421F1AEB1000D8D6A /* SCMQRCodeUnlockController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SCMQRCodeUnlockController.m; sourceTree = "<group>"; };
+		AAD7E0E521F1AEB1000D8D6A /* SCMCallReminderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCMCallReminderController.h; sourceTree = "<group>"; };
+		AAD7E0E621F1AEB1000D8D6A /* SCMQRCodeUnlockController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SCMQRCodeUnlockController.h; sourceTree = "<group>"; };
+		AAD7E0F821F1B238000D8D6A /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		AADD25B8218AC2660080DA61 /* LocalConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = LocalConfig.xcconfig; sourceTree = "<group>"; };
 		AAE49EF32168EF89004BDBD7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AAE49EF52169D2FB004BDBD7 /* TourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourViewController.swift; sourceTree = "<group>"; };
@@ -373,6 +446,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AA9B94D021EDC482000AE906 /* libc++.tbd in Frameworks */,
+				AA9B94CD21EDC317000AE906 /* libjdrtc_sdk_static.a in Frameworks */,
+				AA9B94CE21EDC317000AE906 /* libvideo_engine_core_ios.a in Frameworks */,
 				AA0AD00421ECBB4900CE6D1D /* libsqlite3.0.tbd in Frameworks */,
 				AA0AD00221ECBB3500CE6D1D /* libz.tbd in Frameworks */,
 				AA0AD00021ECBB2700CE6D1D /* libresolv.tbd in Frameworks */,
@@ -384,6 +460,7 @@
 				AA0ACFF421ECBAC900CE6D1D /* QuartzCore.framework in Frameworks */,
 				AA0ACFF321ECBABC00CE6D1D /* CoreImage.framework in Frameworks */,
 				AA0ACFF121ECBAAD00CE6D1D /* SystemConfiguration.framework in Frameworks */,
+				AAD7E0F221F1AEB1000D8D6A /* libWeChatSDK.a in Frameworks */,
 				AA0ACFEF21ECBAA300CE6D1D /* CoreGraphics.framework in Frameworks */,
 				AA0ACFEC21ECBA9500CE6D1D /* AudioToolbox.framework in Frameworks */,
 				AA0ACFED21ECBA9500CE6D1D /* CoreAudio.framework in Frameworks */,
@@ -395,8 +472,6 @@
 				AA0ACFDF21ECBA1500CE6D1D /* VideoToolbox.framework in Frameworks */,
 				AA0ACFDD21ECBA0500CE6D1D /* MediaAccessibility.framework in Frameworks */,
 				AA0ACFDB21ECB9FA00CE6D1D /* libLechangeSDK.a in Frameworks */,
-				AA0ACFD821ECB9DF00CE6D1D /* libvideo_engine_core_ios.a in Frameworks */,
-				AA0ACFD921ECB9DF00CE6D1D /* libjdrtc_sdk_static.a in Frameworks */,
 				AA0ACFD521ECB95F00CE6D1D /* SCMSDK.framework in Frameworks */,
 				E4D12B1BC40D7E0189CD5627 /* Pods_Example.framework in Frameworks */,
 			);
@@ -415,6 +490,9 @@
 		2D24BCDECDE01F1A9890896E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AA9B94CF21EDC482000AE906 /* libc++.tbd */,
+				AA9B94CB21EDC317000AE906 /* libjdrtc_sdk_static.a */,
+				AA9B94CC21EDC317000AE906 /* libvideo_engine_core_ios.a */,
 				AA0AD00321ECBB4900CE6D1D /* libsqlite3.0.tbd */,
 				AA0AD00121ECBB3500CE6D1D /* libz.tbd */,
 				AA0ACFFF21ECBB2700CE6D1D /* libresolv.tbd */,
@@ -450,13 +528,6 @@
 			children = (
 			);
 			name = Pods;
-			sourceTree = "<group>";
-		};
-		AA0AF3BD21ABCD60003C1FF2 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Home;
 			sourceTree = "<group>";
 		};
 		AA0AF3C121AC3636003C1FF2 /* TopTab */ = {
@@ -629,6 +700,7 @@
 		AAC5EB61215E7BB7008EBA1F = {
 			isa = PBXGroup;
 			children = (
+				AAD7E0B721F1A412000D8D6A /* SCMSDK.framework */,
 				AA433F11218C525500BA60A1 /* IDEConfig */,
 				AAC5EB6C215E7BB7008EBA1F /* Example */,
 				AAC5EB81215E7BB9008EBA1F /* ExampleTests */,
@@ -650,6 +722,7 @@
 		AAC5EB6C215E7BB7008EBA1F /* Example */ = {
 			isa = PBXGroup;
 			children = (
+				AAD7E0B921F1A6CB000D8D6A /* Integration */,
 				AAC5EB8E215E7D48008EBA1F /* Config */,
 				AA99E994219B2CCD00FD1C6F /* Controls */,
 				AAC5EB91215E7DD9008EBA1F /* Domain */,
@@ -756,7 +829,6 @@
 		AAC5EB9F215E7ED8008EBA1F /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				AA0AF3BD21ABCD60003C1FF2 /* Home */,
 				AAC5EB6F215E7BB7008EBA1F /* AuthViewController.swift */,
 				AAC5EBA0215E7F10008EBA1F /* AuthViewController.xml */,
 				AA4B48F9217768CE00A60C11 /* BaseViewController.swift */,
@@ -794,6 +866,106 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
+		AAD7E0B921F1A6CB000D8D6A /* Integration */ = {
+			isa = PBXGroup;
+			children = (
+				AAD7E0BC21F1AEB1000D8D6A /* IndoorVideoPhone */,
+			);
+			path = Integration;
+			sourceTree = "<group>";
+		};
+		AAD7E0BC21F1AEB1000D8D6A /* IndoorVideoPhone */ = {
+			isa = PBXGroup;
+			children = (
+				AAD7E0F821F1B238000D8D6A /* Constants.h */,
+				AAD7E0BD21F1AEB1000D8D6A /* Tools */,
+				AAD7E0C621F1AEB1000D8D6A /* SCMInterphoneManager.h */,
+				AAD7E0C721F1AEB1000D8D6A /* weixinShare */,
+				AAD7E0DA21F1AEB1000D8D6A /* SCMInterphoneManager.m */,
+				AAD7E0DB21F1AEB1000D8D6A /* DongDong */,
+				AAD7E0E221F1AEB1000D8D6A /* Controllers */,
+			);
+			path = IndoorVideoPhone;
+			sourceTree = "<group>";
+		};
+		AAD7E0BD21F1AEB1000D8D6A /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				AAD7E0BE21F1AEB1000D8D6A /* XSGetIpAddress.h */,
+				AAD7E0BF21F1AEB1000D8D6A /* XSQRCode.h */,
+				AAD7E0C021F1AEB1000D8D6A /* UIButton+XS.m */,
+				AAD7E0C121F1AEB1000D8D6A /* XSAlertView.m */,
+				AAD7E0C221F1AEB1000D8D6A /* XSQRCode.m */,
+				AAD7E0C321F1AEB1000D8D6A /* XSGetIpAddress.m */,
+				AAD7E0C421F1AEB1000D8D6A /* XSAlertView.h */,
+				AAD7E0C521F1AEB1000D8D6A /* UIButton+XS.h */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		AAD7E0C721F1AEB1000D8D6A /* weixinShare */ = {
+			isa = PBXGroup;
+			children = (
+				AAD7E0C821F1AEB1000D8D6A /* WXApiManager.h */,
+				AAD7E0C921F1AEB1000D8D6A /* WXApiResponseHandler.m */,
+				AAD7E0CA21F1AEB1000D8D6A /* GetMessageFromWXResp+responseWithTextOrMediaMessage.m */,
+				AAD7E0CB21F1AEB1000D8D6A /* WXApiRequestHandler.m */,
+				AAD7E0CC21F1AEB1000D8D6A /* WXMediaMessage+messageConstruct.h */,
+				AAD7E0CD21F1AEB1000D8D6A /* SendMessageToWXReq+requestWithTextOrMediaMessage.m */,
+				AAD7E0CE21F1AEB1000D8D6A /* WXMediaMessage+messageConstruct.m */,
+				AAD7E0CF21F1AEB1000D8D6A /* WXApiRequestHandler.h */,
+				AAD7E0D021F1AEB1000D8D6A /* GetMessageFromWXResp+responseWithTextOrMediaMessage.h */,
+				AAD7E0D121F1AEB1000D8D6A /* WXApiResponseHandler.h */,
+				AAD7E0D221F1AEB1000D8D6A /* WXApiManager.m */,
+				AAD7E0D321F1AEB1000D8D6A /* SendMessageToWXReq+requestWithTextOrMediaMessage.h */,
+				AAD7E0D421F1AEB1000D8D6A /* WechtSDK1.8.2_NoPay */,
+			);
+			path = weixinShare;
+			sourceTree = "<group>";
+		};
+		AAD7E0D421F1AEB1000D8D6A /* WechtSDK1.8.2_NoPay */ = {
+			isa = PBXGroup;
+			children = (
+				AAD7E0D521F1AEB1000D8D6A /* WXApi.h */,
+				AAD7E0D621F1AEB1000D8D6A /* WXApiObject.h */,
+				AAD7E0D721F1AEB1000D8D6A /* README.txt */,
+				AAD7E0D821F1AEB1000D8D6A /* WechatAuthSDK.h */,
+				AAD7E0D921F1AEB1000D8D6A /* libWeChatSDK.a */,
+			);
+			path = WechtSDK1.8.2_NoPay;
+			sourceTree = "<group>";
+		};
+		AAD7E0DB21F1AEB1000D8D6A /* DongDong */ = {
+			isa = PBXGroup;
+			children = (
+				AAD7E0DC21F1AEB1000D8D6A /* DongDongManager.mm */,
+				AAD7E0DD21F1AEB1000D8D6A /* jl_ios_sdk_libs */,
+				AAD7E0E121F1AEB1000D8D6A /* DongDongManager.h */,
+			);
+			path = DongDong;
+			sourceTree = "<group>";
+		};
+		AAD7E0DD21F1AEB1000D8D6A /* jl_ios_sdk_libs */ = {
+			isa = PBXGroup;
+			children = (
+				AAD7E0DE21F1AEB1000D8D6A /* jdrtc_mediastack_ios.h */,
+				AAD7E0DF21F1AEB1000D8D6A /* MyMediaStackCallback.hpp */,
+				AAD7E0E021F1AEB1000D8D6A /* MyMediaStackCallback.cpp */,
+			);
+			path = jl_ios_sdk_libs;
+			sourceTree = "<group>";
+		};
+		AAD7E0E221F1AEB1000D8D6A /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				AAD7E0E321F1AEB1000D8D6A /* SCMCallReminderController.m */,
+				AAD7E0E421F1AEB1000D8D6A /* SCMQRCodeUnlockController.m */,
+				AAD7E0E521F1AEB1000D8D6A /* SCMCallReminderController.h */,
+				AAD7E0E621F1AEB1000D8D6A /* SCMQRCodeUnlockController.h */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -805,6 +977,7 @@
 				AAC5EB66215E7BB7008EBA1F /* Sources */,
 				AAC5EB67215E7BB7008EBA1F /* Frameworks */,
 				AAC5EB68215E7BB7008EBA1F /* Resources */,
+				AAD7E0B621F1A3E3000D8D6A /* CopyFiles */,
 				10FFFF59DD8F5B32184E5A0C /* [CP] Embed Pods Frameworks */,
 				AAE57A2F21A0617E00BB0EED /* ShellScript */,
 			);
@@ -916,6 +1089,7 @@
 				AAE49EF82169D315004BDBD7 /* TourViewController.xml in Resources */,
 				AAC5EBA7215F5860008EBA1F /* HomeTabViewController.xml in Resources */,
 				AA897873218590E4005A61CA /* HomeTitleView.xml in Resources */,
+				AAD7E0F121F1AEB1000D8D6A /* README.txt in Resources */,
 				AA30C0612167561E00B9E0EB /* SplashViewController.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1093,6 +1267,8 @@
 				AA78BB46218D6814000B4CD8 /* NotificationCenter+.swift in Sources */,
 				AA420590217B939B0068ABC0 /* ChannelViewReactor.swift in Sources */,
 				AA9B94BF21ECBED1000AE906 /* LeChangeService.swift in Sources */,
+				AAD7E0F421F1AEB1000D8D6A /* DongDongManager.mm in Sources */,
+				AAD7E0F021F1AEB1000D8D6A /* WXApiManager.m in Sources */,
 				AA0AF3BC21ABCCC3003C1FF2 /* HomePageViewController.swift in Sources */,
 				AA4B49162178800A00A60C11 /* Reactive+FSPagerView.swift in Sources */,
 				AAFA6624217D886B000217C9 /* SceneCell.swift in Sources */,
@@ -1100,6 +1276,7 @@
 				AA78BB54218EB31C000B4CD8 /* ShortcutParser.swift in Sources */,
 				AA4B493E217A0B5000A60C11 /* BaseItemCell.swift in Sources */,
 				AA4B9B37219F223A00E194CE /* SideBarViewController.swift in Sources */,
+				AAD7E0ED21F1AEB1000D8D6A /* WXApiRequestHandler.m in Sources */,
 				AA0AF3C321AC365F003C1FF2 /* TopTabController.swift in Sources */,
 				AA3E0E7C217053BD00958937 /* Deivce.swift in Sources */,
 				AA433F13218C8D9700BA60A1 /* NotificationService.swift in Sources */,
@@ -1123,6 +1300,8 @@
 				AAC5EB93215E7DE8008EBA1F /* User.swift in Sources */,
 				AA89786721856D88005A61CA /* ImageEffects+Accelerate.swift in Sources */,
 				AA54DF4821892C9F00CE0CA0 /* ReactorExtension.swift in Sources */,
+				AAD7E0F621F1AEB1000D8D6A /* SCMCallReminderController.m in Sources */,
+				AAD7E0F521F1AEB1000D8D6A /* MyMediaStackCallback.cpp in Sources */,
 				AA4B493C2179BBD900A60C11 /* Permission.swift in Sources */,
 				AA693DBB2161F6010063D749 /* SocialViewController.swift in Sources */,
 				AA6839DC216E08EC00E4097B /* AppAttributedStrings.swift in Sources */,
@@ -1142,6 +1321,7 @@
 				AA78BB58218EBB5B000B4CD8 /* RxQRUtil.swift in Sources */,
 				AA433F07218C4A1900BA60A1 /* AppDelegate+Logging.swift in Sources */,
 				AA99E9DC219BE35000FD1C6F /* DrawerTransition.swift in Sources */,
+				AAD7E0EA21F1AEB1000D8D6A /* XSGetIpAddress.m in Sources */,
 				AA433F0B218C4B2D00BA60A1 /* AppDelegate+CocoaDebug.swift in Sources */,
 				AA4B9B32219D985800E194CE /* Reactive+ReusableView.swift in Sources */,
 				AA3E0EBB21737D0600958937 /* LayoutExtensions.swift in Sources */,
@@ -1149,6 +1329,7 @@
 				AA3E0E8821707DD400958937 /* ScriptTrigger.swift in Sources */,
 				AA54DF432188424000CE0CA0 /* AnimationExtensions.swift in Sources */,
 				AA4205A6217C9B5F0068ABC0 /* HeaderView.swift in Sources */,
+				AAD7E0F721F1AEB1000D8D6A /* SCMQRCodeUnlockController.m in Sources */,
 				AAC5EBA3215E808D008EBA1F /* OAuth2Service.swift in Sources */,
 				AA3AB8902184828800470276 /* TourViewControllerReactor.swift in Sources */,
 				AA4B49242178883F00A60C11 /* UICollectionViewFlexLayout.swift in Sources */,
@@ -1165,19 +1346,25 @@
 				AAC5EB6E215E7BB7008EBA1F /* AppDelegate.swift in Sources */,
 				AA01F4A72199511500CE6457 /* UIApplication+.swift in Sources */,
 				AA693DC32161FF620063D749 /* NavigationMap.swift in Sources */,
+				AAD7E0EF21F1AEB1000D8D6A /* WXMediaMessage+messageConstruct.m in Sources */,
 				AA4B49302178EB2500A60C11 /* BannerView.swift in Sources */,
 				AA3E0E782170478200958937 /* PullToRefreshUtil.swift in Sources */,
 				AA4B493A2179A1DC00A60C11 /* ChannelCell.swift in Sources */,
 				AA38DCA7217EF4D70046D82D /* Reactive+StatusBar.swift in Sources */,
 				AA8978692185759F005A61CA /* Reactive+UIImageView.swift in Sources */,
+				AAD7E0EB21F1AEB1000D8D6A /* WXApiResponseHandler.m in Sources */,
+				AAD7E0F321F1AEB1000D8D6A /* SCMInterphoneManager.m in Sources */,
 				AA3E0E7A21704E6F00958937 /* House.swift in Sources */,
 				AA433F03218C491100BA60A1 /* AppDelegate+Push.swift in Sources */,
 				AA4B48F221761F7400A60C11 /* AuthError.swift in Sources */,
+				AAD7E0EE21F1AEB1000D8D6A /* SendMessageToWXReq+requestWithTextOrMediaMessage.m in Sources */,
 				AA693DB72160EEB70063D749 /* HomeViewController.swift in Sources */,
 				AAE49EFE216AE281004BDBD7 /* Shallows+Rx.swift in Sources */,
 				AA3E0E8A2170841700958937 /* HomeInfo.swift in Sources */,
 				AA01F49F2198828600CE6457 /* AppDelegate+UMeng.swift in Sources */,
 				AAC5EBA5215F5849008EBA1F /* HomeTabViewController.swift in Sources */,
+				AAD7E0E921F1AEB1000D8D6A /* XSQRCode.m in Sources */,
+				AAD7E0E721F1AEB1000D8D6A /* UIButton+XS.m in Sources */,
 				AAC5EB9B215E7E89008EBA1F /* AuthService.swift in Sources */,
 				AA9B94BD21ECBEAD000AE906 /* IndoorPhoneService.swift in Sources */,
 				AAFA6622217D8032000217C9 /* MultipleSectionModel.swift in Sources */,
@@ -1188,12 +1375,14 @@
 				AAC5EB90215E7D56008EBA1F /* AppEnv.swift in Sources */,
 				AA4B48F8217736D900A60C11 /* Reactive+OAuth2.swift in Sources */,
 				AA4B9AFB219C6BAC00E194CE /* MenuItem.swift in Sources */,
+				AAD7E0EC21F1AEB1000D8D6A /* GetMessageFromWXResp+responseWithTextOrMediaMessage.m in Sources */,
 				AA420588217B66210068ABC0 /* UIView+Blur.swift in Sources */,
 				AA683A09216F434C00E4097B /* Banner.swift in Sources */,
 				AAE49EFA216A2783004BDBD7 /* AppData.swift in Sources */,
 				AA6839DE216E0A0500E4097B /* AppLayoutClousures.swift in Sources */,
 				AA42058E217B8C680068ABC0 /* ChannelView.swift in Sources */,
 				AA99E9B4219B2F6200FD1C6F /* UIScrollView+.swift in Sources */,
+				AAD7E0E821F1AEB1000D8D6A /* XSAlertView.m in Sources */,
 				AA38DCA5217EF41F0046D82D /* RxUtil.swift in Sources */,
 				AA0AF3B421ABCAE2003C1FF2 /* SceneListViewController.swift in Sources */,
 				AA9B94BB21ECBE82000AE906 /* JdSmartCloudService.swift in Sources */,
@@ -1379,16 +1568,20 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon${BUNDLE_ID_SUFFIX}";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Example/Example.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = U4F2KFJUHF;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/libs/SCMSDK",
 				);
+				GCC_C_LANGUAGE_STANDARD = c99;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -1406,7 +1599,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/libs/IndoorVideoPhone",
 					"$(PROJECT_DIR)/libs/LeChangeSDK",
+					"$(PROJECT_DIR)/libs/IndoorVideoPhone/DongDong/jl_ios_sdk_libs",
+					"$(PROJECT_DIR)/Example/Integration/IndoorVideoPhone/weixinShare/WechtSDK1.8.2_NoPay",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.twigcodes.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.twigcodes.Example";
@@ -1414,6 +1610,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1424,16 +1621,20 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon${BUNDLE_ID_SUFFIX}";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Example/Example.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = U4F2KFJUHF;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/libs/SCMSDK",
 				);
+				GCC_C_LANGUAGE_STANDARD = c99;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -1451,13 +1652,17 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/libs/IndoorVideoPhone",
 					"$(PROJECT_DIR)/libs/LeChangeSDK",
+					"$(PROJECT_DIR)/libs/IndoorVideoPhone/DongDong/jl_ios_sdk_libs",
+					"$(PROJECT_DIR)/Example/Integration/IndoorVideoPhone/weixinShare/WechtSDK1.8.2_NoPay",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.twigcodes.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match AppStore com.twigcodes.Example";
 				SWIFT_OBJC_BRIDGING_HEADER = "Example/Example-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
@@ -1577,16 +1782,20 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = "$(inherited)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon${BUNDLE_ID_SUFFIX}";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Example/Example.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = U4F2KFJUHF;
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/libs/SCMSDK",
 				);
+				GCC_C_LANGUAGE_STANDARD = c99;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"${PODS_ROOT}/Headers/Public\"",
@@ -1604,7 +1813,10 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/libs/IndoorVideoPhone",
 					"$(PROJECT_DIR)/libs/LeChangeSDK",
+					"$(PROJECT_DIR)/libs/IndoorVideoPhone/DongDong/jl_ios_sdk_libs",
+					"$(PROJECT_DIR)/Example/Integration/IndoorVideoPhone/weixinShare/WechtSDK1.8.2_NoPay",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.twigcodes.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "match Development com.twigcodes.Example";
@@ -1612,6 +1824,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 arm64e armv7 armv7s";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Local;
