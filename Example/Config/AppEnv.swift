@@ -6,8 +6,6 @@
 //  Copyright © 2018年 twigcodes. All rights reserved.
 //
 
-import Foundation
-
 struct AppEnv {
     static let appEnv: Dictionary<String, Any> = Bundle.main.infoDictionary!["APP_ENV"] as! Dictionary
     static let apiBaseUrl: String = appEnv["API_BASE_URL"] as! String
@@ -30,13 +28,17 @@ struct AppEnv {
     static let pushSecret = push["APP_SECRET"]!
     static let umengAppId: String = appEnv["UMENG_APPID"] as! String
     static let buglyAppId: String = appEnv["BUGLY_APPID"] as! String
-    static let smartCloud: Dictionary<String, String> = Bundle.main.infoDictionary!["SMART_CLOUD"] as! Dictionary
+    static let smartCloud: Dictionary<String, String> = appEnv["SMART_CLOUD"] as! Dictionary
     static let smartCloudAppKey = smartCloud["APP_KEY"]!
     static let smartCloudAppSecret = smartCloud["APP_SECRET"]!
-    static let leChange: Dictionary<String, String> = Bundle.main.infoDictionary!["LECHANGE"] as! Dictionary
+    static let leChange: Dictionary<String, String> = appEnv["LECHANGE"] as! Dictionary
     static let leChangeApiUrl = leChange["API_URL"]!
     static let leChangeAppId = leChange["APP_ID"]!
     static let leChangeAppSecret = leChange["APP_SECRET"]!
+    static let leanCloud: Dictionary<String, String> = appEnv["LEANCLOUD"] as! Dictionary
+    static let leanCloudApiUrl = leanCloud["API_URL"]!
+    static let leanCloudAppId = leanCloud["APP_ID"]!
+    static let leanCloudAppSecret = leanCloud["APP_SECRET"]!
 //    static let urlTypes = Bundle.main.infoDictionary!["CFBundleURLTypes"]
 //    static let urlScheme: String = (urlTypes![1] as Dictionary)["CFBundleURLSchemes"]![0]
 }

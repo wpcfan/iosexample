@@ -8,7 +8,7 @@
 
 import ObjectMapper
 
-struct LeanCloudResult<T>: Mappable where T: Mappable {
+struct LeanCloudCollection<T>: Mappable where T: Mappable {
     var results: [T] = []
     var count = 0
     

@@ -8,8 +8,6 @@
 
 import RxSwift
 import ReactorKit
-import Moya_ObjectMapper
-import Moya
 
 class ChannelViewReactor: Reactor {
     
@@ -32,17 +30,17 @@ class ChannelViewReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .load:
-            return
-                HomeProvider.request(.channels)
-                    .mapArray(Banner.self)
-                    .map { .loadSuccess($0) }
-                    .asObservable()
-                    .catchError({ err -> Observable<ChannelViewReactor.Mutation> in
-                        if let error = err as? MoyaError, let body = try! error.response?.mapObject(APIError.self) {
-                            return Observable.of(.loadFail(body))
-                        }
-                        return Observable.of(.loadFail(APIError(title: "Uncatched Exception", status: -1, detail: "Unkown Reason", type: "UnkownHttpError", stacktrace: [])))
-                    })
+            return Observable.of(.loadSuccess([]))
+//                HomeProvider.request(.channels)
+//                    .mapArray(Banner.self)
+//                    .map { .loadSuccess($0) }
+//                    .asObservable()
+//                    .catchError({ err -> Observable<ChannelViewReactor.Mutation> in
+//                        if let error = err as? MoyaError, let body = try! error.response?.mapObject(APIError.self) {
+//                            return Observable.of(.loadFail(body))
+//                        }
+//                        return Observable.of(.loadFail(APIError(title: "Uncatched Exception", status: -1, detail: "Unkown Reason", type: "UnkownHttpError", stacktrace: [])))
+//                    })
         }
     }
     

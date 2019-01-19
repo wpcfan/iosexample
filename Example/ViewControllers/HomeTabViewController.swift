@@ -9,6 +9,7 @@
 import UIKit
 import Layout
 import URLNavigator
+import PinLayout
 
 class MainNavigationController: UINavigationController { }
 
@@ -51,11 +52,7 @@ extension HomeTabViewController: LayoutLoading {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.titleView?.snp.makeConstraints { make in
-            make.width.equalTo(0.8 * self.view.frame.width)
-            make.height.equalToSuperview()
-            make.centerX.equalToSuperview()
-        }
+        self.navigationItem.titleView?.pin.height(100%).hCenter().width(80%)
         
         loadLayout(
             named: "HomeTabViewController.xml",

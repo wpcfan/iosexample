@@ -6,7 +6,6 @@
 //  Copyright © 2018年 twigcodes. All rights reserved.
 //
 import Eureka
-import SnapKit
 import UIKit
 
 class RegisterViewController: FormViewController {

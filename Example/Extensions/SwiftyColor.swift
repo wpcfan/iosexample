@@ -57,14 +57,14 @@ public func ~ (color: Color, alpha: CGFloat) -> Color {
     return color.withAlphaComponent(alpha)
 }
 
-/// e.g. `50%`
-postfix operator %
-public postfix func % (percent: Int) -> CGFloat {
-    return CGFloat(percent)%
+// e.g. `%50`
+prefix operator %
+public prefix func % (percent: Int) -> CGFloat {
+    return %CGFloat(percent)
 }
-public postfix func % (percent: Float) -> CGFloat {
-    return CGFloat(percent)%
+public prefix func % (percent: Float) -> CGFloat {
+    return %CGFloat(percent)
 }
-public postfix func % (percent: CGFloat) -> CGFloat {
+public prefix func % (percent: CGFloat) -> CGFloat {
     return percent / 100
 }

@@ -8,12 +8,10 @@
 
 import RxSwift
 import ReactorKit
-import Moya_ObjectMapper
-import Moya
 import URLNavigator
 
 class BannerViewReactor: Reactor {
-    
+    let service = container.resolve(BannerService.self)!
     enum Action {
         case load
     }
@@ -35,17 +33,17 @@ class BannerViewReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .load:
-            return
-                HomeProvider.request(.banners)
-                    .mapArray(Banner.self)
-                    .map { .loadSuccess($0) }
-                    .asObservable()
-                    .catchError({ err -> Observable<BannerViewReactor.Mutation> in
-                        if let error = err as? MoyaError, let body = try error.response?.mapObject(APIError.self) {
-                            return Observable.of(.loadFail(body))
-                        }
-                        return Observable.of(.loadFail(APIError(title: "Uncatched Exception", status: -1, detail: "Unkown Reason", type: "UnkownHttpError", stacktrace: [])))
-                    })
+            return service.getAll().map { .loadSuccess($0) }
+//                HomeProvider.request(.banners)
+//                    .mapArray(Banner.self)
+//                    .map { .loadSuccess($0) }
+//                    .asObservable()
+//                    .catchError({ err -> Observable<BannerViewReactor.Mutation> in
+//                        if let error = err as? MoyaError, let body = try error.response?.mapObject(APIError.self) {
+//                            return Observable.of(.loadFail(body))
+//                        }
+//                        return Observable.of(.loadFail(APIError(title: "Uncatched Exception", status: -1, detail: "Unkown Reason", type: "UnkownHttpError", stacktrace: [])))
+//                    })
         }
     }
     

@@ -8,8 +8,6 @@
 
 import RxSwift
 import ReactorKit
-import Moya_ObjectMapper
-import Moya
 import URLNavigator
 import Shallows
 

@@ -9,6 +9,7 @@
 import RxSwift
 
 class NotificationService {
+
     func addTag(_ tag: String) -> Observable<String> {
         print("enter addTag")
         return Observable.create({ (observer) -> Disposable in
@@ -22,6 +23,7 @@ class NotificationService {
                 }
             }, seq: 1)
             #endif
+            print("leave addTag")
             return Disposables.create()
         })
     }
@@ -40,6 +42,7 @@ class NotificationService {
                 }
             }, seq: 1)
             #endif
+            print("leave addTags")
             return Disposables.create()
         })
     }
@@ -56,6 +59,7 @@ class NotificationService {
                     observer.onError(NSError(domain: "tag not deleted", code: res, userInfo: ["seq": seq]))
                 }
             }, seq: 1)
+            print("leave deleteTag")
             #endif
             return Disposables.create()
         })
@@ -75,6 +79,7 @@ class NotificationService {
                 }
             }, seq: 1)
             #endif
+            print("leave deleteTags")
             return Disposables.create()
         })
     }
@@ -92,6 +97,7 @@ class NotificationService {
                 }
             }, seq: 1)
             #endif
+            print("leave cleanTags")
             return Disposables.create()
         })
     }
@@ -110,6 +116,7 @@ class NotificationService {
                 }
             }, seq: 1)
             #endif
+            print("leave getAllTags")
             return Disposables.create()
         })
     }
@@ -128,6 +135,7 @@ class NotificationService {
                 }
             }
             #endif
+            print("leave setMobile")
             return Disposables.create()
         })
     }

@@ -14,10 +14,11 @@
 #import <Bugly/Bugly.h>                 // Bugly 崩溃分析组件
 
 // 七牛
-#import "AFNetworking/AFNetworking.h"
-#import "Qiniu/QiniuSDK.h"
-#import "HappyDNS/HappyDNS.h"
+//#import "AFNetworking/AFNetworking.h"
+//#import "Qiniu/QiniuSDK.h"
+//#import "HappyDNS/HappyDNS.h"
 
+#ifdef TARGET_OS_IPHONE
 // 乐橙/大华摄像头
 #import "LCOpenSDK/LCOpenSDK_Api.h"
 #import "LCOpenSDK/LCOpenSDK_AudioTalk.h"
@@ -35,6 +36,9 @@
 // 京东智能 门内机
 #import "Integration/IndoorVideoPhone/SCMInterphoneManager.h"
 #import "Integration/IndoorVideoPhone/DongDong/DongDongManager.h"
+#endif
+// Crypto
+//#import <CommonCrypto/CommonHMAC.h>
 // CocoaDebug 日志宏定义
 #ifdef DEBUG
 #define NSLog(fmt, ...) [CocoaDebug objcLog:[[NSString stringWithUTF8String:__FILE__] lastPathComponent] :NSStringFromSelector(_cmd) :__LINE__ :(fmt, ##__VA_ARGS__) :[UIColor whiteColor]]

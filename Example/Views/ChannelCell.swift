@@ -8,63 +8,38 @@
 
 import UIKit
 import ReactorKit
+import PinLayout
 
 class ChannelCell: BaseItemCell, View {
     typealias Reactor = BannerViewReactor
-    private var stackView = UIStackView().then {
-        $0.axis = .horizontal
-        $0.distribution = .fillEqually
-        $0.spacing = 16
-        $0.alignment = .fill
-        $0.clipsToBounds = true
-    }
+    private var label = UILabel()
+    private var button = UIButton()
     
-    var channels: [Banner]? {
+    var channel: Banner? {
         didSet {
-            guard let channels = channels else { return }
-            initControls(channels: channels)
+            guard let channel = channel else { return }
+            initControls(channel: channel)
         }
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        stackView.snp.makeConstraints { make in
-            make.size.equalToSuperview()
-        }
+        guard let imageView = imageView else { return }
+        imageView.pin.top(8).center().width(48).height(48)
+        label.pin.below(of: imageView, aligned: .center).height(16).marginTop(8)
     }
     
     override func initialize() {
-        contentView.addSubview(stackView)
+        contentView.addSubview(label)
+        contentView.addSubview(button)
     }
     
     func bind(reactor: Reactor) {
         
     }
     
-    private func initControls(channels: [Banner]) {
-        stackView.removeAllArrangedSubviews()
-        channels.forEach { (channel) in
-            let label = UILabel().then {
-                $0.text = channel.label
-            }
-            let imageView = UIImageView().then {
-                $0.pin_setImage(from: URL(string: channel.imageUrl!))
-            }
-            let button = UIButton().then {
-                $0.addSubview(imageView)
-                $0.addSubview(label)
-            }
-            imageView.snp.makeConstraints { make in
-                make.top.equalToSuperview().offset(8)
-                make.centerX.equalToSuperview()
-                make.width.height.equalTo(48)
-            }
-            label.snp.makeConstraints { make in
-                make.top.equalTo(imageView.snp.bottom).offset(8)
-                make.centerX.equalTo(imageView)
-                make.height.equalTo(16)
-            }
-            stackView.addArrangedSubview(button)
-        }
+    private func initControls(channel: Banner) {
+        label.text = channel.label
+        imageView?.pin_setImage(from: URL(string: channel.imageUrl!))
     }
 }

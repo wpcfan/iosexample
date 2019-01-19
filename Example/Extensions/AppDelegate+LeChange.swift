@@ -9,8 +9,8 @@
 extension AppDelegate {
     func setupLeChange() -> Void {
         #if !targetEnvironment(simulator)
-        let certPath = Bundle.main.path(forResource: "cert", ofType: "pem")
-        LCOpenSDK_Api.init(openApi: AppEnv.apiBaseUrl, port: 443, ca_PATH: certPath)
+        let leChangeService = container.resolve(LeChangeService.self)!
+        leChangeService.initLeChange()
         #endif
     }
 }

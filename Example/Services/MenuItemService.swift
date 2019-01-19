@@ -1,5 +1,5 @@
 //
-//  QuestionService.swift
+//  MenuItemService.swift
 //  Example
 //
 //  Created by 王芃 on 2019/1/19.
@@ -10,7 +10,7 @@
 class MenuItemService: LeanCloudBaseService<MenuItem> {
     override var entityPath: String {
         get{
-            return "MenuItems"
+            return "menu_items"
         }
         set {}
     }

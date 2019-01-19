@@ -8,7 +8,6 @@
 
 import RxSwift
 import ReactorKit
-import Moya_ObjectMapper
 
 class HomeViewControllerReactor: Reactor {
     enum Action {

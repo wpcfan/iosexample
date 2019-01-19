@@ -79,10 +79,7 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.titleForTranslucent.snp.makeConstraints { make in
-            make.height.equalTo(44)
-            make.width.equalTo(HomeViewController.MIN_TOOLBAR_WIDTH * self.view.frame.width)
-        }
+        self.titleForTranslucent.pin.width(HomeViewController.MIN_TOOLBAR_WIDTH * self.view.frame.width).height(44)
     }
 }
 

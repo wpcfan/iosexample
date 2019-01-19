@@ -8,7 +8,6 @@
 
 import RxSwift
 import ReactorKit
-import Moya_ObjectMapper
 
 class AuthViewControllerReactor: Reactor {
     let oauthService = container.resolve(OAuth2Service.self)!

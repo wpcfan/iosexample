@@ -7,6 +7,7 @@
 //
 
 import ReactorKit
+import PinLayout
 
 class SceneCell: BaseItemCell, ReactorKit.View {
     
@@ -37,16 +38,10 @@ class SceneCell: BaseItemCell, ReactorKit.View {
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
         contentView.sizeToFit()
-        sceneIcon.snp.makeConstraints { make in
-            make.bottom.left.top.equalToSuperview()
-            make.width.equalTo(48)
-        }
-        sceneLabel.snp.makeConstraints { make in
-            make.left.equalTo(sceneIcon.snp.right).offset(16)
-            make.centerY.equalToSuperview()
-            make.height.equalTo(20)
-        }
+        sceneIcon.pin.left().vCenter().width(48)
+        sceneLabel.pin.after(of: sceneIcon, aligned: .center).height(20).marginLeft(16)
     }
     
     func bind(reactor: Reactor) {

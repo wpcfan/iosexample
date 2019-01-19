@@ -12,7 +12,7 @@ class JdSmartCloudService {
         print("enter initSmartCloud")
         #if !targetEnvironment(simulator)
         let appKey = AppEnv.smartCloudAppKey
-        log.debug(appKey)
+        print("[JdSmartCloudService] 为京东 SDK 设置 appkey \(appKey)")
         SCMInitManager.sharedInstance().registerAppKey(appKey)
         SCMInitManager.sharedInstance().startLoop()
         #endif
@@ -36,7 +36,7 @@ class JdSmartCloudService {
         #if !targetEnvironment(simulator)
 
         SCMIFTTTManager.getIFTTTList(page, pageSize: pageSize!, extend: extend) { (dict) in
-            let result = dict! as NSDictionary
+            let result = dict as! NSDictionary
             print(result["status"] ?? "Not Returning Status Value")
         }
         #endif

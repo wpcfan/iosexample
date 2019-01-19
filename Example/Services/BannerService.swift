@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+class BannerService: LeanCloudBaseService<Banner> {
+    private lazy var _entityPath: String = "banners"
+    override var entityPath: String {
+        get{
+            return _entityPath
+        }
+        set {
+            _entityPath = newValue
+        }
+    }
+}

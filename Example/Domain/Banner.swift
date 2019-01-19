@@ -11,7 +11,7 @@ import RxDataSources
 
 struct Banner: Mappable {
     
-    var id: String?
+    var objectId: String?
     var imageUrl: String?
     var label: String?
     var link: String?
@@ -20,16 +20,22 @@ struct Banner: Mappable {
     }
     
     init(id: String?, imageUrl: String, label: String, link: String) {
-        self.id = id
+        self.objectId = id
         self.imageUrl = imageUrl
         self.label = label
         self.link = link
     }
     
     mutating func mapping(map: Map) {
-        id <- map["id"]
+        objectId <- map["objectId"]
         imageUrl <- map["imageUrl"]
         label <- map["label"]
         link <- map["link"]
+    }
+    
+    var id: String? {
+        get {
+            return objectId
+        }
     }
 }

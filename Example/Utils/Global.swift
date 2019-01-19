@@ -5,7 +5,6 @@
 //  Copyright © 2018 twigcodes. All rights reserved.
 //
 import JustLog
-import Moya
 import p2_OAuth2
 import Shallows
 import Swinject
@@ -66,9 +65,17 @@ let container: Container = {
         NavigationMap.initialize(navigator: navigator)
         return navigator
     }
+    container.register(HttpClient.self) { _ in
+        HttpClient()
+    }
+    container.register(BannerService.self) { _ in
+        BannerService()
+    }
     #if !targetEnvironment(simulator)
         container.register(JdSmartCloudService.self) { _ in JdSmartCloudService() }
         container.register(IndoorPhoneService.self) { _ in IndoorPhoneService() }
+        container.register(LeChangeService.self) { _ in LeChangeService() }
+        container.register(NotificationService.self) { _ in NotificationService() }
     #endif
     return container
 }()
