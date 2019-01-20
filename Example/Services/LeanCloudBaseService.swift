@@ -61,7 +61,16 @@ class LeanCloudBaseService<T>: Crudable where T: Mappable {
             collection.count
         }
     }
-    
+    /**
+     Query the data and get paginated results
+     
+     - Parameter skip: the item position to start with
+     - Parameter limit: the size of the data returned
+     - Parameter sort: the order to sort the data
+     - Parameter filter: the condition to filter the data
+     
+     - Returns: A stream encapsulated in LeanCloudCollection
+     */
     func page(skip: Int, limit: Int, sort: String? = nil, filter: String? = nil) -> Observable<LeanCloudCollection<T>> {
         loading.onNext(true)
         var urlComponents = URLComponents(string: "\(baseUrl)/\(entityPath)")!
