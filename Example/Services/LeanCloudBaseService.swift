@@ -46,36 +46,49 @@ class LeanCloudBaseService<T>: Crudable where T: Mappable {
             })
     }
     
-    func getAll() -> Observable<[T]> {
-        loading.onNext(true)
-        let url = URL(string: "\(baseUrl)/\(entityPath)")!
-        let req = URLRequest(url: url, headers: self.reqHeaders)
-        return client.requestJson(req).map{ (json) -> [T] in
-            let res = json as! [String: Any]
-            let collection = Mapper<LeanCloudCollection<T>>().map(JSON: res)!
-            return collection.results
-            }.retry(3)
-            .catchError{ (err) in
-                throw self.handleError(err)
-            }.do(onCompleted: {
-                self.loading.onNext(false)
-            })
+    func getAllResult() -> Observable<LeanCloudCollection<T>> {
+        return page(skip: Constants.DEFAULT_PAGE_SKIP, limit: Constants.DEFAULT_PAGE_LIMIT, sort: nil, filter: nil)
     }
     
-    func page(skip: Int, limit: Int, sort: String, filter: String) -> Observable<[T]> {
+    func getAll() -> Observable<[T]> {
+        return getAllResult().map { (collection) -> [T] in
+            collection.results
+        }
+    }
+    
+    func count() -> Observable<Int> {
+        return getAllResult().map { (collection) -> Int in
+            collection.count
+        }
+    }
+    
+    func page(skip: Int, limit: Int, sort: String? = nil, filter: String? = nil) -> Observable<LeanCloudCollection<T>> {
         loading.onNext(true)
-        let url = URL(string: "\(baseUrl)/\(entityPath)")!
-        let req = URLRequest(url: url, headers: self.reqHeaders)
-        return client.requestJson(req).map{ (json) -> [T] in
+        var urlComponents = URLComponents(string: "\(baseUrl)/\(entityPath)")!
+        var queries = [
+            URLQueryItem(name: "count", value: String(Constants.DEFAULT_COUNT)),
+            URLQueryItem(name: "limit", value: String(limit)),
+            URLQueryItem(name: "skip", value: String(skip))
+        ]
+        if let sort = sort {
+            queries.append(URLQueryItem(name: "order", value: sort))
+        }
+        if let filter = filter {
+            queries.append(URLQueryItem(name: "where", value: filter))
+        }
+        urlComponents.queryItems = queries
+        let req = URLRequest(url: urlComponents.url!, headers: self.reqHeaders)
+        return client.requestJson(req).map{ (json) in
             let res = json as! [String: Any]
             let collection = Mapper<LeanCloudCollection<T>>().map(JSON: res)!
-            return collection.results
+            return collection
             }.retry(3)
             .catchError{ (err) in
                 throw self.handleError(err)
             }.do(onCompleted: {
                 self.loading.onNext(false)
             })
+            .share()
     }
     
     func add(_ entity: T) -> Observable<T> {

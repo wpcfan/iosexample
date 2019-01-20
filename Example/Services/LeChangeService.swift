@@ -15,7 +15,7 @@ class LeChangeService {
         #if !targetEnvironment(simulator)
         let certPath = Bundle.main.path(forResource: "cert", ofType: "pem")
         api = LCOpenSDK_Api(openApi: AppEnv.apiBaseUrl, port: 443, ca_PATH: certPath)
-        
+
         #endif
         print("exit initLeChange")
     }

@@ -60,6 +60,7 @@
 		AA3E0E9B2171176300958937 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = AA3E0E9A2171176300958937 /* data.json */; };
 		AA3E0EA52172328100958937 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0EA42172328100958937 /* UIStackView+.swift */; };
 		AA3E0EBB21737D0600958937 /* LayoutExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0EBA21737D0600958937 /* LayoutExtensions.swift */; };
+		AA3E905121F41D0200985675 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E905021F41D0200985675 /* Constants.swift */; };
 		AA420586217AD80C0068ABC0 /* ModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA420585217AD80C0068ABC0 /* ModelType.swift */; };
 		AA420588217B66210068ABC0 /* UIView+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA420587217B66210068ABC0 /* UIView+Blur.swift */; };
 		AA42058E217B8C680068ABC0 /* ChannelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA42058D217B8C680068ABC0 /* ChannelView.swift */; };
@@ -296,6 +297,7 @@
 		AA3E0E9A2171176300958937 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		AA3E0EA42172328100958937 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		AA3E0EBA21737D0600958937 /* LayoutExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutExtensions.swift; sourceTree = "<group>"; };
+		AA3E905021F41D0200985675 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		AA420585217AD80C0068ABC0 /* ModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelType.swift; sourceTree = "<group>"; };
 		AA420587217B66210068ABC0 /* UIView+Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Blur.swift"; sourceTree = "<group>"; };
 		AA42058D217B8C680068ABC0 /* ChannelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelView.swift; sourceTree = "<group>"; };
@@ -654,13 +656,6 @@
 			path = Rx;
 			sourceTree = "<group>";
 		};
-		AA433F10218C519A00BA60A1 /* Rx */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Rx;
-			sourceTree = "<group>";
-		};
 		AA433F11218C525500BA60A1 /* IDEConfig */ = {
 			isa = PBXGroup;
 			children = (
@@ -811,6 +806,8 @@
 				AAC5EB8F215E7D56008EBA1F /* AppEnv.swift */,
 				AA6839D9216DE1EA00E4097B /* AppIcons.swift */,
 				AA6839DD216E0A0500E4097B /* AppLayoutClousures.swift */,
+				AA3E905021F41D0200985675 /* Constants.swift */,
+				AA433F08218C4AB300BA60A1 /* Global.swift */,
 				AA6839D7216DE04F00E4097B /* UIColor+Theme.swift */,
 			);
 			path = Config;
@@ -865,8 +862,6 @@
 		AAC5EB9C215E7EA4008EBA1F /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				AA433F10218C519A00BA60A1 /* Rx */,
-				AA433F08218C4AB300BA60A1 /* Global.swift */,
 				AA4B493B2179BBD900A60C11 /* Permission.swift */,
 				AA3E0E772170478200958937 /* PullToRefreshUtil.swift */,
 				AA38DCA4217EF41F0046D82D /* RxUtil.swift */,
@@ -1398,6 +1393,7 @@
 				AA3E0E7E2170540F00958937 /* Product.swift in Sources */,
 				AA4B49212178883F00A60C11 /* Reactive+UIViewController.swift in Sources */,
 				AA4B48F02175E4D000A60C11 /* APIError.swift in Sources */,
+				AA3E905121F41D0200985675 /* Constants.swift in Sources */,
 				AA0AF3B821ABCC24003C1FF2 /* DeviceListViewController.swift in Sources */,
 				AA82251521AE5D2900FDDC8F /* HomeBannerViewController.swift in Sources */,
 				AA0ACFD121ECB49E00CE6D1D /* AppDelegate+SmartCloud.swift in Sources */,
