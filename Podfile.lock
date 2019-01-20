@@ -91,6 +91,15 @@ PODS:
   - UMCAnalytics (6.0.1):
     - UMCCommon
   - UMCCommon (2.0.0)
+  - UMCSecurityPlugins (1.0.6)
+  - UMCShare/Core (6.9.5):
+    - UMCCommon
+  - UMCShare/Social/ReducedWeChat (6.9.5):
+    - UMCCommon
+    - UMCShare/Core
+  - UMCShare/UI (6.9.5):
+    - UMCCommon
+    - UMCShare/Core
   - URLNavigator (2.1.0)
 
 DEPENDENCIES:
@@ -129,6 +138,9 @@ DEPENDENCIES:
   - "UITextView+Placeholder"
   - UMCAnalytics
   - UMCCommon
+  - UMCSecurityPlugins
+  - UMCShare/Social/ReducedWeChat
+  - UMCShare/UI
   - URLNavigator (~> 2.0)
 
 SPEC REPOS:
@@ -174,6 +186,8 @@ SPEC REPOS:
     - "UITextView+Placeholder"
     - UMCAnalytics
     - UMCCommon
+    - UMCSecurityPlugins
+    - UMCShare
     - URLNavigator
 
 SPEC CHECKSUMS:
@@ -218,8 +232,10 @@ SPEC CHECKSUMS:
   "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
   UMCAnalytics: c267acd9bb4a87e5f01735c158b63a617908f92e
   UMCCommon: 79b5a614c958db367113eed5740109d9a98e1223
+  UMCSecurityPlugins: 0831a08f3988f3cea9f1d3a7626cd9bee4fef150
+  UMCShare: 552b29753f1b4da87b51d96545ed19e6263df397
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
 
-PODFILE CHECKSUM: 45a3003c08a8fbc009ce079f678a3e55e2b44201
+PODFILE CHECKSUM: 44e55548207468142d06e31a0810f472ca4fb98a
 
 COCOAPODS: 1.5.3

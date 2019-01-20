@@ -18,7 +18,7 @@
 //#import "Qiniu/QiniuSDK.h"
 //#import "HappyDNS/HappyDNS.h"
 
-#ifdef TARGET_OS_IPHONE
+#if !(TARGET_IPHONE_SIMULATOR)
 // 乐橙/大华摄像头
 #import "LCOpenSDK/LCOpenSDK_Api.h"
 #import "LCOpenSDK/LCOpenSDK_AudioTalk.h"
@@ -31,8 +31,8 @@
 #import "LCOpenSDK/LCOpenSDK_PlayWindow.h"
 #import "LCOpenSDK/LCOpenSDK_TalkerListener.h"
 #import "LCOpenSDK/LCOpenSDK_Utils.h"
-
-#import <SCMSDK/SCMSDK.h>               // 京东智能 SDK
+// 京东智能 SDK
+#import <SCMSDK/SCMSDK.h>
 // 京东智能 门内机
 #import "Integration/IndoorVideoPhone/SCMInterphoneManager.h"
 #import "Integration/IndoorVideoPhone/DongDong/DongDongManager.h"

@@ -5,7 +5,7 @@
 //  Created by zhaoaoxun on 2018/1/8.
 //  Copyright © 2018年 JD. All rights reserved.
 //
-
+#if !(TARGET_IPHONE_SIMULATOR)
 #import "SCMCallReminderController.h"
 #import "UIButton+XS.h"
 #import "XSGetIpAddress.h"
@@ -38,7 +38,9 @@ typedef NS_ENUM(NSUInteger, ControlInterphoneType) {
 }
 
 @end
+#endif
 
+#if !(TARGET_IPHONE_SIMULATOR)
 @implementation SCMCallReminderController
 
 - (void)viewDidLoad
@@ -371,3 +373,4 @@ typedef NS_ENUM(NSUInteger, ControlInterphoneType) {
 }
 
 @end
+#endif

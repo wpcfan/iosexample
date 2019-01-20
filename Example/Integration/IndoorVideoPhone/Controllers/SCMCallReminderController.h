@@ -5,7 +5,7 @@
 //  Created by zhaoaoxun on 2018/1/8.
 //  Copyright © 2018年 JD. All rights reserved.
 //
-
+#if !(TARGET_IPHONE_SIMULATOR)
 #import <UIKit/UIKit.h>
 
 /**
@@ -27,3 +27,4 @@
 @property(nonatomic, strong)NSString *gwGuid;//网关guid
 
 @end
+#endif

@@ -40,6 +40,9 @@ target 'Example' do
   # UMeng
   pod 'UMCCommon'
   pod 'UMCAnalytics'
+  pod 'UMCSecurityPlugins'
+  pod 'UMCShare/UI'
+  pod 'UMCShare/Social/ReducedWeChat'
   # Bugly
   pod 'Bugly'
   # QiNiu

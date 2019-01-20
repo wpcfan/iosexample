@@ -26,7 +26,7 @@
 #define WEIXINSHAREBTN_HEIGHT (56 + WEIXINSHAREBTN_SPACE + WEIXINSHAREBTN_FONT)
 #define WEIXINSHAREBTN_TO_BOTTOM AutoSize(50)
 #define LINE_HEIGHT 0.5
-
+#if !(TARGET_IPHONE_SIMULATOR)
 @interface SCMQRCodeUnlockController () {
     int _minute; // 倒计时:分
     int _second; // 倒计时:秒
@@ -36,7 +36,9 @@
 }
 
 @end
+#endif
 
+#if !(TARGET_IPHONE_SIMULATOR)
 @implementation SCMQRCodeUnlockController
 
 static NSString *kImageTagName = @"WECHAT_TAG_JUMP_APP";
@@ -223,3 +225,4 @@ static NSString *kMessageAction = @"<action>dotalist</action>";
 }
 
 @end
+#endif

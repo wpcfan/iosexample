@@ -11,8 +11,8 @@ import Foundation
 class LeChangeService {
     public func initLeChange() -> Void {
         print("enter initLeChange")
-        var api: LCOpenSDK_Api? = nil
         #if !targetEnvironment(simulator)
+        var api: LCOpenSDK_Api? = nil
         let certPath = Bundle.main.path(forResource: "cert", ofType: "pem")
         api = LCOpenSDK_Api(openApi: AppEnv.apiBaseUrl, port: 443, ca_PATH: certPath)
 
@@ -20,13 +20,12 @@ class LeChangeService {
         print("exit initLeChange")
     }
     
-    public func configWiFi() -> LCOpenSDK_ConfigWIfi? {
+    public func configWiFi() -> Void {
         print("enter configWiFi")
-        var api: LCOpenSDK_ConfigWIfi? = nil
         #if !targetEnvironment(simulator)
+        var api: LCOpenSDK_ConfigWIfi? = nil
         api = LCOpenSDK_ConfigWIfi()
         #endif
         print("exit configWiFi")
-        return api
     }
 }

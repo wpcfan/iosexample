@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
+#if !(TARGET_IPHONE_SIMULATOR)
 @interface DongDongManager : NSObject
 
 + (DongDongManager *)shareDongDongManager;
@@ -42,3 +43,4 @@
 - (void)stopVideo;
 
 @end
+#endif

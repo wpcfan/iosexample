@@ -8,7 +8,7 @@
 
 #import "DongDongManager.h"
 #import "MyMediaStackCallback.hpp"
-
+#if !(TARGET_IPHONE_SIMULATOR)
 @implementation DongDongManager
 
 JDRTCVideoMediaStack *media_stack_ = nullptr;
@@ -56,3 +56,4 @@ JDRTCVideoMediaStack *media_stack_ = nullptr;
 }
 
 @end
+#endif

@@ -18,7 +18,7 @@
 
 typedef void(^registerSignalSuccessBlock)();
 typedef void(^registerSignalFailBlock)(NSError *error);
-
+#if !(TARGET_IPHONE_SIMULATOR)
 @interface SCMInterphoneManager () {
     UINavigationController *_navVC;
     SCMCallReminderController *_callReminderVC;
@@ -30,7 +30,9 @@ typedef void(^registerSignalFailBlock)(NSError *error);
 @property (nonatomic, assign) BOOL isOpenCallReminder; // 标记已经打开来电提醒页
 
 @end
+#endif
 
+#if !(TARGET_IPHONE_SIMULATOR)
 @implementation SCMInterphoneManager
 
 // 单例
@@ -449,3 +451,4 @@ typedef void(^registerSignalFailBlock)(NSError *error);
 }
 
 @end
+#endif
