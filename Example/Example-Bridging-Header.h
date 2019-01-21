@@ -8,9 +8,15 @@
 #ifdef NSFoundationVersionNumber_iOS_9_x_Max
 #import <UserNotifications/UserNotifications.h>
 #endif
-
+// 友盟
 #import <UMCommon/UMCommon.h>           // 公共组件是所有友盟产品的基础组件，必选
 #import <UMAnalytics/MobClick.h>        // 友盟统计组件
+//#import <UMShare/UMShare.h>             // U-Share核心SDK
+//#import <UShareUI/UShareUI.h>           // U-Share分享面板SDK，未添加分享面板SDK可将此行去掉
+#ifdef DEBUG
+#import <UMCommonLog/UMCommonLogHeaders.h>
+#endif
+// Bugly
 #import <Bugly/Bugly.h>                 // Bugly 崩溃分析组件
 
 // 七牛
@@ -37,11 +43,9 @@
 #import "Integration/IndoorVideoPhone/SCMInterphoneManager.h"
 #import "Integration/IndoorVideoPhone/DongDong/DongDongManager.h"
 #endif
-// Crypto
-//#import <CommonCrypto/CommonHMAC.h>
 // CocoaDebug 日志宏定义
 #ifdef DEBUG
-#define NSLog(fmt, ...) [CocoaDebug objcLog:[[NSString stringWithUTF8String:__FILE__] lastPathComponent] :NSStringFromSelector(_cmd) :__LINE__ :(fmt, ##__VA_ARGS__) :[UIColor whiteColor]]
+    #define NSLog(fmt, ...) [ObjcLog logWithFile:__FILE__ function:__FUNCTION__ line:__LINE__ color:[UIColor whiteColor] unicodeToChinese:NO message:(fmt), ##__VA_ARGS__]
 #else
-#define NSLog(fmt, ...) nil
+    #define NSLog(fmt, ...) nil
 #endif

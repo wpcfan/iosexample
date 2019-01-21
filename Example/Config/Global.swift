@@ -68,6 +68,9 @@ let container: Container = {
     container.register(HttpClient.self) { _ in
         HttpClient()
     }
+    container.register(SocialService.self) { _ in
+        SocialService()
+    }
     container.register(BannerService.self) { _ in
         BannerService()
     }

@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var disposeBag = DisposeBag()
     var window: UIWindow?
     let navigator = container.resolve(NavigatorType.self)!
+    let social = container.resolve(SocialService.self)!
 
     func application(
         _ application: UIApplication,
@@ -24,6 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupDebug()
         setupBugly()
         setupUMeng()
+        setupSocial()
         setupJdSmartCloud()
         setupLeChange()
         setupPushNotification(launchOptions)
@@ -43,6 +45,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         open url: URL,
         options: [UIApplication.OpenURLOptionsKey: Any] = [:]
         ) -> Bool {
+        if(social.handleOpenURL(url: url)) {
+            return true
+        }
         //        if "example" == url.scheme || (url.scheme?.hasPrefix("com.twigcodes.ios"))! {
         //            oauth2.handleRedirectURL(url)
         //            return true
@@ -58,7 +63,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("[Navigator] open: \(url)")
             return true
         }
-
+        
         return false
     }
 

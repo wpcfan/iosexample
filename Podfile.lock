@@ -20,6 +20,7 @@ PODS:
   - Layout (0.6.35):
     - Layout/Core (= 0.6.35)
   - Layout/Core (0.6.35)
+  - MonkeyKing (1.12.1)
   - ObjectMapper (3.4.2)
   - OHHTTPStubs/Core (6.1.0)
   - OHHTTPStubs/Default (6.1.0):
@@ -91,15 +92,7 @@ PODS:
   - UMCAnalytics (6.0.1):
     - UMCCommon
   - UMCCommon (2.0.0)
-  - UMCSecurityPlugins (1.0.6)
-  - UMCShare/Core (6.9.5):
-    - UMCCommon
-  - UMCShare/Social/ReducedWeChat (6.9.5):
-    - UMCCommon
-    - UMCShare/Core
-  - UMCShare/UI (6.9.5):
-    - UMCCommon
-    - UMCShare/Core
+  - UMCCommonLog (1.0.0)
   - URLNavigator (2.1.0)
 
 DEPENDENCIES:
@@ -113,6 +106,7 @@ DEPENDENCIES:
   - JustLog
   - JWTDecode (~> 2.1)
   - Layout (~> 0.6)
+  - MonkeyKing
   - ObjectMapper (~> 3.3)
   - OHHTTPStubs/Swift
   - p2.OAuth2
@@ -138,9 +132,7 @@ DEPENDENCIES:
   - "UITextView+Placeholder"
   - UMCAnalytics
   - UMCCommon
-  - UMCSecurityPlugins
-  - UMCShare/Social/ReducedWeChat
-  - UMCShare/UI
+  - UMCCommonLog
   - URLNavigator (~> 2.0)
 
 SPEC REPOS:
@@ -159,6 +151,7 @@ SPEC REPOS:
     - JustLog
     - JWTDecode
     - Layout
+    - MonkeyKing
     - ObjectMapper
     - OHHTTPStubs
     - p2.OAuth2
@@ -186,8 +179,7 @@ SPEC REPOS:
     - "UITextView+Placeholder"
     - UMCAnalytics
     - UMCCommon
-    - UMCSecurityPlugins
-    - UMCShare
+    - UMCCommonLog
     - URLNavigator
 
 SPEC CHECKSUMS:
@@ -205,6 +197,7 @@ SPEC CHECKSUMS:
   JustLog: 24d4dbdd4d4b65fc04069f222ee34b1d9c9004cf
   JWTDecode: 85a405ab16d5473e99bd89ded1d535090ebd6a0e
   Layout: a970a8bb1cc1e5db8b1cafde341a26bf5b0c386b
+  MonkeyKing: 280cdc68eb39f8b899b17fdfe994a695f6fdc636
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
   OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
   p2.OAuth2: d5ea9b928fc5d10d088d419db6f3380578b6f866
@@ -232,10 +225,9 @@ SPEC CHECKSUMS:
   "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
   UMCAnalytics: c267acd9bb4a87e5f01735c158b63a617908f92e
   UMCCommon: 79b5a614c958db367113eed5740109d9a98e1223
-  UMCSecurityPlugins: 0831a08f3988f3cea9f1d3a7626cd9bee4fef150
-  UMCShare: 552b29753f1b4da87b51d96545ed19e6263df397
+  UMCCommonLog: 05a2d5de21858e3d870551562cff405c1366d244
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
 
-PODFILE CHECKSUM: 44e55548207468142d06e31a0810f472ca4fb98a
+PODFILE CHECKSUM: 7fbad731e7364ca5da5d5e6e2d3f4aaabb58c0f9
 
 COCOAPODS: 1.5.3

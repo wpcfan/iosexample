@@ -39,6 +39,14 @@ struct AppEnv {
     static let leanCloudApiUrl = leanCloud["API_URL"]!
     static let leanCloudAppId = leanCloud["APP_ID"]!
     static let leanCloudAppSecret = leanCloud["APP_SECRET"]!
+    static let social: Dictionary<String, String> = appEnv["SOCIAL"] as! Dictionary
+    static let socialWeChatAppKey = social["WECHAT_APP_KEY"]!
+    static let socialWeChatAppSecret = social["WECHAT_APP_SECRET"]!
+    static let socialQQAppKey = social["QQ_APP_KEY"]!
+    static let socialWeiBoAppKey = social["WEIBO_APP_KEY"]!
+    static let socialWeiBoAppSecret = social["WEIBO_APP_SECRET"]!
+    static let socialDingTalkAppKey = social["DINGTALK_APP_KEY"]!
+    static let socialAliPayAppKey = social["ALIPAY_APP_KEY"]!
 //    static let urlTypes = Bundle.main.infoDictionary!["CFBundleURLTypes"]
 //    static let urlScheme: String = (urlTypes![1] as Dictionary)["CFBundleURLSchemes"]![0]
 }
