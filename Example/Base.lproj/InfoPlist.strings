@@ -7,4 +7,4 @@
 */
 "NSCameraUsageDescription"="The app needs camera to scan QR codes";
 "NSPhotoLibraryUsageDescription"="The app needs to access your photo library to save the capture";
-"CFBundleDisplayName"="TwigExample";
+"CFBundleDisplayName"="SmartHome";

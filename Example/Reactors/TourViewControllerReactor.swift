@@ -41,7 +41,7 @@ class TourViewControllerReactor: Reactor {
         switch action {
         case .completeTour:
             return self.storage
-                .rx_set(value: AppData(tourGuidePresented: true), forKey: "data")
+                .rx_set(value: AppData(tourGuidePresented: true, userId: "", houseId: "", projectId: ""), forKey: "data")
                 .flatMap { (val) -> Observable<Mutation> in
                     return Observable.of(.setTour(completed: true))
                 }

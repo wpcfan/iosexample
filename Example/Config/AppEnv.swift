@@ -47,6 +47,7 @@ struct AppEnv {
     static let socialWeiBoAppSecret = social["WEIBO_APP_SECRET"]!
     static let socialDingTalkAppKey = social["DINGTALK_APP_KEY"]!
     static let socialAliPayAppKey = social["ALIPAY_APP_KEY"]!
+    static let appVersion:String = Bundle.main.infoDictionary![kCFBundleVersionKey as String] as! String
 //    static let urlTypes = Bundle.main.infoDictionary!["CFBundleURLTypes"]
 //    static let urlScheme: String = (urlTypes![1] as Dictionary)["CFBundleURLSchemes"]![0]
 }

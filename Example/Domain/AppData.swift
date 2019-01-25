@@ -10,4 +10,13 @@ import Foundation
 
 struct AppData: Codable {
     var tourGuidePresented: Bool
+    var userId: String
+    var houseId: String
+    var projectId: String
+    init(tourGuidePresented: Bool, userId: String, houseId: String, projectId: String) {
+        self.tourGuidePresented = tourGuidePresented
+        self.userId = userId
+        self.houseId = houseId
+        self.projectId = projectId
+    }
 }

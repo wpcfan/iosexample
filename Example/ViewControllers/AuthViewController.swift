@@ -15,11 +15,15 @@ class AuthViewController: BaseViewController {
     @objc weak var registerButton: UIButton!
     @objc weak var usernameField: UITextField!
     @objc weak var passwordField: UITextField!
-    
+    let registerService = container.resolve(RegisterService.self)!
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationController?.title = NSLocalizedString("login.navigation.title", comment: "")
         self.navigationController?.navigationBar.barStyle = .black
         self.navigationController?.navigationBar.barTintColor = UIColor.primaryDark
+        registerService.request().subscribe({ (ev) in
+            print(ev.element)
+        }).disposed(by: self.disposeBag)
     }
     
     @objc func register() -> Void {

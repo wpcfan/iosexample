@@ -39,7 +39,7 @@ class LeanCloudBaseService<T>: Crudable where T: Mappable {
             }
             .retry(3)
             .catchError{ (err) in
-                throw self.handleError(err)
+                throw handleError(err)
             }
             .do(onCompleted: {
                 self.loading.onNext(false)
@@ -93,7 +93,7 @@ class LeanCloudBaseService<T>: Crudable where T: Mappable {
             return collection
             }.retry(3)
             .catchError{ (err) in
-                throw self.handleError(err)
+                throw handleError(err)
             }.do(onCompleted: {
                 self.loading.onNext(false)
             })
@@ -114,7 +114,7 @@ class LeanCloudBaseService<T>: Crudable where T: Mappable {
             let newItem = Mapper<T>().map(JSON: newEntity)!
             return newItem
         }).catchError{ (err) in
-            throw self.handleError(err)
+            throw handleError(err)
             }.do(onDispose: {
                 self.loading.onNext(false)
             })
@@ -134,7 +134,7 @@ class LeanCloudBaseService<T>: Crudable where T: Mappable {
             let newItem = Mapper<T>().map(JSON: newEntity)!
             return newItem
         }).catchError{ (err) in
-            throw self.handleError(err)
+            throw handleError(err)
             }.do(onDispose: {
                 self.loading.onNext(false)
             })
@@ -144,29 +144,11 @@ class LeanCloudBaseService<T>: Crudable where T: Mappable {
         loading.onNext(true)
         let url = URL(string: "\(baseUrl)/\(entityPath)/\(id)")!
         return client.request(url: url, method: .delete).mapTo(id).catchError{ (err) in
-            throw self.handleError(err)
+            throw handleError(err)
             }.do(onDispose: {
                 self.loading.onNext(false)
             })
     }
     
-    func handleError(_ err: Error) -> Error {
-        switch err {
-        case HttpClientError.clientSideError(let error):
-            printError("Http Client Error \(error)")
-            break
-        case let HttpClientError.invalidResponse(response, data):
-            printError("Server Error Response \(response), and returning data \(String(describing: data))")
-            break
-        case HttpClientError.invalidJsonObject:
-            printError("Server returning an invalid json")
-            break
-        case HttpClientError.jsonDeserializationError(let err):
-            printError("the json cannot be deserialized \(err)")
-            break
-        default:
-            break
-        }
-        return err
-    }
+    
 }

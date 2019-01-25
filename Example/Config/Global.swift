@@ -74,6 +74,9 @@ let container: Container = {
     container.register(BannerService.self) { _ in
         BannerService()
     }
+    container.register(RegisterService.self) { _ in
+        RegisterService()
+    }
     #if !targetEnvironment(simulator)
         container.register(JdSmartCloudService.self) { _ in JdSmartCloudService() }
         container.register(IndoorPhoneService.self) { _ in IndoorPhoneService() }

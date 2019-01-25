@@ -7,4 +7,4 @@
 */
 "NSCameraUsageDescription"="应用需要访问相机来识别二维码";
 "NSPhotoLibraryUsageDescription"="应用需要访问相册来存储和展示应用生成的图片和视频";
-"CFBundleDisplayName"="推码案例";
+"CFBundleDisplayName"="首创智慧家";

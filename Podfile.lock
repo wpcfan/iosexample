@@ -5,6 +5,7 @@ PODS:
   - Bugly (2.5.0)
   - CocoaAsyncSocket (7.6.3)
   - CocoaDebug (0.5.5)
+  - Device.swift (1.2.1)
   - Differentiator (3.1.0)
   - Dollar (7.1.0)
   - Eureka (4.3.1)
@@ -99,6 +100,7 @@ DEPENDENCIES:
   - Action
   - Bugly
   - CocoaDebug
+  - Device.swift
   - Dollar
   - Eureka
   - FSPagerView
@@ -141,6 +143,7 @@ SPEC REPOS:
     - Bugly
     - CocoaAsyncSocket
     - CocoaDebug
+    - Device.swift
     - Differentiator
     - Dollar
     - Eureka
@@ -187,6 +190,7 @@ SPEC CHECKSUMS:
   Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
   CocoaDebug: 80a420dbddedbeee7d3ba6ed71e22cd86b59635f
+  Device.swift: ab71b078c0f3b827090e2051be67eb5d0bbbdf48
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   Dollar: dc69a2997fa5df12ae7a91fec897963664c26750
   Eureka: 28ea296f06710f6745266b71f17862048941a32d
@@ -228,6 +232,6 @@ SPEC CHECKSUMS:
   UMCCommonLog: 05a2d5de21858e3d870551562cff405c1366d244
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
 
-PODFILE CHECKSUM: 7fbad731e7364ca5da5d5e6e2d3f4aaabb58c0f9
+PODFILE CHECKSUM: 14684040d4ffe0d76bf13926891a15d35617910c
 
 COCOAPODS: 1.5.3

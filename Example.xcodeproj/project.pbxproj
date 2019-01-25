@@ -49,6 +49,11 @@
 		AA19DC7821F573AA00B70EFE /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA19DC7021F573AA00B70EFE /* libWeChatSDK.a */; };
 		AA19DC7A21F5758900B70EFE /* SocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19DC7921F5758900B70EFE /* SocialService.swift */; };
 		AA19DC7C21F57BF000B70EFE /* AppDelegate+MonkeyKing.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19DC7B21F57BF000B70EFE /* AppDelegate+MonkeyKing.swift */; };
+		AA19DC7E21F5F1A100B70EFE /* ShouChuangService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19DC7D21F5F1A100B70EFE /* ShouChuangService.swift */; };
+		AA19DC8021F606D600B70EFE /* SmartHomeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19DC7F21F606D600B70EFE /* SmartHomeResult.swift */; };
+		AA19DC8221F60A9700B70EFE /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19DC8121F60A9700B70EFE /* Register.swift */; };
+		AA19DC8721FB3DFA00B70EFE /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19DC8621FB3DFA00B70EFE /* RegisterService.swift */; };
+		AA19DC8921FB43BB00B70EFE /* SmartApiType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19DC8821FB43BB00B70EFE /* SmartApiType.swift */; };
 		AA30C05B2167533E00B9E0EB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30C05A2167533E00B9E0EB /* SplashViewController.swift */; };
 		AA30C05F2167555C00B9E0EB /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30C05E2167555C00B9E0EB /* RootViewController.swift */; };
 		AA30C0612167561E00B9E0EB /* SplashViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA30C0602167561E00B9E0EB /* SplashViewController.xml */; };
@@ -297,6 +302,11 @@
 		AA19DC7021F573AA00B70EFE /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		AA19DC7921F5758900B70EFE /* SocialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialService.swift; sourceTree = "<group>"; };
 		AA19DC7B21F57BF000B70EFE /* AppDelegate+MonkeyKing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+MonkeyKing.swift"; sourceTree = "<group>"; };
+		AA19DC7D21F5F1A100B70EFE /* ShouChuangService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShouChuangService.swift; sourceTree = "<group>"; };
+		AA19DC7F21F606D600B70EFE /* SmartHomeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartHomeResult.swift; sourceTree = "<group>"; };
+		AA19DC8121F60A9700B70EFE /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
+		AA19DC8621FB3DFA00B70EFE /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
+		AA19DC8821FB43BB00B70EFE /* SmartApiType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartApiType.swift; sourceTree = "<group>"; };
 		AA30C05A2167533E00B9E0EB /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		AA30C05E2167555C00B9E0EB /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		AA30C0602167561E00B9E0EB /* SplashViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SplashViewController.xml; sourceTree = "<group>"; };
@@ -621,6 +631,14 @@
 			path = WechtSDK1.8.2_NoPay;
 			sourceTree = "<group>";
 		};
+		AA19DC8A21FB446600B70EFE /* PhoneInfo */ = {
+			isa = PBXGroup;
+			children = (
+				AA19DC8621FB3DFA00B70EFE /* RegisterService.swift */,
+			);
+			path = PhoneInfo;
+			sourceTree = "<group>";
+		};
 		AA30C06221679A3000B9E0EB /* Shortcuts */ = {
 			isa = PBXGroup;
 			children = (
@@ -657,6 +675,7 @@
 				AA89786621856D88005A61CA /* ImageEffects+Accelerate.swift */,
 				AA3E0EBA21737D0600958937 /* LayoutExtensions.swift */,
 				AA78BB45218D6814000B4CD8 /* NotificationCenter+.swift */,
+				AA54DF4721892C9F00CE0CA0 /* ReactorExtension.swift */,
 				AA683A06216F3D5400E4097B /* String+UrlEncode.swift */,
 				AA4B49182178883E00A60C11 /* Then.swift */,
 				AA01F4A62199511500CE6457 /* UIApplication+.swift */,
@@ -713,7 +732,6 @@
 				AAFA6625217D88F9000217C9 /* SceneViewReactor.swift */,
 				AA3AB88D21841ABA00470276 /* SplashViewControllerReactor.swift */,
 				AA3AB88F2184828800470276 /* TourViewControllerReactor.swift */,
-				AA54DF4721892C9F00CE0CA0 /* ReactorExtension.swift */,
 			);
 			path = Reactors;
 			sourceTree = "<group>";
@@ -864,9 +882,11 @@
 				AA4B9AFA219C6BAC00E194CE /* MenuItem.swift */,
 				AA3E0E7D2170540F00958937 /* Product.swift */,
 				AA3E0E7F2170543D00958937 /* ProductCategory.swift */,
+				AA19DC8121F60A9700B70EFE /* Register.swift */,
 				AA3E0E812170589F00958937 /* Scene.swift */,
 				AA3E0E8521705B4C00958937 /* ScriptTask.swift */,
 				AA3E0E8721707DD400958937 /* ScriptTrigger.swift */,
+				AA19DC7F21F606D600B70EFE /* SmartHomeResult.swift */,
 				AAC5EB92215E7DE8008EBA1F /* User.swift */,
 			);
 			path = Domain;
@@ -883,6 +903,7 @@
 		AAC5EB99215E7E71008EBA1F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				AA19DC8A21FB446600B70EFE /* PhoneInfo */,
 				AA42D7D221F306B700320BD3 /* BannerService.swift */,
 				AAD7E15D21F1EF89000D8D6A /* Crudable.swift */,
 				AA9B94BC21ECBEAD000AE906 /* IndoorPhoneService.swift */,
@@ -892,6 +913,8 @@
 				AA8481D221F2ECDA00C24D3F /* MenuItemService.swift */,
 				AA433F12218C8D9700BA60A1 /* NotificationService.swift */,
 				AAC5EBA2215E808D008EBA1F /* OAuth2Service.swift */,
+				AA19DC7D21F5F1A100B70EFE /* ShouChuangService.swift */,
+				AA19DC8821FB43BB00B70EFE /* SmartApiType.swift */,
 				AA19DC7921F5758900B70EFE /* SocialService.swift */,
 			);
 			path = Services;
@@ -902,10 +925,10 @@
 			children = (
 				AA4B493B2179BBD900A60C11 /* Permission.swift */,
 				AA3E0E772170478200958937 /* PullToRefreshUtil.swift */,
+				AA9B94C021ECC778000AE906 /* QiNiu.swift */,
 				AA38DCA4217EF41F0046D82D /* RxUtil.swift */,
 				AA4B491C2178883F00A60C11 /* RxKeyboard.swift */,
 				AA78BB57218EBB5B000B4CD8 /* RxQRUtil.swift */,
-				AA9B94C021ECC778000AE906 /* QiNiu.swift */,
 				AA8481CA21F22B2000C24D3F /* Typing.swift */,
 			);
 			path = Utils;
@@ -1204,6 +1227,7 @@
 				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaDebug/CocoaDebug.framework",
+				"${BUILT_PRODUCTS_DIR}/Device.swift/Device_swift.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/Dollar/Dollar.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
@@ -1247,6 +1271,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Action.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaDebug.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Device_swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Dollar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
@@ -1364,6 +1389,7 @@
 				AAD7E17621F1F42D000D8D6A /* RequestPluginType.swift in Sources */,
 				AA6839DA216DE1EA00E4097B /* AppIcons.swift in Sources */,
 				AA30C0682167AA3600B9E0EB /* UINavigationController+Bar.swift in Sources */,
+				AA19DC7E21F5F1A100B70EFE /* ShouChuangService.swift in Sources */,
 				AA78BB46218D6814000B4CD8 /* NotificationCenter+.swift in Sources */,
 				AA420590217B939B0068ABC0 /* ChannelViewReactor.swift in Sources */,
 				AA9B94BF21ECBED1000AE906 /* LeChangeService.swift in Sources */,
@@ -1409,6 +1435,7 @@
 				AA54DF4821892C9F00CE0CA0 /* ReactorExtension.swift in Sources */,
 				AAD7E0F621F1AEB1000D8D6A /* SCMCallReminderController.m in Sources */,
 				AAD7E0F521F1AEB1000D8D6A /* MyMediaStackCallback.cpp in Sources */,
+				AA19DC8721FB3DFA00B70EFE /* RegisterService.swift in Sources */,
 				AA4B493C2179BBD900A60C11 /* Permission.swift in Sources */,
 				AA8481CB21F22B2000C24D3F /* Typing.swift in Sources */,
 				AA693DBB2161F6010063D749 /* SocialViewController.swift in Sources */,
@@ -1456,11 +1483,13 @@
 				AA19DC7A21F5758900B70EFE /* SocialService.swift in Sources */,
 				AA3E0E802170543D00958937 /* ProductCategory.swift in Sources */,
 				AA4B48E42175006100A60C11 /* Reactive+Layout.swift in Sources */,
+				AA19DC8021F606D600B70EFE /* SmartHomeResult.swift in Sources */,
 				AA8978652185658C005A61CA /* Reactive+UIScrollView.swift in Sources */,
 				AA4B48FA217768CE00A60C11 /* BaseViewController.swift in Sources */,
 				AA4B491F2178883F00A60C11 /* Then.swift in Sources */,
 				AAE49F02216BA2EE004BDBD7 /* RegisterViewController.swift in Sources */,
 				AAC5EB6E215E7BB7008EBA1F /* AppDelegate.swift in Sources */,
+				AA19DC8921FB43BB00B70EFE /* SmartApiType.swift in Sources */,
 				AA01F4A72199511500CE6457 /* UIApplication+.swift in Sources */,
 				AA693DC32161FF620063D749 /* NavigationMap.swift in Sources */,
 				AA4B49302178EB2500A60C11 /* BannerView.swift in Sources */,
@@ -1498,6 +1527,7 @@
 				AA683A09216F434C00E4097B /* Banner.swift in Sources */,
 				AAE49EFA216A2783004BDBD7 /* AppData.swift in Sources */,
 				AA6839DE216E0A0500E4097B /* AppLayoutClousures.swift in Sources */,
+				AA19DC8221F60A9700B70EFE /* Register.swift in Sources */,
 				AA42058E217B8C680068ABC0 /* ChannelView.swift in Sources */,
 				AA99E9B4219B2F6200FD1C6F /* UIScrollView+.swift in Sources */,
 				AA8481CD21F2DC9100C24D3F /* LeanCloudBaseService.swift in Sources */,
