@@ -23,6 +23,7 @@ target 'Example' do
   pod 'ReusableKit/RxSwift'  # with RxSwift extension
   pod 'RxQRScanner'
   pod 'RxGesture'
+  pod 'RxKeyboard'
   pod 'ReactorKit'
   # Persistence Library
   # pod 'RxRealm'

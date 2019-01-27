@@ -13,7 +13,6 @@ import RxSwift
 
 class RootViewController: BaseViewController {
     private var current: UIViewController
-    private let oauth2 = container.resolve(OAuth2PasswordGrant.self)!
     
     var deeplink: DeeplinkType? {
         didSet {
@@ -37,7 +36,6 @@ class RootViewController: BaseViewController {
     }
     
     func showLoginScreen() {
-        oauth2.forgetTokens()
         let new = UINavigationController(rootViewController: AuthViewController())
         addChild(new)
         new.view.frame = view.bounds

@@ -6,7 +6,8 @@
         contentInset.top="max(safeAreaInsets.top + 5, 15)"
         contentInsetAdjustmentBehavior="never"
         scrollIndicatorInsets.bottom="safeAreaInsets.bottom + 50"
-        scrollIndicatorInsets.top="safeAreaInsets.top">
+        scrollIndicatorInsets.top="safeAreaInsets.top"
+        outlet="scrollView">
         <UIImageView
             top="parent.top"
             left="parent.left"
@@ -76,7 +77,7 @@
             title="{strings.login.forgotpwdbtn.title}"
             bottom="parent.bottom + safeAreaInsets.bottom"
             width="150"
-            isEnabled="loginFormValid(loading, validation)"
+            isEnabled="!loading"
         />
         <UIButton
             outlet="registerButton"
@@ -86,7 +87,7 @@
             title="{strings.login.signupbtn.title}"
             bottom="parent.bottom + safeAreaInsets.bottom"
             width="100"
-            isEnabled="loginFormValid(loading, validation)"
+            isEnabled="!loading"
             />
     </UIScrollView>
 </UIViewController>

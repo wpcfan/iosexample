@@ -11,6 +11,7 @@ import ReactorKit
 import Shallows
 import RxSwift
 import Toast_Swift
+import RxKeyboard
 
 class AuthViewController: BaseViewController {
     
@@ -18,6 +19,7 @@ class AuthViewController: BaseViewController {
     @objc weak var registerButton: UIButton!
     @objc weak var usernameField: UITextField!
     @objc weak var passwordField: UITextField!
+    @objc weak var scrollView: UIScrollView!
     
     private let storage = container.resolve(Storage<Filename, AppData>.self)!
     
@@ -39,6 +41,13 @@ extension AuthViewController: View {
     typealias Reactor = AuthViewControllerReactor
     
     func bind(reactor: Reactor) {
+        
+        RxKeyboard.instance.visibleHeight
+            .drive(onNext: { [scrollView] keyboardVisibleHeight in
+                scrollView!.contentInset.bottom = keyboardVisibleHeight
+            })
+            .disposed(by: self.disposeBag)
+        
         Observable.combineLatest([usernameField.rx.text, passwordField.rx.text])
             .map { (vals) -> Bool in
                 let username = vals[0]!
