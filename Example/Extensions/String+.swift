@@ -25,6 +25,9 @@ extension String{
     var isBlank: Bool {
         return self.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
     }
+    var localized: String {
+        return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: "")
+    }
 }
 
 extension Optional where Wrapped == String {

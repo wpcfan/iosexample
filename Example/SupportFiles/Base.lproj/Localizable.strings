@@ -5,10 +5,11 @@
   Created by 王芃 on 2018/10/9.
   Copyright © 2018年 twigcodes. All rights reserved.
 */
-"login.username"="Username";
-"login.password"="Password";
+"login.username"="Please type your username";
+"login.password"="Please type your password";
 "login.loginbtn.title"="Signin";
-"login.registerbtn.title"="Signup";
+"login.signupbtn.title"="Signup";
+"login.forgotpwdbtn.title"="Forgot Password";
 "login.navigation.title"="Login";
 "home.tabbar.tab_home"="Home";
 "home.tabbar.tab_social"="Status";

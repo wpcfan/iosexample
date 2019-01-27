@@ -58,6 +58,7 @@
 		AA19DC9621FC77FA00B70EFE /* ObservableType+MonitorLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19DC9521FC77FA00B70EFE /* ObservableType+MonitorLoading.swift */; };
 		AA19DC9821FC844C00B70EFE /* SelfSignedSSLSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19DC9721FC844C00B70EFE /* SelfSignedSSLSessionDelegate.swift */; };
 		AA19DC9C21FD46FE00B70EFE /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19DC9B21FD46FE00B70EFE /* UIViewController+.swift */; };
+		AA19DCAD21FD819C00B70EFE /* Bundle+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19DCAC21FD819C00B70EFE /* Bundle+.swift */; };
 		AA30C05B2167533E00B9E0EB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30C05A2167533E00B9E0EB /* SplashViewController.swift */; };
 		AA30C05F2167555C00B9E0EB /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30C05E2167555C00B9E0EB /* RootViewController.swift */; };
 		AA30C0612167561E00B9E0EB /* SplashViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA30C0602167561E00B9E0EB /* SplashViewController.xml */; };
@@ -314,6 +315,7 @@
 		AA19DC9521FC77FA00B70EFE /* ObservableType+MonitorLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableType+MonitorLoading.swift"; sourceTree = "<group>"; };
 		AA19DC9721FC844C00B70EFE /* SelfSignedSSLSessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSignedSSLSessionDelegate.swift; sourceTree = "<group>"; };
 		AA19DC9B21FD46FE00B70EFE /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
+		AA19DCAC21FD819C00B70EFE /* Bundle+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+.swift"; sourceTree = "<group>"; };
 		AA30C05A2167533E00B9E0EB /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		AA30C05E2167555C00B9E0EB /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		AA30C0602167561E00B9E0EB /* SplashViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SplashViewController.xml; sourceTree = "<group>"; };
@@ -683,6 +685,7 @@
 				AA0ACFD021ECB49E00CE6D1D /* AppDelegate+SmartCloud.swift */,
 				AA01F49E2198828600CE6457 /* AppDelegate+UMeng.swift */,
 				AA54DF422188424000CE0CA0 /* AnimationExtensions.swift */,
+				AA19DCAC21FD819C00B70EFE /* Bundle+.swift */,
 				AA42D7D421F35C8400320BD3 /* Date+.swift */,
 				AA89786621856D88005A61CA /* ImageEffects+Accelerate.swift */,
 				AA3E0EBA21737D0600958937 /* LayoutExtensions.swift */,
@@ -1507,6 +1510,7 @@
 				AA8978652185658C005A61CA /* Reactive+UIScrollView.swift in Sources */,
 				AA4B48FA217768CE00A60C11 /* BaseViewController.swift in Sources */,
 				AA4B491F2178883F00A60C11 /* Then.swift in Sources */,
+				AA19DCAD21FD819C00B70EFE /* Bundle+.swift in Sources */,
 				AAE49F02216BA2EE004BDBD7 /* RegisterViewController.swift in Sources */,
 				AAC5EB6E215E7BB7008EBA1F /* AppDelegate.swift in Sources */,
 				AA19DC8921FB43BB00B70EFE /* SmartApiType.swift in Sources */,

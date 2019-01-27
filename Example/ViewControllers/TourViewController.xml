@@ -23,12 +23,20 @@
             template="TourPageTemplate.xml"
             text="Page 2"
         />
+
+        <!-- Page 3 -->
+        <UIView
+            image="Tour_3"
+            left="previous.right"
+            template="TourPageTemplate.xml"
+            text="Page 3"
+        />
     </UIScrollView>
     <UIPageControl
         bottom="previous.bottom - 100"
         center.x="previous.center.x"
         isUserInteractionEnabled="false"
-        numberOfPages="{totalPages}"
+        numberOfPages="totalPages"
         outlet="pageControl"
     />
     <UIButton

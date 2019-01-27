@@ -17,7 +17,19 @@
         contentMode="scaleAspectFit"
         width="150"
         height="150"
-        image="SplashIcon"
+        image="app"
         outlet="imageView"
+        clipsToBounds="true"
+        layer.borderColor="primary"
+        layer.borderWidth="8"
+        layer.cornerRadius="0.5 * width"
+    />
+    <UILabel
+        width="100%"
+        top="previous.bottom + 50"
+        textAlignment="center"
+        textColor="white"
+        font="Courier bold 30"
+        text="{AppName}"
     />
 </UIViewController>

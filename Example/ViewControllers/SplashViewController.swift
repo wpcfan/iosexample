@@ -37,7 +37,11 @@ extension SplashViewController: LayoutLoading {
         
         self.loadLayout(
             named: "SplashViewController.xml",
-            state: ["countDownTitle": 5])
+            state: [
+                "countDownTitle": 5,
+                "app": AppIcons.app,
+                "AppName": Bundle.main.appName
+            ])
     }
     
     func layoutDidLoad(_: LayoutNode) {

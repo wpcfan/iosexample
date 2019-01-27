@@ -7,62 +7,86 @@
         contentInsetAdjustmentBehavior="never"
         scrollIndicatorInsets.bottom="safeAreaInsets.bottom + 50"
         scrollIndicatorInsets.top="safeAreaInsets.top">
-
-        <UILabel
-            left="safeAreaInsets.left + 15"
-            text="{strings.login.username}"
-            top="10"
-            width="parent.width / 2 - 30"
-        />
+        <UIImageView
+            top="parent.top"
+            left="parent.left"
+            contentMode="scaleAspectFit"
+            width="100%"
+            height="100%"
+            image="Login"
+            />
+        <UIImageView
+            top="0.25 * previous.height"
+            width="80"
+            height="80"
+            center.x="previous.center.x"
+            contentMode="scaleAspectFit"
+            image="app"
+            />
         <UITextField
             autocapitalizationType="none"
             autocorrectionType="no"
-            height="previous.height"
-            layer.borderWidth="1"
-            left="previous.right + 15"
-            outlet="usernameField"
+            height="30"
+            borderStyle="none"
+            layer.masksToBounds="false"
+            layer.shadowColor="gray"
+            layer.shadowOpacity="1.0"
+            layer.shadowRadius="0.0"
+            layer.shadowOffset.height="1.0"
+            layer.shadowOffset.width="0"
+            left="parent.left + 15"
             right="parent.right - 15"
-            top="previous.top"
+            top="0.7 * parent.height"
+            outlet="usernameField"
+            placeholder="{strings.login.username}"
             isEnabled="!loading"
         />
-        <UILabel
-            left="safeAreaInsets.left + 15"
-            text="{strings.login.password}"
-            top="previous.bottom + 15"
-            width="parent.width / 2 - 30"
-        />
         <UITextField
             autocapitalizationType="none"
             autocorrectionType="no"
             height="previous.height"
+            borderStyle="none"
+            layer.masksToBounds="false"
+            layer.shadowColor="gray"
+            layer.shadowOpacity="1.0"
+            layer.shadowRadius="0.0"
+            layer.shadowOffset.height="1.0"
+            layer.shadowOffset.width="0"
             isSecureTextEntry="true"
-            layer.borderWidth="1"
-            left="previous.right + 15"
+            left="previous.left"
             outlet="passwordField"
-            right="parent.right - 15"
-            top="previous.top"
+            placeholder="{strings.login.password}"
+            right="parent.right"
+            top="previous.bottom + 10"
             isEnabled="!loading"
         />
         <UIButton
-            backgroundColor="loading ? gray : primary"
-            layer.cornerRadius="5"
+            backgroundColor="loginFormValid(loading, validation) ? primary : gray"
+            layer.cornerRadius="0.5 * height"
             left="safeAreaInsets.left + 15"
             outlet="loginButton"
             title="{strings.login.loginbtn.title}"
-            top="previous.bottom + 10"
+            bottom="next.top - 15"
             width="parent.width - 30"
-            isEnabled="!loading"
+            isEnabled="loginFormValid(loading, validation)"
+            />
+        <UIButton
+            titleColor="black"
+            left="safeAreaInsets.left + 15"
+            title="{strings.login.forgotpwdbtn.title}"
+            bottom="parent.bottom + safeAreaInsets.bottom"
+            width="150"
+            isEnabled="loginFormValid(loading, validation)"
         />
         <UIButton
-            backgroundColor="loading ? gray : primary"
-            layer.cornerRadius="5"
-            left="safeAreaInsets.left + 15"
             outlet="registerButton"
-            title="{strings.login.registerbtn.title}"
-            top="previous.bottom + 10"
             touchUpInside="register"
-            width="parent.width - 30"
-            isEnabled="!loading"
-        />
+            titleColor="black"
+            right="parent.right - safeAreaInsets.right"
+            title="{strings.login.signupbtn.title}"
+            bottom="parent.bottom + safeAreaInsets.bottom"
+            width="100"
+            isEnabled="loginFormValid(loading, validation)"
+            />
     </UIScrollView>
 </UIViewController>

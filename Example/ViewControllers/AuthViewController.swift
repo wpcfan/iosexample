@@ -23,9 +23,11 @@ class AuthViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.title = NSLocalizedString("login.navigation.title", comment: "")
+        self.navigationController?.navigationBar.topItem?.title = "login.navigation.title".localized
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textIcon!]
         self.navigationController?.navigationBar.barStyle = .black
-        self.navigationController?.navigationBar.barTintColor = UIColor.primaryDark
+        self.navigationController?.navigationBar.barTintColor = .primary
+        
     }
     
     @objc func register() -> Void {
@@ -37,6 +39,15 @@ extension AuthViewController: View {
     typealias Reactor = AuthViewControllerReactor
     
     func bind(reactor: Reactor) {
+        Observable.combineLatest([usernameField.rx.text, passwordField.rx.text])
+            .map { (vals) -> Bool in
+                let username = vals[0]!
+                let password = vals[1]!
+                return !username.isBlank && !password.isBlank
+            }
+            .bind(to: self.layoutNode!.rx.state("validation"))
+            .disposed(by: self.disposeBag)
+        
         loginButton.rx.tap
             .map{ Reactor.Action.login(
                 username: (self.usernameField.text)!,
@@ -69,7 +80,22 @@ extension AuthViewController: LayoutLoading {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.loadLayout(named: "AuthViewController.xml", state: ["loading": false])
+        self.loadLayout(
+            named: "AuthViewController.xml",
+            state: [
+                "loading": false,
+                "validation": false,
+                "app": AppIcons.app,
+                ],
+            constants: [
+                "loginFormValid": { (args: [Any]) throws -> Any in
+                    guard let loading = args.first as? Bool, let validation = args[1] as? Bool else {
+                        throw LayoutError.message("loginFormValid() function expects a pair of Bool argument")
+                    }
+                    return !loading && validation
+                },
+                ]
+            )
     }
     
     func layoutDidLoad(_: LayoutNode) {
