@@ -54,6 +54,10 @@
 		AA19DC8221F60A9700B70EFE /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19DC8121F60A9700B70EFE /* Register.swift */; };
 		AA19DC8721FB3DFA00B70EFE /* RegisterService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19DC8621FB3DFA00B70EFE /* RegisterService.swift */; };
 		AA19DC8921FB43BB00B70EFE /* SmartApiType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19DC8821FB43BB00B70EFE /* SmartApiType.swift */; };
+		AA19DC8D21FB60D600B70EFE /* LoginService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19DC8C21FB60D600B70EFE /* LoginService.swift */; };
+		AA19DC9621FC77FA00B70EFE /* ObservableType+MonitorLoading.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19DC9521FC77FA00B70EFE /* ObservableType+MonitorLoading.swift */; };
+		AA19DC9821FC844C00B70EFE /* SelfSignedSSLSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19DC9721FC844C00B70EFE /* SelfSignedSSLSessionDelegate.swift */; };
+		AA19DC9C21FD46FE00B70EFE /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19DC9B21FD46FE00B70EFE /* UIViewController+.swift */; };
 		AA30C05B2167533E00B9E0EB /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30C05A2167533E00B9E0EB /* SplashViewController.swift */; };
 		AA30C05F2167555C00B9E0EB /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30C05E2167555C00B9E0EB /* RootViewController.swift */; };
 		AA30C0612167561E00B9E0EB /* SplashViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA30C0602167561E00B9E0EB /* SplashViewController.xml */; };
@@ -88,7 +92,6 @@
 		AA42D7D521F35C8400320BD3 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA42D7D421F35C8400320BD3 /* Date+.swift */; };
 		AA42D7D721F36BCB00320BD3 /* LeanCloudCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA42D7D621F36BCB00320BD3 /* LeanCloudCollection.swift */; };
 		AA433F03218C491100BA60A1 /* AppDelegate+Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA433F02218C491100BA60A1 /* AppDelegate+Push.swift */; };
-		AA433F05218C49A500BA60A1 /* AppDelegate+Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA433F04218C49A500BA60A1 /* AppDelegate+Navigation.swift */; };
 		AA433F07218C4A1900BA60A1 /* AppDelegate+Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA433F06218C4A1900BA60A1 /* AppDelegate+Logging.swift */; };
 		AA433F09218C4AB300BA60A1 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA433F08218C4AB300BA60A1 /* Global.swift */; };
 		AA433F0B218C4B2D00BA60A1 /* AppDelegate+CocoaDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA433F0A218C4B2D00BA60A1 /* AppDelegate+CocoaDebug.swift */; };
@@ -152,7 +155,7 @@
 		AA82251D21AEA33B00FDDC8F /* HomeBannerViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA82251C21AEA33B00FDDC8F /* HomeBannerViewController.xml */; };
 		AA8481CB21F22B2000C24D3F /* Typing.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8481CA21F22B2000C24D3F /* Typing.swift */; };
 		AA8481CD21F2DC9100C24D3F /* LeanCloudBaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8481CC21F2DC9100C24D3F /* LeanCloudBaseService.swift */; };
-		AA8481D121F2E8D600C24D3F /* String+MD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8481D021F2E8D600C24D3F /* String+MD5.swift */; };
+		AA8481D121F2E8D600C24D3F /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8481D021F2E8D600C24D3F /* String+.swift */; };
 		AA8481D321F2ECDA00C24D3F /* MenuItemService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8481D221F2ECDA00C24D3F /* MenuItemService.swift */; };
 		AA8978652185658C005A61CA /* Reactive+UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8978642185658C005A61CA /* Reactive+UIScrollView.swift */; };
 		AA89786721856D88005A61CA /* ImageEffects+Accelerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA89786621856D88005A61CA /* ImageEffects+Accelerate.swift */; };
@@ -307,6 +310,10 @@
 		AA19DC8121F60A9700B70EFE /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		AA19DC8621FB3DFA00B70EFE /* RegisterService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterService.swift; sourceTree = "<group>"; };
 		AA19DC8821FB43BB00B70EFE /* SmartApiType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartApiType.swift; sourceTree = "<group>"; };
+		AA19DC8C21FB60D600B70EFE /* LoginService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginService.swift; sourceTree = "<group>"; };
+		AA19DC9521FC77FA00B70EFE /* ObservableType+MonitorLoading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ObservableType+MonitorLoading.swift"; sourceTree = "<group>"; };
+		AA19DC9721FC844C00B70EFE /* SelfSignedSSLSessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfSignedSSLSessionDelegate.swift; sourceTree = "<group>"; };
+		AA19DC9B21FD46FE00B70EFE /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		AA30C05A2167533E00B9E0EB /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		AA30C05E2167555C00B9E0EB /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		AA30C0602167561E00B9E0EB /* SplashViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SplashViewController.xml; sourceTree = "<group>"; };
@@ -342,7 +349,6 @@
 		AA42D7D621F36BCB00320BD3 /* LeanCloudCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanCloudCollection.swift; sourceTree = "<group>"; };
 		AA433F01218B40B100BA60A1 /* Example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Example.entitlements; sourceTree = "<group>"; };
 		AA433F02218C491100BA60A1 /* AppDelegate+Push.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Push.swift"; sourceTree = "<group>"; };
-		AA433F04218C49A500BA60A1 /* AppDelegate+Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Navigation.swift"; sourceTree = "<group>"; };
 		AA433F06218C4A1900BA60A1 /* AppDelegate+Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Logging.swift"; sourceTree = "<group>"; };
 		AA433F08218C4AB300BA60A1 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		AA433F0A218C4B2D00BA60A1 /* AppDelegate+CocoaDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+CocoaDebug.swift"; sourceTree = "<group>"; };
@@ -408,7 +414,7 @@
 		AA82251C21AEA33B00FDDC8F /* HomeBannerViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HomeBannerViewController.xml; sourceTree = "<group>"; };
 		AA8481CA21F22B2000C24D3F /* Typing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typing.swift; sourceTree = "<group>"; };
 		AA8481CC21F2DC9100C24D3F /* LeanCloudBaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeanCloudBaseService.swift; sourceTree = "<group>"; };
-		AA8481D021F2E8D600C24D3F /* String+MD5.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+MD5.swift"; sourceTree = "<group>"; };
+		AA8481D021F2E8D600C24D3F /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		AA8481D221F2ECDA00C24D3F /* MenuItemService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemService.swift; sourceTree = "<group>"; };
 		AA8978642185658C005A61CA /* Reactive+UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+UIScrollView.swift"; sourceTree = "<group>"; };
 		AA89786621856D88005A61CA /* ImageEffects+Accelerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageEffects+Accelerate.swift"; sourceTree = "<group>"; };
@@ -471,7 +477,6 @@
 		AAD7E0FA21F1C382000D8D6A /* cert.pem */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cert.pem; sourceTree = "<group>"; };
 		AAD7E15D21F1EF89000D8D6A /* Crudable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Crudable.swift; sourceTree = "<group>"; };
 		AAD7E15F21F1F42C000D8D6A /* NSURLSessionDataEventsObserver.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSURLSessionDataEventsObserver.swift; sourceTree = "<group>"; };
-		AAD7E16021F1F42C000D8D6A /* RxHttpClient-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RxHttpClient-Bridging-Header.h"; sourceTree = "<group>"; };
 		AAD7E16121F1F42C000D8D6A /* StreamDataTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamDataTask.swift; sourceTree = "<group>"; };
 		AAD7E16221F1F42C000D8D6A /* HttpClientError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpClientError.swift; sourceTree = "<group>"; };
 		AAD7E16321F1F42C000D8D6A /* UrlRequestCacheProviderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UrlRequestCacheProviderType.swift; sourceTree = "<group>"; };
@@ -639,6 +644,14 @@
 			path = PhoneInfo;
 			sourceTree = "<group>";
 		};
+		AA19DC8B21FB608F00B70EFE /* User */ = {
+			isa = PBXGroup;
+			children = (
+				AA19DC8C21FB60D600B70EFE /* LoginService.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		AA30C06221679A3000B9E0EB /* Shortcuts */ = {
 			isa = PBXGroup;
 			children = (
@@ -666,7 +679,6 @@
 				AA0ACFD221ECB8AC00CE6D1D /* AppDelegate+LeChange.swift */,
 				AA433F06218C4A1900BA60A1 /* AppDelegate+Logging.swift */,
 				AA19DC7B21F57BF000B70EFE /* AppDelegate+MonkeyKing.swift */,
-				AA433F04218C49A500BA60A1 /* AppDelegate+Navigation.swift */,
 				AA433F02218C491100BA60A1 /* AppDelegate+Push.swift */,
 				AA0ACFD021ECB49E00CE6D1D /* AppDelegate+SmartCloud.swift */,
 				AA01F49E2198828600CE6457 /* AppDelegate+UMeng.swift */,
@@ -688,8 +700,9 @@
 				AA99E9B3219B2F6200FD1C6F /* UIScrollView+.swift */,
 				AA3E0EA42172328100958937 /* UIStackView+.swift */,
 				AA420587217B66210068ABC0 /* UIView+Blur.swift */,
+				AA19DC9B21FD46FE00B70EFE /* UIViewController+.swift */,
 				AA4B491B2178883E00A60C11 /* SwiftyColor.swift */,
-				AA8481D021F2E8D600C24D3F /* String+MD5.swift */,
+				AA8481D021F2E8D600C24D3F /* String+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -697,6 +710,7 @@
 		AA433F0F218C515D00BA60A1 /* Rx */ = {
 			isa = PBXGroup;
 			children = (
+				AA19DC9521FC77FA00B70EFE /* ObservableType+MonitorLoading.swift */,
 				AA4B49152178800A00A60C11 /* Reactive+FSPagerView.swift */,
 				AA4B48E32175006100A60C11 /* Reactive+Layout.swift */,
 				AA78BB47218D6D27000B4CD8 /* Reactive+NotificationCenter.swift */,
@@ -903,6 +917,7 @@
 		AAC5EB99215E7E71008EBA1F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				AA19DC8B21FB608F00B70EFE /* User */,
 				AA19DC8A21FB446600B70EFE /* PhoneInfo */,
 				AA42D7D221F306B700320BD3 /* BannerService.swift */,
 				AAD7E15D21F1EF89000D8D6A /* Crudable.swift */,
@@ -1058,9 +1073,9 @@
 				AAD7E16B21F1F42D000D8D6A /* MimeTypeConverter.swift */,
 				AAD7E15F21F1F42C000D8D6A /* NSURLSessionDataEventsObserver.swift */,
 				AAD7E16521F1F42C000D8D6A /* RequestPlugin */,
-				AAD7E16021F1F42C000D8D6A /* RxHttpClient-Bridging-Header.h */,
 				AAD7E16121F1F42C000D8D6A /* StreamDataTask.swift */,
 				AAD7E16321F1F42C000D8D6A /* UrlRequestCacheProviderType.swift */,
+				AA19DC9721FC844C00B70EFE /* SelfSignedSSLSessionDelegate.swift */,
 			);
 			path = RxHttpClient;
 			sourceTree = "<group>";
@@ -1260,6 +1275,7 @@
 				"${BUILT_PRODUCTS_DIR}/SwiftIconFont/SwiftIconFont.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
 				"${BUILT_PRODUCTS_DIR}/Swinject/Swinject.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/UITextView+Placeholder/UITextView_Placeholder.framework",
 				"${BUILT_PRODUCTS_DIR}/URLNavigator/URLNavigator.framework",
 				"${BUILT_PRODUCTS_DIR}/p2.OAuth2/p2_OAuth2.framework",
@@ -1304,6 +1320,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIconFont.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Swinject.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UITextView_Placeholder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/URLNavigator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/p2_OAuth2.framework",
@@ -1411,6 +1428,7 @@
 				AA3E0E7C217053BD00958937 /* Deivce.swift in Sources */,
 				AA433F13218C8D9700BA60A1 /* NotificationService.swift in Sources */,
 				AAE49EF62169D2FB004BDBD7 /* TourViewController.swift in Sources */,
+				AA19DC9821FC844C00B70EFE /* SelfSignedSSLSessionDelegate.swift in Sources */,
 				AA99E9B2219B2F3300FD1C6F /* UIColor+.swift in Sources */,
 				AA9B94C121ECC778000AE906 /* QiNiu.swift in Sources */,
 				AAD7E17C21F1F42D000D8D6A /* HttpClientType.swift in Sources */,
@@ -1421,7 +1439,6 @@
 				AA78BB56218EB37C000B4CD8 /* DeepLinkManager.swift in Sources */,
 				AA433F09218C4AB300BA60A1 /* Global.swift in Sources */,
 				AA3E0E822170589F00958937 /* Scene.swift in Sources */,
-				AA433F05218C49A500BA60A1 /* AppDelegate+Navigation.swift in Sources */,
 				AA4B49202178883F00A60C11 /* UICollectionViewDelegateFlexLayout.swift in Sources */,
 				AA4B4944217A462200A60C11 /* BannerViewReactor.swift in Sources */,
 				AA4B49222178883F00A60C11 /* SwiftyColor.swift in Sources */,
@@ -1459,6 +1476,7 @@
 				AA0ACFD121ECB49E00CE6D1D /* AppDelegate+SmartCloud.swift in Sources */,
 				AA82251921AE94EC00FDDC8F /* HomeTabBarViewController.swift in Sources */,
 				AAD7E17221F1F42D000D8D6A /* HttpClientError.swift in Sources */,
+				AA19DC9621FC77FA00B70EFE /* ObservableType+MonitorLoading.swift in Sources */,
 				AA420586217AD80C0068ABC0 /* ModelType.swift in Sources */,
 				AA78BB58218EBB5B000B4CD8 /* RxQRUtil.swift in Sources */,
 				AA433F07218C4A1900BA60A1 /* AppDelegate+Logging.swift in Sources */,
@@ -1467,10 +1485,12 @@
 				AA433F0B218C4B2D00BA60A1 /* AppDelegate+CocoaDebug.swift in Sources */,
 				AA4B9B32219D985800E194CE /* Reactive+ReusableView.swift in Sources */,
 				AA3E0EBB21737D0600958937 /* LayoutExtensions.swift in Sources */,
+				AA19DC8D21FB60D600B70EFE /* LoginService.swift in Sources */,
 				AA6839D8216DE04F00E4097B /* UIColor+Theme.swift in Sources */,
 				AA3E0E8821707DD400958937 /* ScriptTrigger.swift in Sources */,
 				AAD7E17D21F1F42D000D8D6A /* DataCacheProviderType.swift in Sources */,
 				AA54DF432188424000CE0CA0 /* AnimationExtensions.swift in Sources */,
+				AA19DC9C21FD46FE00B70EFE /* UIViewController+.swift in Sources */,
 				AA4205A6217C9B5F0068ABC0 /* HeaderView.swift in Sources */,
 				AAD7E0F721F1AEB1000D8D6A /* SCMQRCodeUnlockController.m in Sources */,
 				AAC5EBA3215E808D008EBA1F /* OAuth2Service.swift in Sources */,
@@ -1503,7 +1523,7 @@
 				AA3E0E7A21704E6F00958937 /* House.swift in Sources */,
 				AA433F03218C491100BA60A1 /* AppDelegate+Push.swift in Sources */,
 				AA4B48F221761F7400A60C11 /* AuthError.swift in Sources */,
-				AA8481D121F2E8D600C24D3F /* String+MD5.swift in Sources */,
+				AA8481D121F2E8D600C24D3F /* String+.swift in Sources */,
 				AA693DB72160EEB70063D749 /* HomeViewController.swift in Sources */,
 				AAE49EFE216AE281004BDBD7 /* Shallows+Rx.swift in Sources */,
 				AA3E0E8A2170841700958937 /* HomeInfo.swift in Sources */,

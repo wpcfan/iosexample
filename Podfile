@@ -11,6 +11,7 @@ target 'Example' do
 #  pod 'SnapKit', '~> 4.0.0'
   pod 'PinLayout'
 #  pod 'FlexLayout'
+  pod 'Toast-Swift'
   # Pods for Rx
   pod 'RxSwift', '~> 4.0'
   pod 'RxCocoa', '~> 4.0'

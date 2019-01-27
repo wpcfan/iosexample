@@ -7,3 +7,17 @@
 //
 
 import Foundation
+
+class SelfSignedSSLSessionDelegate: NSURLSessionDataEventsObserver {
+    
+    /**
+     处理自签名 SSL 证书
+     */
+    func urlSession(_ session: URLSession, didReceive challenge: URLAuthenticationChallenge, completionHandler: @escaping (URLSession.AuthChallengeDisposition, URLCredential?) -> Void) {
+        if(challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust) {
+            print(challenge.protectionSpace.host)
+            let credential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
+            completionHandler(.useCredential, credential)
+        }
+    }
+}

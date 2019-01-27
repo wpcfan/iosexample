@@ -6,17 +6,23 @@
 //  Copyright © 2018年 twigcodes. All rights reserved.
 //
 
-import Foundation
+import ObjectMapper
 
-struct AppData: Codable {
-    var tourGuidePresented: Bool
-    var userId: String
-    var houseId: String
-    var projectId: String
-    init(tourGuidePresented: Bool, userId: String, houseId: String, projectId: String) {
-        self.tourGuidePresented = tourGuidePresented
-        self.userId = userId
-        self.houseId = houseId
-        self.projectId = projectId
+struct AppData: Codable, Mappable {
+    var tourGuidePresented: Bool?
+    var userId: String?
+    var houseId: String?
+    var projectId: String?
+    var token: String?
+    
+    init?(map: Map) {
+    }
+    
+    mutating func mapping(map: Map) {
+        tourGuidePresented <- map["tourGuidePresented"]
+        userId <- map["userId"]
+        houseId <- map["houseId"]
+        projectId <- map["projectId"]
+        token <- map["token"]
     }
 }

@@ -43,7 +43,7 @@ struct SplashAd: Mappable {
     }
 }
 
-struct SmartUser: Mappable {
+struct SmartUser: Codable, Mappable {
     var id: String?
     var allInfo: Bool?
     var marital: Bool?

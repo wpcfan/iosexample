@@ -6,4 +6,20 @@
 //  Copyright © 2019 twigcodes. All rights reserved.
 //
 
-import Foundation
+class LoginService: ShouChuangService<SmartUser> {
+    var mobile: String?
+    var password: String?
+    override var smartApi: SmartApiType {
+        get { return .login }
+    }
+    
+    override func urlQueries() throws -> [URLQueryItem] {
+        guard let mobile = mobile, let password = password else { throw AppErr.requiredParamNull("Login Params Null") }
+        let queryItems: [URLQueryItem] = [
+            URLQueryItem(name: "phone", value: mobile),
+            URLQueryItem(name: "pwd", value: password.MD5.uppercased()),
+        ]
+        return queryItems
+    }
+}
+

@@ -10,6 +10,7 @@ import RxSwift
 import ReactorKit
 import URLNavigator
 import Shallows
+import ObjectMapper
 
 class TourViewControllerReactor: Reactor {
     private let storage = container.resolve(Storage<Filename, AppData>.self)!
@@ -41,7 +42,7 @@ class TourViewControllerReactor: Reactor {
         switch action {
         case .completeTour:
             return self.storage
-                .rx_set(value: AppData(tourGuidePresented: true, userId: "", houseId: "", projectId: ""), forKey: "data")
+                .rx_set(value: Mapper<AppData>().map(JSON: ["tourGuidePresented": true])!, forKey: "data")
                 .flatMap { (val) -> Observable<Mutation> in
                     return Observable.of(.setTour(completed: true))
                 }

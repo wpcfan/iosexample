@@ -89,6 +89,7 @@ PODS:
   - SwiftIconFont (3.0.0)
   - SwiftyBeaver (1.6.1)
   - Swinject (2.5.0)
+  - Toast-Swift (4.0.1)
   - "UITextView+Placeholder (1.2.1)"
   - UMCAnalytics (6.0.1):
     - UMCCommon
@@ -131,6 +132,7 @@ DEPENDENCIES:
   - Shallows
   - SwiftIconFont
   - Swinject (~> 2.5)
+  - Toast-Swift
   - "UITextView+Placeholder"
   - UMCAnalytics
   - UMCCommon
@@ -179,6 +181,7 @@ SPEC REPOS:
     - SwiftIconFont
     - SwiftyBeaver
     - Swinject
+    - Toast-Swift
     - "UITextView+Placeholder"
     - UMCAnalytics
     - UMCCommon
@@ -226,12 +229,13 @@ SPEC CHECKSUMS:
   SwiftIconFont: 2ba18554a77c44948dc35b561b344e3c23834a84
   SwiftyBeaver: ccfcdf85a04d429f1633f668650b0ce8020bda3a
   Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
+  Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
   "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
   UMCAnalytics: c267acd9bb4a87e5f01735c158b63a617908f92e
   UMCCommon: 79b5a614c958db367113eed5740109d9a98e1223
   UMCCommonLog: 05a2d5de21858e3d870551562cff405c1366d244
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
 
-PODFILE CHECKSUM: 14684040d4ffe0d76bf13926891a15d35617910c
+PODFILE CHECKSUM: 5bd57d290d4a0a7146cbf2aaef7a7fdd51abcf34
 
 COCOAPODS: 1.5.3

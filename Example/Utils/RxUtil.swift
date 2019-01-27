@@ -34,20 +34,51 @@ public func handleError(_ err: Error) -> Error {
     case HttpClientError.jsonDeserializationError(let err):
         printError("the json cannot be deserialized \(err)")
         break
-    case SmartError.server(let data):
-        printError("Server Error Response, and returning data \(String(describing: data))")
+    case let SmartError.server(errorCode, errorMessage):
+        printError("Server Error Response, and returning error code \(String(describing: errorCode)) and message \(String(describing: errorMessage))")
         break
-    case SmartError.jdAccountNotBinded:
-        printError("JD Account Not Binded")
+    case SmartError.loginInvalid(let errorMessage):
+        printError("The account has been logged on another device, \(errorMessage)")
+        needLogout.onNext(())
         break
-    case SmartError.tokenInvalid:
-        printError("The access token is invalid")
+    case SmartError.jdAccountNotBinded(let errorMessage):
+        printError("JD Account Not Binded \(errorMessage)")
+        needLogout.onNext(())
         break
-    case SmartError.jdTokenInvalid:
-        printError("The JD access token is invalid")
+    case SmartError.tokenInvalid(let errorMessage):
+        printError("The access token is invalid \(errorMessage)")
+        needLogout.onNext(())
+        break
+    case SmartError.jdTokenInvalid(let errorMessage):
+        printError("The JD access token is invalid \(errorMessage)")
+        needLogout.onNext(())
         break
     default:
         break
     }
     return err
+}
+
+public func convertErrorToString(error: Error) -> String {
+    switch error {
+    case HttpClientError.clientSideError(_):
+        return "请检查网络，请求似乎没有发出"
+    case let HttpClientError.invalidResponse(response, _):
+        return "请求失败，服务错误码\(response.statusCode)"
+    case HttpClientError.invalidJsonObject,
+         HttpClientError.jsonDeserializationError(_):
+        return "请求失败，数据格式错误"
+    case let SmartError.server(_, message):
+        return message
+    case SmartError.loginInvalid(_):
+        return "您的账号已在其他设备登录，如果不是本人授权，请及时更改密码！"
+    case SmartError.jdAccountNotBinded(_):
+        return "首创智慧家应用需要绑定京东账号才能正常使用"
+    case SmartError.tokenInvalid(_):
+        return "首创智慧家应用需要绑定京东账号才能正常使用"
+    case SmartError.jdTokenInvalid(_):
+        return "首创智慧家应用需要绑定京东账号才能正常使用"
+    default:
+        return "哎呀，好像崩溃了"
+    }
 }

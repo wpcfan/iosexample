@@ -14,6 +14,7 @@ import Shallows
 class SplashViewControllerReactor: Reactor {
     private let storage = container.resolve(Storage<Filename, AppData>.self)!
     private let oauth2Service = container.resolve(OAuth2Service.self)!
+    private let registerService = container.resolve(RegisterService.self)!
     
     enum NavTarget {
         case login
@@ -24,25 +25,28 @@ class SplashViewControllerReactor: Reactor {
     enum Action {
         case tick
         case checkFirstLaunch
+        case checkRegister
     }
     
     enum Mutation {
         case setTick
         case setNavTarget(target: NavTarget)
+        case setDeviceToken(_ status: Bool)
     }
     
     struct State {
         var countDown: Int
         var nav: NavTarget
+        var deviceTokenReady: Bool
     }
     
-    let initialState: State = State(countDown: 5, nav: .login)
+    let initialState: State = State(countDown: 5, nav: .login, deviceTokenReady: false)
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .checkFirstLaunch:
             return self.storage
-                .rx_retrieve(forKey: "data")
+                .rx_retrieve(forKey: Filename(rawValue: Constants.APP_DATA_KEY))
                 .debug()
                 .flatMap { (val) -> Observable<Mutation> in
                     let result = val as? AppData
@@ -64,6 +68,21 @@ class SplashViewControllerReactor: Reactor {
                 .catchErrorJustReturn(.setNavTarget(target: .tour))
         case .tick:
             return Observable.of(.setTick)
+        case .checkRegister:
+            return self.storage.rx_retrieve(forKey: Filename(rawValue: Constants.APP_DATA_KEY))
+                .debug()
+                .flatMapLatest({ (appData) -> Observable<Bool> in
+                    guard let result = appData as? AppData, result.token == nil else { return Observable.of(true)}
+                    
+                    return self.registerService.request()
+                        .flatMapLatest({ (register: Register) -> Observable<Bool> in
+                            var newAppData = result
+                            newAppData.token = register.token
+                            return self.storage.rx_set(value: newAppData, forKey: Filename(rawValue: Constants.APP_DATA_KEY))
+                        })
+                }).map({ (status) -> Mutation in
+                    .setDeviceToken(status)
+                })
         }
     }
     
@@ -76,6 +95,10 @@ class SplashViewControllerReactor: Reactor {
         case .setNavTarget(let target):
             var newState = state
             newState.nav = target
+            return newState
+        case .setDeviceToken(let status):
+            var newState = state
+            newState.deviceTokenReady = status
             return newState
         }
     }

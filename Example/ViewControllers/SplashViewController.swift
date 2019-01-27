@@ -51,6 +51,7 @@ extension SplashViewController: ReactorKit.View {
     func bind(reactor: Reactor) {
         
         reactor.action.onNext(.checkFirstLaunch)
+        reactor.action.onNext(.checkRegister)
         
         let countDownStream =  Observable<Int>
             .interval(1, scheduler: ConcurrentDispatchQueueScheduler(qos: .userInitiated))

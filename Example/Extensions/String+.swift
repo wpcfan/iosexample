@@ -22,4 +22,17 @@ extension String{
             return digestData.map { String(format: "%02hhx", $0) }.joined()
         }
     }
+    var isBlank: Bool {
+        return self.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+    }
+}
+
+extension Optional where Wrapped == String {
+    var isBlank: Bool {
+        if let unwrapped = self {
+            return unwrapped.isBlank
+        } else {
+            return true
+        }
+    }
 }

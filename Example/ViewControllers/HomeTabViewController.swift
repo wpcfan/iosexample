@@ -16,11 +16,6 @@ class MainNavigationController: UINavigationController { }
 class HomeTabViewController: BaseViewController {
     
     private var selectedTab = 0
-    private let homeTitleView = UILabel().then {
-        $0.text = NSLocalizedString("home.navigation.title", comment: "")
-        $0.textColor = UIColor.textIcon
-        $0.textAlignment = .center
-    }
     
     init(tabName: String) {
         super.init()
@@ -37,28 +32,20 @@ class HomeTabViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
-}
-
-extension HomeTabViewController: UITabBarControllerDelegate {
-    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
-        guard let index = tabBarController.viewControllers?.index(of: viewController) else {
-            return
-        }
-        selectedTab = index
-    }
-}
-
-extension HomeTabViewController: LayoutLoading {
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.navigationItem.titleView?.pin.height(100%).hCenter().width(80%)
-        
+        let homeTitleView = UILabel().then {
+            $0.text = NSLocalizedString("home.navigation.title", comment: "")
+            $0.textColor = UIColor.textIcon
+            $0.textAlignment = .center
+        }
         loadLayout(
             named: "HomeTabViewController.xml",
             state: [
                 "selectedTab": selectedTab,
-            ],
+                ],
             constants: [
                 "uppercased": AppLayoutClousures.upperCase,
                 "iconTabHome": AppIcons.home,
@@ -72,6 +59,19 @@ extension HomeTabViewController: LayoutLoading {
             ]
         )
     }
+    
+}
+
+extension HomeTabViewController: UITabBarControllerDelegate {
+    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+        guard let index = tabBarController.viewControllers?.index(of: viewController) else {
+            return
+        }
+        selectedTab = index
+    }
+}
+
+extension HomeTabViewController: LayoutLoading {
     
     func layoutDidLoad(_ layoutNode: LayoutNode) {
         guard let tabBarController = layoutNode.viewController as? UITabBarController else { return }

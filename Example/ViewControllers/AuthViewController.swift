@@ -8,22 +8,24 @@
 
 import Layout
 import ReactorKit
+import Shallows
+import RxSwift
+import Toast_Swift
 
 class AuthViewController: BaseViewController {
-
+    
     @objc weak var loginButton: UIButton!
     @objc weak var registerButton: UIButton!
     @objc weak var usernameField: UITextField!
     @objc weak var passwordField: UITextField!
-    let registerService = container.resolve(RegisterService.self)!
+    
+    private let storage = container.resolve(Storage<Filename, AppData>.self)!
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.title = NSLocalizedString("login.navigation.title", comment: "")
         self.navigationController?.navigationBar.barStyle = .black
         self.navigationController?.navigationBar.barTintColor = UIColor.primaryDark
-        registerService.request().subscribe({ (ev) in
-            print(ev.element)
-        }).disposed(by: self.disposeBag)
     }
     
     @objc func register() -> Void {
@@ -42,6 +44,23 @@ extension AuthViewController: View {
             }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
+        
+        reactor.state
+            .map { $0.errorMessage }
+            .filter({ (msg) -> Bool in
+                !msg.isBlank
+            })
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
+            .observeOn(MainScheduler.asyncInstance)
+            .subscribe{ ev in
+                self.view?.makeToast(ev.element!)
+            }
+            .disposed(by: self.disposeBag)
+        
+        reactor.state
+            .map { $0.loading }
+            .bind(to: self.layoutNode!.rx.state("loading"))
+            .disposed(by: self.disposeBag)
     }
 }
 
@@ -50,7 +69,7 @@ extension AuthViewController: LayoutLoading {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        self.loadLayout(named: "AuthViewController.xml" )
+        self.loadLayout(named: "AuthViewController.xml", state: ["loading": false])
     }
     
     func layoutDidLoad(_: LayoutNode) {

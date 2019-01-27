@@ -67,6 +67,9 @@ class RootViewController: BaseViewController {
     }
     
     func switchToLogout() {
+        if (self.topMostViewController().isKind(of: AuthViewController.self)) {
+            return;
+        }
         let loginViewController = AuthViewController()
         let logoutScreen = UINavigationController(rootViewController: loginViewController)
         animateDismissTransition(to: logoutScreen)

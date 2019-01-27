@@ -15,6 +15,8 @@ protocol SmartHomeEntity {
 struct SmartHomeResult<T: Mappable>: Mappable {
     var result: Bool?
     var data: T?
+    var errorCode: Int?
+    var message: String?
     init?(map: Map) {
         
     }
@@ -22,5 +24,7 @@ struct SmartHomeResult<T: Mappable>: Mappable {
     mutating func mapping(map: Map) {
         result <- map["result"]
         data <- map["data"]
+        errorCode <- map["error_code"]
+        message <- map["message"]
     }
 }
