@@ -66,12 +66,14 @@ class RootViewController: BaseViewController {
     }
     
     func switchToLogout() {
-        if (self.topMostViewController().isKind(of: AuthViewController.self)) {
-            return;
+        if let visibleViewCtrl = UIApplication.shared.topMostViewController() {
+            if (visibleViewCtrl.isKind(of: AuthViewController.self)) {
+                return
+            }
+            let loginViewController = AuthViewController()
+            let logoutScreen = UINavigationController(rootViewController: loginViewController)
+            animateDismissTransition(to: logoutScreen)
         }
-        let loginViewController = AuthViewController()
-        let logoutScreen = UINavigationController(rootViewController: loginViewController)
-        animateDismissTransition(to: logoutScreen)
     }
     
     func switchToTour() {

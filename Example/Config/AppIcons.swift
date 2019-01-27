@@ -111,6 +111,27 @@ struct AppIcons {
         backgroundColor: .clear,
         size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
     
+    static let eye = UIImage(
+        from: .ionicon,
+        code: "ios-eye",
+        textColor: .black,
+        backgroundColor: .clear,
+        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
+    
+    static let eyeOff = UIImage(
+        from: .ionicon,
+        code: "ios-eye-off",
+        textColor: .black,
+        backgroundColor: .clear,
+        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
+    
+    static let clear = UIImage(
+        from: .materialIcon,
+        code: "clear",
+        textColor: .black,
+        backgroundColor: .clear,
+        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
+    
     static let app = Bundle.main.icon!
     
 }

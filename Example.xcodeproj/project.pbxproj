@@ -110,7 +110,6 @@
 		AA4B49202178883F00A60C11 /* UICollectionViewDelegateFlexLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B49192178883E00A60C11 /* UICollectionViewDelegateFlexLayout.swift */; };
 		AA4B49212178883F00A60C11 /* Reactive+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B491A2178883E00A60C11 /* Reactive+UIViewController.swift */; };
 		AA4B49222178883F00A60C11 /* SwiftyColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B491B2178883E00A60C11 /* SwiftyColor.swift */; };
-		AA4B49232178883F00A60C11 /* RxKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B491C2178883F00A60C11 /* RxKeyboard.swift */; };
 		AA4B49242178883F00A60C11 /* UICollectionViewFlexLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B491D2178883F00A60C11 /* UICollectionViewFlexLayout.swift */; };
 		AA4B49262178B0A900A60C11 /* BannerCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA4B49252178B0A900A60C11 /* BannerCell.xml */; };
 		AA4B492A2178BADD00A60C11 /* ChannelCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA4B49292178BADD00A60C11 /* ChannelCell.xml */; };
@@ -165,6 +164,8 @@
 		AA897871218588A2005A61CA /* TabButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA897870218588A2005A61CA /* TabButton.xml */; };
 		AA897873218590E4005A61CA /* HomeTitleView.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA897872218590E4005A61CA /* HomeTitleView.xml */; };
 		AA91EDD221A7B73F00C07A4E /* TourPageTemplate.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA91EDD121A7B73F00C07A4E /* TourPageTemplate.xml */; };
+		AA96B29321FDF6990093A2E0 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA96B29221FDF6990093A2E0 /* UITextField.swift */; };
+		AA96B29521FE116C0093A2E0 /* TextFieldResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA96B29421FE116C0093A2E0 /* TextFieldResponder.swift */; };
 		AA99E9B2219B2F3300FD1C6F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99E9B1219B2F3300FD1C6F /* UIColor+.swift */; };
 		AA99E9B4219B2F6200FD1C6F /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99E9B3219B2F6200FD1C6F /* UIScrollView+.swift */; };
 		AA99E9DC219BE35000FD1C6F /* DrawerTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99E9DB219BE35000FD1C6F /* DrawerTransition.swift */; };
@@ -370,7 +371,6 @@
 		AA4B49192178883E00A60C11 /* UICollectionViewDelegateFlexLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewDelegateFlexLayout.swift; sourceTree = "<group>"; };
 		AA4B491A2178883E00A60C11 /* Reactive+UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reactive+UIViewController.swift"; sourceTree = "<group>"; };
 		AA4B491B2178883E00A60C11 /* SwiftyColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyColor.swift; sourceTree = "<group>"; };
-		AA4B491C2178883F00A60C11 /* RxKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxKeyboard.swift; sourceTree = "<group>"; };
 		AA4B491D2178883F00A60C11 /* UICollectionViewFlexLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewFlexLayout.swift; sourceTree = "<group>"; };
 		AA4B49252178B0A900A60C11 /* BannerCell.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BannerCell.xml; sourceTree = "<group>"; };
 		AA4B49292178BADD00A60C11 /* ChannelCell.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ChannelCell.xml; sourceTree = "<group>"; };
@@ -425,6 +425,8 @@
 		AA897870218588A2005A61CA /* TabButton.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TabButton.xml; sourceTree = "<group>"; };
 		AA897872218590E4005A61CA /* HomeTitleView.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HomeTitleView.xml; sourceTree = "<group>"; };
 		AA91EDD121A7B73F00C07A4E /* TourPageTemplate.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TourPageTemplate.xml; sourceTree = "<group>"; };
+		AA96B29221FDF6990093A2E0 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		AA96B29421FE116C0093A2E0 /* TextFieldResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldResponder.swift; sourceTree = "<group>"; };
 		AA99E9B1219B2F3300FD1C6F /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		AA99E9B3219B2F6200FD1C6F /* UIScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
 		AA99E9DB219BE35000FD1C6F /* DrawerTransition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawerTransition.swift; sourceTree = "<group>"; };
@@ -702,6 +704,7 @@
 				AA30C0672167AA3600B9E0EB /* UINavigationController+Bar.swift */,
 				AA99E9B3219B2F6200FD1C6F /* UIScrollView+.swift */,
 				AA3E0EA42172328100958937 /* UIStackView+.swift */,
+				AA96B29221FDF6990093A2E0 /* UITextField.swift */,
 				AA420587217B66210068ABC0 /* UIView+Blur.swift */,
 				AA19DC9B21FD46FE00B70EFE /* UIViewController+.swift */,
 				AA4B491B2178883E00A60C11 /* SwiftyColor.swift */,
@@ -945,8 +948,8 @@
 				AA3E0E772170478200958937 /* PullToRefreshUtil.swift */,
 				AA9B94C021ECC778000AE906 /* QiNiu.swift */,
 				AA38DCA4217EF41F0046D82D /* RxUtil.swift */,
-				AA4B491C2178883F00A60C11 /* RxKeyboard.swift */,
 				AA78BB57218EBB5B000B4CD8 /* RxQRUtil.swift */,
+				AA96B29421FE116C0093A2E0 /* TextFieldResponder.swift */,
 				AA8481CA21F22B2000C24D3F /* Typing.swift */,
 			);
 			path = Utils;
@@ -1254,7 +1257,9 @@
 				"${BUILT_PRODUCTS_DIR}/JWTDecode/JWTDecode.framework",
 				"${BUILT_PRODUCTS_DIR}/JustLog/JustLog.framework",
 				"${BUILT_PRODUCTS_DIR}/Layout/Layout.framework",
+				"${BUILT_PRODUCTS_DIR}/Material/Material.framework",
 				"${BUILT_PRODUCTS_DIR}/MonkeyKing/MonkeyKing.framework",
+				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
 				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
@@ -1300,7 +1305,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JWTDecode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JustLog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Layout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Material.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MonkeyKing.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
@@ -1405,6 +1412,7 @@
 			files = (
 				AA42D7D521F35C8400320BD3 /* Date+.swift in Sources */,
 				AA3E0EA52172328100958937 /* UIStackView+.swift in Sources */,
+				AA96B29321FDF6990093A2E0 /* UITextField.swift in Sources */,
 				AA30C05B2167533E00B9E0EB /* SplashViewController.swift in Sources */,
 				AA3AB88E21841ABA00470276 /* SplashViewControllerReactor.swift in Sources */,
 				AA693DC12161F6460063D749 /* SettingViewController.swift in Sources */,
@@ -1440,7 +1448,6 @@
 				AA3E0E8621705B4C00958937 /* ScriptTask.swift in Sources */,
 				AAC5EB9E215E7EB4008EBA1F /* UIColor+Hex.swift in Sources */,
 				AA78BB5A218F04F2000B4CD8 /* MeViewController.swift in Sources */,
-				AA4B49232178883F00A60C11 /* RxKeyboard.swift in Sources */,
 				AA78BB56218EB37C000B4CD8 /* DeepLinkManager.swift in Sources */,
 				AA433F09218C4AB300BA60A1 /* Global.swift in Sources */,
 				AA3E0E822170589F00958937 /* Scene.swift in Sources */,
@@ -1529,6 +1536,7 @@
 				AA3E0E7A21704E6F00958937 /* House.swift in Sources */,
 				AA433F03218C491100BA60A1 /* AppDelegate+Push.swift in Sources */,
 				AA4B48F221761F7400A60C11 /* AuthError.swift in Sources */,
+				AA96B29521FE116C0093A2E0 /* TextFieldResponder.swift in Sources */,
 				AA8481D121F2E8D600C24D3F /* String+.swift in Sources */,
 				AA693DB72160EEB70063D749 /* HomeViewController.swift in Sources */,
 				AAE49EFE216AE281004BDBD7 /* Shallows+Rx.swift in Sources */,

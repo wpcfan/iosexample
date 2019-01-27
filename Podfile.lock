@@ -21,7 +21,14 @@ PODS:
   - Layout (0.6.35):
     - Layout/Core (= 0.6.35)
   - Layout/Core (0.6.35)
+  - Material (2.16.4):
+    - Material/Core (= 2.16.4)
+  - Material/Core (2.16.4):
+    - Motion (~> 1.4.3)
   - MonkeyKing (1.12.1)
+  - Motion (1.4.3):
+    - Motion/Core (= 1.4.3)
+  - Motion/Core (1.4.3)
   - ObjectMapper (3.4.2)
   - OHHTTPStubs/Core (6.1.0)
   - OHHTTPStubs/Default (6.1.0):
@@ -112,6 +119,7 @@ DEPENDENCIES:
   - JustLog
   - JWTDecode (~> 2.1)
   - Layout (~> 0.6)
+  - Material
   - MonkeyKing
   - ObjectMapper (~> 3.3)
   - OHHTTPStubs/Swift
@@ -160,7 +168,9 @@ SPEC REPOS:
     - JustLog
     - JWTDecode
     - Layout
+    - Material
     - MonkeyKing
+    - Motion
     - ObjectMapper
     - OHHTTPStubs
     - p2.OAuth2
@@ -209,7 +219,9 @@ SPEC CHECKSUMS:
   JustLog: 24d4dbdd4d4b65fc04069f222ee34b1d9c9004cf
   JWTDecode: 85a405ab16d5473e99bd89ded1d535090ebd6a0e
   Layout: a970a8bb1cc1e5db8b1cafde341a26bf5b0c386b
+  Material: 4ed78690b09ffd148b5ffab6b4367fb1d8da1cd3
   MonkeyKing: 280cdc68eb39f8b899b17fdfe994a695f6fdc636
+  Motion: 153ba49692997888556c7a95207278a8b1f8be95
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
   OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
   p2.OAuth2: d5ea9b928fc5d10d088d419db6f3380578b6f866
@@ -242,6 +254,6 @@ SPEC CHECKSUMS:
   UMCCommonLog: 05a2d5de21858e3d870551562cff405c1366d244
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
 
-PODFILE CHECKSUM: 6c7c5cfc04fb125e2ec1d543f1f75a47887325e2
+PODFILE CHECKSUM: 29f862927003351c0ad5e4db02001f0800e66491
 
 COCOAPODS: 1.5.3

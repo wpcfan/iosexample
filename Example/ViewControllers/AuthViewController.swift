@@ -20,20 +20,58 @@ class AuthViewController: BaseViewController {
     @objc weak var usernameField: UITextField!
     @objc weak var passwordField: UITextField!
     @objc weak var scrollView: UIScrollView!
+    var pwdVisible: Bool = false {
+        didSet {
+            self.layoutNode!.setState(["pwdVisible": !pwdVisible])
+        }
+    }
     
     private let storage = container.resolve(Storage<Filename, AppData>.self)!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.topItem?.title = "login.navigation.title".localized
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textIcon!]
-        self.navigationController?.navigationBar.barStyle = .black
-        self.navigationController?.navigationBar.barTintColor = .primary
+        self.navigationController?.presentTransparentNavigationBar(light: true)
+//        self.navigationController?.navigationBar.topItem?.title = "login.navigation.title".localized
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textIcon!]
+//        self.navigationController?.navigationBar.barStyle = .black
+//        self.navigationController?.navigationBar.barTintColor = .primary
         
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        self.loadLayout(
+            named: "AuthViewController.xml",
+            state: [
+                "loading": false,
+                "validation": false,
+                "pwdVisible": false,
+                "app": AppIcons.app,
+                ],
+            constants: [
+                "loginFormValid": { (args: [Any]) throws -> Any in
+                    guard let loading = args.first as? Bool, let validation = args[1] as? Bool else {
+                        throw LayoutError.message("loginFormValid() function expects a pair of Bool argument")
+                    }
+                    return !loading && validation
+                },
+                "eye": AppIcons.eye,
+                "eyeOff": AppIcons.eyeOff,
+                "clear": AppIcons.clear
+                ]
+        )
+        usernameField.setBottomBorder(withColor: .lightGray)
+        passwordField.setBottomBorder(withColor: .lightGray)
+        TextFieldResponder.shared.addResponders([usernameField, passwordField])
     }
     
     @objc func register() -> Void {
         self.navigationController?.pushViewController(RegisterViewController(), animated: true)
+    }
+    
+    @objc func togglePwdVisible() -> Void {
+        self.pwdVisible = !self.pwdVisible
     }
 }
 
@@ -85,27 +123,6 @@ extension AuthViewController: View {
 }
 
 extension AuthViewController: LayoutLoading {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        self.loadLayout(
-            named: "AuthViewController.xml",
-            state: [
-                "loading": false,
-                "validation": false,
-                "app": AppIcons.app,
-                ],
-            constants: [
-                "loginFormValid": { (args: [Any]) throws -> Any in
-                    guard let loading = args.first as? Bool, let validation = args[1] as? Bool else {
-                        throw LayoutError.message("loginFormValid() function expects a pair of Bool argument")
-                    }
-                    return !loading && validation
-                },
-                ]
-            )
-    }
     
     func layoutDidLoad(_: LayoutNode) {
         self.reactor = AuthViewControllerReactor()

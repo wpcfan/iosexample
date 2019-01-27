@@ -11,7 +11,7 @@
         <UIImageView
             top="parent.top"
             left="parent.left"
-            contentMode="scaleAspectFit"
+            contentMode="scaleAspectFill"
             width="100%"
             height="100%"
             image="Login"
@@ -27,14 +27,9 @@
         <UITextField
             autocapitalizationType="none"
             autocorrectionType="no"
+            clearButtonMode="whileEditing"
             height="30"
             borderStyle="none"
-            layer.masksToBounds="false"
-            layer.shadowColor="gray"
-            layer.shadowOpacity="1.0"
-            layer.shadowRadius="0.0"
-            layer.shadowOffset.height="1.0"
-            layer.shadowOffset.width="0"
             left="parent.left + 15"
             right="parent.right - 15"
             top="0.7 * parent.height"
@@ -45,22 +40,30 @@
         <UITextField
             autocapitalizationType="none"
             autocorrectionType="no"
+            clearButtonMode="whileEditing"
             height="previous.height"
             borderStyle="none"
-            layer.masksToBounds="false"
-            layer.shadowColor="gray"
-            layer.shadowOpacity="1.0"
-            layer.shadowRadius="0.0"
-            layer.shadowOffset.height="1.0"
-            layer.shadowOffset.width="0"
-            isSecureTextEntry="true"
+            isSecureTextEntry="!pwdVisible"
             left="previous.left"
             outlet="passwordField"
             placeholder="{strings.login.password}"
-            right="parent.right"
+            right="parent.right - 30"
             top="previous.bottom + 10"
             isEnabled="!loading"
         />
+        <UIButton
+            right="parent.right"
+            bottom="previous.bottom"
+            width="30"
+            touchUpInside="togglePwdVisible"
+            contentHorizontalAlignment="right">
+            <UIImageView
+                contentMode="scaleAspectFit"
+                image="pwdVisible ? eye : eyeOff"
+                width="30"
+                height="30"
+                />
+        </UIButton>
         <UIButton
             backgroundColor="loginFormValid(loading, validation) ? primary : gray"
             layer.cornerRadius="0.5 * height"
@@ -78,16 +81,21 @@
             bottom="parent.bottom + safeAreaInsets.bottom"
             width="150"
             isEnabled="!loading"
+            titleLabel.font="helvetica neue light"
+            contentHorizontalAlignment="left"
         />
         <UIButton
             outlet="registerButton"
             touchUpInside="register"
             titleColor="black"
-            right="parent.right - safeAreaInsets.right"
+            right="parent.right - safeAreaInsets.right - 15"
             title="{strings.login.signupbtn.title}"
             bottom="parent.bottom + safeAreaInsets.bottom"
             width="100"
             isEnabled="!loading"
+            titleLabel.font="helvetica neue light"
+            contentHorizontalAlignment="right"
             />
+        
     </UIScrollView>
 </UIViewController>
