@@ -39,19 +39,19 @@ public func handleError(_ err: Error) -> Error {
         break
     case SmartError.loginInvalid(let errorMessage):
         printError("The account has been logged on another device, \(errorMessage)")
-        needLogout.onNext(())
+        NEED_LOGOUT.onNext(())
         break
     case SmartError.jdAccountNotBinded(let errorMessage):
         printError("JD Account Not Binded \(errorMessage)")
-        needLogout.onNext(())
+        NEED_LOGOUT.onNext(())
         break
     case SmartError.tokenInvalid(let errorMessage):
         printError("The access token is invalid \(errorMessage)")
-        needLogout.onNext(())
+        NEED_LOGOUT.onNext(())
         break
     case SmartError.jdTokenInvalid(let errorMessage):
         printError("The JD access token is invalid \(errorMessage)")
-        needLogout.onNext(())
+        NEED_LOGOUT.onNext(())
         break
     default:
         break

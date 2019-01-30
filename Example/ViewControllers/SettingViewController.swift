@@ -22,11 +22,11 @@ class SettingViewController: FormViewController {
             +++ Section(header: "通知", footer: "")
             
             <<< PasswordRow() {
-                $0.title = NSLocalizedString("register.passwordfield.title", comment: "")
+                $0.title = "register.passwordfield.title".localized
                 $0.cell.imageView?.image = AppIcons.lockAccent
-                $0.placeholder = NSLocalizedString("register.passwordfield.placeholder", comment: "")
+                $0.placeholder = "register.passwordfield.placeholder".localized
                 let ruleRequiredViaClosure = RuleClosure<String> { rowValue in
-                    return (rowValue == nil || rowValue!.isEmpty) ? ValidationError(msg: NSLocalizedString("register.passwordfield.validation.required", comment: "")) : nil
+                    return (rowValue == nil || rowValue!.isEmpty) ? ValidationError(msg: "register.passwordfield.validation.required".localized) : nil
                 }
                 $0.add(rule: ruleRequiredViaClosure)
                 $0.cellUpdate { (cell, row) in //3
@@ -39,7 +39,7 @@ class SettingViewController: FormViewController {
             +++ Section(footer: "")
             <<< ButtonRow() {
                 
-                $0.title = NSLocalizedString("me.logoutbtn.title", comment: "")
+                $0.title = "me.logoutbtn.title".localized
             }
             .onCellSelection { [weak self] (cell, row) in
                 self?.logout()

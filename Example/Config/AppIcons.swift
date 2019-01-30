@@ -8,10 +8,13 @@
 
 import UIKit
 import SwiftIconFont
+import SVGKit
 
 struct AppIcons {
     static let DEFAULT_ICON_WIDTH = 48
     static let DEFAULT_ICON_HEIGHT = 48
+    
+    static let app = Bundle.main.icon!
     
     static let home = UIImage(
         from: .fontAwesome,
@@ -51,56 +54,56 @@ struct AppIcons {
     static let lockAccent = UIImage(
         from: .ionicon,
         code: "ios-lock",
-        textColor: UIColor.accent!,
+        textColor: UIColor.accent,
         backgroundColor: .clear,
         size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
     
     static let settingsAccent = UIImage(
         from: .ionicon,
         code: "ios-cog",
-        textColor: UIColor.accent!,
+        textColor: UIColor.accent,
         backgroundColor: .clear,
         size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
     
     static let sceneHomeAccent = UIImage(
         from: .segoeMDL2,
         code: "Home",
-        textColor: UIColor.accent!,
+        textColor: UIColor.accent,
         backgroundColor: .clear,
         size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
     
     static let sceneWorkAccent = UIImage(
         from: .segoeMDL2,
         code: "ParkingLocation",
-        textColor: UIColor.accent!,
+        textColor: UIColor.accent,
         backgroundColor: .clear,
         size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
     
     static let scenePlaceholderAccent = UIImage(
         from: .segoeMDL2,
         code: "DeviceDiscovery",
-        textColor: UIColor.accent!,
+        textColor: UIColor.accent,
         backgroundColor: .clear,
         size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
     
     static let refreshCircle = UIImage(
         from: .ionicon,
         code: "ios-aperture",
-        textColor: .white,
+        textColor: .accent,
         backgroundColor: .clear,
         size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
     
     static let pullToRefresh = UIImage(
         from: .themify,
         code: "angle.double.down",
-        textColor: .white,
+        textColor: .accent,
         backgroundColor: .clear,
         size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
     
     static let release = UIImage(
         from: .themify,
         code: "angle.double.up",
-        textColor: .white,
+        textColor: .accent,
         backgroundColor: .clear,
         size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
     
@@ -132,6 +135,6 @@ struct AppIcons {
         backgroundColor: .clear,
         size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
     
-    static let app = Bundle.main.icon!
-    
+//    static let sceneSvg = SVGKFastImageView(svgkImage: SVGKImage(named: "scene"))!
+    static let scene = UIImage(named: "scene")
 }

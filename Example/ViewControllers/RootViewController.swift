@@ -83,6 +83,12 @@ class RootViewController: BaseViewController {
         animateDismissTransition(to: tourScreen)
     }
     
+    func switchToHome() -> Void {
+        let homeVC = HomeViewController()
+        let homeScreen = UINavigationController(rootViewController: homeVC)
+        animateDismissTransition(to: homeScreen)
+    }
+    
     func switchToMainScreen() {
         let mainViewController = HomeTabViewController(tabName: "app")
         animateFadeTransition(to: mainViewController) { [weak self] in
@@ -122,7 +128,7 @@ class RootViewController: BaseViewController {
     
     private func handleDeeplink(_ deepLink: DeeplinkType?) {
         guard deeplink != nil else { return }
-        guard let homeController = current as? HomeTabViewController else { return }
+        guard current is HomeTabViewController else { return }
         switch deepLink! {
         case .activity:
             print("[DeepLink] 捕获到 3D 触摸")

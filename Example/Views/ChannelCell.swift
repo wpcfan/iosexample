@@ -10,8 +10,7 @@ import UIKit
 import ReactorKit
 import PinLayout
 
-class ChannelCell: BaseItemCell, View {
-    typealias Reactor = BannerViewReactor
+class ChannelCell: BaseItemCell {
     private var label = UILabel()
     private var button = UIButton()
     
@@ -34,12 +33,8 @@ class ChannelCell: BaseItemCell, View {
         contentView.addSubview(button)
     }
     
-    func bind(reactor: Reactor) {
-        
-    }
-    
     private func initControls(channel: Banner) {
-        label.text = channel.label
+        label.text = channel.title
         imageView?.pin_setImage(from: URL(string: channel.imageUrl!))
     }
 }

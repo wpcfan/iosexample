@@ -32,6 +32,9 @@
 "home.refreshsuccess.header"="刷新成功";
 "home.refreshfailure.header"="刷新失败";
 "home.refreshing.header"="正在刷新";
+"home.nohouse.tips_1"="您的账号没有绑定任何房屋";
+"home.nohouse.tips_2"="扫描收房二维码绑定房屋即可使用 App";
+"home.nohouse.bindbtn.title"="我要绑定";
 "home.table.scene.header"="场景";
 "home.navigation.title"="首页";
 "register.person.section"="个人信息";

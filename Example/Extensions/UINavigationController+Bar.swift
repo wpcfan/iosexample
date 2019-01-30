@@ -33,6 +33,13 @@ extension UINavigationController {
         navigationBar.isTranslucent = false
     }
     
+    public func presentDarkNavigationBar(_ barBackgroundColor: UIColor, _ titleColor: UIColor) {
+        navigationBar.barStyle = .black
+        navigationBar.barTintColor = barBackgroundColor
+        navigationBar.tintColor = titleColor
+        navigationBar.isTranslucent = false
+    }
+    
     public func fadingNavigationBar(color: UIColor = UIColor.white, alpha: CGFloat) {
         UIApplication.shared.statusBarView?.backgroundColor = color.withAlphaComponent(alpha)
         navigationBar.backgroundColor = color.withAlphaComponent(alpha)

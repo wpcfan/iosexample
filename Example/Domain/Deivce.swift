@@ -9,27 +9,64 @@
 import ObjectMapper
 import RxDataSources
 
-struct Device: Mappable {
-    var id: String?
-    var deviceId: String?
-    var gatewayId: String?
-    var product: Product?
+struct ServiceInfo: Mappable {
+    var port: Int?
+    var isMultipoint: Bool?
+    var version: String?
+    var type: Int?
+    var transType: Int?
+    var ip: String?
+    var name: String?
     
     init?(map: Map) {
         
     }
     
-    init(id: String?, deviceId: String, gatewayId: String, product: Product) {
-        self.id = id
-        self.deviceId = deviceId
-        self.gatewayId = gatewayId
-        self.product = product
+    mutating func mapping(map: Map) {
+        port <- map["port"]
+        isMultipoint <- map["isMultipoint"]
+        version <- map["version"]
+        type <- map["type"]
+        transType <- map["transType"]
+        ip <- map["ip"]
+        name <- map["name"]
+    }
+    
+    
+}
+
+struct Device: Mappable {
+    var id: String?
+    var feedId: String?
+    var guid: String?
+    var deviceName: String?
+    var productId: String?
+    var sort: Int?
+    var from: String?
+    var isSubdevice: Bool?
+    var productImageUrl: String?
+    var version: String?
+    var status: Int?
+    var infoStatus: Int?
+    var serviceInfos: [ServiceInfo]?
+    
+    init?(map: Map) {
+        
     }
     
     mutating func mapping(map: Map) {
         id <- map["id"]
-        deviceId <- map["deviceId"]
-        gatewayId <- map["gatewayId"]
-        product <- map["product"]
+        feedId <- map["feedid"]
+        guid <- map["guid"]
+        deviceName <- map["devicename"]
+        productId <- map["puid"]
+        sort <- map["sort"]
+        from <- map["from"]
+        isSubdevice <- map["issubdevice"]
+        productImageUrl <- map["image"]
+        version <- map["version"]
+        status <- map["status"]
+        infoStatus <- map["infostatus"]
+        serviceInfos <- map["service_infos"]
     }
 }

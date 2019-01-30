@@ -9,12 +9,10 @@
 import RxSwift
 import ReactorKit
 import URLNavigator
-import Shallows
+import Disk
 import ObjectMapper
 
 class TourViewControllerReactor: Reactor {
-    private let storage = container.resolve(Storage<Filename, AppData>.self)!
-    private let oauth2Service = container.resolve(OAuth2Service.self)!
     
     enum NavTarget {
         case login
@@ -27,7 +25,7 @@ class TourViewControllerReactor: Reactor {
     }
     
     enum Mutation {
-        case setNav(target: NavTarget)
+        case setNavTarget(target: NavTarget)
         case setTour(completed: Bool)
     }
     
@@ -41,30 +39,30 @@ class TourViewControllerReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .completeTour:
-            return self.storage
-                .rx_set(value: Mapper<AppData>().map(JSON: ["tourGuidePresented": true])!, forKey: "data")
-                .flatMap { (val) -> Observable<Mutation> in
-                    return Observable.of(.setTour(completed: true))
-                }
-                .catchError({ (error) -> Observable<Mutation> in
-                    print("storage saving error: " + error.localizedDescription)
-                    return Observable.of(.setTour(completed: false))
-                })
+            do{
+                try Disk.save(Mapper<AppData>().map(JSON: ["tourGuidePresented": true]), to: .documents, as: Constants.APP_DATA_PATH)
+                return Observable.of(.setTour(completed: true))
+            }
+            catch {
+                print("storage saving error: \(String(describing: error))")
+                return Observable.of(.setTour(completed: false))
+            }
         case .checkAuth:
-            return Observable.of(self.oauth2Service.checkLoginStatus())
-                .flatMap({ (auth) -> Observable<Mutation> in
-                    if (auth) {
-                        return Observable.of(.setNav(target: .main))
+            return CURRENT_TOKEN
+                .debug()
+                .map{ (auth) -> Mutation in
+                    if ((auth) != nil) {
+                        return .setNavTarget(target: .main)
                     } else {
-                        return Observable.of(.setNav(target: .login))
+                        return .setNavTarget(target: .login)
                     }
-                })
+            }
         }
     }
     
     func reduce(state: State, mutation: Mutation) -> State {
         switch mutation {
-        case .setNav(let target):
+        case .setNavTarget(let target):
             var newState = state
             newState.nav = target
             return newState

@@ -28,10 +28,10 @@ class RegisterViewController: FormViewController {
         form
             +++ Section(footer: "")
             <<< TextRow() {
-                $0.title = NSLocalizedString("register.usernamefield.title", comment: "")
-                $0.placeholder = NSLocalizedString("register.usernamefield.placeholder", comment: "")
+                $0.title = "register.usernamefield.title".localized
+                $0.placeholder = "register.usernamefield.placeholder".localized
                 let ruleRequiredViaClosure = RuleClosure<String> { rowValue in
-                    return (rowValue == nil || rowValue!.isEmpty) ? ValidationError(msg: NSLocalizedString("register.usernamefield.validation.required", comment: "")) : nil
+                    return (rowValue == nil || rowValue!.isEmpty) ? ValidationError(msg: "register.usernamefield.validation.required".localized) : nil
                 }
                 $0.add(rule: ruleRequiredViaClosure)
                 $0.validationOptions = .validatesOnChange //2
@@ -43,10 +43,10 @@ class RegisterViewController: FormViewController {
                 }
             }
             <<< PasswordRow() {
-                $0.title = NSLocalizedString("register.passwordfield.title", comment: "")
-                $0.placeholder = NSLocalizedString("register.passwordfield.placeholder", comment: "")
+                $0.title = "register.passwordfield.title".localized
+                $0.placeholder = "register.passwordfield.placeholder".localized
                 let ruleRequiredViaClosure = RuleClosure<String> { rowValue in
-                    return (rowValue == nil || rowValue!.isEmpty) ? ValidationError(msg: NSLocalizedString("register.passwordfield.validation.required", comment: "")) : nil
+                    return (rowValue == nil || rowValue!.isEmpty) ? ValidationError(msg: "register.passwordfield.validation.required".localized) : nil
                 }
                 $0.add(rule: ruleRequiredViaClosure)
                 $0.cellUpdate { (cell, row) in //3
@@ -57,19 +57,19 @@ class RegisterViewController: FormViewController {
             }
             
             
-            +++ Section(header: NSLocalizedString("register.person.section", comment: ""), footer: "")
+            +++ Section(header: "register.person.section".localized, footer: "")
             <<< DateRow() {
-                $0.title = NSLocalizedString("register.birthdayfield.title", comment: "")
+                $0.title = "register.birthdayfield.title".localized
                 $0.minimumDate = formatter.date(from: "1920-01-01")
                 $0.maximumDate = Date()
             }
             
             <<< PushRow<String>() { //1
-                $0.title = NSLocalizedString("register.genderfield.title", comment: "") //2
-                $0.selectorTitle = NSLocalizedString("register.genderselector.title", comment: "")
+                $0.title = "register.genderfield.title".localized //2
+                $0.selectorTitle = "register.genderselector.title".localized
                 $0.options = [
-                    NSLocalizedString("register.genderfield.male", comment: ""),
-                    NSLocalizedString("register.genderfield.female", comment: "")]
+                    "register.genderfield.male".localized,
+                    "register.genderfield.female".localized]
             }
         
     }

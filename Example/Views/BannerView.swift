@@ -18,15 +18,15 @@ import RxOptional
 class BannerView: BaseView {
     
     fileprivate let REUSE_IDENTIFIER = "fspager"
-    var selectedIndex = PublishSubject<Int?>()
     var tappedIndex = PublishSubject<Int?>()
     
-    @objc var layoutNode: LayoutNode? {
+    @objc weak var layoutNode: LayoutNode!
+    var banners: [Banner] = [] {
         didSet {
-            self.reactor = BannerViewReactor()
+            self.pagerControl?.numberOfPages = banners.count
+            self.pagerView?.reloadData()
         }
     }
-    var banners: [Banner] = []
     
     @objc var pagerView: FSPagerView? {
         didSet {
@@ -69,7 +69,7 @@ extension BannerView: FSPagerViewDataSource {
         cell.imageView?.pin_setImage(from: URL(string: banners[index].imageUrl!))
         cell.imageView?.contentMode = .scaleAspectFill
         cell.imageView?.clipsToBounds = true
-        cell.textLabel?.text = banners[index].label
+        cell.textLabel?.text = banners[index].title
         cell.rx.imageTap
             .map { _ in index }
             .bind(to: self.tappedIndex)
@@ -86,28 +86,10 @@ extension BannerView: FSPagerViewDelegate {
     
     func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int) {
         self.pagerControl?.currentPage = targetIndex
-        self.selectedIndex.onNext(targetIndex)
     }
     
     func pagerViewDidEndScrollAnimation(_ pagerView: FSPagerView) {
         self.pagerControl?.currentPage = pagerView.currentIndex
-        self.selectedIndex.onNext(pagerView.currentIndex)
-    }
-}
-
-extension BannerView: ReactorKit.View {
-    typealias Reactor = BannerViewReactor
-    func bind(reactor: Reactor) {
-        reactor.action.onNext(.load)
-
-        reactor.state.map { $0.banners }
-            .debug()
-            .subscribe { ev in
-                self.banners = ev.element!
-                self.pagerControl?.numberOfPages = ev.element!.count
-                self.pagerView?.reloadData()
-            }
-            .disposed(by: self.disposeBag)
     }
 }
 
@@ -117,14 +99,6 @@ extension Reactive where Base: BannerView {
             .filterNil()
             .distinctUntilChanged()
             .map { (idx) -> String? in self.base.banners[idx].link }
-            .filterNil()
-    }
-    
-    var bannerImageSelect: Observable<String> {
-        return base.selectedIndex.asObservable()
-            .filterNil()
-            .distinctUntilChanged()
-            .map { (idx) -> String? in self.base.banners[idx].imageUrl }
             .filterNil()
     }
 }

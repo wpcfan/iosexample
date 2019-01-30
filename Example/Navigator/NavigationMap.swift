@@ -49,7 +49,7 @@ enum NavigationMap {
             let message = url.queryParameters["message"]
             let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
             alertController.addAction(UIAlertAction(
-                title: NSLocalizedString("pmalert.ok.title", comment: ""),
+                title:"pmalert.ok.title".localized,
                 style: .default,
                 handler: nil))
             navigator.present(alertController)
@@ -64,14 +64,14 @@ enum NavigationMap {
             let alertVC = PMAlertController(title: title, description: message ?? "", image: AppIcons.sceneHomeAccent, style: .alert)
             
             alertVC.addAction(PMAlertAction(
-                title: NSLocalizedString("pmalert.cancel.title", comment: ""),
+                title: "pmalert.cancel.title".localized,
                 style: .cancel,
                 action: { () -> Void in
                     print("Capture action Cancel")
                 }))
             
             alertVC.addAction(PMAlertAction(
-                title: NSLocalizedString("pmalert.ok.title", comment: ""),
+                title:"pmalert.ok.title".localized,
                 style: .default,
                 action: { () in
                     print("Capture action OK")

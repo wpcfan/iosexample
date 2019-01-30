@@ -12,6 +12,8 @@ target 'Example' do
   pod 'PinLayout'
 #  pod 'FlexLayout'
   pod 'Toast-Swift'
+  pod 'NotificationBannerSwift'
+  pod 'SVGKit'
   # Pods for Rx
   pod 'RxSwift', '~> 4.0'
   pod 'RxCocoa', '~> 4.0'
@@ -116,10 +118,9 @@ target 'Example' do
   pod 'Pageboy'
   # Pull to refresh
   pod 'PullToRefreshKit'
-  # SVG
-#  pod 'FantasticSnowflake', :git: 'https://github.com/onmyway133/Snowflake', :submodules => true
   # easy persistence
   pod 'Shallows'
+  pod 'Disk'
   # OAuth2 Library
   pod 'p2.OAuth2'
   # JWT Library

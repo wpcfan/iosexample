@@ -32,6 +32,9 @@
 "home.refreshsuccess.header"="Refresh Successfuly";
 "home.refreshfailure.header"="Refresh Failed";
 "home.refreshing.header"="Refreshing";
+"home.nohouse.tips_1"="You have no house under your account";
+"home.nohouse.tips_2"="Scan the QR code to add your house to your account";
+"home.nohouse.bindbtn.title"="Scan";
 "home.table.scene.header"="Scenes";
 "home.navigation.title"="Home";
 "register.person.section"="Personal Information";

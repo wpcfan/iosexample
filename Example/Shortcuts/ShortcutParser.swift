@@ -19,14 +19,14 @@ class ShortcutParser {
     func registerShortcuts() {
         let activityIcon = UIApplicationShortcutIcon(templateImageName: "Scan")
         let activityShortcutItem = UIApplicationShortcutItem(type: ShortcutKey.activity.rawValue,
-                                                             localizedTitle: NSLocalizedString("shortcuts.scan.title", comment: ""),
+                                                             localizedTitle: "shortcuts.scan.title".localized,
                                                              localizedSubtitle: nil,
                                                              icon: activityIcon,
                                                              userInfo: nil)
         
         let messageIcon = UIApplicationShortcutIcon(templateImageName: "Task")
         let messageShortcutItem = UIApplicationShortcutItem(type: ShortcutKey.messages.rawValue,
-                                                            localizedTitle: NSLocalizedString("shortcuts.task.title", comment: ""),
+                                                            localizedTitle: "shortcuts.task.title".localized,
                                                             localizedSubtitle: nil,
                                                             icon: messageIcon,
                                                             userInfo: nil)

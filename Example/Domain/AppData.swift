@@ -10,7 +10,7 @@ import ObjectMapper
 
 struct AppData: Codable, Mappable {
     var tourGuidePresented: Bool?
-    var userId: String?
+    var user: SmartUser?
     var houseId: String?
     var projectId: String?
     var token: String?
@@ -20,7 +20,7 @@ struct AppData: Codable, Mappable {
     
     mutating func mapping(map: Map) {
         tourGuidePresented <- map["tourGuidePresented"]
-        userId <- map["userId"]
+        user <- map["user"]
         houseId <- map["houseId"]
         projectId <- map["projectId"]
         token <- map["token"]

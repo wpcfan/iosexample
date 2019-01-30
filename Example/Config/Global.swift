@@ -13,7 +13,13 @@ import RxSwift
 #if DEBUG
     import CocoaDebug
 #endif
-let needLogout = PublishSubject<Void>()
+// 全局 Observable 对象，用于多个 ViewController 中的信号共享
+// 监控服务器传回的需要退出登录的信号
+let NEED_LOGOUT = PublishSubject<Void>()
+// 共享当前登录用户
+let CURRENT_TOKEN = BehaviorSubject<String?>(value: nil)
+let CURRENT_USER = BehaviorSubject<SmartUser?>(value: nil)
+let CURRENT_HOUSE = BehaviorSubject<House?>(value: nil)
 // 全局 log ，基于 JustLog ，但使用上通过全局的 print 和 printError 进行了封装
 let log = Logger.shared
 // 为 CocoaDebug 和 JustLog 提供一个统一的调用形式，Debug 模式下采用 CocoaDebug，而在 Release 模式下使用 JustLog 上传到 logz.io
@@ -88,6 +94,9 @@ let container: Container = {
     }
     container.register(LoginService.self) { _ in
         LoginService()
+    }
+    container.register(HomeService.self) { _ in
+        HomeService()
     }
     #if !targetEnvironment(simulator)
         container.register(JdSmartCloudService.self) { _ in JdSmartCloudService() }

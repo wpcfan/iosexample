@@ -11,25 +11,28 @@ import RxDataSources
 
 struct House: Mappable {
     var id: String?
-    var houseNo: String?
-    var location: String?
+    var projectId: String?
     var projectName: String?
+    var stage: String?
+    var houseNo: String?
+    var unitNo: String?
+    var roomNo: String?
+    var isOwner: Bool?
+    var jdAccessToken: String?
     
     init?(map: Map) {
         
     }
     
-    init(id: String?, houseNo: String, location: String, projectName: String) {
-        self.id = id
-        self.houseNo = houseNo
-        self.location = location
-        self.projectName = projectName
-    }
-    
     mutating func mapping(map: Map) {
         id <- map["id"]
-        houseNo <- map["houseNo"]
-        location <- map["location"]
-        projectName <- map["projectName"]
+        projectId <- map["pid"]
+        projectName <- map["pname"]
+        stage <- map["stage"]
+        houseNo <- map["num"]
+        unitNo <- map["unitno"]
+        roomNo <- map["roomnum"]
+        isOwner <- map["isOwner"]
+        jdAccessToken <- map["accessToken"]
     }
 }

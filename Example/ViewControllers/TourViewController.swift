@@ -13,7 +13,7 @@ import ReactorKit
 
 class TourViewController: BaseViewController {
     
-    private let totalPages = 2
+    private let totalPages = 3
     private var tourCompleted = PublishSubject<Void>();
     @objc var scrollView: UIScrollView?
     @objc var pageControl: UIPageControl?
@@ -53,6 +53,7 @@ extension TourViewController: LayoutLoading {
         self.loadLayout(named: "TourViewController.xml",
                         state: ["Tour_1": UIImage(named: "Tour_1")!,
                                 "Tour_2": UIImage(named: "Tour_2")!,
+                                "Tour_3": UIImage(named: "Tour_3")!,
                                 "totalPages": totalPages,
                                 "lastPage": lastPage])
     }
@@ -83,7 +84,7 @@ extension TourViewController: ReactorKit.View {
                 case .login:
                     AppDelegate.shared.rootViewController.showLoginScreen()
                 case .main:
-                    AppDelegate.shared.rootViewController.switchToMainScreen()
+                    AppDelegate.shared.rootViewController.switchToHome()
                 }
             }
             .disposed(by: self.disposeBag)

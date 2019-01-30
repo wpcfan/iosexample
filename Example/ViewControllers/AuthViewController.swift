@@ -8,10 +8,10 @@
 
 import Layout
 import ReactorKit
-import Shallows
 import RxSwift
 import Toast_Swift
 import RxKeyboard
+import RxOptional
 
 class AuthViewController: BaseViewController {
     
@@ -26,21 +26,14 @@ class AuthViewController: BaseViewController {
         }
     }
     
-    private let storage = container.resolve(Storage<Filename, AppData>.self)!
-    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.presentTransparentNavigationBar(light: true)
-//        self.navigationController?.navigationBar.topItem?.title = "login.navigation.title".localized
-//        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.textIcon!]
-//        self.navigationController?.navigationBar.barStyle = .black
-//        self.navigationController?.navigationBar.barTintColor = .primary
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        
         self.loadLayout(
             named: "AuthViewController.xml",
             state: [
@@ -111,7 +104,8 @@ extension AuthViewController: View {
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
             .observeOn(MainScheduler.asyncInstance)
             .subscribe{ ev in
-                self.view?.makeToast(ev.element!)
+                guard let err = ev.element else { return }
+                self.view?.makeToast(err)
             }
             .disposed(by: self.disposeBag)
         

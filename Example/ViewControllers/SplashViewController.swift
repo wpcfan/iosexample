@@ -8,11 +8,9 @@
 
 import Layout
 import RxSwift
-import Shallows
 import ReactorKit
 
 class SplashViewController: BaseViewController {
-    
     @objc weak var imageView: UIImageView? {
         didSet {
             guard let imageView = imageView else { return }
@@ -55,7 +53,6 @@ extension SplashViewController: ReactorKit.View {
     func bind(reactor: Reactor) {
         
         reactor.action.onNext(.checkFirstLaunch)
-        reactor.action.onNext(.checkRegister)
         
         let countDownStream =  Observable<Int>
             .interval(1, scheduler: ConcurrentDispatchQueueScheduler(qos: .userInitiated))
@@ -65,7 +62,9 @@ extension SplashViewController: ReactorKit.View {
         Observable.merge(
             countDown.rx.tap.map { _ in 0 },
             countDownStream.filter { (count) -> Bool in  count == 1 })
-            .withLatestFrom(reactor.state)
+            .flatMapLatest({ (_) -> Observable<Reactor.State> in
+                reactor.state
+            })
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
             .observeOn(MainScheduler.asyncInstance)
             .subscribe { ev in
@@ -73,7 +72,7 @@ extension SplashViewController: ReactorKit.View {
                 case .login:
                     AppDelegate.shared.rootViewController.showLoginScreen()
                 case .main:
-                    AppDelegate.shared.rootViewController.switchToMainScreen()
+                    AppDelegate.shared.rootViewController.switchToHome()
                 case .tour:
                     AppDelegate.shared.rootViewController.switchToTour()
                 }

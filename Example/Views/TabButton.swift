@@ -15,7 +15,7 @@ class TabButton: BaseView {
             layoutNode?.setState(["title": title])
         }
     }
-    @objc var color: UIColor = UIColor.accent! {
+    @objc var color: UIColor = UIColor.accent {
         didSet {
             layoutNode?.setState(["color": color])
         }

@@ -8,35 +8,78 @@
 
 import RxSwift
 import ReactorKit
+import Disk
 
 class HomeViewControllerReactor: Reactor {
+    let homeService = container.resolve(HomeService.self)!
     enum Action {
-        case changeBackground
-        case bannerTap
+        case load
+        case selectHouse(houseId: String, projectId: String)
     }
     
     enum Mutation {
-        case tabSelected(idx: Int)
+        case loadSuccess(_ homeInfo: HomeInfo)
+        case loadFail(_ message: String)
+        case loading(_ status: Bool)
     }
     
     struct State {
-        var selectedTopTab: Int
+        var homeInfo: HomeInfo?
+        var loading: Bool
+        var errorMessage: String
     }
     
-    let initialState: State = State(selectedTopTab: 0)
+    let initialState: State = State(homeInfo: nil, loading: false, errorMessage: "")
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        default:
-            return Observable.empty()
+        case .load:
+            let data = try? Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
+            self.homeService.userId = data?.user?.id
+            return self.homeService.request()
+                .do(onNext: { home in
+                    CURRENT_HOUSE.onNext(home.house)
+                })
+                .map { home -> Mutation in .loadSuccess(home) }
+                .catchError{ error -> Observable<Mutation>  in
+                    Observable.of(.loadFail(convertErrorToString(error: error)))
+                }
+        case let .selectHouse(houseId, projectId):
+            return CURRENT_USER
+                .flatMapLatest({ (val) -> Observable<HomeInfo> in
+                    self.homeService.userId = val?.id
+                    self.homeService.projectId = projectId
+                    self.homeService.houseId = houseId
+                    return self.homeService.request()
+                })
+                .do(onNext: { home in
+                    CURRENT_HOUSE.onNext(home.house)
+                })
+                .map { home -> Mutation in .loadSuccess(home) }
+                .catchError{ error -> Observable<Mutation>  in
+                    Observable.of(.loadFail(convertErrorToString(error: error)))
+                }
         }
     }
     
     func reduce(state: State, mutation: Mutation) -> State {
         switch mutation {
-            
-        default:
-            return state
+        case .loadSuccess(let home):
+            var newState = state
+            newState.homeInfo = home
+            newState.loading = false
+            newState.errorMessage = ""
+            return newState
+        case .loadFail(let errorMessage):
+            var newState = state
+            newState.loading = false
+            newState.errorMessage = errorMessage
+            return newState
+        case .loading(let status):
+            var newState = state
+            newState.loading = status
+            newState.errorMessage = ""
+            return newState
         }
     }
 }

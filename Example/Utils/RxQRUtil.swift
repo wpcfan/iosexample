@@ -13,9 +13,9 @@ struct RxQRUtil {
     
     public func scanQR(_ vc: BaseViewController) {
         var config = QRScanConfig.instance
-        config.titleText = NSLocalizedString("qrscanner.navigation.title", comment: "")
-        config.albumText = NSLocalizedString("qrscanner.navigation.right.title", comment: "")
-        config.cancelText = NSLocalizedString("qrscanner.navigation.left.title", comment: "")
+        config.titleText = "qrscanner.navigation.title".localized
+        config.albumText = "qrscanner.navigation.right.title".localized
+        config.cancelText = "qrscanner.navigation.left.title".localized
         Permission.checkCameraAccess()
             .filter { (hasAccess) -> Bool in hasAccess }
             .flatMap{ _ in QRScanner.popup(on: vc, config: config) }

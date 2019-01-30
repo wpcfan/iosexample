@@ -5,8 +5,15 @@ PODS:
   - Bugly (2.5.0)
   - CocoaAsyncSocket (7.6.3)
   - CocoaDebug (0.5.5)
+  - CocoaLumberjack (3.4.2):
+    - CocoaLumberjack/Default (= 3.4.2)
+    - CocoaLumberjack/Extensions (= 3.4.2)
+  - CocoaLumberjack/Default (3.4.2)
+  - CocoaLumberjack/Extensions (3.4.2):
+    - CocoaLumberjack/Default
   - Device.swift (1.2.1)
   - Differentiator (3.1.0)
+  - Disk (0.4.0)
   - Dollar (7.1.0)
   - Eureka (4.3.1)
   - FLAnimatedImage (1.0.12)
@@ -21,14 +28,11 @@ PODS:
   - Layout (0.6.35):
     - Layout/Core (= 0.6.35)
   - Layout/Core (0.6.35)
-  - Material (2.16.4):
-    - Material/Core (= 2.16.4)
-  - Material/Core (2.16.4):
-    - Motion (~> 1.4.3)
+  - MarqueeLabel/Swift (3.2.0)
   - MonkeyKing (1.12.1)
-  - Motion (1.4.3):
-    - Motion/Core (= 1.4.3)
-  - Motion/Core (1.4.3)
+  - NotificationBannerSwift (2.0.1):
+    - MarqueeLabel/Swift (~> 3.2.0)
+    - SnapKit (~> 4.2.0)
   - ObjectMapper (3.4.2)
   - OHHTTPStubs/Core (6.1.0)
   - OHHTTPStubs/Default (6.1.0):
@@ -96,6 +100,9 @@ PODS:
     - RxCocoa (~> 4.0)
     - RxSwiftExt/Core
   - Shallows (0.9.0)
+  - SnapKit (4.2.0)
+  - SVGKit (2.1.0):
+    - CocoaLumberjack (~> 3.0)
   - SwiftIconFont (3.0.0)
   - SwiftyBeaver (1.6.1)
   - Swinject (2.5.0)
@@ -112,6 +119,7 @@ DEPENDENCIES:
   - Bugly
   - CocoaDebug
   - Device.swift
+  - Disk
   - Dollar
   - Eureka
   - FSPagerView
@@ -119,8 +127,8 @@ DEPENDENCIES:
   - JustLog
   - JWTDecode (~> 2.1)
   - Layout (~> 0.6)
-  - Material
   - MonkeyKing
+  - NotificationBannerSwift
   - ObjectMapper (~> 3.3)
   - OHHTTPStubs/Swift
   - p2.OAuth2
@@ -142,6 +150,7 @@ DEPENDENCIES:
   - RxSwift (~> 4.0)
   - RxSwiftExt
   - Shallows
+  - SVGKit
   - SwiftIconFont
   - Swinject (~> 2.5)
   - Toast-Swift
@@ -157,8 +166,10 @@ SPEC REPOS:
     - Bugly
     - CocoaAsyncSocket
     - CocoaDebug
+    - CocoaLumberjack
     - Device.swift
     - Differentiator
+    - Disk
     - Dollar
     - Eureka
     - FLAnimatedImage
@@ -168,9 +179,9 @@ SPEC REPOS:
     - JustLog
     - JWTDecode
     - Layout
-    - Material
+    - MarqueeLabel
     - MonkeyKing
-    - Motion
+    - NotificationBannerSwift
     - ObjectMapper
     - OHHTTPStubs
     - p2.OAuth2
@@ -193,6 +204,8 @@ SPEC REPOS:
     - RxSwift
     - RxSwiftExt
     - Shallows
+    - SnapKit
+    - SVGKit
     - SwiftIconFont
     - SwiftyBeaver
     - Swinject
@@ -208,8 +221,10 @@ SPEC CHECKSUMS:
   Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
   CocoaDebug: 80a420dbddedbeee7d3ba6ed71e22cd86b59635f
+  CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
   Device.swift: ab71b078c0f3b827090e2051be67eb5d0bbbdf48
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
+  Disk: ef2956657d5bb56034b38b29b352170165226440
   Dollar: dc69a2997fa5df12ae7a91fec897963664c26750
   Eureka: 28ea296f06710f6745266b71f17862048941a32d
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
@@ -219,9 +234,9 @@ SPEC CHECKSUMS:
   JustLog: 24d4dbdd4d4b65fc04069f222ee34b1d9c9004cf
   JWTDecode: 85a405ab16d5473e99bd89ded1d535090ebd6a0e
   Layout: a970a8bb1cc1e5db8b1cafde341a26bf5b0c386b
-  Material: 4ed78690b09ffd148b5ffab6b4367fb1d8da1cd3
+  MarqueeLabel: 440a502b91a9179bd98f9fff00ba1150650a1c0e
   MonkeyKing: 280cdc68eb39f8b899b17fdfe994a695f6fdc636
-  Motion: 153ba49692997888556c7a95207278a8b1f8be95
+  NotificationBannerSwift: 007774aa590cc9680647b92b2f217bef5c00c32c
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
   OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
   p2.OAuth2: d5ea9b928fc5d10d088d419db6f3380578b6f866
@@ -244,6 +259,8 @@ SPEC CHECKSUMS:
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   RxSwiftExt: 01f8ecbeeb355698e9c75365ebe908b00dacf45d
   Shallows: b7d12cd044d1754dd7d57cb7cdec88b5487e3401
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  SVGKit: 8a2fc74258bdb2abb54d3b65f3dd68b0277a9c4d
   SwiftIconFont: 2ba18554a77c44948dc35b561b344e3c23834a84
   SwiftyBeaver: ccfcdf85a04d429f1633f668650b0ce8020bda3a
   Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
@@ -254,6 +271,6 @@ SPEC CHECKSUMS:
   UMCCommonLog: 05a2d5de21858e3d870551562cff405c1366d244
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
 
-PODFILE CHECKSUM: 29f862927003351c0ad5e4db02001f0800e66491
+PODFILE CHECKSUM: e36d09c55a97432541f6aae2c06c423e0e554a51
 
 COCOAPODS: 1.5.3

@@ -15,3 +15,9 @@ Accept-Language: zh-cn
 
 ###
 GET https://tinyfac.es/api/users
+
+###
+POST http://116.196.92.228:8080/smarthome-appserver/v1/home/homeinfo
+Content-Type : application/x-www-form-urlencoded
+
+p1=4815050e6255413fb949ccc2b5aaf813&apptype=1&uid=4815050e6255413fb949ccc2b5aaf813

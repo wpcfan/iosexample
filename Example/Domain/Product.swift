@@ -22,20 +22,10 @@ struct Product: Mappable {
         
     }
     
-    init(id: String?, name: String, imageUrl: String, brand: String, version: Int, models: Array<String> = [], category: ProductCategory) {
-        self.id = id
-        self.name = name
-        self.imageUrl = imageUrl
-        self.brand = brand
-        self.version = version
-        self.models = models
-        self.category = category
-    }
-    
     mutating func mapping(map: Map) {
         id <- map["id"]
         name <- map["name"]
-        imageUrl <- map["imageUrl"]
+        imageUrl <- map["image"]
         version <- map["version"]
         brand <- map["brand"]
         models <- map["models"]

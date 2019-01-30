@@ -10,31 +10,35 @@ import ObjectMapper
 
 struct Banner: Mappable {
     
-    var objectId: String?
+    var id: String?
     var imageUrl: String?
-    var label: String?
+    var title: String?
     var link: String?
     init?(map: Map) {
         
     }
     
-    init(id: String?, imageUrl: String, label: String, link: String) {
-        self.objectId = id
-        self.imageUrl = imageUrl
-        self.label = label
-        self.link = link
+    mutating func mapping(map: Map) {
+        id <- map["id"]
+        imageUrl <- map["adurl"]
+        title <- map["title"]
+        link <- map["redirecturl"]
+    }
+}
+
+struct Channel: Mappable {
+    var id: String?
+    var imageUrl: String?
+    var title: String?
+    var link: String?
+    init?(map: Map) {
+        
     }
     
     mutating func mapping(map: Map) {
-        objectId <- map["objectId"]
-        imageUrl <- map["imageUrl"]
-        label <- map["label"]
-        link <- map["link"]
-    }
-    
-    var id: String? {
-        get {
-            return objectId
-        }
+        id <- map["id"]
+        imageUrl <- map["adurl"]
+        title <- map["title"]
+        link <- map["redirecturl"]
     }
 }

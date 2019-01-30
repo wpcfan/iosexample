@@ -37,7 +37,7 @@ class HomeTabViewController: BaseViewController {
         
         self.navigationItem.titleView?.pin.height(100%).hCenter().width(80%)
         let homeTitleView = UILabel().then {
-            $0.text = NSLocalizedString("home.navigation.title", comment: "")
+            $0.text = "home.navigation.title".localized
             $0.textColor = UIColor.textIcon
             $0.textAlignment = .center
         }
@@ -47,7 +47,7 @@ class HomeTabViewController: BaseViewController {
                 "selectedTab": selectedTab,
                 ],
             constants: [
-                "uppercased": AppLayoutClousures.upperCase,
+                "uppercased": LayoutFunctions.upperCase,
                 "iconTabHome": AppIcons.home,
                 "iconTabSocial": AppIcons.social,
                 "iconTabMy": AppIcons.user,

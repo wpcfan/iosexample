@@ -22,4 +22,3 @@ class LoginService: ShouChuangService<SmartUser> {
         return queryItems
     }
 }
-

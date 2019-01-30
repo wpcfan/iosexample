@@ -1,4 +1,4 @@
-<Example.MeViewController outlet="layoutNode">
+<MeViewController outlet="layoutNode">
     <UIView
         top="parent.top "
         height="25%"
@@ -44,4 +44,4 @@
                 />
         </UICollectionViewCell>
     </UICollectionView>
-</Example.MeViewController>
+</MeViewController>

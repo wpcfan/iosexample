@@ -8,12 +8,11 @@
 
 import RxSwift
 import ReactorKit
-import Shallows
+import Disk
 
 class AuthViewControllerReactor: Reactor {
-    let oauthService = container.resolve(OAuth2Service.self)!
-    let loginService = container.resolve(LoginService.self)!
-    let storage = container.resolve(Storage<Filename, SmartUser>.self)!
+    //    let oauthService = container.resolve(OAuth2Service.self)!
+    private let loginService = container.resolve(LoginService.self)!
     enum Action {
         case login(username: String, password: String)
     }
@@ -35,19 +34,20 @@ class AuthViewControllerReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case let .login(username, password):
-            loginService.mobile = username
-            loginService.password = password
-            return loginService.request().flatMapLatest{ user -> Observable<Bool> in
-                return self.storage
-                    .rx_set(value: user, forKey: Filename(rawValue: Constants.SMART_USER_DATA_KEY))
-                    .catchError({ (err) -> Observable<Bool> in
-                        print("Error persisting user data \(err)")
-                        return Observable.of(false)
-                    })
-                }.map { _ -> Mutation in .loginSuccess }
+            
+            self.loginService.mobile = username
+            self.loginService.password = password
+            return self.loginService.request()
+                .do(onNext: { user in
+                    var data = try Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
+                    data.user = user
+                    try Disk.save(data, to: .documents, as: Constants.APP_DATA_PATH)
+                    CURRENT_USER.onNext(user)
+                })
+                .map { _ -> Mutation in .loginSuccess }
                 .do(onNext: { (_) in
                     DispatchQueue.main.async {
-                        AppDelegate.shared.rootViewController.switchToMainScreen()
+                        AppDelegate.shared.rootViewController.switchToHome()
                     }
                 })
                 .debug()

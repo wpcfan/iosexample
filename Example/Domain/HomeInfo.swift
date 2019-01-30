@@ -10,27 +10,21 @@ import ObjectMapper
 import RxDataSources
 
 struct HomeInfo: Mappable {
-    var projectId: String?
-    var banners: Array<Banner>?
-    var channels: Array<Banner>?
-    var scenes: Array<Scene>?
-    
+    var banners: [Banner]?
+    var hasMessage: Bool?
+    var devices: [Device]?
+    var channels: [Channel]?
+    var house: House?
     
     init?(map: Map) {
         
     }
     
-    init(projectId: String?, banners: Array<Banner>, channels: Array<Banner>, scenes: Array<Scene>) {
-        self.projectId = projectId
-        self.banners = banners
-        self.channels = channels
-        self.scenes = scenes
-    }
-    
     mutating func mapping(map: Map) {
-        projectId <- map["projectId"]
         banners <- map["banners"]
+        hasMessage <- map["hasmessage"]
+        devices <- map["devices"]
         channels <- map["channels"]
-        scenes <- map["scenes"]
+        house <- map["houseinfo"]
     }
 }

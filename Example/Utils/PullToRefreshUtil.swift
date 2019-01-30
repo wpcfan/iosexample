@@ -11,25 +11,20 @@ import PullToRefreshKit
 struct PullToRefreshUtil {
     static func createHeader() -> DefaultRefreshHeader {
         let header = DefaultRefreshHeader.header()
-        header.setText(
-            NSLocalizedString("home.pulltorefresh.header", comment: ""),
+        header.setText("home.pulltorefresh.header".localized,
             mode: .pullToRefresh)
-        header.setText(
-            NSLocalizedString("home.releasetorefresh.header", comment: ""),
+        header.setText("home.releasetorefresh.header".localized,
             mode: .releaseToRefresh)
-        header.setText(
-            NSLocalizedString("home.refreshsuccess.header", comment: ""),
+        header.setText("home.refreshsuccess.header".localized,
             mode: .refreshSuccess)
-        header.setText(
-            NSLocalizedString("home.refreshing.header", comment: ""),
+        header.setText("home.refreshing.header".localized,
             mode: .refreshing)
-        header.setText(
-            NSLocalizedString("home.refreshfailure.header", comment: ""),
+        header.setText("home.refreshfailure.header".localized,
             mode: .refreshFailure)
-        header.tintColor = UIColor.textIcon
+        header.tintColor = .accent
         header.imageRenderingWithTintColor = true
         header.durationWhenHide = 0.4
-        
+        header.textLabel.tintColor = .accent
         return header
     }
 }

@@ -9,15 +9,15 @@
 import UIKit
 import URLNavigator
 import RxSwift
-import Shallows
+import Disk
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    var disposeBag = DisposeBag()
     var window: UIWindow?
-    let navigator = container.resolve(NavigatorType.self)!
-    let social = container.resolve(SocialService.self)!
-    
+    private let navigator = container.resolve(NavigatorType.self)!
+    private let social = container.resolve(SocialService.self)!
+    private let registerService = container.resolve(RegisterService.self)!
+    private var disposeBag = DisposeBag()
     static var shared: AppDelegate {
         return UIApplication.shared.delegate as! AppDelegate
     }
@@ -37,9 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         setupLeChange()
         setupPushNotification(launchOptions)
         ShortcutParser.shared.registerShortcuts()
-        NotificationCenter.default.rx.notification(.jPushAddNotificationCount, object: nil)
-            .subscribe{ print("收到消息 \(String(describing: $0.element))") }
-            .disposed(by: self.disposeBag)
+        setupGlobalObservables()
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = RootViewController()
         window.makeKeyAndVisible()
@@ -96,5 +94,55 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_ application: UIApplication) {
         // handle any deeplink
         Deeplinker.checkDeepLink()
+    }
+    
+    fileprivate func setupGlobalObservables() {
+        let appStorage = Observable.deferred { () -> Observable<AppData> in
+            let data = try Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
+            return Observable.of(data)
+        }
+        let fromStorage: Observable<String?> = appStorage.map{ appData in
+            let data = appData
+            return data.token
+            }
+            .takeWhile { (token) -> Bool in
+                token != nil
+            }
+            .distinctUntilChanged()
+        let fromNetwork: Observable<String?> = self.registerService.request().map{ register in
+            return register.token
+        }.share()
+        
+        fromNetwork
+            .filterNil()
+            .map{ token -> String? in
+                var data = try? Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
+                if (data == nil) {
+                    data = AppData(JSON: ["token": token])
+                } else {
+                    data!.token = token
+                }
+                try Disk.save(data, to: .documents, as: Constants.APP_DATA_PATH)
+                return token
+            }
+            .subscribe{ev in
+                if((ev.error) != nil) {
+                    print("存储错误，\(String(describing: ev.error))")
+                }
+            }
+            .disposed(by: self.disposeBag)
+        
+        Observable.concat(fromStorage, fromNetwork)
+            .debug()
+            .catchErrorJustReturn(nil)
+            .subscribe{ ev in
+                guard let token = ev.element else { return }
+                CURRENT_TOKEN.onNext(token)
+            }
+            .disposed(by: self.disposeBag)
+        
+        NotificationCenter.default.rx.notification(.jPushAddNotificationCount, object: nil)
+            .subscribe{ print("收到消息 \(String(describing: $0.element))") }
+            .disposed(by: self.disposeBag)
     }
 }
