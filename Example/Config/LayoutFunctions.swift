@@ -8,7 +8,7 @@
 
 import Layout
 
-struct AppLayoutClousures {
+struct LayoutFunctions {
     static let upperCase = { (args: [Any]) throws -> Any in
         guard let string = args.first as? String else {
             throw LayoutError.message("uppercased() function expects a String argument")
