@@ -19,7 +19,6 @@ extension AppDelegate {
         //        CocoaDebug.ignoredURLs = nil //default value is `nil`
         //        CocoaDebug.onlyURLs = nil //default value is `nil`
         //        CocoaDebug.tabBarControllers = [UIViewController(), UIViewController()] //default value is `nil`
-        CocoaDebug.disableCrashRecording = false //default value is `false`
         CocoaDebug.logMaxCount = 1000 //default value is `500`
         CocoaDebug.emailToRecipients = ["wpcfan@163.com"] //default value is `nil`
         //        CocoaDebug.emailCcRecipients = ["ccc@gmail.com", "ddd@gmail.com"] //default value is `nil`

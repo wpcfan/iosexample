@@ -30,9 +30,10 @@ class TourViewController: BaseViewController {
 extension TourViewController: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         if scrollView === self.scrollView {
-            let index = abs(Int(round(scrollView.contentOffset.x / scrollView.frame.width))) % totalPages
+            let offsetRatio = Int(round(scrollView.contentOffset.x / scrollView.frame.width))
+            let index = abs(offsetRatio) % totalPages
             lastPage = index == totalPages - 1
-            if (index >= totalPages) {
+            if (offsetRatio >= totalPages) {
                 pageControl?.currentPage = totalPages - 1
                 skipOrFinish()
                 return

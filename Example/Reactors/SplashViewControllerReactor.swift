@@ -12,6 +12,7 @@ import URLNavigator
 import Disk
 
 class SplashViewControllerReactor: Reactor {
+    private let registerService = container.resolve(RegisterService.self)!
     enum NavTarget {
         case login
         case main
@@ -42,7 +43,8 @@ class SplashViewControllerReactor: Reactor {
             let tourPresented = result?.tourGuidePresented ?? false
             if (tourPresented) {
                 return (result?.user) != nil && result?.token != nil ?
-                    Observable.of(.setNavTarget(target: .main)) :
+                    self.registerService.handleRegister()
+                        .mapTo(.setNavTarget(target: .main)) :
                     Observable.of(.setNavTarget(target: .login))
             } else {
                 return Observable.of(.setNavTarget(target: .tour))

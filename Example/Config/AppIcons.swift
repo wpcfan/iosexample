@@ -135,6 +135,20 @@ struct AppIcons {
         backgroundColor: .clear,
         size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
     
+    static let devicePlaceholder = UIImage(
+        from: .materialIcon,
+        code: "nfc",
+        textColor: .primary,
+        backgroundColor: .clear,
+        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
+    
+    static let checkCircle = UIImage(
+        from: .fontAwesome,
+        code: "checkcircle",
+        textColor: .black,
+        backgroundColor: .clear,
+        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
+    
 //    static let sceneSvg = SVGKFastImageView(svgkImage: SVGKImage(named: "scene"))!
     static let scene = UIImage(named: "scene")
 }

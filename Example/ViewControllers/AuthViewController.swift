@@ -12,6 +12,7 @@ import RxSwift
 import Toast_Swift
 import RxKeyboard
 import RxOptional
+import Disk
 
 class AuthViewController: BaseViewController {
     

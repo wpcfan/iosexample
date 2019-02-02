@@ -43,6 +43,7 @@
         bottom="previous.bottom + 30"
         right="parent.right - 50"
         title="{lastPage ? 'Complete' : 'Skip'}"
+        titleColor="accent"
         touchUpInside="skipOrFinish"
     />
 </UIViewController>

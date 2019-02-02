@@ -17,6 +17,10 @@ struct House: Mappable {
     var houseNo: String?
     var unitNo: String?
     var roomNo: String?
+    var familyMemberCount: Int?
+    var sceneCount: Int?
+    var deviceCount: Int?
+    var groupCount: Int?
     var isOwner: Bool?
     var jdAccessToken: String?
     
@@ -25,14 +29,22 @@ struct House: Mappable {
     }
     
     mutating func mapping(map: Map) {
-        id <- map["id"]
+        id <- map["hid"]
         projectId <- map["pid"]
         projectName <- map["pname"]
         stage <- map["stage"]
         houseNo <- map["num"]
         unitNo <- map["unitno"]
         roomNo <- map["roomnum"]
+        familyMemberCount <- map["familynum"]
+        sceneCount <- map["scenenum"]
+        deviceCount <- map["devicenum"]
+        groupCount <- map["groupnum"]
         isOwner <- map["isOwner"]
         jdAccessToken <- map["accessToken"]
+    }
+    
+    func displayName() -> String {
+        return "\(houseNo ?? "")-\(unitNo ?? "")-\(roomNo ?? "")-\(projectName ?? "")"
     }
 }

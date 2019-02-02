@@ -4,17 +4,14 @@ PODS:
     - RxSwift (~> 4.3)
   - Bugly (2.5.0)
   - CocoaAsyncSocket (7.6.3)
-  - CocoaDebug (0.5.5)
-  - CocoaLumberjack (3.4.2):
-    - CocoaLumberjack/Default (= 3.4.2)
-    - CocoaLumberjack/Extensions (= 3.4.2)
-  - CocoaLumberjack/Default (3.4.2)
-  - CocoaLumberjack/Extensions (3.4.2):
-    - CocoaLumberjack/Default
+  - CocoaDebug (0.5.9)
+  - CocoaLumberjack (3.5.0):
+    - CocoaLumberjack/Core (= 3.5.0)
+  - CocoaLumberjack/Core (3.5.0)
   - Device.swift (1.2.1)
   - Differentiator (3.1.0)
   - Disk (0.4.0)
-  - Dollar (7.1.0)
+  - Dollar (8.0.0)
   - Eureka (4.3.1)
   - FLAnimatedImage (1.0.12)
   - FSPagerView (0.8.2)
@@ -60,6 +57,7 @@ PODS:
     - PINRemoteImage/Core
   - PMAlertController (3.5.0)
   - PullToRefreshKit (0.8.8)
+  - ReachabilitySwift (4.3.0)
   - ReactorKit (1.2.1):
     - RxSwift (>= 4.0.0)
   - ReusableKit (2.1.0):
@@ -89,6 +87,10 @@ PODS:
   - RxQRScanner (1.4.1):
     - RxCocoa (~> 4.3)
     - RxSwift (~> 4.3)
+  - RxReachability (0.1.8):
+    - ReachabilitySwift (~> 4.3.0)
+    - RxCocoa (~> 4)
+    - RxSwift (~> 4)
   - RxSwift (4.4.0):
     - RxAtomic (~> 4.4)
   - RxSwiftExt (3.4.0):
@@ -99,7 +101,6 @@ PODS:
   - RxSwiftExt/RxCocoa (3.4.0):
     - RxCocoa (~> 4.0)
     - RxSwiftExt/Core
-  - Shallows (0.9.0)
   - SnapKit (4.2.0)
   - SVGKit (2.1.0):
     - CocoaLumberjack (~> 3.0)
@@ -147,9 +148,9 @@ DEPENDENCIES:
   - RxKeyboard
   - RxOptional
   - RxQRScanner
+  - RxReachability
   - RxSwift (~> 4.0)
   - RxSwiftExt
-  - Shallows
   - SVGKit
   - SwiftIconFont
   - Swinject (~> 2.5)
@@ -191,6 +192,7 @@ SPEC REPOS:
     - PINRemoteImage
     - PMAlertController
     - PullToRefreshKit
+    - ReachabilitySwift
     - ReactorKit
     - ReusableKit
     - Reveal-SDK
@@ -201,9 +203,9 @@ SPEC REPOS:
     - RxKeyboard
     - RxOptional
     - RxQRScanner
+    - RxReachability
     - RxSwift
     - RxSwiftExt
-    - Shallows
     - SnapKit
     - SVGKit
     - SwiftIconFont
@@ -220,12 +222,12 @@ SPEC CHECKSUMS:
   Action: 2f461c203c480b17aa99b3bb166e4329ecff6908
   Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
-  CocoaDebug: 80a420dbddedbeee7d3ba6ed71e22cd86b59635f
-  CocoaLumberjack: db7cc9e464771f12054c22ff6947c5a58d43a0fd
+  CocoaDebug: a9340ab62aff3d42937fe789f810552a14751d52
+  CocoaLumberjack: cffaa70a9336515228178e3669b71bd49d343850
   Device.swift: ab71b078c0f3b827090e2051be67eb5d0bbbdf48
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   Disk: ef2956657d5bb56034b38b29b352170165226440
-  Dollar: dc69a2997fa5df12ae7a91fec897963664c26750
+  Dollar: 82581ff2e4e80b26ba11fad5ac7e638892522ca5
   Eureka: 28ea296f06710f6745266b71f17862048941a32d
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   FSPagerView: 816a18842306973cc7cc6df8a5332272f7815c30
@@ -246,6 +248,7 @@ SPEC CHECKSUMS:
   PINRemoteImage: 4ac4011c5caefd6befd99758e09becede05d3226
   PMAlertController: 06dab8160066fc4ce991c880e3722cd403e2926a
   PullToRefreshKit: 7cc53e720e69f135cffa1a57784dfb534f0222ab
+  ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
   ReactorKit: 8be57f0527ad1ac2963cd5c338274a46a01e57a3
   ReusableKit: d0b040de03b293288b0ca27a78602691d3346d9b
   Reveal-SDK: 43206a57f575632fd304e85385cc259b5d359e32
@@ -256,9 +259,9 @@ SPEC CHECKSUMS:
   RxKeyboard: 4f782303f499f41577b41c96c6a9a5d7acd51a47
   RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
   RxQRScanner: b523a276be9a5f53603b85a0efb871e7bf480180
+  RxReachability: 053f2d913db44998242ade488ccaef558f3ce7cb
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   RxSwiftExt: 01f8ecbeeb355698e9c75365ebe908b00dacf45d
-  Shallows: b7d12cd044d1754dd7d57cb7cdec88b5487e3401
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SVGKit: 8a2fc74258bdb2abb54d3b65f3dd68b0277a9c4d
   SwiftIconFont: 2ba18554a77c44948dc35b561b344e3c23834a84
@@ -271,6 +274,6 @@ SPEC CHECKSUMS:
   UMCCommonLog: 05a2d5de21858e3d870551562cff405c1366d244
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
 
-PODFILE CHECKSUM: e36d09c55a97432541f6aae2c06c423e0e554a51
+PODFILE CHECKSUM: 97ca8b158a58c005319560049cfd543dbbca9485
 
 COCOAPODS: 1.5.3

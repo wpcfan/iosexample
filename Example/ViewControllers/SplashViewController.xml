@@ -1,5 +1,16 @@
 <UIViewController view.backgroundColor="primary">
     <UIButton
+        touchUpInside="navigateToAd"
+        isHidden="!hasSplashAd">
+        <UIImageView
+            width="100%"
+            height="100%"
+            contentMode="scaleAspectFit"
+            imgUrl="splashAdImageUrl"
+            clipsToBounds="true"
+            />
+    </UIButton>
+    <UIButton
         height="64"
         layer.borderColor="textIcon"
         layer.borderWidth="8"
@@ -23,6 +34,7 @@
         layer.borderColor="primary"
         layer.borderWidth="8"
         layer.cornerRadius="0.5 * width"
+        isHidden="hasSplashAd"
     />
     <UILabel
         width="100%"

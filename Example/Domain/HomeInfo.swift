@@ -21,10 +21,10 @@ struct HomeInfo: Mappable {
     }
     
     mutating func mapping(map: Map) {
-        banners <- map["banners"]
+        banners <- map["banner"]
         hasMessage <- map["hasmessage"]
         devices <- map["devices"]
-        channels <- map["channels"]
+        channels <- map["thirdlink"]
         house <- map["houseinfo"]
     }
 }

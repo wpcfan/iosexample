@@ -8,7 +8,6 @@ target 'Example' do
   pod 'Device.swift'
   # Pods for Layout
   pod 'Layout', '~> 0.6'
-#  pod 'SnapKit', '~> 4.0.0'
   pod 'PinLayout'
 #  pod 'FlexLayout'
   pod 'Toast-Swift'
@@ -27,6 +26,7 @@ target 'Example' do
   pod 'RxGesture'
   pod 'RxKeyboard'
   pod 'ReactorKit'
+  pod 'RxReachability'
   # Persistence Library
   # pod 'RxRealm'
   # Pods for Http
@@ -119,7 +119,6 @@ target 'Example' do
   # Pull to refresh
   pod 'PullToRefreshKit'
   # easy persistence
-  pod 'Shallows'
   pod 'Disk'
   # OAuth2 Library
   pod 'p2.OAuth2'

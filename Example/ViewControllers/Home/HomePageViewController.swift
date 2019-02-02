@@ -16,8 +16,8 @@ protocol TableViewPage {
 }
 
 class HomePageViewController: PageboyViewController, StackContainable {
-    let vc1 = SceneListViewController()
-    let vc2 = DeviceListViewController()
+    let vc1 = DeviceListViewController()
+    let vc2 = SceneListViewController()
     let pageSwitched = PublishSubject<Void>()
     var tableView: UITableView?
     lazy var viewControllers: [UIViewController] = [vc1, vc2]
@@ -67,17 +67,6 @@ extension HomePageViewController: PageboyViewControllerDelegate {
     
     func pageboyViewController(_ pageboyViewController: PageboyViewController, didReloadWith currentViewController: UIViewController, currentPageIndex: PageboyViewController.PageIndex) {
         
-    }
-}
-
-extension HomePageViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        switch section {
-        case 0:
-            return CGFloat.leastNonzeroMagnitude
-        default:
-            return UITableView.automaticDimension
-        }
     }
 }
 

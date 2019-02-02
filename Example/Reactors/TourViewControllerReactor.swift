@@ -48,14 +48,11 @@ class TourViewControllerReactor: Reactor {
                 return Observable.of(.setTour(completed: false))
             }
         case .checkAuth:
-            return CURRENT_TOKEN
-                .debug()
-                .map{ (auth) -> Mutation in
-                    if ((auth) != nil) {
-                        return .setNavTarget(target: .main)
-                    } else {
-                        return .setNavTarget(target: .login)
-                    }
+            let data = try? Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
+            if (data?.token != nil && data?.user != nil) {
+                return Observable.of(.setNavTarget(target: .main))
+            } else {
+                return Observable.of(.setNavTarget(target: .login))
             }
         }
     }

@@ -7,6 +7,7 @@
 //
 import Disk
 import Device_swift
+import RxSwift
 
 class RegisterService: ShouChuangService<Register> {
     override var smartApi: SmartApiType {
@@ -36,6 +37,21 @@ class RegisterService: ShouChuangService<Register> {
             URLQueryItem(name: "j", value: appData?.user?.id)
         ]
         return queryItems
+    }
+    
+    func handleRegister() -> Observable<Register> {
+        return self.request()
+            .do(onNext: { (register) in
+                var data = try? Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
+                if (data == nil) {
+                    data = AppData(JSON: ["token": register.token!])
+                } else {
+                    data?.token = register.token
+                    data?.user = register.user
+                    data?.splashAd = register.splashAd
+                }
+                try Disk.save(data, to: .documents, as: Constants.APP_DATA_PATH)
+            })
     }
 }
 

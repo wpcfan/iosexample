@@ -37,6 +37,7 @@
 "home.nohouse.bindbtn.title"="Scan";
 "home.table.scene.header"="Scenes";
 "home.navigation.title"="Home";
+"myhouses.title"="My Houses";
 "register.person.section"="Personal Information";
 "register.genderfield.title"="gender";
 "register.genderselector.title"="gender";

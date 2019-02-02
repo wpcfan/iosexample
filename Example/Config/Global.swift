@@ -6,7 +6,6 @@
 //
 import JustLog
 import p2_OAuth2
-import Shallows
 import Swinject
 import URLNavigator
 import RxSwift
@@ -17,7 +16,6 @@ import RxSwift
 // 监控服务器传回的需要退出登录的信号
 let NEED_LOGOUT = PublishSubject<Void>()
 // 共享当前登录用户
-let CURRENT_TOKEN = BehaviorSubject<String?>(value: nil)
 let CURRENT_USER = BehaviorSubject<SmartUser?>(value: nil)
 let CURRENT_HOUSE = BehaviorSubject<House?>(value: nil)
 // 全局 log ，基于 JustLog ，但使用上通过全局的 print 和 printError 进行了封装
@@ -57,16 +55,6 @@ let oauth2Settings = [
 // IoC 容器初始化
 let container: Container = {
     let container = Container()
-    container.register(Storage<Filename, AppData>.self) { _ in
-        let diskStorage = DiskStorage.main.folder("appdata", in: .cachesDirectory).mapJSONObject(AppData.self)
-        let storage = MemoryStorage<Filename, AppData>().combined(with: diskStorage)
-        return storage
-    }
-    container.register(Storage<Filename, SmartUser>.self) { _ in
-        let diskStorage = DiskStorage.main.folder("appdata", in: .cachesDirectory).mapJSONObject(SmartUser.self)
-        let storage = MemoryStorage<Filename, SmartUser>().combined(with: diskStorage)
-        return storage
-    }
     container.register(OAuth2PasswordGrant.self) { _ in
         return OAuth2PasswordGrant(settings: oauth2Settings)
     }
@@ -97,6 +85,9 @@ let container: Container = {
     }
     container.register(HomeService.self) { _ in
         HomeService()
+    }
+    container.register(MyHouseService.self) { _ in
+        MyHouseService()
     }
     #if !targetEnvironment(simulator)
         container.register(JdSmartCloudService.self) { _ in JdSmartCloudService() }

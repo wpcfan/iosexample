@@ -13,21 +13,25 @@ import RxQRScanner
 
 enum NavigationMap {
     static func initialize(navigator: NavigatorType) {
-        navigator.register("example://home/<tabname>") { url, values, context in
-            guard let tabname = values["tabname"] as? String else { return nil }
-            let homeTabViewController = HomeTabViewController(tabName: tabname)
-            return homeTabViewController;
+        navigator.register("\(Constants.NAVI_PREFIX)://home") { url, values, context in
+            let viewController = MainViewController()
+            return viewController;
         }
-        navigator.register("example://me/settings") { url, values, context in
+        navigator.register("\(Constants.NAVI_PREFIX)://home/myhouses") { url, values, context in
+            let viewController = HouseTableViewController()
+            return viewController;
+        }
+        navigator.register("\(Constants.NAVI_PREFIX)://me/settings") { url, values, context in
             let viewController = SettingViewController()
             return viewController;
         }
+        
         navigator.register("http://<path:_>", self.webViewControllerFactory)
         navigator.register("https://<path:_>", self.webViewControllerFactory)
         
-        navigator.handle("example://alert", self.alert(navigator: navigator))
-        navigator.handle("example://pmalert", self.pmAlert(navigator: navigator))
-        navigator.handle("example://<path:_>") { (url, values, context) -> Bool in
+        navigator.handle("\(Constants.NAVI_PREFIX)://alert", self.alert(navigator: navigator))
+        navigator.handle("\(Constants.NAVI_PREFIX)://pmalert", self.pmAlert(navigator: navigator))
+        navigator.handle("\(Constants.NAVI_PREFIX)://<path:_>") { (url, values, context) -> Bool in
             // No navigator match, do analytics or fallback function here
             print("[Navigator] NavigationMap.\(#function):\(#line) - global fallback function is called")
             return true

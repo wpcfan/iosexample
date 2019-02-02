@@ -33,17 +33,17 @@ class HomeViewController: BaseViewController {
     private var titleForTranslucent = HomeTitleView()
     
     @objc weak var bannerView: BannerView!
-    @objc var tableView: UITableView? {
-        didSet {
-            guard let tableView = tableView else { return }
-            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-            let refreshHeader = PullToRefreshUtil.createHeader()
-            tableView.configRefreshHeader(with: refreshHeader, container:self) { [weak self] in
-                self?.refreshHeaderTrigger.onNext(())
-            }
-        }
-    }
-
+//    @objc var tableView: UITableView? {
+//        didSet {
+//            guard let tableView = tableView else { return }
+//            tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+//            let refreshHeader = PullToRefreshUtil.createHeader()
+//            tableView.configRefreshHeader(with: refreshHeader, container:self) { [weak self] in
+//                self?.refreshHeaderTrigger.onNext(())
+//            }
+//        }
+//    }
+    @objc weak var collectionView: UICollectionView!
     
     @objc public func scanInModalAction() {
         RxQRUtil().scanQR(self)
@@ -151,48 +151,56 @@ extension HomeViewController: StoryboardView {
     typealias Reactor = HomeViewControllerReactor
     
     func bind(reactor: Reactor) {
-        reactor.action.onNext(.load)
-        
-        refreshHeaderTrigger
-            .mapTo(Reactor.Action.load)
-            .bind(to: reactor.action)
-            .disposed(by: self.disposeBag)
-        
-        self.bannerView.rx.bannerImageTap
-            .subscribe { ev in
-                guard let target = ev.element else { return }
-                self.navigator.present(target)
-            }
-            .disposed(by: self.disposeBag)
-        
-        reactor.state
-            .map { $0.homeInfo }
-            .subscribe{ ev in
-                guard let home = ev.element else { return }
-                let banners = home?.banners ?? []
-                self.bannerView.banners = banners
-                self.tableView?.switchRefreshHeader(to: .normal(.success, 0.3))
-            }
-            .disposed(by: self.disposeBag)
-        
-        reactor.state
-            .map { $0.errorMessage }
-            .filter({ (msg) -> Bool in
-                !msg.isBlank
-            })
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
-            .observeOn(MainScheduler.asyncInstance)
-            .subscribe{ ev in
-                guard let err = ev.element else { return }
-                let banner = NotificationBanner(title: "错误", subtitle: err, style: .warning)
-                banner.show()
-            }
-            .disposed(by: self.disposeBag)
+//        reactor.action.onNext(.load)
+//        
+//        refreshHeaderTrigger
+//            .mapTo(Reactor.Action.load)
+//            .bind(to: reactor.action)
+//            .disposed(by: self.disposeBag)
+//        
+//        self.bannerView.rx.bannerImageTap
+//            .subscribe { ev in
+//                guard let target = ev.element else { return }
+//                self.navigator.present(target)
+//            }
+//            .disposed(by: self.disposeBag)
+//        
+//        reactor.state
+//            .map { $0.homeInfo }
+//            .subscribe{ ev in
+//                guard let home = ev.element else { return }
+//                let banners = home?.banners ?? []
+//                self.bannerView.banners = banners
+//                self.tableView?.switchRefreshHeader(to: .normal(.success, 0.3))
+//            }
+//            .disposed(by: self.disposeBag)
+//        
+//        reactor.state
+//            .map { $0.errorMessage }
+//            .filter({ (msg) -> Bool in
+//                !msg.isBlank
+//            })
+//            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
+//            .observeOn(MainScheduler.asyncInstance)
+//            .subscribe{ ev in
+//                guard let err = ev.element else { return }
+//                let banner = NotificationBanner(title: "错误", subtitle: err, style: .warning)
+//                banner.show()
+//            }
+//            .disposed(by: self.disposeBag)
     }
 }
 
 extension HomeViewController: LayoutLoading {
     func layoutDidLoad(_: LayoutNode) {
+        collectionView?.registerLayout(
+            named: "HomeDeviceCollectionCell.xml",
+            forCellReuseIdentifier: "deviceCollectionCell"
+        )
+        collectionView?.registerLayout(
+            named: "HomeSceneCollectionCell.xml",
+            forCellReuseIdentifier: "sceneCollectionCell"
+        )
         leftMenu = SideBarViewController()
         leftDrawerTransition = DrawerTransition(target: self, drawer: leftMenu)
         leftDrawerTransition?.setPresentCompletion { print("left present...") }

@@ -9,6 +9,7 @@
 import Layout
 import RxSwift
 import ReactorKit
+import Disk
 
 class SplashViewController: BaseViewController {
     @objc weak var imageView: UIImageView? {
@@ -27,20 +28,30 @@ class SplashViewController: BaseViewController {
         }
     }
     @objc weak var countDown: UIButton!
-}
-
-extension SplashViewController: LayoutLoading {
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let data = try? Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
         
         self.loadLayout(
             named: "SplashViewController.xml",
             state: [
                 "countDownTitle": 5,
                 "app": AppIcons.app,
-                "AppName": Bundle.main.appName
+                "AppName": Bundle.main.appName,
+                "splashAdImageUrl": data?.splashAd?.imageUrl ?? "",
+                "hasSplashAd": data?.splashAd != nil
             ])
     }
+    
+    @objc func navigateToAd() {
+        
+    }
+}
+
+extension SplashViewController: LayoutLoading {
     
     func layoutDidLoad(_: LayoutNode) {
         self.reactor = SplashViewControllerReactor()

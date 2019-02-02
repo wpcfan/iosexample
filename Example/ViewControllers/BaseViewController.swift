@@ -9,9 +9,13 @@
 import UIKit
 
 import RxSwift
+import Reachability
+import RxReachability
+import NotificationBannerSwift
 
 class BaseViewController: UIViewController {
     // MARK: Rx
+    // has to be var as the need to conform the Reactor.View protocol
     var disposeBag = DisposeBag()
     
     // MARK: Initializing
@@ -28,6 +32,7 @@ class BaseViewController: UIViewController {
         
         self.view.setNeedsUpdateConstraints()
         self.handleGlobalRedirect()
+        self.bindReachability()
     }
     
     func initialize() -> Void {
@@ -42,6 +47,22 @@ class BaseViewController: UIViewController {
             .subscribe{ _ in
                 AppDelegate.shared.rootViewController.switchToLogout()
             }
+            .disposed(by: self.disposeBag)
+    }
+    
+    func bindReachability() {
+        
+        Reachability.rx.reachabilityChanged
+            .subscribe(onNext: { (reachability: Reachability) in
+                reachability.whenUnreachable = { _ in
+                    let notificationBanner = NotificationBanner(title: "网络故障", subtitle: "网络好像断掉了，请检查网络设置", style: .warning)
+                    notificationBanner.show()
+                }
+                reachability.whenReachable = { _ in
+                    let notificationBanner = NotificationBanner(title: "网络恢复", subtitle: "网络连接恢复正常", style: .success)
+                    notificationBanner.show()
+                }
+            })
             .disposed(by: self.disposeBag)
     }
 }

@@ -1,0 +1,35 @@
+<UITableView
+    backgroundColor="tintColor"
+    contentInset.bottom="safeAreaInsets.bottom"
+    contentInset.top="safeAreaInsets.top"
+    contentInsetAdjustmentBehavior="never"
+    contentOffset.y="-safeAreaInsets.top"
+    estimatedSectionHeaderHeight="0"
+    outlet="tableView"
+    scrollIndicatorInsets.bottom="safeAreaInsets.bottom"
+    scrollIndicatorInsets.top="safeAreaInsets.top"
+    style="plain">
+
+    
+
+    <!-- Table cell template -->
+    <UITableViewCell
+        height="auto + 20"
+        reuseIdentifier="houseCell"
+        style="subtitle">
+
+        <UIImageView
+            height="30"
+            image="{houseIcon}"
+            left="10"
+            top="20"
+            width="30"
+        />
+        <UILabel
+            height="20"
+            left="previous.right + 5"
+            text="{displayName}"
+            width="200"
+        />
+    </UITableViewCell>
+</UITableView>

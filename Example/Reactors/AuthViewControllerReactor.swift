@@ -13,6 +13,7 @@ import Disk
 class AuthViewControllerReactor: Reactor {
     //    let oauthService = container.resolve(OAuth2Service.self)!
     private let loginService = container.resolve(LoginService.self)!
+    private let registerService = container.resolve(RegisterService.self)!
     enum Action {
         case login(username: String, password: String)
     }
@@ -34,26 +35,29 @@ class AuthViewControllerReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case let .login(username, password):
-            
-            self.loginService.mobile = username
-            self.loginService.password = password
-            return self.loginService.request()
-                .do(onNext: { user in
-                    var data = try Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
-                    data.user = user
-                    try Disk.save(data, to: .documents, as: Constants.APP_DATA_PATH)
-                    CURRENT_USER.onNext(user)
-                })
-                .map { _ -> Mutation in .loginSuccess }
-                .do(onNext: { (_) in
-                    DispatchQueue.main.async {
-                        AppDelegate.shared.rootViewController.switchToHome()
+            return self.registerService.handleRegister()
+                .flatMapLatest { (_) -> Observable<Mutation> in
+                    self.loginService.mobile = username
+                    self.loginService.password = password
+                    return self.loginService.request()
+                        .do(onNext: { user in
+                            var data = try Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
+                            data.user = user
+                            try Disk.save(data, to: .documents, as: Constants.APP_DATA_PATH)
+                            CURRENT_USER.onNext(user)
+                        })
+                        .map { _ -> Mutation in .loginSuccess }
+                        .do(onNext: { (_) in
+                            DispatchQueue.main.async {
+                                AppDelegate.shared.rootViewController.switchToHome()
+                            }
+                        })
+                        .debug()
+                        .catchError{ error -> Observable<Mutation>  in
+                            Observable.of(.loginFail(convertErrorToString(error: error)))
                     }
-                })
-                .debug()
-                .catchError{ error -> Observable<Mutation>  in
-                    Observable.of(.loginFail(convertErrorToString(error: error)))
             }
+            
         }
     }
     

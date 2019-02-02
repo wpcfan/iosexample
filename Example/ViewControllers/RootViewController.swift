@@ -84,7 +84,8 @@ class RootViewController: BaseViewController {
     }
     
     func switchToHome() -> Void {
-        let homeVC = HomeViewController()
+        let homeVC = MainViewController()
+        homeVC.reactor = HomeViewControllerReactor()
         let homeScreen = UINavigationController(rootViewController: homeVC)
         animateDismissTransition(to: homeScreen)
     }

@@ -27,7 +27,7 @@ struct Version: Mappable {
     }
 }
 
-struct SplashAd: Mappable {
+struct SplashAd: Codable, Mappable {
     var imageUrl: String?
     var link: String?
     var id: String?
