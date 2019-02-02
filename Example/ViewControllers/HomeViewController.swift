@@ -14,6 +14,7 @@ import RxQRScanner
 import URLNavigator
 import CoreGraphics
 import PinLayout
+import Disk
 import NotificationBannerSwift
 
 class HomeViewController: BaseViewController {
@@ -27,6 +28,7 @@ class HomeViewController: BaseViewController {
         $0.textColor = UIColor.textIcon
         $0.textAlignment = .center
     }
+    private var refreshHeaderTrigger = PublishSubject<Void>()
 
     private var titleForTranslucent = HomeTitleView()
     
@@ -37,10 +39,7 @@ class HomeViewController: BaseViewController {
             tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
             let refreshHeader = PullToRefreshUtil.createHeader()
             tableView.configRefreshHeader(with: refreshHeader, container:self) { [weak self] in
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.3) {
-                    self?.tableView?.reloadData()
-                    self?.tableView?.switchRefreshHeader(to: .normal(.success, 0.3))
-                }
+                self?.refreshHeaderTrigger.onNext(())
             }
         }
     }
@@ -59,9 +58,10 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let data = try? Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
         self.loadLayout(named: "HomeViewController.xml",
                         state: [
-                            "hasNoHouse": true
+                            "hasNoHouse": data?.user?.houseCount == 0
                         ],
                         constants: [
                             "uppercased": LayoutFunctions.upperCase,
@@ -153,6 +153,11 @@ extension HomeViewController: StoryboardView {
     func bind(reactor: Reactor) {
         reactor.action.onNext(.load)
         
+        refreshHeaderTrigger
+            .mapTo(Reactor.Action.load)
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
         self.bannerView.rx.bannerImageTap
             .subscribe { ev in
                 guard let target = ev.element else { return }
@@ -164,7 +169,9 @@ extension HomeViewController: StoryboardView {
             .map { $0.homeInfo }
             .subscribe{ ev in
                 guard let home = ev.element else { return }
-                self.bannerView.banners = home?.banners ?? []
+                let banners = home?.banners ?? []
+                self.bannerView.banners = banners
+                self.tableView?.switchRefreshHeader(to: .normal(.success, 0.3))
             }
             .disposed(by: self.disposeBag)
         
