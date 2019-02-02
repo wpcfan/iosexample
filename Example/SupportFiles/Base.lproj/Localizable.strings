@@ -38,6 +38,10 @@
 "home.table.scene.header"="Scenes";
 "home.navigation.title"="Home";
 "myhouses.title"="My Houses";
+"myhouses.groupscount"="Groups:";
+"myhouses.devicescount"="Devices:";
+"myhouses.familycount"="Family:";
+"myhouses.scenescount"="Scenes:";
 "register.person.section"="Personal Information";
 "register.genderfield.title"="gender";
 "register.genderselector.title"="gender";

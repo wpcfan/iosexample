@@ -1,5 +1,5 @@
 <UITableView
-    backgroundColor="tintColor"
+    backgroundColor="white"
     contentInset.bottom="safeAreaInsets.bottom"
     contentInset.top="safeAreaInsets.top"
     contentInsetAdjustmentBehavior="never"
@@ -9,8 +9,6 @@
     scrollIndicatorInsets.bottom="safeAreaInsets.bottom"
     scrollIndicatorInsets.top="safeAreaInsets.top"
     style="plain">
-
-    
 
     <!-- Table cell template -->
     <UITableViewCell
@@ -22,14 +20,71 @@
             height="30"
             image="{houseIcon}"
             left="10"
-            top="20"
             width="30"
+            center.y="parent.center.y"
+            tintColor="#999"
         />
         <UILabel
-            height="20"
+            height="25"
             left="previous.right + 5"
+            top="10"
             text="{displayName}"
-            width="200"
         />
+        <UILabel
+            backgroundColor="primary"
+            top="previous.bottom + 10"
+            left="previous.left"
+            width="(parent.width - 30 - 30 - 20 - 2 * 5 - 3 *5) / 4"
+            height="20"
+            layer.cornerRadius="0.5 * height"
+            clipsToBounds="true"
+            text="{groupsCount}"
+            textAlignment="center"
+            textColor="textIcon"
+        />
+        <UILabel
+            backgroundColor="primary"
+            top="previous.top"
+            left="previous.right + 5"
+            width="previous.width"
+            height="20"
+            layer.cornerRadius="0.5 * height"
+            clipsToBounds="true"
+            text="{devicesCount}"
+            textAlignment="center"
+            textColor="textIcon"
+        />
+        <UILabel
+            backgroundColor="primary"
+            top="previous.top"
+            left="previous.right + 5"
+            width="previous.width"
+            height="20"
+            layer.cornerRadius="0.5 * height"
+            clipsToBounds="true"
+            text="{familyCount}"
+            textAlignment="center"
+            textColor="textIcon"
+        />
+        <UILabel
+            backgroundColor="primary"
+            top="previous.top"
+            left="previous.right + 5"
+            width="previous.width"
+            height="20"
+            layer.cornerRadius="0.5 * height"
+            clipsToBounds="true"
+            text="{scenesCount}"
+            textAlignment="center"
+            textColor="textIcon"
+        />
+        <UIImageView
+            height="30"
+            isHidden="!selected"
+            image="{checkIcon}"
+            left="previous.right + 5"
+            width="30"
+            center.y="parent.center.y"
+            />
     </UITableViewCell>
 </UITableView>

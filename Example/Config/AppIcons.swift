@@ -19,7 +19,7 @@ struct AppIcons {
     static let home = UIImage(
         from: .fontAwesome,
         code: "home",
-        textColor: .black,
+        textColor: .primary,
         backgroundColor: .clear,
         size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
     
@@ -145,7 +145,7 @@ struct AppIcons {
     static let checkCircle = UIImage(
         from: .fontAwesome,
         code: "checkcircle",
-        textColor: .black,
+        textColor: .primary,
         backgroundColor: .clear,
         size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
     

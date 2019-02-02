@@ -38,6 +38,10 @@
 "home.table.scene.header"="场景";
 "home.navigation.title"="首页";
 "myhouses.title"="我的房屋";
+"myhouses.groupscount"="群组:";
+"myhouses.devicescount"="设备:";
+"myhouses.familycount"="家人:";
+"myhouses.scenescount"="场景:";
 "register.person.section"="个人信息";
 "register.genderfield.title"="性别";
 "register.genderselector.title"="性别";
