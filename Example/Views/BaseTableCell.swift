@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import RxGesture
 
-class BaseItemCell: UITableViewCell {
+class BaseTableCell: UITableViewCell {
     // MARK: Properties
     var disposeBag: DisposeBag = DisposeBag()
     
@@ -32,7 +32,7 @@ class BaseItemCell: UITableViewCell {
 
 }
 
-extension Reactive where Base: BaseItemCell {
+extension Reactive where Base: BaseTableCell {
     var tap: ControlEvent<Void> {
         let source = self.base.rx.tapGesture().when(.recognized).map { _ in }
         return ControlEvent(events: source)
