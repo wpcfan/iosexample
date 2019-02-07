@@ -33,14 +33,8 @@ class HomeViewControllerReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .load:
-            return self.homeService.request()
-                .do(onNext: { home in
-                    CURRENT_HOUSE.onNext(home.house)
-                    var data = try Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
-                    data.houseId = home.house?.id
-                    data.projectId = home.house?.projectId
-                    try Disk.save(data, to: .documents, as: Constants.APP_DATA_PATH)
-                })
+            return self.homeService.handleHomeInfo()
+                .debug()
                 .map { home -> Mutation in .loadSuccess(home) }
                 .catchError{ error -> Observable<Mutation>  in
                     Observable.of(.loadFail(convertErrorToString(error: error)))

@@ -7,6 +7,7 @@
 //
 
 import RxSwift
+import Disk
 
 extension ObservableType {
     func void() -> Observable<Void> {
@@ -80,5 +81,34 @@ public func convertErrorToString(error: Error) -> String {
         return "首创智慧家应用需要绑定京东账号才能正常使用"
     default:
         return "哎呀，好像崩溃了"
+    }
+}
+
+func getAppData() -> Observable<AppData> {
+    return Observable.create{ observer -> Disposable in
+        do {
+            let data = try Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
+            observer.onNext(data)
+            observer.onCompleted()
+        } catch {
+            observer.onCompleted()
+        }
+        return Disposables.create()
+    }
+}
+
+func getHomeData() -> Observable<HomeInfo> {
+    return Observable.create{ observer -> Disposable in
+        do {
+            let data = try Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
+            if (data.homeInfo == nil) {
+                observer.onCompleted()
+            } else {
+                observer.onNext(data.homeInfo!)
+            }
+        } catch {
+            observer.onCompleted()
+        }
+        return Disposables.create()
     }
 }

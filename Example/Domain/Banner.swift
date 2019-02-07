@@ -8,7 +8,7 @@
 
 import ObjectMapper
 
-struct Banner: Mappable {
+struct Banner: Mappable, Codable {
     
     var id: String?
     var imageUrl: String?
@@ -26,7 +26,7 @@ struct Banner: Mappable {
     }
 }
 
-struct Channel: Mappable {
+struct Channel: Mappable, Codable {
     var id: String?
     var imageUrl: String?
     var title: String?

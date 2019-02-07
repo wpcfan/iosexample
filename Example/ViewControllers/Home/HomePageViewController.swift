@@ -61,11 +61,8 @@ extension HomePageViewController: UIPageViewControllerDataSource {
         guard let viewControllerIndex = pages.index(of: viewController) else { return nil }
         
         let previousIndex = viewControllerIndex - 1
-        
         guard previousIndex >= 0          else { return pages.last }
-        
         guard pages.count > previousIndex else { return nil        }
-        
         return pages[previousIndex]
     }
     
@@ -75,11 +72,8 @@ extension HomePageViewController: UIPageViewControllerDataSource {
         guard let viewControllerIndex = pages.index(of: viewController) else { return nil }
         
         let nextIndex = viewControllerIndex + 1
-        
         guard nextIndex < pages.count else { return pages.first }
-        
         guard pages.count > nextIndex else { return nil         }
-        
         return pages[nextIndex]
     }
 }

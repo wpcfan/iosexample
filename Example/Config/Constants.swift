@@ -15,5 +15,6 @@ struct Constants {
     static let APP_DATA_KEY = "data"
     static let SMART_USER_DATA_KEY = "user"
     static let APP_DATA_PATH = "AppData/appdata.json"
+    static let HOME_DATA_PATH = "AppData/homedata.json"
     static let NAVI_PREFIX = "example"
 }

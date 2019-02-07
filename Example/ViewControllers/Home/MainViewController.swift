@@ -15,7 +15,7 @@ import PinLayout
 import RxOptional
 import SafariServices
 
-class MainViewController: ScrollingStackController, View {
+class MainViewController: ScrollingStackController, StoryboardView {
     
     private let navigator = container.resolve(NavigatorType.self)!
     private var refreshHeaderTrigger = PublishSubject<Void>()
@@ -47,6 +47,7 @@ class MainViewController: ScrollingStackController, View {
         }
         setupDrawer()
         setupPageControl()
+        reactor = HomeViewControllerReactor()
     }
     
     func reload() {
@@ -54,6 +55,7 @@ class MainViewController: ScrollingStackController, View {
     }
     
     func bind(reactor: Reactor) {
+        
         reactor.action.onNext(.load)
         
         bannerVC.bannerTapped.subscribe { ev in

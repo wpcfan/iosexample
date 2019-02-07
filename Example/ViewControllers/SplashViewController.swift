@@ -10,6 +10,7 @@ import Layout
 import RxSwift
 import ReactorKit
 import Disk
+import RxGesture
 
 class SplashViewController: BaseViewController {
     @objc weak var imageView: UIImageView? {
@@ -28,7 +29,7 @@ class SplashViewController: BaseViewController {
         }
     }
     @objc weak var countDown: UIButton!
-    
+    @objc weak var splashAdImageView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,17 +43,12 @@ class SplashViewController: BaseViewController {
                 "app": AppIcons.app,
                 "AppName": Bundle.main.appName,
                 "splashAdImageUrl": data?.splashAd?.imageUrl ?? "",
-                "hasSplashAd": data?.splashAd != nil
+                "hasSplashAd": data?.splashAd?.imageUrl != nil
             ])
-    }
-    
-    @objc func navigateToAd() {
-        
     }
 }
 
 extension SplashViewController: LayoutLoading {
-    
     func layoutDidLoad(_: LayoutNode) {
         self.reactor = SplashViewControllerReactor()
     }
@@ -70,9 +66,13 @@ extension SplashViewController: ReactorKit.View {
             .map { val -> Int in 5 - val }
             .takeWhile { val -> Bool in val > 0 }
         
+        let splashAdTappedStream = splashAdImageView.rx.tapGesture().when(.recognized).share()
+        
         Observable.merge(
             countDown.rx.tap.map { _ in 0 },
             countDownStream.filter { (count) -> Bool in  count == 1 })
+            .takeUntil(splashAdTappedStream)
+            .take(1)
             .flatMapLatest({ (_) -> Observable<Reactor.State> in
                 reactor.state
             })
@@ -99,6 +99,15 @@ extension SplashViewController: ReactorKit.View {
             .map { $0.countDown }
             .distinctUntilChanged()
             .bind(to: self.layoutNode!.rx.state("countDownTitle"))
+            .disposed(by: self.disposeBag)
+        
+        splashAdTappedStream
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
+            .observeOn(MainScheduler.asyncInstance)
+            .subscribe { ev in
+                guard ev.error != nil else { return }
+                AppDelegate.shared.rootViewController.switchToHome()
+            }
             .disposed(by: self.disposeBag)
     }
 }

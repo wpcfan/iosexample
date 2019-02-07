@@ -1,15 +1,13 @@
-<UIViewController view.backgroundColor="primary">
-    <UIButton
-        touchUpInside="navigateToAd"
-        isHidden="!hasSplashAd">
-        <UIImageView
-            width="100%"
-            height="100%"
-            contentMode="scaleAspectFit"
-            imgUrl="splashAdImageUrl"
-            clipsToBounds="true"
-            />
-    </UIButton>
+<UIView>
+    <UIImageView
+        clipsToBounds="true"
+        contentMode="scaleAspectFill"
+        height="100%"
+        imgUrl="{splashAdImageUrl}"
+        isHidden="!hasSplashAd"
+        outlet="splashAdImageView"
+        width="100%"
+    />
     <UIButton
         height="64"
         layer.borderColor="textIcon"
@@ -25,23 +23,23 @@
     <UIImageView
         center.x="parent.center.x"
         center.y="parent.center.y"
+        clipsToBounds="true"
         contentMode="scaleAspectFit"
-        width="150"
         height="150"
         image="app"
-        outlet="imageView"
-        clipsToBounds="true"
+        isHidden="hasSplashAd"
         layer.borderColor="primary"
         layer.borderWidth="8"
         layer.cornerRadius="0.5 * width"
-        isHidden="hasSplashAd"
+        outlet="imageView"
+        width="150"
     />
     <UILabel
-        width="100%"
-        top="previous.bottom + 50"
-        textAlignment="center"
-        textColor="white"
         font="Courier bold 30"
         text="{AppName}"
+        textAlignment="center"
+        textColor="white"
+        top="previous.bottom + 50"
+        width="100%"
     />
-</UIViewController>
+</UIView>

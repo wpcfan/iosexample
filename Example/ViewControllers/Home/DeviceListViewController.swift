@@ -90,7 +90,6 @@ class DeviceListViewController: BaseViewController, TableViewPage, TopTabContent
     
     @objc var tableView: UITableView? = UITableView().then {
         $0.register(DeviceCell.self, forCellReuseIdentifier: "cell")
-        $0.estimatedRowHeight = 80
     }
     
     weak var delegate: UITableViewDelegate?
@@ -105,6 +104,7 @@ class DeviceListViewController: BaseViewController, TableViewPage, TopTabContent
         pageIndex = 1
         self.view = tableView
         self.tableView?.isEditing = true
+        
         let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Device>>(configureCell: { ds, tv, ip, item in
             let cell = tv.dequeueReusableCell(withIdentifier: "cell") as! DeviceCell
             cell.deviceNameLabel.text = item.deviceName
@@ -165,6 +165,14 @@ extension DeviceListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
+    }
+    
+    public func tableView(_ tableView: UITableView, shouldIndentWhileEditingRowAt indexPath: IndexPath) -> Bool {
+        return false
     }
 }
 

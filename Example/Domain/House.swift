@@ -9,7 +9,7 @@
 import ObjectMapper
 import RxDataSources
 
-struct House: Mappable {
+struct House: Mappable, Codable {
     var id: String?
     var projectId: String?
     var projectName: String?

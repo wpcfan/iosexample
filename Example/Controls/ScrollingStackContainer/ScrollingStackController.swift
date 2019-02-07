@@ -178,7 +178,7 @@ public class ScrollingStackController: UIViewController, UIScrollViewDelegate {
             var itemHeight: CGFloat = 0.0
             
             switch item.appearance {
-            case .scroll(let scrollView, let insets):
+            case let .scroll(scrollView, insets):
                 // for UIViewController with table/collections/scrollview inside
                 // the occupied space is calculated with the content size of scroll
                 // itself and specified inset of it inside the parent view.
@@ -188,6 +188,7 @@ public class ScrollingStackController: UIViewController, UIScrollViewDelegate {
             case .view(let height):
                 // for standard UIView it uses provided height
                 itemHeight = height
+                break
             }
             
             // This is the ideal rect

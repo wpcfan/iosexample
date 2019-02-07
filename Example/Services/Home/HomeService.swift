@@ -13,10 +13,6 @@ class HomeService: ShouChuangService<HomeInfo> {
         get { return .home }
     }
     
-    override func request() -> Observable<HomeInfo> {
-        return super.request().share()
-    }
-    
     override func urlQueries() throws -> [URLQueryItem] {
         let data = try? Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
         
@@ -32,5 +28,16 @@ class HomeService: ShouChuangService<HomeInfo> {
             queryItems.append(URLQueryItem(name: "hid", value: cache.houseId))
         }
         return queryItems
+    }
+    
+    func handleHomeInfo() -> Observable<HomeInfo> {
+        return request()
+            .do(onNext: { (home: HomeInfo) in
+                CURRENT_HOUSE.onNext(home.house)
+                var appData = try Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
+                appData.houseId = home.house?.id
+                appData.projectId = home.house?.projectId
+                try Disk.save(appData, to: .documents, as: Constants.APP_DATA_PATH)
+            })
     }
 }

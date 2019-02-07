@@ -9,7 +9,7 @@
 import ObjectMapper
 import RxDataSources
 
-struct HomeInfo: Mappable {
+struct HomeInfo: Mappable, Codable {
     var banners: [Banner]?
     var hasMessage: Bool?
     var devices: [Device]?
