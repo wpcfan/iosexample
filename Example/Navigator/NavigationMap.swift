@@ -10,6 +10,7 @@ import UIKit
 import PMAlertController
 import URLNavigator
 import RxQRScanner
+import WebKit
 
 enum NavigationMap {
     static func initialize(navigator: NavigatorType) {
@@ -44,7 +45,9 @@ enum NavigationMap {
         context: Any?
         ) -> UIViewController? {
         guard let url = url.urlValue else { return nil }
-        return SFSafariViewController(url: url)
+//        let webVC = SafariWebViewController(url: url, entersReaderIfAvailable: false)
+        let webVC = WebKitViewController(url: url)
+        return webVC
     }
     
     private static func alert(navigator: NavigatorType) -> URLOpenHandlerFactory {
@@ -83,6 +86,67 @@ enum NavigationMap {
             
             navigator.present(alertVC)
             return true
+        }
+    }
+}
+
+class SafariWebViewController: SFSafariViewController {
+    override init(url URL: URL, entersReaderIfAvailable: Bool) {
+        super.init(url: URL, entersReaderIfAvailable: entersReaderIfAvailable)
+        delegate = self
+        
+        if #available(iOS 10.0, *) {
+            preferredBarTintColor = .primary
+            preferredControlTintColor = .white
+        }
+    }
+}
+
+extension SafariWebViewController: SFSafariViewControllerDelegate {
+    internal func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
+        controller.dismiss(animated: true)
+    }
+}
+
+class WebKitViewController: UIViewController {
+    let webView = WKWebView()
+    var url: URLConvertible
+    // MARK: Initializing
+    init(url: URLConvertible) {
+        self.url = url
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func loadView() {
+        super.loadView()
+        
+        webView.load(self.url)
+        self.view = webView
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        
+    }
+}
+
+extension WKWebView {
+    func load(_ urlString: String) {
+        if let url = URL(string: urlString) {
+            let request = URLRequest(url: url)
+            load(request)
+        }
+    }
+    
+    func load(_ urlString: URLConvertible) {
+        if let url = urlString.urlValue {
+            let request = URLRequest(url: url)
+            load(request)
         }
     }
 }

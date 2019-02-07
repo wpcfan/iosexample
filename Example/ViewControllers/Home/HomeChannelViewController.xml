@@ -1,0 +1,40 @@
+<UICollectionView
+    backgroundColor="clear"
+    collectionViewLayout.itemSize.height="80"
+    collectionViewLayout.itemSize.width="60"
+    collectionViewLayout.minimumInteritemSpacing="0"
+    collectionViewLayout.minimumLineSpacing="20"
+    collectionViewLayout.sectionInset.left="(100% - 5 * collectionViewLayout.itemSize.width - 4 * collectionViewLayout.minimumLineSpacing) / 2"
+    collectionViewLayout.sectionInset.right="collectionViewLayout.sectionInset.left"
+    collectionViewLayout.sectionInset.top="5"
+    collectionViewLayout.sectionInset.bottom="5"
+    contentInset.left="safeAreaInsets.left"
+    contentInset.right="safeAreaInsets.right"
+    contentInset.top="0"
+    contentInset.bottom="0"
+    contentInsetAdjustmentBehavior="never"
+    collectionViewLayout.scrollDirection="horizontal"
+    outlet="collectionView">
+    
+    <UICollectionViewCell
+        clipsToBounds="true"
+        reuseIdentifier="templateCell">
+        
+        <UIImageView
+            top="5"
+            contentMode="scaleAspectFit"
+            height="50"
+            imgUrl="{imageUrl}"
+            width="50"
+            />
+        <UILabel
+            text="{label}"
+            top="previous.bottom + 5"
+            height="12"
+            font="12"
+            width="auto"
+            textAlignment="center"
+            center.x="previous.center.x"
+            />
+    </UICollectionViewCell>
+</UICollectionView>

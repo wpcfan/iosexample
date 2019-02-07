@@ -1,72 +1,14 @@
-<HomeViewController outlet="layoutNode">
-    <UIView
-        height="100%"
-        width="100%">
-        
-        <UIImageView
-            bottom="parent.bottom"
-            contentMode="scaleAspectFill"
-            left="parent.left"
-            outlet="imageView"
-            right="parent.right"
-            top="parent.top"
-            >
-        </UIImageView>
-    </UIView>
-    <UITableView
-        backgroundColor="clear"
-        contentInset.bottom="safeAreaInsets.bottom"
-        contentInset.top="parent.top"
-        contentInsetAdjustmentBehavior="never"
-        contentOffset.y="0"
-        estimatedSectionHeaderHeight="0"
-        outlet="tableView"
-        scrollIndicatorInsets.bottom="safeAreaInsets.bottom"
-        scrollIndicatorInsets.top="parent.top"
-        style="plain"
-        top="parent.top">
-        
-        <UIView
-            height="#banner.height + #toolbar.height"
-            width="100%">
-            
-            <Example.BannerView
-            id="banner"
-            height="bannerHeight"
-            outlet="bannerView"
-            top="parent.top"
-            width="100%"
-            />
-            <UIView
-                id="toolbar"
-                backgroundColor="white"
-                bottom="parent.bottom"
-                height="toolbarHeight"
-                width="100%">
-                
-                <UIView
-                    center.x="parent.center.x"
-                    height="parent.height"
-                    width="toolbarWidth * parent.width">
-                    
-                    <Example.TabButton
-                    color="red"
-                    height="100%"
-                    left="parent.left + 10"
-                    title="hello"
-                    top="parent.top"
-                    width="(parent.width - 30) / 2"
-                    />
-                    <Example.TabButton
-                    color="blue"
-                    height="100%"
-                    left="previous.right + 10"
-                    title="world"
-                    top="previous.top"
-                    width="previous.width"
-                    />
-                </UIView>
-            </UIView>
-        </UIView>
-    </UITableView>
-</HomeViewController>
+<UITableView
+    backgroundColor="white"
+    contentInset.bottom="parent.bottom"
+    contentInset.top="parent.top"
+    contentInsetAdjustmentBehavior="never"
+    contentOffset.y="-safeAreaInsets.top"
+    estimatedSectionHeaderHeight="20"
+    outlet="tableView"
+    scrollIndicatorInsets.bottom="safeAreaInsets.bottom"
+    scrollIndicatorInsets.top="safeAreaInsets.top"
+    style="plain">
+    <HomeTabTableCell reuseIdentifier="mainCell" width="100%" height="auto">
+    </HomeTabTableCell>
+</UITableView>

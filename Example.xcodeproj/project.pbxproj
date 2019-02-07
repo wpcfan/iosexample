@@ -36,7 +36,6 @@
 		AA0AD00421ECBB4900CE6D1D /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0AD00321ECBB4900CE6D1D /* libsqlite3.0.tbd */; };
 		AA0AF3B421ABCAE2003C1FF2 /* SceneListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0AF3B321ABCAE2003C1FF2 /* SceneListViewController.swift */; };
 		AA0AF3B821ABCC24003C1FF2 /* DeviceListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0AF3B721ABCC24003C1FF2 /* DeviceListViewController.swift */; };
-		AA0AF3BC21ABCCC3003C1FF2 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0AF3BB21ABCCC3003C1FF2 /* HomePageViewController.swift */; };
 		AA0AF3C321AC365F003C1FF2 /* TopTabController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0AF3C221AC365F003C1FF2 /* TopTabController.swift */; };
 		AA19DC5D21F570B700B70EFE /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0ACFE421ECBA3D00CE6D1D /* CoreTelephony.framework */; };
 		AA19DC7121F573AA00B70EFE /* WXApiResponseHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = AA19DC6021F573AA00B70EFE /* WXApiResponseHandler.m */; };
@@ -86,9 +85,6 @@
 		AA3CA5D72202BE0600551C87 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3CA5C72202BE0600551C87 /* Animator.swift */; };
 		AA3CA5DA2202F79700551C87 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3CA5D92202F79700551C87 /* MainViewController.swift */; };
 		AA3CA5DC2202F7F400551C87 /* HomeChannelViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3CA5DB2202F7F400551C87 /* HomeChannelViewController.swift */; };
-		AA3CA5E72203F42000551C87 /* HomeSceneCollectionCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA3CA5E62203F42000551C87 /* HomeSceneCollectionCell.xml */; };
-		AA3CA5E92204199200551C87 /* HomeDeviceCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3CA5E82204199200551C87 /* HomeDeviceCollectionCell.swift */; };
-		AA3CA5EB2204201B00551C87 /* HomeSceneCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3CA5EA2204201B00551C87 /* HomeSceneCollectionCell.swift */; };
 		AA3CA5EF22045AF200551C87 /* HouseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3CA5EE22045AF200551C87 /* HouseTableViewController.swift */; };
 		AA3CA5F32204610500551C87 /* HouseTableViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3CA5F22204610500551C87 /* HouseTableViewControllerReactor.swift */; };
 		AA3CA5F5220462DF00551C87 /* MyHouseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3CA5F4220462DF00551C87 /* MyHouseService.swift */; };
@@ -143,7 +139,7 @@
 		AA4B49322178EBA400A60C11 /* BannerView.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA4B49312178EBA400A60C11 /* BannerView.xml */; };
 		AA4B493A2179A1DC00A60C11 /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B49362179A1DC00A60C11 /* ChannelCell.swift */; };
 		AA4B493C2179BBD900A60C11 /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B493B2179BBD900A60C11 /* Permission.swift */; };
-		AA4B493E217A0B5000A60C11 /* BaseItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B493D217A0B5000A60C11 /* BaseItemCell.swift */; };
+		AA4B493E217A0B5000A60C11 /* BaseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B493D217A0B5000A60C11 /* BaseTableCell.swift */; };
 		AA4B4942217A112200A60C11 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B4941217A112200A60C11 /* BaseView.swift */; };
 		AA4B9AFB219C6BAC00E194CE /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B9AFA219C6BAC00E194CE /* MenuItem.swift */; };
 		AA4B9B32219D985800E194CE /* Reactive+ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B9B31219D985800E194CE /* Reactive+ReusableView.swift */; };
@@ -249,6 +245,21 @@
 		AAE49F02216BA2EE004BDBD7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE49F01216BA2EE004BDBD7 /* RegisterViewController.swift */; };
 		AAE49F13216CCBCD004BDBD7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AAE49F11216CCBCD004BDBD7 /* Localizable.strings */; };
 		AAF5CA4921821F3B006DE332 /* UIApplication+StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF5CA4821821F3B006DE332 /* UIApplication+StatusBar.swift */; };
+		AAF9617A220674FA00E17A65 /* BaseCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF96179220674FA00E17A65 /* BaseCollectionCell.swift */; };
+		AAF9617C22069EE700E17A65 /* HomeDeviceCollectionCellReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF9617B22069EE700E17A65 /* HomeDeviceCollectionCellReactor.swift */; };
+		AAF9617E2206A4F700E17A65 /* HomeSceneCollectionCellReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF9617D2206A4F700E17A65 /* HomeSceneCollectionCellReactor.swift */; };
+		AAF961812207174100E17A65 /* SJContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF961802207174100E17A65 /* SJContentView.swift */; };
+		AAF961832207176100E17A65 /* SJSegmentTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF961822207176100E17A65 /* SJSegmentTab.swift */; };
+		AAF961852207177C00E17A65 /* SJSegmentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF961842207177C00E17A65 /* SJSegmentView.swift */; };
+		AAF96187220717B600E17A65 /* SJSegmentedScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF96186220717B600E17A65 /* SJSegmentedScrollView.swift */; };
+		AAF96189220717F000E17A65 /* SJSegmentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF96188220717F000E17A65 /* SJSegmentedViewController.swift */; };
+		AAF9618B2207183400E17A65 /* SJShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF9618A2207183400E17A65 /* SJShadow.swift */; };
+		AAF9618D2207185C00E17A65 /* SJUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF9618C2207185C00E17A65 /* SJUtil.swift */; };
+		AAF9618F220739AA00E17A65 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF9618E220739AA00E17A65 /* WeatherView.swift */; };
+		AAF96191220739BE00E17A65 /* WeatherView.xml in Resources */ = {isa = PBXBuildFile; fileRef = AAF96190220739BE00E17A65 /* WeatherView.xml */; };
+		AAF9619322074A6100E17A65 /* HomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF9619222074A6100E17A65 /* HomePageViewController.swift */; };
+		AAF961952209F6EC00E17A65 /* HomeChannelViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AAF961942209F6EC00E17A65 /* HomeChannelViewController.xml */; };
+		AAF96197220B092800E17A65 /* DeviceListViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AAF96196220B092800E17A65 /* DeviceListViewController.xml */; };
 		AAFA6622217D8032000217C9 /* MultipleSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFA6621217D8031000217C9 /* MultipleSectionModel.swift */; };
 		AAFA6624217D886B000217C9 /* SceneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFA6623217D886B000217C9 /* SceneCell.swift */; };
 		AAFA6626217D88F9000217C9 /* SceneViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFA6625217D88F9000217C9 /* SceneViewReactor.swift */; };
@@ -311,7 +322,6 @@
 		AA0AD00321ECBB4900CE6D1D /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		AA0AF3B321ABCAE2003C1FF2 /* SceneListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneListViewController.swift; sourceTree = "<group>"; };
 		AA0AF3B721ABCC24003C1FF2 /* DeviceListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceListViewController.swift; sourceTree = "<group>"; };
-		AA0AF3BB21ABCCC3003C1FF2 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
 		AA0AF3C221AC365F003C1FF2 /* TopTabController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopTabController.swift; sourceTree = "<group>"; };
 		AA19DC5F21F573AA00B70EFE /* WXApiManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiManager.h; sourceTree = "<group>"; };
 		AA19DC6021F573AA00B70EFE /* WXApiResponseHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WXApiResponseHandler.m; sourceTree = "<group>"; };
@@ -369,9 +379,6 @@
 		AA3CA5C72202BE0600551C87 /* Animator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		AA3CA5D92202F79700551C87 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		AA3CA5DB2202F7F400551C87 /* HomeChannelViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeChannelViewController.swift; sourceTree = "<group>"; };
-		AA3CA5E62203F42000551C87 /* HomeSceneCollectionCell.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HomeSceneCollectionCell.xml; sourceTree = "<group>"; };
-		AA3CA5E82204199200551C87 /* HomeDeviceCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDeviceCollectionCell.swift; sourceTree = "<group>"; };
-		AA3CA5EA2204201B00551C87 /* HomeSceneCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSceneCollectionCell.swift; sourceTree = "<group>"; };
 		AA3CA5EE22045AF200551C87 /* HouseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTableViewController.swift; sourceTree = "<group>"; };
 		AA3CA5F22204610500551C87 /* HouseTableViewControllerReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTableViewControllerReactor.swift; sourceTree = "<group>"; };
 		AA3CA5F4220462DF00551C87 /* MyHouseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHouseService.swift; sourceTree = "<group>"; };
@@ -429,7 +436,7 @@
 		AA4B49312178EBA400A60C11 /* BannerView.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BannerView.xml; sourceTree = "<group>"; };
 		AA4B49362179A1DC00A60C11 /* ChannelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
 		AA4B493B2179BBD900A60C11 /* Permission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
-		AA4B493D217A0B5000A60C11 /* BaseItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseItemCell.swift; sourceTree = "<group>"; };
+		AA4B493D217A0B5000A60C11 /* BaseTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableCell.swift; sourceTree = "<group>"; };
 		AA4B4941217A112200A60C11 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		AA4B9AFA219C6BAC00E194CE /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		AA4B9B31219D985800E194CE /* Reactive+ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+ReusableView.swift"; sourceTree = "<group>"; };
@@ -556,6 +563,21 @@
 		AAE49F12216CCBCD004BDBD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
 		AAE49F14216CCC6E004BDBD7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		AAF5CA4821821F3B006DE332 /* UIApplication+StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+StatusBar.swift"; sourceTree = "<group>"; };
+		AAF96179220674FA00E17A65 /* BaseCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionCell.swift; sourceTree = "<group>"; };
+		AAF9617B22069EE700E17A65 /* HomeDeviceCollectionCellReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeDeviceCollectionCellReactor.swift; sourceTree = "<group>"; };
+		AAF9617D2206A4F700E17A65 /* HomeSceneCollectionCellReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeSceneCollectionCellReactor.swift; sourceTree = "<group>"; };
+		AAF961802207174100E17A65 /* SJContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJContentView.swift; sourceTree = "<group>"; };
+		AAF961822207176100E17A65 /* SJSegmentTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJSegmentTab.swift; sourceTree = "<group>"; };
+		AAF961842207177C00E17A65 /* SJSegmentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJSegmentView.swift; sourceTree = "<group>"; };
+		AAF96186220717B600E17A65 /* SJSegmentedScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJSegmentedScrollView.swift; sourceTree = "<group>"; };
+		AAF96188220717F000E17A65 /* SJSegmentedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJSegmentedViewController.swift; sourceTree = "<group>"; };
+		AAF9618A2207183400E17A65 /* SJShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJShadow.swift; sourceTree = "<group>"; };
+		AAF9618C2207185C00E17A65 /* SJUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJUtil.swift; sourceTree = "<group>"; };
+		AAF9618E220739AA00E17A65 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		AAF96190220739BE00E17A65 /* WeatherView.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WeatherView.xml; sourceTree = "<group>"; };
+		AAF9619222074A6100E17A65 /* HomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePageViewController.swift; sourceTree = "<group>"; };
+		AAF961942209F6EC00E17A65 /* HomeChannelViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HomeChannelViewController.xml; sourceTree = "<group>"; };
+		AAF96196220B092800E17A65 /* DeviceListViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = DeviceListViewController.xml; sourceTree = "<group>"; };
 		AAFA6621217D8031000217C9 /* MultipleSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSectionModel.swift; sourceTree = "<group>"; };
 		AAFA6623217D886B000217C9 /* SceneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCell.swift; sourceTree = "<group>"; };
 		AAFA6625217D88F9000217C9 /* SceneViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneViewReactor.swift; sourceTree = "<group>"; };
@@ -751,10 +773,12 @@
 			isa = PBXGroup;
 			children = (
 				AA0AF3B721ABCC24003C1FF2 /* DeviceListViewController.swift */,
-				AA0AF3BB21ABCCC3003C1FF2 /* HomePageViewController.swift */,
+				AAF96196220B092800E17A65 /* DeviceListViewController.xml */,
 				AA82251421AE5D2900FDDC8F /* HomeBannerViewController.swift */,
 				AA82251C21AEA33B00FDDC8F /* HomeBannerViewController.xml */,
 				AA3CA5DB2202F7F400551C87 /* HomeChannelViewController.swift */,
+				AAF961942209F6EC00E17A65 /* HomeChannelViewController.xml */,
+				AAF9619222074A6100E17A65 /* HomePageViewController.swift */,
 				AA3CA5EE22045AF200551C87 /* HouseTableViewController.swift */,
 				AA3CA5F62204B4F200551C87 /* HouseTableViewController.xml */,
 				AA3CA5D92202F79700551C87 /* MainViewController.swift */,
@@ -846,6 +870,8 @@
 			children = (
 				AA4B48F521772EE800A60C11 /* AuthViewControllerReactor.swift */,
 				AA42058F217B939B0068ABC0 /* ChannelViewReactor.swift */,
+				AAF9617B22069EE700E17A65 /* HomeDeviceCollectionCellReactor.swift */,
+				AAF9617D2206A4F700E17A65 /* HomeSceneCollectionCellReactor.swift */,
 				AA4B48ED2175CA4D00A60C11 /* HomeViewControllerReactor.swift */,
 				AA3CA5F22204610500551C87 /* HouseTableViewControllerReactor.swift */,
 				AAFA6625217D88F9000217C9 /* SceneViewReactor.swift */,
@@ -861,12 +887,11 @@
 				AA4B492F2178EB2500A60C11 /* BannerView.swift */,
 				AA4B49312178EBA400A60C11 /* BannerView.xml */,
 				AA4B4941217A112200A60C11 /* BaseView.swift */,
-				AA4B493D217A0B5000A60C11 /* BaseItemCell.swift */,
+				AAF96179220674FA00E17A65 /* BaseCollectionCell.swift */,
+				AA4B493D217A0B5000A60C11 /* BaseTableCell.swift */,
 				AA4B49362179A1DC00A60C11 /* ChannelCell.swift */,
 				AA42058D217B8C680068ABC0 /* ChannelView.swift */,
 				AA420591217B94820068ABC0 /* ChannelView.xml */,
-				AA3CA5E82204199200551C87 /* HomeDeviceCollectionCell.swift */,
-				AA3CA5EA2204201B00551C87 /* HomeSceneCollectionCell.swift */,
 				AA420595217C0C2E0068ABC0 /* IconLabelButton.xml */,
 				AA4205A5217C9B5F0068ABC0 /* HeaderView.swift */,
 				AA4205A3217C9B510068ABC0 /* HeaderView.xml */,
@@ -875,6 +900,8 @@
 				AA897872218590E4005A61CA /* HomeTitleView.xml */,
 				AA89786E21858891005A61CA /* TabButton.swift */,
 				AA897870218588A2005A61CA /* TabButton.xml */,
+				AAF9618E220739AA00E17A65 /* WeatherView.swift */,
+				AAF96190220739BE00E17A65 /* WeatherView.xml */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1087,7 +1114,6 @@
 				AAC5EBA6215F5860008EBA1F /* HomeTabViewController.xml */,
 				AA693DB62160EEB70063D749 /* HomeViewController.swift */,
 				AA693DB82160EF4C0063D749 /* HomeViewController.xml */,
-				AA3CA5E62203F42000551C87 /* HomeSceneCollectionCell.xml */,
 				AA78BB59218F04F2000B4CD8 /* MeViewController.swift */,
 				AA693DBE2161F6330063D749 /* MeViewController.xml */,
 				AA78BB5D218F331B000B4CD8 /* MeHeaderCell.xml */,
@@ -1112,6 +1138,7 @@
 		AAD7E0B921F1A6CB000D8D6A /* Integration */ = {
 			isa = PBXGroup;
 			children = (
+				AAF9617F2207169100E17A65 /* SJSegmentedViewController */,
 				AA3CA5B62202BDD900551C87 /* RxPullToRefresh */,
 				AAD7E0FF21F1ED3D000D8D6A /* RxHttpClient */,
 				AAD7E0BC21F1AEB1000D8D6A /* IndoorVideoPhone */,
@@ -1208,6 +1235,20 @@
 				AAD7E16721F1F42C000D8D6A /* RequestPluginType.swift */,
 			);
 			path = RequestPlugin;
+			sourceTree = "<group>";
+		};
+		AAF9617F2207169100E17A65 /* SJSegmentedViewController */ = {
+			isa = PBXGroup;
+			children = (
+				AAF961802207174100E17A65 /* SJContentView.swift */,
+				AAF961822207176100E17A65 /* SJSegmentTab.swift */,
+				AAF961842207177C00E17A65 /* SJSegmentView.swift */,
+				AAF96186220717B600E17A65 /* SJSegmentedScrollView.swift */,
+				AAF96188220717F000E17A65 /* SJSegmentedViewController.swift */,
+				AAF9618A2207183400E17A65 /* SJShadow.swift */,
+				AAF9618C2207185C00E17A65 /* SJUtil.swift */,
+			);
+			path = SJSegmentedViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1310,7 +1351,6 @@
 			files = (
 				AA4205A4217C9B510068ABC0 /* HeaderView.xml in Resources */,
 				AAA920BA2198289700EFC581 /* InfoPlist.strings in Resources */,
-				AA3CA5E72203F42000551C87 /* HomeSceneCollectionCell.xml in Resources */,
 				AAD7E0FC21F1C383000D8D6A /* cert.pem in Resources */,
 				AA897871218588A2005A61CA /* TabButton.xml in Resources */,
 				AA19DC7721F573AA00B70EFE /* README.txt in Resources */,
@@ -1330,13 +1370,16 @@
 				AA4B9B39219F225100E194CE /* SideBarViewController.xml in Resources */,
 				AA4B492A2178BADD00A60C11 /* ChannelCell.xml in Resources */,
 				AA693DB92160EF4C0063D749 /* HomeViewController.xml in Resources */,
+				AAF961952209F6EC00E17A65 /* HomeChannelViewController.xml in Resources */,
 				AA4B492C2178CA0F00A60C11 /* SceneCell.xml in Resources */,
 				AA4B49322178EBA400A60C11 /* BannerView.xml in Resources */,
 				AA693DBF2161F6330063D749 /* MeViewController.xml in Resources */,
 				AA78BB5E218F331B000B4CD8 /* MeHeaderCell.xml in Resources */,
+				AAF96191220739BE00E17A65 /* WeatherView.xml in Resources */,
 				AA420592217B94820068ABC0 /* ChannelView.xml in Resources */,
 				AAE49EF82169D315004BDBD7 /* TourViewController.xml in Resources */,
 				AAC5EBA7215F5860008EBA1F /* HomeTabViewController.xml in Resources */,
+				AAF96197220B092800E17A65 /* DeviceListViewController.xml in Resources */,
 				AA897873218590E4005A61CA /* HomeTitleView.xml in Resources */,
 				AA9AB58521FEEB2A0052B3FF /* scene.svg in Resources */,
 				AA30C0612167561E00B9E0EB /* SplashViewController.xml in Resources */,
@@ -1375,6 +1418,7 @@
 				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
 				"${BUILT_PRODUCTS_DIR}/JWTDecode/JWTDecode.framework",
 				"${BUILT_PRODUCTS_DIR}/JustLog/JustLog.framework",
+				"${BUILT_PRODUCTS_DIR}/LLSegmentViewController/LLSegmentViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/Layout/Layout.framework",
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/MonkeyKing/MonkeyKing.framework",
@@ -1384,7 +1428,6 @@
 				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
 				"${BUILT_PRODUCTS_DIR}/PINRemoteImage/PINRemoteImage.framework",
 				"${BUILT_PRODUCTS_DIR}/PMAlertController/PMAlertController.framework",
-				"${BUILT_PRODUCTS_DIR}/Pageboy/Pageboy.framework",
 				"${BUILT_PRODUCTS_DIR}/PinLayout/PinLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/PullToRefreshKit/PullToRefreshKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
@@ -1428,6 +1471,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JWTDecode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JustLog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LLSegmentViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Layout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MonkeyKing.framework",
@@ -1437,7 +1481,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINRemoteImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PMAlertController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pageboy.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PinLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PullToRefreshKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
@@ -1547,19 +1590,21 @@
 				AA6839DA216DE1EA00E4097B /* AppIcons.swift in Sources */,
 				AA3CA5D52202BE0600551C87 /* RxPullToRefreshView.swift in Sources */,
 				AA30C0682167AA3600B9E0EB /* UINavigationController+Bar.swift in Sources */,
+				AAF9617E2206A4F700E17A65 /* HomeSceneCollectionCellReactor.swift in Sources */,
 				AA9AB58721FEEE120052B3FF /* SVGKImageView+.swift in Sources */,
 				AA19DC7E21F5F1A100B70EFE /* ShouChuangService.swift in Sources */,
 				AA78BB46218D6814000B4CD8 /* NotificationCenter+.swift in Sources */,
 				AA420590217B939B0068ABC0 /* ChannelViewReactor.swift in Sources */,
+				AAF9617C22069EE700E17A65 /* HomeDeviceCollectionCellReactor.swift in Sources */,
 				AA3CA5CE2202BE0600551C87 /* RxPullToRefresh.swift in Sources */,
 				AA9B94BF21ECBED1000AE906 /* LeChangeService.swift in Sources */,
 				AAD7E0F421F1AEB1000D8D6A /* DongDongManager.mm in Sources */,
-				AA0AF3BC21ABCCC3003C1FF2 /* HomePageViewController.swift in Sources */,
 				AA8481D321F2ECDA00C24D3F /* MenuItemService.swift in Sources */,
 				AAD7E17021F1F42D000D8D6A /* NSURLSessionDataEventsObserver.swift in Sources */,
 				AA4B49162178800A00A60C11 /* Reactive+FSPagerView.swift in Sources */,
 				AA3CA5D42202BE0600551C87 /* Extensions.swift in Sources */,
 				AAFA6624217D886B000217C9 /* SceneCell.swift in Sources */,
+				AAF961812207174100E17A65 /* SJContentView.swift in Sources */,
 				AAD7E17321F1F42D000D8D6A /* UrlRequestCacheProviderType.swift in Sources */,
 				AA3CA5EF22045AF200551C87 /* HouseTableViewController.swift in Sources */,
 				AA4B48F621772EE800A60C11 /* AuthViewControllerReactor.swift in Sources */,
@@ -1568,7 +1613,7 @@
 				AA19DC7321F573AA00B70EFE /* WXApiRequestHandler.m in Sources */,
 				AA3CA5C92202BE0600551C87 /* UIScrollView+Rx.swift in Sources */,
 				AAD7E17521F1F42D000D8D6A /* ActivityIndicatorPlugin.swift in Sources */,
-				AA4B493E217A0B5000A60C11 /* BaseItemCell.swift in Sources */,
+				AA4B493E217A0B5000A60C11 /* BaseTableCell.swift in Sources */,
 				AA4B9B37219F223A00E194CE /* SideBarViewController.swift in Sources */,
 				AAD7E17B21F1F42D000D8D6A /* HttpExtensions.swift in Sources */,
 				AA3CA5F5220462DF00551C87 /* MyHouseService.swift in Sources */,
@@ -1608,7 +1653,6 @@
 				AA8481CB21F22B2000C24D3F /* Typing.swift in Sources */,
 				AA693DBB2161F6010063D749 /* SocialViewController.swift in Sources */,
 				AA19DC7121F573AA00B70EFE /* WXApiResponseHandler.m in Sources */,
-				AA3CA5EB2204201B00551C87 /* HomeSceneCollectionCell.swift in Sources */,
 				AAD7E15E21F1EF89000D8D6A /* Crudable.swift in Sources */,
 				AAD7E17721F1F42D000D8D6A /* MemoryDataCacheProvider.swift in Sources */,
 				AA6839DC216E08EC00E4097B /* AppAttributedStrings.swift in Sources */,
@@ -1616,24 +1660,27 @@
 				AAFA6626217D88F9000217C9 /* SceneViewReactor.swift in Sources */,
 				AAF5CA4921821F3B006DE332 /* UIApplication+StatusBar.swift in Sources */,
 				AAD7E17421F1F42D000D8D6A /* Data+Extensions.swift in Sources */,
+				AAF961852207177C00E17A65 /* SJSegmentView.swift in Sources */,
 				AAD7E17921F1F42D000D8D6A /* MimeType+Extensions.swift in Sources */,
 				AA19DC7221F573AA00B70EFE /* GetMessageFromWXResp+responseWithTextOrMediaMessage.m in Sources */,
 				AA3E0E7E2170540F00958937 /* Product.swift in Sources */,
 				AA4B49212178883F00A60C11 /* Reactive+UIViewController.swift in Sources */,
 				AA19DC7C21F57BF000B70EFE /* AppDelegate+MonkeyKing.swift in Sources */,
 				AA4B48F02175E4D000A60C11 /* APIError.swift in Sources */,
+				AAF9618F220739AA00E17A65 /* WeatherView.swift in Sources */,
 				AA3E905121F41D0200985675 /* Constants.swift in Sources */,
 				AA0AF3B821ABCC24003C1FF2 /* DeviceListViewController.swift in Sources */,
 				AA82251521AE5D2900FDDC8F /* HomeBannerViewController.swift in Sources */,
+				AAF9617A220674FA00E17A65 /* BaseCollectionCell.swift in Sources */,
 				AA0ACFD121ECB49E00CE6D1D /* AppDelegate+SmartCloud.swift in Sources */,
 				AAD7E17221F1F42D000D8D6A /* HttpClientError.swift in Sources */,
 				AA19DC9621FC77FA00B70EFE /* ObservableType+MonitorLoading.swift in Sources */,
 				AA420586217AD80C0068ABC0 /* ModelType.swift in Sources */,
 				AA3CA5D72202BE0600551C87 /* Animator.swift in Sources */,
 				AA3CA5D22202BE0600551C87 /* RxPullToRefreshView+Rx.swift in Sources */,
+				AAF9618D2207185C00E17A65 /* SJUtil.swift in Sources */,
 				AA78BB58218EBB5B000B4CD8 /* RxQRUtil.swift in Sources */,
 				AA433F07218C4A1900BA60A1 /* AppDelegate+Logging.swift in Sources */,
-				AA3CA5E92204199200551C87 /* HomeDeviceCollectionCell.swift in Sources */,
 				AA99E9DC219BE35000FD1C6F /* DrawerTransition.swift in Sources */,
 				AAD7E0EA21F1AEB1000D8D6A /* XSGetIpAddress.m in Sources */,
 				AA433F0B218C4B2D00BA60A1 /* AppDelegate+CocoaDebug.swift in Sources */,
@@ -1653,6 +1700,7 @@
 				AA4B49242178883F00A60C11 /* UICollectionViewFlexLayout.swift in Sources */,
 				AA82251321AE49BA00FDDC8F /* ScrollingStackController.swift in Sources */,
 				AA78BB48218D6D27000B4CD8 /* Reactive+NotificationCenter.swift in Sources */,
+				AAF9618B2207183400E17A65 /* SJShadow.swift in Sources */,
 				AA01F4A1219886A400CE6457 /* AppDelegate+Bugly.swift in Sources */,
 				AAC5EB70215E7BB7008EBA1F /* AuthViewController.swift in Sources */,
 				AA19DC7A21F5758900B70EFE /* SocialService.swift in Sources */,
@@ -1682,6 +1730,7 @@
 				AA4B48F221761F7400A60C11 /* AuthError.swift in Sources */,
 				AA96B29521FE116C0093A2E0 /* TextFieldResponder.swift in Sources */,
 				AA8481D121F2E8D600C24D3F /* String+.swift in Sources */,
+				AAF961832207176100E17A65 /* SJSegmentTab.swift in Sources */,
 				AA693DB72160EEB70063D749 /* HomeViewController.swift in Sources */,
 				AAE49EFE216AE281004BDBD7 /* Shallows+Rx.swift in Sources */,
 				AA3E0E8A2170841700958937 /* HomeInfo.swift in Sources */,
@@ -1707,14 +1756,17 @@
 				AA420588217B66210068ABC0 /* UIView+Blur.swift in Sources */,
 				AA683A09216F434C00E4097B /* Banner.swift in Sources */,
 				AA9AB58A21FF23F80052B3FF /* HomeService.swift in Sources */,
+				AAF96189220717F000E17A65 /* SJSegmentedViewController.swift in Sources */,
 				AAE49EFA216A2783004BDBD7 /* AppData.swift in Sources */,
 				AA3CA5CF2202BE0600551C87 /* RxPullToRefresh+Refreshing.swift in Sources */,
+				AAF96187220717B600E17A65 /* SJSegmentedScrollView.swift in Sources */,
 				AA3CA5D32202BE0600551C87 /* UIScrollView+P2R.swift in Sources */,
 				AA6839DE216E0A0500E4097B /* LayoutFunctions.swift in Sources */,
 				AA19DC8221F60A9700B70EFE /* Register.swift in Sources */,
 				AA42058E217B8C680068ABC0 /* ChannelView.swift in Sources */,
 				AA99E9B4219B2F6200FD1C6F /* UIScrollView+.swift in Sources */,
 				AA8481CD21F2DC9100C24D3F /* LeanCloudBaseService.swift in Sources */,
+				AAF9619322074A6100E17A65 /* HomePageViewController.swift in Sources */,
 				AA42D7D721F36BCB00320BD3 /* LeanCloudCollection.swift in Sources */,
 				AAD7E0E821F1AEB1000D8D6A /* XSAlertView.m in Sources */,
 				AA38DCA5217EF41F0046D82D /* RxUtil.swift in Sources */,

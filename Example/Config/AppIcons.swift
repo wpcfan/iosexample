@@ -142,6 +142,20 @@ struct AppIcons {
         backgroundColor: .clear,
         size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
     
+    static let group = UIImage(
+        from: .materialIcon,
+        code: "group.work",
+        textColor: .white,
+        backgroundColor: .clear,
+        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
+    
+    static let message = UIImage(
+        from: .ionicon,
+        code: "ios-chatboxes",
+        textColor: .white,
+        backgroundColor: .clear,
+        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
+    
     static let checkCircle = UIImage(
         from: .fontAwesome,
         code: "checkcircle",

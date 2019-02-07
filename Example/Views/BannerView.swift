@@ -97,7 +97,6 @@ extension Reactive where Base: BannerView {
     var bannerImageTap: Observable<String> {
         return base.tappedIndex.asObservable()
             .filterNil()
-            .distinctUntilChanged()
             .map { (idx) -> String? in self.base.banners[idx].link }
             .filterNil()
     }

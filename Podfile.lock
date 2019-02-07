@@ -25,6 +25,7 @@ PODS:
   - Layout (0.6.35):
     - Layout/Core (= 0.6.35)
   - Layout/Core (0.6.35)
+  - LLSegmentViewController (1.1.2)
   - MarqueeLabel/Swift (3.2.0)
   - MonkeyKing (1.12.1)
   - NotificationBannerSwift (2.0.1):
@@ -45,7 +46,6 @@ PODS:
   - OHHTTPStubs/Swift (6.1.0):
     - OHHTTPStubs/Default
   - p2.OAuth2 (4.2.0)
-  - Pageboy (3.0.1)
   - PINCache (2.3)
   - PinLayout (1.8.6)
   - PINRemoteImage (2.1.4):
@@ -128,12 +128,12 @@ DEPENDENCIES:
   - JustLog
   - JWTDecode (~> 2.1)
   - Layout (~> 0.6)
+  - LLSegmentViewController
   - MonkeyKing
   - NotificationBannerSwift
   - ObjectMapper (~> 3.3)
   - OHHTTPStubs/Swift
   - p2.OAuth2
-  - Pageboy
   - PinLayout
   - PINRemoteImage
   - PMAlertController
@@ -180,13 +180,13 @@ SPEC REPOS:
     - JustLog
     - JWTDecode
     - Layout
+    - LLSegmentViewController
     - MarqueeLabel
     - MonkeyKing
     - NotificationBannerSwift
     - ObjectMapper
     - OHHTTPStubs
     - p2.OAuth2
-    - Pageboy
     - PINCache
     - PinLayout
     - PINRemoteImage
@@ -236,13 +236,13 @@ SPEC CHECKSUMS:
   JustLog: 24d4dbdd4d4b65fc04069f222ee34b1d9c9004cf
   JWTDecode: 85a405ab16d5473e99bd89ded1d535090ebd6a0e
   Layout: a970a8bb1cc1e5db8b1cafde341a26bf5b0c386b
+  LLSegmentViewController: 41e0d2d0d552df5d6370afdbd10cecd4bde5ae6e
   MarqueeLabel: 440a502b91a9179bd98f9fff00ba1150650a1c0e
   MonkeyKing: 280cdc68eb39f8b899b17fdfe994a695f6fdc636
   NotificationBannerSwift: 007774aa590cc9680647b92b2f217bef5c00c32c
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
   OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
   p2.OAuth2: d5ea9b928fc5d10d088d419db6f3380578b6f866
-  Pageboy: ec0170fd880ea6fa3589219edfd64b554443ff6e
   PINCache: ce36ed282031b92fc7733ffe831f474ff80fddc2
   PinLayout: fe2a2432d6982588e208572005c941aeeae417ab
   PINRemoteImage: 4ac4011c5caefd6befd99758e09becede05d3226
@@ -274,6 +274,6 @@ SPEC CHECKSUMS:
   UMCCommonLog: 05a2d5de21858e3d870551562cff405c1366d244
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
 
-PODFILE CHECKSUM: 97ca8b158a58c005319560049cfd543dbbca9485
+PODFILE CHECKSUM: 89ff44543a68b45bb9ea589d5936b873cb194981
 
 COCOAPODS: 1.5.3

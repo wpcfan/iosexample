@@ -110,12 +110,13 @@ target 'Example' do
   # Pods for UI extension
   pod 'PMAlertController'
   pod 'UITextView+Placeholder'
+  pod 'LLSegmentViewController'
   # Quick Form
   pod 'Eureka'
   # Image Slider
   pod 'FSPagerView'
   # Better PageViewController
-  pod 'Pageboy'
+#  pod 'Pageboy'
   # Pull to refresh
   pod 'PullToRefreshKit'
   # easy persistence

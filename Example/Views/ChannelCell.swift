@@ -10,7 +10,7 @@ import UIKit
 import ReactorKit
 import PinLayout
 
-class ChannelCell: BaseItemCell {
+class ChannelCell: BaseTableCell {
     private var label = UILabel()
     private var button = UIButton()
     

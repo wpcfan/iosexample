@@ -11,6 +11,9 @@ import ReactorKit
 import NotificationBannerSwift
 import Layout
 import URLNavigator
+import PinLayout
+import RxOptional
+import SafariServices
 
 class MainViewController: ScrollingStackController, View {
     
@@ -25,8 +28,11 @@ class MainViewController: ScrollingStackController, View {
     var disposeBag = DisposeBag()
     let bannerVC = HomeBannerViewController()
     let channelVC = HomeChannelViewController()
-    let tabPaneVC = HomePageViewController()
-    
+    let tabPaneVC = HomePageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal)
+    let pageControl = UIPageControl().then {
+        $0.currentPageIndicatorTintColor = .darkGray
+        $0.pageIndicatorTintColor = .lightGray
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -39,11 +45,8 @@ class MainViewController: ScrollingStackController, View {
         scrollView?.configRefreshHeader(with: refreshHeader, container:self) { [weak self] in
             self!.refreshHeaderTrigger.onNext(())
         }
-        leftMenu = SideBarViewController()
-        leftDrawerTransition = DrawerTransition(target: self, drawer: leftMenu)
-        leftDrawerTransition?.setPresentCompletion { print("left present...") }
-        leftDrawerTransition?.setDismissCompletion { print("left dismiss...") }
-        leftDrawerTransition?.edgeType = .left
+        setupDrawer()
+        setupPageControl()
     }
     
     func reload() {
@@ -51,15 +54,13 @@ class MainViewController: ScrollingStackController, View {
     }
     
     func bind(reactor: Reactor) {
-        CURRENT_HOUSE
-            .filterNil()
-            .distinctUntilChanged({ (prev, curr) -> Bool in
-                prev.id == curr.id
-            })
-            .mapTo(Reactor.Action.load)
-            .startWith(.load)
-            .bind(to: reactor.action)
-            .disposed(by: self.disposeBag)
+        reactor.action.onNext(.load)
+        
+        bannerVC.bannerTapped.subscribe { ev in
+            guard let url = ev.element else { return }
+            self.navigator.push(WebKitViewController(url: url), from: self.navigationController, animated: true)
+        }
+        .disposed(by: disposeBag)
         
         tabPaneVC.rx.pageSwitched
             .subscribe { _ in
@@ -101,9 +102,7 @@ class MainViewController: ScrollingStackController, View {
         
         reactor.state
             .map { $0.errorMessage }
-            .filter({ (msg) -> Bool in
-                !msg.isBlank
-            })
+            .filter({ (msg) -> Bool in !msg.isBlank })
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
             .observeOn(MainScheduler.asyncInstance)
             .subscribe{ ev in
@@ -118,6 +117,14 @@ class MainViewController: ScrollingStackController, View {
         print("enter changeHouse")
         let vc = HouseTableViewController()
         navigator.push(vc, from: self.navigationController, animated: true)
+    }
+    
+    @objc func showGroups() {
+        
+    }
+    
+    @objc func showMessages() {
+        
     }
     
     fileprivate func buildNavTopItem(title: String) {
@@ -141,10 +148,40 @@ class MainViewController: ScrollingStackController, View {
         self.navigationItem.setLeftBarButton(leftBarButtonItem, animated: false);
     }
     
+    fileprivate func buildNavRightItems() {
+        // Left Button
+        let groupButton: UIButton = UIButton(type: .custom)
+        groupButton.setImage(AppIcons.group, for: .normal)
+        groupButton.addTarget(self, action: #selector(MainViewController.showGroups), for: .touchUpInside)
+        let groupButtonItem: UIBarButtonItem = UIBarButtonItem(customView: groupButton)
+        
+        let messageButton: UIButton = UIButton(type: .custom)
+        messageButton.setImage(AppIcons.message, for: .normal)
+        messageButton.addTarget(self, action: #selector(MainViewController.showMessages), for: .touchUpInside)
+        let messageButtonItem: UIBarButtonItem = UIBarButtonItem(customView: messageButton)
+        
+        self.navigationItem.setRightBarButtonItems([messageButtonItem, groupButtonItem], animated: false)
+    }
+    
     fileprivate func setupNavigationBar() {
         self.navigationController?.presentDarkNavigationBar(UIColor.primary, UIColor.textIcon)
         buildNavTopItem(title: "首页")
         buildNavLeftItem()
+        buildNavRightItems()
+    }
+    
+    fileprivate func setupDrawer() {
+        leftMenu = SideBarViewController()
+        leftDrawerTransition = DrawerTransition(target: self, drawer: leftMenu)
+        leftDrawerTransition?.setPresentCompletion { print("left present...") }
+        leftDrawerTransition?.setDismissCompletion { print("left dismiss...") }
+        leftDrawerTransition?.edgeType = .left
+    }
+    
+    fileprivate func setupPageControl() {
+        pageControl.numberOfPages = self.tabPaneVC.pages.count
+        pageControl.currentPage = self.tabPaneVC.currentIndex
+        self.view.addSubview(pageControl)
     }
 }
 

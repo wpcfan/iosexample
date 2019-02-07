@@ -7,13 +7,12 @@
 //
 import Layout
 import ReactorKit
-import URLNavigator
 import RxSwift
 
 class HomeBannerViewController: BaseViewController, StackContainable {
-    private let navigator = container.resolve(NavigatorType.self)!
     @objc weak var bannerView: BannerView!
     var banners$ = BehaviorSubject<[Banner]>(value: [])
+    var bannerTapped = PublishSubject<String>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +35,7 @@ extension HomeBannerViewController: LayoutLoading {
         .disposed(by: self.disposeBag)
         
         self.bannerView.rx.bannerImageTap
-            .subscribe { ev in
-                guard let target = ev.element else { return }
-                self.navigator.present(target)
-            }
+            .bind(to: self.bannerTapped)
             .disposed(by: self.disposeBag)
     }
 }

@@ -156,7 +156,8 @@ public class ScrollingStackController: UIViewController, UIScrollViewDelegate {
         }
     }
     
-    // Reconnect a ViewController, this is useful when using a UIPageViewController, and switch between child ViewControllers
+    // Reconnect a ViewController, this is useful when using a UIPageViewController,
+    // and switch between child ViewControllers
     public func reconnect(with: StackContainable) {
         items = items.map { item in
             if (item.controller == (with as! UIViewController)) {

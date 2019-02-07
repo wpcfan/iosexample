@@ -37,6 +37,8 @@
 "home.nohouse.bindbtn.title"="我要绑定";
 "home.table.scene.header"="场景";
 "home.navigation.title"="首页";
+"home.device.online"="设备在线";
+"home.device.offline"="设备离线";
 "myhouses.title"="我的房屋";
 "myhouses.groupscount"="群组:";
 "myhouses.devicescount"="设备:";

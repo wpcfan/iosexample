@@ -12,7 +12,7 @@ class SocialViewController: ScrollingStackController {
     // MARK: Rx
     var disposeBag = DisposeBag()
     let bannerVC = HomeBannerViewController()
-    let tabPaneVC = HomePageViewController()
+//    let tabPaneVC = HomePageViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,14 +20,14 @@ class SocialViewController: ScrollingStackController {
         self.scrollView = UIScrollView()
         self.view = self.scrollView!
         self.reload()
-        tabPaneVC.rx.pageSwitched
-            .subscribe { _ in
-                self.reconnect(with: self.tabPaneVC)
-            }
-            .disposed(by: disposeBag)
+//        tabPaneVC.rx.pageSwitched
+//            .subscribe { _ in
+//                self.reconnect(with: self.tabPaneVC)
+//            }
+//            .disposed(by: disposeBag)
     }
     
     func reload() {
-        self.viewControllers = [bannerVC, tabPaneVC]
+        self.viewControllers = []
     }
 }

@@ -9,7 +9,7 @@
 import ReactorKit
 import PinLayout
 
-class SceneCell: BaseItemCell, ReactorKit.View {
+class SceneCell: BaseTableCell, ReactorKit.View {
     
     typealias Reactor = SceneViewReactor
     

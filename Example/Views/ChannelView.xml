@@ -1,37 +1,30 @@
-<UIView clipsToBounds="true">
-    <UIView
-        imgUrl="{imageUrls[0]}"
-        left="parent.left + 10"
-        template="IconLabelButton.xml"
-        title="{labels[0]}"
-        width="(parent.width - 60) / 5"
-    />
-    <UIView
-        imgUrl="{imageUrls[1]}"
-        left="previous.right + 10"
-        template="IconLabelButton.xml"
-        title="{labels[1]}"
-        width="(parent.width - 60) / 5"
-    />
-    <UIView
-        imgUrl="{imageUrls[2]}"
-        left="previous.right + 10"
-        template="IconLabelButton.xml"
-        title="{labels[2]}"
-        width="(parent.width - 60) / 5"
-    />
-    <UIView
-        imgUrl="{imageUrls[3]}"
-        left="previous.right + 10"
-        template="IconLabelButton.xml"
-        title="{labels[3]}"
-        width="(parent.width - 60) / 5"
-    />
-    <UIView
-        imgUrl="{imageUrls[4]}"
-        left="previous.right + 10"
-        template="IconLabelButton.xml"
-        title="{labels[4]}"
-        width="(parent.width - 60) / 5"
-    />
-</UIView>
+<UICollectionView
+    backgroundColor="clear"
+    collectionViewLayout.itemSize.height="collectionViewLayout.itemSize.width"
+    collectionViewLayout.itemSize.width="(100% - 6 * 10) / 5"
+    collectionViewLayout.minimumInteritemSpacing="10"
+    collectionViewLayout.sectionInset.right="10"
+    collectionViewLayout.sectionInset.left="10"
+    collectionViewLayout.sectionInset.top="10"
+    collectionViewLayout.sectionInset.bottom="10"
+    collectionViewLayout.scrollDirection="horizontal"
+    contentInset.left="safeAreaInsets.left"
+    contentInset.right="safeAreaInsets.right"
+    contentInsetAdjustmentBehavior="never"
+    contentOffset.x="-safeAreaInsets.left"
+    outlet="collectionView"
+    scrollIndicatorInsets.left="safeAreaInsets.left"
+    scrollIndicatorInsets.right="safeAreaInsets.right">
+    
+    <UICollectionViewCell
+        clipsToBounds="true"
+        reuseIdentifier="templateCell">
+        
+        <UIImageView
+        contentMode="scaleAspectFit"
+        height="100%"
+        image="{image}"
+        width="100%"
+        />
+    </UICollectionViewCell>
+</UICollectionView>

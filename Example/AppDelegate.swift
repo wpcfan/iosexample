@@ -60,7 +60,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //            return true
         //        }
         // Try presenting the URL first
-        if self.navigator.present(url) != nil {
+        if self.navigator.present(url, wrap: UINavigationController.self) != nil {
             print("[Navigator] present: \(url)")
             return true
         }

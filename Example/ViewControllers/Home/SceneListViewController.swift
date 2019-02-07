@@ -11,7 +11,7 @@ import RxDataSources
 import RxSwift
 import Dollar
 
-class BasicTableCell: BaseItemCell {
+class BasicTableCell: BaseTableCell {
     
 }
 
@@ -31,6 +31,7 @@ extension SceneListViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        pageIndex = 0
         tableView?.delegate = self
         self.view = tableView
         let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Scene>>(configureCell: { ds, tv, ip, item in

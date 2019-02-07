@@ -37,6 +37,8 @@
 "home.nohouse.bindbtn.title"="Scan";
 "home.table.scene.header"="Scenes";
 "home.navigation.title"="Home";
+"home.device.online"="Device Online";
+"home.device.offline"="Device Offline";
 "myhouses.title"="My Houses";
 "myhouses.groupscount"="Groups:";
 "myhouses.devicescount"="Devices:";

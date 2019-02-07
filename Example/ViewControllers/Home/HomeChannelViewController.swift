@@ -6,8 +6,9 @@
 //  Copyright © 2019 twigcodes. All rights reserved.
 //
 
-import PinLayout
+import Layout
 import RxSwift
+import RxDataSources
 
 class HomeChannelViewController: BaseViewController, StackContainable {
     
@@ -17,10 +18,10 @@ class HomeChannelViewController: BaseViewController, StackContainable {
         $0.distribution = .fillProportionally
         $0.spacing = (UIScreen.main.bounds.width - 2 * 10 - 5 * 50) / 4
     }
-    
+//    @objc weak var collectionView: UICollectionView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+//        loadLayout(named: "HomeChannelViewController.xml")
         self.channels$
             .subscribe{ ev in
             guard let channels = ev.element else { return }
@@ -52,5 +53,25 @@ class HomeChannelViewController: BaseViewController, StackContainable {
     
     public func preferredAppearanceInStack() -> ScrollingStackController.ItemAppearance {
         return .view(height: 80)
+    }
+}
+
+extension HomeChannelViewController: LayoutLoading {
+    func layoutDidLoad(_: LayoutNode) {
+//        let dataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, Channel>>(configureCell: { (ds, cv, ip, item) -> UICollectionViewCell in
+//            let node = cv.dequeueReusableCellNode(withIdentifier: "templateCell", for: ip)
+//            node.setState([
+//                "imageUrl": item.imageUrl,
+//                "label": item.title
+//                ])
+//            return node.view as! UICollectionViewCell
+//        })
+//
+//        channels$
+//            .map{ channels in
+//                [SectionModel(model: "Channels", items: channels)]
+//            }
+//            .bind(to: (collectionView?.rx.items(dataSource: dataSource))!)
+//            .disposed(by: disposeBag)
     }
 }

@@ -11,21 +11,9 @@ import ReactorKit
 
 class HeaderView: BaseView {
     
-    @IBOutlet var bannerView: BannerView? {
-        didSet {
-            bannerView?.banners = [
-                
-            ]
-        }
-    }
+    @objc weak var bannerView: BannerView!
     
-    @IBOutlet var channelView: ChannelView? {
-        didSet {
-            channelView?.channels = [
-                
-            ]
-        }
-    }
+    @objc weak var channelView: ChannelView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,7 +24,9 @@ class HeaderView: BaseView {
         fatalError("init(coder:) has not been implemented")
     }
     
-
+    func layoutDidLoad(_ layoutNode: LayoutNode) {
+        reactor = HomeViewControllerReactor()
+    }
 }
 
 extension HeaderView: ReactorKit.View {

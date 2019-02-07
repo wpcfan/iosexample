@@ -5,25 +5,31 @@
 //  Created by 王芃 on 2019/1/28.
 //  Copyright © 2019 twigcodes. All rights reserved.
 //
+import RxSwift
+import Disk
 
 class HomeService: ShouChuangService<HomeInfo> {
-    var userId: String?
-    var projectId: String?
-    var houseId: String?
     override var smartApi: SmartApiType {
         get { return .home }
     }
     
+    override func request() -> Observable<HomeInfo> {
+        return super.request().share()
+    }
+    
     override func urlQueries() throws -> [URLQueryItem] {
-        guard let userId = userId else { throw AppErr.requiredParamNull("Home Params Null") }
+        let data = try? Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
+        
+        guard let cache = data else { throw AppErr.requiredParamNull("Dis Data Is Null") }
         var queryItems: [URLQueryItem] = [
-            URLQueryItem(name: "uid", value: userId)
+            URLQueryItem(name: "uid", value: cache.user?.id)
             ]
-        if (projectId != nil) {
-            queryItems.append(URLQueryItem(name: "pid", value: projectId))
+        
+        if (cache.projectId != nil) {
+            queryItems.append(URLQueryItem(name: "pid", value: cache.projectId))
         }
-        if (houseId != nil) {
-            queryItems.append(URLQueryItem(name: "hid", value: houseId))
+        if (cache.houseId != nil) {
+            queryItems.append(URLQueryItem(name: "hid", value: cache.houseId))
         }
         return queryItems
     }

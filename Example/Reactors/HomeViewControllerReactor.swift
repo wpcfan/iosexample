@@ -14,7 +14,6 @@ class HomeViewControllerReactor: Reactor {
     let homeService = container.resolve(HomeService.self)!
     enum Action {
         case load
-        case selectHouse(houseId: String, projectId: String)
     }
     
     enum Mutation {
@@ -34,8 +33,6 @@ class HomeViewControllerReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .load:
-            let data = try? Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
-            self.homeService.userId = data?.user?.id
             return self.homeService.request()
                 .do(onNext: { home in
                     CURRENT_HOUSE.onNext(home.house)
@@ -43,21 +40,6 @@ class HomeViewControllerReactor: Reactor {
                     data.houseId = home.house?.id
                     data.projectId = home.house?.projectId
                     try Disk.save(data, to: .documents, as: Constants.APP_DATA_PATH)
-                })
-                .map { home -> Mutation in .loadSuccess(home) }
-                .catchError{ error -> Observable<Mutation>  in
-                    Observable.of(.loadFail(convertErrorToString(error: error)))
-                }
-        case let .selectHouse(houseId, projectId):
-            return CURRENT_USER
-                .flatMapLatest({ (val) -> Observable<HomeInfo> in
-                    self.homeService.userId = val?.id
-                    self.homeService.projectId = projectId
-                    self.homeService.houseId = houseId
-                    return self.homeService.request()
-                })
-                .do(onNext: { home in
-                    CURRENT_HOUSE.onNext(home.house)
                 })
                 .map { home -> Mutation in .loadSuccess(home) }
                 .catchError{ error -> Observable<Mutation>  in

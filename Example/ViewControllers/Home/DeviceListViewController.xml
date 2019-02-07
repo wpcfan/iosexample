@@ -1,0 +1,27 @@
+<UITableView
+    backgroundColor="tintColor"
+    contentInset.bottom="safeAreaInsets.bottom"
+    contentInset.top="safeAreaInsets.top"
+    contentInsetAdjustmentBehavior="never"
+    contentOffset.y="-safeAreaInsets.top"
+    estimatedSectionHeaderHeight="20"
+    outlet="tableView"
+    scrollIndicatorInsets.bottom="safeAreaInsets.bottom"
+    scrollIndicatorInsets.top="safeAreaInsets.top"
+    style="plain">
+    
+    <!-- Table cell template -->
+    <UITableViewCell
+        height="auto + 20"
+        reuseIdentifier="cell"
+        style="subtitle">
+        
+        <UIImageView
+            imgUrl="{productImageUrl}"
+            right="20"
+            top="20"
+            center.y="parent.center.y"
+        />
+        <UILabel text="{deviceName}" left="previous.right + 10" top="parent.top + 5" width="auto" />
+    </UITableViewCell>
+</UITableView>
