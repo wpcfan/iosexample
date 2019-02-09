@@ -11,6 +11,10 @@ import PMAlertController
 import URLNavigator
 import RxQRScanner
 import WebKit
+import RxWebKit
+import RxSwift
+import NVActivityIndicatorView
+import PinLayout
 
 enum NavigationMap {
     static func initialize(navigator: NavigatorType) {
@@ -110,7 +114,9 @@ extension SafariWebViewController: SFSafariViewControllerDelegate {
 
 class WebKitViewController: UIViewController {
     let webView = WKWebView()
+    var indictor: NVActivityIndicatorView?
     var url: URLConvertible
+    var disposeBag = DisposeBag()
     // MARK: Initializing
     init(url: URLConvertible) {
         self.url = url
@@ -124,8 +130,33 @@ class WebKitViewController: UIViewController {
     override func loadView() {
         super.loadView()
         
-        webView.load(self.url)
-        self.view = webView
+        indictor = NVActivityIndicatorView(
+            frame: self.view.frame,
+            type: .orbit ,
+            color: .lightGray,
+            padding: 50)
+        
+        self.view.addSubview(webView)
+        self.view.addSubview(indictor!)
+        webView.pin.all()
+        webView.load(url)
+        
+        webView.rx.url
+            .share(replay: 1)
+            .subscribe(onNext: {
+                print("URL: \(String(describing: $0))")
+                self.indictor?.startAnimating()
+            })
+            .disposed(by: disposeBag)
+        
+        webView.rx.estimatedProgress
+            .share(replay: 1)
+            .subscribe(onNext: {
+                if ($0.isEqual(to: 1.0)) {
+                    self.indictor?.stopAnimating()
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
     override func viewWillAppear(_ animated: Bool) {

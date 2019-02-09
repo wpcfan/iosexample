@@ -83,7 +83,6 @@
 		AA3CA5D72202BE0600551C87 /* Animator.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3CA5C72202BE0600551C87 /* Animator.swift */; };
 		AA3CA5F32204610500551C87 /* HouseTableViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3CA5F22204610500551C87 /* HouseTableViewControllerReactor.swift */; };
 		AA3CA5F5220462DF00551C87 /* MyHouseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3CA5F4220462DF00551C87 /* MyHouseService.swift */; };
-		AA3E0E782170478200958937 /* PullToRefreshUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E772170478200958937 /* PullToRefreshUtil.swift */; };
 		AA3E0E7A21704E6F00958937 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E7921704E6F00958937 /* House.swift */; };
 		AA3E0E7C217053BD00958937 /* Deivce.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E7B217053BD00958937 /* Deivce.swift */; };
 		AA3E0E7E2170540F00958937 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E7D2170540F00958937 /* Product.swift */; };
@@ -139,12 +138,11 @@
 		AA4B9B37219F223A00E194CE /* SideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B9B36219F223A00E194CE /* SideBarViewController.swift */; };
 		AA4B9B39219F225100E194CE /* SideBarViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA4B9B38219F225100E194CE /* SideBarViewController.xml */; };
 		AA54DF432188424000CE0CA0 /* AnimationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA54DF422188424000CE0CA0 /* AnimationExtensions.swift */; };
-		AA54DF4821892C9F00CE0CA0 /* ReactorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA54DF4721892C9F00CE0CA0 /* ReactorExtension.swift */; };
+		AA54DF4821892C9F00CE0CA0 /* Reactor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA54DF4721892C9F00CE0CA0 /* Reactor+.swift */; };
 		AA6839D8216DE04F00E4097B /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6839D7216DE04F00E4097B /* UIColor+Theme.swift */; };
 		AA6839DA216DE1EA00E4097B /* AppIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6839D9216DE1EA00E4097B /* AppIcons.swift */; };
 		AA6839DC216E08EC00E4097B /* AppAttributedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6839DB216E08EC00E4097B /* AppAttributedStrings.swift */; };
 		AA6839DE216E0A0500E4097B /* LayoutFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6839DD216E0A0500E4097B /* LayoutFunctions.swift */; };
-		AA683A07216F3D5400E4097B /* String+UrlEncode.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA683A06216F3D5400E4097B /* String+UrlEncode.swift */; };
 		AA683A09216F434C00E4097B /* Banner.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA683A08216F434C00E4097B /* Banner.swift */; };
 		AA693DB72160EEB70063D749 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA693DB62160EEB70063D749 /* HomeViewController.swift */; };
 		AA693DBF2161F6330063D749 /* MeViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA693DBE2161F6330063D749 /* MeViewController.xml */; };
@@ -170,7 +168,7 @@
 		AA897871218588A2005A61CA /* TabButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA897870218588A2005A61CA /* TabButton.xml */; };
 		AA897873218590E4005A61CA /* HomeTitleView.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA897872218590E4005A61CA /* HomeTitleView.xml */; };
 		AA91EDD221A7B73F00C07A4E /* TourPageTemplate.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA91EDD121A7B73F00C07A4E /* TourPageTemplate.xml */; };
-		AA96B29321FDF6990093A2E0 /* UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA96B29221FDF6990093A2E0 /* UITextField.swift */; };
+		AA96B29321FDF6990093A2E0 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA96B29221FDF6990093A2E0 /* UITextField+.swift */; };
 		AA96B29521FE116C0093A2E0 /* TextFieldResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA96B29421FE116C0093A2E0 /* TextFieldResponder.swift */; };
 		AA99E9B2219B2F3300FD1C6F /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99E9B1219B2F3300FD1C6F /* UIColor+.swift */; };
 		AA99E9B4219B2F6200FD1C6F /* UIScrollView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA99E9B3219B2F6200FD1C6F /* UIScrollView+.swift */; };
@@ -229,7 +227,6 @@
 		AAE49EF62169D2FB004BDBD7 /* TourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE49EF52169D2FB004BDBD7 /* TourViewController.swift */; };
 		AAE49EF82169D315004BDBD7 /* TourViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AAE49EF72169D315004BDBD7 /* TourViewController.xml */; };
 		AAE49EFA216A2783004BDBD7 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE49EF9216A2783004BDBD7 /* AppData.swift */; };
-		AAE49EFE216AE281004BDBD7 /* Shallows+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE49EFD216AE281004BDBD7 /* Shallows+Rx.swift */; };
 		AAE49F02216BA2EE004BDBD7 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE49F01216BA2EE004BDBD7 /* RegisterViewController.swift */; };
 		AAE49F13216CCBCD004BDBD7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = AAE49F11216CCBCD004BDBD7 /* Localizable.strings */; };
 		AAF5CA4921821F3B006DE332 /* UIApplication+StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF5CA4821821F3B006DE332 /* UIApplication+StatusBar.swift */; };
@@ -368,7 +365,6 @@
 		AA3CA5C72202BE0600551C87 /* Animator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Animator.swift; sourceTree = "<group>"; };
 		AA3CA5F22204610500551C87 /* HouseTableViewControllerReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTableViewControllerReactor.swift; sourceTree = "<group>"; };
 		AA3CA5F4220462DF00551C87 /* MyHouseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHouseService.swift; sourceTree = "<group>"; };
-		AA3E0E772170478200958937 /* PullToRefreshUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullToRefreshUtil.swift; sourceTree = "<group>"; };
 		AA3E0E7921704E6F00958937 /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
 		AA3E0E7B217053BD00958937 /* Deivce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deivce.swift; sourceTree = "<group>"; };
 		AA3E0E7D2170540F00958937 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
@@ -427,12 +423,11 @@
 		AA4B9B36219F223A00E194CE /* SideBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarViewController.swift; sourceTree = "<group>"; };
 		AA4B9B38219F225100E194CE /* SideBarViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SideBarViewController.xml; sourceTree = "<group>"; };
 		AA54DF422188424000CE0CA0 /* AnimationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationExtensions.swift; sourceTree = "<group>"; };
-		AA54DF4721892C9F00CE0CA0 /* ReactorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReactorExtension.swift; sourceTree = "<group>"; };
+		AA54DF4721892C9F00CE0CA0 /* Reactor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactor+.swift"; sourceTree = "<group>"; };
 		AA6839D7216DE04F00E4097B /* UIColor+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Theme.swift"; sourceTree = "<group>"; };
 		AA6839D9216DE1EA00E4097B /* AppIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcons.swift; sourceTree = "<group>"; };
 		AA6839DB216E08EC00E4097B /* AppAttributedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAttributedStrings.swift; sourceTree = "<group>"; };
 		AA6839DD216E0A0500E4097B /* LayoutFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutFunctions.swift; sourceTree = "<group>"; };
-		AA683A06216F3D5400E4097B /* String+UrlEncode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+UrlEncode.swift"; sourceTree = "<group>"; };
 		AA683A08216F434C00E4097B /* Banner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Banner.swift; sourceTree = "<group>"; };
 		AA693DB62160EEB70063D749 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		AA693DBE2161F6330063D749 /* MeViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MeViewController.xml; sourceTree = "<group>"; };
@@ -458,7 +453,7 @@
 		AA897870218588A2005A61CA /* TabButton.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TabButton.xml; sourceTree = "<group>"; };
 		AA897872218590E4005A61CA /* HomeTitleView.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HomeTitleView.xml; sourceTree = "<group>"; };
 		AA91EDD121A7B73F00C07A4E /* TourPageTemplate.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TourPageTemplate.xml; sourceTree = "<group>"; };
-		AA96B29221FDF6990093A2E0 /* UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextField.swift; sourceTree = "<group>"; };
+		AA96B29221FDF6990093A2E0 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		AA96B29421FE116C0093A2E0 /* TextFieldResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldResponder.swift; sourceTree = "<group>"; };
 		AA99E9B1219B2F3300FD1C6F /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		AA99E9B3219B2F6200FD1C6F /* UIScrollView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+.swift"; sourceTree = "<group>"; };
@@ -536,7 +531,6 @@
 		AAE49EF52169D2FB004BDBD7 /* TourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourViewController.swift; sourceTree = "<group>"; };
 		AAE49EF72169D315004BDBD7 /* TourViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TourViewController.xml; sourceTree = "<group>"; };
 		AAE49EF9216A2783004BDBD7 /* AppData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppData.swift; sourceTree = "<group>"; };
-		AAE49EFD216AE281004BDBD7 /* Shallows+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Shallows+Rx.swift"; sourceTree = "<group>"; };
 		AAE49F01216BA2EE004BDBD7 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		AAE49F0E216CCB3D004BDBD7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		AAE49F12216CCBCD004BDBD7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -778,9 +772,10 @@
 				AA89786621856D88005A61CA /* ImageEffects+Accelerate.swift */,
 				AA3E0EBA21737D0600958937 /* LayoutExtensions.swift */,
 				AA78BB45218D6814000B4CD8 /* NotificationCenter+.swift */,
-				AA54DF4721892C9F00CE0CA0 /* ReactorExtension.swift */,
-				AA683A06216F3D5400E4097B /* String+UrlEncode.swift */,
-				AA4B49182178883E00A60C11 /* Then.swift */,
+				AA54DF4721892C9F00CE0CA0 /* Reactor+.swift */,
+				AA8481D021F2E8D600C24D3F /* String+.swift */,
+				AA9AB58621FEEE120052B3FF /* SVGKImageView+.swift */,
+				AA4B491B2178883E00A60C11 /* SwiftyColor.swift */,
 				AA01F4A62199511500CE6457 /* UIApplication+.swift */,
 				AAF5CA4821821F3B006DE332 /* UIApplication+StatusBar.swift */,
 				AA4B49192178883E00A60C11 /* UICollectionViewDelegateFlexLayout.swift */,
@@ -791,12 +786,9 @@
 				AA99E9B3219B2F6200FD1C6F /* UIScrollView+.swift */,
 				AA3E0EA42172328100958937 /* UIStackView+.swift */,
 				AAF961AF220ED72000E17A65 /* UITableView+.swift */,
-				AA96B29221FDF6990093A2E0 /* UITextField.swift */,
+				AA96B29221FDF6990093A2E0 /* UITextField+.swift */,
 				AA420587217B66210068ABC0 /* UIView+Blur.swift */,
 				AA19DC9B21FD46FE00B70EFE /* UIViewController+.swift */,
-				AA4B491B2178883E00A60C11 /* SwiftyColor.swift */,
-				AA8481D021F2E8D600C24D3F /* String+.swift */,
-				AA9AB58621FEEE120052B3FF /* SVGKImageView+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -815,7 +807,6 @@
 				AA8978682185759F005A61CA /* Reactive+UIImageView.swift */,
 				AA8978642185658C005A61CA /* Reactive+UIScrollView.swift */,
 				AA4B491A2178883E00A60C11 /* Reactive+UIViewController.swift */,
-				AAE49EFD216AE281004BDBD7 /* Shallows+Rx.swift */,
 			);
 			path = Rx;
 			sourceTree = "<group>";
@@ -1058,11 +1049,11 @@
 			isa = PBXGroup;
 			children = (
 				AA4B493B2179BBD900A60C11 /* Permission.swift */,
-				AA3E0E772170478200958937 /* PullToRefreshUtil.swift */,
 				AA9B94C021ECC778000AE906 /* QiNiu.swift */,
 				AA38DCA4217EF41F0046D82D /* RxUtil.swift */,
 				AA78BB57218EBB5B000B4CD8 /* RxQRUtil.swift */,
 				AA96B29421FE116C0093A2E0 /* TextFieldResponder.swift */,
+				AA4B49182178883E00A60C11 /* Then.swift */,
 				AA8481CA21F22B2000C24D3F /* Typing.swift */,
 			);
 			path = Utils;
@@ -1383,6 +1374,7 @@
 				"${BUILT_PRODUCTS_DIR}/MarqueeLabel/MarqueeLabel.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/MonkeyKing/MonkeyKing.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/NotificationBannerSwift/NotificationBannerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/OHHTTPStubs/OHHTTPStubs.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
@@ -1390,7 +1382,6 @@
 				"${BUILT_PRODUCTS_DIR}/PINRemoteImage/PINRemoteImage.framework",
 				"${BUILT_PRODUCTS_DIR}/PMAlertController/PMAlertController.framework",
 				"${BUILT_PRODUCTS_DIR}/PinLayout/PinLayout.framework",
-				"${BUILT_PRODUCTS_DIR}/PullToRefreshKit/PullToRefreshKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ReusableKit/ReusableKit.framework",
@@ -1405,6 +1396,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxReachability/RxReachability.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwiftExt/RxSwiftExt.framework",
+				"${BUILT_PRODUCTS_DIR}/RxWebKit/RxWebKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SHSegmentedControl/SHSegmentedControl.framework",
 				"${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -1440,6 +1432,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MarqueeLabel.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MonkeyKing.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NotificationBannerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/OHHTTPStubs.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
@@ -1447,7 +1440,6 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINRemoteImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PMAlertController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PinLayout.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PullToRefreshKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReusableKit.framework",
@@ -1462,6 +1454,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxReachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwiftExt.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxWebKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SHSegmentedControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVGKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
@@ -1549,7 +1542,7 @@
 			files = (
 				AA42D7D521F35C8400320BD3 /* Date+.swift in Sources */,
 				AA3E0EA52172328100958937 /* UIStackView+.swift in Sources */,
-				AA96B29321FDF6990093A2E0 /* UITextField.swift in Sources */,
+				AA96B29321FDF6990093A2E0 /* UITextField+.swift in Sources */,
 				AA30C05B2167533E00B9E0EB /* SplashViewController.swift in Sources */,
 				AA3AB88E21841ABA00470276 /* SplashViewControllerReactor.swift in Sources */,
 				AA693DC12161F6460063D749 /* SettingViewController.swift in Sources */,
@@ -1614,7 +1607,7 @@
 				AA3CA5CB2202BE0600551C87 /* Enums.swift in Sources */,
 				AAC5EB93215E7DE8008EBA1F /* User.swift in Sources */,
 				AA89786721856D88005A61CA /* ImageEffects+Accelerate.swift in Sources */,
-				AA54DF4821892C9F00CE0CA0 /* ReactorExtension.swift in Sources */,
+				AA54DF4821892C9F00CE0CA0 /* Reactor+.swift in Sources */,
 				AAD7E0F621F1AEB1000D8D6A /* SCMCallReminderController.m in Sources */,
 				AAD7E0F521F1AEB1000D8D6A /* MyMediaStackCallback.cpp in Sources */,
 				AA19DC8721FB3DFA00B70EFE /* RegisterService.swift in Sources */,
@@ -1685,7 +1678,6 @@
 				AA01F4A72199511500CE6457 /* UIApplication+.swift in Sources */,
 				AA693DC32161FF620063D749 /* NavigationMap.swift in Sources */,
 				AA4B49302178EB2500A60C11 /* BannerView.swift in Sources */,
-				AA3E0E782170478200958937 /* PullToRefreshUtil.swift in Sources */,
 				AA4B493A2179A1DC00A60C11 /* ChannelCell.swift in Sources */,
 				AA38DCA7217EF4D70046D82D /* Reactive+StatusBar.swift in Sources */,
 				AA42D7D321F306B700320BD3 /* BannerService.swift in Sources */,
@@ -1699,7 +1691,6 @@
 				AA8481D121F2E8D600C24D3F /* String+.swift in Sources */,
 				AAF961832207176100E17A65 /* SJSegmentTab.swift in Sources */,
 				AA693DB72160EEB70063D749 /* HomeViewController.swift in Sources */,
-				AAE49EFE216AE281004BDBD7 /* Shallows+Rx.swift in Sources */,
 				AA3E0E8A2170841700958937 /* HomeInfo.swift in Sources */,
 				AA19DC7521F573AA00B70EFE /* WXMediaMessage+messageConstruct.m in Sources */,
 				AA01F49F2198828600CE6457 /* AppDelegate+UMeng.swift in Sources */,
@@ -1712,7 +1703,6 @@
 				AA9B94BD21ECBEAD000AE906 /* IndoorPhoneService.swift in Sources */,
 				AAFA6622217D8032000217C9 /* MultipleSectionModel.swift in Sources */,
 				AA19DC7421F573AA00B70EFE /* SendMessageToWXReq+requestWithTextOrMediaMessage.m in Sources */,
-				AA683A07216F3D5400E4097B /* String+UrlEncode.swift in Sources */,
 				AA89786F21858891005A61CA /* TabButton.swift in Sources */,
 				AA4B4942217A112200A60C11 /* BaseView.swift in Sources */,
 				AA4B491E2178883F00A60C11 /* Reactive+UICollectionViewFlexLayout.swift in Sources */,

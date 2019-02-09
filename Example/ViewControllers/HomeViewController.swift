@@ -30,7 +30,7 @@ class HomeViewController: BaseViewController {
     private let navigator = container.resolve(NavigatorType.self)!
     private var refreshHeaderTrigger = PublishSubject<Void>()
     private var leftDrawerTransition: DrawerTransition?
-    private var leftMenu: UIViewController?
+    private var sideBarVC: SideBarViewController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -145,11 +145,12 @@ class HomeViewController: BaseViewController {
         buildNavRightItems()
     }
     fileprivate func setupDrawer() {
-        leftMenu = SideBarViewController()
-        leftDrawerTransition = DrawerTransition(target: self, drawer: leftMenu)
+        sideBarVC = SideBarViewController()
+        leftDrawerTransition = DrawerTransition(target: self, drawer: sideBarVC)
         leftDrawerTransition?.setPresentCompletion { print("left present...") }
         leftDrawerTransition?.setDismissCompletion { print("left dismiss...") }
         leftDrawerTransition?.edgeType = .left
+        leftDrawerTransition?.drawerWidth = UIScreen.main.bounds.width * 0.7
     }
 }
 
@@ -197,6 +198,7 @@ extension HomeViewController: StoryboardView {
                 let title = home.house?.displayName() ?? ""
                 button.setTitle(title.trunc(length: 14), for: .normal)
                 self.segTableView.refreshHeader.endRefreshing()
+                self.sideBarVC?.isHouseOwner = home.house?.isOwner ?? false
             }
             .disposed(by: self.disposeBag)
         

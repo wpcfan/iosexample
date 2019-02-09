@@ -13,7 +13,7 @@ import RxGesture
 
 class BaseCollectionCell: UICollectionViewCell {
     // MARK: Properties
-    var disposeBag: DisposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
     
     
     // MARK: Initializing

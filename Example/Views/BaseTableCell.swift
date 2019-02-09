@@ -13,7 +13,7 @@ import RxGesture
 
 class BaseTableCell: UITableViewCell {
     // MARK: Properties
-    var disposeBag: DisposeBag = DisposeBag()
+    var disposeBag = DisposeBag()
     
     
     // MARK: Initializing

@@ -16,6 +16,13 @@ struct AppIcons {
     
     static let app = Bundle.main.icon!
     
+    static let placeholder = UIImage(
+        from: .fontAwesome,
+        code: "question",
+        textColor: .primary,
+        backgroundColor: .clear,
+        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
+    
     static let home = UIImage(
         from: .fontAwesome,
         code: "home",
@@ -142,6 +149,48 @@ struct AppIcons {
         backgroundColor: .clear,
         size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
     
+    static let family = UIImage(
+        from: .materialIcon,
+        code: "group",
+        textColor: .primary,
+        backgroundColor: .clear,
+        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
+    
+    static let devices = UIImage(
+        from: .materialIcon,
+        code: "devices.other",
+        textColor: .primary,
+        backgroundColor: .clear,
+        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
+    
+    static let camera = UIImage(
+        from: .materialIcon,
+        code: "photo.camera",
+        textColor: .primary,
+        backgroundColor: .clear,
+        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
+    
+    static let mall = UIImage(
+        from: .materialIcon,
+        code: "shopping.basket",
+        textColor: .primary,
+        backgroundColor: .clear,
+        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
+    
+    static let forum = UIImage(
+        from: .materialIcon,
+        code: "forum",
+        textColor: .primary,
+        backgroundColor: .clear,
+        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
+    
+    static let settings = UIImage(
+        from: .materialIcon,
+        code: "settings",
+        textColor: .primary,
+        backgroundColor: .clear,
+        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
+    
     static let group = UIImage(
         from: .materialIcon,
         code: "group.work",
@@ -156,6 +205,13 @@ struct AppIcons {
         backgroundColor: .clear,
         size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
     
+    static let rightArrow = UIImage(
+        from: .materialIcon,
+        code: "keyboard.arrow.right",
+        textColor: .lightGray,
+        backgroundColor: .clear,
+        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
+    
     static let checkCircle = UIImage(
         from: .fontAwesome,
         code: "checkcircle",
@@ -164,5 +220,5 @@ struct AppIcons {
         size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
     
 //    static let sceneSvg = SVGKFastImageView(svgkImage: SVGKImage(named: "scene"))!
-    static let scene = UIImage(named: "scene")
+    static let scene = UIImage(named: "scene")!
 }

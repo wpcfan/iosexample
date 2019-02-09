@@ -28,15 +28,10 @@ target 'Example' do
   pod 'RxKeyboard'
   pod 'ReactorKit'
   pod 'RxReachability'
-  # Persistence Library
-  # pod 'RxRealm'
+  pod 'RxWebKit'
   # Pods for Http
 #  pod 'Moya/RxSwift', '~> 11.0'
   pod 'ObjectMapper', '~> 3.3'
-  # pod 'ObjectMapper+Realm'
-  # pod 'ObjectMapperAdditions/Core', '~> 4.1'
-  # pod 'ObjectMapperAdditions/Realm', '~> 4.1'
-  #  pod 'Moya-ObjectMapper/RxSwift', '~> 2.7'
   pod 'PINRemoteImage'
   # Pods for Infrastructures
   pod 'Dollar'
@@ -113,20 +108,18 @@ target 'Example' do
   pod 'UITextView+Placeholder'
   pod 'SHSegmentedControl'
   pod 'SwiftReorder'
+  pod 'MarqueeLabel/Swift'
+  pod 'NVActivityIndicatorView'
   # Quick Form
   pod 'Eureka'
   # Image Slider
   pod 'FSPagerView'
-  # Better PageViewController
-#  pod 'Pageboy'
-  # Pull to refresh
-  pod 'PullToRefreshKit'
   # easy persistence
   pod 'Disk'
   # OAuth2 Library
   pod 'p2.OAuth2'
   # JWT Library
-  pod 'JWTDecode', '~> 2.1'
+  pod 'JWTDecode'
   # Icon Font
   pod 'SwiftIconFont'
   pod 'OHHTTPStubs/Swift'

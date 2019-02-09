@@ -1,53 +1,90 @@
 <UITableView
-    backgroundColor="clear"
+    backgroundColor="white"
     contentInset.bottom="safeAreaInsets.bottom"
     contentInset.top="parent.top"
     contentInsetAdjustmentBehavior="never"
     contentOffset.y="0"
     estimatedSectionHeaderHeight="0"
-    outlet="tableView"
     scrollIndicatorInsets.bottom="safeAreaInsets.bottom"
     scrollIndicatorInsets.top="parent.top"
+    separatorStyle="none"
     style="plain">
 
+    <!-- Section header template -->
     <UIView
         backgroundColor="white"
         height="15%">
 
         <UIImageView
+            id="avatarView"
             bottom="parent.bottom - 5"
             clipsToBounds="true"
             contentMode="scaleAspectFill"
             height="64"
-            imgUrl="https://tinyfac.es/data/avatars/AEF44435-B547-4B84-A2AE-887DFAEE6DDF-200w.jpeg"
+            imgUrl="{avatar}"
             layer.cornerRadius="32"
             left="parent.left + 16"
-            width="64"
+            width="height"
         />
         <UILabel
             height="26"
             left="previous.right + 10"
-            text="Peng Wang"
+            text="{name}"
             top="previous.top + 5"
         />
         <UILabel
             height="26"
             left="previous.left"
-            text="13898810892"
+            text="{mobile}"
+            font="14"
             top="previous.bottom + 5"
         />
+        <UIImageView
+            image="{rightArrow}"
+            right="parent.right - 10"
+            center.y="#avatarView.center.y"
+            width="30"
+            height="30"
+            />
     </UIView>
 
     <!-- Table cell template -->
     <UITableViewCell
-        detailTextLabel.highlightedTextColor="#fff7"
-        detailTextLabel.text="This cell is defined as a template in Table.xml"
-        detailTextLabel.textColor="#aaa"
         height="auto + 20"
         reuseIdentifier="sidebarCell"
-        selectedBackgroundView.backgroundColor="tintColor"
         style="subtitle"
-        textLabel.highlightedTextColor="white"
-        textLabel.text="Title #{row}"
-    />
+        selectedBackgroundView.backgroundColor="clear"
+    >
+        <UIImageView
+            contentMode="scaleAspectFit"
+            width="30"
+            height="width"
+            left="parent.left"
+            center.y="parent.center.y"
+            image="{icon}" />
+        <UILabel
+            text="{title}"
+            left="previous.right + 10"
+            center.y="previous.center.y"
+            width="auto + 10"
+            height="30"
+            />
+        <UILabel
+            isHidden="count == -1"
+            text="{count}"
+            right="parent.right - 10"
+            center.y="previous.center.y"
+            width="20"
+            height="30"
+            textAlignment="right"
+            />
+        <UIImageView
+            isHidden="count > -1"
+            image="{rightArrow}"
+            right="parent.right - 10"
+            center.y="previous.center.y"
+            width="30"
+            height="30"
+            />
+    </UITableViewCell>
 </UITableView>

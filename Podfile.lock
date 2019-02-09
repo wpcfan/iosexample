@@ -33,6 +33,9 @@ PODS:
   - NotificationBannerSwift (2.0.1):
     - MarqueeLabel/Swift (~> 3.2.0)
     - SnapKit (~> 4.2.0)
+  - NVActivityIndicatorView (4.6.1):
+    - NVActivityIndicatorView/Presenter (= 4.6.1)
+  - NVActivityIndicatorView/Presenter (4.6.1)
   - ObjectMapper (3.4.2)
   - OHHTTPStubs/Core (6.1.0)
   - OHHTTPStubs/Default (6.1.0):
@@ -58,7 +61,6 @@ PODS:
     - FLAnimatedImage (>= 1.0)
     - PINRemoteImage/Core
   - PMAlertController (3.5.0)
-  - PullToRefreshKit (0.8.8)
   - ReachabilitySwift (4.3.0)
   - ReactorKit (1.2.1):
     - RxSwift (>= 4.0.0)
@@ -103,6 +105,9 @@ PODS:
   - RxSwiftExt/RxCocoa (3.4.0):
     - RxCocoa (~> 4.0)
     - RxSwiftExt/Core
+  - RxWebKit (0.3.7):
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
   - SHSegmentedControl (1.2.1):
     - SHSegmentedControl/SHExtension (= 1.2.1)
     - SHSegmentedControl/SHSegmentContent (= 1.2.1)
@@ -138,17 +143,18 @@ DEPENDENCIES:
   - Haptica
   - JPush
   - JustLog
-  - JWTDecode (~> 2.1)
+  - JWTDecode
   - Layout (~> 0.6)
+  - MarqueeLabel/Swift
   - MonkeyKing
   - NotificationBannerSwift
+  - NVActivityIndicatorView
   - ObjectMapper (~> 3.3)
   - OHHTTPStubs/Swift
   - p2.OAuth2
   - PinLayout
   - PINRemoteImage
   - PMAlertController
-  - PullToRefreshKit
   - ReactorKit
   - ReusableKit
   - ReusableKit/RxSwift
@@ -162,6 +168,7 @@ DEPENDENCIES:
   - RxReachability
   - RxSwift (~> 4.0)
   - RxSwiftExt
+  - RxWebKit
   - SHSegmentedControl
   - SVGKit
   - SwiftIconFont
@@ -199,6 +206,7 @@ SPEC REPOS:
     - MJRefresh
     - MonkeyKing
     - NotificationBannerSwift
+    - NVActivityIndicatorView
     - ObjectMapper
     - OHHTTPStubs
     - p2.OAuth2
@@ -206,7 +214,6 @@ SPEC REPOS:
     - PinLayout
     - PINRemoteImage
     - PMAlertController
-    - PullToRefreshKit
     - ReachabilitySwift
     - ReactorKit
     - ReusableKit
@@ -221,6 +228,7 @@ SPEC REPOS:
     - RxReachability
     - RxSwift
     - RxSwiftExt
+    - RxWebKit
     - SHSegmentedControl
     - SnapKit
     - SVGKit
@@ -259,6 +267,7 @@ SPEC CHECKSUMS:
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   MonkeyKing: 280cdc68eb39f8b899b17fdfe994a695f6fdc636
   NotificationBannerSwift: 007774aa590cc9680647b92b2f217bef5c00c32c
+  NVActivityIndicatorView: 4ca19fccc84595a78957336a086d00a49be6ce61
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
   OHHTTPStubs: 1e21c7d2c084b8153fc53d48400d8919d2d432d0
   p2.OAuth2: d5ea9b928fc5d10d088d419db6f3380578b6f866
@@ -266,7 +275,6 @@ SPEC CHECKSUMS:
   PinLayout: fe2a2432d6982588e208572005c941aeeae417ab
   PINRemoteImage: 4ac4011c5caefd6befd99758e09becede05d3226
   PMAlertController: 06dab8160066fc4ce991c880e3722cd403e2926a
-  PullToRefreshKit: 7cc53e720e69f135cffa1a57784dfb534f0222ab
   ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
   ReactorKit: 8be57f0527ad1ac2963cd5c338274a46a01e57a3
   ReusableKit: d0b040de03b293288b0ca27a78602691d3346d9b
@@ -281,6 +289,7 @@ SPEC CHECKSUMS:
   RxReachability: 053f2d913db44998242ade488ccaef558f3ce7cb
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   RxSwiftExt: 01f8ecbeeb355698e9c75365ebe908b00dacf45d
+  RxWebKit: e39e220919e5e24546c837f5f60689036a1e5920
   SHSegmentedControl: a7f6ffc1678f2ee5f18e2a4c11d992c3af0800cc
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SVGKit: 8a2fc74258bdb2abb54d3b65f3dd68b0277a9c4d
@@ -295,6 +304,6 @@ SPEC CHECKSUMS:
   UMCCommonLog: 05a2d5de21858e3d870551562cff405c1366d244
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
 
-PODFILE CHECKSUM: cd4abde3ebc7d27fc18f6834902508fa275f5aa9
+PODFILE CHECKSUM: 0aaa6155c0ea1425156714a75b299ae7fd941ff7
 
 COCOAPODS: 1.5.3

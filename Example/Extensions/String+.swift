@@ -28,7 +28,17 @@ extension String{
     var localized: String {
         return NSLocalizedString(self, tableName: nil, bundle: Bundle.main, value: "", comment: "")
     }
+    var urlEscaped: String {
+        return addingPercentEncoding(withAllowedCharacters: .urlHostAllowed)!
+    }
     
+    var utf8Encoded: Data {
+        return data(using: .utf8)!
+    }
+    
+    var containsChineseCharacters: Bool {
+        return self.range(of: "\\p{Han}", options: .regularExpression) != nil
+    }
     /*
      Truncates the string to the specified length number of characters and appends an optional trailing string if longer.
      - Parameter length: Desired maximum lengths of a string
