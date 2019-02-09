@@ -50,7 +50,7 @@
 
     <!-- Table cell template -->
     <UITableViewCell
-        height="auto + 20"
+        height="auto + 10"
         reuseIdentifier="sidebarCell"
         style="subtitle"
         selectedBackgroundView.backgroundColor="clear"

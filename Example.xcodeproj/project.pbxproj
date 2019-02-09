@@ -125,9 +125,6 @@
 		AA4B49212178883F00A60C11 /* Reactive+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B491A2178883E00A60C11 /* Reactive+UIViewController.swift */; };
 		AA4B49222178883F00A60C11 /* SwiftyColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B491B2178883E00A60C11 /* SwiftyColor.swift */; };
 		AA4B49242178883F00A60C11 /* UICollectionViewFlexLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B491D2178883F00A60C11 /* UICollectionViewFlexLayout.swift */; };
-		AA4B49262178B0A900A60C11 /* BannerCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA4B49252178B0A900A60C11 /* BannerCell.xml */; };
-		AA4B492A2178BADD00A60C11 /* ChannelCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA4B49292178BADD00A60C11 /* ChannelCell.xml */; };
-		AA4B492C2178CA0F00A60C11 /* SceneCell.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA4B492B2178CA0F00A60C11 /* SceneCell.xml */; };
 		AA4B49302178EB2500A60C11 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B492F2178EB2500A60C11 /* BannerView.swift */; };
 		AA4B493A2179A1DC00A60C11 /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B49362179A1DC00A60C11 /* ChannelCell.swift */; };
 		AA4B493C2179BBD900A60C11 /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B493B2179BBD900A60C11 /* Permission.swift */; };
@@ -410,9 +407,6 @@
 		AA4B491A2178883E00A60C11 /* Reactive+UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reactive+UIViewController.swift"; sourceTree = "<group>"; };
 		AA4B491B2178883E00A60C11 /* SwiftyColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyColor.swift; sourceTree = "<group>"; };
 		AA4B491D2178883F00A60C11 /* UICollectionViewFlexLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewFlexLayout.swift; sourceTree = "<group>"; };
-		AA4B49252178B0A900A60C11 /* BannerCell.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BannerCell.xml; sourceTree = "<group>"; };
-		AA4B49292178BADD00A60C11 /* ChannelCell.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ChannelCell.xml; sourceTree = "<group>"; };
-		AA4B492B2178CA0F00A60C11 /* SceneCell.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SceneCell.xml; sourceTree = "<group>"; };
 		AA4B492F2178EB2500A60C11 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		AA4B49362179A1DC00A60C11 /* ChannelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
 		AA4B493B2179BBD900A60C11 /* Permission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
@@ -1065,8 +1059,6 @@
 				AAC5EB6F215E7BB7008EBA1F /* AuthViewController.swift */,
 				AAC5EBA0215E7F10008EBA1F /* AuthViewController.xml */,
 				AA4B48F9217768CE00A60C11 /* BaseViewController.swift */,
-				AA4B49252178B0A900A60C11 /* BannerCell.xml */,
-				AA4B49292178BADD00A60C11 /* ChannelCell.xml */,
 				AAC5EBA4215F5849008EBA1F /* HomeTabViewController.swift */,
 				AAC5EBA6215F5860008EBA1F /* HomeTabViewController.xml */,
 				AA693DB62160EEB70063D749 /* HomeViewController.swift */,
@@ -1079,7 +1071,6 @@
 				AAE49F01216BA2EE004BDBD7 /* RegisterViewController.swift */,
 				AA30C05E2167555C00B9E0EB /* RootViewController.swift */,
 				AA693DC02161F6460063D749 /* SettingViewController.swift */,
-				AA4B492B2178CA0F00A60C11 /* SceneCell.xml */,
 				AA4B9B36219F223A00E194CE /* SideBarViewController.swift */,
 				AA4B9B38219F225100E194CE /* SideBarViewController.xml */,
 				AA30C05A2167533E00B9E0EB /* SplashViewController.swift */,
@@ -1315,14 +1306,11 @@
 				AAE49F13216CCBCD004BDBD7 /* Localizable.strings in Resources */,
 				AA420596217C0C2E0068ABC0 /* IconLabelButton.xml in Resources */,
 				AA3E0E9B2171176300958937 /* data.json in Resources */,
-				AA4B49262178B0A900A60C11 /* BannerCell.xml in Resources */,
 				AAC5EBA1215E7F10008EBA1F /* AuthViewController.xml in Resources */,
 				AA91EDD221A7B73F00C07A4E /* TourPageTemplate.xml in Resources */,
 				AA78BB5C218F14F0000B4CD8 /* CollectionCell.xml in Resources */,
 				AAC5EB75215E7BB9008EBA1F /* Assets.xcassets in Resources */,
 				AA4B9B39219F225100E194CE /* SideBarViewController.xml in Resources */,
-				AA4B492A2178BADD00A60C11 /* ChannelCell.xml in Resources */,
-				AA4B492C2178CA0F00A60C11 /* SceneCell.xml in Resources */,
 				AA693DBF2161F6330063D749 /* MeViewController.xml in Resources */,
 				AA78BB5E218F331B000B4CD8 /* MeHeaderCell.xml in Resources */,
 				AAF961B4220EEC3100E17A65 /* HouseTableViewController.xml in Resources */,
