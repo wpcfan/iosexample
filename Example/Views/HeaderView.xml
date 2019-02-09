@@ -6,7 +6,7 @@
         width="parent.width"
     />
     <ChannelView
-        height="60"
+        height="80"
         left="parent.left"
         outlet="channelView"
         top="previous.bottom"

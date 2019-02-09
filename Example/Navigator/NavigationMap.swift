@@ -15,7 +15,7 @@ import WebKit
 enum NavigationMap {
     static func initialize(navigator: NavigatorType) {
         navigator.register("\(Constants.NAVI_PREFIX)://home") { url, values, context in
-            let viewController = MainViewController()
+            let viewController = HomeViewController()
             return viewController;
         }
         navigator.register("\(Constants.NAVI_PREFIX)://home/myhouses") { url, values, context in

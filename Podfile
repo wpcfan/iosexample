@@ -13,6 +13,7 @@ target 'Example' do
   pod 'Toast-Swift'
   pod 'NotificationBannerSwift'
   pod 'SVGKit'
+  pod 'Haptica'
   # Pods for Rx
   pod 'RxSwift', '~> 4.0'
   pod 'RxCocoa', '~> 4.0'
@@ -110,7 +111,8 @@ target 'Example' do
   # Pods for UI extension
   pod 'PMAlertController'
   pod 'UITextView+Placeholder'
-  pod 'LLSegmentViewController'
+  pod 'SHSegmentedControl'
+  pod 'SwiftReorder'
   # Quick Form
   pod 'Eureka'
   # Image Slider

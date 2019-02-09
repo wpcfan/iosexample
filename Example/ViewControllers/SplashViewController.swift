@@ -79,13 +79,17 @@ extension SplashViewController: ReactorKit.View {
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
             .observeOn(MainScheduler.asyncInstance)
             .subscribe { ev in
-                switch ev.element!.nav {
+                guard let state = ev.element else { return }
+                switch state.nav {
                 case .login:
                     AppDelegate.shared.rootViewController.showLoginScreen()
+                    break
                 case .main:
                     AppDelegate.shared.rootViewController.switchToHome()
+                    break
                 case .tour:
                     AppDelegate.shared.rootViewController.switchToTour()
+                    break
                 }
             }
             .disposed(by: self.disposeBag)

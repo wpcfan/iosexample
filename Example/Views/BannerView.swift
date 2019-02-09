@@ -6,56 +6,57 @@
 //  Copyright © 2018年 twigcodes. All rights reserved.
 //
 
-import Layout
+import PinLayout
 import FSPagerView
 import RxGesture
 import SafariServices
-import ReactorKit
 import RxSwift
-import URLNavigator
 import RxOptional
 
-class BannerView: BaseView {
+class BannerView: UIView {
     
-    fileprivate let REUSE_IDENTIFIER = "fspager"
     var tappedIndex = PublishSubject<Int?>()
-    
-    @objc weak var layoutNode: LayoutNode!
     var banners: [Banner] = [] {
         didSet {
-            self.pagerControl?.numberOfPages = banners.count
-            self.pagerView?.reloadData()
+            self.pagerControl.numberOfPages = banners.count
+            self.pagerView.reloadData()
         }
     }
     
-    @objc var pagerView: FSPagerView? {
-        didSet {
-            pagerView?.register(FSPagerViewCell.self, forCellWithReuseIdentifier: REUSE_IDENTIFIER)
-            pagerView?.itemSize = FSPagerView.automaticSize
-            pagerView?.automaticSlidingInterval = 3.0
-            pagerView?.isInfinite = true
-            pagerView?.transformer = FSPagerViewTransformer(type: .crossFading)
-        }
-    }
+    @objc var pagerView: FSPagerView!
     
-    @objc weak var pagerControl: FSPageControl? {
-        didSet {
-            self.pagerControl?.contentHorizontalAlignment = .center
-            self.pagerControl?.contentInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-            self.pagerControl?.hidesForSinglePage = false
-        }
-    }
+    @objc var pagerControl: FSPageControl!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.loadLayout(
-            named: "BannerView.xml"
-        )
+        pagerView = FSPagerView().then {
+            $0.register(FSPagerViewCell.self, forCellWithReuseIdentifier: "fspager")
+            $0.itemSize = FSPagerView.automaticSize
+            $0.automaticSlidingInterval = 3.0
+            $0.isInfinite = true
+            $0.transformer = FSPagerViewTransformer(type: .crossFading)
+        }
+        pagerControl = FSPageControl().then {
+            $0.contentHorizontalAlignment = .center
+            $0.contentInsets = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+            $0.hidesForSinglePage = false
+        }
+        pagerView.dataSource = self
+        pagerView.delegate = self
+        addSubview(pagerView)
+        addSubview(pagerControl)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        pagerView.pin.all()
+        pagerControl.pin.left().bottom().right().height(20)
     }
 }
 
@@ -85,11 +86,11 @@ extension BannerView: FSPagerViewDelegate {
     }
     
     func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int) {
-        self.pagerControl?.currentPage = targetIndex
+        self.pagerControl.currentPage = targetIndex
     }
     
     func pagerViewDidEndScrollAnimation(_ pagerView: FSPagerView) {
-        self.pagerControl?.currentPage = pagerView.currentIndex
+        self.pagerControl.currentPage = pagerView.currentIndex
     }
 }
 

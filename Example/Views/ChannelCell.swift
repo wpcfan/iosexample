@@ -7,34 +7,35 @@
 //
 
 import UIKit
-import ReactorKit
 import PinLayout
 
-class ChannelCell: BaseTableCell {
-    private var label = UILabel()
-    private var button = UIButton()
+class ChannelCell: BaseCollectionCell {
+    var label = UILabel().then {
+        $0.textAlignment = .center
+        $0.font = $0.font.withSize(14)
+    }
+    var imageView = UIImageView()
     
-    var channel: Banner? {
+    var channel: Channel? {
         didSet {
             guard let channel = channel else { return }
-            initControls(channel: channel)
+            bindControlValue(channel: channel)
         }
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        guard let imageView = imageView else { return }
-        imageView.pin.top(8).center().width(48).height(48)
-        label.pin.below(of: imageView, aligned: .center).height(16).marginTop(8)
+        imageView.pin.top().width(50).height(50)
+        label.pin.below(of: imageView, aligned: .center).height(14).marginTop(5).width(100%)
     }
     
     override func initialize() {
         contentView.addSubview(label)
-        contentView.addSubview(button)
+        contentView.addSubview(imageView)
     }
     
-    private func initControls(channel: Banner) {
+    private func bindControlValue(channel: Channel) {
         label.text = channel.title
-        imageView?.pin_setImage(from: URL(string: channel.imageUrl!))
+        imageView.pin_setImage(from: URL(string: channel.imageUrl!))
     }
 }

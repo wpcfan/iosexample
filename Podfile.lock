@@ -15,6 +15,7 @@ PODS:
   - Eureka (4.3.1)
   - FLAnimatedImage (1.0.12)
   - FSPagerView (0.8.2)
+  - Haptica (2.2.3)
   - JCore (1.2.6)
   - JPush (3.1.2):
     - JCore (~> 1.2.6)
@@ -25,8 +26,9 @@ PODS:
   - Layout (0.6.35):
     - Layout/Core (= 0.6.35)
   - Layout/Core (0.6.35)
-  - LLSegmentViewController (1.1.2)
   - MarqueeLabel/Swift (3.2.0)
+  - Masonry (1.1.0)
+  - MJRefresh (3.1.15.7)
   - MonkeyKing (1.12.1)
   - NotificationBannerSwift (2.0.1):
     - MarqueeLabel/Swift (~> 3.2.0)
@@ -101,10 +103,19 @@ PODS:
   - RxSwiftExt/RxCocoa (3.4.0):
     - RxCocoa (~> 4.0)
     - RxSwiftExt/Core
+  - SHSegmentedControl (1.2.1):
+    - SHSegmentedControl/SHExtension (= 1.2.1)
+    - SHSegmentedControl/SHSegmentContent (= 1.2.1)
+  - SHSegmentedControl/SHExtension (1.2.1)
+  - SHSegmentedControl/SHSegmentContent (1.2.1):
+    - Masonry
+    - MJRefresh
+    - SHSegmentedControl/SHExtension
   - SnapKit (4.2.0)
   - SVGKit (2.1.0):
     - CocoaLumberjack (~> 3.0)
   - SwiftIconFont (3.0.0)
+  - SwiftReorder (6.0.1)
   - SwiftyBeaver (1.6.1)
   - Swinject (2.5.0)
   - Toast-Swift (4.0.1)
@@ -124,11 +135,11 @@ DEPENDENCIES:
   - Dollar
   - Eureka
   - FSPagerView
+  - Haptica
   - JPush
   - JustLog
   - JWTDecode (~> 2.1)
   - Layout (~> 0.6)
-  - LLSegmentViewController
   - MonkeyKing
   - NotificationBannerSwift
   - ObjectMapper (~> 3.3)
@@ -151,8 +162,10 @@ DEPENDENCIES:
   - RxReachability
   - RxSwift (~> 4.0)
   - RxSwiftExt
+  - SHSegmentedControl
   - SVGKit
   - SwiftIconFont
+  - SwiftReorder
   - Swinject (~> 2.5)
   - Toast-Swift
   - "UITextView+Placeholder"
@@ -175,13 +188,15 @@ SPEC REPOS:
     - Eureka
     - FLAnimatedImage
     - FSPagerView
+    - Haptica
     - JCore
     - JPush
     - JustLog
     - JWTDecode
     - Layout
-    - LLSegmentViewController
     - MarqueeLabel
+    - Masonry
+    - MJRefresh
     - MonkeyKing
     - NotificationBannerSwift
     - ObjectMapper
@@ -206,9 +221,11 @@ SPEC REPOS:
     - RxReachability
     - RxSwift
     - RxSwiftExt
+    - SHSegmentedControl
     - SnapKit
     - SVGKit
     - SwiftIconFont
+    - SwiftReorder
     - SwiftyBeaver
     - Swinject
     - Toast-Swift
@@ -231,13 +248,15 @@ SPEC CHECKSUMS:
   Eureka: 28ea296f06710f6745266b71f17862048941a32d
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   FSPagerView: 816a18842306973cc7cc6df8a5332272f7815c30
+  Haptica: 9b4e210ecf506b9f96c2a7746a8d945452ec344b
   JCore: cae516dd2bf1a73b578ce6e1065abd49e709e0f7
   JPush: d0cead70ba223a6a3b52749899ebda830dfbc49a
   JustLog: 24d4dbdd4d4b65fc04069f222ee34b1d9c9004cf
   JWTDecode: 85a405ab16d5473e99bd89ded1d535090ebd6a0e
   Layout: a970a8bb1cc1e5db8b1cafde341a26bf5b0c386b
-  LLSegmentViewController: 41e0d2d0d552df5d6370afdbd10cecd4bde5ae6e
   MarqueeLabel: 440a502b91a9179bd98f9fff00ba1150650a1c0e
+  Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
+  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   MonkeyKing: 280cdc68eb39f8b899b17fdfe994a695f6fdc636
   NotificationBannerSwift: 007774aa590cc9680647b92b2f217bef5c00c32c
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
@@ -262,9 +281,11 @@ SPEC CHECKSUMS:
   RxReachability: 053f2d913db44998242ade488ccaef558f3ce7cb
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   RxSwiftExt: 01f8ecbeeb355698e9c75365ebe908b00dacf45d
+  SHSegmentedControl: a7f6ffc1678f2ee5f18e2a4c11d992c3af0800cc
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SVGKit: 8a2fc74258bdb2abb54d3b65f3dd68b0277a9c4d
   SwiftIconFont: 2ba18554a77c44948dc35b561b344e3c23834a84
+  SwiftReorder: b59368b978c9826116147672ff1f59a2d4dd9110
   SwiftyBeaver: ccfcdf85a04d429f1633f668650b0ce8020bda3a
   Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
@@ -274,6 +295,6 @@ SPEC CHECKSUMS:
   UMCCommonLog: 05a2d5de21858e3d870551562cff405c1366d244
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
 
-PODFILE CHECKSUM: 89ff44543a68b45bb9ea589d5936b873cb194981
+PODFILE CHECKSUM: cd4abde3ebc7d27fc18f6834902508fa275f5aa9
 
 COCOAPODS: 1.5.3

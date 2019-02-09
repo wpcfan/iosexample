@@ -1,13 +1,13 @@
 <UICollectionView
     backgroundColor="clear"
-    collectionViewLayout.itemSize.height="collectionViewLayout.itemSize.width"
+    collectionViewLayout.itemSize.height="80"
     collectionViewLayout.itemSize.width="(100% - 6 * 10) / 5"
     collectionViewLayout.minimumInteritemSpacing="10"
-    collectionViewLayout.sectionInset.right="10"
-    collectionViewLayout.sectionInset.left="10"
-    collectionViewLayout.sectionInset.top="10"
-    collectionViewLayout.sectionInset.bottom="10"
     collectionViewLayout.scrollDirection="horizontal"
+    collectionViewLayout.sectionInset.bottom="10"
+    collectionViewLayout.sectionInset.left="10"
+    collectionViewLayout.sectionInset.right="10"
+    collectionViewLayout.sectionInset.top="10"
     contentInset.left="safeAreaInsets.left"
     contentInset.right="safeAreaInsets.right"
     contentInsetAdjustmentBehavior="never"
@@ -15,16 +15,26 @@
     outlet="collectionView"
     scrollIndicatorInsets.left="safeAreaInsets.left"
     scrollIndicatorInsets.right="safeAreaInsets.right">
-    
+
     <UICollectionViewCell
         clipsToBounds="true"
         reuseIdentifier="templateCell">
-        
+
         <UIImageView
-        contentMode="scaleAspectFit"
-        height="100%"
-        image="{image}"
-        width="100%"
+            contentMode="scaleAspectFit"
+            height="50"
+            imgUrl="{imageUrl}"
+            top="5"
+            width="50"
+        />
+        <UILabel
+            center.x="previous.center.x"
+            font="12"
+            height="12"
+            text="{label}"
+            textAlignment="center"
+            top="previous.bottom + 5"
+            width="auto"
         />
     </UICollectionViewCell>
 </UICollectionView>
