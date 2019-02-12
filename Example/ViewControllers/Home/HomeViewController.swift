@@ -198,7 +198,6 @@ extension HomeViewController: StoryboardView {
                 let title = home.house?.displayName() ?? ""
                 button.setTitle(title.trunc(length: 14), for: .normal)
                 self.segTableView.refreshHeader.endRefreshing()
-                self.sideBarVC?.isHouseOwner = home.house?.isOwner ?? false
             }
             .disposed(by: self.disposeBag)
         

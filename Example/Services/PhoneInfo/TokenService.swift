@@ -9,7 +9,7 @@ import Disk
 import Device_swift
 import RxSwift
 
-class RegisterService: ShouChuangService<Register> {
+class TokenService: ShouChuangService<Register> {
     override var smartApi: SmartApiType {
         get { return .register }
     }

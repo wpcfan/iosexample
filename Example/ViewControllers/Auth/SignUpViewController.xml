@@ -1,0 +1,43 @@
+<UIScrollView
+    backgroundColor="white"
+    contentInset.bottom="safeAreaInsets.bottom + 50"
+    contentInset.left="safeAreaInsets.left + 15"
+    contentInset.right="safeAreaInsets.right + 15"
+    contentInset.top="max(safeAreaInsets.top + 5, 15)"
+    contentInsetAdjustmentBehavior="never"
+    outlet="scrollView"
+    scrollIndicatorInsets.bottom="safeAreaInsets.bottom + 50"
+    scrollIndicatorInsets.top="safeAreaInsets.top">
+    <UITextField
+        autocapitalizationType="none"
+        autocorrectionType="no"
+        borderStyle="none"
+        clearButtonMode="whileEditing"
+        height="30"
+        left="safeAreaInsets.left"
+        outlet="mobileField"
+        placeholder="{strings.register.mobile}"
+        right="parent.right - safeAreaInsets.right"
+        top="parent.top"
+        leftView="mobileIcon"
+        />
+    <UITextField
+        autocapitalizationType="none"
+        autocorrectionType="no"
+        borderStyle="none"
+        clearButtonMode="whileEditing"
+        height="parent.height"
+        left="safeAreaInsets.left"
+        outlet="mobileField"
+        placeholder="{strings.register.mobile}"
+        right="previous.right - 80"
+        top="previous.bottom - 5"
+        leftView="captchaIcon"
+        />
+    <UIImageView
+        left="previous.right"
+        right="parent.right - safeAreaInsets.right"
+        height="parent.height"
+        contentMode="scaleAspectFit"
+        />
+</UIScrollView>

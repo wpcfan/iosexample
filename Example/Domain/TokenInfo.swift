@@ -81,7 +81,7 @@ struct SmartUser: Codable, Mappable {
     }
 }
 
-struct Register: Mappable {
+struct TokenInfo: Mappable {
     
     var token: String?
     var version: Version?
@@ -97,5 +97,15 @@ struct Register: Mappable {
         version <- map["versioninfo"]
         splashAd <- map["adinfo"]
         user <- map["userinfo"]
+    }
+}
+
+struct EmptyResult: Mappable {
+    init?(map: Map) {
+        
+    }
+    
+    mutating func mapping(map: Map) {
+        
     }
 }
