@@ -20,7 +20,7 @@ class SceneTableView: SHTableView {
     var scenes$ = BehaviorSubject<[Scene]>(value: [
         Scene(JSON: ["name": "回家"])!,
         Scene(JSON: ["name": "离家"])!])
-    
+    let sectionHeaderView = SectionHeaderView()
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         
@@ -47,27 +47,20 @@ class SceneTableView: SHTableView {
 }
 
 extension SceneTableView: UITableViewDelegate {
-    fileprivate func buildSectionHeader() -> UIView? {
-        let view = UIView()
-        view.backgroundColor = UIColor.white
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.text = "我的场景"
-        let icon = UIImageView(image: AppIcons.scene)
-        icon.pin.width(20).height(20)
-        view.addSubview(icon)
-        view.addSubview(label)
-        icon.pin.left(5).top(5).width(24).height(24)
-        label.pin.after(of: icon).width(200).height(24).top(5).marginLeft(5)
-        view.sizeToFit()
-        return view
-    }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        return 40
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return buildSectionHeader()
+        sectionHeaderView.textLabel.text = "我的场景"
+        sectionHeaderView.icon.image = AppIcons.scene
+        return sectionHeaderView
+    }
+}
+
+extension Reactive where Base: SceneTableView {
+    var addSceneTapped: Observable<Void> {
+        return base.sectionHeaderView.rightBtnTapped.asObservable()
     }
 }

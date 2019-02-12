@@ -31,23 +31,11 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         
         self.view.setNeedsUpdateConstraints()
-        self.handleGlobalRedirect()
         self.bindReachability()
     }
     
     func initialize() -> Void {
         
-    }
-    
-    func handleGlobalRedirect() -> Void {
-        // Handle Logout Globally
-        NEED_LOGOUT
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
-            .observeOn(MainScheduler.asyncInstance)
-            .subscribe{ _ in
-                AppDelegate.shared.rootViewController.switchToLogout()
-            }
-            .disposed(by: self.disposeBag)
     }
     
     func bindReachability() {

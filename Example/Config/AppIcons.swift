@@ -47,7 +47,7 @@ struct AppIcons {
     static let add = UIImage(
         from: .ionicon,
         code: "ios-add",
-        textColor: .white,
+        textColor: .primary,
         backgroundColor: .clear,
         size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
     
@@ -219,6 +219,26 @@ struct AppIcons {
         backgroundColor: .clear,
         size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
     
+    static let uncheckCircle = UIImage(
+        from: .fontAwesome,
+        code: "checkcircle",
+        textColor: .lightGray,
+        backgroundColor: .clear,
+        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
+    
+    static let mobileIcon = UIImage(
+        from: .materialIcon,
+        code: "phone.iphone",
+        textColor: .lightGray,
+        backgroundColor: .clear,
+        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
+    
 //    static let sceneSvg = SVGKFastImageView(svgkImage: SVGKImage(named: "scene"))!
     static let scene = UIImage(named: "scene")!
+    static let captchaIcon = UIImage(
+        from: .ionicon,
+        code: "ios-lock",
+        textColor: .lightGray,
+        backgroundColor: .clear,
+        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
 }

@@ -15,6 +15,7 @@ struct AppData: Codable, Mappable {
     var houseId: String?
     var projectId: String?
     var token: String?
+    var regId: String?
     var homeInfo: HomeInfo?
     
     init?(map: Map) {
@@ -28,5 +29,6 @@ struct AppData: Codable, Mappable {
         projectId <- map["projectId"]
         token <- map["token"]
         homeInfo <- map["homeInfo"]
+        regId <- map["regId"]
     }
 }

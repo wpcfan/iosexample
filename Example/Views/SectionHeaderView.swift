@@ -6,23 +6,42 @@
 //  Copyright © 2019 twigcodes. All rights reserved.
 //
 
-import Foundation
+import PinLayout
+import RxSwift
+import RxCocoa
+import RxGesture
 
-class SectionHeaderView: BaseView {
-    let label = UILabel().then {
-        $0.font = $0.font.withSize(14)
-        $0.text = "我的设备"
+class SectionHeaderView: UIView {
+    var disposeBag = DisposeBag()
+    var rightBtnTapped = PublishSubject<Void>()
+    let textLabel = UILabel().then {
+        $0.textAlignment = .left
+        $0.textColor = .black
+        $0.font = $0.font.withSize(16)
     }
+    
     let icon = UIImageView().then {
         $0.contentMode = .scaleAspectFit
-        $0.image = AppIcons.devices
+    }
+    let rightIcon = UIImageView().then {
+        $0.contentMode = .scaleAspectFit
+        $0.image = AppIcons.add
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        addSubview(icon)
-        addSubview(label)
+        self.backgroundColor = .white
+        addSubview(self.icon)
+        addSubview(self.textLabel)
+        addSubview(self.rightIcon)
+        rightIcon.rx.tapGesture().when(.recognized).asObservable()
+            .void()
+            .bind(to: self.rightBtnTapped)
+            .disposed(by: self.disposeBag)
+        CURRENT_HOUSE.map { house in !(house?.isOwner ?? false) }
+            .bind(to: self.rightIcon.rx.isHidden)
+            .disposed(by: self.disposeBag)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -32,8 +51,10 @@ class SectionHeaderView: BaseView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        icon.pin.left(5).top(5).width(24).height(24)
-        label.pin.after(of: icon).width(200).height(24).top(5).marginLeft(5)
-        sizeToFit()
+        let iconSize: CGFloat = 24
+        icon.pin.left(10).top(5).size(iconSize)
+        textLabel.pin.after(of: icon, aligned: .center).width(200).height(20).marginHorizontal(10)
+        rightIcon.pin.topRight(to: self.anchor.topRight).size(40)
+        self.sizeToFit()
     }
 }

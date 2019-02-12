@@ -86,7 +86,9 @@ class RootViewController: BaseViewController {
     func switchToHome() -> Void {
         let homeVC = HomeViewController()
         let homeScreen = UINavigationController(rootViewController: homeVC)
-        animateDismissTransition(to: homeScreen)
+        animateFadeTransition(to: homeScreen) { [weak self] in
+            self?.handleDeeplink(self?.deeplink)
+        }
     }
     
     func switchToMainScreen() {
@@ -94,6 +96,20 @@ class RootViewController: BaseViewController {
         animateFadeTransition(to: mainViewController) { [weak self] in
             self?.handleDeeplink(self?.deeplink)
         }
+    }
+    
+    func switchToBindJdAccount() {
+        let new = UINavigationController(rootViewController: BindJdAccountViewController())
+        addChild(new)
+        new.view.frame = view.bounds
+        view.addSubview(new.view)
+        new.didMove(toParent: self)
+        
+        current.willMove(toParent: nil)
+        current.view.removeFromSuperview()
+        current.removeFromParent()
+        
+        current = new
     }
     
     private func animateFadeTransition(to new: UIViewController, completion: (() -> Void)? = nil) {

@@ -1,0 +1,23 @@
+<UIView backgroundColor="white">
+    <UILabel
+        center.x="parent.center.x"
+        center.y="parent.center.y - 50"
+        height="20"
+        text="{strings.bindJdAccount.desc}"
+        numberOfLines="2"
+    />
+    <UIButton
+        center.x="previous.center.x"
+        top="previous.bottom + 10"
+        height="50"
+        width="height"
+        touchUpInside="rebind">
+
+        <UIImageView
+            contentMode="scaleAspectFill"
+            height="40"
+            image="{JdLogo}"
+            width="height"
+        />
+    </UIButton>
+</UIView>

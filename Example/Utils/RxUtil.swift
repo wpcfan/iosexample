@@ -44,7 +44,7 @@ public func handleError(_ err: Error) -> Error {
         break
     case SmartError.jdAccountNotBinded(let errorMessage):
         printError("JD Account Not Binded \(errorMessage)")
-        NEED_LOGOUT.onNext(())
+        NEED_REBIND.onNext(())
         break
     case SmartError.tokenInvalid(let errorMessage):
         printError("The access token is invalid \(errorMessage)")
@@ -52,7 +52,7 @@ public func handleError(_ err: Error) -> Error {
         break
     case SmartError.jdTokenInvalid(let errorMessage):
         printError("The JD access token is invalid \(errorMessage)")
-        NEED_LOGOUT.onNext(())
+        NEED_REBIND.onNext(())
         break
     default:
         break

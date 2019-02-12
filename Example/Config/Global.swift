@@ -15,6 +15,7 @@ import RxSwift
 // 全局 Observable 对象，用于多个 ViewController 中的信号共享
 // 监控服务器传回的需要退出登录的信号
 let NEED_LOGOUT = PublishSubject<Void>()
+let NEED_REBIND = PublishSubject<Void>()
 // 共享当前登录用户
 let CURRENT_USER = BehaviorSubject<SmartUser?>(value: nil)
 let CURRENT_HOUSE = BehaviorSubject<House?>(value: nil)
@@ -55,40 +56,36 @@ let oauth2Settings = [
 // IoC 容器初始化
 let container: Container = {
     let container = Container()
-    container.register(OAuth2PasswordGrant.self) { _ in
-        return OAuth2PasswordGrant(settings: oauth2Settings)
-    }
-    container.register(OAuth2Service.self) { _ in
-        OAuth2Service()
-    }
+    container.register(OAuth2PasswordGrant.self) { _ in OAuth2PasswordGrant(settings: oauth2Settings) }
+    container.register(OAuth2Service.self) { _ in  OAuth2Service() }
     container.register(NavigatorType.self) { _ in
         var navigator = Navigator()
         NavigationMap.initialize(navigator: navigator)
         return navigator
     }
     container.register(HttpClient.self) { _ in
-        let plugins = [NetworkActivityIndicatorPlugin()]
+//        let plugins: [RequestPluginType] = [] //[NetworkActivityIndicatorPlugin()]
+//        let cacheDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("Cache")
+//        try! FileManager.default.createDirectory(atPath: cacheDirectory.path, withIntermediateDirectories: true, attributes: nil)
+        // instance of UrlRequestFileSystemCacheProvider that will store cached data in specified directory
+//        let urlCacheProvider = UrlRequestFileSystemCacheProvider(cacheDirectory: cacheDirectory)
         let delegate = SelfSignedSSLSessionDelegate()
-        return HttpClient(sessionConfiguration: .default, requestPlugin: CompositeRequestPlugin(plugins: plugins), sessionDelegate: delegate)
+        return HttpClient(
+            sessionConfiguration: .default,
+//            urlRequestCacheProvider: urlCacheProvider,
+//            requestPlugin: CompositeRequestPlugin(plugins: plugins),
+            sessionDelegate: delegate)
     }
-    container.register(SocialService.self) { _ in
-        SocialService()
-    }
-    container.register(BannerService.self) { _ in
-        BannerService()
-    }
-    container.register(RegisterService.self) { _ in
-        RegisterService()
-    }
-    container.register(LoginService.self) { _ in
-        LoginService()
-    }
-    container.register(HomeService.self) { _ in
-        HomeService()
-    }
-    container.register(MyHouseService.self) { _ in
-        MyHouseService()
-    }
+    container.register(SocialService.self) { _ in SocialService() }
+    container.register(BannerService.self) { _ in BannerService() }
+    container.register(TokenService.self) { _ in TokenService() }
+    container.register(LoginService.self) { _ in LoginService() }
+    container.register(HomeService.self) { _ in HomeService() }
+    container.register(MyHouseService.self) { _ in  MyHouseService() }
+    container.register(PushRegIdService.self) { _ in  PushRegIdService() }
+    container.register(CaptchaService.self) { _ in  CaptchaService() }
+    container.register(VerifyCapchaService.self) { _ in  VerifyCapchaService() }
+    container.register(VerifySmsService.self) { _ in  VerifySmsService() }
     #if !targetEnvironment(simulator)
         container.register(JdSmartCloudService.self) { _ in JdSmartCloudService() }
         container.register(IndoorPhoneService.self) { _ in IndoorPhoneService() }

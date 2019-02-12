@@ -36,10 +36,18 @@ class JdSmartCloudService {
         #if !targetEnvironment(simulator)
 
         SCMIFTTTManager.getIFTTTList(page, pageSize: pageSize!, extend: extend) { (dict) in
-            let result = dict as! NSDictionary
+            let result = dict! as NSDictionary
             print(result["status"] ?? "Not Returning Status Value")
         }
         #endif
         print("exit getScenes")
+    }
+    
+    public func bindJdAccount(vc: UIViewController) {
+        print("enter bindJdAccount")
+        #if !targetEnvironment(simulator)
+        SCMAuthorizedInitManager.shared()?.showAuthorizeViewController(withRootController: vc, state: "", redirectUrl: "https://116.196.81.233")
+        #endif
+        print("exit bindJdAccount")
     }
 }

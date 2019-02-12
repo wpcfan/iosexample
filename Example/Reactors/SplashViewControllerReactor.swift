@@ -12,11 +12,12 @@ import URLNavigator
 import Disk
 
 class SplashViewControllerReactor: Reactor {
-    private let registerService = container.resolve(RegisterService.self)!
+    private let tokenService = container.resolve(TokenService.self)!
     enum NavTarget {
         case login
         case main
         case tour
+        case bindJdAccount
     }
     
     enum Action {
@@ -43,15 +44,15 @@ class SplashViewControllerReactor: Reactor {
             let tourPresented = result?.tourGuidePresented ?? false
             if (tourPresented) {
                 return (result?.user) != nil && result?.token != nil ?
-                    self.registerService.handleRegister()
-                        .mapTo(.setNavTarget(target: .main)) :
+                    result!.user!.jdAccountBinded ?? false ?
+                        self.tokenService.handleTokenInfo().mapTo(.setNavTarget(target: .main)) :
+                        Observable.of(.setNavTarget(target: .bindJdAccount)) :
                     Observable.of(.setNavTarget(target: .login))
             } else {
                 return Observable.of(.setNavTarget(target: .tour))
             }
         case .tick:
             return Observable.of(.setTick)
-        
         }
     }
     

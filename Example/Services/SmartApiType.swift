@@ -8,7 +8,7 @@
 
 public enum SmartApiType {
     case register
-    case setdevicetoken
+    case reportPushRegId
     case getCaptcha
     case home
     case messageTypes
@@ -23,10 +23,10 @@ public enum SmartApiType {
     case getAirDetector
     case setAirDetector
     case currentAirDetector
-    case validateCaptcha
+    case verifyCaptcha
     case sendSms
     case directSendSms
-    case validateSmsCode
+    case verifySmsCode
     case setPassword
     case changeMobile
     case bindJdAccount
@@ -82,7 +82,7 @@ public enum SmartApiType {
         switch self {
         case .register:
             return "/phoneinfo/register"
-        case .setdevicetoken:
+        case .reportPushRegId:
             return "/phoneinfo/setdevicetoken"
         case .getCaptcha:
             return "/phoneinfo/getverifycode"
@@ -112,13 +112,13 @@ public enum SmartApiType {
             return "/home/setgrouphj"
         case .currentAirDetector:
             return "/home/currentgrouphj"
-        case .validateCaptcha:
+        case .verifyCaptcha:
             return "/user/validatepiccode"
         case .sendSms:
             return "/user/sendmsg"
         case .directSendSms:
             return "/user/onlySendMsg"
-        case .validateSmsCode:
+        case .verifySmsCode:
             return "/user/validatecode"
         case .setPassword:
             return "/user/setpassword"

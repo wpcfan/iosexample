@@ -30,6 +30,7 @@ class SplashViewController: BaseViewController {
     }
     @objc weak var countDown: UIButton!
     @objc weak var splashAdImageView: UIImageView!
+    private let homeService = container.resolve(HomeService.self)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,15 +68,37 @@ extension SplashViewController: ReactorKit.View {
             .takeWhile { val -> Bool in val > 0 }
         
         let splashAdTappedStream = splashAdImageView.rx.tapGesture().when(.recognized).share()
-        
-        Observable.merge(
+        let splashEndStream = Observable.merge(
             countDown.rx.tap.map { _ in 0 },
             countDownStream.filter { (count) -> Bool in  count == 1 })
             .takeUntil(splashAdTappedStream)
             .take(1)
+        // warm up
+//        reactor.state
+//            .map { $0.nav }
+//            .distinctUntilChanged()
+//            .filter({ (target) -> Bool in
+//                switch target {
+//                case .main:
+//                    return true
+//                default:
+//                    return false
+//                }
+//            })
+//            .takeUntil(splashEndStream)
+//            .flatMap({ (_) -> Observable<HomeInfo> in
+//                self.homeService.handleHomeInfo(cached: false)
+//            })
+//            .subscribe { ev in
+//                guard ev.error != nil else { return }
+//            }
+//            .disposed(by: self.disposeBag)
+        
+        splashEndStream
             .flatMapLatest({ (_) -> Observable<Reactor.State> in
                 reactor.state
             })
+            .take(1)
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
             .observeOn(MainScheduler.asyncInstance)
             .subscribe { ev in
@@ -90,6 +113,8 @@ extension SplashViewController: ReactorKit.View {
                 case .tour:
                     AppDelegate.shared.rootViewController.switchToTour()
                     break
+                case .bindJdAccount:
+                    AppDelegate.shared.rootViewController.switchToBindJdAccount()
                 }
             }
             .disposed(by: self.disposeBag)

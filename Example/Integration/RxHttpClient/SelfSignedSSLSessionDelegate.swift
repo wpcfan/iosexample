@@ -18,7 +18,11 @@ class SelfSignedSSLSessionDelegate: NSURLSessionDataEventsObserver {
             if(challenge.protectionSpace.host == "www.bclsmartlife.com") {
                 let credential = URLCredential(trust: challenge.protectionSpace.serverTrust!)
                 completionHandler(.useCredential, credential)
+            } else {
+                completionHandler(.cancelAuthenticationChallenge, nil)
             }
+        } else {
+            completionHandler(.performDefaultHandling, nil)
         }
     }
 }

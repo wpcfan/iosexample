@@ -25,8 +25,8 @@ class HomeViewController: BaseViewController {
     var segTableView:SHSegmentedControlTableView!
     var segmentControl:SHSegmentControl!
     var headerView: UIView!
-    var tab1: DeviceTableView!
-    var tab2: SceneTableView!
+    var deviceTab: DeviceTableView!
+    var sceneTab: SceneTableView!
     private let navigator = container.resolve(NavigatorType.self)!
     private var refreshHeaderTrigger = PublishSubject<Void>()
     private var leftDrawerTransition: DrawerTransition?
@@ -38,9 +38,9 @@ class HomeViewController: BaseViewController {
         self.headerView = getHeaderView()
 //        self.segmentControl = self.getSegmentControl()
         self.segTableView = self.getSegTableView()
-        self.tab1 = DeviceTableView()
-        self.tab2 = SceneTableView()
-        self.segTableView.tableViews = [tab1, tab2]
+        self.deviceTab = DeviceTableView()
+        self.sceneTab = SceneTableView()
+        self.segTableView.tableViews = [deviceTab, sceneTab]
         self.view.addSubview(self.segTableView)
         buildRefreshHeader()
         setupNavigationBar()
@@ -90,13 +90,16 @@ class HomeViewController: BaseViewController {
     @objc func changeHouse() {
         print("enter changeHouse")
         let vc = HouseTableViewController()
-        navigator.push(vc, from: self.navigationController, animated: true)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     @objc func showGroups() {
         
     }
     @objc func showMessages() {
         
+    }
+    @objc public func scanQR() {
+        RxQRUtil().scanQR(self)
     }
     fileprivate func buildRefreshHeader() {
         weak var weakSelf = self
@@ -158,7 +161,38 @@ extension HomeViewController: StoryboardView {
     typealias Reactor = HomeViewControllerReactor
     
     func bind(reactor: Reactor) {
+        
         reactor.action.onNext(.load)
+        reactor.action.onNext(.reportPushRegId)
+        
+        // Handle Logout Globally
+        NEED_LOGOUT
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
+            .observeOn(MainScheduler.asyncInstance)
+            .subscribe{ _ in
+                AppDelegate.shared.rootViewController.switchToLogout()
+            }
+            .disposed(by: self.disposeBag)
+        
+        NEED_REBIND
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
+            .observeOn(MainScheduler.asyncInstance)
+            .subscribe{ _ in
+                AppDelegate.shared.rootViewController.switchToBindJdAccount()
+            }
+            .disposed(by: self.disposeBag)
+        
+        deviceTab.rx.addDeviceTapped
+            .subscribe { ev in
+                self.scanQR()
+            }
+            .disposed(by: disposeBag)
+        
+        sceneTab.rx.addSceneTapped
+            .subscribe { ev in
+                print("add scene")
+            }
+            .disposed(by: disposeBag)
         
         Observable.merge(
             (self.headerView as! HeaderView).bannerTapped,
@@ -170,9 +204,15 @@ extension HomeViewController: StoryboardView {
             .disposed(by: disposeBag)
 
         refreshHeaderTrigger
-            .mapTo(Reactor.Action.load)
+            .mapTo(Reactor.Action.refresh)
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
+        
+        CURRENT_HOUSE
+            .filterNil()
+            .void()
+            .bind(to: refreshHeaderTrigger)
+            .disposed(by: disposeBag)
         
         reactor.state
             .map { $0.homeInfo?.banners ?? [] }
@@ -186,7 +226,7 @@ extension HomeViewController: StoryboardView {
         
         reactor.state
             .map { $0.homeInfo?.devices ?? [] }
-            .bind(to: self.tab1.devices$)
+            .bind(to: self.deviceTab.devices$)
             .disposed(by: self.disposeBag)
         
         reactor.state
@@ -197,7 +237,9 @@ extension HomeViewController: StoryboardView {
                 let button = self.navigationItem.titleView as! UIButton
                 let title = home.house?.displayName() ?? ""
                 button.setTitle(title.trunc(length: 14), for: .normal)
-                self.segTableView.refreshHeader.endRefreshing()
+                if (self.segTableView.refreshHeader.isRefreshing) {
+                    self.segTableView.refreshHeader.endRefreshing()
+                }
             }
             .disposed(by: self.disposeBag)
         

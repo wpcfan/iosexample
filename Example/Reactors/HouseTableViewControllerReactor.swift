@@ -14,24 +14,21 @@ class HouseTableViewControllerReactor: Reactor {
     let houseService = container.resolve(MyHouseService.self)!
     enum Action {
         case load
-        case selectHouse(house: House)
     }
     
     enum Mutation {
         case loadSuccess(_ houses: [House])
         case loadFail(_ message: String)
         case loading(_ status: Bool)
-        case selected(_ houseId: String)
     }
     
     struct State {
         var houses: [House]
         var loading: Bool
         var errorMessage: String
-        var selectedId: String
     }
     
-    let initialState: State = State(houses: [], loading: false, errorMessage: "", selectedId: "")
+    let initialState: State = State(houses: [], loading: false, errorMessage: "")
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
@@ -43,9 +40,6 @@ class HouseTableViewControllerReactor: Reactor {
                 .catchError{ error -> Observable<Mutation>  in
                     Observable.of(.loadFail(convertErrorToString(error: error)))
             }
-        case let .selectHouse(house):
-            CURRENT_HOUSE.onNext(house)
-            return Observable.of(Mutation.selected(house.id ?? ""))
         }
     }
     
@@ -65,11 +59,6 @@ class HouseTableViewControllerReactor: Reactor {
         case .loading(let status):
             var newState = state
             newState.loading = status
-            newState.errorMessage = ""
-            return newState
-        case .selected(let houseId):
-            var newState = state
-            newState.selectedId = houseId
             newState.errorMessage = ""
             return newState
         }

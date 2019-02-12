@@ -167,7 +167,8 @@ public extension HttpClientType {
 		var errorResponse: HTTPURLResponse? = nil
 		
 		let cachedRequest: Observable<Data> = {
-			if urlRequest.httpMethod == HttpMethod.get.rawValue, requestCacheMode.returnCachedResponse, let url = urlRequest.url, let cached = urlRequestCacheProvider?.load(resourceUrl: url) {
+            if urlRequest.httpMethod == HttpMethod.get.rawValue, requestCacheMode.returnCachedResponse, let url = urlRequest.url, let cached = urlRequestCacheProvider?.load(resourceUrl: url) {
+//            if requestCacheMode.returnCachedResponse, let url = urlRequest.url, let cached = urlRequestCacheProvider?.load(resourceUrl: url) {
 				// return cached response
 				return Observable.just(cached)
 			}
@@ -199,7 +200,8 @@ public extension HttpClientType {
 					guard let errorResponse = errorResponse else {
 						let requestData = dataCacheProvider.getData()
 						
-						if urlRequest.httpMethod == HttpMethod.get.rawValue, requestCacheMode.cacheResponse, let url = urlRequest.url  {
+                        if urlRequest.httpMethod == HttpMethod.get.rawValue, requestCacheMode.cacheResponse, let url = urlRequest.url  {
+//                        if requestCacheMode.cacheResponse, let url = urlRequest.url  {
 							// sache response
 							self?.urlRequestCacheProvider?.save(resourceUrl: url, data: requestData)
 						}

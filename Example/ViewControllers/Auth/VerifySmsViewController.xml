@@ -1,0 +1,47 @@
+<UIScrollView
+    backgroundColor="white"
+    contentInset.bottom="safeAreaInsets.bottom"
+    contentInset.left="safeAreaInsets.left"
+    contentInset.right="safeAreaInsets.right"
+    contentInset.top="safeAreaInsets.top"
+    contentInsetAdjustmentBehavior="never"
+    outlet="scrollView"
+    scrollIndicatorInsets.bottom="safeAreaInsets.bottom"
+    scrollIndicatorInsets.top="safeAreaInsets.top">
+
+    <UITextField
+        autocapitalizationType="none"
+        autocorrectionType="no"
+        borderStyle="none"
+        clearButtonMode="whileEditing"
+        height="30"
+        left="safeAreaInsets.left + 10"
+        leftView="captchaIcon"
+        leftViewMode="always"
+        outlet="codeField"
+        placeholder="{strings.verifySms.code}"
+        right="parent.right - safeAreaInsets.right - 80"
+        top="parent.top + 10"
+    />
+    <UIButton
+        height="previous.height"
+        left="previous.right"
+        title="60"
+        titleColor="primary"
+        top="previous.top"
+        outlet="countDownButton"
+        width="auto"
+    />
+    <UIButton
+        backgroundColor="formValid ? primary : lightGray"
+        height="40"
+        isEnabled="formValid"
+        layer.cornerRadius="0.5 * height"
+        left="parent.left + safeAreaInsets.left + 10"
+        outlet="nextButton"
+        right="parent.right - safeAreaInsets.right - 10"
+        title="{strings.signup.next}"
+        titleColor="white"
+        top="previous.bottom + 40"
+    />
+</UIScrollView>

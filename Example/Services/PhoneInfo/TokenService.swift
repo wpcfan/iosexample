@@ -9,7 +9,7 @@ import Disk
 import Device_swift
 import RxSwift
 
-class TokenService: ShouChuangService<Register> {
+class TokenService: ShouChuangService<TokenInfo> {
     override var smartApi: SmartApiType {
         get { return .register }
     }
@@ -39,7 +39,7 @@ class TokenService: ShouChuangService<Register> {
         return queryItems
     }
     
-    func handleRegister() -> Observable<Register> {
+    func handleTokenInfo() -> Observable<TokenInfo> {
         return self.request()
             .do(onNext: { (register) in
                 var data = try? Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)

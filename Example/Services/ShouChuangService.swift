@@ -34,7 +34,7 @@ class ShouChuangService<T: Mappable>: SmartApiQuery {
         get { return .register }
     }
     
-    func request() -> Observable<T> {
+    func request(cached: Bool? = false) -> Observable<T> {
         var urlComponents = URLComponents(string: "\(baseUrl)\(smartApi.entityPath)")!
         let queries = try? urlQueries()
         let headers = ["Content-Type": "application/x-www-form-urlencoded"]
@@ -44,6 +44,7 @@ class ShouChuangService<T: Mappable>: SmartApiQuery {
             URLQueryItem(name: "apptype", value: "1")]
         urlComponents.queryItems = queries != nil ? requireQueries + queries! : requireQueries
         loading.onNext(true)
+//        let requestCacheMode = CacheMode(cacheResponse: cached ?? false, returnCachedResponse: cached ?? false, invokeRequest: true)
         return self.client
             .requestJson(url: urlComponents.url!, method: .post, httpHeaders: headers)
             .map({ (json) -> T in

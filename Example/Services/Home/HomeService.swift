@@ -30,10 +30,9 @@ class HomeService: ShouChuangService<HomeInfo> {
         return queryItems
     }
     
-    func handleHomeInfo() -> Observable<HomeInfo> {
-        return request()
+    func handleHomeInfo(cached: Bool = false) -> Observable<HomeInfo> {
+        return request(cached: cached)
             .do(onNext: { (home: HomeInfo) in
-                CURRENT_HOUSE.onNext(home.house)
                 var appData = try Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
                 appData.houseId = home.house?.id
                 appData.projectId = home.house?.projectId

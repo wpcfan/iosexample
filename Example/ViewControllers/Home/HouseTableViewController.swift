@@ -74,5 +74,20 @@ extension HouseTableViewController: StoryboardView {
             }
             .bind(to: (self.tableView.rx.items(dataSource: dataSource)))
             .disposed(by: self.disposeBag)
+        
+        tableView.rx.modelSelected(House.self)
+            .subscribe(onNext: {
+                CURRENT_HOUSE.onNext($0)
+                do {
+                    var data = try Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
+                    data.houseId = $0.id
+                    data.projectId = $0.projectId
+                    try Disk.save(data, to: .documents, as: Constants.APP_DATA_PATH)
+                } catch (let err) {
+                    print("Data persisting error \(err.localizedDescription)")
+                }
+                self.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: self.disposeBag)
     }
 }

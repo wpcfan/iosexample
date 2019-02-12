@@ -56,3 +56,13 @@
 "shortcuts.task.title"="任务";
 "pmalert.cancel.title"="取消";
 "pmalert.ok.title"="确定";
+"bindJdAccount.desc"="使用本应用需要绑定京东账户，请点击下方按钮进行绑定";
+"bindJdAccount.title"="绑定京东账户";
+"signup.mobile"="请输入手机号";
+"signup.capcha"="请输入图片中的字母或数字";
+"signup.next"="下一步";
+"signup.terms"="《首创用户注册使用协议》";
+"signup.agree"="同意";
+"signup.title"="账号注册";
+"verifySms.title"="验证短信";
+"verifySms.code"="请输入短信验证码";

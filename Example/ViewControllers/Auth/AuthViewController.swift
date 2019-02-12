@@ -61,7 +61,7 @@ class AuthViewController: BaseViewController {
     }
     
     @objc func register() -> Void {
-        self.navigationController?.pushViewController(RegisterViewController(), animated: true)
+        self.navigationController?.pushViewController(SignUpViewController(), animated: true)
     }
     
     @objc func togglePwdVisible() -> Void {

@@ -56,3 +56,13 @@
 "shortcuts.task.title"="Task";
 "pmalert.cancel.title"="Cancel";
 "pmalert.ok.title"="Ok";
+"bindJdAccount.desc"="JD account is required to use this app";
+"bindJdAccount.title"="Bind Jd Account";
+"signup.mobile"="Mobile Phone Number";
+"signup.capcha"="Please type the code in the image";
+"signup.next"="Next";
+"signup.terms"="ShouChuang User Privacy Terms";
+"signup.agree"="Agree ";
+"signup.title"="Sign Up";
+"verifySms.title"="Verify Sms Code";
+"verifySms.code"="SMS code you received";

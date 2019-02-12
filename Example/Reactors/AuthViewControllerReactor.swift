@@ -13,7 +13,7 @@ import Disk
 class AuthViewControllerReactor: Reactor {
     //    let oauthService = container.resolve(OAuth2Service.self)!
     private let loginService = container.resolve(LoginService.self)!
-    private let registerService = container.resolve(RegisterService.self)!
+    private let tokenService = container.resolve(TokenService.self)!
     enum Action {
         case login(username: String, password: String)
     }
@@ -35,7 +35,7 @@ class AuthViewControllerReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case let .login(username, password):
-            return self.registerService.handleRegister()
+            return self.tokenService.handleTokenInfo()
                 .flatMapLatest { (_) -> Observable<Mutation> in
                     self.loginService.mobile = username
                     self.loginService.password = password

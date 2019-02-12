@@ -18,11 +18,12 @@ class DeviceTableView: SHTableView {
     var disposeBag = DisposeBag()
     var devices$ = BehaviorSubject<[Device]>(value: [])
     var reorder$ = PublishSubject<[String: Int]>()
+    let sectionHeaderView = SectionHeaderView()
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         
-        self.register(DeviceCell.self, forCellReuseIdentifier: "cell")
+        register(DeviceCell.self, forCellReuseIdentifier: "cell")
         self.reorder.delegate = self
         let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Device>>(configureCell: { ds, tv, ip, item in
             if let spacer = self.reorder.spacerCell(for: ip) {
@@ -45,7 +46,8 @@ class DeviceTableView: SHTableView {
             .map{ devices in
                 [SectionModel(model: "我的设备", items: devices)]
             }
-            .bind(to: (self.rx.items(dataSource: dataSource)))
+            .debug()
+            .bind(to: self.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
         self.rx.setDelegate(self)
@@ -82,28 +84,15 @@ class DeviceTableView: SHTableView {
 }
 
 extension DeviceTableView: UITableViewDelegate {
-    fileprivate func buildSectionHeader() -> UIView? {
-        let view = UIView()
-        view.backgroundColor = UIColor.white
-        let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 16)
-        label.text = "我的设备"
-        let icon = UIImageView(image: AppIcons.scene)
-        icon.pin.width(20).height(20)
-        view.addSubview(icon)
-        view.addSubview(label)
-        icon.pin.left(5).top(5).width(24).height(24)
-        label.pin.after(of: icon).width(200).height(24).top(5).marginLeft(5)
-        view.sizeToFit()
-        return view
-    }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 30
+        return 40
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return buildSectionHeader()
+        sectionHeaderView.textLabel.text = "我的设备"
+        sectionHeaderView.icon.image = AppIcons.devices
+        return sectionHeaderView
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -125,5 +114,11 @@ extension DeviceTableView: TableViewReorderDelegate {
             "sourceIndex": sourceIndexPath.row,
             "targetIndex": destinationIndexPath.row
             ])
+    }
+}
+
+extension Reactive where Base: DeviceTableView {
+    var addDeviceTapped: Observable<Void> {
+        return base.sectionHeaderView.rightBtnTapped.asObservable()
     }
 }
