@@ -9,7 +9,6 @@ import RxDataSources
 import RxSwift
 import ReactorKit
 import Layout
-import Disk
 
 class HouseTableViewController: BaseViewController, LayoutLoading {
     
@@ -51,7 +50,7 @@ extension HouseTableViewController: StoryboardView {
         
         let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, House>>(configureCell: { ds, tv, ip, item in
             let node = tv.dequeueReusableCellNode(withIdentifier: "houseCell")!
-            let data = try? Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
+            let data = DiskUtil.getData()
             node.setState([
                 "houseIcon": AppIcons.home,
                 "displayName": item.displayName(),

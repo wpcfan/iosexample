@@ -70,6 +70,7 @@ let container: Container = {
     container.register(VerifySmsService.self) { _ in  VerifySmsService() }
     container.register(SendSmsService.self) { _ in  SendSmsService() }
     container.register(SetPasswordService.self) { _ in  SetPasswordService() }
+    container.register(BindAccountService.self) { _ in  BindAccountService() }
     container.register(NavigatorType.self) { _ in
         var navigator = Navigator()
         NavigationMap.initialize(navigator: navigator)

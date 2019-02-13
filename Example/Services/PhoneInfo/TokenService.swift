@@ -5,7 +5,6 @@
 //  Created by 王芃 on 2019/1/25.
 //  Copyright © 2019 twigcodes. All rights reserved.
 //
-import Disk
 import Device_swift
 import RxSwift
 
@@ -22,7 +21,7 @@ class TokenService: ShouChuangService<TokenInfo> {
         let appendStr = "\("sc")\(version)\(systemName)\(systemVersion)\(screenSize)\(idfaStr)\("jdok")"
         let md5AppendStr = appendStr.MD5
         let deviceType = UIDevice.current.deviceType
-        let appData = try? Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
+        let appData = DiskUtil.getData()
         let queryItems: [URLQueryItem] = [
             URLQueryItem(name: "a", value: version),
             URLQueryItem(name: "b", value: systemName),

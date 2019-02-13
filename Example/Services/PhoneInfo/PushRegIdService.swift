@@ -5,7 +5,6 @@
 //  Created by 王芃 on 2019/1/25.
 //  Copyright © 2019 twigcodes. All rights reserved.
 //
-import Disk
 
 class PushRegIdService: ShouChuangService<EmptyResult> {
     override var smartApi: SmartApiType {
@@ -13,7 +12,7 @@ class PushRegIdService: ShouChuangService<EmptyResult> {
     }
     override func urlQueries() -> [URLQueryItem]  {
         
-        let appData = try? Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
+        let appData = DiskUtil.getData()
         let queryItems: [URLQueryItem] = [
             URLQueryItem(name: "pushtoken", value: appData?.regId),
             URLQueryItem(name: "uid", value: appData?.user?.id)

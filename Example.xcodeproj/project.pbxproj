@@ -44,7 +44,6 @@
 		AA19DC7621F573AA00B70EFE /* WXApiManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AA19DC6921F573AA00B70EFE /* WXApiManager.m */; };
 		AA19DC7721F573AA00B70EFE /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = AA19DC6E21F573AA00B70EFE /* README.txt */; };
 		AA19DC7821F573AA00B70EFE /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA19DC7021F573AA00B70EFE /* libWeChatSDK.a */; };
-		AA19DC7A21F5758900B70EFE /* SocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19DC7921F5758900B70EFE /* SocialService.swift */; };
 		AA19DC7C21F57BF000B70EFE /* AppDelegate+MonkeyKing.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19DC7B21F57BF000B70EFE /* AppDelegate+MonkeyKing.swift */; };
 		AA19DC7E21F5F1A100B70EFE /* ShouChuangService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19DC7D21F5F1A100B70EFE /* ShouChuangService.swift */; };
 		AA19DC8021F606D600B70EFE /* SmartHomeResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA19DC7F21F606D600B70EFE /* SmartHomeResult.swift */; };
@@ -101,7 +100,6 @@
 		AA420586217AD80C0068ABC0 /* ModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA420585217AD80C0068ABC0 /* ModelType.swift */; };
 		AA420588217B66210068ABC0 /* UIView+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA420587217B66210068ABC0 /* UIView+Blur.swift */; };
 		AA42058E217B8C680068ABC0 /* ChannelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA42058D217B8C680068ABC0 /* ChannelView.swift */; };
-		AA420590217B939B0068ABC0 /* ChannelViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA42058F217B939B0068ABC0 /* ChannelViewReactor.swift */; };
 		AA420596217C0C2E0068ABC0 /* IconLabelButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA420595217C0C2E0068ABC0 /* IconLabelButton.xml */; };
 		AA4205A6217C9B5F0068ABC0 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4205A5217C9B5F0068ABC0 /* HeaderView.swift */; };
 		AA42D7D321F306B700320BD3 /* BannerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA42D7D221F306B700320BD3 /* BannerService.swift */; };
@@ -198,6 +196,8 @@
 		AAA6E6B52213B7B00032A489 /* PasswordField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA6E6B42213B7B00032A489 /* PasswordField.swift */; };
 		AAA6E6B92213D6640032A489 /* NSRegularExpression+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA6E6B82213D6640032A489 /* NSRegularExpression+.swift */; };
 		AAA6E6BB2213DD4B0032A489 /* DiskUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA6E6BA2213DD4B0032A489 /* DiskUtil.swift */; };
+		AAA6E6BD2213EBE40032A489 /* BindJdAccountViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA6E6BC2213EBE40032A489 /* BindJdAccountViewControllerReactor.swift */; };
+		AAA6E6C22213EF9E0032A489 /* SocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA6E6C12213EF9E0032A489 /* SocialService.swift */; };
 		AAA920BA2198289700EFC581 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AAA920B82198289700EFC581 /* InfoPlist.strings */; };
 		AAAD777A2212D92700EDBF09 /* VerifyCapchaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAD77792212D92700EDBF09 /* VerifyCapchaService.swift */; };
 		AAAD777C2212E13C00EDBF09 /* VerifySmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAD777B2212E13C00EDBF09 /* VerifySmsViewController.swift */; };
@@ -341,7 +341,6 @@
 		AA19DC6E21F573AA00B70EFE /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		AA19DC6F21F573AA00B70EFE /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
 		AA19DC7021F573AA00B70EFE /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
-		AA19DC7921F5758900B70EFE /* SocialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialService.swift; sourceTree = "<group>"; };
 		AA19DC7B21F57BF000B70EFE /* AppDelegate+MonkeyKing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+MonkeyKing.swift"; sourceTree = "<group>"; };
 		AA19DC7D21F5F1A100B70EFE /* ShouChuangService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShouChuangService.swift; sourceTree = "<group>"; };
 		AA19DC7F21F606D600B70EFE /* SmartHomeResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartHomeResult.swift; sourceTree = "<group>"; };
@@ -398,7 +397,6 @@
 		AA420585217AD80C0068ABC0 /* ModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelType.swift; sourceTree = "<group>"; };
 		AA420587217B66210068ABC0 /* UIView+Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Blur.swift"; sourceTree = "<group>"; };
 		AA42058D217B8C680068ABC0 /* ChannelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelView.swift; sourceTree = "<group>"; };
-		AA42058F217B939B0068ABC0 /* ChannelViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelViewReactor.swift; sourceTree = "<group>"; };
 		AA420595217C0C2E0068ABC0 /* IconLabelButton.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = IconLabelButton.xml; sourceTree = "<group>"; };
 		AA4205A5217C9B5F0068ABC0 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		AA42D7D221F306B700320BD3 /* BannerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerService.swift; sourceTree = "<group>"; };
@@ -498,6 +496,8 @@
 		AAA6E6B42213B7B00032A489 /* PasswordField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordField.swift; sourceTree = "<group>"; };
 		AAA6E6B82213D6640032A489 /* NSRegularExpression+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSRegularExpression+.swift"; sourceTree = "<group>"; };
 		AAA6E6BA2213DD4B0032A489 /* DiskUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskUtil.swift; sourceTree = "<group>"; };
+		AAA6E6BC2213EBE40032A489 /* BindJdAccountViewControllerReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindJdAccountViewControllerReactor.swift; sourceTree = "<group>"; };
+		AAA6E6C12213EF9E0032A489 /* SocialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialService.swift; sourceTree = "<group>"; };
 		AAA920B92198289700EFC581 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Example/Base.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		AAA920BC219828F200EFC581 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "../zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		AAAD77792212D92700EDBF09 /* VerifyCapchaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyCapchaService.swift; sourceTree = "<group>"; };
@@ -890,15 +890,10 @@
 		AA4B48EC2175CA1B00A60C11 /* Reactors */ = {
 			isa = PBXGroup;
 			children = (
-				AA4B48F521772EE800A60C11 /* AuthViewControllerReactor.swift */,
-				AA42058F217B939B0068ABC0 /* ChannelViewReactor.swift */,
-				AA4B48ED2175CA4D00A60C11 /* HomeViewControllerReactor.swift */,
-				AA3CA5F22204610500551C87 /* HouseTableViewControllerReactor.swift */,
-				AAA6E6A4221317EF0032A489 /* SetPasswordViewControllerReactor.swift */,
-				AA86627422128B9D0065568A /* SignUpViewControllerReactor.swift */,
+				AAA6E6BE2213EDED0032A489 /* Auth */,
+				AAA6E6BF2213EE1E0032A489 /* Home */,
 				AA3AB88D21841ABA00470276 /* SplashViewControllerReactor.swift */,
 				AA3AB88F2184828800470276 /* TourViewControllerReactor.swift */,
-				AAAD777F2212E65700EDBF09 /* VerifySmsViewControllerReactor.swift */,
 			);
 			path = Reactors;
 			sourceTree = "<group>";
@@ -971,6 +966,41 @@
 				AA1A5EBF220FC73F0084473E /* MenuService.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		AAA6E6BE2213EDED0032A489 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				AA4B48F521772EE800A60C11 /* AuthViewControllerReactor.swift */,
+				AAA6E6BC2213EBE40032A489 /* BindJdAccountViewControllerReactor.swift */,
+				AAA6E6A4221317EF0032A489 /* SetPasswordViewControllerReactor.swift */,
+				AA86627422128B9D0065568A /* SignUpViewControllerReactor.swift */,
+				AAAD777F2212E65700EDBF09 /* VerifySmsViewControllerReactor.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		AAA6E6BF2213EE1E0032A489 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				AA4B48ED2175CA4D00A60C11 /* HomeViewControllerReactor.swift */,
+				AA3CA5F22204610500551C87 /* HouseTableViewControllerReactor.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		AAA6E6C02213EEA30032A489 /* Integration */ = {
+			isa = PBXGroup;
+			children = (
+				AA9B94BC21ECBEAD000AE906 /* IndoorPhoneService.swift */,
+				AA9B94BA21ECBE82000AE906 /* JdSmartCloudService.swift */,
+				AA8481CC21F2DC9100C24D3F /* LeanCloudBaseService.swift */,
+				AA9B94BE21ECBED1000AE906 /* LeChangeService.swift */,
+				AA433F12218C8D9700BA60A1 /* NotificationService.swift */,
+				AAC5EBA2215E808D008EBA1F /* OAuth2Service.swift */,
+				AAA6E6C12213EF9E0032A489 /* SocialService.swift */,
+			);
+			path = Integration;
 			sourceTree = "<group>";
 		};
 		AAA920B72198280600EFC581 /* SupportFiles */ = {
@@ -1093,22 +1123,16 @@
 		AAC5EB99215E7E71008EBA1F /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				AA1A5EC6221153C40084473E /* Room */,
 				AA9AB58821FF23E80052B3FF /* Home */,
-				AA19DC8B21FB608F00B70EFE /* User */,
+				AAA6E6C02213EEA30032A489 /* Integration */,
 				AA19DC8A21FB446600B70EFE /* PhoneInfo */,
+				AA1A5EC6221153C40084473E /* Room */,
+				AA19DC8B21FB608F00B70EFE /* User */,
 				AA42D7D221F306B700320BD3 /* BannerService.swift */,
 				AAD7E15D21F1EF89000D8D6A /* Crudable.swift */,
-				AA9B94BC21ECBEAD000AE906 /* IndoorPhoneService.swift */,
-				AA9B94BA21ECBE82000AE906 /* JdSmartCloudService.swift */,
-				AA8481CC21F2DC9100C24D3F /* LeanCloudBaseService.swift */,
-				AA9B94BE21ECBED1000AE906 /* LeChangeService.swift */,
 				AA8481D221F2ECDA00C24D3F /* MenuItemService.swift */,
-				AA433F12218C8D9700BA60A1 /* NotificationService.swift */,
-				AAC5EBA2215E808D008EBA1F /* OAuth2Service.swift */,
 				AA19DC7D21F5F1A100B70EFE /* ShouChuangService.swift */,
 				AA19DC8821FB43BB00B70EFE /* SmartApiType.swift */,
-				AA19DC7921F5758900B70EFE /* SocialService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1615,7 +1639,6 @@
 				AA9AB58721FEEE120052B3FF /* SVGKImageView+.swift in Sources */,
 				AA19DC7E21F5F1A100B70EFE /* ShouChuangService.swift in Sources */,
 				AA78BB46218D6814000B4CD8 /* NotificationCenter+.swift in Sources */,
-				AA420590217B939B0068ABC0 /* ChannelViewReactor.swift in Sources */,
 				AA3CA5CE2202BE0600551C87 /* RxPullToRefresh.swift in Sources */,
 				AA9B94BF21ECBED1000AE906 /* LeChangeService.swift in Sources */,
 				AAD7E0F421F1AEB1000D8D6A /* DongDongManager.mm in Sources */,
@@ -1734,7 +1757,6 @@
 				AA86627722128D460065568A /* CaptchaService.swift in Sources */,
 				AA01F4A1219886A400CE6457 /* AppDelegate+Bugly.swift in Sources */,
 				AAC5EB70215E7BB7008EBA1F /* AuthViewController.swift in Sources */,
-				AA19DC7A21F5758900B70EFE /* SocialService.swift in Sources */,
 				AA3E0E802170543D00958937 /* ProductCategory.swift in Sources */,
 				AA4B48E42175006100A60C11 /* Reactive+Layout.swift in Sources */,
 				AA19DC8021F606D600B70EFE /* SmartHomeResult.swift in Sources */,
@@ -1762,6 +1784,7 @@
 				AA4B48F221761F7400A60C11 /* AuthError.swift in Sources */,
 				AA96B29521FE116C0093A2E0 /* TextFieldResponder.swift in Sources */,
 				AA8481D121F2E8D600C24D3F /* String+.swift in Sources */,
+				AAA6E6C22213EF9E0032A489 /* SocialService.swift in Sources */,
 				AAF961832207176100E17A65 /* SJSegmentTab.swift in Sources */,
 				AA1A5EC3220FD54D0084473E /* SectionHeaderView.swift in Sources */,
 				AA693DB72160EEB70063D749 /* HomeViewController.swift in Sources */,
@@ -1770,6 +1793,7 @@
 				AA01F49F2198828600CE6457 /* AppDelegate+UMeng.swift in Sources */,
 				AAD7E17E21F1F42D000D8D6A /* HttpClientType+Extensions.swift in Sources */,
 				AAC5EBA5215F5849008EBA1F /* HomeTabViewController.swift in Sources */,
+				AAA6E6BD2213EBE40032A489 /* BindJdAccountViewControllerReactor.swift in Sources */,
 				AA3CA5D62202BE0600551C87 /* RxPullToRefreshDelegate.swift in Sources */,
 				AAD7E0E921F1AEB1000D8D6A /* XSQRCode.m in Sources */,
 				AAD7E0E721F1AEB1000D8D6A /* UIButton+XS.m in Sources */,

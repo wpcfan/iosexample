@@ -157,7 +157,7 @@ class HomeViewController: BaseViewController {
     }
 }
 
-extension HomeViewController: StoryboardView {
+extension HomeViewController: ReactorKit.StoryboardView {
     typealias Reactor = HomeViewControllerReactor
     
     func bind(reactor: Reactor) {

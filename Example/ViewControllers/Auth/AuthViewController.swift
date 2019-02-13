@@ -60,8 +60,7 @@ class AuthViewController: BaseViewController {
     }
     
     @objc func register() -> Void {
-        let vc = SetPasswordViewController()
-        vc.mobile = "13898810892"
+        let vc = BindJdAccountViewController()
         self.navigator.push(vc)
     }
 }

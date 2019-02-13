@@ -9,7 +9,6 @@
 import Layout
 import RxSwift
 import ReactorKit
-import Disk
 import RxGesture
 
 class SplashViewController: BaseViewController {
@@ -35,7 +34,7 @@ class SplashViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let data = try? Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
+        let data = DiskUtil.getData()
         
         self.loadLayout(
             named: "SplashViewController.xml",

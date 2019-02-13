@@ -9,7 +9,6 @@
 import RxSwift
 import ReactorKit
 import URLNavigator
-import Disk
 
 class SplashViewControllerReactor: Reactor {
     private let tokenService = container.resolve(TokenService.self)!
@@ -40,7 +39,7 @@ class SplashViewControllerReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .checkFirstLaunch:
-            let result = try? Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
+            let result = DiskUtil.getData()
             let tourPresented = result?.tourGuidePresented ?? false
             if (tourPresented) {
                 return (result?.user) != nil && result?.token != nil ?

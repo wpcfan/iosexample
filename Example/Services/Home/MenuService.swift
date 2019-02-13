@@ -5,7 +5,6 @@
 //  Created by 王芃 on 2019/1/28.
 //  Copyright © 2019 twigcodes. All rights reserved.
 //
-import Disk
 import ObjectMapper
 
 struct SideBarMenuCount: Mappable {
@@ -31,7 +30,7 @@ class MenuService: ShouChuangService<SideBarMenuCount> {
     }
     
     override func urlQueries() throws -> [URLQueryItem] {
-        let data = try? Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
+        let data = DiskUtil.getData()
         
         guard let cache = data else { throw AppErr.requiredParamNull("Dis Data Is Null") }
         var queryItems: [URLQueryItem] = [

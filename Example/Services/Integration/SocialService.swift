@@ -6,4 +6,10 @@
 //  Copyright © 2019 twigcodes. All rights reserved.
 //
 
-import Foundation
+import MonkeyKing
+
+class SocialService {
+    func handleOpenURL(url: URL) -> Bool {
+        return MonkeyKing.handleOpenURL(url)
+    }
+}

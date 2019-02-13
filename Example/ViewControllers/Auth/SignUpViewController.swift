@@ -52,12 +52,7 @@ class SignUpViewController: BaseViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.presentDarkNavigationBar(.primary, .textIcon)
-        let titleLabel = UILabel().then {
-            $0.text = "signup.title".localized
-            $0.textColor = .textIcon
-            $0.sizeToFit()
-        }
-        self.navigationItem.titleView = titleLabel
+        self.setNavigationTitle("signup.title".localized)
     }
     
     @objc func toggle(_ button: UIButton) {

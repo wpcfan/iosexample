@@ -6,7 +6,6 @@
 //  Copyright © 2019 twigcodes. All rights reserved.
 //
 import RxSwift
-import Disk
 
 class HomeService: ShouChuangService<HomeInfo> {
     override var smartApi: SmartApiType {
@@ -14,7 +13,7 @@ class HomeService: ShouChuangService<HomeInfo> {
     }
     
     override func urlQueries() throws -> [URLQueryItem] {
-        let data = try? Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
+        let data = DiskUtil.getData()
         
         guard let cache = data else { throw AppErr.requiredParamNull("Dis Data Is Null") }
         var queryItems: [URLQueryItem] = [
@@ -33,7 +32,7 @@ class HomeService: ShouChuangService<HomeInfo> {
     func handleHomeInfo(cached: Bool = false) -> Observable<HomeInfo> {
         return request(cached: cached)
             .do(onNext: { (home: HomeInfo) in
-                DiskUtil.saveHouseInfo(home.house)
+                DiskUtil.saveHouseInfo(house: home.house!)
             })
     }
 }

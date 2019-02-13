@@ -8,7 +8,6 @@
 
 import ObjectMapper
 import RxSwift
-import Disk
 
 protocol SmartApiQuery {
     func urlQueries() throws -> [URLQueryItem]
@@ -38,7 +37,7 @@ class ShouChuangService<T: Mappable>: SmartApiQuery {
         var urlComponents = URLComponents(string: "\(baseUrl)\(smartApi.entityPath)")!
         let queries = try? urlQueries()
         let headers = ["Content-Type": "application/x-www-form-urlencoded"]
-        let appData = try? Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
+        let appData = DiskUtil.getData()
         let requireQueries = [
             URLQueryItem(name: "p1", value: appData?.token),
             URLQueryItem(name: "apptype", value: "1")]
@@ -89,7 +88,7 @@ class ShouChuangCollectionService<T: Mappable>: SmartApiQuery {
         var urlComponents = URLComponents(string: "\(baseUrl)\(smartApi.entityPath)")!
         let queries = try? urlQueries()
         let headers = ["Content-Type": "application/x-www-form-urlencoded"]
-        let appData = try? Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
+        let appData = DiskUtil.getData()
         let requireQueries = [
             URLQueryItem(name: "p1", value: appData?.token),
             URLQueryItem(name: "apptype", value: "1")]

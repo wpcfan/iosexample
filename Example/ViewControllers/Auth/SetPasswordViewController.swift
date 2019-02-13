@@ -36,12 +36,7 @@ class SetPasswordViewController: BaseViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.presentDarkNavigationBar(.primary, .textIcon)
-        let titleLabel = UILabel().then {
-            $0.text = "setPassword.title".localized
-            $0.textColor = .textIcon
-            $0.sizeToFit()
-        }
-        self.navigationItem.titleView = titleLabel
+        self.setNavigationTitle("setPassword.title".localized)
     }
 }
 

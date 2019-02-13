@@ -8,7 +8,6 @@
 
 import RxSwift
 import ReactorKit
-import Disk
 
 class HouseTableViewControllerReactor: Reactor {
     let houseService = container.resolve(MyHouseService.self)!
@@ -33,7 +32,7 @@ class HouseTableViewControllerReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .load:
-            let data = try? Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
+            let data = DiskUtil.getData()
             self.houseService.userId = data?.user?.id
             return self.houseService.request()
                 .map { houses -> Mutation in .loadSuccess(houses) }

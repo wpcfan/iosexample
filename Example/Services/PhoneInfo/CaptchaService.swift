@@ -7,7 +7,6 @@
 //
 
 import RxSwift
-import Disk
 
 class CaptchaService {
     let client = container.resolve(HttpClient.self)!
@@ -28,7 +27,7 @@ class CaptchaService {
     }
     
     func urlQueries() -> [URLQueryItem] {
-        let appData = try? Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
+        let appData = DiskUtil.getData()
         return [URLQueryItem(name: "p1", value: appData?.token)]
     }
 }

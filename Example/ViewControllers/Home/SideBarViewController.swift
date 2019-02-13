@@ -4,7 +4,6 @@
 //
 import URLNavigator
 import Layout
-import Disk
 import ObjectMapper
 import RxSwift
 import RxDataSources
@@ -34,7 +33,7 @@ class SideBarViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let appData = try? Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
+        let appData = DiskUtil.getData()
         let user = appData?.user
         let house = appData?.homeInfo?.house
         self.loadLayout(named: "SideBarViewController.xml", state: [
