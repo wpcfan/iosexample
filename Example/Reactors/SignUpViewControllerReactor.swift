@@ -51,6 +51,7 @@ class SignUpViewControllerReactor: Reactor {
         case let .verifyCaptcha(mobile, code):
             verifyService.phone = mobile
             verifyService.code = code
+            verifyService.type = "0"
             return verifyService.request()
                 .mapTo(.verificationSuccess)
                 .catchError({ (error) -> Observable<Mutation> in

@@ -28,13 +28,7 @@ class BindJdAccountViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.presentDarkNavigationBar(UIColor.primary, UIColor.textIcon)
-        // Top Button
-        let titleLabel = UILabel().then {
-            $0.text = "bindJdAccount.title".localized
-            $0.textColor = .white
-            $0.sizeToFit()
-        }
-        self.navigationItem.titleView = titleLabel
+        self.setNavigationTitle("bindJdAccount.title".localized)
     }
     
     @objc func rebind() {

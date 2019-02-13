@@ -13,6 +13,7 @@ import Toast_Swift
 import RxKeyboard
 import RxOptional
 import Disk
+import URLNavigator
 
 class AuthViewController: BaseViewController {
     
@@ -21,6 +22,7 @@ class AuthViewController: BaseViewController {
     @objc weak var usernameField: UITextField!
     @objc weak var passwordField: UITextField!
     @objc weak var scrollView: UIScrollView!
+    private let navigator = container.resolve(NavigatorType.self)!
     var pwdVisible: Bool = false {
         didSet {
             self.layoutNode!.setState(["pwdVisible": !pwdVisible])
@@ -40,7 +42,6 @@ class AuthViewController: BaseViewController {
             state: [
                 "loading": false,
                 "validation": false,
-                "pwdVisible": false,
                 "app": AppIcons.app,
                 ],
             constants: [
@@ -50,8 +51,6 @@ class AuthViewController: BaseViewController {
                     }
                     return !loading && validation
                 },
-                "eye": AppIcons.eye,
-                "eyeOff": AppIcons.eyeOff,
                 "clear": AppIcons.clear
                 ]
         )
@@ -61,11 +60,9 @@ class AuthViewController: BaseViewController {
     }
     
     @objc func register() -> Void {
-        self.navigationController?.pushViewController(SignUpViewController(), animated: true)
-    }
-    
-    @objc func togglePwdVisible() -> Void {
-        self.pwdVisible = !self.pwdVisible
+        let vc = SetPasswordViewController()
+        vc.mobile = "13898810892"
+        self.navigator.push(vc)
     }
 }
 
@@ -118,7 +115,6 @@ extension AuthViewController: View {
 }
 
 extension AuthViewController: LayoutLoading {
-    
     func layoutDidLoad(_: LayoutNode) {
         self.reactor = AuthViewControllerReactor()
     }

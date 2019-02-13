@@ -58,24 +58,6 @@ let container: Container = {
     let container = Container()
     container.register(OAuth2PasswordGrant.self) { _ in OAuth2PasswordGrant(settings: oauth2Settings) }
     container.register(OAuth2Service.self) { _ in  OAuth2Service() }
-    container.register(NavigatorType.self) { _ in
-        var navigator = Navigator()
-        NavigationMap.initialize(navigator: navigator)
-        return navigator
-    }
-    container.register(HttpClient.self) { _ in
-//        let plugins: [RequestPluginType] = [] //[NetworkActivityIndicatorPlugin()]
-//        let cacheDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("Cache")
-//        try! FileManager.default.createDirectory(atPath: cacheDirectory.path, withIntermediateDirectories: true, attributes: nil)
-        // instance of UrlRequestFileSystemCacheProvider that will store cached data in specified directory
-//        let urlCacheProvider = UrlRequestFileSystemCacheProvider(cacheDirectory: cacheDirectory)
-        let delegate = SelfSignedSSLSessionDelegate()
-        return HttpClient(
-            sessionConfiguration: .default,
-//            urlRequestCacheProvider: urlCacheProvider,
-//            requestPlugin: CompositeRequestPlugin(plugins: plugins),
-            sessionDelegate: delegate)
-    }
     container.register(SocialService.self) { _ in SocialService() }
     container.register(BannerService.self) { _ in BannerService() }
     container.register(TokenService.self) { _ in TokenService() }
@@ -86,6 +68,26 @@ let container: Container = {
     container.register(CaptchaService.self) { _ in  CaptchaService() }
     container.register(VerifyCapchaService.self) { _ in  VerifyCapchaService() }
     container.register(VerifySmsService.self) { _ in  VerifySmsService() }
+    container.register(SendSmsService.self) { _ in  SendSmsService() }
+    container.register(SetPasswordService.self) { _ in  SetPasswordService() }
+    container.register(NavigatorType.self) { _ in
+        var navigator = Navigator()
+        NavigationMap.initialize(navigator: navigator)
+        return navigator
+    }
+    container.register(HttpClient.self) { _ in
+        //        let plugins: [RequestPluginType] = [] //[NetworkActivityIndicatorPlugin()]
+        //        let cacheDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("Cache")
+        //        try! FileManager.default.createDirectory(atPath: cacheDirectory.path, withIntermediateDirectories: true, attributes: nil)
+        // instance of UrlRequestFileSystemCacheProvider that will store cached data in specified directory
+        //        let urlCacheProvider = UrlRequestFileSystemCacheProvider(cacheDirectory: cacheDirectory)
+        let delegate = SelfSignedSSLSessionDelegate()
+        return HttpClient(
+            sessionConfiguration: .default,
+            //            urlRequestCacheProvider: urlCacheProvider,
+            //            requestPlugin: CompositeRequestPlugin(plugins: plugins),
+            sessionDelegate: delegate)
+    }
     #if !targetEnvironment(simulator)
         container.register(JdSmartCloudService.self) { _ in JdSmartCloudService() }
         container.register(IndoorPhoneService.self) { _ in IndoorPhoneService() }

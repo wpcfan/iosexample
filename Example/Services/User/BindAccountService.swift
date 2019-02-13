@@ -7,17 +7,18 @@
 //
 
 class BindAccountService: ShouChuangService<SmartUser> {
-    var mobile: String?
-    var password: String?
+    var code: String?
     override var smartApi: SmartApiType {
-        get { return .login }
+        get { return .bindJdAccount }
     }
     
     override func urlQueries() throws -> [URLQueryItem] {
-        guard let mobile = mobile, let password = password else { throw AppErr.requiredParamNull("Login Params Null") }
+        guard let code = code else { throw AppErr.requiredParamNull("BindAccountService Params Null") }
+        let data = DiskUtil.getData()
         let queryItems: [URLQueryItem] = [
-            URLQueryItem(name: "phone", value: mobile),
-            URLQueryItem(name: "pwd", value: password.MD5.uppercased()),
+            URLQueryItem(name: "uid", value: data?.user?.id),
+            URLQueryItem(name: "type", value: "\(data?.user?.type ?? 0)"),
+            URLQueryItem(name: "code", value: code),
             ]
         return queryItems
     }

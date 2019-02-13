@@ -54,7 +54,7 @@ struct AppIcons {
     static let lock = UIImage(
         from: .ionicon,
         code: "ios-lock",
-        textColor: .white,
+        textColor: .lightGray,
         backgroundColor: .clear,
         size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
     

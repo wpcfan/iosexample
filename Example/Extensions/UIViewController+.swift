@@ -23,6 +23,14 @@ extension UIViewController {
         
         return self
     }
+    func setNavigationTitle(_ title: String, titleColor: UIColor = .white) -> Void {
+        let titleLabel = UILabel().then {
+            $0.text = title
+            $0.textColor = titleColor
+            $0.sizeToFit()
+        }
+        self.navigationItem.titleView = titleLabel
+    }
 }
 
 extension UIApplication {

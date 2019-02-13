@@ -6,8 +6,6 @@
 //  Copyright © 2018 twigcodes. All rights reserved.
 //
 
-import UIKit
-
 class HomeTitleView: BaseView {
     
     override init(frame: CGRect) {

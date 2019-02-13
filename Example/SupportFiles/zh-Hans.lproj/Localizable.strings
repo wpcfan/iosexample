@@ -66,3 +66,6 @@
 "signup.title"="账号注册";
 "verifySms.title"="验证短信";
 "verifySms.code"="请输入短信验证码";
+"setPassword.password"="请输入密码";
+"setPassword.repeat"="请再次输入密码";
+"setPassword.title"="设置密码";

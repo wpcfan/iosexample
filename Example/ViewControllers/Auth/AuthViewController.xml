@@ -38,34 +38,16 @@
         right="parent.right - safeAreaInsets.right"
         top="0.7 * parent.height"
     />
-    <UITextField
-        autocapitalizationType="none"
-        autocorrectionType="no"
-        borderStyle="none"
-        clearButtonMode="whileEditing"
+    <PasswordField
+        enableIcon="false"
         height="previous.height"
         isEnabled="!loading"
-        isSecureTextEntry="!pwdVisible"
         left="previous.left"
         outlet="passwordField"
         placeholder="{strings.login.password}"
         right="previous.right"
         top="previous.bottom + 10"
     />
-    <UIButton
-        bottom="previous.bottom"
-        contentHorizontalAlignment="right"
-        right="parent.right"
-        touchUpInside="togglePwdVisible"
-        width="30">
-
-        <UIImageView
-            contentMode="scaleAspectFit"
-            height="30"
-            image="pwdVisible ? eye : eyeOff"
-            width="30"
-        />
-    </UIButton>
     <UIButton
         backgroundColor="loginFormValid(loading, validation) ? primary : lightGray"
         isEnabled="loginFormValid(loading, validation)"

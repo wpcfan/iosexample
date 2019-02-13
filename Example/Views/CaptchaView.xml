@@ -1,0 +1,40 @@
+<UIView>
+    <UITextField
+        autocapitalizationType="none"
+        autocorrectionType="no"
+        borderStyle="none"
+        clearButtonMode="whileEditing"
+        height="30"
+        id="mobile"
+        left="safeAreaInsets.left + 10"
+        leftView="mobileIcon"
+        leftViewMode="always"
+        outlet="mobileField"
+        placeholder="{strings.signup.mobile}"
+        right="parent.right - safeAreaInsets.right - 10"
+        top="parent.top + 10"
+    />
+    <UITextField
+        autocapitalizationType="none"
+        autocorrectionType="no"
+        borderStyle="none"
+        clearButtonMode="whileEditing"
+        height="previous.height"
+        left="previous.left"
+        leftView="captchaIcon"
+        leftViewMode="always"
+        outlet="capchaField"
+        placeholder="{strings.signup.capcha}"
+        right="previous.right - 80"
+        top="previous.bottom + 10"
+    />
+    <UIImageView
+        contentMode="scaleAspectFit"
+        height="previous.height"
+        image="{captcha}"
+        left="previous.right"
+        outlet="capchaImage"
+        right="#mobile.right"
+        top="previous.top"
+    />
+</UIView>

@@ -41,9 +41,7 @@ class AuthViewControllerReactor: Reactor {
                     self.loginService.password = password
                     return self.loginService.request()
                         .do(onNext: { user in
-                            var data = try Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
-                            data.user = user
-                            try Disk.save(data, to: .documents, as: Constants.APP_DATA_PATH)
+                            DiskUtil.saveUser(user: user)
                             CURRENT_USER.onNext(user)
                         })
                         .map { _ -> Mutation in .loginSuccess }

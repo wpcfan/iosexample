@@ -12,6 +12,7 @@ import URLNavigator
 import RxSwift
 import RxGesture
 import RxKeyboard
+import RxCocoa
 
 class VerifySmsViewController: BaseViewController {
     var mobile: String?
@@ -31,7 +32,9 @@ class VerifySmsViewController: BaseViewController {
         loadLayout(
             named: "VerifySmsViewController.xml",
             state: [
-                "formValid": false
+                "formValid": false,
+                "countDown": "",
+                "countDownEnabled": false
             ],
             constants: [
                 "captchaIcon": captchaIcon
@@ -60,8 +63,8 @@ extension VerifySmsViewController: LayoutLoading {
 extension VerifySmsViewController: ReactorKit.View {
     typealias Reactor = VerifySmsViewControllerReactor
     func bind(reactor: Reactor) {
-        
-       codeField.rx.text.map{ code in !code.isBlank }
+        let COUNTDOWN_LIMIT = 3
+        codeField.rx.text.map{ code in !code.isBlank }
             .bind(to: self.layoutNode!.rx.state("formValid"))
             .disposed(by: self.disposeBag)
         
@@ -91,6 +94,29 @@ extension VerifySmsViewController: ReactorKit.View {
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
+        let sendTrigger = countDownButton.rx.tap.share()
+        let timerStream = Observable.interval(1, scheduler: MainScheduler.instance)
+            .map{ i in COUNTDOWN_LIMIT - i}
+            .takeWhile{ (count) -> Bool in count >= 0 }
+            .takeUntil(self.nextButton.rx.tap)
+        
+        let countDownStream = sendTrigger.startWith(()).flatMap { (_) -> Observable<Int> in  timerStream }
+        
+        countDownStream
+            .map{ countDown in countDown > 0 ? "\(countDown) 秒" : "重发短信"}
+            .bind(to: self.layoutNode!.rx.state("countDown"))
+            .disposed(by: self.disposeBag)
+        
+        countDownStream
+            .map{ countDown in countDown == 0 }
+            .bind(to: self.layoutNode!.rx.state("countDownEnabled"))
+            .disposed(by: self.disposeBag)
+        
+        sendTrigger
+            .map{ _ in Reactor.Action.sendSms(mobile: self.mobile!)}
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
         reactor.state
             .map { $0.verification }
             .filter { (result) -> Bool in result }
@@ -98,7 +124,7 @@ extension VerifySmsViewController: ReactorKit.View {
             .observeOn(MainScheduler.asyncInstance)
             .subscribe{ ev in
                 guard ev.error == nil else { return }
-                
+                self.navigator.push(SetPasswordViewController())
             }
             .disposed(by: self.disposeBag)
     }

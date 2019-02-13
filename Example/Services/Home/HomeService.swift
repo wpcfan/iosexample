@@ -33,10 +33,7 @@ class HomeService: ShouChuangService<HomeInfo> {
     func handleHomeInfo(cached: Bool = false) -> Observable<HomeInfo> {
         return request(cached: cached)
             .do(onNext: { (home: HomeInfo) in
-                var appData = try Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
-                appData.houseId = home.house?.id
-                appData.projectId = home.house?.projectId
-                try Disk.save(appData, to: .documents, as: Constants.APP_DATA_PATH)
+                DiskUtil.saveHouseInfo(home.house)
             })
     }
 }

@@ -24,13 +24,16 @@
         top="parent.top + 10"
     />
     <UIButton
+        backgroundColor="{countDownEnabled ? primary : lightGray}"
         height="previous.height"
         left="previous.right"
-        title="60"
-        titleColor="primary"
+        title="{countDown}"
+        titleColor="white"
+        isEnabled="countDownEnabled"
         top="previous.top"
+        titleLabel.font="14"
         outlet="countDownButton"
-        width="auto"
+        width="60"
     />
     <UIButton
         backgroundColor="formValid ? primary : lightGray"

@@ -6,4 +6,15 @@
 //  Copyright © 2019 twigcodes. All rights reserved.
 //
 
-import Foundation
+class SendSmsService: ShouChuangService<EmptyResult> {
+    var phone: String?
+    override var smartApi: SmartApiType {
+        get { return .sendSms }
+    }
+    override func urlQueries() -> [URLQueryItem]  {
+        let queryItems: [URLQueryItem] = [
+            URLQueryItem(name: "phone", value: phone)
+        ]
+        return queryItems
+    }
+}

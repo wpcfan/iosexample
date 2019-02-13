@@ -39,16 +39,10 @@ class TourViewControllerReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .completeTour:
-            do{
-                try Disk.save(Mapper<AppData>().map(JSON: ["tourGuidePresented": true]), to: .documents, as: Constants.APP_DATA_PATH)
-                return Observable.of(.setTour(completed: true))
-            }
-            catch {
-                print("storage saving error: \(String(describing: error))")
-                return Observable.of(.setTour(completed: false))
-            }
+            DiskUtil.saveTourStatus(tourPresented: true)
+            return Observable.of(.setTour(completed: true))
         case .checkAuth:
-            let data = try? Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
+            let data = DiskUtil.getData()
             if (data?.token != nil && data?.user != nil) {
                 return Observable.of(.setNavTarget(target: .main))
             } else {

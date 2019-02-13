@@ -6,10 +6,6 @@
 //  Copyright © 2019 twigcodes. All rights reserved.
 //
 
-import Disk
-import Device_swift
-import RxSwift
-
 class VerifySmsService: ShouChuangService<EmptyResult> {
     var phone: String?
     var code: String?

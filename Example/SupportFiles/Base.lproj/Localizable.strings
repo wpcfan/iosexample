@@ -66,3 +66,6 @@
 "signup.title"="Sign Up";
 "verifySms.title"="Verify Sms Code";
 "verifySms.code"="SMS code you received";
+"setPassword.password"="Type password here";
+"setPassword.repeat"="Type password again";
+"setPassword.title"="Password";

@@ -173,13 +173,7 @@ extension AppDelegate {
         JPUSHService.setLogOFF()
         #endif
         JPUSHService.registrationIDCompletionHandler { (resCode, regId) in
-            var data = try? Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
-            if (data == nil) {
-                data = AppData(JSON: ["regId": regId ?? ""])
-            } else {
-                data?.regId = regId
-            }
-            try? Disk.save(data, to: .documents, as: Constants.APP_DATA_PATH)
+            DiskUtil.saveRegId(regId: regId)
         }
         let defaultCenter = NotificationCenter.default
         // 订阅自定义消息

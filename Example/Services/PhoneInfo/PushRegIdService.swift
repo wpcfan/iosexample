@@ -6,8 +6,6 @@
 //  Copyright © 2019 twigcodes. All rights reserved.
 //
 import Disk
-import Device_swift
-import RxSwift
 
 class PushRegIdService: ShouChuangService<EmptyResult> {
     override var smartApi: SmartApiType {
