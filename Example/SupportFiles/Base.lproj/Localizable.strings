@@ -39,6 +39,7 @@
 "home.navigation.title"="Home";
 "home.device.online"="Device Online";
 "home.device.offline"="Device Offline";
+"home.nav.title"="Home";
 "myhouses.title"="My Houses";
 "myhouses.groupscount"="Groups:";
 "myhouses.devicescount"="Devices:";
@@ -69,3 +70,6 @@
 "setPassword.password"="Type password here";
 "setPassword.repeat"="Type password again";
 "setPassword.title"="Password";
+"indicator.loading"="Loading...";
+"device.tab.title"="My Devices";
+"scene.tab.title"="My Scenes";

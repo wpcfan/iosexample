@@ -138,7 +138,7 @@ class WebKitViewController: UIViewController {
             .subscribe(onNext: {
                 print("URL: \(String(describing: $0))")
                 if (!NVActivityIndicatorPresenter.sharedInstance.isAnimating) {
-                    let activityData = ActivityData(message: "正在加载...")
+                    let activityData = ActivityData(message: "indicator.loading".localized)
                     NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData, nil)
                 }
             })

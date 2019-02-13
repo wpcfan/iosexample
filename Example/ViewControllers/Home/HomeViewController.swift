@@ -22,7 +22,7 @@ import SHSegmentedControl
 import NVActivityIndicatorView
 
 class HomeViewController: BaseViewController {
-
+    
     var segTableView:SHSegmentedControlTableView!
     var segmentControl:SHSegmentControl!
     var headerView: UIView!
@@ -32,12 +32,12 @@ class HomeViewController: BaseViewController {
     private var refreshHeaderTrigger = PublishSubject<Void>()
     private var leftDrawerTransition: DrawerTransition?
     private var sideBarVC: SideBarViewController?
-    
+    private let INDOOR_ENV_PROD_ID = "J8X7KB"
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.headerView = getHeaderView()
-//        self.segmentControl = self.getSegmentControl()
+        //        self.segmentControl = self.getSegmentControl()
         self.segTableView = self.getSegTableView()
         self.deviceTab = DeviceTableView()
         self.sceneTab = SceneTableView()
@@ -51,7 +51,7 @@ class HomeViewController: BaseViewController {
     fileprivate func buildNavTopItem() {
         // Top Button
         let topButton = UIButton(type: .custom).then {
-            $0.setTitle("首页", for: .normal)
+            $0.setTitle("home.nav.title".localized, for: .normal)
             $0.addTarget(self, action: #selector(HomeViewController.changeHouse), for: .touchUpInside)
             $0.sizeToFit()
         }
@@ -71,14 +71,16 @@ class HomeViewController: BaseViewController {
         let segTable:SHSegmentedControlTableView = SHSegmentedControlTableView.init(frame: self.view.bounds)
         segTable.delegateCell = self
         segTable.topView = self.headerView
-//        segTable.barView = self.segmentControl
+        //        segTable.barView = self.segmentControl
         return segTable
     }
     func getSegmentControl() -> SHSegmentControl {
         if self.segmentControl != nil {
             return self.segmentControl
         }
-        let segment:SHSegmentControl = SHSegmentControl(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40), items: ["我的设备","我的场景"])
+        let segment:SHSegmentControl = SHSegmentControl(
+            frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 40),
+            items: ["device.tab.title".localized, "scene.tab.title".localized])
         segment.titleSelectColor = UIColor.red
         segment.reloadViews()
         weak var weakSelf = self
@@ -98,9 +100,6 @@ class HomeViewController: BaseViewController {
     }
     @objc func showMessages() {
         
-    }
-    @objc public func scanQR() {
-        RxQRUtil().scanQR(self)
     }
     fileprivate func buildRefreshHeader() {
         weak var weakSelf = self
@@ -189,10 +188,13 @@ extension HomeViewController: ReactorKit.StoryboardView {
             .disposed(by: self.disposeBag)
         
         deviceTab.rx.addDeviceTapped
-            .subscribe { ev in
-                self.scanQR()
+            .flatMapLatest { (_) -> Observable<String?> in
+                RxQRUtil().scanQR(self)
             }
-            .disposed(by: disposeBag)
+            .subscribe{
+                print($0)
+            }
+            .disposed(by: self.disposeBag)
         
         sceneTab.rx.addSceneTapped
             .subscribe { ev in
@@ -204,11 +206,11 @@ extension HomeViewController: ReactorKit.StoryboardView {
             (self.headerView as! HeaderView).bannerTapped,
             (self.headerView as! HeaderView).channelTapped)
             .subscribe { ev in
-            guard let url = ev.element else { return }
-            self.navigator.push(WebKitViewController(url: url), from: self.navigationController, animated: true)
+                guard let url = ev.element else { return }
+                self.navigator.push(WebKitViewController(url: url), from: self.navigationController, animated: true)
             }
             .disposed(by: disposeBag)
-
+        
         refreshHeaderTrigger
             .mapTo(Reactor.Action.refresh)
             .bind(to: reactor.action)
@@ -218,7 +220,7 @@ extension HomeViewController: ReactorKit.StoryboardView {
             .map { $0.homeInfo?.banners ?? [] }
             .bind(to: (self.headerView as! HeaderView).banners$)
             .disposed(by: self.disposeBag)
-
+        
         reactor.state
             .map { $0.homeInfo?.channels ?? [] }
             .bind(to: (self.headerView as! HeaderView).channels$)
@@ -227,6 +229,23 @@ extension HomeViewController: ReactorKit.StoryboardView {
         reactor.state
             .map { $0.homeInfo?.devices ?? [] }
             .bind(to: self.deviceTab.devices$)
+            .disposed(by: self.disposeBag)
+        
+        reactor.loaded
+            .flatMap({ () -> Observable<Reactor.Action> in
+                reactor.state
+                    .take(1)
+                    .map { $0.homeInfo?.devices?
+                        .filter({ (device) -> Bool in
+                            device.productId == self.INDOOR_ENV_PROD_ID
+                        }) ?? []
+                    }
+                    .filter({ (devices) -> Bool in
+                        devices.count > 0
+                    })
+                    .map { devices in Reactor.Action.loadIndoorEnv(String(devices[0].feedId!))}
+            })
+            .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
         reactor.state
@@ -240,7 +259,7 @@ extension HomeViewController: ReactorKit.StoryboardView {
                 }
                 let animating = NVActivityIndicatorPresenter.sharedInstance.isAnimating
                 if loading && !animating {
-                    let activityData = ActivityData(message: "正在加载...")
+                    let activityData = ActivityData(message: "indicator.loading".localized)
                     NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData, nil)
                 } else {
                     if (animating) {
@@ -278,6 +297,7 @@ extension HomeViewController: ReactorKit.StoryboardView {
                 banner.show()
             }
             .disposed(by: self.disposeBag)
+        
     }
 }
 
@@ -293,7 +313,7 @@ extension HomeViewController: SHSegTableViewDelegate {
     }
     func segTableViewDidScrollProgress(_ progress: CGFloat, originalIndex: Int, targetIndex: Int) {
         if progress == 1 {
-//            self.segmentControl.setSegmentSelectedIndex(targetIndex)
+            //            self.segmentControl.setSegmentSelectedIndex(targetIndex)
         }
     }
 }

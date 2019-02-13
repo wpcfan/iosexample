@@ -8,7 +8,11 @@
 import PinLayout
 
 class DeviceCell: BaseTableCell {
-    var onlineStatus = true
+    var onlineStatus = true {
+        didSet {
+            self.rebindButton.isHidden = onlineStatus
+        }
+    }
     let productImage = UIImageView().then {
         $0.contentMode = .scaleAspectFill
         $0.clipsToBounds = true
@@ -44,6 +48,7 @@ class DeviceCell: BaseTableCell {
         self.contentView.addSubview(onlineStatusLabel)
         self.contentView.addSubview(productTypeLabel)
         self.contentView.addSubview(rebindButton)
+        rebindButton.isHidden = onlineStatus
     }
     
     override func layoutSubviews() {
@@ -52,28 +57,29 @@ class DeviceCell: BaseTableCell {
         productImage.pin
             .left()
             .vCenter()
-            .width(70)
+            .width(15%)
             .aspectRatio(1)
-        deviceNameLabel.pin
-            .after(of: productImage)
-            .top(10)
-            .width(50%)
-            .height(20)
-            .marginLeft(5)
-        onlineStatusLabel.pin
-            .left(to: deviceNameLabel.edge.left)
-            .bottom(20)
-            .width(100)
-            .height(12)
         productTypeLabel.pin
-            .after(of: deviceNameLabel, aligned: .top)
-            .width(20%)
+            .right(to: self.edge.right)
+            .top(10)
+            .width(80)
             .height(20)
+            .marginRight(10)
         rebindButton.pin
             .below(of: productTypeLabel, aligned: .right)
             .marginTop(10)
             .width(80)
             .height(20)
-        rebindButton.isHidden = onlineStatus
+        deviceNameLabel.pin
+            .horizontallyBetween(productImage, and: productTypeLabel, aligned: .top)
+            .height(20)
+            .marginLeft(5)
+            .marginTop(10)
+            .marginBottom(5)
+        onlineStatusLabel.pin
+            .left(to: deviceNameLabel.edge.left)
+            .bottom(20)
+            .width(100)
+            .height(12)
     }
 }

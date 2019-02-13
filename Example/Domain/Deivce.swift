@@ -35,7 +35,7 @@ struct ServiceInfo: Mappable, Codable {
 
 struct Device: Mappable, Codable {
     var id: String?
-    var feedId: String?
+    var feedId: Int64?
     var guid: String?
     var deviceName: String?
     var productId: String?

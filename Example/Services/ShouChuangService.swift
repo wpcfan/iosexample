@@ -55,6 +55,8 @@ class ShouChuangService<T: Mappable>: SmartApiQuery {
                     let errorCode = mapped.errorCode!
                     let errorMessage = mapped.message!
                     switch(errorCode) {
+                    case 1500:
+                        throw SmartError.jdTokenInvalid(errorMessage)
                     case 1600:
                         throw SmartError.loginInvalid(errorMessage)
                     default:

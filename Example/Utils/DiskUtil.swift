@@ -43,6 +43,7 @@ struct DiskUtil {
         var data = try? Disk.retrieve(Constants.APP_DATA_PATH, from: .documents, as: AppData.self)
         data?.houseId = house.id
         data?.projectId = house.projectId
+        data?.houseToken = house.jdAccessToken
         try? Disk.save(data, to: .documents, as: Constants.APP_DATA_PATH)
     }
 }

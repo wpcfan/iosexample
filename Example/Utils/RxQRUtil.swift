@@ -8,27 +8,23 @@
 
 import UIKit
 import RxQRScanner
+import RxSwift
 
 struct RxQRUtil {
     
-    public func scanQR(_ vc: BaseViewController) {
+    public func scanQR(_ vc: UIViewController) -> Observable<String?> {
         var config = QRScanConfig.instance
         config.titleText = "qrscanner.navigation.title".localized
         config.albumText = "qrscanner.navigation.right.title".localized
         config.cancelText = "qrscanner.navigation.left.title".localized
-        Permission.checkCameraAccess()
+        return Permission.checkCameraAccess()
             .filter { (hasAccess) -> Bool in hasAccess }
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
+            .observeOn(MainScheduler.asyncInstance)
             .flatMap{ _ in QRScanner.popup(on: vc, config: config) }
             .map({ (result) -> String? in
                 if case let .success(str) = result { return str }
                 return nil
             })
-            .take(1)
-            .subscribe(onNext: { result in
-                if (result != nil) {
-                    print(result!)
-                }
-            })
-            .disposed(by: vc.disposeBag)
     }
 }

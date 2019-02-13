@@ -39,6 +39,7 @@
 "home.navigation.title"="首页";
 "home.device.online"="设备在线";
 "home.device.offline"="设备离线";
+"home.nav.title"="首页";
 "myhouses.title"="我的房屋";
 "myhouses.groupscount"="群组:";
 "myhouses.devicescount"="设备:";
@@ -69,3 +70,6 @@
 "setPassword.password"="请输入密码";
 "setPassword.repeat"="请再次输入密码";
 "setPassword.title"="设置密码";
+"indicator.loading"="正在加载...";
+"device.tab.title"="我的设备";
+"scene.tab.title"="我的场景";

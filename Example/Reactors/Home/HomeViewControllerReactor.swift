@@ -13,10 +13,13 @@ import Disk
 class HomeViewControllerReactor: Reactor {
     let homeService = container.resolve(HomeService.self)!
     let pushRegIdService = container.resolve(PushRegIdService.self)!
+    let scService = container.resolve(JdSmartCloudService.self)!
+    let loaded = PublishSubject<Void>()
     enum Action {
         case load
         case refresh
         case reportPushRegId
+        case loadIndoorEnv(_ id: String)
     }
     
     enum Mutation {
@@ -24,16 +27,19 @@ class HomeViewControllerReactor: Reactor {
         case loadFail(_ message: String)
         case loading(_ status: Bool)
         case setRegId(_ statue: Bool)
+        case loadIndoorEnvSuccess(_ result: SCV2Snapshot?)
+        case loadIndoorEnvFail(_ message: String)
     }
     
     struct State {
-        var homeInfo: HomeInfo?
-        var loading: Bool
-        var errorMessage: String
-        var regIdReported: Bool
+        var homeInfo: HomeInfo? = nil
+        var loading: Bool = false
+        var errorMessage: String = ""
+        var regIdReported: Bool = false
+        var indoorEnvSnapShot: SCV2Snapshot? = nil
     }
     
-    let initialState: State = State(homeInfo: nil, loading: false, errorMessage: "", regIdReported: false)
+    let initialState: State = State()
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
@@ -44,12 +50,23 @@ class HomeViewControllerReactor: Reactor {
                 .catchError{ error -> Observable<Mutation>  in
                     Observable.of(.loadFail(convertErrorToString(error: error)))
                 }
+                .do(onCompleted: { () in
+                    self.loaded.onNext(())
+                })
         case .reportPushRegId:
             return pushRegIdService.request()
                 .debug()
                 .map { _ -> Mutation in .setRegId(true) }
                 .catchError{ error -> Observable<Mutation>  in
                     Observable.of(.setRegId(false))
+                }
+        case let .loadIndoorEnv(id):
+            return scService.deviceSnapshotV2(id: id)
+                .map { (result) -> Mutation in
+                    .loadIndoorEnvSuccess(result)
+                }
+                .catchError{ error -> Observable<Mutation>  in
+                    Observable.of(.loadIndoorEnvFail(convertErrorToString(error: error)))
                 }
         }
     }
@@ -79,6 +96,16 @@ class HomeViewControllerReactor: Reactor {
         case .setRegId(let status):
             var newState = state
             newState.regIdReported = status
+            return newState
+        case .loadIndoorEnvSuccess(let snapshot):
+            var newState = state
+            newState.errorMessage = ""
+            newState.indoorEnvSnapShot = snapshot
+            return newState
+        case .loadIndoorEnvFail(let errorMessage):
+            var newState = state
+            newState.indoorEnvSnapShot = nil
+            newState.errorMessage = errorMessage
             return newState
         }
     }

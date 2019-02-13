@@ -29,7 +29,6 @@ class SplashViewController: BaseViewController {
     }
     @objc weak var countDown: UIButton!
     @objc weak var splashAdImageView: UIImageView!
-    private let homeService = container.resolve(HomeService.self)!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,26 +71,6 @@ extension SplashViewController: ReactorKit.View {
             countDownStream.filter { (count) -> Bool in  count == 1 })
             .takeUntil(splashAdTappedStream)
             .take(1)
-        // warm up
-//        reactor.state
-//            .map { $0.nav }
-//            .distinctUntilChanged()
-//            .filter({ (target) -> Bool in
-//                switch target {
-//                case .main:
-//                    return true
-//                default:
-//                    return false
-//                }
-//            })
-//            .takeUntil(splashEndStream)
-//            .flatMap({ (_) -> Observable<HomeInfo> in
-//                self.homeService.handleHomeInfo(cached: false)
-//            })
-//            .subscribe { ev in
-//                guard ev.error != nil else { return }
-//            }
-//            .disposed(by: self.disposeBag)
         
         splashEndStream
             .flatMapLatest({ (_) -> Observable<Reactor.State> in

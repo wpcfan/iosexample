@@ -6,15 +6,43 @@
 //  Copyright © 2018 twigcodes. All rights reserved.
 //
 import SCMSDK
+import RxSwift
+import ObjectMapper
+
+public enum ProductVersion {
+    case two
+    case three
+    
+    var verVal: String {
+        switch self {
+        case .two:
+            return "2.0"
+        case .three:
+            return "3.0"
+        }
+    }
+}
+
+enum SCError: Error {
+    case JdSmartError(_ code: Int?, _ message: String?, _ debug: String?)
+}
 
 class JdSmartCloudService {
     public func initSmartCloud() {
         print("enter initSmartCloud")
         #if !targetEnvironment(simulator)
         let appKey = AppEnv.smartCloudAppKey
-        print("[JdSmartCloudService] 为京东 SDK 设置 appkey \(appKey)")
+        let data = DiskUtil.getData()
+        guard let token = data?.houseToken else {
+            print("[JdSmartCloudService] 房主 token 不存在")
+            return
+        }
         SCMInitManager.sharedInstance().registerAppKey(appKey)
+        print("[JdSmartCloudService] 为京东 SDK 设置 appkey \(appKey)")
+        SCMInitManager.sharedInstance().registerUserToken(token)
+        print("[JdSmartCloudService] 为京东 SDK 设置 token \(token)")
         SCMInitManager.sharedInstance().startLoop()
+        SCMLongConnectManager.shared().createLongConnect()
         #endif
         print("exit initSmartCloud")
     }
@@ -49,5 +77,33 @@ class JdSmartCloudService {
         SCMAuthorizedInitManager.shared()?.showAuthorizeViewController(withRootController: vc, state: "", redirectUrl: "https://116.196.81.233")
         #endif
         print("exit bindJdAccount")
+    }
+    
+    public func deviceSnapshotV2(id: String) -> Observable<SCV2Snapshot?> {
+        print("enter deviceSnapshot")
+        return Observable<SCV2Snapshot?>.create{ (observer) -> Disposable in
+            #if !targetEnvironment(simulator)
+            SCMCloudControlManager.getSnapShot(
+                withVersion: "2.0",
+                digest: nil,
+                feedId: id,
+                guid: nil,
+                success: { (res) in
+                    let result = Mapper<SmartCloudResult<SCV2Snapshot>>().map(JSON: res as! [String : Any])
+                    guard result?.status == 0 else {
+                        printError(result?.error)
+                        observer.onError(SCError.JdSmartError(result?.error?.errorCode, result?.error?.errorInfo, result?.error?.debugMe))
+                        return
+                    }
+                    observer.onNext(result?.result)
+                    observer.onCompleted()
+                },
+                fail: { error in
+                    printError(error)
+                    observer.onError(error!)
+                })
+            #endif
+            return Disposables.create()
+        }
     }
 }

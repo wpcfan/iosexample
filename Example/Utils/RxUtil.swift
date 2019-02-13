@@ -69,8 +69,8 @@ public func convertErrorToString(error: Error) -> String {
     case HttpClientError.invalidJsonObject,
          HttpClientError.jsonDeserializationError(_):
         return "请求失败，数据格式错误"
-    case let SmartError.server(_, message):
-        return message
+    case let SmartError.server(code, message):
+        return "\(message)(\(code))"
     case SmartError.loginInvalid(_):
         return "您的账号已在其他设备登录，如果不是本人授权，请及时更改密码！"
     case SmartError.jdAccountNotBinded(_):
@@ -79,8 +79,10 @@ public func convertErrorToString(error: Error) -> String {
         return "首创智慧家应用需要绑定京东账号才能正常使用"
     case SmartError.jdTokenInvalid(_):
         return "首创智慧家应用需要绑定京东账号才能正常使用"
+    case let SCError.JdSmartError(code, message, _):
+        return "京东云错误: \(message ?? "未知错误")(代码:\(code ?? -1))"
     default:
-        return "哎呀，好像崩溃了"
+        return "哎呀，好像系统开小差了"
     }
 }
 

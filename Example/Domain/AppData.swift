@@ -14,6 +14,7 @@ struct AppData: Codable, Mappable {
     var splashAd: SplashAd?
     var houseId: String?
     var projectId: String?
+    var houseToken: String?
     var token: String?
     var regId: String?
     var homeInfo: HomeInfo?
@@ -30,5 +31,6 @@ struct AppData: Codable, Mappable {
         token <- map["token"]
         homeInfo <- map["homeInfo"]
         regId <- map["regId"]
+        houseToken <- map["houseToken"]
     }
 }

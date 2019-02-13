@@ -198,6 +198,8 @@
 		AAA6E6BB2213DD4B0032A489 /* DiskUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA6E6BA2213DD4B0032A489 /* DiskUtil.swift */; };
 		AAA6E6BD2213EBE40032A489 /* BindJdAccountViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA6E6BC2213EBE40032A489 /* BindJdAccountViewControllerReactor.swift */; };
 		AAA6E6C22213EF9E0032A489 /* SocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA6E6C12213EF9E0032A489 /* SocialService.swift */; };
+		AAA6E6C4221447AD0032A489 /* SmartCloudResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA6E6C3221447AD0032A489 /* SmartCloudResult.swift */; };
+		AAA6E6C622145AA00032A489 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA6E6C522145AA00032A489 /* Array+.swift */; };
 		AAA920BA2198289700EFC581 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AAA920B82198289700EFC581 /* InfoPlist.strings */; };
 		AAAD777A2212D92700EDBF09 /* VerifyCapchaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAD77792212D92700EDBF09 /* VerifyCapchaService.swift */; };
 		AAAD777C2212E13C00EDBF09 /* VerifySmsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAD777B2212E13C00EDBF09 /* VerifySmsViewController.swift */; };
@@ -498,6 +500,8 @@
 		AAA6E6BA2213DD4B0032A489 /* DiskUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskUtil.swift; sourceTree = "<group>"; };
 		AAA6E6BC2213EBE40032A489 /* BindJdAccountViewControllerReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindJdAccountViewControllerReactor.swift; sourceTree = "<group>"; };
 		AAA6E6C12213EF9E0032A489 /* SocialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialService.swift; sourceTree = "<group>"; };
+		AAA6E6C3221447AD0032A489 /* SmartCloudResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartCloudResult.swift; sourceTree = "<group>"; };
+		AAA6E6C522145AA00032A489 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		AAA920B92198289700EFC581 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Example/Base.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		AAA920BC219828F200EFC581 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "../zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
 		AAAD77792212D92700EDBF09 /* VerifyCapchaService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyCapchaService.swift; sourceTree = "<group>"; };
@@ -832,6 +836,7 @@
 				AA0ACFD021ECB49E00CE6D1D /* AppDelegate+SmartCloud.swift */,
 				AA01F49E2198828600CE6457 /* AppDelegate+UMeng.swift */,
 				AA54DF422188424000CE0CA0 /* AnimationExtensions.swift */,
+				AAA6E6C522145AA00032A489 /* Array+.swift */,
 				AA19DCAC21FD819C00B70EFE /* Bundle+.swift */,
 				AA42D7D421F35C8400320BD3 /* Date+.swift */,
 				AA89786621856D88005A61CA /* ImageEffects+Accelerate.swift */,
@@ -1106,6 +1111,7 @@
 				AA3E0E812170589F00958937 /* Scene.swift */,
 				AA3E0E8521705B4C00958937 /* ScriptTask.swift */,
 				AA3E0E8721707DD400958937 /* ScriptTrigger.swift */,
+				AAA6E6C3221447AD0032A489 /* SmartCloudResult.swift */,
 				AA19DC7F21F606D600B70EFE /* SmartHomeResult.swift */,
 				AAC5EB92215E7DE8008EBA1F /* User.swift */,
 			);
@@ -1682,6 +1688,7 @@
 				AA4B49202178883F00A60C11 /* UICollectionViewDelegateFlexLayout.swift in Sources */,
 				AA4B49222178883F00A60C11 /* SwiftyColor.swift in Sources */,
 				AA3CA5CA2202BE0600551C87 /* Debug.swift in Sources */,
+				AAA6E6C4221447AD0032A489 /* SmartCloudResult.swift in Sources */,
 				AA1A5EC0220FC7400084473E /* MenuService.swift in Sources */,
 				AAF961B2220EEC0900E17A65 /* HouseTableViewController.swift in Sources */,
 				AAD7E17A21F1F42D000D8D6A /* MimeTypeConverter.swift in Sources */,
@@ -1802,6 +1809,7 @@
 				AA9B94BD21ECBEAD000AE906 /* IndoorPhoneService.swift in Sources */,
 				AAFA6622217D8032000217C9 /* MultipleSectionModel.swift in Sources */,
 				AA19DC7421F573AA00B70EFE /* SendMessageToWXReq+requestWithTextOrMediaMessage.m in Sources */,
+				AAA6E6C622145AA00032A489 /* Array+.swift in Sources */,
 				AA89786F21858891005A61CA /* TabButton.swift in Sources */,
 				AA4B4942217A112200A60C11 /* BaseView.swift in Sources */,
 				AA4B491E2178883F00A60C11 /* Reactive+UICollectionViewFlexLayout.swift in Sources */,

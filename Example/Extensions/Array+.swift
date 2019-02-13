@@ -6,4 +6,12 @@
 //  Copyright © 2019 twigcodes. All rights reserved.
 //
 
-import Foundation
+extension Array {
+    func keyBy<Key: Hashable>(_ keyFor: (Element) -> Key) -> [Key: Element] {
+        var ret = [Key: Element]()
+        for item in self{
+            ret[keyFor(item)] = item
+        }
+        return ret
+    }
+}
