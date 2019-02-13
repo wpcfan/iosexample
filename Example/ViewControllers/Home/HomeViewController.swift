@@ -19,6 +19,7 @@ import PinLayout
 import Disk
 import NotificationBannerSwift
 import SHSegmentedControl
+import NVActivityIndicatorView
 
 class HomeViewController: BaseViewController {
 
@@ -162,8 +163,13 @@ extension HomeViewController: ReactorKit.StoryboardView {
     
     func bind(reactor: Reactor) {
         
-        reactor.action.onNext(.load)
         reactor.action.onNext(.reportPushRegId)
+        
+        CURRENT_HOUSE
+            .startWith(nil)
+            .mapTo(Reactor.Action.load)
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
         
         // Handle Logout Globally
         NEED_LOGOUT
@@ -208,12 +214,6 @@ extension HomeViewController: ReactorKit.StoryboardView {
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
-        CURRENT_HOUSE
-            .filterNil()
-            .void()
-            .bind(to: refreshHeaderTrigger)
-            .disposed(by: disposeBag)
-        
         reactor.state
             .map { $0.homeInfo?.banners ?? [] }
             .bind(to: (self.headerView as! HeaderView).banners$)
@@ -230,12 +230,36 @@ extension HomeViewController: ReactorKit.StoryboardView {
             .disposed(by: self.disposeBag)
         
         reactor.state
+            .map { $0.loading }
+            .distinctUntilChanged()
+            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
+            .observeOn(MainScheduler.asyncInstance)
+            .subscribe{ ev in
+                guard let loading = ev.element, !self.segTableView.refreshHeader.isRefreshing else {
+                    return
+                }
+                let animating = NVActivityIndicatorPresenter.sharedInstance.isAnimating
+                if loading && !animating {
+                    let activityData = ActivityData(message: "正在加载...")
+                    NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData, nil)
+                } else {
+                    if (animating) {
+                        NVActivityIndicatorPresenter.sharedInstance.stopAnimating(nil)
+                    }
+                }
+            }
+            .disposed(by: self.disposeBag)
+        
+        reactor.state
             .map { $0.homeInfo }
             .filterNil()
             .subscribe{ ev in
                 guard let home = ev.element else { return }
                 let button = self.navigationItem.titleView as! UIButton
                 let title = home.house?.displayName() ?? ""
+                let isOwner = home.house?.isOwner ?? false
+                self.deviceTab.sectionHeaderView.rightBtnHidden = !isOwner
+                self.sceneTab.sectionHeaderView.rightBtnHidden = !isOwner
                 button.setTitle(title.trunc(length: 14), for: .normal)
                 if (self.segTableView.refreshHeader.isRefreshing) {
                     self.segTableView.refreshHeader.endRefreshing()

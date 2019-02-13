@@ -40,7 +40,7 @@ struct House: Mappable, Codable {
         sceneCount <- map["scenenum"]
         deviceCount <- map["devicenum"]
         groupCount <- map["groupnum"]
-        isOwner <- map["isOwner"]
+        isOwner <- map["isowner"]
         jdAccessToken <- map["accessToken"]
     }
     

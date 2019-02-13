@@ -66,6 +66,7 @@
         titleColor="black"
         titleLabel.font="helvetica neue light"
         top="previous.bottom + 15"
+        touchUpInside="forgot"
         width="150"
     />
     <UIButton

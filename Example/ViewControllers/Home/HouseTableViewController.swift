@@ -76,8 +76,11 @@ extension HouseTableViewController: StoryboardView {
         
         tableView.rx.modelSelected(House.self)
             .subscribe(onNext: {
-                CURRENT_HOUSE.onNext($0)
-                DiskUtil.saveHouseInfo(house: $0)
+                let originalData = DiskUtil.getData()
+                if ($0.id != originalData?.houseId) {
+                    DiskUtil.saveHouseInfo(house: $0)
+                    CURRENT_HOUSE.onNext($0)
+                }
                 self.navigationController?.popViewController(animated: true)
             })
             .disposed(by: self.disposeBag)

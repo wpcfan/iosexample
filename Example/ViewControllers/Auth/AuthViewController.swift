@@ -60,8 +60,11 @@ class AuthViewController: BaseViewController {
     }
     
     @objc func register() -> Void {
-        let vc = BindJdAccountViewController()
+        let vc = SignUpViewController()
         self.navigator.push(vc)
+    }
+    @objc func forgot() {
+        
     }
 }
 

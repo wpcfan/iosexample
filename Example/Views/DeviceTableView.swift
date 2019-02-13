@@ -33,10 +33,11 @@ class DeviceTableView: SHTableView {
             cell.deviceNameLabel.text = item.deviceName
             cell.productImage.pin_setImage(from: URL(string: item.productImageUrl ?? ""), placeholderImage: AppIcons.devicePlaceholder)
             cell.onlineStatus = item.status == 1
-            cell.rebindButton.rx.tap.asObservable().subscribe { ev in
-                guard ev.error == nil else { return }
-                
-                }
+            cell.rebindButton.rx.tap
+                .subscribe { ev in
+                    guard ev.error == nil else { return }
+                    
+                    }
                 .disposed(by: cell.rx.reuseBag)
             cell.onlineStatusLabel.text = item.status == 1 ? "设备在线" : "设备离线"
             return cell

@@ -54,6 +54,10 @@ class HomeViewControllerReactor: Reactor {
         }
     }
     
+    func transform(mutation: Observable<Mutation>) -> Observable<Mutation> {
+        return Observable.merge(mutation, homeService.loading.map(Mutation.loading))
+    }
+    
     func reduce(state: State, mutation: Mutation) -> State {
         switch mutation {
         case .loadSuccess(let home):

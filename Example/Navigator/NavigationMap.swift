@@ -114,7 +114,6 @@ extension SafariWebViewController: SFSafariViewControllerDelegate {
 
 class WebKitViewController: UIViewController {
     let webView = WKWebView()
-    var indictor: NVActivityIndicatorView?
     var url: URLConvertible
     var disposeBag = DisposeBag()
     // MARK: Initializing
@@ -130,14 +129,7 @@ class WebKitViewController: UIViewController {
     override func loadView() {
         super.loadView()
         
-        indictor = NVActivityIndicatorView(
-            frame: self.view.frame,
-            type: .orbit ,
-            color: .lightGray,
-            padding: 50)
-        
         self.view.addSubview(webView)
-        self.view.addSubview(indictor!)
         webView.pin.all()
         webView.load(url)
         
@@ -145,15 +137,21 @@ class WebKitViewController: UIViewController {
             .share(replay: 1)
             .subscribe(onNext: {
                 print("URL: \(String(describing: $0))")
-                self.indictor?.startAnimating()
+                if (!NVActivityIndicatorPresenter.sharedInstance.isAnimating) {
+                    let activityData = ActivityData(message: "正在加载...")
+                    NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData, nil)
+                }
             })
             .disposed(by: disposeBag)
         
         webView.rx.estimatedProgress
             .share(replay: 1)
+            .timeout(10, scheduler: MainScheduler.instance)
             .subscribe(onNext: {
                 if ($0.isEqual(to: 1.0)) {
-                    self.indictor?.stopAnimating()
+                    if (NVActivityIndicatorPresenter.sharedInstance.isAnimating) {
+                        NVActivityIndicatorPresenter.sharedInstance.stopAnimating(nil)
+                    }
                 }
             })
             .disposed(by: disposeBag)

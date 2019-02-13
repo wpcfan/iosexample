@@ -14,12 +14,16 @@ import RxGesture
 class SectionHeaderView: UIView {
     var disposeBag = DisposeBag()
     var rightBtnTapped = PublishSubject<Void>()
+    var rightBtnHidden = true {
+        didSet {
+            self.rightIcon.isHidden = rightBtnHidden
+        }
+    }
     let textLabel = UILabel().then {
         $0.textAlignment = .left
         $0.textColor = .black
         $0.font = $0.font.withSize(16)
     }
-    
     let icon = UIImageView().then {
         $0.contentMode = .scaleAspectFit
     }
@@ -35,12 +39,10 @@ class SectionHeaderView: UIView {
         addSubview(self.icon)
         addSubview(self.textLabel)
         addSubview(self.rightIcon)
+        self.rightIcon.isHidden = rightBtnHidden
         rightIcon.rx.tapGesture().when(.recognized).asObservable()
             .void()
             .bind(to: self.rightBtnTapped)
-            .disposed(by: self.disposeBag)
-        CURRENT_HOUSE.map { house in !(house?.isOwner ?? false) }
-            .bind(to: self.rightIcon.rx.isHidden)
             .disposed(by: self.disposeBag)
     }
     

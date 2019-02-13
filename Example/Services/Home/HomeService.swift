@@ -32,7 +32,11 @@ class HomeService: ShouChuangService<HomeInfo> {
     func handleHomeInfo(cached: Bool = false) -> Observable<HomeInfo> {
         return request(cached: cached)
             .do(onNext: { (home: HomeInfo) in
-                DiskUtil.saveHouseInfo(house: home.house!)
+                guard let house = home.house else {
+                    print("House is Null")
+                    return
+                }
+                DiskUtil.saveHouseInfo(house: house)
             })
     }
 }
