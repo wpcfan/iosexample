@@ -13,6 +13,8 @@ class HeaderView: UIView {
     
     @objc var bannerView: BannerView!
     @objc var channelView: ChannelView!
+    @objc var weatherView: WeatherView!
+    @objc var indoorView: IndoorAirView!
     var disposeBag = DisposeBag()
     var bannerTapped = PublishSubject<String>()
     var channelTapped = PublishSubject<String>()
@@ -24,9 +26,12 @@ class HeaderView: UIView {
         
         bannerView = BannerView(frame: CGRect(x: 0, y: 0, width: frame.width, height: 135))
         channelView = ChannelView(frame: CGRect(x: 0, y: 0, width: frame.width, height: 80))
+        weatherView = WeatherView(frame: CGRect(x: 0, y: 0, width: frame.width, height: 50))
+        indoorView = IndoorAirView(frame: CGRect(x: 0, y: 0, width: frame.width, height: 50))
         addSubview(bannerView)
         addSubview(channelView)
-        
+        addSubview(weatherView)
+        addSubview(indoorView)
         self.banners$.subscribe{ ev in
             guard let banners = ev.element else { return }
             self.bannerView.banners = banners
@@ -54,6 +59,8 @@ class HeaderView: UIView {
         super.layoutSubviews()
         
         bannerView.pin.top().left().right().height(135)
-        channelView.pin.below(of: bannerView).bottom().left().right().height(80)
+        channelView.pin.below(of: bannerView, aligned: .left).right().height(80)
+        weatherView.pin.below(of: channelView, aligned: .left).right().height(50)
+        indoorView.pin.below(of: weatherView).bottom().left().right().height(50)
     }
 }

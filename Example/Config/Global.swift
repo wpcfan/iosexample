@@ -89,8 +89,8 @@ let container: Container = {
             //            requestPlugin: CompositeRequestPlugin(plugins: plugins),
             sessionDelegate: delegate)
     }
+    container.register(JdSmartCloudService.self) { _ in JdSmartCloudService() }
     #if !targetEnvironment(simulator)
-        container.register(JdSmartCloudService.self) { _ in JdSmartCloudService() }
         container.register(IndoorPhoneService.self) { _ in IndoorPhoneService() }
         container.register(LeChangeService.self) { _ in LeChangeService() }
         container.register(NotificationService.self) { _ in NotificationService() }

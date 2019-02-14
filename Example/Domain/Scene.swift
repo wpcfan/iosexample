@@ -7,7 +7,6 @@
 //
 
 import ObjectMapper
-import RxDataSources
 
 enum SceneIcon {
     case goHome
@@ -26,21 +25,17 @@ struct Scene: Mappable {
     var builtIn: Bool?
     var order: Int?
     var countOfDevices: Int?
-    var trigger: ScriptTrigger?
-    var tasks: Array<ScriptTask>?
     init?(map: Map) {
         
     }
     
-    init(id: String?, name: String, sceneIcon: SceneIcon, builtIn: Bool, order: Int, countOfDevices: Int, trigger: ScriptTrigger?, tasks: Array<ScriptTask>? = []) {
+    init(id: String?, name: String, sceneIcon: SceneIcon, builtIn: Bool, order: Int, countOfDevices: Int) {
         self.id = id
         self.name = name
         self.sceneIcon = sceneIcon
         self.builtIn = builtIn
         self.order = order
         self.countOfDevices = countOfDevices
-        self.trigger = trigger
-        self.tasks = tasks
     }
     
     mutating func mapping(map: Map) {
@@ -50,8 +45,6 @@ struct Scene: Mappable {
         builtIn <- map["builtIn"]
         order <- map["order"]
         countOfDevices <- map["countOfDevices"]
-        trigger <- map["trigger"]
-        tasks <- map["tasks"]
     }
     
     var identity: String? {

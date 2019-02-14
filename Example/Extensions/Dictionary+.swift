@@ -22,4 +22,11 @@ extension Dictionary {
         print(json)
     }
     
+    func valuesMapped<T>(_ transform: (Value) -> T) -> [Key: T] {
+        var newDict = [Key: T]()
+        for (key, value) in self {
+            newDict[key] = transform(value)
+        }
+        return newDict
+    }
 }

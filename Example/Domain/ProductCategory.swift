@@ -7,7 +7,6 @@
 //
 
 import ObjectMapper
-import RxDataSources
 
 struct ProductCategory: Mappable {
     var id: String?

@@ -73,3 +73,5 @@
 "indicator.loading"="正在加载...";
 "device.tab.title"="我的设备";
 "scene.tab.title"="我的场景";
+"weather.temperature"="%i °C";
+"weather.temperature.name"="摄氏度";

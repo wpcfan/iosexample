@@ -60,7 +60,7 @@ class HomeViewController: BaseViewController {
         if self.headerView != nil {
             return self.headerView
         }
-        let header = HeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 215))
+        let header = HeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 315))
         return header
     }
     func getSegTableView() -> SHSegmentedControlTableView {

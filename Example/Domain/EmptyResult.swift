@@ -6,4 +6,14 @@
 //  Copyright © 2019 twigcodes. All rights reserved.
 //
 
-import Foundation
+import ObjectMapper
+
+struct EmptyResult: Mappable {
+    init?(map: Map) {
+        
+    }
+    
+    mutating func mapping(map: Map) {
+        
+    }
+}

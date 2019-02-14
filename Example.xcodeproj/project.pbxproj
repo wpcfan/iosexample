@@ -90,14 +90,11 @@
 		AA3E0E7E2170540F00958937 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E7D2170540F00958937 /* Product.swift */; };
 		AA3E0E802170543D00958937 /* ProductCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E7F2170543D00958937 /* ProductCategory.swift */; };
 		AA3E0E822170589F00958937 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E812170589F00958937 /* Scene.swift */; };
-		AA3E0E8621705B4C00958937 /* ScriptTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E8521705B4C00958937 /* ScriptTask.swift */; };
-		AA3E0E8821707DD400958937 /* ScriptTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E8721707DD400958937 /* ScriptTrigger.swift */; };
 		AA3E0E8A2170841700958937 /* HomeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E892170841700958937 /* HomeInfo.swift */; };
 		AA3E0E9B2171176300958937 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = AA3E0E9A2171176300958937 /* data.json */; };
 		AA3E0EA52172328100958937 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0EA42172328100958937 /* UIStackView+.swift */; };
 		AA3E0EBB21737D0600958937 /* LayoutExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0EBA21737D0600958937 /* LayoutExtensions.swift */; };
 		AA3E905121F41D0200985675 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E905021F41D0200985675 /* Constants.swift */; };
-		AA420586217AD80C0068ABC0 /* ModelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA420585217AD80C0068ABC0 /* ModelType.swift */; };
 		AA420588217B66210068ABC0 /* UIView+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA420587217B66210068ABC0 /* UIView+Blur.swift */; };
 		AA42058E217B8C680068ABC0 /* ChannelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA42058D217B8C680068ABC0 /* ChannelView.swift */; };
 		AA420596217C0C2E0068ABC0 /* IconLabelButton.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA420595217C0C2E0068ABC0 /* IconLabelButton.xml */; };
@@ -120,10 +117,8 @@
 		AA4B49162178800A00A60C11 /* Reactive+FSPagerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B49152178800A00A60C11 /* Reactive+FSPagerView.swift */; };
 		AA4B491E2178883F00A60C11 /* Reactive+UICollectionViewFlexLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B49172178883E00A60C11 /* Reactive+UICollectionViewFlexLayout.swift */; };
 		AA4B491F2178883F00A60C11 /* Then.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B49182178883E00A60C11 /* Then.swift */; };
-		AA4B49202178883F00A60C11 /* UICollectionViewDelegateFlexLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B49192178883E00A60C11 /* UICollectionViewDelegateFlexLayout.swift */; };
 		AA4B49212178883F00A60C11 /* Reactive+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B491A2178883E00A60C11 /* Reactive+UIViewController.swift */; };
 		AA4B49222178883F00A60C11 /* SwiftyColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B491B2178883E00A60C11 /* SwiftyColor.swift */; };
-		AA4B49242178883F00A60C11 /* UICollectionViewFlexLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B491D2178883F00A60C11 /* UICollectionViewFlexLayout.swift */; };
 		AA4B49302178EB2500A60C11 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B492F2178EB2500A60C11 /* BannerView.swift */; };
 		AA4B493A2179A1DC00A60C11 /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B49362179A1DC00A60C11 /* ChannelCell.swift */; };
 		AA4B493C2179BBD900A60C11 /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B493B2179BBD900A60C11 /* Permission.swift */; };
@@ -136,6 +131,23 @@
 		AA54DF432188424000CE0CA0 /* AnimationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA54DF422188424000CE0CA0 /* AnimationExtensions.swift */; };
 		AA54DF4821892C9F00CE0CA0 /* Reactor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA54DF4721892C9F00CE0CA0 /* Reactor+.swift */; };
 		AA5723E4221544DC00D26244 /* Dictionary+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5723E3221544DC00D26244 /* Dictionary+.swift */; };
+		AA5723E622155D2900D26244 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5723E522155D2900D26244 /* WeatherService.swift */; };
+		AA5723E822155D7000D26244 /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5723E722155D7000D26244 /* Channel.swift */; };
+		AA5723EA22155DAB00D26244 /* SmartUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5723E922155DAB00D26244 /* SmartUser.swift */; };
+		AA5723EC22155DD900D26244 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5723EB22155DD900D26244 /* Version.swift */; };
+		AA5723EE22155E0600D26244 /* SplashAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5723ED22155E0600D26244 /* SplashAd.swift */; };
+		AA5723F022155E9C00D26244 /* EmptyResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5723EF22155E9C00D26244 /* EmptyResult.swift */; };
+		AA5723F222155ED500D26244 /* SCV2Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5723F122155ED500D26244 /* SCV2Snapshot.swift */; };
+		AA5723F422155F0300D26244 /* SCStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5723F322155F0300D26244 /* SCStream.swift */; };
+		AA5723F622155F3900D26244 /* SmartCloudError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5723F522155F3900D26244 /* SmartCloudError.swift */; };
+		AA5723F822157CEF00D26244 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5723F722157CEF00D26244 /* Weather.swift */; };
+		AA5723FA22157E3100D26244 /* IndoorAir.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5723F922157E3100D26244 /* IndoorAir.swift */; };
+		AA5724002215A72000D26244 /* UICollectionViewFlexLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5723FF2215A72000D26244 /* UICollectionViewFlexLayout.swift */; };
+		AA5724022215A95900D26244 /* UICollectionViewDelegateFlexLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5724012215A95900D26244 /* UICollectionViewDelegateFlexLayout.swift */; };
+		AA5724062215C43900D26244 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5724052215C43900D26244 /* WeatherView.swift */; };
+		AA5724082215CF1400D26244 /* WeatherView.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA5724072215CF1400D26244 /* WeatherView.xml */; };
+		AA57240A2215D70F00D26244 /* IndoorAirView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5724092215D70F00D26244 /* IndoorAirView.swift */; };
+		AA57240C2215D74000D26244 /* IndoorAirView.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA57240B2215D74000D26244 /* IndoorAirView.xml */; };
 		AA6839D8216DE04F00E4097B /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6839D7216DE04F00E4097B /* UIColor+Theme.swift */; };
 		AA6839DA216DE1EA00E4097B /* AppIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6839D9216DE1EA00E4097B /* AppIcons.swift */; };
 		AA6839DC216E08EC00E4097B /* AppAttributedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6839DB216E08EC00E4097B /* AppAttributedStrings.swift */; };
@@ -261,14 +273,12 @@
 		AAF96189220717F000E17A65 /* SJSegmentedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF96188220717F000E17A65 /* SJSegmentedViewController.swift */; };
 		AAF9618B2207183400E17A65 /* SJShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF9618A2207183400E17A65 /* SJShadow.swift */; };
 		AAF9618D2207185C00E17A65 /* SJUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF9618C2207185C00E17A65 /* SJUtil.swift */; };
-		AAF9618F220739AA00E17A65 /* WeatherView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF9618E220739AA00E17A65 /* WeatherView.swift */; };
 		AAF961A6220D977D00E17A65 /* DeviceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF961A5220D977D00E17A65 /* DeviceCell.swift */; };
 		AAF961A8220D97C600E17A65 /* DeviceTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF961A7220D97C600E17A65 /* DeviceTableView.swift */; };
 		AAF961AE220DAF7100E17A65 /* SceneTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF961AD220DAF7100E17A65 /* SceneTableView.swift */; };
 		AAF961B0220ED72100E17A65 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF961AF220ED72000E17A65 /* UITableView+.swift */; };
 		AAF961B2220EEC0900E17A65 /* HouseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF961B1220EEC0900E17A65 /* HouseTableViewController.swift */; };
 		AAF961B4220EEC3100E17A65 /* HouseTableViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AAF961B3220EEC3100E17A65 /* HouseTableViewController.xml */; };
-		AAFA6622217D8032000217C9 /* MultipleSectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAFA6621217D8031000217C9 /* MultipleSectionModel.swift */; };
 		E4D12B1BC40D7E0189CD5627 /* Pods_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 76544CF2F05B8A278880AA92 /* Pods_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -390,14 +400,11 @@
 		AA3E0E7D2170540F00958937 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		AA3E0E7F2170543D00958937 /* ProductCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategory.swift; sourceTree = "<group>"; };
 		AA3E0E812170589F00958937 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
-		AA3E0E8521705B4C00958937 /* ScriptTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptTask.swift; sourceTree = "<group>"; };
-		AA3E0E8721707DD400958937 /* ScriptTrigger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScriptTrigger.swift; sourceTree = "<group>"; };
 		AA3E0E892170841700958937 /* HomeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInfo.swift; sourceTree = "<group>"; };
 		AA3E0E9A2171176300958937 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		AA3E0EA42172328100958937 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
 		AA3E0EBA21737D0600958937 /* LayoutExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutExtensions.swift; sourceTree = "<group>"; };
 		AA3E905021F41D0200985675 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		AA420585217AD80C0068ABC0 /* ModelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelType.swift; sourceTree = "<group>"; };
 		AA420587217B66210068ABC0 /* UIView+Blur.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Blur.swift"; sourceTree = "<group>"; };
 		AA42058D217B8C680068ABC0 /* ChannelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelView.swift; sourceTree = "<group>"; };
 		AA420595217C0C2E0068ABC0 /* IconLabelButton.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = IconLabelButton.xml; sourceTree = "<group>"; };
@@ -423,10 +430,8 @@
 		AA4B49152178800A00A60C11 /* Reactive+FSPagerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+FSPagerView.swift"; sourceTree = "<group>"; };
 		AA4B49172178883E00A60C11 /* Reactive+UICollectionViewFlexLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reactive+UICollectionViewFlexLayout.swift"; sourceTree = "<group>"; };
 		AA4B49182178883E00A60C11 /* Then.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Then.swift; sourceTree = "<group>"; };
-		AA4B49192178883E00A60C11 /* UICollectionViewDelegateFlexLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewDelegateFlexLayout.swift; sourceTree = "<group>"; };
 		AA4B491A2178883E00A60C11 /* Reactive+UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reactive+UIViewController.swift"; sourceTree = "<group>"; };
 		AA4B491B2178883E00A60C11 /* SwiftyColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyColor.swift; sourceTree = "<group>"; };
-		AA4B491D2178883F00A60C11 /* UICollectionViewFlexLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionViewFlexLayout.swift; sourceTree = "<group>"; };
 		AA4B492F2178EB2500A60C11 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
 		AA4B49362179A1DC00A60C11 /* ChannelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
 		AA4B493B2179BBD900A60C11 /* Permission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
@@ -439,6 +444,23 @@
 		AA54DF422188424000CE0CA0 /* AnimationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationExtensions.swift; sourceTree = "<group>"; };
 		AA54DF4721892C9F00CE0CA0 /* Reactor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactor+.swift"; sourceTree = "<group>"; };
 		AA5723E3221544DC00D26244 /* Dictionary+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+.swift"; sourceTree = "<group>"; };
+		AA5723E522155D2900D26244 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
+		AA5723E722155D7000D26244 /* Channel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		AA5723E922155DAB00D26244 /* SmartUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartUser.swift; sourceTree = "<group>"; };
+		AA5723EB22155DD900D26244 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
+		AA5723ED22155E0600D26244 /* SplashAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAd.swift; sourceTree = "<group>"; };
+		AA5723EF22155E9C00D26244 /* EmptyResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResult.swift; sourceTree = "<group>"; };
+		AA5723F122155ED500D26244 /* SCV2Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCV2Snapshot.swift; sourceTree = "<group>"; };
+		AA5723F322155F0300D26244 /* SCStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCStream.swift; sourceTree = "<group>"; };
+		AA5723F522155F3900D26244 /* SmartCloudError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartCloudError.swift; sourceTree = "<group>"; };
+		AA5723F722157CEF00D26244 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		AA5723F922157E3100D26244 /* IndoorAir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndoorAir.swift; sourceTree = "<group>"; };
+		AA5723FF2215A72000D26244 /* UICollectionViewFlexLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewFlexLayout.swift; sourceTree = "<group>"; };
+		AA5724012215A95900D26244 /* UICollectionViewDelegateFlexLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewDelegateFlexLayout.swift; sourceTree = "<group>"; };
+		AA5724052215C43900D26244 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
+		AA5724072215CF1400D26244 /* WeatherView.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WeatherView.xml; sourceTree = "<group>"; };
+		AA5724092215D70F00D26244 /* IndoorAirView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndoorAirView.swift; sourceTree = "<group>"; };
+		AA57240B2215D74000D26244 /* IndoorAirView.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = IndoorAirView.xml; sourceTree = "<group>"; };
 		AA6839D7216DE04F00E4097B /* UIColor+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Theme.swift"; sourceTree = "<group>"; };
 		AA6839D9216DE1EA00E4097B /* AppIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcons.swift; sourceTree = "<group>"; };
 		AA6839DB216E08EC00E4097B /* AppAttributedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAttributedStrings.swift; sourceTree = "<group>"; };
@@ -585,14 +607,12 @@
 		AAF96188220717F000E17A65 /* SJSegmentedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJSegmentedViewController.swift; sourceTree = "<group>"; };
 		AAF9618A2207183400E17A65 /* SJShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJShadow.swift; sourceTree = "<group>"; };
 		AAF9618C2207185C00E17A65 /* SJUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SJUtil.swift; sourceTree = "<group>"; };
-		AAF9618E220739AA00E17A65 /* WeatherView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherView.swift; sourceTree = "<group>"; };
 		AAF961A5220D977D00E17A65 /* DeviceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceCell.swift; sourceTree = "<group>"; };
 		AAF961A7220D97C600E17A65 /* DeviceTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTableView.swift; sourceTree = "<group>"; };
 		AAF961AD220DAF7100E17A65 /* SceneTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTableView.swift; sourceTree = "<group>"; };
 		AAF961AF220ED72000E17A65 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		AAF961B1220EEC0900E17A65 /* HouseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTableViewController.swift; sourceTree = "<group>"; };
 		AAF961B3220EEC3100E17A65 /* HouseTableViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HouseTableViewController.xml; sourceTree = "<group>"; };
-		AAFA6621217D8031000217C9 /* MultipleSectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultipleSectionModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -752,8 +772,10 @@
 			isa = PBXGroup;
 			children = (
 				AA693DB62160EEB70063D749 /* HomeViewController.swift */,
+				AA4B48ED2175CA4D00A60C11 /* HomeViewControllerReactor.swift */,
 				AAF961B1220EEC0900E17A65 /* HouseTableViewController.swift */,
 				AAF961B3220EEC3100E17A65 /* HouseTableViewController.xml */,
+				AA3CA5F22204610500551C87 /* HouseTableViewControllerReactor.swift */,
 				AA4B9B36219F223A00E194CE /* SideBarViewController.swift */,
 				AA4B9B38219F225100E194CE /* SideBarViewController.xml */,
 			);
@@ -772,14 +794,19 @@
 			children = (
 				AAC5EB6F215E7BB7008EBA1F /* AuthViewController.swift */,
 				AAC5EBA0215E7F10008EBA1F /* AuthViewController.xml */,
+				AA4B48F521772EE800A60C11 /* AuthViewControllerReactor.swift */,
 				AA86626A2211BB6D0065568A /* BindJdAccountViewController.swift */,
 				AA86626C2211BF3D0065568A /* BindJdAccountViewController.xml */,
+				AAA6E6BC2213EBE40032A489 /* BindJdAccountViewControllerReactor.swift */,
 				AAA6E6A62213195E0032A489 /* SetPasswordViewController.swift */,
 				AAA6E6A82213197A0032A489 /* SetPasswordViewController.xml */,
+				AAA6E6A4221317EF0032A489 /* SetPasswordViewControllerReactor.swift */,
 				AA866270221266A00065568A /* SignUpViewController.swift */,
 				AA866272221267110065568A /* SignUpViewController.xml */,
+				AA86627422128B9D0065568A /* SignUpViewControllerReactor.swift */,
 				AAAD777B2212E13C00EDBF09 /* VerifySmsViewController.swift */,
 				AAAD777D2212E2D000EDBF09 /* VerifySmsViewController.xml */,
+				AAAD777F2212E65700EDBF09 /* VerifySmsViewControllerReactor.swift */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -816,15 +843,6 @@
 			path = RxPullToRefresh;
 			sourceTree = "<group>";
 		};
-		AA3E0E8D2170891800958937 /* ViewModels */ = {
-			isa = PBXGroup;
-			children = (
-				AA420585217AD80C0068ABC0 /* ModelType.swift */,
-				AAFA6621217D8031000217C9 /* MultipleSectionModel.swift */,
-			);
-			path = ViewModels;
-			sourceTree = "<group>";
-		};
 		AA433F0E218C511F00BA60A1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -852,9 +870,7 @@
 				AA4B491B2178883E00A60C11 /* SwiftyColor.swift */,
 				AA01F4A62199511500CE6457 /* UIApplication+.swift */,
 				AAF5CA4821821F3B006DE332 /* UIApplication+StatusBar.swift */,
-				AA4B49192178883E00A60C11 /* UICollectionViewDelegateFlexLayout.swift */,
 				AA99E9B1219B2F3300FD1C6F /* UIColor+.swift */,
-				AA4B491D2178883F00A60C11 /* UICollectionViewFlexLayout.swift */,
 				AAC5EB9D215E7EB4008EBA1F /* UIColor+Hex.swift */,
 				AA30C0672167AA3600B9E0EB /* UINavigationController+Bar.swift */,
 				AA99E9B3219B2F6200FD1C6F /* UIScrollView+.swift */,
@@ -895,15 +911,34 @@
 			path = IDEConfig;
 			sourceTree = "<group>";
 		};
-		AA4B48EC2175CA1B00A60C11 /* Reactors */ = {
+		AA5723FB2215918C00D26244 /* Tour */ = {
 			isa = PBXGroup;
 			children = (
-				AAA6E6BE2213EDED0032A489 /* Auth */,
-				AAA6E6BF2213EE1E0032A489 /* Home */,
-				AA3AB88D21841ABA00470276 /* SplashViewControllerReactor.swift */,
+				AAE49EF52169D2FB004BDBD7 /* TourViewController.swift */,
+				AAE49EF72169D315004BDBD7 /* TourViewController.xml */,
+				AA91EDD121A7B73F00C07A4E /* TourPageTemplate.xml */,
 				AA3AB88F2184828800470276 /* TourViewControllerReactor.swift */,
 			);
-			path = Reactors;
+			path = Tour;
+			sourceTree = "<group>";
+		};
+		AA5723FC221591BD00D26244 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				AA30C05A2167533E00B9E0EB /* SplashViewController.swift */,
+				AA30C0602167561E00B9E0EB /* SplashViewController.xml */,
+				AA3AB88D21841ABA00470276 /* SplashViewControllerReactor.swift */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		AA5723FE2215A70B00D26244 /* UICollectionViewFlexLayout */ = {
+			isa = PBXGroup;
+			children = (
+				AA5723FF2215A72000D26244 /* UICollectionViewFlexLayout.swift */,
+				AA5724012215A95900D26244 /* UICollectionViewDelegateFlexLayout.swift */,
+			);
+			path = UICollectionViewFlexLayout;
 			sourceTree = "<group>";
 		};
 		AA6839D4216DB8B000E4097B /* Views */ = {
@@ -922,13 +957,16 @@
 				AA4205A5217C9B5F0068ABC0 /* HeaderView.swift */,
 				AA3AB8952184C65600470276 /* HomeTitleView.swift */,
 				AA897872218590E4005A61CA /* HomeTitleView.xml */,
+				AA5724092215D70F00D26244 /* IndoorAirView.swift */,
+				AA57240B2215D74000D26244 /* IndoorAirView.xml */,
 				AA420595217C0C2E0068ABC0 /* IconLabelButton.xml */,
 				AAA6E6B42213B7B00032A489 /* PasswordField.swift */,
 				AAF961AD220DAF7100E17A65 /* SceneTableView.swift */,
 				AA1A5EC2220FD54D0084473E /* SectionHeaderView.swift */,
 				AA89786E21858891005A61CA /* TabButton.swift */,
 				AA897870218588A2005A61CA /* TabButton.xml */,
-				AAF9618E220739AA00E17A65 /* WeatherView.swift */,
+				AA5724052215C43900D26244 /* WeatherView.swift */,
+				AA5724072215CF1400D26244 /* WeatherView.xml */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -972,27 +1010,7 @@
 			children = (
 				AA9AB58921FF23F80052B3FF /* HomeService.swift */,
 				AA1A5EBF220FC73F0084473E /* MenuService.swift */,
-			);
-			path = Home;
-			sourceTree = "<group>";
-		};
-		AAA6E6BE2213EDED0032A489 /* Auth */ = {
-			isa = PBXGroup;
-			children = (
-				AA4B48F521772EE800A60C11 /* AuthViewControllerReactor.swift */,
-				AAA6E6BC2213EBE40032A489 /* BindJdAccountViewControllerReactor.swift */,
-				AAA6E6A4221317EF0032A489 /* SetPasswordViewControllerReactor.swift */,
-				AA86627422128B9D0065568A /* SignUpViewControllerReactor.swift */,
-				AAAD777F2212E65700EDBF09 /* VerifySmsViewControllerReactor.swift */,
-			);
-			path = Auth;
-			sourceTree = "<group>";
-		};
-		AAA6E6BF2213EE1E0032A489 /* Home */ = {
-			isa = PBXGroup;
-			children = (
-				AA4B48ED2175CA4D00A60C11 /* HomeViewControllerReactor.swift */,
-				AA3CA5F22204610500551C87 /* HouseTableViewControllerReactor.swift */,
+				AA5723E522155D2900D26244 /* WeatherService.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1055,14 +1073,12 @@
 				AA433F0E218C511F00BA60A1 /* Extensions */,
 				AAD7E0B921F1A6CB000D8D6A /* Integration */,
 				AAC5EB96215E7E2E008EBA1F /* Navigator */,
-				AA4B48EC2175CA1B00A60C11 /* Reactors */,
 				AAC5EB99215E7E71008EBA1F /* Services */,
 				AA30C06221679A3000B9E0EB /* Shortcuts */,
 				AAA920B72198280600EFC581 /* SupportFiles */,
 				AAC5EB9C215E7EA4008EBA1F /* Utils */,
 				AA6839D4216DB8B000E4097B /* Views */,
 				AAC5EB9F215E7ED8008EBA1F /* ViewControllers */,
-				AA3E0E8D2170891800958937 /* ViewModels */,
 				AAC5EB6D215E7BB7008EBA1F /* AppDelegate.swift */,
 				AAC5EB79215E7BB9008EBA1F /* Info.plist */,
 				AAC5EBAB215F6A9E008EBA1F /* Example-Bridging-Header.h */,
@@ -1103,20 +1119,28 @@
 				AAE49EF9216A2783004BDBD7 /* AppData.swift */,
 				AA4B48F121761F7400A60C11 /* AuthError.swift */,
 				AA683A08216F434C00E4097B /* Banner.swift */,
+				AA5723E722155D7000D26244 /* Channel.swift */,
 				AA3E0E7B217053BD00958937 /* Deivce.swift */,
+				AA5723EF22155E9C00D26244 /* EmptyResult.swift */,
 				AA3E0E892170841700958937 /* HomeInfo.swift */,
 				AA3E0E7921704E6F00958937 /* House.swift */,
+				AA5723F922157E3100D26244 /* IndoorAir.swift */,
 				AA42D7D621F36BCB00320BD3 /* LeanCloudCollection.swift */,
 				AA4B9AFA219C6BAC00E194CE /* MenuItem.swift */,
 				AA3E0E7D2170540F00958937 /* Product.swift */,
 				AA3E0E7F2170543D00958937 /* ProductCategory.swift */,
 				AA19DC8121F60A9700B70EFE /* TokenInfo.swift */,
 				AA3E0E812170589F00958937 /* Scene.swift */,
-				AA3E0E8521705B4C00958937 /* ScriptTask.swift */,
-				AA3E0E8721707DD400958937 /* ScriptTrigger.swift */,
+				AA5723F122155ED500D26244 /* SCV2Snapshot.swift */,
+				AA5723F322155F0300D26244 /* SCStream.swift */,
+				AA5723F522155F3900D26244 /* SmartCloudError.swift */,
 				AAA6E6C3221447AD0032A489 /* SmartCloudResult.swift */,
 				AA19DC7F21F606D600B70EFE /* SmartHomeResult.swift */,
+				AA5723E922155DAB00D26244 /* SmartUser.swift */,
+				AA5723ED22155E0600D26244 /* SplashAd.swift */,
 				AAC5EB92215E7DE8008EBA1F /* User.swift */,
+				AA5723EB22155DD900D26244 /* Version.swift */,
+				AA5723F722157CEF00D26244 /* Weather.swift */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -1166,6 +1190,8 @@
 			children = (
 				AA28BB3D2211794E00FCB93A /* Auth */,
 				AA1A5EC1220FD4AC0084473E /* Home */,
+				AA5723FC221591BD00D26244 /* Splash */,
+				AA5723FB2215918C00D26244 /* Tour */,
 				AA4B48F9217768CE00A60C11 /* BaseViewController.swift */,
 				AAC5EBA4215F5849008EBA1F /* HomeTabViewController.swift */,
 				AAC5EBA6215F5860008EBA1F /* HomeTabViewController.xml */,
@@ -1176,11 +1202,6 @@
 				AAE49F01216BA2EE004BDBD7 /* RegisterViewController.swift */,
 				AA30C05E2167555C00B9E0EB /* RootViewController.swift */,
 				AA693DC02161F6460063D749 /* SettingViewController.swift */,
-				AA30C05A2167533E00B9E0EB /* SplashViewController.swift */,
-				AA30C0602167561E00B9E0EB /* SplashViewController.xml */,
-				AAE49EF52169D2FB004BDBD7 /* TourViewController.swift */,
-				AAE49EF72169D315004BDBD7 /* TourViewController.xml */,
-				AA91EDD121A7B73F00C07A4E /* TourPageTemplate.xml */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1188,6 +1209,7 @@
 		AAD7E0B921F1A6CB000D8D6A /* Integration */ = {
 			isa = PBXGroup;
 			children = (
+				AA5723FE2215A70B00D26244 /* UICollectionViewFlexLayout */,
 				AAF9617F2207169100E17A65 /* SJSegmentedViewController */,
 				AA3CA5B62202BDD900551C87 /* RxPullToRefresh */,
 				AAD7E0FF21F1ED3D000D8D6A /* RxHttpClient */,
@@ -1404,6 +1426,7 @@
 				AA897871218588A2005A61CA /* TabButton.xml in Resources */,
 				AA19DC7721F573AA00B70EFE /* README.txt in Resources */,
 				AAD7E0FB21F1C383000D8D6A /* cert_en.pem in Resources */,
+				AA5724082215CF1400D26244 /* WeatherView.xml in Resources */,
 				AAA6E6B1221329C90032A489 /* CaptchaView.xml in Resources */,
 				AA86626D2211BF3D0065568A /* BindJdAccountViewController.xml in Resources */,
 				AAC5EB78215E7BB9008EBA1F /* LaunchScreen.storyboard in Resources */,
@@ -1416,6 +1439,7 @@
 				AAC5EB75215E7BB9008EBA1F /* Assets.xcassets in Resources */,
 				AA4B9B39219F225100E194CE /* SideBarViewController.xml in Resources */,
 				AA693DBF2161F6330063D749 /* MeViewController.xml in Resources */,
+				AA57240C2215D74000D26244 /* IndoorAirView.xml in Resources */,
 				AA78BB5E218F331B000B4CD8 /* MeHeaderCell.xml in Resources */,
 				AAA6E6A92213197A0032A489 /* SetPasswordViewController.xml in Resources */,
 				AAF961B4220EEC3100E17A65 /* HouseTableViewController.xml in Resources */,
@@ -1636,10 +1660,12 @@
 				AA42D7D521F35C8400320BD3 /* Date+.swift in Sources */,
 				AA3E0EA52172328100958937 /* UIStackView+.swift in Sources */,
 				AA96B29321FDF6990093A2E0 /* UITextField+.swift in Sources */,
+				AA5723F422155F0300D26244 /* SCStream.swift in Sources */,
 				AA30C05B2167533E00B9E0EB /* SplashViewController.swift in Sources */,
 				AA3AB88E21841ABA00470276 /* SplashViewControllerReactor.swift in Sources */,
 				AA693DC12161F6460063D749 /* SettingViewController.swift in Sources */,
 				AAD7E17621F1F42D000D8D6A /* RequestPluginType.swift in Sources */,
+				AA5724002215A72000D26244 /* UICollectionViewFlexLayout.swift in Sources */,
 				AA6839DA216DE1EA00E4097B /* AppIcons.swift in Sources */,
 				AAF961A8220D97C600E17A65 /* DeviceTableView.swift in Sources */,
 				AA86626B2211BB6D0065568A /* BindJdAccountViewController.swift in Sources */,
@@ -1656,11 +1682,13 @@
 				AA4B49162178800A00A60C11 /* Reactive+FSPagerView.swift in Sources */,
 				AA3CA5D42202BE0600551C87 /* Extensions.swift in Sources */,
 				AAF961812207174100E17A65 /* SJContentView.swift in Sources */,
+				AA5723F222155ED500D26244 /* SCV2Snapshot.swift in Sources */,
 				AAD7E17321F1F42D000D8D6A /* UrlRequestCacheProviderType.swift in Sources */,
 				AA1A5EC5221145E20084473E /* PushRegIdService.swift in Sources */,
 				AA4B48F621772EE800A60C11 /* AuthViewControllerReactor.swift in Sources */,
 				AA3CA5C82202BE0600551C87 /* DefaultRefreshView.swift in Sources */,
 				AA78BB54218EB31C000B4CD8 /* ShortcutParser.swift in Sources */,
+				AA5723E622155D2900D26244 /* WeatherService.swift in Sources */,
 				AA19DC7321F573AA00B70EFE /* WXApiRequestHandler.m in Sources */,
 				AA3CA5C92202BE0600551C87 /* UIScrollView+Rx.swift in Sources */,
 				AA866271221266A00065568A /* SignUpViewController.swift in Sources */,
@@ -1669,6 +1697,7 @@
 				AA4B9B37219F223A00E194CE /* SideBarViewController.swift in Sources */,
 				AAF961A6220D977D00E17A65 /* DeviceCell.swift in Sources */,
 				AAD7E17B21F1F42D000D8D6A /* HttpExtensions.swift in Sources */,
+				AA57240A2215D70F00D26244 /* IndoorAirView.swift in Sources */,
 				AA3CA5F5220462DF00551C87 /* MyHouseService.swift in Sources */,
 				AA0AF3C321AC365F003C1FF2 /* TopTabController.swift in Sources */,
 				AA3E0E7C217053BD00958937 /* Deivce.swift in Sources */,
@@ -1678,7 +1707,7 @@
 				AA99E9B2219B2F3300FD1C6F /* UIColor+.swift in Sources */,
 				AA9B94C121ECC778000AE906 /* QiNiu.swift in Sources */,
 				AAD7E17C21F1F42D000D8D6A /* HttpClientType.swift in Sources */,
-				AA3E0E8621705B4C00958937 /* ScriptTask.swift in Sources */,
+				AA5723EC22155DD900D26244 /* Version.swift in Sources */,
 				AAAD777A2212D92700EDBF09 /* VerifyCapchaService.swift in Sources */,
 				AAC5EB9E215E7EB4008EBA1F /* UIColor+Hex.swift in Sources */,
 				AA78BB5A218F04F2000B4CD8 /* MeViewController.swift in Sources */,
@@ -1687,8 +1716,8 @@
 				AA433F09218C4AB300BA60A1 /* Global.swift in Sources */,
 				AA3CA5D12202BE0600551C87 /* RxPullToRefresh+Rx.swift in Sources */,
 				AA3CA5CD2202BE0600551C87 /* Helpers.swift in Sources */,
+				AA5723EE22155E0600D26244 /* SplashAd.swift in Sources */,
 				AA3E0E822170589F00958937 /* Scene.swift in Sources */,
-				AA4B49202178883F00A60C11 /* UICollectionViewDelegateFlexLayout.swift in Sources */,
 				AA4B49222178883F00A60C11 /* SwiftyColor.swift in Sources */,
 				AA3CA5CA2202BE0600551C87 /* Debug.swift in Sources */,
 				AAA6E6C4221447AD0032A489 /* SmartCloudResult.swift in Sources */,
@@ -1698,7 +1727,9 @@
 				AAD7E17821F1F42D000D8D6A /* HttpClient.swift in Sources */,
 				AA3AB8962184C65600470276 /* HomeTitleView.swift in Sources */,
 				AA4B48EE2175CA4D00A60C11 /* HomeViewControllerReactor.swift in Sources */,
+				AA5724022215A95900D26244 /* UICollectionViewDelegateFlexLayout.swift in Sources */,
 				AA0ACFD321ECB8AC00CE6D1D /* AppDelegate+LeChange.swift in Sources */,
+				AA5723F022155E9C00D26244 /* EmptyResult.swift in Sources */,
 				AA3CA5CB2202BE0600551C87 /* Enums.swift in Sources */,
 				AAC5EB93215E7DE8008EBA1F /* User.swift in Sources */,
 				AA89786721856D88005A61CA /* ImageEffects+Accelerate.swift in Sources */,
@@ -1725,17 +1756,16 @@
 				AA4B49212178883F00A60C11 /* Reactive+UIViewController.swift in Sources */,
 				AA19DC7C21F57BF000B70EFE /* AppDelegate+MonkeyKing.swift in Sources */,
 				AA4B48F02175E4D000A60C11 /* APIError.swift in Sources */,
-				AAF9618F220739AA00E17A65 /* WeatherView.swift in Sources */,
 				AAA6E6A3221315B40032A489 /* SetPasswordService.swift in Sources */,
 				AA3E905121F41D0200985675 /* Constants.swift in Sources */,
 				AAF961AE220DAF7100E17A65 /* SceneTableView.swift in Sources */,
+				AA5723E822155D7000D26244 /* Channel.swift in Sources */,
 				AAF9617A220674FA00E17A65 /* BaseCollectionCell.swift in Sources */,
 				AA0ACFD121ECB49E00CE6D1D /* AppDelegate+SmartCloud.swift in Sources */,
 				AAD7E17221F1F42D000D8D6A /* HttpClientError.swift in Sources */,
 				AA19DC9621FC77FA00B70EFE /* ObservableType+MonitorLoading.swift in Sources */,
 				AAA6E6A12213062A0032A489 /* SendSmsService.swift in Sources */,
 				AA86627522128B9D0065568A /* SignUpViewControllerReactor.swift in Sources */,
-				AA420586217AD80C0068ABC0 /* ModelType.swift in Sources */,
 				AA3CA5D72202BE0600551C87 /* Animator.swift in Sources */,
 				AA3CA5D22202BE0600551C87 /* RxPullToRefreshView+Rx.swift in Sources */,
 				AAF9618D2207185C00E17A65 /* SJUtil.swift in Sources */,
@@ -1748,7 +1778,6 @@
 				AA3E0EBB21737D0600958937 /* LayoutExtensions.swift in Sources */,
 				AA19DC8D21FB60D600B70EFE /* LoginService.swift in Sources */,
 				AA6839D8216DE04F00E4097B /* UIColor+Theme.swift in Sources */,
-				AA3E0E8821707DD400958937 /* ScriptTrigger.swift in Sources */,
 				AAD7E17D21F1F42D000D8D6A /* DataCacheProviderType.swift in Sources */,
 				AA54DF432188424000CE0CA0 /* AnimationExtensions.swift in Sources */,
 				AA19DC9C21FD46FE00B70EFE /* UIViewController+.swift in Sources */,
@@ -1758,8 +1787,8 @@
 				AAD7E0F721F1AEB1000D8D6A /* SCMQRCodeUnlockController.m in Sources */,
 				AAC5EBA3215E808D008EBA1F /* OAuth2Service.swift in Sources */,
 				AA3AB8902184828800470276 /* TourViewControllerReactor.swift in Sources */,
+				AA5723FA22157E3100D26244 /* IndoorAir.swift in Sources */,
 				AAAD77802212E65700EDBF09 /* VerifySmsViewControllerReactor.swift in Sources */,
-				AA4B49242178883F00A60C11 /* UICollectionViewFlexLayout.swift in Sources */,
 				AAAD77822212E6EB00EDBF09 /* VerifySmsService.swift in Sources */,
 				AA82251321AE49BA00FDDC8F /* ScrollingStackController.swift in Sources */,
 				AA78BB48218D6D27000B4CD8 /* Reactive+NotificationCenter.swift in Sources */,
@@ -1797,6 +1826,7 @@
 				AAA6E6C22213EF9E0032A489 /* SocialService.swift in Sources */,
 				AAF961832207176100E17A65 /* SJSegmentTab.swift in Sources */,
 				AA1A5EC3220FD54D0084473E /* SectionHeaderView.swift in Sources */,
+				AA5723F622155F3900D26244 /* SmartCloudError.swift in Sources */,
 				AA693DB72160EEB70063D749 /* HomeViewController.swift in Sources */,
 				AA3E0E8A2170841700958937 /* HomeInfo.swift in Sources */,
 				AA19DC7521F573AA00B70EFE /* WXMediaMessage+messageConstruct.m in Sources */,
@@ -1810,7 +1840,6 @@
 				AA3CA5CC2202BE0600551C87 /* RxPullToRefresh+Core.swift in Sources */,
 				AAAD777C2212E13C00EDBF09 /* VerifySmsViewController.swift in Sources */,
 				AA9B94BD21ECBEAD000AE906 /* IndoorPhoneService.swift in Sources */,
-				AAFA6622217D8032000217C9 /* MultipleSectionModel.swift in Sources */,
 				AA19DC7421F573AA00B70EFE /* SendMessageToWXReq+requestWithTextOrMediaMessage.m in Sources */,
 				AAA6E6C622145AA00032A489 /* Array+.swift in Sources */,
 				AA89786F21858891005A61CA /* TabButton.swift in Sources */,
@@ -1828,10 +1857,13 @@
 				AAF96187220717B600E17A65 /* SJSegmentedScrollView.swift in Sources */,
 				AA3CA5D32202BE0600551C87 /* UIScrollView+P2R.swift in Sources */,
 				AA6839DE216E0A0500E4097B /* LayoutFunctions.swift in Sources */,
+				AA5724062215C43900D26244 /* WeatherView.swift in Sources */,
 				AA19DC8221F60A9700B70EFE /* TokenInfo.swift in Sources */,
 				AAA6E6A5221317EF0032A489 /* SetPasswordViewControllerReactor.swift in Sources */,
 				AA42058E217B8C680068ABC0 /* ChannelView.swift in Sources */,
+				AA5723EA22155DAB00D26244 /* SmartUser.swift in Sources */,
 				AA99E9B4219B2F6200FD1C6F /* UIScrollView+.swift in Sources */,
+				AA5723F822157CEF00D26244 /* Weather.swift in Sources */,
 				AA8481CD21F2DC9100C24D3F /* LeanCloudBaseService.swift in Sources */,
 				AA42D7D721F36BCB00320BD3 /* LeanCloudCollection.swift in Sources */,
 				AAD7E0E821F1AEB1000D8D6A /* XSAlertView.m in Sources */,

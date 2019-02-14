@@ -91,14 +91,13 @@ class JdSmartCloudService {
                 success: { (res) in
                     let res = res as! [String: Any]
                     let result = Mapper<SmartCloudResult>().map(JSON: res)
-                    print(result)
                     guard result?.status == 0 else {
                         printError(result?.error)
                         observer.onError(SCError.JdSmartError(result?.error?.errorCode, result?.error?.errorInfo, result?.error?.debugMe))
                         return
                     }
                     let snapshot = Mapper<SCV2Snapshot>().map(JSONString: (result?.result)!)
-                    print(snapshot)
+                    print(snapshot?.toDictionary())
                     observer.onNext(snapshot)
                     observer.onCompleted()
                 },

@@ -6,4 +6,17 @@
 //  Copyright © 2019 twigcodes. All rights reserved.
 //
 
-import Foundation
+import ObjectMapper
+
+struct SCStream: Mappable {
+    var id: String?
+    var value: String?
+    init?(map: Map) {
+        
+    }
+    
+    mutating func mapping(map: Map) {
+        id <- map["stream_id"]
+        value <- map["current_value"]
+    }
+}

@@ -73,3 +73,5 @@
 "indicator.loading"="Loading...";
 "device.tab.title"="My Devices";
 "scene.tab.title"="My Scenes";
+"weather.temperature"="%i °C";
+"weather.temperature.name"="Temperature";
