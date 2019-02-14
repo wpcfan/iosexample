@@ -8,7 +8,7 @@
 
 import RxSwift
 import ReactorKit
-import Disk
+import ObjectMapper
 
 class HomeViewControllerReactor: Reactor {
     let homeService = container.resolve(HomeService.self)!
@@ -27,8 +27,8 @@ class HomeViewControllerReactor: Reactor {
         case loadFail(_ message: String)
         case loading(_ status: Bool)
         case setRegId(_ statue: Bool)
-        case loadIndoorEnvSuccess(_ result: SCV2Snapshot?)
-        case loadIndoorEnvFail(_ message: String)
+        case loadIndoorAirSuccess(_ result: IndoorAir?)
+        case loadIndoorAirFail(_ message: String)
     }
     
     struct State {
@@ -36,7 +36,7 @@ class HomeViewControllerReactor: Reactor {
         var loading: Bool = false
         var errorMessage: String = ""
         var regIdReported: Bool = false
-        var indoorEnvSnapShot: SCV2Snapshot? = nil
+        var indoorEnvSnapShot: IndoorAir? = nil
     }
     
     let initialState: State = State()
@@ -51,7 +51,7 @@ class HomeViewControllerReactor: Reactor {
                 .catchError{ error -> Observable<Mutation>  in
                     Observable.of(.loadFail(convertErrorToString(error: error)))
             }
-            let indoorEnvDevice$ = homeStream
+            let indoorAirDevice$ = homeStream
                 .map({ $0.devices?.filter({ (device: Device) -> Bool in
                     device.productId == self.INDOOR_ENV_PROD_ID
                 }) ?? []
@@ -60,24 +60,25 @@ class HomeViewControllerReactor: Reactor {
                     devices.count > 0
                 })
                 .map { (devices: [Device]) in String(devices[0].feedId!) }
-            let loadIndoorEnv$: Observable<Mutation> = indoorEnvDevice$
+            let loadIndoorAir$: Observable<Mutation> = indoorAirDevice$
                 .flatMap { id in
                     self.scService.deviceSnapshotV2(id: id)
                         .map { (result) -> Mutation in
-                            .loadIndoorEnvSuccess(result)
+                            .loadIndoorAirSuccess(Mapper<IndoorAir>().map(JSON: result!.toPlainDict()))
                         }
                         .catchError{ error -> Observable<Mutation>  in
-                            Observable.of(.loadIndoorEnvFail(convertErrorToString(error: error)))
+                            Observable.of(.loadIndoorAirFail(convertErrorToString(error: error)))
                     }
                 }
-            return Observable.merge([load$, loadIndoorEnv$])
+                .debug()
+            return Observable.merge([load$, loadIndoorAir$])
         case .reportPushRegId:
             return pushRegIdService.request()
-                .debug()
                 .map { _ -> Mutation in .setRegId(true) }
                 .catchError{ error -> Observable<Mutation>  in
                     Observable.of(.setRegId(false))
                 }
+                .debug()
         }
     }
     
@@ -107,12 +108,12 @@ class HomeViewControllerReactor: Reactor {
             var newState = state
             newState.regIdReported = status
             return newState
-        case .loadIndoorEnvSuccess(let snapshot):
+        case .loadIndoorAirSuccess(let snapshot):
             var newState = state
             newState.errorMessage = ""
             newState.indoorEnvSnapShot = snapshot
             return newState
-        case .loadIndoorEnvFail(let errorMessage):
+        case .loadIndoorAirFail(let errorMessage):
             var newState = state
             newState.indoorEnvSnapShot = nil
             newState.errorMessage = errorMessage
