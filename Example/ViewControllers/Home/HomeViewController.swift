@@ -32,7 +32,6 @@ class HomeViewController: BaseViewController {
     private var refreshHeaderTrigger = PublishSubject<Void>()
     private var leftDrawerTransition: DrawerTransition?
     private var sideBarVC: SideBarViewController?
-    private let INDOOR_ENV_PROD_ID = "J8X7KB"
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -226,26 +225,9 @@ extension HomeViewController: ReactorKit.StoryboardView {
             .bind(to: (self.headerView as! HeaderView).channels$)
             .disposed(by: self.disposeBag)
         
-        reactor.state
+        reactor.state   
             .map { $0.homeInfo?.devices ?? [] }
             .bind(to: self.deviceTab.devices$)
-            .disposed(by: self.disposeBag)
-        
-        reactor.loaded
-            .flatMap({ () -> Observable<Reactor.Action> in
-                reactor.state
-                    .take(1)
-                    .map { $0.homeInfo?.devices?
-                        .filter({ (device) -> Bool in
-                            device.productId == self.INDOOR_ENV_PROD_ID
-                        }) ?? []
-                    }
-                    .filter({ (devices) -> Bool in
-                        devices.count > 0
-                    })
-                    .map { devices in Reactor.Action.loadIndoorEnv(String(devices[0].feedId!))}
-            })
-            .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
         reactor.state

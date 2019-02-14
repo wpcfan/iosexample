@@ -15,11 +15,11 @@ class HomeViewControllerReactor: Reactor {
     let pushRegIdService = container.resolve(PushRegIdService.self)!
     let scService = container.resolve(JdSmartCloudService.self)!
     let loaded = PublishSubject<Void>()
+    private let INDOOR_ENV_PROD_ID = "J8X7KB"
     enum Action {
         case load
         case refresh
         case reportPushRegId
-        case loadIndoorEnv(_ id: String)
     }
     
     enum Mutation {
@@ -44,29 +44,39 @@ class HomeViewControllerReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .load, .refresh:
-            return self.homeService.handleHomeInfo(cached: false)
+            let homeStream = self.homeService.handleHomeInfo(cached: false).share()
+            let load$: Observable<Mutation> = homeStream
                 .debug()
                 .map { home -> Mutation in .loadSuccess(home) }
                 .catchError{ error -> Observable<Mutation>  in
                     Observable.of(.loadFail(convertErrorToString(error: error)))
-                }
-                .do(onCompleted: { () in
-                    self.loaded.onNext(())
+            }
+            let indoorEnvDevice$ = homeStream
+                .map({ $0.devices?.filter({ (device: Device) -> Bool in
+                    device.productId == self.INDOOR_ENV_PROD_ID
+                }) ?? []
                 })
+                .filter({ (devices) -> Bool in
+                    devices.count > 0
+                })
+                .map { (devices: [Device]) in String(devices[0].feedId!) }
+            let loadIndoorEnv$: Observable<Mutation> = indoorEnvDevice$
+                .flatMap { id in
+                    self.scService.deviceSnapshotV2(id: id)
+                        .map { (result) -> Mutation in
+                            .loadIndoorEnvSuccess(result)
+                        }
+                        .catchError{ error -> Observable<Mutation>  in
+                            Observable.of(.loadIndoorEnvFail(convertErrorToString(error: error)))
+                    }
+                }
+            return Observable.merge([load$, loadIndoorEnv$])
         case .reportPushRegId:
             return pushRegIdService.request()
                 .debug()
                 .map { _ -> Mutation in .setRegId(true) }
                 .catchError{ error -> Observable<Mutation>  in
                     Observable.of(.setRegId(false))
-                }
-        case let .loadIndoorEnv(id):
-            return scService.deviceSnapshotV2(id: id)
-                .map { (result) -> Mutation in
-                    .loadIndoorEnvSuccess(result)
-                }
-                .catchError{ error -> Observable<Mutation>  in
-                    Observable.of(.loadIndoorEnvFail(convertErrorToString(error: error)))
                 }
         }
     }

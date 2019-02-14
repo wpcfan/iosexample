@@ -135,6 +135,7 @@
 		AA4B9B39219F225100E194CE /* SideBarViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA4B9B38219F225100E194CE /* SideBarViewController.xml */; };
 		AA54DF432188424000CE0CA0 /* AnimationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA54DF422188424000CE0CA0 /* AnimationExtensions.swift */; };
 		AA54DF4821892C9F00CE0CA0 /* Reactor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA54DF4721892C9F00CE0CA0 /* Reactor+.swift */; };
+		AA5723E4221544DC00D26244 /* Dictionary+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5723E3221544DC00D26244 /* Dictionary+.swift */; };
 		AA6839D8216DE04F00E4097B /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6839D7216DE04F00E4097B /* UIColor+Theme.swift */; };
 		AA6839DA216DE1EA00E4097B /* AppIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6839D9216DE1EA00E4097B /* AppIcons.swift */; };
 		AA6839DC216E08EC00E4097B /* AppAttributedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6839DB216E08EC00E4097B /* AppAttributedStrings.swift */; };
@@ -437,6 +438,7 @@
 		AA4B9B38219F225100E194CE /* SideBarViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SideBarViewController.xml; sourceTree = "<group>"; };
 		AA54DF422188424000CE0CA0 /* AnimationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationExtensions.swift; sourceTree = "<group>"; };
 		AA54DF4721892C9F00CE0CA0 /* Reactor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactor+.swift"; sourceTree = "<group>"; };
+		AA5723E3221544DC00D26244 /* Dictionary+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+.swift"; sourceTree = "<group>"; };
 		AA6839D7216DE04F00E4097B /* UIColor+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Theme.swift"; sourceTree = "<group>"; };
 		AA6839D9216DE1EA00E4097B /* AppIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcons.swift; sourceTree = "<group>"; };
 		AA6839DB216E08EC00E4097B /* AppAttributedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAttributedStrings.swift; sourceTree = "<group>"; };
@@ -839,6 +841,7 @@
 				AAA6E6C522145AA00032A489 /* Array+.swift */,
 				AA19DCAC21FD819C00B70EFE /* Bundle+.swift */,
 				AA42D7D421F35C8400320BD3 /* Date+.swift */,
+				AA5723E3221544DC00D26244 /* Dictionary+.swift */,
 				AA89786621856D88005A61CA /* ImageEffects+Accelerate.swift */,
 				AA3E0EBA21737D0600958937 /* LayoutExtensions.swift */,
 				AA78BB45218D6814000B4CD8 /* NotificationCenter+.swift */,
@@ -1835,6 +1838,7 @@
 				AA38DCA5217EF41F0046D82D /* RxUtil.swift in Sources */,
 				AA9B94BB21ECBE82000AE906 /* JdSmartCloudService.swift in Sources */,
 				AAD7E17121F1F42D000D8D6A /* StreamDataTask.swift in Sources */,
+				AA5723E4221544DC00D26244 /* Dictionary+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

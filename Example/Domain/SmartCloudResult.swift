@@ -41,11 +41,6 @@ struct SCV2Snapshot: Mappable {
             stream.id!
         })
     }
-    
-    func toEnvironment() -> Environment? {
-        let dic = self.toDictionary()
-        return Environment(JSON: ["cname": "室内", "": ""])
-    }
 }
 
 struct SmartCloudError: Mappable {
@@ -66,8 +61,8 @@ struct SmartCloudError: Mappable {
     var debugMe: String?
 }
 
-struct SmartCloudResult<T: Mappable>: Mappable {
-    var result: T?
+struct SmartCloudResult: Mappable {
+    var result: String?
     var status: Int?
     var cookie: String?
     var error: SmartCloudError?
