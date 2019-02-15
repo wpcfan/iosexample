@@ -148,6 +148,9 @@
 		AA5724082215CF1400D26244 /* WeatherView.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA5724072215CF1400D26244 /* WeatherView.xml */; };
 		AA57240A2215D70F00D26244 /* IndoorAirView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5724092215D70F00D26244 /* IndoorAirView.swift */; };
 		AA57240C2215D74000D26244 /* IndoorAirView.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA57240B2215D74000D26244 /* IndoorAirView.xml */; };
+		AA57240E2216799A00D26244 /* WeatherViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA57240D2216799A00D26244 /* WeatherViewReactor.swift */; };
+		AA5724102216CA0900D26244 /* HeaderView.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA57240F2216CA0900D26244 /* HeaderView.xml */; };
+		AA5724122216CE4600D26244 /* ChannelView.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA5724112216CE4600D26244 /* ChannelView.xml */; };
 		AA6839D8216DE04F00E4097B /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6839D7216DE04F00E4097B /* UIColor+Theme.swift */; };
 		AA6839DA216DE1EA00E4097B /* AppIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6839D9216DE1EA00E4097B /* AppIcons.swift */; };
 		AA6839DC216E08EC00E4097B /* AppAttributedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6839DB216E08EC00E4097B /* AppAttributedStrings.swift */; };
@@ -461,6 +464,9 @@
 		AA5724072215CF1400D26244 /* WeatherView.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WeatherView.xml; sourceTree = "<group>"; };
 		AA5724092215D70F00D26244 /* IndoorAirView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndoorAirView.swift; sourceTree = "<group>"; };
 		AA57240B2215D74000D26244 /* IndoorAirView.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = IndoorAirView.xml; sourceTree = "<group>"; };
+		AA57240D2216799A00D26244 /* WeatherViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewReactor.swift; sourceTree = "<group>"; };
+		AA57240F2216CA0900D26244 /* HeaderView.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HeaderView.xml; sourceTree = "<group>"; };
+		AA5724112216CE4600D26244 /* ChannelView.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ChannelView.xml; sourceTree = "<group>"; };
 		AA6839D7216DE04F00E4097B /* UIColor+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Theme.swift"; sourceTree = "<group>"; };
 		AA6839D9216DE1EA00E4097B /* AppIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcons.swift; sourceTree = "<group>"; };
 		AA6839DB216E08EC00E4097B /* AppAttributedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAttributedStrings.swift; sourceTree = "<group>"; };
@@ -952,9 +958,11 @@
 				AAA6E6B0221329C90032A489 /* CaptchaView.xml */,
 				AA4B49362179A1DC00A60C11 /* ChannelCell.swift */,
 				AA42058D217B8C680068ABC0 /* ChannelView.swift */,
+				AA5724112216CE4600D26244 /* ChannelView.xml */,
 				AAF961A5220D977D00E17A65 /* DeviceCell.swift */,
 				AAF961A7220D97C600E17A65 /* DeviceTableView.swift */,
 				AA4205A5217C9B5F0068ABC0 /* HeaderView.swift */,
+				AA57240F2216CA0900D26244 /* HeaderView.xml */,
 				AA3AB8952184C65600470276 /* HomeTitleView.swift */,
 				AA897872218590E4005A61CA /* HomeTitleView.xml */,
 				AA5724092215D70F00D26244 /* IndoorAirView.swift */,
@@ -967,6 +975,7 @@
 				AA897870218588A2005A61CA /* TabButton.xml */,
 				AA5724052215C43900D26244 /* WeatherView.swift */,
 				AA5724072215CF1400D26244 /* WeatherView.xml */,
+				AA57240D2216799A00D26244 /* WeatherViewReactor.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1430,6 +1439,7 @@
 				AAA6E6B1221329C90032A489 /* CaptchaView.xml in Resources */,
 				AA86626D2211BF3D0065568A /* BindJdAccountViewController.xml in Resources */,
 				AAC5EB78215E7BB9008EBA1F /* LaunchScreen.storyboard in Resources */,
+				AA5724122216CE4600D26244 /* ChannelView.xml in Resources */,
 				AAE49F13216CCBCD004BDBD7 /* Localizable.strings in Resources */,
 				AA420596217C0C2E0068ABC0 /* IconLabelButton.xml in Resources */,
 				AA3E0E9B2171176300958937 /* data.json in Resources */,
@@ -1442,6 +1452,7 @@
 				AA57240C2215D74000D26244 /* IndoorAirView.xml in Resources */,
 				AA78BB5E218F331B000B4CD8 /* MeHeaderCell.xml in Resources */,
 				AAA6E6A92213197A0032A489 /* SetPasswordViewController.xml in Resources */,
+				AA5724102216CA0900D26244 /* HeaderView.xml in Resources */,
 				AAF961B4220EEC3100E17A65 /* HouseTableViewController.xml in Resources */,
 				AAE49EF82169D315004BDBD7 /* TourViewController.xml in Resources */,
 				AAC5EBA7215F5860008EBA1F /* HomeTabViewController.xml in Resources */,
@@ -1815,6 +1826,7 @@
 				AAA6E6A72213195E0032A489 /* SetPasswordViewController.swift in Sources */,
 				AA38DCA7217EF4D70046D82D /* Reactive+StatusBar.swift in Sources */,
 				AA42D7D321F306B700320BD3 /* BannerService.swift in Sources */,
+				AA57240E2216799A00D26244 /* WeatherViewReactor.swift in Sources */,
 				AA8978692185759F005A61CA /* Reactive+UIImageView.swift in Sources */,
 				AA19DC7621F573AA00B70EFE /* WXApiManager.m in Sources */,
 				AAD7E0F321F1AEB1000D8D6A /* SCMInterphoneManager.m in Sources */,

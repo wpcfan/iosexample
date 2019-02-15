@@ -9,45 +9,38 @@
 import ReactorKit
 import RxSwift
 import RxDataSources
+import Layout
 
-class ChannelView: UICollectionView {
+class ChannelView: BaseView {
     var tappedIndex = PublishSubject<Int>()
-    var channels$ = BehaviorSubject<[Channel]>(value: [])
-    var disposeBag = DisposeBag()
+    var channels$ = PublishSubject<[Channel]>()
+    @objc weak var collectionView: UICollectionView!
     
-    convenience init(frame: CGRect) {
-        let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 5, left: 10, bottom: 5, right: 0)
-        let itemWidth = (UIScreen.main.bounds.width - 5 * 10) / 5
-        layout.itemSize = CGSize(width: itemWidth, height: 69.0)
-        layout.minimumInteritemSpacing = 10
-        self.init(frame: frame, collectionViewLayout: layout)
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        self.loadLayout(named: "ChannelView.xml")
     }
     
-    override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
-        super.init(frame: frame, collectionViewLayout: layout)
-        
-        self.contentInset = UIEdgeInsets(top: 0, left: pin.safeArea.left, bottom: 0, right: pin.safeArea.right)
-        self.backgroundColor = .white
-        register(ChannelCell.self, forCellWithReuseIdentifier: "templateCell")
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutDidLoad(_: LayoutNode) {
         let dataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, Channel>>(configureCell: { (ds, cv, ip, item) -> UICollectionViewCell in
-            let cell = cv.dequeueReusableCell(withReuseIdentifier: "templateCell", for: ip) as! ChannelCell
-            cell.channel = item
-            return cell
+            let node = cv.dequeueReusableCellNode(withIdentifier: "templateCell", for: ip)
+            node.setState([
+                "imageUrl": item.imageUrl,
+                "title": item.title
+                ])
+            return node.view as! UICollectionViewCell
         })
         channels$
             .map{ channels in
                 [SectionModel(model: "Channels", items: channels)]
             }
-            .bind(to: (self.rx.items(dataSource: dataSource)))
+            .bind(to: (self.collectionView.rx.items(dataSource: dataSource)))
             .disposed(by: disposeBag)
-        self.rx.setDelegate(self)
-            .disposed(by: disposeBag)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
 }
 

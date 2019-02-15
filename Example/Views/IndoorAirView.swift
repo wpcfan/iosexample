@@ -7,15 +7,44 @@
 //
 
 import Layout
+import RxSwift
 
 class IndoorAirView: BaseView {
+    var indoorAir$ = PublishSubject<IndoorAir>()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.loadLayout(named: "IndoorAirView.xml")
+        self.loadLayout(
+            named: "IndoorAirView.xml",
+            state: [
+                "location": "indoor.location.name".localized,
+                "temperature": "",
+                "humidity": "",
+                "pm25": "",
+                "co2": "",
+                "tvoc": ""
+            ])
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func layoutDidLoad(_ layoutNode: LayoutNode) {
+        super.layoutDidLoad(layoutNode)
+        
+        indoorAir$.subscribe{ ev in
+            guard let indoor = ev.element else { return }
+            self.layoutNode?.setState([
+                "location": indoor.roomGroup ?? "indoor.location.name".localized,
+                "temperature": indoor.temperature != nil ? indoor.temperature!.trunc(length: 4, trailing: "") : "",
+                "humidity": indoor.humidity ?? "",
+                "pm25": indoor.pm25 ?? "",
+                "co2": indoor.co2 ?? "",
+                "tvoc": indoor.tvoc ?? ""
+                ])
+        }
+        .disposed(by: self.disposeBag)
     }
 }

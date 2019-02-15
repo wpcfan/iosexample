@@ -17,6 +17,8 @@ struct Weather: Mappable {
     var windForce: String?
     var phenomena: String?
     var airQualityIndicator: String?
+    var precipitation: String?
+    var publishTime: String?
     init?(map: Map) {
         
     }
@@ -30,5 +32,7 @@ struct Weather: Mappable {
         windForce <- map["w_force"]
         phenomena <- map["w_phenomena"]
         airQualityIndicator <- map["aqi"]
+        precipitation <- map["w_precipitation"]
+        publishTime <- map["publish_time"]
     }
 }

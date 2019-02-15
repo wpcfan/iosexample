@@ -1,0 +1,32 @@
+<UIView>
+    <BannerView
+        height="135"
+        left="parent.left"
+        outlet="bannerView"
+        top="parent.top"
+        width="100%"
+    />
+    <ChannelView
+        height="75"
+        left="previous.left"
+        outlet="channelView"
+        top="previous.bottom + 5"
+        width="100%"
+    />
+    <WeatherView
+        height="50"
+        isHidden="!displayAir"
+        left="previous.left"
+        outlet="weatherView"
+        top="previous.bottom"
+        width="previous.width"
+    />
+    <IndoorAirView
+        height="50"
+        isHidden="!displayAir"
+        left="previous.left"
+        outlet="indoorView"
+        top="previous.bottom"
+        width="previous.width"
+    />
+</UIView>

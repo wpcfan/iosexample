@@ -103,6 +103,7 @@ class HomeViewControllerReactor: Reactor {
             var newState = state
             newState.loading = status
             newState.errorMessage = ""
+            newState.indoorEnvSnapShot = nil
             return newState
         case .setRegId(let status):
             var newState = state

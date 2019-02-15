@@ -16,7 +16,7 @@ import SwiftReorder
 
 class DeviceTableView: SHTableView {
     var disposeBag = DisposeBag()
-    var devices$ = BehaviorSubject<[Device]>(value: [])
+    var devices$ = PublishSubject<[Device]>()
     var reorder$ = PublishSubject<[String: Int]>()
     let sectionHeaderView = SectionHeaderView()
     
@@ -31,6 +31,7 @@ class DeviceTableView: SHTableView {
             }
             let cell = tv.dequeueReusableCell(withIdentifier: "cell") as! DeviceCell
             cell.deviceNameLabel.text = item.deviceName
+            cell.productTypeLabel.text = item.from
             cell.productImage.pin_setImage(from: URL(string: item.productImageUrl ?? ""), placeholderImage: AppIcons.devicePlaceholder)
             cell.onlineStatus = item.status == 1
             cell.rebindButton.rx.tap

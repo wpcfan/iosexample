@@ -36,7 +36,7 @@ class CaptchaView: BaseView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func layoutDidLoad(_ layoutNode: LayoutNode) {
+    override func layoutDidLoad(_ layoutNode: LayoutNode) {
         
     }
 }

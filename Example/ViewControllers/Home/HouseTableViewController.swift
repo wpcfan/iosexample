@@ -11,7 +11,7 @@ import ReactorKit
 import Layout
 
 class HouseTableViewController: BaseViewController, LayoutLoading {
-    
+    private let scService = container.resolve(JdSmartCloudService.self)!
     @objc weak var tableView: UITableView!
     
     private var titleForDefault = UILabel().then {
@@ -79,6 +79,9 @@ extension HouseTableViewController: StoryboardView {
                 let originalData = DiskUtil.getData()
                 if ($0.id != originalData?.houseId) {
                     DiskUtil.saveHouseInfo(house: $0)
+                    #if !targetEnvironment(simulator)
+                    self.scService.changeToken()
+                    #endif
                     CURRENT_HOUSE.onNext($0)
                 }
                 self.navigationController?.popViewController(animated: true)

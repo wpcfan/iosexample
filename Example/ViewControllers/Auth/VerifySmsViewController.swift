@@ -21,7 +21,6 @@ class VerifySmsViewController: BaseViewController {
     @objc weak var nextButton: UIButton!
     @objc weak var countDownButton: UIButton!
     private let navigator = container.resolve(NavigatorType.self)!
-    private let termSelected = BehaviorSubject<Bool>(value: true)
     private let captchaIcon = UIImageView(frame: CGRect(x: 0, y: 0, width: 30, height: 30)).then {
         $0.image = AppIcons.captchaIcon
         $0.contentMode = .scaleAspectFill

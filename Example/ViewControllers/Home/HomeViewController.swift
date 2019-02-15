@@ -23,8 +23,8 @@ import NVActivityIndicatorView
 
 class HomeViewController: BaseViewController {
     
-    var segTableView:SHSegmentedControlTableView!
-    var segmentControl:SHSegmentControl!
+    var segTableView: SHSegmentedControlTableView!
+    var segmentControl: SHSegmentControl!
     var headerView: UIView!
     var deviceTab: DeviceTableView!
     var sceneTab: SceneTableView!
@@ -156,7 +156,7 @@ class HomeViewController: BaseViewController {
     }
 }
 
-extension HomeViewController: ReactorKit.StoryboardView {
+extension HomeViewController: ReactorKit.View {
     typealias Reactor = HomeViewControllerReactor
     
     func bind(reactor: Reactor) {
@@ -216,18 +216,31 @@ extension HomeViewController: ReactorKit.StoryboardView {
             .disposed(by: self.disposeBag)
         
         reactor.state
-            .map { $0.homeInfo?.banners ?? [] }
-            .bind(to: (self.headerView as! HeaderView).banners$)
+            .map { $0.homeInfo }
+            .filterNil()
+            .bind(to: (self.headerView as! HeaderView).homeInfo$)
             .disposed(by: self.disposeBag)
         
         reactor.state
-            .map { $0.homeInfo?.channels ?? [] }
-            .bind(to: (self.headerView as! HeaderView).channels$)
+            .map { $0.indoorEnvSnapShot }
+            .filterNil()
+            .bind(to: (self.headerView as! HeaderView).indoor$)
             .disposed(by: self.disposeBag)
         
-        reactor.state   
+        reactor.state
             .map { $0.homeInfo?.devices ?? [] }
             .bind(to: self.deviceTab.devices$)
+            .disposed(by: self.disposeBag)
+        
+        reactor.state
+            .map { $0.indoorEnvSnapShot != nil }
+            .distinctUntilChanged()
+            .subscribe{ ev in
+                guard let displayAir = ev.element else { return }
+                (self.headerView as! HeaderView).displayAir$.onNext(displayAir)
+                self.headerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: displayAir ? 315: 215)
+                self.segTableView.topView = self.headerView
+            }
             .disposed(by: self.disposeBag)
         
         reactor.state

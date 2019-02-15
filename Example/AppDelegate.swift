@@ -88,8 +88,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(_ application: UIApplication) {
         #if !targetEnvironment(simulator)
         clearNotification(application)
-        let data = DiskUtil.getData()
-        guard data?.user != nil else { return }
         SCMInitManager.sharedInstance().startLoop()
         #endif
     }

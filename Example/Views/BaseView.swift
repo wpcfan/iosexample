@@ -11,12 +11,10 @@ import RxSwift
 import RxCocoa
 import Layout
 
-class BaseView: UIView {
+class BaseView: UIView, LayoutLoading {
     // MARK: Properties
     var disposeBag = DisposeBag()
-}
-
-extension BaseView: LayoutLoading {
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -28,6 +26,10 @@ extension BaseView: LayoutLoading {
     
     public override var intrinsicContentSize: CGSize {
         return layoutNode?.frame.size ?? .zero
+    }
+    
+    func layoutDidLoad(_: LayoutNode) {
+        
     }
 }
 

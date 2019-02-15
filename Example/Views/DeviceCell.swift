@@ -27,7 +27,6 @@ class DeviceCell: BaseTableCell {
         $0.font = $0.font.withSize(12)
     }
     let productTypeLabel = UILabel().then {
-        $0.text = "京东智能设备"
         $0.font = $0.font.withSize(12)
         $0.textAlignment = .right
     }
@@ -55,7 +54,7 @@ class DeviceCell: BaseTableCell {
         super.layoutSubviews()
         
         productImage.pin
-            .left()
+            .left(5)
             .vCenter()
             .width(15%)
             .aspectRatio(1)
@@ -72,13 +71,13 @@ class DeviceCell: BaseTableCell {
             .height(20)
         deviceNameLabel.pin
             .horizontallyBetween(productImage, and: productTypeLabel, aligned: .top)
-            .height(20)
+            .height(15)
             .marginLeft(5)
-            .marginTop(10)
+            .marginTop(5)
             .marginBottom(5)
         onlineStatusLabel.pin
             .left(to: deviceNameLabel.edge.left)
-            .bottom(20)
+            .bottom(15)
             .width(100)
             .height(12)
     }

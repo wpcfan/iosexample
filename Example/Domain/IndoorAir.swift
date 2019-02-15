@@ -36,4 +36,5 @@ struct IndoorAir: Mappable {
     var pm10: String?
     var noise: String?
     var uploadTime: String?
+    var roomGroup: String?
 }

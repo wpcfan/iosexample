@@ -47,6 +47,26 @@ class JdSmartCloudService {
         print("exit initSmartCloud")
     }
     
+    public func changeToken() {
+        print("enter changeToken")
+        #if !targetEnvironment(simulator)
+        let data = DiskUtil.getData()
+        guard let token = data?.houseToken else {
+            print("[JdSmartCloudService] 房主 token 不存在")
+            return
+        }
+        if(SCMLongConnectManager.shared().isConnecting()) {
+            SCMLongConnectManager.shared().cutOffLongConnect()
+        }
+        SCMInitManager.sharedInstance().stopLoop()
+        SCMInitManager.sharedInstance().registerUserToken(token)
+        print("[JdSmartCloudService] 为京东 SDK 设置 token \(token)")
+        SCMInitManager.sharedInstance().startLoop()
+        SCMLongConnectManager.shared().createLongConnect()
+        #endif
+        print("exit changeToken")
+    }
+    
     public func initLongPolling(userToken: String) {
         print("enter initLongPolling")
         #if !targetEnvironment(simulator)

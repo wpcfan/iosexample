@@ -71,6 +71,7 @@ let container: Container = {
     container.register(SendSmsService.self) { _ in  SendSmsService() }
     container.register(SetPasswordService.self) { _ in  SetPasswordService() }
     container.register(BindAccountService.self) { _ in  BindAccountService() }
+    container.register(WeatherService.self) { _ in  WeatherService() }
     container.register(NavigatorType.self) { _ in
         var navigator = Navigator()
         NavigationMap.initialize(navigator: navigator)

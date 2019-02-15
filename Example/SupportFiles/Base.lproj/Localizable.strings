@@ -73,5 +73,11 @@
 "indicator.loading"="Loading...";
 "device.tab.title"="My Devices";
 "scene.tab.title"="My Scenes";
-"weather.temperature"="%i °C";
+"weather.temperature"="%@ °C";
 "weather.temperature.name"="Temperature";
+"weather.humidity.name"="Humidity";
+"weather.aqi.name"="Air Quality";
+"indoor.location.name"="Indoor";
+"indoor.temperature.name"="Temperature";
+"indoor.humidity.name"="Humidity";
+"indoor.temperature"="%@ °C";

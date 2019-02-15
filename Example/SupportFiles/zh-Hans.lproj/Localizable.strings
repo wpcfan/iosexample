@@ -73,5 +73,11 @@
 "indicator.loading"="正在加载...";
 "device.tab.title"="我的设备";
 "scene.tab.title"="我的场景";
-"weather.temperature"="%i °C";
-"weather.temperature.name"="摄氏度";
+"weather.temperature"="%@ °C";
+"weather.temperature.name"="温度";
+"weather.humidity.name"="湿度";
+"weather.aqi.name"="空气质量";
+"indoor.location.name"="室内";
+"indoor.temperature.name"="温度";
+"indoor.humidity.name"="湿度";
+"indoor.temperature"="%@ °C";

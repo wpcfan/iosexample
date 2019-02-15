@@ -1,0 +1,41 @@
+<UICollectionView
+    backgroundColor="clear"
+    collectionViewLayout.itemSize.height="collectionViewLayout.itemSize.width"
+    collectionViewLayout.itemSize.width="(100% - collectionViewLayout.sectionInset.left - collectionViewLayout.sectionInset.right - collectionViewLayout.minimumInteritemSpacing * 5 - contentInset.left - contentInset.right) / 5"
+    collectionViewLayout.minimumInteritemSpacing="10"
+    collectionViewLayout.scrollDirection="horizontal"
+    collectionViewLayout.sectionInset.bottom="0"
+    collectionViewLayout.sectionInset.left="5"
+    collectionViewLayout.sectionInset.right="5"
+    collectionViewLayout.sectionInset.top="0"
+    contentInset.left="safeAreaInsets.left"
+    contentInset.right="safeAreaInsets.right"
+    contentInsetAdjustmentBehavior="never"
+    contentOffset.x="-safeAreaInsets.left - 10"
+    outlet="collectionView"
+    scrollIndicatorInsets.left="safeAreaInsets.left"
+    scrollIndicatorInsets.right="safeAreaInsets.right"
+    width="100%">
+
+    <UICollectionViewCell
+        clipsToBounds="true"
+        reuseIdentifier="templateCell">
+
+        <UIImageView
+            center.x="parent.center.x"
+            contentMode="scaleAspectFit"
+            height="0.7 * parent.height"
+            imgUrl="{imageUrl}"
+            width="height"
+        />
+        <UILabel
+            height="0.2 * parent.height"
+            left="parent.left"
+            text="{title}"
+            top="previous.bottom + 5"
+            width="parent.width"
+            font="14"
+            textAlignment="center"
+        />
+    </UICollectionViewCell>
+</UICollectionView>
