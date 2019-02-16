@@ -13,6 +13,7 @@ import RxSwift
 struct RxQRUtil {
     
     public func scanQR(_ vc: UIViewController) -> Observable<String?> {
+        weak var sourceVC: UIViewController! = vc
         var config = QRScanConfig.instance
         config.titleText = "qrscanner.navigation.title".localized
         config.albumText = "qrscanner.navigation.right.title".localized
@@ -21,7 +22,7 @@ struct RxQRUtil {
             .filter { (hasAccess) -> Bool in hasAccess }
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
             .observeOn(MainScheduler.asyncInstance)
-            .flatMap{ _ in QRScanner.popup(on: vc, config: config) }
+            .flatMap{ _ in QRScanner.popup(on: sourceVC, config: config) }
             .map({ (result) -> String? in
                 if case let .success(str) = result { return str }
                 return nil

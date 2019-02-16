@@ -27,6 +27,7 @@ class ChannelView: BaseView {
     }
     
     override func layoutDidLoad(_: LayoutNode) {
+        weak var `self`: ChannelView! = self
         let dataSource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, Channel>>(configureCell: { (ds, cv, ip, item) -> UICollectionViewCell in
             let node = cv.dequeueReusableCellNode(withIdentifier: "templateCell", for: ip)
             node.setState([

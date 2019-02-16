@@ -24,6 +24,7 @@ class SceneTableView: SHTableView {
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         
+        weak var `self`: SceneTableView! = self
         register(BasicTableCell.self, forCellReuseIdentifier: "cell")
         let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Scene>>(configureCell: { ds, tv, ip, item in
             let cell = tv.dequeueReusableCell(withIdentifier: "cell")

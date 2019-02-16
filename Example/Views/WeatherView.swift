@@ -37,6 +37,7 @@ extension WeatherView: ReactorKit.StoryboardView {
     typealias Reactor = WeatherViewReactor
     
     func bind(reactor: Reactor) {
+        weak var `self`: WeatherView! = self
         reactor.action.onNext(.load)
         
         reactor.state.map{ state in state.weather }

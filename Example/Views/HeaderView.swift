@@ -11,10 +11,10 @@ import RxSwift
 
 class HeaderView: BaseView {
     
-    @objc var bannerView: BannerView!
-    @objc var channelView: ChannelView!
-    @objc var weatherView: WeatherView!
-    @objc var indoorView: IndoorAirView!
+    @objc weak var bannerView: BannerView!
+    @objc weak var channelView: ChannelView!
+    @objc weak var weatherView: WeatherView!
+    @objc weak var indoorView: IndoorAirView!
     
     var bannerTapped = PublishSubject<String>()
     var channelTapped = PublishSubject<String>()
@@ -37,6 +37,7 @@ class HeaderView: BaseView {
     
     override func layoutDidLoad(_ layoutNode: LayoutNode) {
         super.layoutDidLoad(layoutNode)
+        
         self.homeInfo$
             .map({ $0.banners })
             .filterNil()

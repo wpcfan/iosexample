@@ -23,9 +23,9 @@ import NVActivityIndicatorView
 
 class HomeViewController: BaseViewController {
     
-    var segTableView: SHSegmentedControlTableView!
-    var segmentControl: SHSegmentControl!
-    var headerView: UIView!
+    weak var segTableView: SHSegmentedControlTableView!
+    weak var segmentControl: SHSegmentControl!
+    weak var headerView: UIView!
     var deviceTab: DeviceTableView!
     var sceneTab: SceneTableView!
     private let navigator = container.resolve(NavigatorType.self)!
@@ -162,6 +162,7 @@ extension HomeViewController: ReactorKit.View {
     func bind(reactor: Reactor) {
         
         reactor.action.onNext(.reportPushRegId)
+        weak var headerView: HeaderView! = (self.headerView as! HeaderView)
         
         CURRENT_HOUSE
             .startWith(nil)
@@ -176,7 +177,7 @@ extension HomeViewController: ReactorKit.View {
             .subscribe{ _ in
                 AppDelegate.shared.rootViewController.switchToLogout()
             }
-            .disposed(by: self.disposeBag)
+            .disposed(by: disposeBag)
         
         NEED_REBIND
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
@@ -193,7 +194,7 @@ extension HomeViewController: ReactorKit.View {
             .subscribe{
                 print($0)
             }
-            .disposed(by: self.disposeBag)
+            .disposed(by: disposeBag)
         
         sceneTab.rx.addSceneTapped
             .subscribe { ev in
@@ -202,46 +203,46 @@ extension HomeViewController: ReactorKit.View {
             .disposed(by: disposeBag)
         
         Observable.merge(
-            (self.headerView as! HeaderView).bannerTapped,
-            (self.headerView as! HeaderView).channelTapped)
-            .subscribe { ev in
-                guard let url = ev.element else { return }
-                self.navigator.push(WebKitViewController(url: url), from: self.navigationController, animated: true)
+            headerView.bannerTapped,
+            headerView.channelTapped)
+            .subscribe { [weak self] ev in
+                guard let url = ev.element, let _self = self else { return }
+                _self.navigator.push(WebKitViewController(url: url), from: _self.navigationController, animated: true)
             }
             .disposed(by: disposeBag)
         
         refreshHeaderTrigger
             .mapTo(Reactor.Action.refresh)
             .bind(to: reactor.action)
-            .disposed(by: self.disposeBag)
+            .disposed(by: disposeBag)
         
         reactor.state
             .map { $0.homeInfo }
             .filterNil()
-            .bind(to: (self.headerView as! HeaderView).homeInfo$)
-            .disposed(by: self.disposeBag)
+            .bind(to: headerView.homeInfo$)
+            .disposed(by: disposeBag)
         
         reactor.state
             .map { $0.indoorEnvSnapShot }
             .filterNil()
-            .bind(to: (self.headerView as! HeaderView).indoor$)
-            .disposed(by: self.disposeBag)
+            .bind(to: headerView.indoor$)
+            .disposed(by: disposeBag)
         
         reactor.state
             .map { $0.homeInfo?.devices ?? [] }
-            .bind(to: self.deviceTab.devices$)
-            .disposed(by: self.disposeBag)
+            .bind(to: deviceTab.devices$)
+            .disposed(by: disposeBag)
         
         reactor.state
             .map { $0.indoorEnvSnapShot != nil }
             .distinctUntilChanged()
-            .subscribe{ ev in
-                guard let displayAir = ev.element else { return }
-                (self.headerView as! HeaderView).displayAir$.onNext(displayAir)
-                self.headerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: displayAir ? 315: 215)
-                self.segTableView.topView = self.headerView
+            .subscribe{ [weak self] ev in
+                guard let displayAir = ev.element, let _self = self else { return }
+                headerView.displayAir$.onNext(displayAir)
+                headerView.frame = CGRect(x: 0, y: 0, width: _self.view.frame.width, height: displayAir ? 315: 215)
+                _self.segTableView.topView = _self.headerView
             }
-            .disposed(by: self.disposeBag)
+            .disposed(by: disposeBag)
         
         reactor.state
             .map { $0.loading }
@@ -262,24 +263,24 @@ extension HomeViewController: ReactorKit.View {
                     }
                 }
             }
-            .disposed(by: self.disposeBag)
+            .disposed(by: disposeBag)
         
         reactor.state
             .map { $0.homeInfo }
             .filterNil()
-            .subscribe{ ev in
-                guard let home = ev.element else { return }
-                let button = self.navigationItem.titleView as! UIButton
+            .subscribe{ [weak self] ev in
+                guard let home = ev.element, let _self = self else { return }
+                let button = _self.navigationItem.titleView as! UIButton
                 let title = home.house?.displayName() ?? ""
                 let isOwner = home.house?.isOwner ?? false
-                self.deviceTab.sectionHeaderView.rightBtnHidden = !isOwner
-                self.sceneTab.sectionHeaderView.rightBtnHidden = !isOwner
+                _self.deviceTab.sectionHeaderView.rightBtnHidden = !isOwner
+                _self.sceneTab.sectionHeaderView.rightBtnHidden = !isOwner
                 button.setTitle(title.trunc(length: 14), for: .normal)
-                if (self.segTableView.refreshHeader.isRefreshing) {
-                    self.segTableView.refreshHeader.endRefreshing()
+                if (_self.segTableView.refreshHeader.isRefreshing) {
+                    _self.segTableView.refreshHeader.endRefreshing()
                 }
             }
-            .disposed(by: self.disposeBag)
+            .disposed(by: disposeBag)
         
         reactor.state
             .map { $0.errorMessage }
@@ -291,7 +292,7 @@ extension HomeViewController: ReactorKit.View {
                 let banner = NotificationBanner(title: "错误", subtitle: err, style: .warning)
                 banner.show()
             }
-            .disposed(by: self.disposeBag)
+            .disposed(by: disposeBag)
         
     }
 }

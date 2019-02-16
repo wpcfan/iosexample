@@ -120,7 +120,6 @@
 		AA4B49212178883F00A60C11 /* Reactive+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B491A2178883E00A60C11 /* Reactive+UIViewController.swift */; };
 		AA4B49222178883F00A60C11 /* SwiftyColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B491B2178883E00A60C11 /* SwiftyColor.swift */; };
 		AA4B49302178EB2500A60C11 /* BannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B492F2178EB2500A60C11 /* BannerView.swift */; };
-		AA4B493A2179A1DC00A60C11 /* ChannelCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B49362179A1DC00A60C11 /* ChannelCell.swift */; };
 		AA4B493C2179BBD900A60C11 /* Permission.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B493B2179BBD900A60C11 /* Permission.swift */; };
 		AA4B493E217A0B5000A60C11 /* BaseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B493D217A0B5000A60C11 /* BaseTableCell.swift */; };
 		AA4B4942217A112200A60C11 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B4941217A112200A60C11 /* BaseView.swift */; };
@@ -151,6 +150,8 @@
 		AA57240E2216799A00D26244 /* WeatherViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA57240D2216799A00D26244 /* WeatherViewReactor.swift */; };
 		AA5724102216CA0900D26244 /* HeaderView.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA57240F2216CA0900D26244 /* HeaderView.xml */; };
 		AA5724122216CE4600D26244 /* ChannelView.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA5724112216CE4600D26244 /* ChannelView.xml */; };
+		AA5724142217194B00D26244 /* DeviceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5724132217194B00D26244 /* DeviceInfo.swift */; };
+		AA5724172217226500D26244 /* DeviceInfoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5724162217226500D26244 /* DeviceInfoService.swift */; };
 		AA6839D8216DE04F00E4097B /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6839D7216DE04F00E4097B /* UIColor+Theme.swift */; };
 		AA6839DA216DE1EA00E4097B /* AppIcons.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6839D9216DE1EA00E4097B /* AppIcons.swift */; };
 		AA6839DC216E08EC00E4097B /* AppAttributedStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6839DB216E08EC00E4097B /* AppAttributedStrings.swift */; };
@@ -436,7 +437,6 @@
 		AA4B491A2178883E00A60C11 /* Reactive+UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Reactive+UIViewController.swift"; sourceTree = "<group>"; };
 		AA4B491B2178883E00A60C11 /* SwiftyColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyColor.swift; sourceTree = "<group>"; };
 		AA4B492F2178EB2500A60C11 /* BannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerView.swift; sourceTree = "<group>"; };
-		AA4B49362179A1DC00A60C11 /* ChannelCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChannelCell.swift; sourceTree = "<group>"; };
 		AA4B493B2179BBD900A60C11 /* Permission.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Permission.swift; sourceTree = "<group>"; };
 		AA4B493D217A0B5000A60C11 /* BaseTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableCell.swift; sourceTree = "<group>"; };
 		AA4B4941217A112200A60C11 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -467,6 +467,8 @@
 		AA57240D2216799A00D26244 /* WeatherViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewReactor.swift; sourceTree = "<group>"; };
 		AA57240F2216CA0900D26244 /* HeaderView.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HeaderView.xml; sourceTree = "<group>"; };
 		AA5724112216CE4600D26244 /* ChannelView.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ChannelView.xml; sourceTree = "<group>"; };
+		AA5724132217194B00D26244 /* DeviceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfo.swift; sourceTree = "<group>"; };
+		AA5724162217226500D26244 /* DeviceInfoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceInfoService.swift; sourceTree = "<group>"; };
 		AA6839D7216DE04F00E4097B /* UIColor+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Theme.swift"; sourceTree = "<group>"; };
 		AA6839D9216DE1EA00E4097B /* AppIcons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIcons.swift; sourceTree = "<group>"; };
 		AA6839DB216E08EC00E4097B /* AppAttributedStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppAttributedStrings.swift; sourceTree = "<group>"; };
@@ -947,6 +949,14 @@
 			path = UICollectionViewFlexLayout;
 			sourceTree = "<group>";
 		};
+		AA5724152217225000D26244 /* Device */ = {
+			isa = PBXGroup;
+			children = (
+				AA5724162217226500D26244 /* DeviceInfoService.swift */,
+			);
+			path = Device;
+			sourceTree = "<group>";
+		};
 		AA6839D4216DB8B000E4097B /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -956,7 +966,6 @@
 				AA4B493D217A0B5000A60C11 /* BaseTableCell.swift */,
 				AAA6E6AE2213298E0032A489 /* CaptchaView.swift */,
 				AAA6E6B0221329C90032A489 /* CaptchaView.xml */,
-				AA4B49362179A1DC00A60C11 /* ChannelCell.swift */,
 				AA42058D217B8C680068ABC0 /* ChannelView.swift */,
 				AA5724112216CE4600D26244 /* ChannelView.xml */,
 				AAF961A5220D977D00E17A65 /* DeviceCell.swift */,
@@ -1130,6 +1139,7 @@
 				AA683A08216F434C00E4097B /* Banner.swift */,
 				AA5723E722155D7000D26244 /* Channel.swift */,
 				AA3E0E7B217053BD00958937 /* Deivce.swift */,
+				AA5724132217194B00D26244 /* DeviceInfo.swift */,
 				AA5723EF22155E9C00D26244 /* EmptyResult.swift */,
 				AA3E0E892170841700958937 /* HomeInfo.swift */,
 				AA3E0E7921704E6F00958937 /* House.swift */,
@@ -1165,6 +1175,7 @@
 		AAC5EB99215E7E71008EBA1F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				AA5724152217225000D26244 /* Device */,
 				AA9AB58821FF23E80052B3FF /* Home */,
 				AAA6E6C02213EEA30032A489 /* Integration */,
 				AA19DC8A21FB446600B70EFE /* PhoneInfo */,
@@ -1675,6 +1686,7 @@
 				AA30C05B2167533E00B9E0EB /* SplashViewController.swift in Sources */,
 				AA3AB88E21841ABA00470276 /* SplashViewControllerReactor.swift in Sources */,
 				AA693DC12161F6460063D749 /* SettingViewController.swift in Sources */,
+				AA5724142217194B00D26244 /* DeviceInfo.swift in Sources */,
 				AAD7E17621F1F42D000D8D6A /* RequestPluginType.swift in Sources */,
 				AA5724002215A72000D26244 /* UICollectionViewFlexLayout.swift in Sources */,
 				AA6839DA216DE1EA00E4097B /* AppIcons.swift in Sources */,
@@ -1822,7 +1834,6 @@
 				AA693DC32161FF620063D749 /* NavigationMap.swift in Sources */,
 				AA86626F2212643F0065568A /* BindAccountService.swift in Sources */,
 				AA4B49302178EB2500A60C11 /* BannerView.swift in Sources */,
-				AA4B493A2179A1DC00A60C11 /* ChannelCell.swift in Sources */,
 				AAA6E6A72213195E0032A489 /* SetPasswordViewController.swift in Sources */,
 				AA38DCA7217EF4D70046D82D /* Reactive+StatusBar.swift in Sources */,
 				AA42D7D321F306B700320BD3 /* BannerService.swift in Sources */,
@@ -1872,6 +1883,7 @@
 				AA5724062215C43900D26244 /* WeatherView.swift in Sources */,
 				AA19DC8221F60A9700B70EFE /* TokenInfo.swift in Sources */,
 				AAA6E6A5221317EF0032A489 /* SetPasswordViewControllerReactor.swift in Sources */,
+				AA5724172217226500D26244 /* DeviceInfoService.swift in Sources */,
 				AA42058E217B8C680068ABC0 /* ChannelView.swift in Sources */,
 				AA5723EA22155DAB00D26244 /* SmartUser.swift in Sources */,
 				AA99E9B4219B2F6200FD1C6F /* UIScrollView+.swift in Sources */,

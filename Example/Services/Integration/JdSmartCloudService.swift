@@ -129,4 +129,20 @@ class JdSmartCloudService {
             return Disposables.create()
         }
     }
+    
+    func getDeviceH5V2(_ version: String, _ feedId: String) -> Void {
+        print("enter getDeviceH5V2")
+        #if !targetEnvironment(simulator)
+        SCMCloudControlManager.getDeviceUrl(
+            withVersion: version,
+            feedId: feedId,
+            puid: nil,
+            service: nil,
+            success: { (data) in
+            
+            }) { (error) in
+                
+            }
+        #endif
+    }
 }

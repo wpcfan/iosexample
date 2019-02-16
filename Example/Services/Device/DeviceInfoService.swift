@@ -7,16 +7,22 @@
 //
 
 class DeviceInfoService: ShouChuangService<DeviceInfo> {
+    var deviceId: String?
     override var smartApi: SmartApiType {
         get { return .deviceInfo }
     }
     
     override func urlQueries() throws -> [URLQueryItem] {
         
-        guard let data = DiskUtil.getData() else { throw AppErr.requiredParamNull("Dis Data Is Null") }
-        var queryItems: [URLQueryItem] = []
+        guard let data = DiskUtil.getData(), let deviceId = deviceId else { throw AppErr.requiredParamNull("DeviceInfoService Param Is Null") }
+        var queryItems: [URLQueryItem] = [
+            URLQueryItem(name: "did", value: deviceId)
+        ]
+        if (data.user?.id != nil) {
+            queryItems.append(URLQueryItem(name: "p2", value: data.user!.id))
+        }
         if (data.houseId != nil) {
-            queryItems.append(URLQueryItem(name: "hid", value: data.houseId))
+            queryItems.append(URLQueryItem(name: "p3", value: data.houseId))
         }
         return queryItems
     }

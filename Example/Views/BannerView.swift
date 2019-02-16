@@ -23,9 +23,9 @@ class BannerView: UIView {
         }
     }
     
-    @objc var pagerView: FSPagerView!
+    @objc weak var pagerView: FSPagerView!
     
-    @objc var pagerControl: FSPageControl!
+    @objc weak var pagerControl: FSPageControl!
     
     override init(frame: CGRect) {
         super.init(frame: frame)

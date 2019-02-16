@@ -47,7 +47,7 @@ extension HouseTableViewController: StoryboardView {
     
     func bind(reactor: Reactor) {
         reactor.action.onNext(.load)
-        
+        weak var `self`: HouseTableViewController! = self
         let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, House>>(configureCell: { ds, tv, ip, item in
             let node = tv.dequeueReusableCellNode(withIdentifier: "houseCell")!
             let data = DiskUtil.getData()

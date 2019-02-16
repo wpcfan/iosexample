@@ -18,11 +18,12 @@ class DeviceTableView: SHTableView {
     var disposeBag = DisposeBag()
     var devices$ = PublishSubject<[Device]>()
     var reorder$ = PublishSubject<[String: Int]>()
-    let sectionHeaderView = SectionHeaderView()
+    var sectionHeaderView = SectionHeaderView()
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
         
+        weak var `self`: DeviceTableView! = self
         register(DeviceCell.self, forCellReuseIdentifier: "cell")
         self.reorder.delegate = self
         let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Device>>(configureCell: { ds, tv, ip, item in

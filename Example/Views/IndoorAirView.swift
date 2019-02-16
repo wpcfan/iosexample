@@ -34,6 +34,7 @@ class IndoorAirView: BaseView {
     override func layoutDidLoad(_ layoutNode: LayoutNode) {
         super.layoutDidLoad(layoutNode)
         
+        weak var `self`: IndoorAirView! = self
         indoorAir$.subscribe{ ev in
             guard let indoor = ev.element else { return }
             self.layoutNode?.setState([
