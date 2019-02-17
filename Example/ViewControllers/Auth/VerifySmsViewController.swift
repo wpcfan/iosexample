@@ -44,7 +44,7 @@ class VerifySmsViewController: BaseViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.presentDarkNavigationBar(.primary, .textIcon)
-        self.setNavigationTitle("verifySms.title".localized)
+        self.title = "verifySms.title".localized
     }
 }
 
@@ -57,6 +57,7 @@ extension VerifySmsViewController: LayoutLoading {
 extension VerifySmsViewController: ReactorKit.View {
     typealias Reactor = VerifySmsViewControllerReactor
     func bind(reactor: Reactor) {
+        weak var `self`: VerifySmsViewController! = self
         let COUNTDOWN_LIMIT = 3
         codeField.rx.text.map{ code in !code.isBlank }
             .bind(to: self.layoutNode!.rx.state("formValid"))

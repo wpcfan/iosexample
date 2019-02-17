@@ -130,19 +130,32 @@ class JdSmartCloudService {
         }
     }
     
-    func getDeviceH5V2(_ version: String, _ feedId: String) -> Void {
+    func getDeviceH5V2(_ version: String, _ feedId: String) -> Observable<String> {
         print("enter getDeviceH5V2")
-        #if !targetEnvironment(simulator)
-        SCMCloudControlManager.getDeviceUrl(
-            withVersion: version,
-            feedId: feedId,
-            puid: nil,
-            service: nil,
-            success: { (data) in
-            
-            }) { (error) in
-                
-            }
-        #endif
+        return Observable<String>.create{ (observer) -> Disposable in
+            #if !targetEnvironment(simulator)
+            SCMCloudControlManager.getDeviceUrl(
+                withVersion: version,
+                feedId: feedId,
+                puid: nil,
+                service: nil,
+                success: { (data) in
+                    let res = data as! [String: Any]
+                    let result = Mapper<SmartCloudResult>().map(JSON: res)
+                    guard result?.status == 0 else {
+                        printError(result?.error)
+                        observer.onError(SCError.JdSmartError(result?.error?.errorCode, result?.error?.errorInfo, result?.error?.debugMe))
+                        return
+                    }
+                    let deviceUrl = Mapper<SCDeviceUrl>().map(JSONString: (result?.result)!)
+                    observer.onNext(deviceUrl?.h5?.url ?? "")
+                    observer.onCompleted()
+                }) { (error) in
+                    printError(error)
+                    observer.onError(error!)
+                }
+            #endif
+            return Disposables.create()
+        }
     }
 }

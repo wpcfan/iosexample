@@ -52,7 +52,7 @@ class SignUpViewController: BaseViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.presentDarkNavigationBar(.primary, .textIcon)
-        self.setNavigationTitle("signup.title".localized)
+        self.title = "signup.title".localized
     }
     
     @objc func toggle(_ button: UIButton) {
@@ -74,6 +74,7 @@ extension SignUpViewController: LayoutLoading {
 extension SignUpViewController: ReactorKit.View {
     typealias Reactor = SignUpViewControllerReactor
     func bind(reactor: Reactor) {
+        weak var `self`: SignUpViewController! = self
         reactor.action.onNext(.getCaptcha)
         reactor.state.map { (state) -> UIImage? in
                 state.captcha

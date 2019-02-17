@@ -57,7 +57,7 @@ extension SplashViewController: ReactorKit.View {
     typealias Reactor = SplashViewControllerReactor
     
     func bind(reactor: Reactor) {
-        
+        weak var `self`: SplashViewController! = self
         reactor.action.onNext(.checkFirstLaunch)
         
         let countDownStream =  Observable<Int>

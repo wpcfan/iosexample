@@ -6,6 +6,7 @@
 //  Copyright © 2019 twigcodes. All rights reserved.
 //
 import Layout
+import RxCocoa
 import RxSwift
 import RxDataSources
 import RxGesture
@@ -18,6 +19,8 @@ class DeviceTableView: SHTableView {
     var disposeBag = DisposeBag()
     var devices$ = PublishSubject<[Device]>()
     var reorder$ = PublishSubject<[String: Int]>()
+    var rebind$ = PublishSubject<Device>()
+    var deviceSelected$ = PublishSubject<Device>()
     var sectionHeaderView = SectionHeaderView()
     
     override init(frame: CGRect, style: UITableView.Style) {
@@ -38,7 +41,7 @@ class DeviceTableView: SHTableView {
             cell.rebindButton.rx.tap
                 .subscribe { ev in
                     guard ev.error == nil else { return }
-                    
+                    self.rebind$.onNext(item)
                     }
                 .disposed(by: cell.rx.reuseBag)
             cell.onlineStatusLabel.text = item.status == 1 ? "设备在线" : "设备离线"
@@ -74,6 +77,14 @@ class DeviceTableView: SHTableView {
                 newItems.insert(item, at: indices["targetIndex"]!)
                 return newItems
             }.bind(to: devices$)
+            .disposed(by: disposeBag)
+        
+        self.rx.itemSelected
+            .map { idx in idx.row }
+            .withLatestFrom(devices$) { (row, devices) in
+                devices[row]
+            }
+            .bind(to: deviceSelected$)
             .disposed(by: disposeBag)
     }
     
@@ -123,5 +134,11 @@ extension DeviceTableView: TableViewReorderDelegate {
 extension Reactive where Base: DeviceTableView {
     var addDeviceTapped: Observable<Void> {
         return base.sectionHeaderView.rightBtnTapped.asObservable()
+    }
+    var rebind: Observable<Device> {
+        return base.rebind$.asObservable()
+    }
+    var deviceSelected: Observable<Device> {
+        return base.deviceSelected$.asObservable()
     }
 }

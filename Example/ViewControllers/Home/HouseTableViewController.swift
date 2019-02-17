@@ -14,12 +14,6 @@ class HouseTableViewController: BaseViewController, LayoutLoading {
     private let scService = container.resolve(JdSmartCloudService.self)!
     @objc weak var tableView: UITableView!
     
-    private var titleForDefault = UILabel().then {
-        $0.text = "myhouses.title".localized
-        $0.textColor = UIColor.textIcon
-        $0.textAlignment = .center
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,7 +23,7 @@ class HouseTableViewController: BaseViewController, LayoutLoading {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.navigationItem.titleView = titleForDefault
+        self.title = "myhouses.title".localized
     }
     
     func layoutDidLoad(_: LayoutNode) {

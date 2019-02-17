@@ -81,3 +81,4 @@
 "indoor.temperature.name"="Temperature";
 "indoor.humidity.name"="Humidity";
 "indoor.temperature"="%@ °C";
+"webview.title"="Smart Home";

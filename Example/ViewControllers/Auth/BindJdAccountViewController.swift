@@ -33,7 +33,7 @@ class BindJdAccountViewController: UIViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.presentDarkNavigationBar(UIColor.primary, UIColor.textIcon)
-        self.setNavigationTitle("bindJdAccount.title".localized)
+        self.title = "bindJdAccount.title".localized
     }
     
     @objc func rebind() {
@@ -51,6 +51,7 @@ extension BindJdAccountViewController: ReactorKit.View {
     typealias Reactor = BindJdAccountViewControllerReactor
     
     func bind(reactor: Reactor) {
+        weak var `self`: BindJdAccountViewController! = self
         self.rx.viewDidAppear.asObservable()
             .delay(0.5, scheduler: MainScheduler.instance)
             .subscribe { _ in

@@ -103,9 +103,9 @@ extension AuthViewController: View {
             })
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
             .observeOn(MainScheduler.asyncInstance)
-            .subscribe{ ev in
-                guard let err = ev.element else { return }
-                self.view?.makeToast(err)
+            .subscribe{ [weak self] ev in
+                guard let err = ev.element, let _self = self else { return }
+                _self.view?.makeToast(err)
             }
             .disposed(by: self.disposeBag)
         

@@ -134,7 +134,7 @@ class WebKitViewController: UIViewController {
         super.loadView()
         
         self.view.addSubview(webView)
-        let `self`: WebKitViewController! = self
+        weak var `self`: WebKitViewController! = self
         webView.pin.all()
         webView.load(url)
         webView.rx.url

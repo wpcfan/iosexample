@@ -36,7 +36,7 @@ class SetPasswordViewController: BaseViewController {
         super.viewWillAppear(animated)
         
         self.navigationController?.presentDarkNavigationBar(.primary, .textIcon)
-        self.setNavigationTitle("setPassword.title".localized)
+        self.title = "setPassword.title".localized
     }
 }
 
@@ -51,6 +51,7 @@ extension SetPasswordViewController: LayoutLoading {
 extension SetPasswordViewController: ReactorKit.View {
     typealias Reactor = SetPasswordViewControllerReactor
     func bind(reactor: Reactor) {
+        weak var `self`: SetPasswordViewController! = self
         Observable.combineLatest(passwordField.rx.text, repeatField.rx.text)
             .map { (pwd, rep) -> Bool in
                 guard let pwd = pwd, let rep = rep else { return false }

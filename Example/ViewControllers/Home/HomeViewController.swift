@@ -22,7 +22,6 @@ import SHSegmentedControl
 import NVActivityIndicatorView
 
 class HomeViewController: BaseViewController {
-    
     weak var segTableView: SHSegmentedControlTableView!
     weak var segmentControl: SHSegmentControl!
     weak var headerView: UIView!
@@ -60,7 +59,7 @@ class HomeViewController: BaseViewController {
         if self.headerView != nil {
             return self.headerView
         }
-        let header = HeaderView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 315))
+        let header = HeaderView()
         return header
     }
     func getSegTableView() -> SHSegmentedControlTableView {
@@ -147,6 +146,7 @@ class HomeViewController: BaseViewController {
         buildNavRightItems()
     }
     fileprivate func setupDrawer() {
+        weak var `self`: HomeViewController! = self
         sideBarVC = SideBarViewController()
         leftDrawerTransition = DrawerTransition(target: self, drawer: sideBarVC)
         leftDrawerTransition?.setPresentCompletion { print("left present...") }
@@ -162,6 +162,7 @@ extension HomeViewController: ReactorKit.View {
     func bind(reactor: Reactor) {
         
         reactor.action.onNext(.reportPushRegId)
+        weak var `self`: HomeViewController! = self
         weak var headerView: HeaderView! = (self.headerView as! HeaderView)
         
         CURRENT_HOUSE
@@ -193,6 +194,20 @@ extension HomeViewController: ReactorKit.View {
             }
             .subscribe{
                 print($0)
+            }
+            .disposed(by: disposeBag)
+        
+        deviceTab.rx.rebind
+            .subscribe { ev in
+                guard let device = ev.element else { return }
+                
+            }
+            .disposed(by: disposeBag)
+        
+        deviceTab.rx.deviceSelected
+            .subscribe { ev in
+                guard let device = ev.element else { return }
+                
             }
             .disposed(by: disposeBag)
         
@@ -298,15 +313,9 @@ extension HomeViewController: ReactorKit.View {
 }
 
 extension HomeViewController: SHSegTableViewDelegate {
-    func segTableViewDidScrollY(_ offsetY: CGFloat) {
-        
-    }
-    func segTableViewDidScroll(_ tableView: UIScrollView!) {
-        
-    }
-    func segTableViewDidScrollSub(_ subTableView: UIScrollView!) {
-        
-    }
+    func segTableViewDidScrollY(_ offsetY: CGFloat) {}
+    func segTableViewDidScroll(_ tableView: UIScrollView!) {}
+    func segTableViewDidScrollSub(_ subTableView: UIScrollView!) { }
     func segTableViewDidScrollProgress(_ progress: CGFloat, originalIndex: Int, targetIndex: Int) {
         if progress == 1 {
             //            self.segmentControl.setSegmentSelectedIndex(targetIndex)

@@ -68,6 +68,7 @@ extension TourViewController: ReactorKit.View {
     typealias Reactor = TourViewControllerReactor
     
     func bind(reactor: Reactor) {
+        weak var `self`: TourViewController! = self
         reactor.action.onNext(.checkAuth)
         
         tourCompleted.asObservable()

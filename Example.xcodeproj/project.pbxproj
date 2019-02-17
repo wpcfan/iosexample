@@ -107,6 +107,7 @@
 		AA433F09218C4AB300BA60A1 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA433F08218C4AB300BA60A1 /* Global.swift */; };
 		AA433F0B218C4B2D00BA60A1 /* AppDelegate+CocoaDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA433F0A218C4B2D00BA60A1 /* AppDelegate+CocoaDebug.swift */; };
 		AA433F13218C8D9700BA60A1 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA433F12218C8D9700BA60A1 /* NotificationService.swift */; };
+		AA46D3FC22181E9B00931526 /* SCDeviceUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46D3FB22181E9A00931526 /* SCDeviceUrl.swift */; };
 		AA4B48E42175006100A60C11 /* Reactive+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B48E32175006100A60C11 /* Reactive+Layout.swift */; };
 		AA4B48EE2175CA4D00A60C11 /* HomeViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B48ED2175CA4D00A60C11 /* HomeViewControllerReactor.swift */; };
 		AA4B48F02175E4D000A60C11 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B48EF2175E4D000A60C11 /* APIError.swift */; };
@@ -422,6 +423,7 @@
 		AA433F08218C4AB300BA60A1 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		AA433F0A218C4B2D00BA60A1 /* AppDelegate+CocoaDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+CocoaDebug.swift"; sourceTree = "<group>"; };
 		AA433F12218C8D9700BA60A1 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
+		AA46D3FB22181E9A00931526 /* SCDeviceUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCDeviceUrl.swift; sourceTree = "<group>"; };
 		AA4B48E32175006100A60C11 /* Reactive+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+Layout.swift"; sourceTree = "<group>"; };
 		AA4B48ED2175CA4D00A60C11 /* HomeViewControllerReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerReactor.swift; sourceTree = "<group>"; };
 		AA4B48EF2175E4D000A60C11 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -1150,6 +1152,7 @@
 				AA3E0E7F2170543D00958937 /* ProductCategory.swift */,
 				AA19DC8121F60A9700B70EFE /* TokenInfo.swift */,
 				AA3E0E812170589F00958937 /* Scene.swift */,
+				AA46D3FB22181E9A00931526 /* SCDeviceUrl.swift */,
 				AA5723F122155ED500D26244 /* SCV2Snapshot.swift */,
 				AA5723F322155F0300D26244 /* SCStream.swift */,
 				AA5723F522155F3900D26244 /* SmartCloudError.swift */,
@@ -1809,6 +1812,7 @@
 				AA3CA5F32204610500551C87 /* HouseTableViewControllerReactor.swift in Sources */,
 				AAD7E0F721F1AEB1000D8D6A /* SCMQRCodeUnlockController.m in Sources */,
 				AAC5EBA3215E808D008EBA1F /* OAuth2Service.swift in Sources */,
+				AA46D3FC22181E9B00931526 /* SCDeviceUrl.swift in Sources */,
 				AA3AB8902184828800470276 /* TourViewControllerReactor.swift in Sources */,
 				AA5723FA22157E3100D26244 /* IndoorAir.swift in Sources */,
 				AAAD77802212E65700EDBF09 /* VerifySmsViewControllerReactor.swift in Sources */,
