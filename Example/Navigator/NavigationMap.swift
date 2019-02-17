@@ -50,7 +50,8 @@ enum NavigationMap {
         ) -> UIViewController? {
         guard let url = url.urlValue else { return nil }
 //        let webVC = SafariWebViewController(url: url, entersReaderIfAvailable: false)
-        let webVC = WebKitViewController(url: url)
+        guard let pageTitle = values["title"] as? String else { return WebKitViewController(url: url) }
+        let webVC = WebKitViewController(url: url, pageTitle: pageTitle)
         return webVC
     }
     
@@ -116,9 +117,12 @@ class WebKitViewController: UIViewController {
     let webView = WKWebView()
     var url: URLConvertible
     var disposeBag = DisposeBag()
+    var pageTitle: String?
+    
     // MARK: Initializing
-    init(url: URLConvertible) {
+    init(url: URLConvertible, pageTitle: String = "") {
         self.url = url
+        self.pageTitle = pageTitle
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -130,9 +134,9 @@ class WebKitViewController: UIViewController {
         super.loadView()
         
         self.view.addSubview(webView)
+        let `self`: WebKitViewController! = self
         webView.pin.all()
         webView.load(url)
-        
         webView.rx.url
             .share(replay: 1)
             .subscribe(onNext: {
@@ -155,12 +159,13 @@ class WebKitViewController: UIViewController {
                 }
             })
             .disposed(by: disposeBag)
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
         
-        
+        webView.rx.title
+            .subscribe{ ev in
+                guard let title = ev.element else { return }
+                self.title = self.pageTitle.isBlank ? title : self.pageTitle
+            }
+            .disposed(by: disposeBag)
     }
 }
 
