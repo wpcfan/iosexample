@@ -108,6 +108,11 @@
 		AA433F0B218C4B2D00BA60A1 /* AppDelegate+CocoaDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA433F0A218C4B2D00BA60A1 /* AppDelegate+CocoaDebug.swift */; };
 		AA433F13218C8D9700BA60A1 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA433F12218C8D9700BA60A1 /* NotificationService.swift */; };
 		AA46D3FC22181E9B00931526 /* SCDeviceUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46D3FB22181E9A00931526 /* SCDeviceUrl.swift */; };
+		AA46D40322190F5E00931526 /* WebKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46D40222190F5D00931526 /* WebKitViewController.swift */; };
+		AA46D4072219102B00931526 /* WebKitViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA46D4062219102B00931526 /* WebKitViewController.xml */; };
+		AA46D40A2219128E00931526 /* DeviceWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46D4092219128E00931526 /* DeviceWebViewController.swift */; };
+		AA46D40C2219188200931526 /* SafariWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46D40B2219188200931526 /* SafariWebViewController.swift */; };
+		AA46D40E221943DE00931526 /* DeviceSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46D40D221943DE00931526 /* DeviceSettingViewController.swift */; };
 		AA4B48E42175006100A60C11 /* Reactive+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B48E32175006100A60C11 /* Reactive+Layout.swift */; };
 		AA4B48EE2175CA4D00A60C11 /* HomeViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B48ED2175CA4D00A60C11 /* HomeViewControllerReactor.swift */; };
 		AA4B48F02175E4D000A60C11 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B48EF2175E4D000A60C11 /* APIError.swift */; };
@@ -424,6 +429,11 @@
 		AA433F0A218C4B2D00BA60A1 /* AppDelegate+CocoaDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+CocoaDebug.swift"; sourceTree = "<group>"; };
 		AA433F12218C8D9700BA60A1 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		AA46D3FB22181E9A00931526 /* SCDeviceUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCDeviceUrl.swift; sourceTree = "<group>"; };
+		AA46D40222190F5D00931526 /* WebKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebKitViewController.swift; sourceTree = "<group>"; };
+		AA46D4062219102B00931526 /* WebKitViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WebKitViewController.xml; sourceTree = "<group>"; };
+		AA46D4092219128E00931526 /* DeviceWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceWebViewController.swift; sourceTree = "<group>"; };
+		AA46D40B2219188200931526 /* SafariWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebViewController.swift; sourceTree = "<group>"; };
+		AA46D40D221943DE00931526 /* DeviceSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSettingViewController.swift; sourceTree = "<group>"; };
 		AA4B48E32175006100A60C11 /* Reactive+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+Layout.swift"; sourceTree = "<group>"; };
 		AA4B48ED2175CA4D00A60C11 /* HomeViewControllerReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewControllerReactor.swift; sourceTree = "<group>"; };
 		AA4B48EF2175E4D000A60C11 /* APIError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
@@ -921,6 +931,27 @@
 			path = IDEConfig;
 			sourceTree = "<group>";
 		};
+		AA46D40122190F4900931526 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				AA30C05E2167555C00B9E0EB /* RootViewController.swift */,
+				AA4B48F9217768CE00A60C11 /* BaseViewController.swift */,
+				AA46D40222190F5D00931526 /* WebKitViewController.swift */,
+				AA46D4062219102B00931526 /* WebKitViewController.xml */,
+				AA46D40B2219188200931526 /* SafariWebViewController.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		AA46D4082219120C00931526 /* Device */ = {
+			isa = PBXGroup;
+			children = (
+				AA46D4092219128E00931526 /* DeviceWebViewController.swift */,
+				AA46D40D221943DE00931526 /* DeviceSettingViewController.swift */,
+			);
+			path = Device;
+			sourceTree = "<group>";
+		};
 		AA5723FB2215918C00D26244 /* Tour */ = {
 			isa = PBXGroup;
 			children = (
@@ -1212,10 +1243,11 @@
 			isa = PBXGroup;
 			children = (
 				AA28BB3D2211794E00FCB93A /* Auth */,
+				AA46D40122190F4900931526 /* Common */,
+				AA46D4082219120C00931526 /* Device */,
 				AA1A5EC1220FD4AC0084473E /* Home */,
 				AA5723FC221591BD00D26244 /* Splash */,
 				AA5723FB2215918C00D26244 /* Tour */,
-				AA4B48F9217768CE00A60C11 /* BaseViewController.swift */,
 				AAC5EBA4215F5849008EBA1F /* HomeTabViewController.swift */,
 				AAC5EBA6215F5860008EBA1F /* HomeTabViewController.xml */,
 				AA78BB59218F04F2000B4CD8 /* MeViewController.swift */,
@@ -1223,7 +1255,6 @@
 				AA78BB5D218F331B000B4CD8 /* MeHeaderCell.xml */,
 				AA78BB5B218F14F0000B4CD8 /* CollectionCell.xml */,
 				AAE49F01216BA2EE004BDBD7 /* RegisterViewController.swift */,
-				AA30C05E2167555C00B9E0EB /* RootViewController.swift */,
 				AA693DC02161F6460063D749 /* SettingViewController.swift */,
 			);
 			path = ViewControllers;
@@ -1472,6 +1503,7 @@
 				AAC5EBA7215F5860008EBA1F /* HomeTabViewController.xml in Resources */,
 				AAAD777E2212E2D000EDBF09 /* VerifySmsViewController.xml in Resources */,
 				AA866273221267110065568A /* SignUpViewController.xml in Resources */,
+				AA46D4072219102B00931526 /* WebKitViewController.xml in Resources */,
 				AA897873218590E4005A61CA /* HomeTitleView.xml in Resources */,
 				AA9AB58521FEEB2A0052B3FF /* scene.svg in Resources */,
 				AA30C0612167561E00B9E0EB /* SplashViewController.xml in Resources */,
@@ -1524,6 +1556,7 @@
 				"${BUILT_PRODUCTS_DIR}/PINRemoteImage/PINRemoteImage.framework",
 				"${BUILT_PRODUCTS_DIR}/PMAlertController/PMAlertController.framework",
 				"${BUILT_PRODUCTS_DIR}/PinLayout/PinLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/QuickLayout/QuickLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ReusableKit/ReusableKit.framework",
@@ -1542,6 +1575,7 @@
 				"${BUILT_PRODUCTS_DIR}/SHSegmentedControl/SHSegmentedControl.framework",
 				"${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftEntryKit/SwiftEntryKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftIconFont/SwiftIconFont.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftReorder/SwiftReorder.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyBeaver/SwiftyBeaver.framework",
@@ -1582,6 +1616,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINRemoteImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PMAlertController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PinLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QuickLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactorKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReusableKit.framework",
@@ -1600,6 +1635,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SHSegmentedControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVGKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftEntryKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftIconFont.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftReorder.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyBeaver.framework",
@@ -1688,6 +1724,7 @@
 				AA5723F422155F0300D26244 /* SCStream.swift in Sources */,
 				AA30C05B2167533E00B9E0EB /* SplashViewController.swift in Sources */,
 				AA3AB88E21841ABA00470276 /* SplashViewControllerReactor.swift in Sources */,
+				AA46D40E221943DE00931526 /* DeviceSettingViewController.swift in Sources */,
 				AA693DC12161F6460063D749 /* SettingViewController.swift in Sources */,
 				AA5724142217194B00D26244 /* DeviceInfo.swift in Sources */,
 				AAD7E17621F1F42D000D8D6A /* RequestPluginType.swift in Sources */,
@@ -1698,6 +1735,7 @@
 				AA3CA5D52202BE0600551C87 /* RxPullToRefreshView.swift in Sources */,
 				AA30C0682167AA3600B9E0EB /* UINavigationController+Bar.swift in Sources */,
 				AA9AB58721FEEE120052B3FF /* SVGKImageView+.swift in Sources */,
+				AA46D40322190F5E00931526 /* WebKitViewController.swift in Sources */,
 				AA19DC7E21F5F1A100B70EFE /* ShouChuangService.swift in Sources */,
 				AA78BB46218D6814000B4CD8 /* NotificationCenter+.swift in Sources */,
 				AA3CA5CE2202BE0600551C87 /* RxPullToRefresh.swift in Sources */,
@@ -1780,6 +1818,7 @@
 				AAF961B0220ED72100E17A65 /* UITableView+.swift in Sources */,
 				AA3E0E7E2170540F00958937 /* Product.swift in Sources */,
 				AA4B49212178883F00A60C11 /* Reactive+UIViewController.swift in Sources */,
+				AA46D40C2219188200931526 /* SafariWebViewController.swift in Sources */,
 				AA19DC7C21F57BF000B70EFE /* AppDelegate+MonkeyKing.swift in Sources */,
 				AA4B48F02175E4D000A60C11 /* APIError.swift in Sources */,
 				AAA6E6A3221315B40032A489 /* SetPasswordService.swift in Sources */,
@@ -1889,6 +1928,7 @@
 				AAA6E6A5221317EF0032A489 /* SetPasswordViewControllerReactor.swift in Sources */,
 				AA5724172217226500D26244 /* DeviceInfoService.swift in Sources */,
 				AA42058E217B8C680068ABC0 /* ChannelView.swift in Sources */,
+				AA46D40A2219128E00931526 /* DeviceWebViewController.swift in Sources */,
 				AA5723EA22155DAB00D26244 /* SmartUser.swift in Sources */,
 				AA99E9B4219B2F6200FD1C6F /* UIScrollView+.swift in Sources */,
 				AA5723F822157CEF00D26244 /* Weather.swift in Sources */,

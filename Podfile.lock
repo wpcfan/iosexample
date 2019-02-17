@@ -1,14 +1,14 @@
 PODS:
-  - Action (3.9.1):
+  - Action (3.10.0):
     - RxCocoa (~> 4.3)
     - RxSwift (~> 4.3)
   - Bugly (2.5.0)
   - CocoaAsyncSocket (7.6.3)
   - CocoaDebug (0.5.9)
-  - CocoaLumberjack (3.5.0):
-    - CocoaLumberjack/Core (= 3.5.0)
-  - CocoaLumberjack/Core (3.5.0)
-  - Device.swift (1.2.1)
+  - CocoaLumberjack (3.5.1):
+    - CocoaLumberjack/Core (= 3.5.1)
+  - CocoaLumberjack/Core (3.5.1)
+  - Device.swift (1.2.2)
   - Differentiator (3.1.0)
   - Disk (0.4.0)
   - Dollar (8.0.0)
@@ -61,6 +61,7 @@ PODS:
     - FLAnimatedImage (>= 1.0)
     - PINRemoteImage/Core
   - PMAlertController (3.5.0)
+  - QuickLayout (2.1.1)
   - ReachabilitySwift (4.3.0)
   - ReactorKit (1.2.1):
     - RxSwift (>= 4.0.0)
@@ -72,8 +73,8 @@ PODS:
     - RxCocoa (>= 4.0.0)
     - RxSwift (>= 4.0.0)
   - Reveal-SDK (20)
-  - RxAtomic (4.4.0)
-  - RxCocoa (4.4.0):
+  - RxAtomic (4.4.1)
+  - RxCocoa (4.4.1):
     - RxSwift (~> 4.0)
   - RxDataSources (3.1.0):
     - Differentiator (~> 3.0)
@@ -95,7 +96,7 @@ PODS:
     - ReachabilitySwift (~> 4.3.0)
     - RxCocoa (~> 4)
     - RxSwift (~> 4)
-  - RxSwift (4.4.0):
+  - RxSwift (4.4.1):
     - RxAtomic (~> 4.4)
   - RxSwiftExt (3.4.0):
     - RxSwiftExt/Core (= 3.4.0)
@@ -119,9 +120,11 @@ PODS:
   - SnapKit (4.2.0)
   - SVGKit (2.1.0):
     - CocoaLumberjack (~> 3.0)
+  - SwiftEntryKit (0.8.8):
+    - QuickLayout (= 2.1.1)
   - SwiftIconFont (3.0.0)
   - SwiftReorder (6.0.1)
-  - SwiftyBeaver (1.6.1)
+  - SwiftyBeaver (1.6.2)
   - Swinject (2.5.0)
   - Toast-Swift (4.0.1)
   - "UITextView+Placeholder (1.2.1)"
@@ -171,6 +174,7 @@ DEPENDENCIES:
   - RxWebKit
   - SHSegmentedControl
   - SVGKit
+  - SwiftEntryKit
   - SwiftIconFont
   - SwiftReorder
   - Swinject (~> 2.5)
@@ -214,6 +218,7 @@ SPEC REPOS:
     - PinLayout
     - PINRemoteImage
     - PMAlertController
+    - QuickLayout
     - ReachabilitySwift
     - ReactorKit
     - ReusableKit
@@ -232,6 +237,7 @@ SPEC REPOS:
     - SHSegmentedControl
     - SnapKit
     - SVGKit
+    - SwiftEntryKit
     - SwiftIconFont
     - SwiftReorder
     - SwiftyBeaver
@@ -244,12 +250,12 @@ SPEC REPOS:
     - URLNavigator
 
 SPEC CHECKSUMS:
-  Action: 2f461c203c480b17aa99b3bb166e4329ecff6908
+  Action: 24de4abf6efecd239fa7d8e923df010a12f153d9
   Bugly: 3ca9f255c01025582df26f9222893b383c7e4b4e
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
   CocoaDebug: a9340ab62aff3d42937fe789f810552a14751d52
-  CocoaLumberjack: cffaa70a9336515228178e3669b71bd49d343850
-  Device.swift: ab71b078c0f3b827090e2051be67eb5d0bbbdf48
+  CocoaLumberjack: 2101f8a5508197a305e737d16c5c2e9e2157628c
+  Device.swift: 3f93632bb3fa3e4ebb9b202563975177e17c4296
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
   Disk: ef2956657d5bb56034b38b29b352170165226440
   Dollar: 82581ff2e4e80b26ba11fad5ac7e638892522ca5
@@ -275,27 +281,29 @@ SPEC CHECKSUMS:
   PinLayout: fe2a2432d6982588e208572005c941aeeae417ab
   PINRemoteImage: 4ac4011c5caefd6befd99758e09becede05d3226
   PMAlertController: 06dab8160066fc4ce991c880e3722cd403e2926a
+  QuickLayout: 9af2b7fd89a6552828f51a5aba28d1bcdb8b340c
   ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
   ReactorKit: 8be57f0527ad1ac2963cd5c338274a46a01e57a3
   ReusableKit: d0b040de03b293288b0ca27a78602691d3346d9b
   Reveal-SDK: 43206a57f575632fd304e85385cc259b5d359e32
-  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
-  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxAtomic: f8d6adc1ccb87a767811269e4875887bc74dbf19
+  RxCocoa: 2f35a76bf8887872e28a1914112395b11b8e0e64
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
   RxGesture: 7f6dfb45dbde06e618c24442d38493e3144f2c95
   RxKeyboard: 4f782303f499f41577b41c96c6a9a5d7acd51a47
   RxOptional: 80426a0ddbd092573e4c482d8cc13302078c4d5e
   RxQRScanner: b523a276be9a5f53603b85a0efb871e7bf480180
   RxReachability: 053f2d913db44998242ade488ccaef558f3ce7cb
-  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
+  RxSwift: 92fcf68dfef21f3e2ab1965363d9e7b3d787597e
   RxSwiftExt: 01f8ecbeeb355698e9c75365ebe908b00dacf45d
   RxWebKit: e39e220919e5e24546c837f5f60689036a1e5920
   SHSegmentedControl: a7f6ffc1678f2ee5f18e2a4c11d992c3af0800cc
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   SVGKit: 8a2fc74258bdb2abb54d3b65f3dd68b0277a9c4d
+  SwiftEntryKit: c50f25a14772713ded1591c852d1c1dc74c95b9e
   SwiftIconFont: 2ba18554a77c44948dc35b561b344e3c23834a84
   SwiftReorder: b59368b978c9826116147672ff1f59a2d4dd9110
-  SwiftyBeaver: ccfcdf85a04d429f1633f668650b0ce8020bda3a
+  SwiftyBeaver: 8e67ab3cd94389cbbb7a9c7cc02748d98bfee68e
   Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
   "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
@@ -304,6 +312,6 @@ SPEC CHECKSUMS:
   UMCCommonLog: 05a2d5de21858e3d870551562cff405c1366d244
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
 
-PODFILE CHECKSUM: 0aaa6155c0ea1425156714a75b299ae7fd941ff7
+PODFILE CHECKSUM: a4397970a120640f87353f7d7e3ea62204a04d69
 
 COCOAPODS: 1.5.3

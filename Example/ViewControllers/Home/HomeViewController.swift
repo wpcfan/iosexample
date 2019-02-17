@@ -20,6 +20,7 @@ import Disk
 import NotificationBannerSwift
 import SHSegmentedControl
 import NVActivityIndicatorView
+import Toast_Swift
 
 class HomeViewController: BaseViewController {
     weak var segTableView: SHSegmentedControlTableView!
@@ -28,6 +29,7 @@ class HomeViewController: BaseViewController {
     var deviceTab: DeviceTableView!
     var sceneTab: SceneTableView!
     private let navigator = container.resolve(NavigatorType.self)!
+    private let scService = container.resolve(JdSmartCloudService.self)!
     private var refreshHeaderTrigger = PublishSubject<Void>()
     private var leftDrawerTransition: DrawerTransition?
     private var sideBarVC: SideBarViewController?
@@ -117,26 +119,12 @@ class HomeViewController: BaseViewController {
         self.navigationItem.titleView?.pin.width(200)
     }
     fileprivate func buildNavLeftItem() {
-        // Left Button
-        let leftButton: UIButton = UIButton(type: .custom)
-        leftButton.setImage(AppIcons.menu, for: .normal)
-        leftButton.addTarget(self, action: #selector(toggle), for: .touchUpInside)
-        let leftBarButtonItem: UIBarButtonItem = UIBarButtonItem(customView: leftButton)
-        
+        let leftBarButtonItem = buildButtonItem(icon: AppIcons.menu, action: #selector(toggle))
         self.navigationItem.setLeftBarButton(leftBarButtonItem, animated: false);
     }
     fileprivate func buildNavRightItems() {
-        // Left Button
-        let groupButton: UIButton = UIButton(type: .custom)
-        groupButton.setImage(AppIcons.group, for: .normal)
-        groupButton.addTarget(self, action: #selector(showGroups), for: .touchUpInside)
-        let groupButtonItem: UIBarButtonItem = UIBarButtonItem(customView: groupButton)
-        
-        let messageButton: UIButton = UIButton(type: .custom)
-        messageButton.setImage(AppIcons.message, for: .normal)
-        messageButton.addTarget(self, action: #selector(showMessages), for: .touchUpInside)
-        let messageButtonItem: UIBarButtonItem = UIBarButtonItem(customView: messageButton)
-        
+        let groupButtonItem = buildButtonItem(icon: AppIcons.group, action: #selector(showGroups))
+        let messageButtonItem = buildButtonItem(icon: AppIcons.message, action: #selector(showMessages))
         self.navigationItem.setRightBarButtonItems([messageButtonItem, groupButtonItem], animated: false)
     }
     fileprivate func setupNavigationBar() {
@@ -149,8 +137,6 @@ class HomeViewController: BaseViewController {
         weak var `self`: HomeViewController! = self
         sideBarVC = SideBarViewController()
         leftDrawerTransition = DrawerTransition(target: self, drawer: sideBarVC)
-        leftDrawerTransition?.setPresentCompletion { print("left present...") }
-        leftDrawerTransition?.setDismissCompletion { print("left dismiss...") }
         leftDrawerTransition?.edgeType = .left
         leftDrawerTransition?.drawerWidth = UIScreen.main.bounds.width * 0.7
     }
@@ -205,10 +191,22 @@ extension HomeViewController: ReactorKit.View {
             .disposed(by: disposeBag)
         
         deviceTab.rx.deviceSelected
-            .subscribe { ev in
-                guard let device = ev.element else { return }
-                
-            }
+            .filter { device in device.version == ProductVersion.two.verVal }
+            .do(onNext: { (_) in
+                self.toggleLoading(true)
+            })
+            .flatMap({ (device) -> Observable<SCDeviceUrl?> in
+                self.scService.getDeviceH5V2(feedId: String(device.feedId!))
+            })
+            .subscribe(onNext: {
+                self.toggleLoading(false)
+                let vc = DeviceWebViewController(url: ($0?.h5?.url)!)
+                vc.deviceUrl = $0
+                self.navigator.push(vc)
+            }, onError: { error in
+                self.toggleLoading(false)
+                self.view.makeToast(convertErrorToString(error: error))
+            })
             .disposed(by: disposeBag)
         
         sceneTab.rx.addSceneTapped
@@ -222,7 +220,7 @@ extension HomeViewController: ReactorKit.View {
             headerView.channelTapped)
             .subscribe { [weak self] ev in
                 guard let url = ev.element, let _self = self else { return }
-                _self.navigator.push(WebKitViewController(url: url), from: _self.navigationController, animated: true)
+                _self.navigator.push(url)
             }
             .disposed(by: disposeBag)
         
@@ -265,18 +263,8 @@ extension HomeViewController: ReactorKit.View {
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
             .observeOn(MainScheduler.asyncInstance)
             .subscribe{ ev in
-                guard let loading = ev.element, !self.segTableView.refreshHeader.isRefreshing else {
-                    return
-                }
-                let animating = NVActivityIndicatorPresenter.sharedInstance.isAnimating
-                if loading && !animating {
-                    let activityData = ActivityData(message: "indicator.loading".localized)
-                    NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData, nil)
-                } else {
-                    if (animating) {
-                        NVActivityIndicatorPresenter.sharedInstance.stopAnimating(nil)
-                    }
-                }
+                guard let loading = ev.element, !self.segTableView.refreshHeader.isRefreshing else {  return }
+                self.toggleLoading(loading)
             }
             .disposed(by: disposeBag)
         
@@ -308,7 +296,6 @@ extension HomeViewController: ReactorKit.View {
                 banner.show()
             }
             .disposed(by: disposeBag)
-        
     }
 }
 

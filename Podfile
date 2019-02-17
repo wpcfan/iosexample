@@ -10,8 +10,6 @@ target 'Example' do
   pod 'Layout', '~> 0.6'
   pod 'PinLayout'
 #  pod 'FlexLayout'
-  pod 'Toast-Swift'
-  pod 'NotificationBannerSwift'
   pod 'SVGKit'
   pod 'Haptica'
   # Pods for Rx
@@ -109,6 +107,8 @@ target 'Example' do
   pod 'SHSegmentedControl'
   pod 'SwiftReorder'
   pod 'MarqueeLabel/Swift'
+  pod 'SwiftEntryKit'
+  pod 'Toast-Swift'
   pod 'NVActivityIndicatorView'
   # Quick Form
   pod 'Eureka'

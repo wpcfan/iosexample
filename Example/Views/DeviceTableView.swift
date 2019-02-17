@@ -28,12 +28,14 @@ class DeviceTableView: SHTableView {
         
         weak var `self`: DeviceTableView! = self
         register(DeviceCell.self, forCellReuseIdentifier: "cell")
+        
         self.reorder.delegate = self
         let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Device>>(configureCell: { ds, tv, ip, item in
             if let spacer = self.reorder.spacerCell(for: ip) {
                 return spacer
             }
             let cell = tv.dequeueReusableCell(withIdentifier: "cell") as! DeviceCell
+            cell.selectionStyle = .none
             cell.deviceNameLabel.text = item.deviceName
             cell.productTypeLabel.text = item.from
             cell.productImage.pin_setImage(from: URL(string: item.productImageUrl ?? ""), placeholderImage: AppIcons.devicePlaceholder)
@@ -86,6 +88,7 @@ class DeviceTableView: SHTableView {
             }
             .bind(to: deviceSelected$)
             .disposed(by: disposeBag)
+        
     }
     
     required init?(coder aDecoder: NSCoder) {

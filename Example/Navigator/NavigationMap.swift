@@ -5,15 +5,11 @@
 //  Created by Suyeol Jeon on 7/12/16.
 //  Copyright © 2016 Suyeol Jeon. All rights reserved.
 //
-import SafariServices
+
 import UIKit
 import PMAlertController
 import URLNavigator
 import RxQRScanner
-import WebKit
-import RxWebKit
-import RxSwift
-import NVActivityIndicatorView
 import PinLayout
 
 enum NavigationMap {
@@ -49,10 +45,14 @@ enum NavigationMap {
         context: Any?
         ) -> UIViewController? {
         guard let url = url.urlValue else { return nil }
-//        let webVC = SafariWebViewController(url: url, entersReaderIfAvailable: false)
-        guard let pageTitle = values["title"] as? String else { return WebKitViewController(url: url) }
-        let webVC = WebKitViewController(url: url, pageTitle: pageTitle)
-        return webVC
+        guard let type = url.queryParameters["type"] else {
+            let pageTitle = url.queryParameters["title"]
+            return pageTitle != nil ? WebKitViewController(url: url, pageTitle: pageTitle!) : WebKitViewController(url: url)
+        }
+        if(type == "device") {
+            return DeviceWebViewController(url: url)
+        }
+        return nil
     }
     
     private static func alert(navigator: NavigatorType) -> URLOpenHandlerFactory {
@@ -91,96 +91,6 @@ enum NavigationMap {
             
             navigator.present(alertVC)
             return true
-        }
-    }
-}
-
-class SafariWebViewController: SFSafariViewController {
-    override init(url URL: URL, entersReaderIfAvailable: Bool) {
-        super.init(url: URL, entersReaderIfAvailable: entersReaderIfAvailable)
-        delegate = self
-        
-        if #available(iOS 10.0, *) {
-            preferredBarTintColor = .primary
-            preferredControlTintColor = .white
-        }
-    }
-}
-
-extension SafariWebViewController: SFSafariViewControllerDelegate {
-    internal func safariViewControllerDidFinish(_ controller: SFSafariViewController) {
-        controller.dismiss(animated: true)
-    }
-}
-
-class WebKitViewController: UIViewController {
-    let webView = WKWebView()
-    var url: URLConvertible
-    var disposeBag = DisposeBag()
-    var pageTitle: String?
-    
-    // MARK: Initializing
-    init(url: URLConvertible, pageTitle: String = "") {
-        self.url = url
-        self.pageTitle = pageTitle
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func loadView() {
-        super.loadView()
-        
-        self.view.addSubview(webView)
-        weak var `self`: WebKitViewController! = self
-        webView.pin.all()
-        webView.load(url)
-        webView.rx.url
-            .share(replay: 1)
-            .subscribe(onNext: {
-                print("URL: \(String(describing: $0))")
-                if (!NVActivityIndicatorPresenter.sharedInstance.isAnimating) {
-                    let activityData = ActivityData(message: "indicator.loading".localized)
-                    NVActivityIndicatorPresenter.sharedInstance.startAnimating(activityData, nil)
-                }
-            })
-            .disposed(by: disposeBag)
-        
-        webView.rx.estimatedProgress
-            .share(replay: 1)
-            .timeout(10, scheduler: MainScheduler.instance)
-            .subscribe(onNext: {
-                if ($0.isEqual(to: 1.0)) {
-                    if (NVActivityIndicatorPresenter.sharedInstance.isAnimating) {
-                        NVActivityIndicatorPresenter.sharedInstance.stopAnimating(nil)
-                    }
-                }
-            })
-            .disposed(by: disposeBag)
-        
-        webView.rx.title
-            .subscribe{ ev in
-                guard let title = ev.element else { return }
-                self.title = self.pageTitle.isBlank ? title : self.pageTitle
-            }
-            .disposed(by: disposeBag)
-    }
-}
-
-extension WKWebView {
-    func load(_ urlString: String) {
-        if let url = URL(string: urlString) {
-            let request = URLRequest(url: url)
-            load(request)
-        }
-    }
-    
-    func load(_ urlString: URLConvertible) {
-        if let url = urlString.urlValue {
-            let request = URLRequest(url: url)
-            load(request)
         }
     }
 }

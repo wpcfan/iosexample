@@ -31,6 +31,13 @@ extension UIViewController {
         }
         self.navigationItem.titleView = titleLabel
     }
+    public func buildButtonItem(icon: UIImage, action: Selector) -> UIBarButtonItem {
+        weak var icon: UIImage? = icon
+        let button: UIButton = UIButton(type: .custom)
+        button.setImage(icon, for: .normal)
+        button.addTarget(self, action: action, for: .touchUpInside)
+        return UIBarButtonItem(customView: button)
+    }
 }
 
 extension UIApplication {

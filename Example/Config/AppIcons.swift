@@ -11,234 +11,66 @@ import SwiftIconFont
 import SVGKit
 
 struct AppIcons {
-    static let DEFAULT_ICON_WIDTH = 48
-    static let DEFAULT_ICON_HEIGHT = 48
-    
     static let app = Bundle.main.icon!
+    static let placeholder = buildIcon(code: "question", font: .fontAwesome, color: .primary)
+    static let home = buildIcon(code: "home", font: .fontAwesome, color: .primary)
+    static let social = buildIcon(code: "comments", font: .fontAwesome, color: .black)
+    static let user = buildIcon(code: "user", font: .fontAwesome, color: .black)
+    static let add = buildIcon(code: "ios-add", font: .ionicon, color: .primary)
+    static let lock = buildIcon(code: "ios-lock", font: .ionicon, color: .lightGray)
+    static let lockAccent = buildIcon(code: "ios-lock", font: .ionicon, color: .accent)
+    static let settingsAccent = buildIcon(code: "ios-cog", font: .ionicon, color: .accent)
+    static let sceneHomeAccent = buildIcon(code: "Home", font: .segoeMDL2, color: .accent)
+    static let sceneWorkAccent = buildIcon(code: "ParkingLocation", font: .segoeMDL2, color: .accent)
+    static let scenePlaceholderAccent = buildIcon(code: "DeviceDiscovery", font: .segoeMDL2, color: .accent)
+    static let refreshCircle = buildIcon(code: "ios-aperture", font: .ionicon, color: .accent)
+    static let pullToRefresh = buildIcon(code: "angle.double.down", font: .themify, color: .accent)
+    static let release = buildIcon(code: "angle.double.up", font: .themify, color: .accent)
+    static let menu = buildIcon(code: "ios-menu", font: .ionicon)
+    static let eye = buildIcon(code: "ios-eye", font: .ionicon, color: .black)
+    static let eyeOff = buildIcon(code: "ios-eye-off", font: .ionicon, color: .black)
+    static let clear = buildIcon(code: "clear", font: .materialIcon, color: .black)
+    static let devicePlaceholder = buildIcon(code: "nfc", font: .materialIcon, color: .primary)
+    static let family = buildIcon(code: "group", font: .materialIcon, color: .primary)
+    static let devices = buildIcon(code: "devices.other", font: .materialIcon, color: .primary)
+    static let camera = buildIcon(code: "photo.camera", font: .materialIcon, color: .primary)
+    static let mall = buildIcon(code: "shopping.basket", font: .materialIcon, color: .primary)
+    static let forum = buildIcon(code: "forum", font: .materialIcon, color: .primary)
+    static let settings = buildIcon(code: "settings", font: .materialIcon, color: .primary)
+    static let settingsWhite = buildNavIcon(code: "settings", font: .materialIcon)
+    static let group = buildIcon(code: "group.work", font: .materialIcon)
+    static let message = buildIcon(code: "ios-chatboxes", font: .ionicon)
+    static let rightArrow = buildIcon(code: "keyboard.arrow.right", font: .materialIcon, color: .lightGray)
+    static let checkCircle = buildIcon(code: "checkcircle", font: .fontAwesome, color: .primary)
+    static let uncheckCircle = buildIcon(code: "checkcircle", font: .fontAwesome, color: .lightGray)
+    static let mobileIcon = buildIcon(code: "phone.iphone", font: .materialIcon, color: .lightGray)
     
-    static let placeholder = UIImage(
-        from: .fontAwesome,
-        code: "question",
-        textColor: .primary,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let home = UIImage(
-        from: .fontAwesome,
-        code: "home",
-        textColor: .primary,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let social = UIImage(
-        from: .fontAwesome,
-        code: "comments",
-        textColor: .black,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let user = UIImage(
-        from: .fontAwesome,
-        code: "user",
-        textColor: .black,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let add = UIImage(
-        from: .ionicon,
-        code: "ios-add",
-        textColor: .primary,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let lock = UIImage(
-        from: .ionicon,
-        code: "ios-lock",
-        textColor: .lightGray,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let lockAccent = UIImage(
-        from: .ionicon,
-        code: "ios-lock",
-        textColor: UIColor.accent,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let settingsAccent = UIImage(
-        from: .ionicon,
-        code: "ios-cog",
-        textColor: UIColor.accent,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let sceneHomeAccent = UIImage(
-        from: .segoeMDL2,
-        code: "Home",
-        textColor: UIColor.accent,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let sceneWorkAccent = UIImage(
-        from: .segoeMDL2,
-        code: "ParkingLocation",
-        textColor: UIColor.accent,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let scenePlaceholderAccent = UIImage(
-        from: .segoeMDL2,
-        code: "DeviceDiscovery",
-        textColor: UIColor.accent,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let refreshCircle = UIImage(
-        from: .ionicon,
-        code: "ios-aperture",
-        textColor: .accent,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let pullToRefresh = UIImage(
-        from: .themify,
-        code: "angle.double.down",
-        textColor: .accent,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let release = UIImage(
-        from: .themify,
-        code: "angle.double.up",
-        textColor: .accent,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let menu = UIImage(
-        from: .ionicon,
-        code: "ios-menu",
-        textColor: UIColor.white,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let eye = UIImage(
-        from: .ionicon,
-        code: "ios-eye",
-        textColor: .black,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let eyeOff = UIImage(
-        from: .ionicon,
-        code: "ios-eye-off",
-        textColor: .black,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let clear = UIImage(
-        from: .materialIcon,
-        code: "clear",
-        textColor: .black,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let devicePlaceholder = UIImage(
-        from: .materialIcon,
-        code: "nfc",
-        textColor: .primary,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let family = UIImage(
-        from: .materialIcon,
-        code: "group",
-        textColor: .primary,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let devices = UIImage(
-        from: .materialIcon,
-        code: "devices.other",
-        textColor: .primary,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let camera = UIImage(
-        from: .materialIcon,
-        code: "photo.camera",
-        textColor: .primary,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let mall = UIImage(
-        from: .materialIcon,
-        code: "shopping.basket",
-        textColor: .primary,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let forum = UIImage(
-        from: .materialIcon,
-        code: "forum",
-        textColor: .primary,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let settings = UIImage(
-        from: .materialIcon,
-        code: "settings",
-        textColor: .primary,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let group = UIImage(
-        from: .materialIcon,
-        code: "group.work",
-        textColor: .white,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let message = UIImage(
-        from: .ionicon,
-        code: "ios-chatboxes",
-        textColor: .white,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let rightArrow = UIImage(
-        from: .materialIcon,
-        code: "keyboard.arrow.right",
-        textColor: .lightGray,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let checkCircle = UIImage(
-        from: .fontAwesome,
-        code: "checkcircle",
-        textColor: .primary,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let uncheckCircle = UIImage(
-        from: .fontAwesome,
-        code: "checkcircle",
-        textColor: .lightGray,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
-    static let mobileIcon = UIImage(
-        from: .materialIcon,
-        code: "phone.iphone",
-        textColor: .lightGray,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
-    
+    static let info = buildIcon(code: "info", font: .materialIcon)
+    static let warn = buildIcon(code: "warning", font: .materialIcon)
+    static let error = buildIcon(code: "error", font: .materialIcon)
 //    static let sceneSvg = SVGKFastImageView(svgkImage: SVGKImage(named: "scene"))!
     static let scene = UIImage(named: "scene")!
-    static let captchaIcon = UIImage(
-        from: .ionicon,
-        code: "ios-lock",
-        textColor: .lightGray,
-        backgroundColor: .clear,
-        size: CGSize(width: DEFAULT_ICON_WIDTH, height: DEFAULT_ICON_HEIGHT))
+    static let captchaIcon = buildIcon(code: "ios-lock", font: .ionicon)
+    
+    static func buildNavIcon(
+        code: String,
+        font: Fonts,
+        color: UIColor = .white) -> UIImage {
+        return buildIcon(code: code, font: font, color: color, width: 32, height: 32)
+    }
+    
+    static func buildIcon(
+        code: String,
+        font: Fonts,
+        color: UIColor = .white,
+        width: CGFloat = 48,
+        height: CGFloat = 48,
+        backgroundColor: UIColor = .clear) -> UIImage {
+        return UIImage(
+            from: font,
+            code: code,
+            textColor: color,
+            backgroundColor: backgroundColor,
+            size: CGSize(width: width, height: height))
+    }
 }

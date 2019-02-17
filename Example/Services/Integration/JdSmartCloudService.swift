@@ -7,6 +7,7 @@
 //
 import SCMSDK
 import RxSwift
+import RxCocoa
 import ObjectMapper
 
 public enum ProductVersion {
@@ -99,14 +100,14 @@ class JdSmartCloudService {
         print("exit bindJdAccount")
     }
     
-    public func deviceSnapshotV2(id: String) -> Observable<SCV2Snapshot?> {
+    public func deviceSnapshotV2(feedId: String) -> Observable<SCV2Snapshot?> {
         print("enter deviceSnapshot")
         return Observable<SCV2Snapshot?>.create{ (observer) -> Disposable in
             #if !targetEnvironment(simulator)
             SCMCloudControlManager.getSnapShot(
-                withVersion: "2.0",
+                withVersion: ProductVersion.two.verVal,
                 digest: nil,
-                feedId: id,
+                feedId: feedId,
                 guid: nil,
                 success: { (res) in
                     let res = res as! [String: Any]
@@ -130,12 +131,28 @@ class JdSmartCloudService {
         }
     }
     
-    func getDeviceH5V2(_ version: String, _ feedId: String) -> Observable<String> {
+    func subscribeSnapshotV2(feedId: String) -> Void {
+        print("enter subscribeSnapshotV2")
+        #if !targetEnvironment(simulator)
+        
+        SCMLongConnectManager.shared().subscribeShopShotFeedId(
+            feedId,
+            success: { (data) in
+                print(data)
+            },
+            fail: { (error) in
+                printError(error)
+            })
+        #endif
+        print("exit subscribeSnapshotV2")
+    }
+    
+    func getDeviceH5V2(feedId: String) -> Observable<SCDeviceUrl?> {
         print("enter getDeviceH5V2")
-        return Observable<String>.create{ (observer) -> Disposable in
+        return Observable<SCDeviceUrl?>.create{ (observer) -> Disposable in
             #if !targetEnvironment(simulator)
             SCMCloudControlManager.getDeviceUrl(
-                withVersion: version,
+                withVersion: ProductVersion.two.verVal,
                 feedId: feedId,
                 puid: nil,
                 service: nil,
@@ -148,7 +165,7 @@ class JdSmartCloudService {
                         return
                     }
                     let deviceUrl = Mapper<SCDeviceUrl>().map(JSONString: (result?.result)!)
-                    observer.onNext(deviceUrl?.h5?.url ?? "")
+                    observer.onNext(deviceUrl)
                     observer.onCompleted()
                 }) { (error) in
                     printError(error)
@@ -157,5 +174,30 @@ class JdSmartCloudService {
             #endif
             return Disposables.create()
         }
+    }
+    
+    func longConnectStatus() -> Observable<SCM_LONG_CONNECT_STATUS> {
+        return NotificationCenter.default.rx
+            .notification(.SCMSocketLongConnectStatuChange)
+            .map { (notification) -> SCM_LONG_CONNECT_STATUS in
+                let status = notification.userInfo!["status"] as! Int
+                print(status)
+                switch(status) {
+                case SCM_LONG_CONNECT_STATUS.CONNECTING.rawValue:
+                    return SCM_LONG_CONNECT_STATUS.CONNECTING
+                case SCM_LONG_CONNECT_STATUS.AUTH.rawValue:
+                    return SCM_LONG_CONNECT_STATUS.AUTH
+                case SCM_LONG_CONNECT_STATUS.AUTH_FAIL.rawValue:
+                    return SCM_LONG_CONNECT_STATUS.AUTH_FAIL
+                default:
+                    return SCM_LONG_CONNECT_STATUS.CONNECT_FAIL
+                }
+            }
+    }
+    
+    func longConnectReceiveData() -> Observable<[String: Any]> {
+        return NotificationCenter.default.rx
+            .notification(.SCMSocketLongConnectDidReceivedData)
+            .map { notification in notification.userInfo as! [String: Any] }
     }
 }

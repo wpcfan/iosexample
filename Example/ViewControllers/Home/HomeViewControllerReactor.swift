@@ -62,7 +62,7 @@ class HomeViewControllerReactor: Reactor {
                 .map { (devices: [Device]) in String(devices[0].feedId!) }
             let loadIndoorAir$: Observable<Mutation> = indoorAirDevice$
                 .flatMap { id in
-                    self.scService.deviceSnapshotV2(id: id)
+                    self.scService.deviceSnapshotV2(feedId: id)
                         .map { (result) -> Mutation in
                             .loadIndoorAirSuccess(Mapper<IndoorAir>().map(JSON: result!.toPlainDict()))
                         }

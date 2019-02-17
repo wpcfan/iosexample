@@ -81,7 +81,10 @@ public func convertErrorToString(error: Error) -> String {
         return "首创智慧家应用需要绑定京东账号才能正常使用"
     case let SCError.JdSmartError(code, message, _):
         return "京东云错误: \(message ?? "未知错误")(代码:\(code ?? -1))"
+    case RxError.timeout:
+        return "请求超时: 网络环境较差，请稍后再试"
     default:
+        printError(error)
         return "哎呀，好像系统开小差了"
     }
 }
