@@ -134,7 +134,9 @@ class JdSmartCloudService {
     func subscribeSnapshotV2(feedId: String) -> Void {
         print("enter subscribeSnapshotV2")
         #if !targetEnvironment(simulator)
-        
+        if(!SCMLongConnectManager.shared().isConnecting()) {
+            return
+        }
         SCMLongConnectManager.shared().subscribeShopShotFeedId(
             feedId,
             success: { (data) in
@@ -174,30 +176,5 @@ class JdSmartCloudService {
             #endif
             return Disposables.create()
         }
-    }
-    
-    func longConnectStatus() -> Observable<SCM_LONG_CONNECT_STATUS> {
-        return NotificationCenter.default.rx
-            .notification(.SCMSocketLongConnectStatuChange)
-            .map { (notification) -> SCM_LONG_CONNECT_STATUS in
-                let status = notification.userInfo!["status"] as! Int
-                print(status)
-                switch(status) {
-                case SCM_LONG_CONNECT_STATUS.CONNECTING.rawValue:
-                    return SCM_LONG_CONNECT_STATUS.CONNECTING
-                case SCM_LONG_CONNECT_STATUS.AUTH.rawValue:
-                    return SCM_LONG_CONNECT_STATUS.AUTH
-                case SCM_LONG_CONNECT_STATUS.AUTH_FAIL.rawValue:
-                    return SCM_LONG_CONNECT_STATUS.AUTH_FAIL
-                default:
-                    return SCM_LONG_CONNECT_STATUS.CONNECT_FAIL
-                }
-            }
-    }
-    
-    func longConnectReceiveData() -> Observable<[String: Any]> {
-        return NotificationCenter.default.rx
-            .notification(.SCMSocketLongConnectDidReceivedData)
-            .map { notification in notification.userInfo as! [String: Any] }
     }
 }

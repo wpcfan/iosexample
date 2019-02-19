@@ -200,7 +200,7 @@ extension HomeViewController: ReactorKit.View {
             })
             .subscribe(onNext: {
                 self.toggleLoading(false)
-                let vc = DeviceWebViewController(url: ($0?.h5?.url)!)
+                let vc = DeviceV2WebViewController(url: ($0?.h5?.url)!)
                 vc.deviceUrl = $0
                 self.navigator.push(vc)
             }, onError: { error in

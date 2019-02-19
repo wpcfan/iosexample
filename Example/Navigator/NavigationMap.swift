@@ -45,14 +45,10 @@ enum NavigationMap {
         context: Any?
         ) -> UIViewController? {
         guard let url = url.urlValue else { return nil }
-        guard let type = url.queryParameters["type"] else {
-            let pageTitle = url.queryParameters["title"]
-            return pageTitle != nil ? WebKitViewController(url: url, pageTitle: pageTitle!) : WebKitViewController(url: url)
+        guard let pageTitle = url.queryParameters["title"] else {
+            return WebKitViewController(url: url)
         }
-        if(type == "device") {
-            return DeviceWebViewController(url: url)
-        }
-        return nil
+        return WebKitViewController(url: url, pageTitle: pageTitle)
     }
     
     private static func alert(navigator: NavigatorType) -> URLOpenHandlerFactory {

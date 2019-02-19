@@ -109,6 +109,7 @@ target 'Example' do
   pod 'MarqueeLabel/Swift'
   pod 'SwiftEntryKit'
   pod 'Toast-Swift'
+  pod 'NotificationBannerSwift'
   pod 'NVActivityIndicatorView'
   # Quick Form
   pod 'Eureka'

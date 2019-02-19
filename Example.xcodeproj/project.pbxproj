@@ -110,7 +110,7 @@
 		AA46D3FC22181E9B00931526 /* SCDeviceUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46D3FB22181E9A00931526 /* SCDeviceUrl.swift */; };
 		AA46D40322190F5E00931526 /* WebKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46D40222190F5D00931526 /* WebKitViewController.swift */; };
 		AA46D4072219102B00931526 /* WebKitViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA46D4062219102B00931526 /* WebKitViewController.xml */; };
-		AA46D40A2219128E00931526 /* DeviceWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46D4092219128E00931526 /* DeviceWebViewController.swift */; };
+		AA46D40A2219128E00931526 /* DeviceV2WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46D4092219128E00931526 /* DeviceV2WebViewController.swift */; };
 		AA46D40C2219188200931526 /* SafariWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46D40B2219188200931526 /* SafariWebViewController.swift */; };
 		AA46D40E221943DE00931526 /* DeviceSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46D40D221943DE00931526 /* DeviceSettingViewController.swift */; };
 		AA4B48E42175006100A60C11 /* Reactive+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B48E32175006100A60C11 /* Reactive+Layout.swift */; };
@@ -431,7 +431,7 @@
 		AA46D3FB22181E9A00931526 /* SCDeviceUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCDeviceUrl.swift; sourceTree = "<group>"; };
 		AA46D40222190F5D00931526 /* WebKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebKitViewController.swift; sourceTree = "<group>"; };
 		AA46D4062219102B00931526 /* WebKitViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WebKitViewController.xml; sourceTree = "<group>"; };
-		AA46D4092219128E00931526 /* DeviceWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceWebViewController.swift; sourceTree = "<group>"; };
+		AA46D4092219128E00931526 /* DeviceV2WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceV2WebViewController.swift; sourceTree = "<group>"; };
 		AA46D40B2219188200931526 /* SafariWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariWebViewController.swift; sourceTree = "<group>"; };
 		AA46D40D221943DE00931526 /* DeviceSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceSettingViewController.swift; sourceTree = "<group>"; };
 		AA4B48E32175006100A60C11 /* Reactive+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+Layout.swift"; sourceTree = "<group>"; };
@@ -946,7 +946,7 @@
 		AA46D4082219120C00931526 /* Device */ = {
 			isa = PBXGroup;
 			children = (
-				AA46D4092219128E00931526 /* DeviceWebViewController.swift */,
+				AA46D4092219128E00931526 /* DeviceV2WebViewController.swift */,
 				AA46D40D221943DE00931526 /* DeviceSettingViewController.swift */,
 			);
 			path = Device;
@@ -1928,7 +1928,7 @@
 				AAA6E6A5221317EF0032A489 /* SetPasswordViewControllerReactor.swift in Sources */,
 				AA5724172217226500D26244 /* DeviceInfoService.swift in Sources */,
 				AA42058E217B8C680068ABC0 /* ChannelView.swift in Sources */,
-				AA46D40A2219128E00931526 /* DeviceWebViewController.swift in Sources */,
+				AA46D40A2219128E00931526 /* DeviceV2WebViewController.swift in Sources */,
 				AA5723EA22155DAB00D26244 /* SmartUser.swift in Sources */,
 				AA99E9B4219B2F6200FD1C6F /* UIScrollView+.swift in Sources */,
 				AA5723F822157CEF00D26244 /* Weather.swift in Sources */,
