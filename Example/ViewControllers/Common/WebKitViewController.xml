@@ -1,3 +1,17 @@
-<WKWebView
-    outlet="webView"
-/>
+<UIView>
+    <WKWebView outlet="webView"/>
+    <NVActivityIndicatorView.NVActivityIndicatorView
+        center.x="parent.center.x"
+        center.y="parent.center.y"
+        color="darkGray"
+        height="50"
+        outlet="activityIndicatorView"
+        width="100"
+    />
+    <UILabel
+        center.x="parent.center.x"
+        outlet="loadingLabel"
+        text="{strings.indicator.loading}"
+        top="previous.bottom + 5"
+    />
+</UIView>

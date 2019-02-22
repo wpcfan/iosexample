@@ -35,10 +35,6 @@ class BaseViewController: UIViewController {
         bindReachability()
     }
     
-    func initialize() -> Void {
-        
-    }
-    
     func bindReachability() {
         Reachability.rx.reachabilityChanged
             .subscribe(onNext: { (reachability: Reachability) in

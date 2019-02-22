@@ -167,6 +167,7 @@
 		AA693DBF2161F6330063D749 /* MeViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA693DBE2161F6330063D749 /* MeViewController.xml */; };
 		AA693DC12161F6460063D749 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA693DC02161F6460063D749 /* SettingViewController.swift */; };
 		AA693DC32161FF620063D749 /* NavigationMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA693DC22161FF620063D749 /* NavigationMap.swift */; };
+		AA72B6E4222063BC00C72E33 /* DeviceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA72B6E3222063BC00C72E33 /* DeviceCell.xib */; };
 		AA78BB46218D6814000B4CD8 /* NotificationCenter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA78BB45218D6814000B4CD8 /* NotificationCenter+.swift */; };
 		AA78BB48218D6D27000B4CD8 /* Reactive+NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA78BB47218D6D27000B4CD8 /* Reactive+NotificationCenter.swift */; };
 		AA78BB54218EB31C000B4CD8 /* ShortcutParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA78BB53218EB31C000B4CD8 /* ShortcutParser.swift */; };
@@ -490,6 +491,7 @@
 		AA693DBE2161F6330063D749 /* MeViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = MeViewController.xml; sourceTree = "<group>"; };
 		AA693DC02161F6460063D749 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		AA693DC22161FF620063D749 /* NavigationMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMap.swift; sourceTree = "<group>"; };
+		AA72B6E3222063BC00C72E33 /* DeviceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeviceCell.xib; sourceTree = "<group>"; };
 		AA78BB45218D6814000B4CD8 /* NotificationCenter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+.swift"; sourceTree = "<group>"; };
 		AA78BB47218D6D27000B4CD8 /* Reactive+NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+NotificationCenter.swift"; sourceTree = "<group>"; };
 		AA78BB53218EB31C000B4CD8 /* ShortcutParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutParser.swift; sourceTree = "<group>"; };
@@ -1002,6 +1004,7 @@
 				AA42058D217B8C680068ABC0 /* ChannelView.swift */,
 				AA5724112216CE4600D26244 /* ChannelView.xml */,
 				AAF961A5220D977D00E17A65 /* DeviceCell.swift */,
+				AA72B6E3222063BC00C72E33 /* DeviceCell.xib */,
 				AAF961A7220D97C600E17A65 /* DeviceTableView.swift */,
 				AA4205A5217C9B5F0068ABC0 /* HeaderView.swift */,
 				AA57240F2216CA0900D26244 /* HeaderView.xml */,
@@ -1496,6 +1499,7 @@
 				AA693DBF2161F6330063D749 /* MeViewController.xml in Resources */,
 				AA57240C2215D74000D26244 /* IndoorAirView.xml in Resources */,
 				AA78BB5E218F331B000B4CD8 /* MeHeaderCell.xml in Resources */,
+				AA72B6E4222063BC00C72E33 /* DeviceCell.xib in Resources */,
 				AAA6E6A92213197A0032A489 /* SetPasswordViewController.xml in Resources */,
 				AA5724102216CA0900D26244 /* HeaderView.xml in Resources */,
 				AAF961B4220EEC3100E17A65 /* HouseTableViewController.xml in Resources */,

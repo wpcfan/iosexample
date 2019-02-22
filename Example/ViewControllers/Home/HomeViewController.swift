@@ -48,15 +48,7 @@ class HomeViewController: BaseViewController {
         setupDrawer()
         reactor = HomeViewControllerReactor()
     }
-    fileprivate func buildNavTopItem() {
-        // Top Button
-        let topButton = UIButton(type: .custom).then {
-            $0.setTitle("home.nav.title".localized, for: .normal)
-            $0.addTarget(self, action: #selector(HomeViewController.changeHouse), for: .touchUpInside)
-            $0.sizeToFit()
-        }
-        self.navigationItem.titleView = topButton
-    }
+    
     func getHeaderView() -> UIView {
         if self.headerView != nil {
             return self.headerView

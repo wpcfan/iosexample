@@ -20,21 +20,7 @@ class DeviceV2WebViewController: WebKitViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        #if !targetEnvironment(simulator)
-        dataManager = SCMControlDataManager(
-            feedId: String(deviceUrl!.device!.feedId!),
-            service: nil,
-            puid: deviceUrl?.product?.productUUID,
-            delegate: self)
-        h5Manager = SCMH5ControlManager(
-            feedId: String(deviceUrl!.device!.feedId!),
-            service: nil,
-            puid: deviceUrl?.product?.productUUID,
-            version: "2.0",
-            srcType: .wan,
-            webViewDelegate: self,
-            webView: self.webView)
-        #endif
+        
         self.subscribeSnapshotV2()
     }
     
@@ -42,13 +28,6 @@ class DeviceV2WebViewController: WebKitViewController {
         super.viewWillAppear(animated)
     
         buildBarRightButton()
-    }
-    
-    override func initialize() {
-        super.initialize()
-        
-        bindLongConnectStatus()
-        bindReceiveData()
     }
     
     private func buildBarRightButton() {
@@ -64,30 +43,31 @@ class DeviceV2WebViewController: WebKitViewController {
         scService.subscribeSnapshotV2(feedId: String(deviceUrl!.device!.feedId!))
     }
     
-    func bindReceiveData() -> Void {
+    override func layoutDidLoad(_ layoutNode: LayoutNode) {
+        super.layoutDidLoad(layoutNode)
+        
+        weak var `self`: DeviceV2WebViewController! = self
         #if !targetEnvironment(simulator)
+        dataManager = SCMControlDataManager(feedId: String(deviceUrl!.device!.feedId!), service: nil, puid: deviceUrl?.product?.productUUID, delegate: self)
+        h5Manager = SCMH5ControlManager(feedId: String(deviceUrl!.device!.feedId!), service: nil, puid: deviceUrl?.product?.productUUID, version: "2.0", srcType: .wan, webViewDelegate: self, webView: self.webView)
         NotificationCenter.default.rx
             .notification(.SCMSocketLongConnectDidReceivedData)
-            .subscribe { [weak self] ev in
-                guard let notification = ev.element, let _self = self else { return }
+            .subscribe { ev in
+                guard let notification = ev.element else { return }
                 print(notification.userInfo)
-                _self.h5Manager?.handleSnapshot(withWebView: _self.webView, dataDictionary: notification.userInfo)
+                self.h5Manager?.handleSnapshot(withWebView: self.webView, dataDictionary: notification.userInfo)
             }
             .disposed(by: disposeBag)
-        #endif
-    }
-    
-    func bindLongConnectStatus() -> Void {
-        #if !targetEnvironment(simulator)
+        
         NotificationCenter.default.rx
             .notification(.SCMSocketLongConnectStatuChange)
-            .subscribe{ [weak self] ev in
-                guard let notification = ev.element, let _self = self else { return }
+            .subscribe{ ev in
+                guard let notification = ev.element else { return }
                 let status = notification.userInfo!["status"] as! Int
                 print(status)
                 switch(status) {
                 case SCM_LONG_CONNECT_STATUS.CONNECTING.rawValue:
-                    _self.subscribeSnapshotV2()
+                    self.subscribeSnapshotV2()
                     let notificationBanner = NotificationBanner(title: "长连接已建立", subtitle: "可以正常使用", style: .success)
                     notificationBanner.show()
                     return

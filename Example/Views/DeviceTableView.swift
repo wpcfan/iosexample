@@ -27,7 +27,7 @@ class DeviceTableView: SHTableView {
         super.init(frame: frame, style: style)
         
         weak var `self`: DeviceTableView! = self
-        register(DeviceCell.self, forCellReuseIdentifier: "cell")
+        register(UINib(nibName: "DeviceCell", bundle: nil), forCellReuseIdentifier: "cell")
         
         self.reorder.delegate = self
         let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Device>>(configureCell: { ds, tv, ip, item in
@@ -38,7 +38,7 @@ class DeviceTableView: SHTableView {
             cell.selectionStyle = .none
             cell.deviceNameLabel.text = item.deviceName
             cell.productTypeLabel.text = item.from
-            cell.productImage.pin_setImage(from: URL(string: item.productImageUrl ?? ""), placeholderImage: AppIcons.devicePlaceholder)
+            cell.productImageView.pin_setImage(from: URL(string: item.productImageUrl ?? ""), placeholderImage: AppIcons.devicePlaceholder)
             cell.onlineStatus = item.status == 1
             cell.rebindButton.rx.tap
                 .subscribe { ev in

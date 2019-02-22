@@ -15,7 +15,6 @@ class BaseTableCell: UITableViewCell {
     // MARK: Properties
     var disposeBag = DisposeBag()
     
-    
     // MARK: Initializing
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -29,7 +28,6 @@ class BaseTableCell: UITableViewCell {
     func initialize() {
         // Override point
     }
-
 }
 
 extension Reactive where Base: BaseTableCell {
