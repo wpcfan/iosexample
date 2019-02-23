@@ -50,7 +50,7 @@ class HomeViewControllerReactor: Reactor {
                 .map { home -> Mutation in .loadSuccess(home) }
                 .catchError{ error -> Observable<Mutation>  in
                     Observable.of(.loadFail(convertErrorToString(error: error)))
-            }
+                }
             let indoorAirDevice$ = homeStream
                 .map({ $0.devices?.filter({ (device: Device) -> Bool in
                     device.productId == self.INDOOR_ENV_PROD_ID

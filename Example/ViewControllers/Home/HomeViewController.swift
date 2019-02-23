@@ -17,7 +17,6 @@ import URLNavigator
 import CoreGraphics
 import PinLayout
 import Disk
-import NotificationBannerSwift
 import SHSegmentedControl
 import NVActivityIndicatorView
 import Toast_Swift
@@ -26,8 +25,7 @@ class HomeViewController: BaseViewController {
     weak var segTableView: SHSegmentedControlTableView!
     weak var segmentControl: SHSegmentControl!
     weak var headerView: UIView!
-    var deviceTab: DeviceTableView!
-    var sceneTab: SceneTableView!
+    
     private let navigator = container.resolve(NavigatorType.self)!
     private let scService = container.resolve(JdSmartCloudService.self)!
     private var refreshHeaderTrigger = PublishSubject<Void>()
@@ -36,25 +34,21 @@ class HomeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.headerView = getHeaderView()
+        headerView = getHeaderView()
         //        self.segmentControl = self.getSegmentControl()
-        self.segTableView = self.getSegTableView()
-        self.deviceTab = DeviceTableView()
-        self.sceneTab = SceneTableView()
-        self.segTableView.tableViews = [deviceTab, sceneTab]
-        self.view.addSubview(self.segTableView)
+        segTableView = self.getSegTableView()
+        segTableView.tableViews = [DeviceTableView(), SceneTableView()]
+        view.addSubview(self.segTableView)
         buildRefreshHeader()
         setupNavigationBar()
         setupDrawer()
         reactor = HomeViewControllerReactor()
     }
-    
     func getHeaderView() -> UIView {
         if self.headerView != nil {
             return self.headerView
         }
-        let header = HeaderView()
-        return header
+        return HeaderView()
     }
     func getSegTableView() -> SHSegmentedControlTableView {
         if self.segTableView != nil {
@@ -132,6 +126,12 @@ class HomeViewController: BaseViewController {
         leftDrawerTransition?.edgeType = .left
         leftDrawerTransition?.drawerWidth = UIScreen.main.bounds.width * 0.7
     }
+    fileprivate func stopRefreshing(refreshHeader: MJRefreshHeader) {
+        weak var header: MJRefreshHeader! = refreshHeader
+        if (header.isRefreshing) {
+            header.endRefreshing()
+        }
+    }
 }
 
 extension HomeViewController: ReactorKit.View {
@@ -139,10 +139,11 @@ extension HomeViewController: ReactorKit.View {
     
     func bind(reactor: Reactor) {
         
-        reactor.action.onNext(.reportPushRegId)
         weak var `self`: HomeViewController! = self
         weak var headerView: HeaderView! = (self.headerView as! HeaderView)
-        
+        weak var deviceTab: DeviceTableView! = (self.segTableView.tableViews[0] as! DeviceTableView)
+        weak var sceneTab: SceneTableView! = (self.segTableView.tableViews[1] as! SceneTableView)
+        reactor.action.onNext(.reportPushRegId)
         CURRENT_HOUSE
             .startWith(nil)
             .mapTo(Reactor.Action.load)
@@ -210,9 +211,9 @@ extension HomeViewController: ReactorKit.View {
         Observable.merge(
             headerView.bannerTapped,
             headerView.channelTapped)
-            .subscribe { [weak self] ev in
-                guard let url = ev.element, let _self = self else { return }
-                _self.navigator.push(url)
+            .subscribe { ev in
+                guard let url = ev.element else { return }
+                self.navigator.push(url)
             }
             .disposed(by: disposeBag)
         
@@ -241,11 +242,11 @@ extension HomeViewController: ReactorKit.View {
         reactor.state
             .map { $0.indoorEnvSnapShot != nil }
             .distinctUntilChanged()
-            .subscribe{ [weak self] ev in
-                guard let displayAir = ev.element, let _self = self else { return }
+            .subscribe{ ev in
+                guard let displayAir = ev.element else { return }
                 headerView.displayAir$.onNext(displayAir)
-                headerView.frame = CGRect(x: 0, y: 0, width: _self.view.frame.width, height: displayAir ? 315: 215)
-                _self.segTableView.topView = _self.headerView
+                headerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: displayAir ? 315: 215)
+                self.segTableView.topView = self.headerView
             }
             .disposed(by: disposeBag)
         
@@ -255,7 +256,10 @@ extension HomeViewController: ReactorKit.View {
             .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
             .observeOn(MainScheduler.asyncInstance)
             .subscribe{ ev in
-                guard let loading = ev.element, !self.segTableView.refreshHeader.isRefreshing else {  return }
+                guard let loading = ev.element, !self.segTableView.refreshHeader.isRefreshing else {
+                    self.toggleLoading(false)
+                    return
+                }
                 self.toggleLoading(loading)
             }
             .disposed(by: disposeBag)
@@ -263,17 +267,18 @@ extension HomeViewController: ReactorKit.View {
         reactor.state
             .map { $0.homeInfo }
             .filterNil()
-            .subscribe{ [weak self] ev in
-                guard let home = ev.element, let _self = self else { return }
-                let button = _self.navigationItem.titleView as! UIButton
+            .subscribe{ ev in
+                guard let home = ev.element else {
+                    self.stopRefreshing(refreshHeader: self.segTableView.refreshHeader)
+                    return
+                }
+                let button = self.navigationItem.titleView as! UIButton
                 let title = home.house?.displayName() ?? ""
                 let isOwner = home.house?.isOwner ?? false
-                _self.deviceTab.sectionHeaderView.rightBtnHidden = !isOwner
-                _self.sceneTab.sectionHeaderView.rightBtnHidden = !isOwner
+                deviceTab.sectionHeaderView.rightBtnHidden = !isOwner
+                sceneTab.sectionHeaderView.rightBtnHidden = !isOwner
                 button.setTitle(title.trunc(length: 14), for: .normal)
-                if (_self.segTableView.refreshHeader.isRefreshing) {
-                    _self.segTableView.refreshHeader.endRefreshing()
-                }
+                self.stopRefreshing(refreshHeader: self.segTableView.refreshHeader)
             }
             .disposed(by: disposeBag)
         
@@ -284,8 +289,7 @@ extension HomeViewController: ReactorKit.View {
             .observeOn(MainScheduler.asyncInstance)
             .subscribe{ ev in
                 guard let err = ev.element else { return }
-                let banner = NotificationBanner(title: "错误", subtitle: err, style: .warning)
-                banner.show()
+                self.view.makeToast(err)
             }
             .disposed(by: disposeBag)
     }

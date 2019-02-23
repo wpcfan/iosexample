@@ -20,7 +20,6 @@ class DeviceV2WebViewController: WebKitViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         self.subscribeSnapshotV2()
     }
     
@@ -52,6 +51,7 @@ class DeviceV2WebViewController: WebKitViewController {
         h5Manager = SCMH5ControlManager(feedId: String(deviceUrl!.device!.feedId!), service: nil, puid: deviceUrl?.product?.productUUID, version: "2.0", srcType: .wan, webViewDelegate: self, webView: self.webView)
         NotificationCenter.default.rx
             .notification(.SCMSocketLongConnectDidReceivedData)
+            .takeUntil(self.rx.viewWillDisappear)
             .subscribe { ev in
                 guard let notification = ev.element else { return }
                 print(notification.userInfo)
@@ -61,6 +61,7 @@ class DeviceV2WebViewController: WebKitViewController {
         
         NotificationCenter.default.rx
             .notification(.SCMSocketLongConnectStatuChange)
+            .takeUntil(self.rx.viewWillDisappear)
             .subscribe{ ev in
                 guard let notification = ev.element else { return }
                 let status = notification.userInfo!["status"] as! Int
@@ -84,6 +85,11 @@ class DeviceV2WebViewController: WebKitViewController {
                     notificationBanner.show()
                     return
                 }
+            }
+            .disposed(by: disposeBag)
+        self.rx.viewWillDisappear
+            .subscribe { _ in
+                self.scService.unsubscribeSnapshotV2(feedId: String(self.deviceUrl!.device!.feedId!))
             }
             .disposed(by: disposeBag)
         #endif

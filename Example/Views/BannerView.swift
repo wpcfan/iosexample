@@ -35,7 +35,7 @@ class BannerView: UIView {
             $0.itemSize = FSPagerView.automaticSize
             $0.automaticSlidingInterval = 3.0
             $0.isInfinite = true
-            $0.transformer = FSPagerViewTransformer(type: .crossFading)
+            $0.transformer = FSPagerViewTransformer(type: .linear)
         }
         pagerControl = FSPageControl().then {
             $0.contentHorizontalAlignment = .center

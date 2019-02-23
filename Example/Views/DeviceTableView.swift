@@ -46,13 +46,13 @@ class DeviceTableView: SHTableView {
                     self.rebind$.onNext(item)
                     }
                 .disposed(by: cell.rx.reuseBag)
-            cell.onlineStatusLabel.text = item.status == 1 ? "设备在线" : "设备离线"
+            cell.onlineStatusLabel.text = item.status == 1 ? "devices.cell.online".localized : "devices.cell.offline".localized
             return cell
         })
         
         devices$
             .map{ devices in
-                [SectionModel(model: "我的设备", items: devices)]
+                [SectionModel(model: "devices.section.header".localized, items: devices)]
             }
             .debug()
             .bind(to: self.rx.items(dataSource: dataSource))

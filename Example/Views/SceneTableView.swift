@@ -54,7 +54,7 @@ extension SceneTableView: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        sectionHeaderView.textLabel.text = "我的场景"
+        sectionHeaderView.textLabel.text = "scenes.section.header".localized
         sectionHeaderView.icon.image = AppIcons.scene
         return sectionHeaderView
     }

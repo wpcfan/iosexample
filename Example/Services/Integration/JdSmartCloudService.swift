@@ -68,18 +68,6 @@ class JdSmartCloudService {
         print("exit changeToken")
     }
     
-    public func initLongPolling(userToken: String) {
-        print("enter initLongPolling")
-        #if !targetEnvironment(simulator)
-        if (SCMLongConnectManager.shared().isConnecting()) {
-            SCMLongConnectManager.shared().cutOffLongConnect()
-        }
-        SCMInitManager.sharedInstance().registerUserToken(userToken)
-        SCMLongConnectManager.shared().createLongConnect()
-        #endif
-        print("exit initLongPolling")
-    }
-    
     public func getScenes(page: Int, pageSize: Int? = 30, extend: [AnyHashable : Any]? = nil) {
         print("enter getScenes")
         #if !targetEnvironment(simulator)
@@ -147,6 +135,21 @@ class JdSmartCloudService {
             })
         #endif
         print("exit subscribeSnapshotV2")
+    }
+    
+    func unsubscribeSnapshotV2(feedId: String) -> Void {
+        print("enter unsubscribeSnapshotV2")
+        #if !targetEnvironment(simulator)
+        SCMLongConnectManager.shared().cancelSubscriptionFeedId(
+            feedId,
+            success: { (data) in
+                print(data)
+        },
+            fail: { (error) in
+                printError(error)
+        })
+        #endif
+        print("exit unsubscribeSnapshotV2")
     }
     
     func getDeviceH5V2(feedId: String) -> Observable<SCDeviceUrl?> {
