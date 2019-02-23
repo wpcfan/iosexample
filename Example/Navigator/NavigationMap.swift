@@ -22,10 +22,6 @@ enum NavigationMap {
             let viewController = HouseTableViewController()
             return viewController;
         }
-        navigator.register("\(Constants.NAVI_PREFIX)://me/settings") { url, values, context in
-            let viewController = SettingViewController()
-            return viewController;
-        }
         
         navigator.register("http://<path:_>", self.webViewControllerFactory)
         navigator.register("https://<path:_>", self.webViewControllerFactory)

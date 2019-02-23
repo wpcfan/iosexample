@@ -50,7 +50,7 @@ class RootViewController: BaseViewController {
     }
     
     func showRegisterScreen() {
-        let registerScreen = UINavigationController(rootViewController: RegisterViewController())
+        let registerScreen = UINavigationController(rootViewController: SignUpViewController())
         UINavigationBar.appearance().backgroundColor = .primary
         UINavigationBar.appearance().barTintColor = .textIcon
         UINavigationBar.appearance().isTranslucent = false
@@ -87,13 +87,6 @@ class RootViewController: BaseViewController {
         let homeVC = HomeViewController()
         let homeScreen = UINavigationController(rootViewController: homeVC)
         animateFadeTransition(to: homeScreen) { [weak self] in
-            self?.handleDeeplink(self?.deeplink)
-        }
-    }
-    
-    func switchToMainScreen() {
-        let mainViewController = HomeTabViewController(tabName: "app")
-        animateFadeTransition(to: mainViewController) { [weak self] in
             self?.handleDeeplink(self?.deeplink)
         }
     }
@@ -144,7 +137,7 @@ class RootViewController: BaseViewController {
     
     private func handleDeeplink(_ deepLink: DeeplinkType?) {
         guard deeplink != nil else { return }
-        guard current is HomeTabViewController else { return }
+        guard current is HomeViewController else { return }
         switch deepLink! {
         case .activity:
             print("[DeepLink] 捕获到 3D 触摸")

@@ -19,7 +19,7 @@ class ChannelView: BaseView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.loadLayout(named: "ChannelView.xml")
+        loadLayout(named: "ChannelView.xml")
     }
     
     required init?(coder aDecoder: NSCoder) {
