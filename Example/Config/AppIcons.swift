@@ -38,6 +38,7 @@ struct AppIcons {
     static let forum = buildIcon(code: "forum", font: .materialIcon, color: .primary)
     static let settings = buildIcon(code: "settings", font: .materialIcon, color: .primary)
     static let settingsWhite = buildNavIcon(code: "settings", font: .materialIcon)
+    static let barBack = buildNavIcon(code: "navigate.before", font: .materialIcon)
     static let group = buildIcon(code: "group.work", font: .materialIcon)
     static let message = buildIcon(code: "ios-chatboxes", font: .ionicon)
     static let rightArrow = buildIcon(code: "keyboard.arrow.right", font: .materialIcon, color: .lightGray)

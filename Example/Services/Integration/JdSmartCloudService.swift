@@ -143,11 +143,12 @@ class JdSmartCloudService {
         SCMLongConnectManager.shared().cancelSubscriptionFeedId(
             feedId,
             success: { (data) in
+                print("Cancel Subscriptions Successfully")
                 print(data)
-        },
+            },
             fail: { (error) in
                 printError(error)
-        })
+            })
         #endif
         print("exit unsubscribeSnapshotV2")
     }

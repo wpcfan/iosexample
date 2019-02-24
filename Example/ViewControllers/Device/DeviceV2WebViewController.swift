@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 import NotificationBannerSwift
 
-class DeviceV2WebViewController: WebKitViewController {
+class DeviceV2WebViewController: UIWebViewController {
     var deviceUrl: SCDeviceUrl?
     private let scService = container.resolve(JdSmartCloudService.self)!
     #if !targetEnvironment(simulator)
@@ -87,9 +87,13 @@ class DeviceV2WebViewController: WebKitViewController {
                 }
             }
             .disposed(by: disposeBag)
+        
         self.rx.viewWillDisappear
             .subscribe { _ in
+                self.webView.stopLoading()
                 self.scService.unsubscribeSnapshotV2(feedId: String(self.deviceUrl!.device!.feedId!))
+                guard let bridge = self.h5Manager?.getBridge() else { return }
+                bridge.disconnectWithWebView()
             }
             .disposed(by: disposeBag)
         #endif
@@ -99,15 +103,18 @@ class DeviceV2WebViewController: WebKitViewController {
 #if !targetEnvironment(simulator)
 extension DeviceV2WebViewController: SCMH5ControlManagerDelegate {
     func deviceH5BridgeReadyConfigAction(_ configDic: [AnyHashable : Any]!) {
-        
+        print("deviceH5BridgeReadyConfigAction")
+        print(configDic)
     }
     
     func openH5Url(withDataAction data: Any!) {
-        
+        print("openH5Url")
+        print(data)
     }
     
     func refreshOnlineViewAction(_ status: String!) {
-        
+        print("refreshOnlineViewAction")
+        print(status)
     }
     
     func toSubDeviceListAction() {
@@ -115,20 +122,20 @@ extension DeviceV2WebViewController: SCMH5ControlManagerDelegate {
     }
     
     func jumpSubDeviceAction(_ data: Any!) {
-        
+        print("jumpSubDeviceAction")
+        print(data)
     }
     
     func configActionBarAction(_ data: Any!) {
-        
+        print("configActionBarAction")
+        print(data)
     }
     
     func closeWindowAction() {
-        
+        print("closeWindowAction")
     }
     
-    func jump(toNativePageAction data: Any!) {
-        
-    }
+    func jump(toNativePageAction data: Any!) {}
     
     func showShareViewAction(_ data: Any!) {
         
@@ -139,15 +146,18 @@ extension DeviceV2WebViewController: SCMH5ControlManagerDelegate {
     }
     
     func openUrlOrVCAction(_ data: Any!) {
-        
+        print("openUrlOrVCAction")
+        print(data)
     }
     
     func setNavigationBarTitleAction(_ data: Any!) {
-        
+        print("setNavigationBarTitleAction")
+        print(data)
     }
     
     func showAlert(withDataAction data: Any!, callBack callback: ((Bool) -> Void)!) {
-        
+        print("showAlert")
+        print(data)
     }
 }
 #endif

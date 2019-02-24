@@ -1,5 +1,7 @@
 <UIView>
-    <WKWebView outlet="webView"/>
+    <WKWebView
+        outlet="webView"
+    />
     <NVActivityIndicatorView.NVActivityIndicatorView
         center.x="parent.center.x"
         center.y="parent.center.y"

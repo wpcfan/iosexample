@@ -1,0 +1,25 @@
+<UIView>
+    <UIWebView
+        outlet="webView"
+        scrollView.contentInset.bottom="safeAreaInsets.bottom"
+        scrollView.contentInsetAdjustmentBehavior="never"
+        scrollView.scrollIndicatorInsets="scrollView.contentInset"
+    />
+    <NVActivityIndicatorView.NVActivityIndicatorView
+        center.x="parent.center.x"
+        center.y="parent.center.y"
+        color="darkGray"
+        height="50"
+        outlet="activityIndicatorView"
+        width="100"
+    />
+    <UILabel
+        center.x="parent.center.x"
+        outlet="loadingLabel"
+        text="{strings.indicator.loading}"
+        width="auto"
+        height="20"
+        textColor="black"
+        top="previous.bottom + 5"
+    />
+</UIView>

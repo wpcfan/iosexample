@@ -31,11 +31,17 @@ extension UIViewController {
         }
         self.navigationItem.titleView = titleLabel
     }
-    public func buildButtonItem(icon: UIImage, action: Selector) -> UIBarButtonItem {
+    public func buildButtonItem(icon: UIImage, action: Selector, title: String? = nil, titleColor: UIColor = .white) -> UIBarButtonItem {
         weak var icon: UIImage? = icon
         let button: UIButton = UIButton(type: .custom)
         button.setImage(icon, for: .normal)
         button.addTarget(self, action: action, for: .touchUpInside)
+        guard let title = title else {
+            return UIBarButtonItem(customView: button)
+        }
+        button.setTitle(title, for: .normal)
+        button.setTitleColor(titleColor, for: .normal)
+        button.titleLabel?.pin.after(of: button.imageView!, aligned: .center)
         return UIBarButtonItem(customView: button)
     }
 }

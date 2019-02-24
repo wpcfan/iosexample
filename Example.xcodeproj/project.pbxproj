@@ -165,6 +165,13 @@
 		AA693DB72160EEB70063D749 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA693DB62160EEB70063D749 /* HomeViewController.swift */; };
 		AA693DC32161FF620063D749 /* NavigationMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA693DC22161FF620063D749 /* NavigationMap.swift */; };
 		AA72B6E4222063BC00C72E33 /* DeviceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = AA72B6E3222063BC00C72E33 /* DeviceCell.xib */; };
+		AA72B6FD2221867A00C72E33 /* UIWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72B6FC2221867900C72E33 /* UIWebViewController.swift */; };
+		AA72B6FF222186CA00C72E33 /* UIWebViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA72B6FE222186CA00C72E33 /* UIWebViewController.xml */; };
+		AA72B701222187FC00C72E33 /* WKWebView+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72B700222187FC00C72E33 /* WKWebView+URL.swift */; };
+		AA72B7032221884F00C72E33 /* UIWebView+URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72B7022221884F00C72E33 /* UIWebView+URL.swift */; };
+		AA72B7052221898300C72E33 /* NVActivityIndicatorView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72B7042221898300C72E33 /* NVActivityIndicatorView+Layout.swift */; };
+		AA72B7072221939E00C72E33 /* Reactive+UINavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72B7062221939E00C72E33 /* Reactive+UINavigationBar.swift */; };
+		AA72B709222193DC00C72E33 /* Reactive+UINavigationItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA72B708222193DC00C72E33 /* Reactive+UINavigationItem.swift */; };
 		AA78BB46218D6814000B4CD8 /* NotificationCenter+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA78BB45218D6814000B4CD8 /* NotificationCenter+.swift */; };
 		AA78BB48218D6D27000B4CD8 /* Reactive+NotificationCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA78BB47218D6D27000B4CD8 /* Reactive+NotificationCenter.swift */; };
 		AA78BB54218EB31C000B4CD8 /* ShortcutParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA78BB53218EB31C000B4CD8 /* ShortcutParser.swift */; };
@@ -478,6 +485,13 @@
 		AA693DB62160EEB70063D749 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		AA693DC22161FF620063D749 /* NavigationMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationMap.swift; sourceTree = "<group>"; };
 		AA72B6E3222063BC00C72E33 /* DeviceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeviceCell.xib; sourceTree = "<group>"; };
+		AA72B6FC2221867900C72E33 /* UIWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIWebViewController.swift; sourceTree = "<group>"; };
+		AA72B6FE222186CA00C72E33 /* UIWebViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = UIWebViewController.xml; sourceTree = "<group>"; };
+		AA72B700222187FC00C72E33 /* WKWebView+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebView+URL.swift"; sourceTree = "<group>"; };
+		AA72B7022221884F00C72E33 /* UIWebView+URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIWebView+URL.swift"; sourceTree = "<group>"; };
+		AA72B7042221898300C72E33 /* NVActivityIndicatorView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NVActivityIndicatorView+Layout.swift"; sourceTree = "<group>"; };
+		AA72B7062221939E00C72E33 /* Reactive+UINavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+UINavigationBar.swift"; sourceTree = "<group>"; };
+		AA72B708222193DC00C72E33 /* Reactive+UINavigationItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+UINavigationItem.swift"; sourceTree = "<group>"; };
 		AA78BB45218D6814000B4CD8 /* NotificationCenter+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NotificationCenter+.swift"; sourceTree = "<group>"; };
 		AA78BB47218D6D27000B4CD8 /* Reactive+NotificationCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+NotificationCenter.swift"; sourceTree = "<group>"; };
 		AA78BB53218EB31C000B4CD8 /* ShortcutParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortcutParser.swift; sourceTree = "<group>"; };
@@ -856,6 +870,7 @@
 				AA3E0EBA21737D0600958937 /* LayoutExtensions.swift */,
 				AA78BB45218D6814000B4CD8 /* NotificationCenter+.swift */,
 				AAA6E6B82213D6640032A489 /* NSRegularExpression+.swift */,
+				AA72B7042221898300C72E33 /* NVActivityIndicatorView+Layout.swift */,
 				AA54DF4721892C9F00CE0CA0 /* Reactor+.swift */,
 				AA8481D021F2E8D600C24D3F /* String+.swift */,
 				AA9AB58621FEEE120052B3FF /* SVGKImageView+.swift */,
@@ -871,6 +886,8 @@
 				AA96B29221FDF6990093A2E0 /* UITextField+.swift */,
 				AA420587217B66210068ABC0 /* UIView+Blur.swift */,
 				AA19DC9B21FD46FE00B70EFE /* UIViewController+.swift */,
+				AA72B7022221884F00C72E33 /* UIWebView+URL.swift */,
+				AA72B700222187FC00C72E33 /* WKWebView+URL.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -887,6 +904,8 @@
 				AA38DCA6217EF4D70046D82D /* Reactive+StatusBar.swift */,
 				AA4B49172178883E00A60C11 /* Reactive+UICollectionViewFlexLayout.swift */,
 				AA8978682185759F005A61CA /* Reactive+UIImageView.swift */,
+				AA72B7062221939E00C72E33 /* Reactive+UINavigationBar.swift */,
+				AA72B708222193DC00C72E33 /* Reactive+UINavigationItem.swift */,
 				AA8978642185658C005A61CA /* Reactive+UIScrollView.swift */,
 				AA4B491A2178883E00A60C11 /* Reactive+UIViewController.swift */,
 			);
@@ -906,11 +925,13 @@
 		AA46D40122190F4900931526 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				AA30C05E2167555C00B9E0EB /* RootViewController.swift */,
 				AA4B48F9217768CE00A60C11 /* BaseViewController.swift */,
+				AA30C05E2167555C00B9E0EB /* RootViewController.swift */,
+				AA46D40B2219188200931526 /* SafariWebViewController.swift */,
+				AA72B6FC2221867900C72E33 /* UIWebViewController.swift */,
+				AA72B6FE222186CA00C72E33 /* UIWebViewController.xml */,
 				AA46D40222190F5D00931526 /* WebKitViewController.swift */,
 				AA46D4062219102B00931526 /* WebKitViewController.xml */,
-				AA46D40B2219188200931526 /* SafariWebViewController.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1093,7 +1114,6 @@
 				AAC5EB91215E7DD9008EBA1F /* Domain */,
 				AA433F0E218C511F00BA60A1 /* Extensions */,
 				AAD7E0B921F1A6CB000D8D6A /* Integration */,
-				AA5723FE2215A70B00D26244 /* UICollectionViewFlexLayout */,
 				AAC5EB96215E7E2E008EBA1F /* Navigator */,
 				AAC5EB99215E7E71008EBA1F /* Services */,
 				AA30C06221679A3000B9E0EB /* Shortcuts */,
@@ -1230,6 +1250,7 @@
 				AAD7E0FF21F1ED3D000D8D6A /* RxHttpClient */,
 				AA3CA5B62202BDD900551C87 /* RxPullToRefresh */,
 				AAF9617F2207169100E17A65 /* SJSegmentedViewController */,
+				AA5723FE2215A70B00D26244 /* UICollectionViewFlexLayout */,
 			);
 			path = Integration;
 			sourceTree = "<group>";
@@ -1443,6 +1464,7 @@
 				AAD7E0FB21F1C383000D8D6A /* cert_en.pem in Resources */,
 				AA5724082215CF1400D26244 /* WeatherView.xml in Resources */,
 				AAA6E6B1221329C90032A489 /* CaptchaView.xml in Resources */,
+				AA72B6FF222186CA00C72E33 /* UIWebViewController.xml in Resources */,
 				AA86626D2211BF3D0065568A /* BindJdAccountViewController.xml in Resources */,
 				AAC5EB78215E7BB9008EBA1F /* LaunchScreen.storyboard in Resources */,
 				AA5724122216CE4600D26244 /* ChannelView.xml in Resources */,
@@ -1703,6 +1725,7 @@
 				AA4B49162178800A00A60C11 /* Reactive+FSPagerView.swift in Sources */,
 				AA3CA5D42202BE0600551C87 /* Extensions.swift in Sources */,
 				AAF961812207174100E17A65 /* SJContentView.swift in Sources */,
+				AA72B709222193DC00C72E33 /* Reactive+UINavigationItem.swift in Sources */,
 				AA5723F222155ED500D26244 /* SCV2Snapshot.swift in Sources */,
 				AAD7E17321F1F42D000D8D6A /* UrlRequestCacheProviderType.swift in Sources */,
 				AA1A5EC5221145E20084473E /* PushRegIdService.swift in Sources */,
@@ -1731,6 +1754,7 @@
 				AAAD777A2212D92700EDBF09 /* VerifyCapchaService.swift in Sources */,
 				AAC5EB9E215E7EB4008EBA1F /* UIColor+Hex.swift in Sources */,
 				AA78BB56218EB37C000B4CD8 /* DeepLinkManager.swift in Sources */,
+				AA72B6FD2221867A00C72E33 /* UIWebViewController.swift in Sources */,
 				AA3CA5D02202BE0600551C87 /* RxPullToRefreshDelegate+Rx.swift in Sources */,
 				AA433F09218C4AB300BA60A1 /* Global.swift in Sources */,
 				AA3CA5D12202BE0600551C87 /* RxPullToRefresh+Rx.swift in Sources */,
@@ -1780,12 +1804,14 @@
 				AA3E905121F41D0200985675 /* Constants.swift in Sources */,
 				AAF961AE220DAF7100E17A65 /* SceneTableView.swift in Sources */,
 				AA5723E822155D7000D26244 /* Channel.swift in Sources */,
+				AA72B7052221898300C72E33 /* NVActivityIndicatorView+Layout.swift in Sources */,
 				AAF9617A220674FA00E17A65 /* BaseCollectionCell.swift in Sources */,
 				AA0ACFD121ECB49E00CE6D1D /* AppDelegate+SmartCloud.swift in Sources */,
 				AAD7E17221F1F42D000D8D6A /* HttpClientError.swift in Sources */,
 				AA19DC9621FC77FA00B70EFE /* ObservableType+MonitorLoading.swift in Sources */,
 				AAA6E6A12213062A0032A489 /* SendSmsService.swift in Sources */,
 				AA86627522128B9D0065568A /* SignUpViewControllerReactor.swift in Sources */,
+				AA72B701222187FC00C72E33 /* WKWebView+URL.swift in Sources */,
 				AA3CA5D72202BE0600551C87 /* Animator.swift in Sources */,
 				AA3CA5D22202BE0600551C87 /* RxPullToRefreshView+Rx.swift in Sources */,
 				AAF9618D2207185C00E17A65 /* SJUtil.swift in Sources */,
@@ -1797,6 +1823,7 @@
 				AA4B9B32219D985800E194CE /* Reactive+ReusableView.swift in Sources */,
 				AA3E0EBB21737D0600958937 /* LayoutExtensions.swift in Sources */,
 				AA19DC8D21FB60D600B70EFE /* LoginService.swift in Sources */,
+				AA72B7032221884F00C72E33 /* UIWebView+URL.swift in Sources */,
 				AA6839D8216DE04F00E4097B /* UIColor+Theme.swift in Sources */,
 				AAD7E17D21F1F42D000D8D6A /* DataCacheProviderType.swift in Sources */,
 				AA54DF432188424000CE0CA0 /* AnimationExtensions.swift in Sources */,
@@ -1810,6 +1837,7 @@
 				AA3AB8902184828800470276 /* TourViewControllerReactor.swift in Sources */,
 				AA5723FA22157E3100D26244 /* IndoorAir.swift in Sources */,
 				AAAD77802212E65700EDBF09 /* VerifySmsViewControllerReactor.swift in Sources */,
+				AA72B7072221939E00C72E33 /* Reactive+UINavigationBar.swift in Sources */,
 				AAAD77822212E6EB00EDBF09 /* VerifySmsService.swift in Sources */,
 				AA82251321AE49BA00FDDC8F /* ScrollingStackController.swift in Sources */,
 				AA78BB48218D6D27000B4CD8 /* Reactive+NotificationCenter.swift in Sources */,

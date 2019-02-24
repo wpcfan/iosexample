@@ -107,7 +107,7 @@ extension DeviceTableView: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        sectionHeaderView.textLabel.text = "我的设备"
+        sectionHeaderView.textLabel.text = "devices.section.header".localized
         sectionHeaderView.icon.image = AppIcons.devices
         return sectionHeaderView
     }

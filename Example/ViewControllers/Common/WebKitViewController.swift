@@ -41,23 +41,22 @@ class WebKitViewController: BaseViewController, LayoutLoading {
         weak var `self`: WebKitViewController! = self
         webView.rx.url
             .share(replay: 1)
-            .subscribe{ [weak self] ev in
-                guard let _self = self else { return }
-                if (!_self.activityIndicatorView.isAnimating) {
-                    _self.activityIndicatorView.startAnimating()
-                    _self.loadingLabel.isHidden = false
+            .subscribe{ ev in
+                if (!self.activityIndicatorView.isAnimating) {
+                    self.activityIndicatorView.startAnimating()
+                    self.loadingLabel.isHidden = false
                 }
             }
             .disposed(by: disposeBag)
         
         webView.rx.estimatedProgress
             .share(replay: 1)
-            .subscribe{ [weak self] ev in
-                guard let _self = self, let progress = ev.element else { return }
+            .subscribe{ ev in
+                guard let progress = ev.element else { return }
                 if (progress.isEqual(to: 1.0)) {
-                    if (_self.activityIndicatorView.isAnimating) {
-                        _self.activityIndicatorView.stopAnimating()
-                        _self.loadingLabel.isHidden = true
+                    if (self.activityIndicatorView.isAnimating) {
+                        self.activityIndicatorView.stopAnimating()
+                        self.loadingLabel.isHidden = true
                     }
                 }
             }
@@ -65,45 +64,10 @@ class WebKitViewController: BaseViewController, LayoutLoading {
         
         webView.rx.title
             .share(replay: 1)
-            .subscribe{ [weak self] ev in
-                guard let title = ev.element, let _self = self else { return }
-                _self.title = _self.pageTitle.isBlank ? title : _self.pageTitle
+            .subscribe{ ev in
+                guard let title = ev.element else { return }
+                self.title = self.pageTitle.isBlank ? title : self.pageTitle
             }
             .disposed(by: disposeBag)
-    }
-}
-
-extension WKWebView {
-    func load(_ urlString: String) {
-        if let url = URL(string: urlString) {
-            let request = URLRequest(url: url)
-            load(request)
-        }
-    }
-    
-    func load(_ urlString: URLConvertible) {
-        if let url = urlString.urlValue {
-            let request = URLRequest(url: url)
-            load(request)
-        }
-    }
-}
-
-extension NVActivityIndicatorView {
-    public override class var parameterTypes: [String: RuntimeType] {
-        return [
-            "type": RuntimeType(NVActivityIndicatorType.self),
-            "color": RuntimeType(UIColor.self),
-            "padding": RuntimeType(CGFloat.self),
-        ]
-    }
-    
-    public override class func create(with node: LayoutNode) throws -> NVActivityIndicatorView {
-        if let type = try node.value(forExpression: "type") as? NVActivityIndicatorType,
-            let color = try node.value(forExpression: "color") as? UIColor,
-            let padding = try node.value(forExpression: "padding") as? CGFloat {
-            return self.init(frame: .zero, type: type, color: color, padding: padding)
-        }
-        return self.init(frame: .zero)
     }
 }
