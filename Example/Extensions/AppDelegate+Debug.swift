@@ -10,6 +10,7 @@ import UIKit.UIColor
 
 #if DEBUG
 import CocoaDebug
+import HeapInspector
 #endif
 
 extension AppDelegate {
@@ -24,6 +25,8 @@ extension AppDelegate {
         //        CocoaDebug.emailCcRecipients = ["ccc@gmail.com", "ddd@gmail.com"] //default value is `nil`
         CocoaDebug.mainColor = "#fd9727" //default value is `#42d459`
         CocoaDebug.enable()
+        HINSPDebug.start()
+        HINSPDebug.addSwiftModules(toRecord: ["Example"])
         #endif
     }
 }
