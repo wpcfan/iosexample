@@ -64,18 +64,18 @@ extension SideBarViewController: LayoutLoading {
                 ])
             return node?.view as! UITableViewCell
         })
-        sidebarMenuService.request()
+        sidebarMenuService.request(cacheResponse: true, returnCachedResponse: true, invokeRequest: true)
             .map{ menuCount in
                 let items = [
-                    SideBarMenuItem(JSON: ["title": "我的家人", "icon": AppIcons.family, "count": menuCount.familyCount ?? 0])!,
-                    SideBarMenuItem(JSON: ["title": "我的房屋", "icon": AppIcons.home, "count": menuCount.houseCount ?? 0])!,
-                    SideBarMenuItem(JSON: ["title": "我的设备", "icon": AppIcons.devices, "count": menuCount.deviceCount ?? 0])!,
-                    SideBarMenuItem(JSON: ["title": "我的场景", "icon": AppIcons.scene, "count": menuCount.sceneCount ?? 0])!,
-                    SideBarMenuItem(JSON: ["title": "分组管理", "icon": AppIcons.group, "count": 0])!,
-                    SideBarMenuItem(JSON: ["title": "我的摄像头", "icon": AppIcons.camera, "count": -1])!,
-                    SideBarMenuItem(JSON: ["title": "智能商城", "icon": AppIcons.mall, "count": -1])!,
-                    SideBarMenuItem(JSON: ["title": "社区留言板", "icon": AppIcons.forum, "count": -1])!,
-                    SideBarMenuItem(JSON: ["title": "帮助设置", "icon": AppIcons.settings, "count": -1])!
+                    SideBarMenuItem(JSON: ["title": "我的家人", "icon": AppIcons.menuFamily, "count": menuCount.familyCount ?? 0])!,
+                    SideBarMenuItem(JSON: ["title": "我的房屋", "icon": AppIcons.homePrimary, "count": menuCount.houseCount ?? 0])!,
+                    SideBarMenuItem(JSON: ["title": "我的设备", "icon": AppIcons.menuDevices, "count": menuCount.deviceCount ?? 0])!,
+                    SideBarMenuItem(JSON: ["title": "我的场景", "icon": AppIcons.menuScenes, "count": menuCount.sceneCount ?? 0])!,
+                    SideBarMenuItem(JSON: ["title": "分组管理", "icon": AppIcons.menuGroups, "count": 0])!,
+                    SideBarMenuItem(JSON: ["title": "我的摄像头", "icon": AppIcons.menuCamera, "count": -1])!,
+                    SideBarMenuItem(JSON: ["title": "智能商城", "icon": AppIcons.menuMall, "count": -1])!,
+                    SideBarMenuItem(JSON: ["title": "社区留言板", "icon": AppIcons.menuForum, "count": -1])!,
+                    SideBarMenuItem(JSON: ["title": "帮助设置", "icon": AppIcons.menuSettings, "count": -1])!
                 ]
                 return [SectionModel(model: "menu", items: items)]
             }

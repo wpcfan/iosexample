@@ -34,7 +34,7 @@ class HouseTableViewControllerReactor: Reactor {
         case .load:
             let data = DiskUtil.getData()
             self.houseService.userId = data?.user?.id
-            return self.houseService.request()
+            return self.houseService.request(cacheResponse: true, returnCachedResponse: true, invokeRequest: true)
                 .map { houses -> Mutation in .loadSuccess(houses) }
                 .catchError{ error -> Observable<Mutation>  in
                     Observable.of(.loadFail(convertErrorToString(error: error)))

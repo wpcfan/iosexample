@@ -30,7 +30,7 @@ class DeviceV2WebViewController: UIWebViewController {
     }
     
     private func buildBarRightButton() {
-        let deviceSettingButtonItem = buildButtonItem(icon: AppIcons.settingsWhite, action: #selector(showSettings))
+        let deviceSettingButtonItem = buildButtonItem(icon: AppIcons.barSettings, action: #selector(showSettings))
         self.navigationItem.rightBarButtonItem = deviceSettingButtonItem
     }
     

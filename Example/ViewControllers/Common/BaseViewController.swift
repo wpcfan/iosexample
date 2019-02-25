@@ -15,6 +15,7 @@ import NotificationBannerSwift
 import NVActivityIndicatorView
 
 class BaseViewController: UIViewController {
+
     // MARK: Rx
     // has to be var as the need to conform the Reactor.View protocol
     var disposeBag = DisposeBag()

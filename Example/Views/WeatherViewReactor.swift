@@ -32,7 +32,7 @@ class WeatherViewReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .load:
-            return self.weatherService.request()
+            return self.weatherService.request(cacheResponse: true, returnCachedResponse: true, invokeRequest: true)
                 .map { weather -> Mutation in .loadSuccess(weather) }
                 .catchError{ error -> Observable<Mutation>  in
                     Observable.of(.loadFail(convertErrorToString(error: error)))

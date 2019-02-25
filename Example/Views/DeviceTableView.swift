@@ -40,6 +40,7 @@ class DeviceTableView: SHTableView {
             cell.productTypeLabel.text = item.from
             cell.productImageView.pin_setImage(from: URL(string: item.productImageUrl ?? ""), placeholderImage: AppIcons.devicePlaceholder)
             cell.onlineStatus = item.status == 1
+            cell.rebindButton.setTitle("devices.cell.rebind".localized, for: .normal)
             cell.rebindButton.rx.tap
                 .subscribe { ev in
                     guard ev.error == nil else { return }
@@ -50,10 +51,7 @@ class DeviceTableView: SHTableView {
             return cell
         })
         
-        devices$
-            .map{ devices in
-                [SectionModel(model: "devices.section.header".localized, items: devices)]
-            }
+        devices$.map{ devices in [SectionModel(model: "devices.section.header".localized, items: devices)] }
             .debug()
             .bind(to: self.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
@@ -61,24 +59,22 @@ class DeviceTableView: SHTableView {
         self.rx.setDelegate(self)
             .disposed(by: disposeBag)
         
-        self.rx.longPressGesture()
-            .when(.began)
-            .asObservable()
+        self.rx.longPressGesture().when(.began)
             .subscribe { ev in
                 guard ev.error == nil else { return }
                 Haptic.play("..oO-Oo..", delay: 0.1)
             }
             .disposed(by: disposeBag)
         
-        reorder$
-            .withLatestFrom(devices$) { indices, items in
+        reorder$.withLatestFrom(devices$) { indices, items in
                 guard indices["sourceIndex"] != nil && indices["targetIndex"] != nil else { return items }
                 let item = items[indices["sourceIndex"]!]
                 var newItems = items
                 newItems.remove(at: indices["sourceIndex"]!)
                 newItems.insert(item, at: indices["targetIndex"]!)
                 return newItems
-            }.bind(to: devices$)
+            }
+            .bind(to: devices$)
             .disposed(by: disposeBag)
         
         self.rx.itemSelected
@@ -108,7 +104,7 @@ extension DeviceTableView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         sectionHeaderView.textLabel.text = "devices.section.header".localized
-        sectionHeaderView.icon.image = AppIcons.devices
+        sectionHeaderView.icon.image = AppIcons.menuDevices
         return sectionHeaderView
     }
     

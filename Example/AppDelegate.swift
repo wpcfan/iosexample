@@ -11,7 +11,6 @@ import URLNavigator
 import RxSwift
 import Disk
 import Reachability
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?

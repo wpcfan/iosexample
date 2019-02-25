@@ -29,9 +29,8 @@ class HomeService: ShouChuangService<HomeInfo> {
         return queryItems
     }
     
-    func handleHomeInfo(cached: Bool = false) -> Observable<HomeInfo> {
-        return request(cached: cached)
-            .do(onNext: { (home: HomeInfo) in
+    func handleHomeInfo() -> Observable<HomeInfo> {
+        return request().do(onNext: { (home: HomeInfo) in
                 guard let house = home.house else {
                     print("House is Null")
                     return

@@ -79,14 +79,14 @@ let container: Container = {
     }
     container.register(HttpClient.self) { _ in
         //        let plugins: [RequestPluginType] = [] //[NetworkActivityIndicatorPlugin()]
-        //        let cacheDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("Cache")
-        //        try! FileManager.default.createDirectory(atPath: cacheDirectory.path, withIntermediateDirectories: true, attributes: nil)
+        let cacheDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("Cache")
+        try! FileManager.default.createDirectory(atPath: cacheDirectory.path, withIntermediateDirectories: true, attributes: nil)
         // instance of UrlRequestFileSystemCacheProvider that will store cached data in specified directory
-        //        let urlCacheProvider = UrlRequestFileSystemCacheProvider(cacheDirectory: cacheDirectory)
+        let urlCacheProvider = UrlRequestFileSystemCacheProvider(cacheDirectory: cacheDirectory)
         let delegate = SelfSignedSSLSessionDelegate()
         return HttpClient(
             sessionConfiguration: .default,
-            //            urlRequestCacheProvider: urlCacheProvider,
+            urlRequestCacheProvider: urlCacheProvider,
             //            requestPlugin: CompositeRequestPlugin(plugins: plugins),
             sessionDelegate: delegate)
     }

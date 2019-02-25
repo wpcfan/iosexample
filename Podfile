@@ -128,5 +128,5 @@ target 'Example' do
   pod 'Reveal-SDK', :configurations => ['Debug', 'Local']
   # Make float button to debug app
   pod 'CocoaDebug', :configurations => ['Debug', 'Local']
-  pod 'FBMemoryProfiler', :configurations => ['Debug', 'Local']
+  pod 'HeapInspector', :configurations => ['Debug', 'Local']
 end

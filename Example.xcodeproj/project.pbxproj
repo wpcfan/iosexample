@@ -104,7 +104,7 @@
 		AA433F03218C491100BA60A1 /* AppDelegate+Push.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA433F02218C491100BA60A1 /* AppDelegate+Push.swift */; };
 		AA433F07218C4A1900BA60A1 /* AppDelegate+Logging.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA433F06218C4A1900BA60A1 /* AppDelegate+Logging.swift */; };
 		AA433F09218C4AB300BA60A1 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA433F08218C4AB300BA60A1 /* Global.swift */; };
-		AA433F0B218C4B2D00BA60A1 /* AppDelegate+CocoaDebug.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA433F0A218C4B2D00BA60A1 /* AppDelegate+CocoaDebug.swift */; };
+		AA433F0B218C4B2D00BA60A1 /* AppDelegate+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA433F0A218C4B2D00BA60A1 /* AppDelegate+Debug.swift */; };
 		AA433F13218C8D9700BA60A1 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA433F12218C8D9700BA60A1 /* NotificationService.swift */; };
 		AA46D3FC22181E9B00931526 /* SCDeviceUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46D3FB22181E9A00931526 /* SCDeviceUrl.swift */; };
 		AA46D40322190F5E00931526 /* WebKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46D40222190F5D00931526 /* WebKitViewController.swift */; };
@@ -132,6 +132,9 @@
 		AA4B9B32219D985800E194CE /* Reactive+ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B9B31219D985800E194CE /* Reactive+ReusableView.swift */; };
 		AA4B9B37219F223A00E194CE /* SideBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4B9B36219F223A00E194CE /* SideBarViewController.swift */; };
 		AA4B9B39219F225100E194CE /* SideBarViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA4B9B38219F225100E194CE /* SideBarViewController.xml */; };
+		AA4F078A2222FE4400E8A643 /* Reactive+MJRefreshComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4F07892222FE4400E8A643 /* Reactive+MJRefreshComponent.swift */; };
+		AA4F078C2222FEAC00E8A643 /* Reactive+MJRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4F078B2222FEAC00E8A643 /* Reactive+MJRefreshFooter.swift */; };
+		AA4F078E2222FF0B00E8A643 /* Reactive+MJRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA4F078D2222FF0B00E8A643 /* Reactive+MJRefreshHeader.swift */; };
 		AA54DF432188424000CE0CA0 /* AnimationExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA54DF422188424000CE0CA0 /* AnimationExtensions.swift */; };
 		AA54DF4821892C9F00CE0CA0 /* Reactor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA54DF4721892C9F00CE0CA0 /* Reactor+.swift */; };
 		AA5723E4221544DC00D26244 /* Dictionary+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5723E3221544DC00D26244 /* Dictionary+.swift */; };
@@ -313,7 +316,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		121D4F06BCF3185781C9D4D5 /* Pods-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.release.xcconfig"; sourceTree = "<group>"; };
+		3EB7D8C0FBD5C44883F3D63E /* Pods-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		76544CF2F05B8A278880AA92 /* Pods_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		785577DFCB70A386F041FA66 /* Pods-Example.local.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Example.local.xcconfig"; path = "Pods/Target Support Files/Pods-Example/Pods-Example.local.xcconfig"; sourceTree = "<group>"; };
 		AA01F49E2198828600CE6457 /* AppDelegate+UMeng.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+UMeng.swift"; sourceTree = "<group>"; };
 		AA01F4A0219886A400CE6457 /* AppDelegate+Bugly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Bugly.swift"; sourceTree = "<group>"; };
 		AA01F4A62199511500CE6457 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
@@ -422,7 +428,7 @@
 		AA433F02218C491100BA60A1 /* AppDelegate+Push.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Push.swift"; sourceTree = "<group>"; };
 		AA433F06218C4A1900BA60A1 /* AppDelegate+Logging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Logging.swift"; sourceTree = "<group>"; };
 		AA433F08218C4AB300BA60A1 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
-		AA433F0A218C4B2D00BA60A1 /* AppDelegate+CocoaDebug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+CocoaDebug.swift"; sourceTree = "<group>"; };
+		AA433F0A218C4B2D00BA60A1 /* AppDelegate+Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Debug.swift"; sourceTree = "<group>"; };
 		AA433F12218C8D9700BA60A1 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
 		AA46D3FB22181E9A00931526 /* SCDeviceUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCDeviceUrl.swift; sourceTree = "<group>"; };
 		AA46D40222190F5D00931526 /* WebKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebKitViewController.swift; sourceTree = "<group>"; };
@@ -452,6 +458,9 @@
 		AA4B9B31219D985800E194CE /* Reactive+ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+ReusableView.swift"; sourceTree = "<group>"; };
 		AA4B9B36219F223A00E194CE /* SideBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBarViewController.swift; sourceTree = "<group>"; };
 		AA4B9B38219F225100E194CE /* SideBarViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SideBarViewController.xml; sourceTree = "<group>"; };
+		AA4F07892222FE4400E8A643 /* Reactive+MJRefreshComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+MJRefreshComponent.swift"; sourceTree = "<group>"; };
+		AA4F078B2222FEAC00E8A643 /* Reactive+MJRefreshFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+MJRefreshFooter.swift"; sourceTree = "<group>"; };
+		AA4F078D2222FF0B00E8A643 /* Reactive+MJRefreshHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+MJRefreshHeader.swift"; sourceTree = "<group>"; };
 		AA54DF422188424000CE0CA0 /* AnimationExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationExtensions.swift; sourceTree = "<group>"; };
 		AA54DF4721892C9F00CE0CA0 /* Reactor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactor+.swift"; sourceTree = "<group>"; };
 		AA5723E3221544DC00D26244 /* Dictionary+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+.swift"; sourceTree = "<group>"; };
@@ -714,6 +723,9 @@
 		5AEF5FE86749D62BC52AD6E8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				3EB7D8C0FBD5C44883F3D63E /* Pods-Example.debug.xcconfig */,
+				785577DFCB70A386F041FA66 /* Pods-Example.local.xcconfig */,
+				121D4F06BCF3185781C9D4D5 /* Pods-Example.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -854,7 +866,7 @@
 			children = (
 				AA433F0F218C515D00BA60A1 /* Rx */,
 				AA01F4A0219886A400CE6457 /* AppDelegate+Bugly.swift */,
-				AA433F0A218C4B2D00BA60A1 /* AppDelegate+CocoaDebug.swift */,
+				AA433F0A218C4B2D00BA60A1 /* AppDelegate+Debug.swift */,
 				AA0ACFD221ECB8AC00CE6D1D /* AppDelegate+LeChange.swift */,
 				AA433F06218C4A1900BA60A1 /* AppDelegate+Logging.swift */,
 				AA19DC7B21F57BF000B70EFE /* AppDelegate+MonkeyKing.swift */,
@@ -898,6 +910,9 @@
 				AA19DC9521FC77FA00B70EFE /* ObservableType+MonitorLoading.swift */,
 				AA4B49152178800A00A60C11 /* Reactive+FSPagerView.swift */,
 				AA4B48E32175006100A60C11 /* Reactive+Layout.swift */,
+				AA4F07892222FE4400E8A643 /* Reactive+MJRefreshComponent.swift */,
+				AA4F078B2222FEAC00E8A643 /* Reactive+MJRefreshFooter.swift */,
+				AA4F078D2222FF0B00E8A643 /* Reactive+MJRefreshHeader.swift */,
 				AA78BB47218D6D27000B4CD8 /* Reactive+NotificationCenter.swift */,
 				AA4B48F7217736D900A60C11 /* Reactive+OAuth2.swift */,
 				AA4B9B31219D985800E194CE /* Reactive+ReusableView.swift */,
@@ -943,6 +958,15 @@
 				AA46D40D221943DE00931526 /* DeviceSettingViewController.swift */,
 			);
 			path = Device;
+			sourceTree = "<group>";
+		};
+		AA4F07882222E58400E8A643 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				AAD7E15D21F1EF89000D8D6A /* Crudable.swift */,
+				AA19DC8821FB43BB00B70EFE /* SmartApiType.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		AA5723FB2215918C00D26244 /* Tour */ = {
@@ -1014,6 +1038,13 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		AA72B70A22222AA900C72E33 /* MemoryLeaks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MemoryLeaks;
+			sourceTree = "<group>";
+		};
 		AA82251121AE49A600FDDC8F /* ScrollingStackContainer */ = {
 			isa = PBXGroup;
 			children = (
@@ -1066,6 +1097,7 @@
 				AA9B94BE21ECBED1000AE906 /* LeChangeService.swift */,
 				AA433F12218C8D9700BA60A1 /* NotificationService.swift */,
 				AAC5EBA2215E808D008EBA1F /* OAuth2Service.swift */,
+				AA19DC7D21F5F1A100B70EFE /* ShouChuangService.swift */,
 				AAA6E6C12213EF9E0032A489 /* SocialService.swift */,
 			);
 			path = Integration;
@@ -1200,6 +1232,7 @@
 		AAC5EB99215E7E71008EBA1F /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				AA4F07882222E58400E8A643 /* Common */,
 				AA5724152217225000D26244 /* Device */,
 				AA9AB58821FF23E80052B3FF /* Home */,
 				AAA6E6C02213EEA30032A489 /* Integration */,
@@ -1207,10 +1240,7 @@
 				AA1A5EC6221153C40084473E /* Room */,
 				AA19DC8B21FB608F00B70EFE /* User */,
 				AA42D7D221F306B700320BD3 /* BannerService.swift */,
-				AAD7E15D21F1EF89000D8D6A /* Crudable.swift */,
 				AA8481D221F2ECDA00C24D3F /* MenuItemService.swift */,
-				AA19DC7D21F5F1A100B70EFE /* ShouChuangService.swift */,
-				AA19DC8821FB43BB00B70EFE /* SmartApiType.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -1246,6 +1276,7 @@
 		AAD7E0B921F1A6CB000D8D6A /* Integration */ = {
 			isa = PBXGroup;
 			children = (
+				AA72B70A22222AA900C72E33 /* MemoryLeaks */,
 				AAD7E0BC21F1AEB1000D8D6A /* IndoorVideoPhone */,
 				AAD7E0FF21F1ED3D000D8D6A /* RxHttpClient */,
 				AA3CA5B62202BDD900551C87 /* RxPullToRefresh */,
@@ -1508,7 +1539,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Example/Pods-Example-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Action/Action.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/CocoaDebug/CocoaDebug.framework",
@@ -1521,6 +1552,7 @@
 				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
 				"${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework",
 				"${BUILT_PRODUCTS_DIR}/Haptica/Haptica.framework",
+				"${BUILT_PRODUCTS_DIR}/HeapInspector/HeapInspector.framework",
 				"${BUILT_PRODUCTS_DIR}/JWTDecode/JWTDecode.framework",
 				"${BUILT_PRODUCTS_DIR}/JustLog/JustLog.framework",
 				"${BUILT_PRODUCTS_DIR}/Layout/Layout.framework",
@@ -1540,7 +1572,7 @@
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
 				"${BUILT_PRODUCTS_DIR}/ReactorKit/ReactorKit.framework",
 				"${BUILT_PRODUCTS_DIR}/ReusableKit/ReusableKit.framework",
-				"${PODS_ROOT}/Reveal-SDK/RevealServer-20/iOS/RevealServer.framework",
+				"${PODS_ROOT}/Reveal-SDK/RevealServer-21/iOS/RevealServer.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
@@ -1581,6 +1613,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSPagerView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Haptica.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HeapInspector.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JWTDecode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JustLog.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Layout.framework",
@@ -1627,7 +1660,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A0626A91484ACA8C6E89405D /* [CP] Copy Pods Resources */ = {
@@ -1638,7 +1671,7 @@
 			inputFileListPaths = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-Example/Pods-Example-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-resources.sh",
 				"${PODS_ROOT}/UMCCommonLog/UMCommonLog/UMCommonLog.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1649,7 +1682,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Example/Pods-Example-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Example/Pods-Example-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AAE57A2F21A0617E00BB0EED /* ShellScript */ = {
@@ -1800,6 +1833,7 @@
 				AA46D40C2219188200931526 /* SafariWebViewController.swift in Sources */,
 				AA19DC7C21F57BF000B70EFE /* AppDelegate+MonkeyKing.swift in Sources */,
 				AA4B48F02175E4D000A60C11 /* APIError.swift in Sources */,
+				AA4F078E2222FF0B00E8A643 /* Reactive+MJRefreshHeader.swift in Sources */,
 				AAA6E6A3221315B40032A489 /* SetPasswordService.swift in Sources */,
 				AA3E905121F41D0200985675 /* Constants.swift in Sources */,
 				AAF961AE220DAF7100E17A65 /* SceneTableView.swift in Sources */,
@@ -1819,7 +1853,7 @@
 				AA433F07218C4A1900BA60A1 /* AppDelegate+Logging.swift in Sources */,
 				AA99E9DC219BE35000FD1C6F /* DrawerTransition.swift in Sources */,
 				AAD7E0EA21F1AEB1000D8D6A /* XSGetIpAddress.m in Sources */,
-				AA433F0B218C4B2D00BA60A1 /* AppDelegate+CocoaDebug.swift in Sources */,
+				AA433F0B218C4B2D00BA60A1 /* AppDelegate+Debug.swift in Sources */,
 				AA4B9B32219D985800E194CE /* Reactive+ReusableView.swift in Sources */,
 				AA3E0EBB21737D0600958937 /* LayoutExtensions.swift in Sources */,
 				AA19DC8D21FB60D600B70EFE /* LoginService.swift in Sources */,
@@ -1827,6 +1861,8 @@
 				AA6839D8216DE04F00E4097B /* UIColor+Theme.swift in Sources */,
 				AAD7E17D21F1F42D000D8D6A /* DataCacheProviderType.swift in Sources */,
 				AA54DF432188424000CE0CA0 /* AnimationExtensions.swift in Sources */,
+				AA4F078C2222FEAC00E8A643 /* Reactive+MJRefreshFooter.swift in Sources */,
+				AA4F078A2222FE4400E8A643 /* Reactive+MJRefreshComponent.swift in Sources */,
 				AA19DC9C21FD46FE00B70EFE /* UIViewController+.swift in Sources */,
 				AAA6E6B52213B7B00032A489 /* PasswordField.swift in Sources */,
 				AA4205A6217C9B5F0068ABC0 /* HeaderView.swift in Sources */,

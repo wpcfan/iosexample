@@ -46,7 +46,7 @@ extension HouseTableViewController: StoryboardView {
             let node = tv.dequeueReusableCellNode(withIdentifier: "houseCell")!
             let data = DiskUtil.getData()
             node.setState([
-                "houseIcon": AppIcons.home,
+                "houseIcon": AppIcons.homePrimary,
                 "displayName": item.displayName(),
                 "groupsCount": "\("myhouses.groupscount".localized)\(item.groupCount!)",
                 "devicesCount": "\("myhouses.devicescount".localized)\(item.deviceCount!)",

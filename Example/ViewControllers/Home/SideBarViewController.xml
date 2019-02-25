@@ -32,12 +32,15 @@
             left="previous.right + 10"
             text="{name}"
             top="previous.top + 5"
+            font="14"
+            textColor="darkGray"
         />
         <UILabel
             height="26"
             left="previous.left"
             text="{mobile}"
             font="14"
+            textColor="darkGray"
             top="previous.bottom + 5"
         />
         <UIImageView
@@ -57,10 +60,10 @@
         selectedBackgroundView.backgroundColor="clear"
     >
         <UIImageView
-            contentMode="scaleAspectFit"
+            contentMode="scaleAspectFill"
             width="30"
             height="width"
-            left="parent.left"
+            left="parent.left + 10"
             center.y="parent.center.y"
             image="{icon}" />
         <UILabel
@@ -69,6 +72,7 @@
             center.y="previous.center.y"
             width="auto + 10"
             height="30"
+            textColor="darkGray"
             />
         <UILabel
             isHidden="count == -1"
@@ -77,6 +81,7 @@
             center.y="previous.center.y"
             width="20"
             height="30"
+            textColor="primary"
             textAlignment="left"
             />
         <UIImageView

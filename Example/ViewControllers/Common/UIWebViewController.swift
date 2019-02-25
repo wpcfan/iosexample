@@ -59,6 +59,9 @@ extension UIWebViewController: UIWebViewDelegate {
         if (self.activityIndicatorView.isAnimating) {
             self.activityIndicatorView.stopAnimating()
             self.loadingLabel.isHidden = true
+            if (self.title == nil) {
+                self.title = webView.stringByEvaluatingJavaScript(from: "document.title")
+            }
         }
     }
     func webView(_ webView: UIWebView, didFailLoadWithError error: Error) {

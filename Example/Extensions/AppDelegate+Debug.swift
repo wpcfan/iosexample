@@ -20,13 +20,14 @@ extension AppDelegate {
         //        CocoaDebug.ignoredURLs = nil //default value is `nil`
         //        CocoaDebug.onlyURLs = nil //default value is `nil`
         //        CocoaDebug.tabBarControllers = [UIViewController(), UIViewController()] //default value is `nil`
-        CocoaDebug.logMaxCount = 1000 //default value is `500`
+        CocoaDebug.logMaxCount = 300 //default value is `500`
         CocoaDebug.emailToRecipients = ["wpcfan@163.com"] //default value is `nil`
         //        CocoaDebug.emailCcRecipients = ["ccc@gmail.com", "ddd@gmail.com"] //default value is `nil`
         CocoaDebug.mainColor = "#fd9727" //default value is `#42d459`
         CocoaDebug.enable()
-        HINSPDebug.start()
-        HINSPDebug.addSwiftModules(toRecord: ["Example"])
+        // Uncomment below to detect memory leaks
+//        HINSPDebug.start()
+//        HINSPDebug.addSwiftModules(toRecord: ["Example"])
         #endif
     }
 }

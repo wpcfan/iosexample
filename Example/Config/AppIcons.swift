@@ -12,8 +12,9 @@ import SVGKit
 
 struct AppIcons {
     static let app = Bundle.main.icon!
+    
     static let placeholder = buildIcon(code: "question", font: .fontAwesome, color: .primary)
-    static let home = buildIcon(code: "home", font: .fontAwesome, color: .primary)
+    static let homePrimary = buildIcon(code: "home", font: .fontAwesome, color: .primary)
     static let social = buildIcon(code: "comments", font: .fontAwesome, color: .black)
     static let user = buildIcon(code: "user", font: .fontAwesome, color: .black)
     static let add = buildIcon(code: "ios-add", font: .ionicon, color: .primary)
@@ -26,21 +27,10 @@ struct AppIcons {
     static let refreshCircle = buildIcon(code: "ios-aperture", font: .ionicon, color: .accent)
     static let pullToRefresh = buildIcon(code: "angle.double.down", font: .themify, color: .accent)
     static let release = buildIcon(code: "angle.double.up", font: .themify, color: .accent)
-    static let menu = buildIcon(code: "ios-menu", font: .ionicon)
     static let eye = buildIcon(code: "ios-eye", font: .ionicon, color: .black)
     static let eyeOff = buildIcon(code: "ios-eye-off", font: .ionicon, color: .black)
     static let clear = buildIcon(code: "clear", font: .materialIcon, color: .black)
     static let devicePlaceholder = buildIcon(code: "nfc", font: .materialIcon, color: .primary)
-    static let family = buildIcon(code: "group", font: .materialIcon, color: .primary)
-    static let devices = buildIcon(code: "devices.other", font: .materialIcon, color: .primary)
-    static let camera = buildIcon(code: "photo.camera", font: .materialIcon, color: .primary)
-    static let mall = buildIcon(code: "shopping.basket", font: .materialIcon, color: .primary)
-    static let forum = buildIcon(code: "forum", font: .materialIcon, color: .primary)
-    static let settings = buildIcon(code: "settings", font: .materialIcon, color: .primary)
-    static let settingsWhite = buildNavIcon(code: "settings", font: .materialIcon)
-    static let barBack = buildNavIcon(code: "navigate.before", font: .materialIcon)
-    static let group = buildIcon(code: "group.work", font: .materialIcon)
-    static let message = buildIcon(code: "ios-chatboxes", font: .ionicon)
     static let rightArrow = buildIcon(code: "keyboard.arrow.right", font: .materialIcon, color: .lightGray)
     static let checkCircle = buildIcon(code: "checkcircle", font: .fontAwesome, color: .primary)
     static let uncheckCircle = buildIcon(code: "checkcircle", font: .fontAwesome, color: .lightGray)
@@ -52,12 +42,26 @@ struct AppIcons {
 //    static let sceneSvg = SVGKFastImageView(svgkImage: SVGKImage(named: "scene"))!
     static let scene = UIImage(named: "scene")!
     static let captchaIcon = buildIcon(code: "ios-lock", font: .ionicon)
-    
+    // nav bar icons
+    static let barMenu = buildNavIcon(code: "ios-menu", font: .ionicon)
+    static let barSettings = buildNavIcon(code: "settings", font: .materialIcon)
+    static let barBack = buildNavIcon(code: "navigate.before", font: .materialIcon)
+    static let barGroup = buildNavIcon(code: "group.work", font: .materialIcon)
+    static let barMessage = buildNavIcon(code: "ios-chatboxes", font: .ionicon)
+    // sidebar menu icons
+    static let menuFamily = buildIcon(code: "group", font: .materialIcon, color: .primary)
+    static let menuDevices = buildIcon(code: "router", font: .materialIcon, color: .primary)
+    static let menuCamera = buildIcon(code: "photo.camera", font: .materialIcon, color: .primary)
+    static let menuMall = buildIcon(code: "shopping.basket", font: .materialIcon, color: .primary)
+    static let menuForum = buildIcon(code: "forum", font: .materialIcon, color: .primary)
+    static let menuSettings = buildIcon(code: "settings", font: .materialIcon, color: .primary)
+    static let menuScenes = buildIcon(code: "landscape", font: .materialIcon, color: .primary)
+    static let menuGroups = buildIcon(code: "group.work", font: .materialIcon, color: .primary)
     static func buildNavIcon(
         code: String,
         font: Fonts,
         color: UIColor = .white) -> UIImage {
-        return buildIcon(code: code, font: font, color: color, width: 32, height: 32)
+        return buildIcon(code: code, font: font, color: color, width: 36, height: 36)
     }
     
     static func buildIcon(
@@ -72,6 +76,6 @@ struct AppIcons {
             code: code,
             textColor: color,
             backgroundColor: backgroundColor,
-            size: CGSize(width: width, height: height))
+            size: CGSize(width: width, height: height)).withRenderingMode(.alwaysTemplate)
     }
 }

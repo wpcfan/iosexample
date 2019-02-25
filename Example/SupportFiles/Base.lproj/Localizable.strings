@@ -82,6 +82,7 @@
 "indoor.humidity.name"="Humidity";
 "indoor.temperature"="%@ °C";
 "webview.title"="Smart Home";
+"devices.cell.rebind"="Rebind";
 "devices.cell.online"="Online";
 "devices.cell.offline"="Offline";
 "devices.section.header"="My Devices";

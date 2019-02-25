@@ -8,14 +8,12 @@
 
 import PinLayout
 import FSPagerView
-import RxGesture
-import SafariServices
 import RxSwift
 import RxOptional
 
 class BannerView: UIView {
     
-    var tappedIndex = PublishSubject<Int?>()
+    var tapped = PublishSubject<String?>()
     var banners: [Banner] = [] {
         didSet {
             self.pagerControl.numberOfPages = banners.count
@@ -35,7 +33,7 @@ class BannerView: UIView {
             $0.itemSize = FSPagerView.automaticSize
             $0.automaticSlidingInterval = 3.0
             $0.isInfinite = true
-            $0.transformer = FSPagerViewTransformer(type: .linear)
+//            $0.transformer = FSPagerViewTransformer(type: .overlap)
         }
         pagerControl = FSPageControl().then {
             $0.contentHorizontalAlignment = .center
@@ -71,10 +69,6 @@ extension BannerView: FSPagerViewDataSource {
         cell.imageView?.contentMode = .scaleAspectFill
         cell.imageView?.clipsToBounds = true
         cell.textLabel?.text = banners[index].title
-        cell.rx.imageTap
-            .map { _ in index }
-            .bind(to: self.tappedIndex)
-            .disposed(by: cell.rx.reuseBag)
         return cell
     }
 }
@@ -83,6 +77,7 @@ extension BannerView: FSPagerViewDelegate {
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
         pagerView.deselectItem(at: index, animated: true)
         pagerView.scrollToItem(at: index, animated: true)
+        tapped.onNext(banners[index].link)
     }
     
     func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int) {
@@ -96,9 +91,6 @@ extension BannerView: FSPagerViewDelegate {
 
 extension Reactive where Base: BannerView {
     var bannerImageTap: Observable<String> {
-        return base.tappedIndex.asObservable()
-            .filterNil()
-            .map { (idx) -> String? in self.base.banners[idx].link }
-            .filterNil()
+        return base.tapped.asObservable().filterNil()
     }
 }

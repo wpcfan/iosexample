@@ -82,6 +82,7 @@
 "indoor.humidity.name"="湿度";
 "indoor.temperature"="%@ °C";
 "webview.title"="首创智慧家";
+"devices.cell.rebind"="重新绑定";
 "devices.cell.online"="设备在线";
 "devices.cell.offline"="设备离线";
 "devices.section.header"="我的设备";

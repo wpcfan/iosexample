@@ -6,6 +6,7 @@
 //  Copyright © 2019 twigcodes. All rights reserved.
 //
 import URLNavigator
+import WebKit
 
 extension WKWebView {
     func load(_ urlString: String) {

@@ -16,6 +16,9 @@ PODS:
   - FLAnimatedImage (1.0.12)
   - FSPagerView (0.8.2)
   - Haptica (2.2.3)
+  - HeapInspector (1.0.1):
+    - HeapInspector/no-arc (= 1.0.1)
+  - HeapInspector/no-arc (1.0.1)
   - JCore (1.2.6)
   - JPush (3.1.2):
     - JCore (~> 1.2.6)
@@ -29,7 +32,7 @@ PODS:
   - MarqueeLabel/Swift (3.2.0)
   - Masonry (1.1.0)
   - MJRefresh (3.1.15.7)
-  - MonkeyKing (1.12.1)
+  - MonkeyKing (1.13.0)
   - NotificationBannerSwift (2.0.1):
     - MarqueeLabel/Swift (~> 3.2.0)
     - SnapKit (~> 4.2.0)
@@ -72,7 +75,7 @@ PODS:
     - ReusableKit/Core
     - RxCocoa (>= 4.0.0)
     - RxSwift (>= 4.0.0)
-  - Reveal-SDK (20)
+  - Reveal-SDK (21)
   - RxAtomic (4.4.1)
   - RxCocoa (4.4.1):
     - RxSwift (~> 4.0)
@@ -123,7 +126,7 @@ PODS:
   - SwiftEntryKit (0.8.8):
     - QuickLayout (= 2.1.1)
   - SwiftIconFont (3.0.0)
-  - SwiftReorder (6.0.1)
+  - SwiftReorder (6.0.2)
   - SwiftyBeaver (1.6.2)
   - Swinject (2.5.0)
   - Toast-Swift (4.0.1)
@@ -144,6 +147,7 @@ DEPENDENCIES:
   - Eureka
   - FSPagerView
   - Haptica
+  - HeapInspector
   - JPush
   - JustLog
   - JWTDecode
@@ -200,6 +204,7 @@ SPEC REPOS:
     - FLAnimatedImage
     - FSPagerView
     - Haptica
+    - HeapInspector
     - JCore
     - JPush
     - JustLog
@@ -263,6 +268,7 @@ SPEC CHECKSUMS:
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   FSPagerView: 816a18842306973cc7cc6df8a5332272f7815c30
   Haptica: 9b4e210ecf506b9f96c2a7746a8d945452ec344b
+  HeapInspector: 121979cf97b186616ddfcd5ec0f61db631556c7b
   JCore: cae516dd2bf1a73b578ce6e1065abd49e709e0f7
   JPush: d0cead70ba223a6a3b52749899ebda830dfbc49a
   JustLog: 24d4dbdd4d4b65fc04069f222ee34b1d9c9004cf
@@ -271,7 +277,7 @@ SPEC CHECKSUMS:
   MarqueeLabel: 440a502b91a9179bd98f9fff00ba1150650a1c0e
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
-  MonkeyKing: 280cdc68eb39f8b899b17fdfe994a695f6fdc636
+  MonkeyKing: cdaa3e93d4802464eceea619aba87f70c31db2e1
   NotificationBannerSwift: 007774aa590cc9680647b92b2f217bef5c00c32c
   NVActivityIndicatorView: 4ca19fccc84595a78957336a086d00a49be6ce61
   ObjectMapper: 0d4402610f4e468903ae64629eec4784531e5c51
@@ -285,7 +291,7 @@ SPEC CHECKSUMS:
   ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
   ReactorKit: 8be57f0527ad1ac2963cd5c338274a46a01e57a3
   ReusableKit: d0b040de03b293288b0ca27a78602691d3346d9b
-  Reveal-SDK: 43206a57f575632fd304e85385cc259b5d359e32
+  Reveal-SDK: 3523e0eb7c562811c51bb71da6e523a6373702c8
   RxAtomic: f8d6adc1ccb87a767811269e4875887bc74dbf19
   RxCocoa: 2f35a76bf8887872e28a1914112395b11b8e0e64
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
@@ -302,7 +308,7 @@ SPEC CHECKSUMS:
   SVGKit: 8a2fc74258bdb2abb54d3b65f3dd68b0277a9c4d
   SwiftEntryKit: c50f25a14772713ded1591c852d1c1dc74c95b9e
   SwiftIconFont: 2ba18554a77c44948dc35b561b344e3c23834a84
-  SwiftReorder: b59368b978c9826116147672ff1f59a2d4dd9110
+  SwiftReorder: 60ef1faf6446cf68f9a647cb975530db8efd6620
   SwiftyBeaver: 8e67ab3cd94389cbbb7a9c7cc02748d98bfee68e
   Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
@@ -312,6 +318,6 @@ SPEC CHECKSUMS:
   UMCCommonLog: 05a2d5de21858e3d870551562cff405c1366d244
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
 
-PODFILE CHECKSUM: b28802a0a275e239a356e029b3e15b087a6f1d04
+PODFILE CHECKSUM: 7681398968d9f3302382220c0c795e40a6e27496
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.6.1

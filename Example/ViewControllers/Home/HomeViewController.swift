@@ -35,7 +35,7 @@ class HomeViewController: BaseViewController {
         super.viewDidLoad()
         
         headerView = getHeaderView()
-        //        self.segmentControl = self.getSegmentControl()
+//        segmentControl = self.getSegmentControl()
         segTableView = self.getSegTableView()
         segTableView.tableViews = [DeviceTableView(), SceneTableView()]
         view.addSubview(self.segTableView)
@@ -57,7 +57,7 @@ class HomeViewController: BaseViewController {
         let segTable:SHSegmentedControlTableView = SHSegmentedControlTableView.init(frame: self.view.bounds)
         segTable.delegateCell = self
         segTable.topView = self.headerView
-        //        segTable.barView = self.segmentControl
+//        segTable.barView = self.segmentControl
         return segTable
     }
     func getSegmentControl() -> SHSegmentControl {
@@ -77,9 +77,7 @@ class HomeViewController: BaseViewController {
         return segment
     }
     @objc func changeHouse() {
-        print("enter changeHouse")
-        let vc = HouseTableViewController()
-        self.navigationController?.pushViewController(vc, animated: true)
+        self.navigationController?.pushViewController(HouseTableViewController(), animated: true)
     }
     @objc func showGroups() {
         
@@ -94,30 +92,16 @@ class HomeViewController: BaseViewController {
         }
         self.segTableView.refreshHeader = refreshHeader
     }
-    fileprivate func buildNavTopItem(title: String) {
-        // Top Button
-        let topButton = UIButton(type: .custom).then {
-            $0.setTitle(title, for: .normal)
-            $0.addTarget(self, action: #selector(HomeViewController.changeHouse), for: .touchUpInside)
-            $0.sizeToFit()
-        }
-        self.navigationItem.titleView = topButton
-        self.navigationItem.titleView?.pin.width(200)
+    fileprivate func buildNavLeftItem() -> Observable<UIBarButtonItem> {
+        return Observable.of(buildButtonItem(icon: AppIcons.barMenu, action: #selector(toggle)))
     }
-    fileprivate func buildNavLeftItem() {
-        let leftBarButtonItem = buildButtonItem(icon: AppIcons.menu, action: #selector(toggle))
-        self.navigationItem.setLeftBarButton(leftBarButtonItem, animated: false);
-    }
-    fileprivate func buildNavRightItems() {
-        let groupButtonItem = buildButtonItem(icon: AppIcons.group, action: #selector(showGroups))
-        let messageButtonItem = buildButtonItem(icon: AppIcons.message, action: #selector(showMessages))
-        self.navigationItem.setRightBarButtonItems([messageButtonItem, groupButtonItem], animated: false)
+    fileprivate func buildNavRightItems() -> Observable<[UIBarButtonItem]> {
+        let groupButtonItem = buildButtonItem(icon: AppIcons.barGroup, action: #selector(showGroups))
+        let messageButtonItem = buildButtonItem(icon: AppIcons.barMessage, action: #selector(showMessages))
+        return Observable.of([messageButtonItem, groupButtonItem])
     }
     fileprivate func setupNavigationBar() {
         self.navigationController?.presentDarkNavigationBar(UIColor.primary, UIColor.textIcon)
-        buildNavTopItem(title: "首页")
-        buildNavLeftItem()
-        buildNavRightItems()
     }
     fileprivate func setupDrawer() {
         weak var `self`: HomeViewController! = self
@@ -166,6 +150,31 @@ extension HomeViewController: ReactorKit.View {
                 AppDelegate.shared.rootViewController.switchToBindJdAccount()
             }
             .disposed(by: self.disposeBag)
+        
+        buildNavLeftItem()
+            .bind(to: self.navigationItem.rx.leftBarButtonItem)
+            .disposed(by: disposeBag)
+        
+        buildNavRightItems()
+            .bind(to: self.navigationItem.rx.rightBarButtonItems)
+            .disposed(by: disposeBag)
+        
+        reactor.state
+            .map {$0.homeInfo?.house}
+            .filterNil()
+            .distinctUntilChanged({ (prev, curr) -> Bool in
+                prev.id == curr.id
+            })
+            .map{ $0.displayName().trunc(length: 14) }
+            .map{ title in
+                UIButton(type: .custom).then {
+                    $0.setTitle(title , for: .normal)
+                    $0.addTarget(self, action: #selector(self.changeHouse), for: .touchUpInside)
+                    $0.sizeToFit()
+                }
+            }
+            .bind(to: self.navigationItem.rx.titleView)
+            .disposed(by: disposeBag)
         
         deviceTab.rx.addDeviceTapped
             .flatMapLatest { (_) -> Observable<String?> in
@@ -272,12 +281,9 @@ extension HomeViewController: ReactorKit.View {
                     self.stopRefreshing(refreshHeader: self.segTableView.refreshHeader)
                     return
                 }
-                let button = self.navigationItem.titleView as! UIButton
-                let title = home.house?.displayName() ?? ""
                 let isOwner = home.house?.isOwner ?? false
                 deviceTab.sectionHeaderView.rightBtnHidden = !isOwner
                 sceneTab.sectionHeaderView.rightBtnHidden = !isOwner
-                button.setTitle(title.trunc(length: 14), for: .normal)
                 self.stopRefreshing(refreshHeader: self.segTableView.refreshHeader)
             }
             .disposed(by: disposeBag)

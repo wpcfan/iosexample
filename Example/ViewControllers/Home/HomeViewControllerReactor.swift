@@ -44,7 +44,7 @@ class HomeViewControllerReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .load, .refresh:
-            let homeStream = self.homeService.handleHomeInfo(cached: false).share()
+            let homeStream = self.homeService.handleHomeInfo().share()
             let load$: Observable<Mutation> = homeStream
                 .debug()
                 .map { home -> Mutation in .loadSuccess(home) }
