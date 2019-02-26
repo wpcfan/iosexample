@@ -270,6 +270,10 @@
 		AAD7E17C21F1F42D000D8D6A /* HttpClientType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD7E16D21F1F42D000D8D6A /* HttpClientType.swift */; };
 		AAD7E17D21F1F42D000D8D6A /* DataCacheProviderType.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD7E16E21F1F42D000D8D6A /* DataCacheProviderType.swift */; };
 		AAD7E17E21F1F42D000D8D6A /* HttpClientType+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD7E16F21F1F42D000D8D6A /* HttpClientType+Extensions.swift */; };
+		AADE73A722243268009D218A /* SceneTableViewReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADE73A622243267009D218A /* SceneTableViewReactor.swift */; };
+		AADE73AA2224360B009D218A /* SceneListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADE73A92224360B009D218A /* SceneListService.swift */; };
+		AADE73AC2224368B009D218A /* HouseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADE73AB2224368B009D218A /* HouseScene.swift */; };
+		AADE73AE2224DB62009D218A /* SceneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADE73AD2224DB62009D218A /* SceneCell.swift */; };
 		AAE49EF62169D2FB004BDBD7 /* TourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE49EF52169D2FB004BDBD7 /* TourViewController.swift */; };
 		AAE49EF82169D315004BDBD7 /* TourViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AAE49EF72169D315004BDBD7 /* TourViewController.xml */; };
 		AAE49EFA216A2783004BDBD7 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE49EF9216A2783004BDBD7 /* AppData.swift */; };
@@ -614,6 +618,10 @@
 		AAD7E16E21F1F42D000D8D6A /* DataCacheProviderType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataCacheProviderType.swift; sourceTree = "<group>"; };
 		AAD7E16F21F1F42D000D8D6A /* HttpClientType+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "HttpClientType+Extensions.swift"; sourceTree = "<group>"; };
 		AADD25B8218AC2660080DA61 /* LocalConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = LocalConfig.xcconfig; sourceTree = "<group>"; };
+		AADE73A622243267009D218A /* SceneTableViewReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneTableViewReactor.swift; sourceTree = "<group>"; };
+		AADE73A92224360B009D218A /* SceneListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneListService.swift; sourceTree = "<group>"; };
+		AADE73AB2224368B009D218A /* HouseScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseScene.swift; sourceTree = "<group>"; };
+		AADE73AD2224DB62009D218A /* SceneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCell.swift; sourceTree = "<group>"; };
 		AAE49EF32168EF89004BDBD7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AAE49EF52169D2FB004BDBD7 /* TourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourViewController.swift; sourceTree = "<group>"; };
 		AAE49EF72169D315004BDBD7 /* TourViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TourViewController.xml; sourceTree = "<group>"; };
@@ -1029,7 +1037,9 @@
 				AA57240B2215D74000D26244 /* IndoorAirView.xml */,
 				AA420595217C0C2E0068ABC0 /* IconLabelButton.xml */,
 				AAA6E6B42213B7B00032A489 /* PasswordField.swift */,
+				AADE73AD2224DB62009D218A /* SceneCell.swift */,
 				AAF961AD220DAF7100E17A65 /* SceneTableView.swift */,
+				AADE73A622243267009D218A /* SceneTableViewReactor.swift */,
 				AA1A5EC2220FD54D0084473E /* SectionHeaderView.swift */,
 				AA5724052215C43900D26244 /* WeatherView.swift */,
 				AA5724072215CF1400D26244 /* WeatherView.xml */,
@@ -1199,6 +1209,7 @@
 				AA5723EF22155E9C00D26244 /* EmptyResult.swift */,
 				AA3E0E892170841700958937 /* HomeInfo.swift */,
 				AA3E0E7921704E6F00958937 /* House.swift */,
+				AADE73AB2224368B009D218A /* HouseScene.swift */,
 				AA5723F922157E3100D26244 /* IndoorAir.swift */,
 				AA42D7D621F36BCB00320BD3 /* LeanCloudCollection.swift */,
 				AA4B9AFA219C6BAC00E194CE /* MenuItem.swift */,
@@ -1238,6 +1249,7 @@
 				AAA6E6C02213EEA30032A489 /* Integration */,
 				AA19DC8A21FB446600B70EFE /* PhoneInfo */,
 				AA1A5EC6221153C40084473E /* Room */,
+				AADE73A8222435E5009D218A /* Scene */,
 				AA19DC8B21FB608F00B70EFE /* User */,
 				AA42D7D221F306B700320BD3 /* BannerService.swift */,
 				AA8481D221F2ECDA00C24D3F /* MenuItemService.swift */,
@@ -1375,6 +1387,14 @@
 				AAD7E16721F1F42C000D8D6A /* RequestPluginType.swift */,
 			);
 			path = RequestPlugin;
+			sourceTree = "<group>";
+		};
+		AADE73A8222435E5009D218A /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				AADE73A92224360B009D218A /* SceneListService.swift */,
+			);
+			path = Scene;
 			sourceTree = "<group>";
 		};
 		AAF9617F2207169100E17A65 /* SJSegmentedViewController */ = {
@@ -1567,6 +1587,7 @@
 				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
 				"${BUILT_PRODUCTS_DIR}/PINRemoteImage/PINRemoteImage.framework",
 				"${BUILT_PRODUCTS_DIR}/PMAlertController/PMAlertController.framework",
+				"${BUILT_PRODUCTS_DIR}/PPBadgeViewSwift/PPBadgeViewSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/PinLayout/PinLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/QuickLayout/QuickLayout.framework",
 				"${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework",
@@ -1628,6 +1649,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINRemoteImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PMAlertController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PPBadgeViewSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PinLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QuickLayout.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reachability.framework",
@@ -1819,6 +1841,7 @@
 				AAD7E15E21F1EF89000D8D6A /* Crudable.swift in Sources */,
 				AAD7E17721F1F42D000D8D6A /* MemoryDataCacheProvider.swift in Sources */,
 				AA6839DC216E08EC00E4097B /* AppAttributedStrings.swift in Sources */,
+				AADE73AA2224360B009D218A /* SceneListService.swift in Sources */,
 				AA30C05F2167555C00B9E0EB /* RootViewController.swift in Sources */,
 				AAF5CA4921821F3B006DE332 /* UIApplication+StatusBar.swift in Sources */,
 				AAA6E6B92213D6640032A489 /* NSRegularExpression+.swift in Sources */,
@@ -1915,6 +1938,7 @@
 				AA3E0E8A2170841700958937 /* HomeInfo.swift in Sources */,
 				AA19DC7521F573AA00B70EFE /* WXMediaMessage+messageConstruct.m in Sources */,
 				AA01F49F2198828600CE6457 /* AppDelegate+UMeng.swift in Sources */,
+				AADE73A722243268009D218A /* SceneTableViewReactor.swift in Sources */,
 				AAD7E17E21F1F42D000D8D6A /* HttpClientType+Extensions.swift in Sources */,
 				AAA6E6BD2213EBE40032A489 /* BindJdAccountViewControllerReactor.swift in Sources */,
 				AA3CA5D62202BE0600551C87 /* RxPullToRefreshDelegate.swift in Sources */,
@@ -1923,6 +1947,7 @@
 				AA3CA5CC2202BE0600551C87 /* RxPullToRefresh+Core.swift in Sources */,
 				AAAD777C2212E13C00EDBF09 /* VerifySmsViewController.swift in Sources */,
 				AA9B94BD21ECBEAD000AE906 /* IndoorPhoneService.swift in Sources */,
+				AADE73AC2224368B009D218A /* HouseScene.swift in Sources */,
 				AA19DC7421F573AA00B70EFE /* SendMessageToWXReq+requestWithTextOrMediaMessage.m in Sources */,
 				AAA6E6C622145AA00032A489 /* Array+.swift in Sources */,
 				AA4B4942217A112200A60C11 /* BaseView.swift in Sources */,
@@ -1944,6 +1969,7 @@
 				AAA6E6A5221317EF0032A489 /* SetPasswordViewControllerReactor.swift in Sources */,
 				AA5724172217226500D26244 /* DeviceInfoService.swift in Sources */,
 				AA42058E217B8C680068ABC0 /* ChannelView.swift in Sources */,
+				AADE73AE2224DB62009D218A /* SceneCell.swift in Sources */,
 				AA46D40A2219128E00931526 /* DeviceV2WebViewController.swift in Sources */,
 				AA5723EA22155DAB00D26244 /* SmartUser.swift in Sources */,
 				AA99E9B4219B2F6200FD1C6F /* UIScrollView+.swift in Sources */,

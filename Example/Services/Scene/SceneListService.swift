@@ -6,4 +6,19 @@
 //  Copyright © 2019 twigcodes. All rights reserved.
 //
 
-import Foundation
+class SceneListService: ShouChuangCollectionService<HouseScene> {
+    
+    override var smartApi: SmartApiType {
+        get { return .scenes }
+    }
+    
+    override func urlQueries() throws -> [URLQueryItem] {
+        let data = DiskUtil.getData()
+        guard let userId = data?.user?.id, let houseId = data?.houseId else { throw AppErr.requiredParamNull("SceneListService Params Null") }
+        let queryItems: [URLQueryItem] = [
+            URLQueryItem(name: "uid", value: userId),
+            URLQueryItem(name: "hid", value: houseId)
+        ]
+        return queryItems
+    }
+}

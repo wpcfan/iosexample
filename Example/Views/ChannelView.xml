@@ -1,8 +1,8 @@
 <UICollectionView
     backgroundColor="clear"
     collectionViewLayout.itemSize.height="collectionViewLayout.itemSize.width"
-    collectionViewLayout.itemSize.width="(100% - collectionViewLayout.sectionInset.left - collectionViewLayout.sectionInset.right - collectionViewLayout.minimumInteritemSpacing * 5 - contentInset.left - contentInset.right) / 5"
-    collectionViewLayout.minimumInteritemSpacing="10"
+    collectionViewLayout.itemSize.width="(100% - collectionViewLayout.sectionInset.left - collectionViewLayout.sectionInset.right - collectionViewLayout.minimumInteritemSpacing * 8 - contentInset.left - contentInset.right) / 5"
+    collectionViewLayout.minimumInteritemSpacing="5"
     collectionViewLayout.scrollDirection="horizontal"
     collectionViewLayout.sectionInset.bottom="0"
     collectionViewLayout.sectionInset.left="5"
@@ -11,7 +11,7 @@
     contentInset.left="safeAreaInsets.left"
     contentInset.right="safeAreaInsets.right"
     contentInsetAdjustmentBehavior="never"
-    contentOffset.x="-safeAreaInsets.left - 10"
+    contentOffset.x="-safeAreaInsets.left"
     outlet="collectionView"
     scrollIndicatorInsets.left="safeAreaInsets.left"
     scrollIndicatorInsets.right="safeAreaInsets.right"
@@ -24,7 +24,7 @@
         <UIImageView
             center.x="parent.center.x"
             contentMode="scaleAspectFit"
-            height="0.7 * parent.height"
+            height="0.72 * parent.height"
             imgUrl="{imageUrl}"
             width="height"
         />

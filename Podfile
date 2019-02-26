@@ -111,6 +111,7 @@ target 'Example' do
   pod 'Toast-Swift'
   pod 'NotificationBannerSwift'
   pod 'NVActivityIndicatorView'
+  pod 'PPBadgeViewSwift'
   # Quick Form
   pod 'Eureka'
   # Image Slider

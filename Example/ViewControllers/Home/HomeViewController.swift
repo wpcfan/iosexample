@@ -29,6 +29,7 @@ class HomeViewController: BaseViewController {
     private let navigator = container.resolve(NavigatorType.self)!
     private let scService = container.resolve(JdSmartCloudService.self)!
     private var refreshHeaderTrigger = PublishSubject<Void>()
+    private var loadScenes$ = PublishSubject<Void>()
     private var leftDrawerTransition: DrawerTransition?
     private var sideBarVC: SideBarViewController?
     override func viewDidLoad() {
@@ -82,7 +83,7 @@ class HomeViewController: BaseViewController {
     @objc func showGroups() {
         
     }
-    @objc func showMessages() {
+    @objc func showNotifications() {
         
     }
     fileprivate func buildRefreshHeader() {
@@ -97,8 +98,8 @@ class HomeViewController: BaseViewController {
     }
     fileprivate func buildNavRightItems() -> Observable<[UIBarButtonItem]> {
         let groupButtonItem = buildButtonItem(icon: AppIcons.barGroup, action: #selector(showGroups))
-        let messageButtonItem = buildButtonItem(icon: AppIcons.barMessage, action: #selector(showMessages))
-        return Observable.of([messageButtonItem, groupButtonItem])
+        let notificationButtonItem = buildButtonItem(icon: AppIcons.barNotification, action: #selector(showNotifications))
+        return Observable.of([notificationButtonItem, groupButtonItem])
     }
     fileprivate func setupNavigationBar() {
         self.navigationController?.presentDarkNavigationBar(UIColor.primary, UIColor.textIcon)
@@ -151,6 +152,10 @@ extension HomeViewController: ReactorKit.View {
             }
             .disposed(by: self.disposeBag)
         
+        loadScenes$
+            .bind(to: sceneTab.loadScenes$)
+            .disposed(by: self.disposeBag)
+        
         buildNavLeftItem()
             .bind(to: self.navigationItem.rx.leftBarButtonItem)
             .disposed(by: disposeBag)
@@ -162,9 +167,7 @@ extension HomeViewController: ReactorKit.View {
         reactor.state
             .map {$0.homeInfo?.house}
             .filterNil()
-            .distinctUntilChanged({ (prev, curr) -> Bool in
-                prev.id == curr.id
-            })
+            .distinctUntilChanged()
             .map{ $0.displayName().trunc(length: 14) }
             .map{ title in
                 UIButton(type: .custom).then {
@@ -194,19 +197,14 @@ extension HomeViewController: ReactorKit.View {
         
         deviceTab.rx.deviceSelected
             .filter { device in device.version == ProductVersion.two.verVal }
-            .do(onNext: { (_) in
-                self.toggleLoading(true)
-            })
             .flatMap({ (device) -> Observable<SCDeviceUrl?> in
                 self.scService.getDeviceH5V2(feedId: String(device.feedId!))
             })
             .subscribe(onNext: {
-                self.toggleLoading(false)
                 let vc = DeviceV2WebViewController(url: ($0?.h5?.url)!)
                 vc.deviceUrl = $0
                 self.navigator.push(vc)
             }, onError: { error in
-                self.toggleLoading(false)
                 self.view.makeToast(convertErrorToString(error: error))
             })
             .disposed(by: disposeBag)
@@ -260,20 +258,6 @@ extension HomeViewController: ReactorKit.View {
             .disposed(by: disposeBag)
         
         reactor.state
-            .map { $0.loading }
-            .distinctUntilChanged()
-            .subscribeOn(ConcurrentDispatchQueueScheduler(qos: .userInitiated))
-            .observeOn(MainScheduler.asyncInstance)
-            .subscribe{ ev in
-                guard let loading = ev.element, !self.segTableView.refreshHeader.isRefreshing else {
-                    self.toggleLoading(false)
-                    return
-                }
-                self.toggleLoading(loading)
-            }
-            .disposed(by: disposeBag)
-        
-        reactor.state
             .map { $0.homeInfo }
             .filterNil()
             .subscribe{ ev in
@@ -306,7 +290,8 @@ extension HomeViewController: SHSegTableViewDelegate {
     func segTableViewDidScroll(_ tableView: UIScrollView!) {}
     func segTableViewDidScrollSub(_ subTableView: UIScrollView!) { }
     func segTableViewDidScrollProgress(_ progress: CGFloat, originalIndex: Int, targetIndex: Int) {
-        if progress == 1 {
+        if (progress == 1 && targetIndex == 1) {
+            loadScenes$.onNext(())
             //            self.segmentControl.setSegmentSelectedIndex(targetIndex)
         }
     }

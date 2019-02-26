@@ -9,7 +9,10 @@
 import ObjectMapper
 import RxDataSources
 
-struct House: Mappable, Codable {
+struct House: Mappable, Codable, Equatable {
+    static func == (lhs: House, rhs: House) -> Bool {
+        return lhs.id == rhs.id
+    }
     var id: String?
     var projectId: String?
     var projectName: String?

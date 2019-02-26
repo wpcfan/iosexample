@@ -24,3 +24,20 @@ struct SmartCloudResult: Mappable {
         error <- map["error"]
     }
 }
+
+struct SmartCloudStructureResult<T: Mappable>: Mappable {
+    var result: T?
+    var status: Int?
+    var cookie: String?
+    var error: SmartCloudError?
+    init?(map: Map) {
+        
+    }
+    
+    mutating func mapping(map: Map) {
+        result <- map["result"]
+        status <- map["status"]
+        cookie <- map["cookie"]
+        error <- map["error"]
+    }
+}

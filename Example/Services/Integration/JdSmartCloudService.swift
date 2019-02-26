@@ -68,18 +68,6 @@ class JdSmartCloudService {
         print("exit changeToken")
     }
     
-    public func getScenes(page: Int, pageSize: Int? = 30, extend: [AnyHashable : Any]? = nil) {
-        print("enter getScenes")
-        #if !targetEnvironment(simulator)
-
-        SCMIFTTTManager.getIFTTTList(page, pageSize: pageSize!, extend: extend) { (dict) in
-            let result = dict! as NSDictionary
-            print(result["status"] ?? "Not Returning Status Value")
-        }
-        #endif
-        print("exit getScenes")
-    }
-    
     public func bindJdAccount(vc: UIViewController) {
         print("enter bindJdAccount")
         #if !targetEnvironment(simulator)
@@ -173,10 +161,32 @@ class JdSmartCloudService {
                     let deviceUrl = Mapper<SCDeviceUrl>().map(JSONString: (result?.result)!)
                     observer.onNext(deviceUrl)
                     observer.onCompleted()
+                    print("exit getDeviceH5V2")
                 }) { (error) in
                     printError(error)
                     observer.onError(error!)
                 }
+            #endif
+            return Disposables.create()
+        }
+    }
+    
+    func getScenes(page: Int = 1, pageSize: Int = 30) -> Observable<SceneCollection?> {
+        print("enter getScenes")
+        return Observable<SceneCollection?>.create{ (observer) -> Disposable in
+            #if !targetEnvironment(simulator)
+            SCMIFTTTManager.getIFTTTList(page, pageSize: pageSize, extend: nil) { (dict) in
+                let res = dict as! [String: Any]
+                let result = Mapper<SmartCloudStructureResult<SceneCollection>>().map(JSON: res)
+                guard result?.status == 0 else {
+                    printError(result?.error)
+                    observer.onError(SCError.JdSmartError(result?.error?.errorCode, result?.error?.errorInfo, result?.error?.debugMe))
+                    return
+                }
+                observer.onNext(result?.result)
+                observer.onCompleted()
+                print("exit getScenes")
+            }
             #endif
             return Disposables.create()
         }

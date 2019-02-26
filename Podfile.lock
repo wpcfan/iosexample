@@ -64,6 +64,7 @@ PODS:
     - FLAnimatedImage (>= 1.0)
     - PINRemoteImage/Core
   - PMAlertController (3.5.0)
+  - PPBadgeViewSwift (2.2.2)
   - QuickLayout (2.1.1)
   - ReachabilitySwift (4.3.0)
   - ReactorKit (1.2.1):
@@ -131,7 +132,7 @@ PODS:
   - Swinject (2.5.0)
   - Toast-Swift (4.0.1)
   - "UITextView+Placeholder (1.2.1)"
-  - UMCAnalytics (6.0.1):
+  - UMCAnalytics (6.0.2):
     - UMCCommon
   - UMCCommon (2.0.0)
   - UMCCommonLog (1.0.0)
@@ -162,6 +163,7 @@ DEPENDENCIES:
   - PinLayout
   - PINRemoteImage
   - PMAlertController
+  - PPBadgeViewSwift
   - ReactorKit
   - ReusableKit
   - ReusableKit/RxSwift
@@ -223,6 +225,7 @@ SPEC REPOS:
     - PinLayout
     - PINRemoteImage
     - PMAlertController
+    - PPBadgeViewSwift
     - QuickLayout
     - ReachabilitySwift
     - ReactorKit
@@ -287,6 +290,7 @@ SPEC CHECKSUMS:
   PinLayout: fe2a2432d6982588e208572005c941aeeae417ab
   PINRemoteImage: 4ac4011c5caefd6befd99758e09becede05d3226
   PMAlertController: 06dab8160066fc4ce991c880e3722cd403e2926a
+  PPBadgeViewSwift: 96a41852df7437e9d948565a1bc894f757c29933
   QuickLayout: 9af2b7fd89a6552828f51a5aba28d1bcdb8b340c
   ReachabilitySwift: 408477d1b6ed9779dba301953171e017c31241f3
   ReactorKit: 8be57f0527ad1ac2963cd5c338274a46a01e57a3
@@ -313,11 +317,11 @@ SPEC CHECKSUMS:
   Swinject: 82cdb851f63f91bba974e3eca1d69780f2f7677e
   Toast-Swift: e42a638589a2f95036b4bb7626cfbdde7daf0393
   "UITextView+Placeholder": 0c3efd97f37ea64bde7f34cc6e90fe02e87b3909
-  UMCAnalytics: c267acd9bb4a87e5f01735c158b63a617908f92e
+  UMCAnalytics: 901960ede5a8a85f208bd37689ad3e607b433930
   UMCCommon: 79b5a614c958db367113eed5740109d9a98e1223
   UMCCommonLog: 05a2d5de21858e3d870551562cff405c1366d244
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
 
-PODFILE CHECKSUM: 7681398968d9f3302382220c0c795e40a6e27496
+PODFILE CHECKSUM: cf8980af4e5dd6cfadac4650f791fe140a978904
 
 COCOAPODS: 1.6.1

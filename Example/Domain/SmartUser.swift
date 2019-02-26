@@ -8,7 +8,10 @@
 
 import ObjectMapper
 
-struct SmartUser: Codable, Mappable {
+struct SmartUser: Mappable, Codable, Equatable {
+    static func == (lhs: SmartUser, rhs: SmartUser) -> Bool {
+        return lhs.id == rhs.id
+    }
     var id: String?
     var allInfo: Bool?
     var marital: Bool?
@@ -45,4 +48,3 @@ struct SmartUser: Codable, Mappable {
         gender <- map["gender"]
     }
 }
-

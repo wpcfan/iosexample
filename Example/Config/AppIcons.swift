@@ -46,8 +46,8 @@ struct AppIcons {
     static let barMenu = buildNavIcon(code: "ios-menu", font: .ionicon)
     static let barSettings = buildNavIcon(code: "settings", font: .materialIcon)
     static let barBack = buildNavIcon(code: "navigate.before", font: .materialIcon)
-    static let barGroup = buildNavIcon(code: "group.work", font: .materialIcon)
-    static let barMessage = buildNavIcon(code: "ios-chatboxes", font: .ionicon)
+    static let barGroup = buildNavIcon(code: "devices.other", font: .materialIcon)
+    static let barNotification = buildNavIcon(code: "notifications.none", font: .materialIcon)
     // sidebar menu icons
     static let menuFamily = buildIcon(code: "group", font: .materialIcon, color: .primary)
     static let menuDevices = buildIcon(code: "router", font: .materialIcon, color: .primary)
@@ -76,6 +76,6 @@ struct AppIcons {
             code: code,
             textColor: color,
             backgroundColor: backgroundColor,
-            size: CGSize(width: width, height: height)).withRenderingMode(.alwaysTemplate)
+            size: CGSize(width: width, height: height))
     }
 }
