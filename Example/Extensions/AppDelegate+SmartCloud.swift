@@ -8,10 +8,7 @@
 
 extension AppDelegate {
     func setupJdSmartCloud() -> Void {
-        #if !targetEnvironment(simulator)
         let smartCloudServie = container.resolve(JdSmartCloudService.self)!
         smartCloudServie.initSmartCloud()
-        
-        #endif
     }
 }

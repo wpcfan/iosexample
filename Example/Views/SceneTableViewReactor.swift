@@ -15,12 +15,14 @@ class SceneTableViewReactor: Reactor {
     
     enum Action {
         case load
+        case startReorder(_ sourceIndex: Int, _ targetIndex: Int)
     }
     
     enum Mutation {
         case loadSuccess(_ scenes: [HouseScene])
         case loadFail(_ message: String)
         case loading(_ status: Bool)
+        case reorder(_ sourceIndex: Int, _ targetIndex: Int)
     }
     
     struct State {
@@ -40,6 +42,12 @@ class SceneTableViewReactor: Reactor {
                         .map({ (col) -> [HouseScene] in
                             houseScenes.map{ houseScene in
                                 var newHouseScene = houseScene
+                                newHouseScene.scene = Dollar.find(col!.scripts!) {
+                                    $0.script?.id == houseScene.scriptId
+                                }
+                                if (newHouseScene.scene != nil) {
+                                    return newHouseScene
+                                }
                                 switch(newHouseScene.innerCode) {
                                 case 1:
                                     newHouseScene.scene = Scene(JSON: ["name": "回家"])
@@ -48,9 +56,6 @@ class SceneTableViewReactor: Reactor {
                                     newHouseScene.scene = Scene(JSON: ["name": "离家"])
                                     break
                                 default:
-                                    newHouseScene.scene = Dollar.find(col!.scripts!) {
-                                        $0.script?.id == houseScene.scriptId
-                                    }
                                     break
                                 }
                                 return newHouseScene
@@ -64,6 +69,8 @@ class SceneTableViewReactor: Reactor {
                 .catchError{ error -> Observable<Mutation>  in
                     Observable.of(.loadFail(convertErrorToString(error: error)))
             }
+        case .startReorder(let sourceIndex, let targetIndex):
+            return .of(.reorder(sourceIndex, targetIndex))
         }
     }
     
@@ -83,6 +90,15 @@ class SceneTableViewReactor: Reactor {
         case .loading(let status):
             var newState = state
             newState.loading = status
+            newState.errorMessage = ""
+            return newState
+        case let .reorder(sourceIndex, targetIndex):
+            var newState = state
+            var newScenes = state.scenes
+            let item = state.scenes[sourceIndex]
+            newScenes.remove(at: sourceIndex)
+            newScenes.insert(item, at: targetIndex)
+            newState.scenes = newScenes
             newState.errorMessage = ""
             return newState
         }

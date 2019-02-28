@@ -66,6 +66,13 @@ class DeviceTableView: SHTableView {
             }
             .disposed(by: disposeBag)
         
+        reorder$
+            .subscribe { ev in
+                guard ev.error == nil else { return }
+                Haptic.play("..o..", delay: 0.1)
+            }
+            .disposed(by: disposeBag)
+        
         reorder$.withLatestFrom(devices$) { indices, items in
                 guard indices["sourceIndex"] != nil && indices["targetIndex"] != nil else { return items }
                 let item = items[indices["sourceIndex"]!]

@@ -14,6 +14,8 @@ struct AppIcons {
     static let app = Bundle.main.icon!
     
     static let placeholder = buildIcon(code: "question", font: .fontAwesome, color: .primary)
+    static let devices = buildIcon(code: "devices", font: .materialIcon, color: .primary)
+    static let manualExecute = buildIcon(code: "play.circle.outline", font: .materialIcon, color: .primary)
     static let homePrimary = buildIcon(code: "home", font: .fontAwesome, color: .primary)
     static let social = buildIcon(code: "comments", font: .fontAwesome, color: .black)
     static let user = buildIcon(code: "user", font: .fontAwesome, color: .black)

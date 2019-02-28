@@ -11,10 +11,13 @@ import RxSwift
 import RxDataSources
 import ReactorKit
 import SHSegmentedControl
+import Haptica
+import SwiftReorder
 
 class SceneTableView: SHTableView {
     var disposeBag = DisposeBag()
     var loadScenes$ = PublishSubject<Void>()
+    var reorder$ = PublishSubject<[String: Int]>()
     let sectionHeaderView = SectionHeaderView()
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -41,9 +44,16 @@ extension SceneTableView: UITableViewDelegate {
     }
 }
 
-extension Reactive where Base: SceneTableView {
-    var addSceneTapped: Observable<Void> {
-        return base.sectionHeaderView.rightBtnTapped.asObservable()
+extension SceneTableView: TableViewReorderDelegate {
+    func tableView(_ tableView: UITableView, reorderRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        self.reorder$.onNext([
+            "sourceIndex": sourceIndexPath.row,
+            "targetIndex": destinationIndexPath.row
+            ])
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .none
     }
 }
 
@@ -52,13 +62,31 @@ extension SceneTableView: ReactorKit.View {
     
     func bind(reactor: SceneTableViewReactor) {
         weak var `self`: SceneTableView! = self
+        self.reorder.delegate = self
         reactor.action.onNext(.load)
+        
+        let scenes$ = reactor.state.map { state in state.scenes }
+        
         let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, HouseScene>>(configureCell: { ds, tv, ip, item in
-            let cell = tv.dequeueReusableCell(withIdentifier: "cell")
-            cell?.imageView?.image = AppIcons.homePrimary.withRenderingMode(.alwaysTemplate)
-            cell?.imageView?.tintColor = UIColor.blue
-            cell!.textLabel?.text = item.scene?.displayName
-            return cell!
+            if let spacer = self.reorder.spacerCell(for: ip) {
+                return spacer
+            }
+            let cell = tv.dequeueReusableCell(withIdentifier: "cell") as! SceneCell
+            cell.selectionStyle = .none
+            cell.textLabel?.text = item.scene?.displayName
+            switch(item.innerCode) {
+            case 1:
+                cell.sceneType = .goHome
+                break
+            case 2:
+                cell.sceneType = .leaveHome
+                break
+            default:
+                cell.sceneType = .other
+                break
+            }
+            cell.deviceCount.text = "\(item.scene?.deviceCount ?? 0)"
+            return cell
         })
         
         loadScenes$
@@ -66,14 +94,39 @@ extension SceneTableView: ReactorKit.View {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
-        reactor.state
-            .map { state in
-                [SectionModel(model: "title", items: state.scenes)]
+        self.rx.longPressGesture().when(.began)
+            .subscribe { ev in
+                guard ev.error == nil else { return }
+                Haptic.play("..oO-Oo..", delay: 0.1)
+            }
+            .disposed(by: disposeBag)
+        
+        reorder$
+            .subscribe { ev in
+                guard ev.error == nil else { return }
+                Haptic.play("..o..", delay: 0.1)
+            }
+            .disposed(by: disposeBag)
+        
+        scenes$
+            .map { scenes in
+                [SectionModel(model: "title", items: scenes)]
             }
             .bind(to: self.rx.items(dataSource: dataSource))
             .disposed(by: disposeBag)
         
+        reorder$
+            .map { Reactor.Action.startReorder($0["sourceIndex"]!, $0["targetIndex"]!)}
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
         self.rx.setDelegate(self)
             .disposed(by: disposeBag)
+    }
+}
+
+extension Reactive where Base: SceneTableView {
+    var addSceneTapped: Observable<Void> {
+        return base.sectionHeaderView.rightBtnTapped.asObservable()
     }
 }

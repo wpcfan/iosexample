@@ -74,6 +74,7 @@ extension AuthViewController: View {
     func bind(reactor: Reactor) {
         
         weak var `self`: AuthViewController! = self
+        
         RxKeyboard.instance.visibleHeight
             .drive(onNext: { [scrollView] keyboardVisibleHeight in
                 scrollView!.contentInset.bottom = keyboardVisibleHeight

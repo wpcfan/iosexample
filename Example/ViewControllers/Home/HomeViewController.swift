@@ -152,7 +152,16 @@ extension HomeViewController: ReactorKit.View {
             }
             .disposed(by: self.disposeBag)
         
-        loadScenes$
+        Observable.merge(reactor.action.filter({
+                if case .load = $0 {
+                    return true
+                } else if case .refresh = $0  {
+                    return true
+                } else {
+                    return false
+                }
+            }))
+            .void()
             .bind(to: sceneTab.loadScenes$)
             .disposed(by: self.disposeBag)
         
@@ -291,7 +300,6 @@ extension HomeViewController: SHSegTableViewDelegate {
     func segTableViewDidScrollSub(_ subTableView: UIScrollView!) { }
     func segTableViewDidScrollProgress(_ progress: CGFloat, originalIndex: Int, targetIndex: Int) {
         if (progress == 1 && targetIndex == 1) {
-            loadScenes$.onNext(())
             //            self.segmentControl.setSegmentSelectedIndex(targetIndex)
         }
     }
