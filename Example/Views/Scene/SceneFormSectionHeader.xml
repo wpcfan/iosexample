@@ -1,0 +1,46 @@
+<UIView>
+    <UIView
+        backgroundColor="#bcdffb"
+        height="0.5 * parent.height"
+        left="parent.left"
+        top="parent.top + 0.25 * parent.height"
+        width="0.25 * parent.width"
+        outlet="leftBadgeView">
+
+        <UIImageView
+            center.y="parent.center.y"
+            contentMode="scaleAspectFill"
+            height="10"
+            image="{circle}"
+            left="parent.left + 5"
+            width="height"
+        />
+        <UILabel
+            center.y="parent.center.y"
+            font="14"
+            height="20"
+            left="previous.right + 2"
+            text="{sectionName}"
+            textColor="primary"
+            width="auto"
+        />
+    </UIView>
+    <UIButton
+        center.y="parent.center.y"
+        contentMode="scaleAspectFill"
+        height="40"
+        normalImage="{setting}"
+        right="#addBtn.left - 5"
+        width="height"
+    />
+    <UIButton
+        center.y="parent.center.y"
+        contentMode="scaleAspectFill"
+        height="40"
+        id="addBtn"
+        normalImage="{add}"
+        right="parent.right - 5"
+        touchUpInside="add"
+        width="height"
+    />
+</UIView>

@@ -8,14 +8,12 @@
 
 import ObjectMapper
 
-struct ProductCategory: Mappable {
+class ProductCategory: Mappable {
     var id: String?
     var name: String?
     var imageUrl: String?
     
-    init?(map: Map) {
-        
-    }
+    required init?(map: Map) { }
     
     init(id: String?, name: String, imageUrl: String) {
         self.id = id
@@ -23,7 +21,7 @@ struct ProductCategory: Mappable {
         self.imageUrl = imageUrl
     }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         id <- map["id"]
         name <- map["name"]
         imageUrl <- map["imageUrl"]

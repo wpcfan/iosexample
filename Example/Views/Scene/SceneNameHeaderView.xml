@@ -1,8 +1,9 @@
 <UIView>
-    <UILabel
+    <UITextField
         center.x="parent.center.x"
         center.y="parent.center.y"
         height="auto + 20"
+        outlet="sceneNameField"
         text="{sceneName}"
         textAlignment="center"
         textColor="white"
@@ -10,6 +11,7 @@
     />
     <UISwitch
         isOn="isOn"
+        outlet="sceneActiveSwitch"
         right="parent.right - 10"
         top="parent.top + 10"
     />

@@ -1,6 +1,9 @@
 <UIView>
     <WKWebView
         outlet="webView"
+        scrollView.contentInset.bottom="safeAreaInsets.bottom"
+        scrollView.contentInsetAdjustmentBehavior="never"
+        scrollView.scrollIndicatorInsets="scrollView.contentInset"
     />
     <NVActivityIndicatorView.NVActivityIndicatorView
         center.x="parent.center.x"

@@ -8,8 +8,8 @@
 
 import ObjectMapper
 
-struct IndoorAir: Mappable {
-    init?(map: Map) {
+class IndoorAir: Mappable {
+    required init?(map: Map) {
         humidity <- map["curhum"]
         hcho <- map["curhcho"]
         baoSN <- map["baoSN"]
@@ -22,9 +22,7 @@ struct IndoorAir: Mappable {
         uploadTime <- map["uploadTime"]
     }
     
-    mutating func mapping(map: Map) {
-        
-    }
+    func mapping(map: Map) { }
     
     var humidity: String?
     var hcho: String?

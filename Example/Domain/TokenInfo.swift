@@ -7,18 +7,18 @@
 //
 import ObjectMapper
 
-struct TokenInfo: Mappable {
+class TokenInfo: Mappable {
     
     var token: String?
     var version: Version?
     var splashAd: SplashAd?
     var user: SmartUser?
     
-    init?(map: Map) {
+    required init?(map: Map) {
         
     }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         token <- map["token"]
         version <- map["versioninfo"]
         splashAd <- map["adinfo"]

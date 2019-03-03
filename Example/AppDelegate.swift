@@ -28,6 +28,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
         ) -> Bool {
+        if !Disk.exists(Constants.APP_DATA_PATH, in: .documents) {
+            let data = AppData(JSON: ["tourGuidePresented": false])
+            try? Disk.save(data, to: .documents, as: Constants.APP_DATA_PATH)
+        }
         setupLogging()
         setupDebug()
         setupBugly()

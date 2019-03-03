@@ -9,11 +9,12 @@
 import PinLayout
 import FSPagerView
 import RxSwift
+import RxCocoa
 import RxOptional
 
 class BannerView: UIView {
     
-    var tapped = PublishSubject<String?>()
+    var tapped = PublishRelay<String?>()
     var banners: [Banner] = [] {
         didSet {
             self.pagerControl.numberOfPages = banners.count
@@ -77,7 +78,7 @@ extension BannerView: FSPagerViewDelegate {
     func pagerView(_ pagerView: FSPagerView, didSelectItemAt index: Int) {
         pagerView.deselectItem(at: index, animated: true)
         pagerView.scrollToItem(at: index, animated: true)
-        tapped.onNext(banners[index].link)
+        tapped.accept(banners[index].link)
     }
     
     func pagerViewWillEndDragging(_ pagerView: FSPagerView, targetIndex: Int) {

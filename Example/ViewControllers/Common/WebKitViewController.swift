@@ -9,6 +9,7 @@ import URLNavigator
 import WebKit
 import RxWebKit
 import RxSwift
+import RxOptional
 import Layout
 import NVActivityIndicatorView
 
@@ -16,10 +17,16 @@ class WebKitViewController: BaseViewController, LayoutLoading {
     @objc weak var webView: WKWebView!
     @objc weak var activityIndicatorView: NVActivityIndicatorView!
     @objc weak var loadingLabel: UILabel!
-    var url: URLConvertible
+    var url: URLConvertible?
     var pageTitle: String?
     
     // MARK: Initializing
+    
+    init(pageTitle: String = "") {
+        self.pageTitle = pageTitle
+        super.init()
+    }
+    
     init(url: URLConvertible, pageTitle: String = "") {
         self.url = url
         self.pageTitle = pageTitle
@@ -37,10 +44,15 @@ class WebKitViewController: BaseViewController, LayoutLoading {
     }
     
     func layoutDidLoad(_: LayoutNode) {
-        webView.load(url)
         weak var `self`: WebKitViewController! = self
+        if (url != nil) {
+            webView.load(url!)
+        }
         webView.rx.url
             .share(replay: 1)
+            .filter({ (curr) -> Bool in
+                curr?.absoluteString == self.url?.urlStringValue
+            })
             .subscribe{ ev in
                 if (!self.activityIndicatorView.isAnimating) {
                     self.activityIndicatorView.startAnimating()
@@ -68,6 +80,18 @@ class WebKitViewController: BaseViewController, LayoutLoading {
                 guard let title = ev.element else { return }
                 self.title = self.pageTitle.isBlank ? title : self.pageTitle
             }
+            .disposed(by: disposeBag)
+        
+        webView.rx.decidePolicyNavigationAction
+            .subscribe(onNext: {(_, _, handler) in
+                handler(.allow)
+            })
+            .disposed(by: disposeBag)
+        
+        webView.rx.decidePolicyNavigationResponse
+            .subscribe(onNext: {(_, _, handler) in
+                handler(.allow)
+            })
             .disposed(by: disposeBag)
     }
 }

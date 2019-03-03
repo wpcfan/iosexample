@@ -8,12 +8,8 @@
 
 import ObjectMapper
 
-struct EmptyResult: Mappable {
-    init?(map: Map) {
-        
-    }
+class EmptyResult: Mappable {
+    required init?(map: Map) { }
     
-    mutating func mapping(map: Map) {
-        
-    }
+    func mapping(map: Map) { }
 }

@@ -13,7 +13,7 @@ import RxGesture
 
 class SectionHeaderView: UIView {
     var disposeBag = DisposeBag()
-    var rightBtnTapped = PublishSubject<Void>()
+    var rightBtnTapped = PublishRelay<Void>()
     var rightBtnHidden = true {
         didSet {
             self.rightIcon.isHidden = rightBtnHidden

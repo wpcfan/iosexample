@@ -8,9 +8,10 @@
 
 import Layout
 import RxSwift
+import RxCocoa
 
 class IndoorAirView: BaseView {
-    var indoorAir$ = PublishSubject<IndoorAir>()
+    var indoorAir$ = PublishRelay<IndoorAir>()
     
     override init(frame: CGRect) {
         super.init(frame: frame)

@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 import NotificationBannerSwift
 
-class DeviceV2WebViewController: UIWebViewController {
+class DeviceV2WebViewController: WebKitViewController {
     var deviceUrl: SCDeviceUrl?
     private let scService = container.resolve(JdSmartCloudService.self)!
     #if !targetEnvironment(simulator)
@@ -93,9 +93,11 @@ class DeviceV2WebViewController: UIWebViewController {
                 self.webView.stopLoading()
                 self.scService.unsubscribeSnapshotV2(feedId: String(self.deviceUrl!.device!.feedId!))
                 guard let bridge = self.h5Manager?.getBridge() else { return }
-                bridge.disconnectWithWebView()
+                bridge.setWebViewDelegate(nil)
+//                bridge.disconnectWithWebView()
             }
             .disposed(by: disposeBag)
+        
         #endif
     }
 }
@@ -118,7 +120,7 @@ extension DeviceV2WebViewController: SCMH5ControlManagerDelegate {
     }
     
     func toSubDeviceListAction() {
-        
+        print("toSubDeviceListAction")
     }
     
     func jumpSubDeviceAction(_ data: Any!) {
@@ -135,14 +137,20 @@ extension DeviceV2WebViewController: SCMH5ControlManagerDelegate {
         print("closeWindowAction")
     }
     
-    func jump(toNativePageAction data: Any!) {}
+    func jump(toNativePageAction data: Any!) {
+        print("jump")
+    }
+    
+    func jump(subDeviceAction data: Any!) {
+        print("jump")
+    }
     
     func showShareViewAction(_ data: Any!) {
-        
+        print("showShareViewAction")
     }
     
     func errorTipAction(_ msg: String!) {
-        
+        print("errorTipAction")
     }
     
     func openUrlOrVCAction(_ data: Any!) {
@@ -169,7 +177,7 @@ extension DeviceV2WebViewController: SCMControlDeviceDataDelegate {
     }
     
     func h5Url(_ url: String!) {
-        
+        webView.load(url)
     }
 }
 #endif

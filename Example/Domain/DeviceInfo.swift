@@ -7,7 +7,7 @@
 //
 import ObjectMapper
 
-struct DeviceInfo: Mappable {
+class DeviceInfo: Mappable {
     var id: String?
     var projectId: String?
     var houseId: String?
@@ -34,11 +34,10 @@ struct DeviceInfo: Mappable {
     var ownedFlag: Bool?
     var from: Int?
     var serviceInfos: [ServiceInfo]?
-    init?(map: Map) {
-        
-    }
     
-    mutating func mapping(map: Map) {
+    required init?(map: Map) { }
+    
+    func mapping(map: Map) {
         id <- map["id"]
         projectId <- map["pid"]
         houseId <- map["hid"]

@@ -6,6 +6,7 @@ import URLNavigator
 import Layout
 import ObjectMapper
 import RxSwift
+import RxCocoa
 import RxDataSources
 
 struct SideBarMenuItem: Mappable {
@@ -22,9 +23,22 @@ struct SideBarMenuItem: Mappable {
     }
 }
 
+enum SideMenu: Int {
+    case myFamilies
+    case myHouses
+    case myDevices
+    case myScenes
+    case myGroups
+    case myCameras
+    case mall
+    case forum
+    case settings
+}
+
 class SideBarViewController: BaseViewController {
     private let CELL_REUSE_IDENTIFIER = "sidebarCell"
     private let navigator = container.resolve(NavigatorType.self)!
+    let menuSelect = PublishRelay<SideMenu>()
     let sidebarMenuService = MenuService()
     var menuItems: [SideBarMenuItem] = []
     var drawer: DrawerTransition?
@@ -36,17 +50,25 @@ class SideBarViewController: BaseViewController {
         let appData = DiskUtil.getData()
         let user = appData?.user
         let house = appData?.homeInfo?.house
-        self.loadLayout(named: "SideBarViewController.xml", state: [
+        loadLayout(named: "SideBarViewController.xml", state: [
             "avatar": user?.avatar ?? "",
             "name": "\(user?.name ?? "未设置姓名")(\(house?.isOwner ?? false ? "主账户": "子账户"))",
             "mobile": user?.mobile ?? "未设置手机号",
             "rightArrow": AppIcons.rightArrow
             ])
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        self.navigationController?.hideTransparentNavigationBar()
+    }
 }
 
 extension SideBarViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        weak var `self`: SideBarViewController! = self
+        menuSelect.accept(SideMenu(rawValue: indexPath.row)!)
         self.dismiss(animated: true, completion: nil)
     }
 }
@@ -55,6 +77,7 @@ extension SideBarViewController: LayoutLoading {
     
     func layoutDidLoad(_: LayoutNode) {
         
+        weak var `self`: SideBarViewController! = self
         let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, SideBarMenuItem>>(configureCell: { ds, tv, ip, item in
             let node = tv.dequeueReusableCellNode(withIdentifier: "sidebarCell")
             node?.setState([
@@ -81,5 +104,11 @@ extension SideBarViewController: LayoutLoading {
             }
             .bind(to: (self.tableView.rx.items(dataSource: dataSource)))
             .disposed(by: disposeBag)
+    }
+}
+
+extension Reactive where Base: SideBarViewController {
+    var menuSelected: Observable<SideMenu> {
+        return base.menuSelect.asObservable()
     }
 }

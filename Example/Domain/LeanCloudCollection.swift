@@ -8,15 +8,13 @@
 
 import ObjectMapper
 
-struct LeanCloudCollection<T>: Mappable where T: Mappable {
+class LeanCloudCollection<T>: Mappable where T: Mappable {
     var results: [T] = []
     var count = 0
     
-    init?(map: Map) {
-        
-    }
+    required init?(map: Map) { }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         results <- map["results"]
         count <- map["count"]
     }

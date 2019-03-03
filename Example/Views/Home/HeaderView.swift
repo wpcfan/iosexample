@@ -8,6 +8,7 @@
 
 import Layout
 import RxSwift
+import RxCocoa
 
 class HeaderView: BaseView {
     
@@ -16,11 +17,11 @@ class HeaderView: BaseView {
     @objc weak var weatherView: WeatherView!
     @objc weak var indoorView: IndoorAirView!
     
-    var bannerTapped = PublishSubject<String>()
-    var channelTapped = PublishSubject<String>()
-    var indoor$ = PublishSubject<IndoorAir>()
-    var displayAir$ = PublishSubject<Bool>()
-    var homeInfo$ = PublishSubject<HomeInfo>()
+    var bannerTapped = PublishRelay<String>()
+    var channelTapped = PublishRelay<String>()
+    var indoor$ = PublishRelay<IndoorAir>()
+    var displayAir$ = PublishRelay<Bool>()
+    var homeInfo$ = PublishRelay<HomeInfo>()
     override init(frame: CGRect) {
         super.init(frame: frame)
         

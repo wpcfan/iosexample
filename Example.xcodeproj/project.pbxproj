@@ -10,6 +10,10 @@
 		AA01F49F2198828600CE6457 /* AppDelegate+UMeng.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01F49E2198828600CE6457 /* AppDelegate+UMeng.swift */; };
 		AA01F4A1219886A400CE6457 /* AppDelegate+Bugly.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01F4A0219886A400CE6457 /* AppDelegate+Bugly.swift */; };
 		AA01F4A72199511500CE6457 /* UIApplication+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA01F4A62199511500CE6457 /* UIApplication+.swift */; };
+		AA024B7D222B672000070BFB /* SelectDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA024B7C222B672000070BFB /* SelectDeviceViewController.swift */; };
+		AA024B7F222B673700070BFB /* SelectDeviceViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA024B7E222B673700070BFB /* SelectDeviceViewController.xml */; };
+		AA024B81222B8C6000070BFB /* BindableObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA024B80222B8C6000070BFB /* BindableObserver.swift */; };
+		AA024B83222B8C9900070BFB /* Reactive+Eureka.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA024B82222B8C9900070BFB /* Reactive+Eureka.swift */; };
 		AA0ACFD121ECB49E00CE6D1D /* AppDelegate+SmartCloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0ACFD021ECB49E00CE6D1D /* AppDelegate+SmartCloud.swift */; };
 		AA0ACFD321ECB8AC00CE6D1D /* AppDelegate+LeChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA0ACFD221ECB8AC00CE6D1D /* AppDelegate+LeChange.swift */; };
 		AA0ACFD521ECB95F00CE6D1D /* SCMSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AA0ACFD421ECB95F00CE6D1D /* SCMSDK.framework */; };
@@ -65,7 +69,6 @@
 		AA38DCA7217EF4D70046D82D /* Reactive+StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA38DCA6217EF4D70046D82D /* Reactive+StatusBar.swift */; };
 		AA3AB88E21841ABA00470276 /* SplashViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3AB88D21841ABA00470276 /* SplashViewControllerReactor.swift */; };
 		AA3AB8902184828800470276 /* TourViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3AB88F2184828800470276 /* TourViewControllerReactor.swift */; };
-		AA3AB8962184C65600470276 /* HomeTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3AB8952184C65600470276 /* HomeTitleView.swift */; };
 		AA3CA5C82202BE0600551C87 /* DefaultRefreshView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3CA5B72202BE0300551C87 /* DefaultRefreshView.swift */; };
 		AA3CA5C92202BE0600551C87 /* UIScrollView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3CA5B82202BE0400551C87 /* UIScrollView+Rx.swift */; };
 		AA3CA5CA2202BE0600551C87 /* Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3CA5BA2202BE0400551C87 /* Debug.swift */; };
@@ -195,7 +198,6 @@
 		AA8978652185658C005A61CA /* Reactive+UIScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8978642185658C005A61CA /* Reactive+UIScrollView.swift */; };
 		AA89786721856D88005A61CA /* ImageEffects+Accelerate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA89786621856D88005A61CA /* ImageEffects+Accelerate.swift */; };
 		AA8978692185759F005A61CA /* Reactive+UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA8978682185759F005A61CA /* Reactive+UIImageView.swift */; };
-		AA897873218590E4005A61CA /* HomeTitleView.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA897872218590E4005A61CA /* HomeTitleView.xml */; };
 		AA91EDD221A7B73F00C07A4E /* TourPageTemplate.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA91EDD121A7B73F00C07A4E /* TourPageTemplate.xml */; };
 		AA96B29321FDF6990093A2E0 /* UITextField+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA96B29221FDF6990093A2E0 /* UITextField+.swift */; };
 		AA96B29521FE116C0093A2E0 /* TextFieldResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA96B29421FE116C0093A2E0 /* TextFieldResponder.swift */; };
@@ -212,6 +214,11 @@
 		AA9B94CD21EDC317000AE906 /* libjdrtc_sdk_static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9B94CB21EDC317000AE906 /* libjdrtc_sdk_static.a */; };
 		AA9B94CE21EDC317000AE906 /* libvideo_engine_core_ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9B94CC21EDC317000AE906 /* libvideo_engine_core_ios.a */; };
 		AA9B94D021EDC482000AE906 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9B94CF21EDC482000AE906 /* libc++.tbd */; };
+		AA9D25092228FB2100DB3118 /* UIView+Corners.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D25082228FB2100DB3118 /* UIView+Corners.swift */; };
+		AA9D250D2229330900DB3118 /* SceneNameHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D250C2229330900DB3118 /* SceneNameHeaderView.swift */; };
+		AA9D2510222938A500DB3118 /* SceneNameHeaderView.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA9D250F222938A500DB3118 /* SceneNameHeaderView.xml */; };
+		AA9D251422293D9C00DB3118 /* SceneFormSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D251322293D9C00DB3118 /* SceneFormSectionHeader.swift */; };
+		AA9D251622293DB300DB3118 /* SceneFormSectionHeader.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA9D251522293DB300DB3118 /* SceneFormSectionHeader.xml */; };
 		AAA6E6A12213062A0032A489 /* SendSmsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA6E6A02213062A0032A489 /* SendSmsService.swift */; };
 		AAA6E6A3221315B40032A489 /* SetPasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA6E6A2221315B40032A489 /* SetPasswordService.swift */; };
 		AAA6E6A5221317EF0032A489 /* SetPasswordViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA6E6A4221317EF0032A489 /* SetPasswordViewControllerReactor.swift */; };
@@ -274,6 +281,7 @@
 		AADE73AA2224360B009D218A /* SceneListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADE73A92224360B009D218A /* SceneListService.swift */; };
 		AADE73AC2224368B009D218A /* HouseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADE73AB2224368B009D218A /* HouseScene.swift */; };
 		AADE73AE2224DB62009D218A /* SceneCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AADE73AD2224DB62009D218A /* SceneCell.swift */; };
+		AAE22D452228F1E400032CB5 /* AddOrEditSceneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE22D442228F1E300032CB5 /* AddOrEditSceneViewController.swift */; };
 		AAE49EF62169D2FB004BDBD7 /* TourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE49EF52169D2FB004BDBD7 /* TourViewController.swift */; };
 		AAE49EF82169D315004BDBD7 /* TourViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AAE49EF72169D315004BDBD7 /* TourViewController.xml */; };
 		AAE49EFA216A2783004BDBD7 /* AppData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAE49EF9216A2783004BDBD7 /* AppData.swift */; };
@@ -327,6 +335,10 @@
 		AA01F49E2198828600CE6457 /* AppDelegate+UMeng.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+UMeng.swift"; sourceTree = "<group>"; };
 		AA01F4A0219886A400CE6457 /* AppDelegate+Bugly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Bugly.swift"; sourceTree = "<group>"; };
 		AA01F4A62199511500CE6457 /* UIApplication+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+.swift"; sourceTree = "<group>"; };
+		AA024B7C222B672000070BFB /* SelectDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectDeviceViewController.swift; sourceTree = "<group>"; };
+		AA024B7E222B673700070BFB /* SelectDeviceViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SelectDeviceViewController.xml; sourceTree = "<group>"; };
+		AA024B80222B8C6000070BFB /* BindableObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindableObserver.swift; sourceTree = "<group>"; };
+		AA024B82222B8C9900070BFB /* Reactive+Eureka.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+Eureka.swift"; sourceTree = "<group>"; };
 		AA0ACFD021ECB49E00CE6D1D /* AppDelegate+SmartCloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+SmartCloud.swift"; sourceTree = "<group>"; };
 		AA0ACFD221ECB8AC00CE6D1D /* AppDelegate+LeChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+LeChange.swift"; sourceTree = "<group>"; };
 		AA0ACFD421ECB95F00CE6D1D /* SCMSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SCMSDK.framework; path = libs/SCMSDK/SCMSDK.framework; sourceTree = "<group>"; };
@@ -392,7 +404,6 @@
 		AA38DCA6217EF4D70046D82D /* Reactive+StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+StatusBar.swift"; sourceTree = "<group>"; };
 		AA3AB88D21841ABA00470276 /* SplashViewControllerReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewControllerReactor.swift; sourceTree = "<group>"; };
 		AA3AB88F2184828800470276 /* TourViewControllerReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourViewControllerReactor.swift; sourceTree = "<group>"; };
-		AA3AB8952184C65600470276 /* HomeTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTitleView.swift; sourceTree = "<group>"; };
 		AA3CA5B72202BE0300551C87 /* DefaultRefreshView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultRefreshView.swift; sourceTree = "<group>"; };
 		AA3CA5B82202BE0400551C87 /* UIScrollView+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Rx.swift"; sourceTree = "<group>"; };
 		AA3CA5BA2202BE0400551C87 /* Debug.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Debug.swift; sourceTree = "<group>"; };
@@ -525,7 +536,6 @@
 		AA8978642185658C005A61CA /* Reactive+UIScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+UIScrollView.swift"; sourceTree = "<group>"; };
 		AA89786621856D88005A61CA /* ImageEffects+Accelerate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageEffects+Accelerate.swift"; sourceTree = "<group>"; };
 		AA8978682185759F005A61CA /* Reactive+UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+UIImageView.swift"; sourceTree = "<group>"; };
-		AA897872218590E4005A61CA /* HomeTitleView.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = HomeTitleView.xml; sourceTree = "<group>"; };
 		AA91EDD121A7B73F00C07A4E /* TourPageTemplate.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TourPageTemplate.xml; sourceTree = "<group>"; };
 		AA96B29221FDF6990093A2E0 /* UITextField+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+.swift"; sourceTree = "<group>"; };
 		AA96B29421FE116C0093A2E0 /* TextFieldResponder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldResponder.swift; sourceTree = "<group>"; };
@@ -542,6 +552,11 @@
 		AA9B94CB21EDC317000AE906 /* libjdrtc_sdk_static.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjdrtc_sdk_static.a; path = libs/IndoorVideoPhone/DongDong/jl_ios_sdk_libs/libjdrtc_sdk_static.a; sourceTree = "<group>"; };
 		AA9B94CC21EDC317000AE906 /* libvideo_engine_core_ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libvideo_engine_core_ios.a; path = libs/IndoorVideoPhone/DongDong/jl_ios_sdk_libs/libvideo_engine_core_ios.a; sourceTree = "<group>"; };
 		AA9B94CF21EDC482000AE906 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		AA9D25082228FB2100DB3118 /* UIView+Corners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Corners.swift"; sourceTree = "<group>"; };
+		AA9D250C2229330900DB3118 /* SceneNameHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneNameHeaderView.swift; sourceTree = "<group>"; };
+		AA9D250F222938A500DB3118 /* SceneNameHeaderView.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SceneNameHeaderView.xml; sourceTree = "<group>"; };
+		AA9D251322293D9C00DB3118 /* SceneFormSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneFormSectionHeader.swift; sourceTree = "<group>"; };
+		AA9D251522293DB300DB3118 /* SceneFormSectionHeader.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SceneFormSectionHeader.xml; sourceTree = "<group>"; };
 		AAA6E6A02213062A0032A489 /* SendSmsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendSmsService.swift; sourceTree = "<group>"; };
 		AAA6E6A2221315B40032A489 /* SetPasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordService.swift; sourceTree = "<group>"; };
 		AAA6E6A4221317EF0032A489 /* SetPasswordViewControllerReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewControllerReactor.swift; sourceTree = "<group>"; };
@@ -622,6 +637,7 @@
 		AADE73A92224360B009D218A /* SceneListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneListService.swift; sourceTree = "<group>"; };
 		AADE73AB2224368B009D218A /* HouseScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseScene.swift; sourceTree = "<group>"; };
 		AADE73AD2224DB62009D218A /* SceneCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneCell.swift; sourceTree = "<group>"; };
+		AAE22D442228F1E300032CB5 /* AddOrEditSceneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddOrEditSceneViewController.swift; sourceTree = "<group>"; };
 		AAE49EF32168EF89004BDBD7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		AAE49EF52169D2FB004BDBD7 /* TourViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TourViewController.swift; sourceTree = "<group>"; };
 		AAE49EF72169D315004BDBD7 /* TourViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = TourViewController.xml; sourceTree = "<group>"; };
@@ -905,6 +921,7 @@
 				AAF961AF220ED72000E17A65 /* UITableView+.swift */,
 				AA96B29221FDF6990093A2E0 /* UITextField+.swift */,
 				AA420587217B66210068ABC0 /* UIView+Blur.swift */,
+				AA9D25082228FB2100DB3118 /* UIView+Corners.swift */,
 				AA19DC9B21FD46FE00B70EFE /* UIViewController+.swift */,
 				AA72B7022221884F00C72E33 /* UIWebView+URL.swift */,
 				AA72B700222187FC00C72E33 /* WKWebView+URL.swift */,
@@ -915,7 +932,9 @@
 		AA433F0F218C515D00BA60A1 /* Rx */ = {
 			isa = PBXGroup;
 			children = (
+				AA024B80222B8C6000070BFB /* BindableObserver.swift */,
 				AA19DC9521FC77FA00B70EFE /* ObservableType+MonitorLoading.swift */,
+				AA024B82222B8C9900070BFB /* Reactive+Eureka.swift */,
 				AA4B49152178800A00A60C11 /* Reactive+FSPagerView.swift */,
 				AA4B48E32175006100A60C11 /* Reactive+Layout.swift */,
 				AA4F07892222FE4400E8A643 /* Reactive+MJRefreshComponent.swift */,
@@ -1018,32 +1037,12 @@
 		AA6839D4216DB8B000E4097B /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				AA4B492F2178EB2500A60C11 /* BannerView.swift */,
-				AA4B4941217A112200A60C11 /* BaseView.swift */,
-				AAF96179220674FA00E17A65 /* BaseCollectionCell.swift */,
-				AA4B493D217A0B5000A60C11 /* BaseTableCell.swift */,
+				AAFE6FDB222977BE00595F05 /* Common */,
+				AAFE6FDA222977B600595F05 /* Home */,
+				AA9D250E2229335B00DB3118 /* Scene */,
 				AAA6E6AE2213298E0032A489 /* CaptchaView.swift */,
 				AAA6E6B0221329C90032A489 /* CaptchaView.xml */,
-				AA42058D217B8C680068ABC0 /* ChannelView.swift */,
-				AA5724112216CE4600D26244 /* ChannelView.xml */,
-				AAF961A5220D977D00E17A65 /* DeviceCell.swift */,
-				AA72B6E3222063BC00C72E33 /* DeviceCell.xib */,
-				AAF961A7220D97C600E17A65 /* DeviceTableView.swift */,
-				AA4205A5217C9B5F0068ABC0 /* HeaderView.swift */,
-				AA57240F2216CA0900D26244 /* HeaderView.xml */,
-				AA3AB8952184C65600470276 /* HomeTitleView.swift */,
-				AA897872218590E4005A61CA /* HomeTitleView.xml */,
-				AA5724092215D70F00D26244 /* IndoorAirView.swift */,
-				AA57240B2215D74000D26244 /* IndoorAirView.xml */,
 				AA420595217C0C2E0068ABC0 /* IconLabelButton.xml */,
-				AAA6E6B42213B7B00032A489 /* PasswordField.swift */,
-				AADE73AD2224DB62009D218A /* SceneCell.swift */,
-				AAF961AD220DAF7100E17A65 /* SceneTableView.swift */,
-				AADE73A622243267009D218A /* SceneTableViewReactor.swift */,
-				AA1A5EC2220FD54D0084473E /* SectionHeaderView.swift */,
-				AA5724052215C43900D26244 /* WeatherView.swift */,
-				AA5724072215CF1400D26244 /* WeatherView.xml */,
-				AA57240D2216799A00D26244 /* WeatherViewReactor.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1096,6 +1095,17 @@
 				AA5723E522155D2900D26244 /* WeatherService.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		AA9D250E2229335B00DB3118 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				AA9D250C2229330900DB3118 /* SceneNameHeaderView.swift */,
+				AA9D250F222938A500DB3118 /* SceneNameHeaderView.xml */,
+				AA9D251322293D9C00DB3118 /* SceneFormSectionHeader.swift */,
+				AA9D251522293DB300DB3118 /* SceneFormSectionHeader.xml */,
+			);
+			path = Scene;
 			sourceTree = "<group>";
 		};
 		AAA6E6C02213EEA30032A489 /* Integration */ = {
@@ -1279,6 +1289,7 @@
 				AA46D40122190F4900931526 /* Common */,
 				AA46D4082219120C00931526 /* Device */,
 				AA1A5EC1220FD4AC0084473E /* Home */,
+				AAE22D432228F19300032CB5 /* Scene */,
 				AA5723FC221591BD00D26244 /* Splash */,
 				AA5723FB2215918C00D26244 /* Tour */,
 			);
@@ -1361,6 +1372,7 @@
 		AAD7E0FF21F1ED3D000D8D6A /* RxHttpClient */ = {
 			isa = PBXGroup;
 			children = (
+				AAD7E16521F1F42C000D8D6A /* RequestPlugin */,
 				AAD7E16421F1F42C000D8D6A /* Data+Extensions.swift */,
 				AAD7E16E21F1F42D000D8D6A /* DataCacheProviderType.swift */,
 				AAD7E16921F1F42C000D8D6A /* HttpClient.swift */,
@@ -1372,7 +1384,6 @@
 				AAD7E16A21F1F42C000D8D6A /* MimeType+Extensions.swift */,
 				AAD7E16B21F1F42D000D8D6A /* MimeTypeConverter.swift */,
 				AAD7E15F21F1F42C000D8D6A /* NSURLSessionDataEventsObserver.swift */,
-				AAD7E16521F1F42C000D8D6A /* RequestPlugin */,
 				AAD7E16121F1F42C000D8D6A /* StreamDataTask.swift */,
 				AAD7E16321F1F42C000D8D6A /* UrlRequestCacheProviderType.swift */,
 				AA19DC9721FC844C00B70EFE /* SelfSignedSSLSessionDelegate.swift */,
@@ -1397,6 +1408,16 @@
 			path = Scene;
 			sourceTree = "<group>";
 		};
+		AAE22D432228F19300032CB5 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				AAE22D442228F1E300032CB5 /* AddOrEditSceneViewController.swift */,
+				AA024B7C222B672000070BFB /* SelectDeviceViewController.swift */,
+				AA024B7E222B673700070BFB /* SelectDeviceViewController.xml */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
 		AAF9617F2207169100E17A65 /* SJSegmentedViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -1409,6 +1430,41 @@
 				AAF9618C2207185C00E17A65 /* SJUtil.swift */,
 			);
 			path = SJSegmentedViewController;
+			sourceTree = "<group>";
+		};
+		AAFE6FDA222977B600595F05 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				AA4B492F2178EB2500A60C11 /* BannerView.swift */,
+				AA42058D217B8C680068ABC0 /* ChannelView.swift */,
+				AA5724112216CE4600D26244 /* ChannelView.xml */,
+				AAF961A5220D977D00E17A65 /* DeviceCell.swift */,
+				AA72B6E3222063BC00C72E33 /* DeviceCell.xib */,
+				AAF961A7220D97C600E17A65 /* DeviceTableView.swift */,
+				AA4205A5217C9B5F0068ABC0 /* HeaderView.swift */,
+				AA57240F2216CA0900D26244 /* HeaderView.xml */,
+				AA5724092215D70F00D26244 /* IndoorAirView.swift */,
+				AA57240B2215D74000D26244 /* IndoorAirView.xml */,
+				AADE73AD2224DB62009D218A /* SceneCell.swift */,
+				AAF961AD220DAF7100E17A65 /* SceneTableView.swift */,
+				AADE73A622243267009D218A /* SceneTableViewReactor.swift */,
+				AA1A5EC2220FD54D0084473E /* SectionHeaderView.swift */,
+				AA5724052215C43900D26244 /* WeatherView.swift */,
+				AA5724072215CF1400D26244 /* WeatherView.xml */,
+				AA57240D2216799A00D26244 /* WeatherViewReactor.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		AAFE6FDB222977BE00595F05 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				AAF96179220674FA00E17A65 /* BaseCollectionCell.swift */,
+				AA4B493D217A0B5000A60C11 /* BaseTableCell.swift */,
+				AA4B4941217A112200A60C11 /* BaseView.swift */,
+				AAA6E6B42213B7B00032A489 /* PasswordField.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1511,9 +1567,11 @@
 			files = (
 				AAA920BA2198289700EFC581 /* InfoPlist.strings in Resources */,
 				AAD7E0FC21F1C383000D8D6A /* cert.pem in Resources */,
+				AA9D2510222938A500DB3118 /* SceneNameHeaderView.xml in Resources */,
 				AA19DC7721F573AA00B70EFE /* README.txt in Resources */,
 				AAD7E0FB21F1C383000D8D6A /* cert_en.pem in Resources */,
 				AA5724082215CF1400D26244 /* WeatherView.xml in Resources */,
+				AA024B7F222B673700070BFB /* SelectDeviceViewController.xml in Resources */,
 				AAA6E6B1221329C90032A489 /* CaptchaView.xml in Resources */,
 				AA72B6FF222186CA00C72E33 /* UIWebViewController.xml in Resources */,
 				AA86626D2211BF3D0065568A /* BindJdAccountViewController.xml in Resources */,
@@ -1533,9 +1591,9 @@
 				AAF961B4220EEC3100E17A65 /* HouseTableViewController.xml in Resources */,
 				AAE49EF82169D315004BDBD7 /* TourViewController.xml in Resources */,
 				AAAD777E2212E2D000EDBF09 /* VerifySmsViewController.xml in Resources */,
+				AA9D251622293DB300DB3118 /* SceneFormSectionHeader.xml in Resources */,
 				AA866273221267110065568A /* SignUpViewController.xml in Resources */,
 				AA46D4072219102B00931526 /* WebKitViewController.xml in Resources */,
-				AA897873218590E4005A61CA /* HomeTitleView.xml in Resources */,
 				AA9AB58521FEEB2A0052B3FF /* scene.svg in Resources */,
 				AA30C0612167561E00B9E0EB /* SplashViewController.xml in Resources */,
 			);
@@ -1604,6 +1662,7 @@
 				"${BUILT_PRODUCTS_DIR}/RxReachability/RxReachability.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwiftExt/RxSwiftExt.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwiftUtilities/RxSwiftUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/RxWebKit/RxWebKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SHSegmentedControl/SHSegmentedControl.framework",
 				"${BUILT_PRODUCTS_DIR}/SVGKit/SVGKit.framework",
@@ -1666,6 +1725,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxReachability.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwiftExt.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwiftUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxWebKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SHSegmentedControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVGKit.framework",
@@ -1800,6 +1860,7 @@
 				AA3CA5F5220462DF00551C87 /* MyHouseService.swift in Sources */,
 				AA3E0E7C217053BD00958937 /* Deivce.swift in Sources */,
 				AA433F13218C8D9700BA60A1 /* NotificationService.swift in Sources */,
+				AA9D250D2229330900DB3118 /* SceneNameHeaderView.swift in Sources */,
 				AAE49EF62169D2FB004BDBD7 /* TourViewController.swift in Sources */,
 				AA19DC9821FC844C00B70EFE /* SelfSignedSSLSessionDelegate.swift in Sources */,
 				AA99E9B2219B2F3300FD1C6F /* UIColor+.swift in Sources */,
@@ -1820,10 +1881,10 @@
 				AA3CA5CA2202BE0600551C87 /* Debug.swift in Sources */,
 				AAA6E6C4221447AD0032A489 /* SmartCloudResult.swift in Sources */,
 				AA1A5EC0220FC7400084473E /* MenuService.swift in Sources */,
+				AA9D25092228FB2100DB3118 /* UIView+Corners.swift in Sources */,
 				AAF961B2220EEC0900E17A65 /* HouseTableViewController.swift in Sources */,
 				AAD7E17A21F1F42D000D8D6A /* MimeTypeConverter.swift in Sources */,
 				AAD7E17821F1F42D000D8D6A /* HttpClient.swift in Sources */,
-				AA3AB8962184C65600470276 /* HomeTitleView.swift in Sources */,
 				AA4B48EE2175CA4D00A60C11 /* HomeViewControllerReactor.swift in Sources */,
 				AA5724022215A95900D26244 /* UICollectionViewDelegateFlexLayout.swift in Sources */,
 				AA0ACFD321ECB8AC00CE6D1D /* AppDelegate+LeChange.swift in Sources */,
@@ -1844,6 +1905,7 @@
 				AADE73AA2224360B009D218A /* SceneListService.swift in Sources */,
 				AA30C05F2167555C00B9E0EB /* RootViewController.swift in Sources */,
 				AAF5CA4921821F3B006DE332 /* UIApplication+StatusBar.swift in Sources */,
+				AA024B7D222B672000070BFB /* SelectDeviceViewController.swift in Sources */,
 				AAA6E6B92213D6640032A489 /* NSRegularExpression+.swift in Sources */,
 				AAD7E17421F1F42D000D8D6A /* Data+Extensions.swift in Sources */,
 				AAF961852207177C00E17A65 /* SJSegmentView.swift in Sources */,
@@ -1862,6 +1924,7 @@
 				AAF961AE220DAF7100E17A65 /* SceneTableView.swift in Sources */,
 				AA5723E822155D7000D26244 /* Channel.swift in Sources */,
 				AA72B7052221898300C72E33 /* NVActivityIndicatorView+Layout.swift in Sources */,
+				AA9D251422293D9C00DB3118 /* SceneFormSectionHeader.swift in Sources */,
 				AAF9617A220674FA00E17A65 /* BaseCollectionCell.swift in Sources */,
 				AA0ACFD121ECB49E00CE6D1D /* AppDelegate+SmartCloud.swift in Sources */,
 				AAD7E17221F1F42D000D8D6A /* HttpClientError.swift in Sources */,
@@ -1895,6 +1958,7 @@
 				AA46D3FC22181E9B00931526 /* SCDeviceUrl.swift in Sources */,
 				AA3AB8902184828800470276 /* TourViewControllerReactor.swift in Sources */,
 				AA5723FA22157E3100D26244 /* IndoorAir.swift in Sources */,
+				AA024B81222B8C6000070BFB /* BindableObserver.swift in Sources */,
 				AAAD77802212E65700EDBF09 /* VerifySmsViewControllerReactor.swift in Sources */,
 				AA72B7072221939E00C72E33 /* Reactive+UINavigationBar.swift in Sources */,
 				AAAD77822212E6EB00EDBF09 /* VerifySmsService.swift in Sources */,
@@ -1919,6 +1983,7 @@
 				AA86626F2212643F0065568A /* BindAccountService.swift in Sources */,
 				AA4B49302178EB2500A60C11 /* BannerView.swift in Sources */,
 				AAA6E6A72213195E0032A489 /* SetPasswordViewController.swift in Sources */,
+				AAE22D452228F1E400032CB5 /* AddOrEditSceneViewController.swift in Sources */,
 				AA38DCA7217EF4D70046D82D /* Reactive+StatusBar.swift in Sources */,
 				AA42D7D321F306B700320BD3 /* BannerService.swift in Sources */,
 				AA57240E2216799A00D26244 /* WeatherViewReactor.swift in Sources */,
@@ -1961,6 +2026,7 @@
 				AAF96189220717F000E17A65 /* SJSegmentedViewController.swift in Sources */,
 				AAE49EFA216A2783004BDBD7 /* AppData.swift in Sources */,
 				AA3CA5CF2202BE0600551C87 /* RxPullToRefresh+Refreshing.swift in Sources */,
+				AA024B83222B8C9900070BFB /* Reactive+Eureka.swift in Sources */,
 				AAF96187220717B600E17A65 /* SJSegmentedScrollView.swift in Sources */,
 				AA3CA5D32202BE0600551C87 /* UIScrollView+P2R.swift in Sources */,
 				AA6839DE216E0A0500E4097B /* LayoutFunctions.swift in Sources */,

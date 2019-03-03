@@ -9,7 +9,7 @@
 import ObjectMapper
 import RxDataSources
 
-struct House: Mappable, Codable, Equatable {
+class House: Mappable, Codable, Equatable {
     static func == (lhs: House, rhs: House) -> Bool {
         return lhs.id == rhs.id
     }
@@ -27,11 +27,9 @@ struct House: Mappable, Codable, Equatable {
     var isOwner: Bool?
     var jdAccessToken: String?
     
-    init?(map: Map) {
-        
-    }
+    required init?(map: Map) { }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         id <- map["hid"]
         projectId <- map["pid"]
         projectName <- map["pname"]

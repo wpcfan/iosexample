@@ -8,7 +8,7 @@
 
 import ObjectMapper
 
-struct SmartUser: Mappable, Codable, Equatable {
+class SmartUser: Mappable, Codable, Equatable {
     static func == (lhs: SmartUser, rhs: SmartUser) -> Bool {
         return lhs.id == rhs.id
     }
@@ -27,11 +27,11 @@ struct SmartUser: Mappable, Codable, Equatable {
     var houseCount: Int?
     var birthDay: TimeInterval?
     
-    init?(map: Map) {
+    required init?(map: Map) {
         
     }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         id <- map["uid"]
         allInfo <- map["isallinfo"]
         jdAccessToken <- map["accessToken"]

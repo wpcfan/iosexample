@@ -9,7 +9,7 @@
 import ObjectMapper
 import RxDataSources
 
-struct ServiceInfo: Mappable, Codable {
+class ServiceInfo: Mappable, Codable {
     var port: Int?
     var isMultipoint: Bool?
     var version: String?
@@ -18,11 +18,9 @@ struct ServiceInfo: Mappable, Codable {
     var ip: String?
     var name: String?
     
-    init?(map: Map) {
-        
-    }
+    required init?(map: Map) { }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         port <- map["port"]
         isMultipoint <- map["isMultipoint"]
         version <- map["version"]
@@ -33,7 +31,7 @@ struct ServiceInfo: Mappable, Codable {
     }
 }
 
-struct Device: Mappable, Codable {
+class Device: Mappable, Codable {
     var id: String?
     var feedId: Int64?
     var guid: String?
@@ -48,11 +46,9 @@ struct Device: Mappable, Codable {
     var infoStatus: Int?
     var serviceInfos: [ServiceInfo]?
     
-    init?(map: Map) {
-        
-    }
+    required init?(map: Map) { }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         id <- map["id"]
         feedId <- map["feedid"]
         guid <- map["guid"]

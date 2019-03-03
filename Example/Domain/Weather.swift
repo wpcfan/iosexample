@@ -8,7 +8,7 @@
 
 import ObjectMapper
 
-struct Weather: Mappable {
+class Weather: Mappable {
     var location: String?
     var temperature: String?
     var humidity: String?
@@ -19,11 +19,10 @@ struct Weather: Mappable {
     var airQualityIndicator: String?
     var precipitation: String?
     var publishTime: String?
-    init?(map: Map) {
-        
-    }
     
-    mutating func mapping(map: Map) {
+    required init?(map: Map) { }
+    
+    func mapping(map: Map) {
         location <- map["cname"]
         temperature <- map["w_temp"]
         windDirection <- map["w_direction"]

@@ -8,15 +8,14 @@
 
 import ObjectMapper
 
-struct ScriptLogic: Mappable, Codable, Equatable {
+class ScriptLogic: Mappable, Codable, Equatable {
     static func == (lhs: ScriptLogic, rhs: ScriptLogic) -> Bool {
         return lhs.id == rhs.id
     }
-    init?(map: Map) {
-        
-    }
     
-    mutating func mapping(map: Map) {
+    required init?(map: Map) { }
+    
+    func mapping(map: Map) {
         id <- map["id"]
         base <- map["base"]
         delay <- map["delay"]
@@ -38,12 +37,10 @@ struct ScriptLogic: Mappable, Codable, Equatable {
     var notation: String?
 }
 
-struct EventObjectInput: Mappable, Codable {
-    init?(map: Map) {
-        
-    }
+class EventObjectInput: Mappable, Codable {
+    required init?(map: Map) { }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         name <- map["name"]
         type <- map["type"]
     }
@@ -52,12 +49,10 @@ struct EventObjectInput: Mappable, Codable {
     var type: String?
 }
 
-struct EventCondition: Mappable, Codable {
-    init?(map: Map) {
-        
-    }
+class EventCondition: Mappable, Codable {
+    required init?(map: Map) { }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         name <- map["name"]
         op <- map["operator"]
         type <- map["type"]
@@ -70,12 +65,10 @@ struct EventCondition: Mappable, Codable {
     var value: String?
 }
 
-struct EventObject: Mappable, Codable {
-    init?(map: Map) {
-        
-    }
+class EventObject: Mappable, Codable {
+    required init?(map: Map) { }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         input <- map["in"]
         name <- map["name"]
     }
@@ -84,15 +77,14 @@ struct EventObject: Mappable, Codable {
     var name: String?
 }
 
-struct ScriptEvent: Mappable, Codable, Equatable {
+class ScriptEvent: Mappable, Codable, Equatable {
     static func == (lhs: ScriptEvent, rhs: ScriptEvent) -> Bool {
         return lhs.id == rhs.id
     }
-    init?(map: Map) {
-        
-    }
     
-    mutating func mapping(map: Map) {
+    required init?(map: Map) { }
+    
+    func mapping(map: Map) {
         id <- map["id"]
         guid <- map["GUID"]
         interval <- map["interval"]
@@ -113,12 +105,10 @@ struct ScriptEvent: Mappable, Codable, Equatable {
     var eventObject: EventObject?
 }
 
-struct ActionParam: Mappable, Codable {
-    init?(map: Map) {
-        
-    }
+class ActionParam: Mappable, Codable {
+    required init?(map: Map) { }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         name <- map["name"]
         multiValues <- map["value"]
         singleValue <- map["value"]
@@ -139,12 +129,10 @@ struct ActionParam: Mappable, Codable {
     var type: String?
 }
 
-struct ActionObject: Mappable, Codable {
-    init?(map: Map) {
-        
-    }
+class ActionObject: Mappable, Codable {
+    required init?(map: Map) { }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         access <- map["access"]
         name <- map["name"]
         range <- map["range"]
@@ -157,15 +145,14 @@ struct ActionObject: Mappable, Codable {
     var type: String?
 }
 
-struct ScriptAction: Mappable, Codable, Equatable {
+class ScriptAction: Mappable, Codable, Equatable {
     static func == (lhs: ScriptAction, rhs: ScriptAction) -> Bool {
         return lhs.id == rhs.id
     }
-    init?(map: Map) {
-        
-    }
     
-    mutating func mapping(map: Map) {
+    required init?(map: Map) { }
+    
+    func mapping(map: Map) {
         id <- map["id"]
         guid <- map["GUID"]
         member <- map["member"]
@@ -184,15 +171,14 @@ struct ScriptAction: Mappable, Codable, Equatable {
     var actionParam: [ActionParam]?
 }
 
-struct Script: Mappable, Codable, Equatable {
+class Script: Mappable, Codable, Equatable {
     static func == (lhs: Script, rhs: Script) -> Bool {
         return lhs.id == rhs.id
     }
-    init?(map: Map) {
-        
-    }
     
-    mutating func mapping(map: Map) {
+    required init?(map: Map) { }
+    
+    func mapping(map: Map) {
         id <- map["id"]
         version <- map["version"]
         shareUserCnt <- map["share_user_cnt"]
@@ -216,7 +202,7 @@ struct Script: Mappable, Codable, Equatable {
 }
 
 
-struct Scene: Mappable, Codable {
+class Scene: Mappable, Codable {
     var name: String?
     var deviceCount: Int?
     var script: Script?
@@ -229,11 +215,9 @@ struct Scene: Mappable, Codable {
         }
     }
     
-    init?(map: Map) {
-        
-    }
+    required init?(map: Map) { }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         deviceCount <- map["device_count"]
         script <- map["script"]
         scriptStatus <- map["script_status"]
@@ -241,12 +225,10 @@ struct Scene: Mappable, Codable {
     }
 }
 
-struct SceneCollection: Mappable, Codable {
-    init?(map: Map) {
-        
-    }
+class SceneCollection: Mappable, Codable {
+    required init?(map: Map) { }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         count <- map["count"]
         scripts <- map["scripts"]
     }

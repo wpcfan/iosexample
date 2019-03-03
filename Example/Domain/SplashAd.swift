@@ -8,16 +8,14 @@
 
 import ObjectMapper
 
-struct SplashAd: Codable, Mappable {
+class SplashAd: Codable, Mappable {
     var imageUrl: String?
     var link: String?
     var id: String?
     
-    init?(map: Map) {
-        
-    }
+    required init?(map: Map) { }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         imageUrl <- map["adurl"]
         link <- map["redirecturl"]
         id <- map["id"]

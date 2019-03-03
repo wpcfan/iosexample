@@ -8,7 +8,7 @@
 
 import ObjectMapper
 
-struct AppData: Codable, Mappable {
+class AppData: Codable, Mappable {
     var tourGuidePresented: Bool?
     var user: SmartUser?
     var splashAd: SplashAd?
@@ -19,10 +19,9 @@ struct AppData: Codable, Mappable {
     var regId: String?
     var homeInfo: HomeInfo?
     
-    init?(map: Map) {
-    }
+    required init?(map: Map) { }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         tourGuidePresented <- map["tourGuidePresented"]
         user <- map["user"]
         splashAd <- map["splashAd"]

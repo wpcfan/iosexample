@@ -8,12 +8,10 @@
 
 import ObjectMapper
 
-struct SmartCloudError: Mappable {
-    init?(map: Map) {
-        
-    }
+class SmartCloudError: Mappable {
+    required init?(map: Map) { }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         errorInfo <- map["errorInfo"]
         errorCode <- map["errorCode"]
         debugInfo <- map["debugInfo"]

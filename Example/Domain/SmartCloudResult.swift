@@ -8,16 +8,15 @@
 
 import ObjectMapper
 
-struct SmartCloudResult: Mappable {
+class SmartCloudResult: Mappable {
     var result: String?
     var status: Int?
     var cookie: String?
     var error: SmartCloudError?
-    init?(map: Map) {
-        
-    }
     
-    mutating func mapping(map: Map) {
+    required init?(map: Map) { }
+    
+    func mapping(map: Map) {
         result <- map["result"]
         status <- map["status"]
         cookie <- map["cookie"]
@@ -25,16 +24,15 @@ struct SmartCloudResult: Mappable {
     }
 }
 
-struct SmartCloudStructureResult<T: Mappable>: Mappable {
+class SmartCloudStructureResult<T: Mappable>: Mappable {
     var result: T?
     var status: Int?
     var cookie: String?
     var error: SmartCloudError?
-    init?(map: Map) {
-        
-    }
     
-    mutating func mapping(map: Map) {
+    required init?(map: Map) { }
+    
+    func mapping(map: Map) {
         result <- map["result"]
         status <- map["status"]
         cookie <- map["cookie"]

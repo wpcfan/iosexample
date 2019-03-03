@@ -8,18 +8,16 @@
 
 import ObjectMapper
 
-struct Version: Mappable {
+class Version: Mappable {
     var version: String?
     var force: Bool?
     var needUpdate: Bool?
     var url: String?
     var desc: String?
     
-    init?(map: Map) {
-        
-    }
+    required init?(map: Map) { }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         version <- map["version"]
         force <- map["force"]
         needUpdate <- map["needupdate"]

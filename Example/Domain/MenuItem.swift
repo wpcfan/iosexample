@@ -8,20 +8,18 @@
 
 import ObjectMapper
 
-struct MenuItem: Mappable {
+class MenuItem: Mappable {
     var title: String?
     var desc: String?
     
-    init?(map: Map) {
-        
-    }
+    required init?(map: Map) { }
     
     init(title: String?, desc: String) {
         self.title = title
         self.desc = desc
     }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         title <- map["title"]
         desc <- map["desc"]
     }

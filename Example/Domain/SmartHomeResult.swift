@@ -12,16 +12,15 @@ protocol SmartHomeEntity {
     var entityPath: String { get }
 }
 
-struct SmartHomeResult<T: Mappable>: Mappable {
+class SmartHomeResult<T: Mappable>: Mappable {
     var result: Bool?
     var data: T?
     var errorCode: Int?
     var message: String?
-    init?(map: Map) {
-        
-    }
     
-    mutating func mapping(map: Map) {
+    required init?(map: Map) { }
+    
+    func mapping(map: Map) {
         result <- map["result"]
         data <- map["data"]
         errorCode <- map["error_code"]
@@ -29,16 +28,15 @@ struct SmartHomeResult<T: Mappable>: Mappable {
     }
 }
 
-struct SmartHomeCollectionResult<T: Mappable>: Mappable {
+class SmartHomeCollectionResult<T: Mappable>: Mappable {
     var result: Bool?
     var data: [T]?
     var errorCode: Int?
     var message: String?
-    init?(map: Map) {
-        
-    }
     
-    mutating func mapping(map: Map) {
+    required init?(map: Map) { }
+    
+    func mapping(map: Map) {
         result <- map["result"]
         data <- map["data"]
         errorCode <- map["error_code"]

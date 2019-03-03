@@ -8,13 +8,14 @@
 
 import Layout
 import RxSwift
+import RxCocoa
 import ReactorKit
 import URLNavigator
 
 class BindJdAccountViewController: UIViewController {
     
     var disposeBag = DisposeBag()
-    private let codeReceived = PublishSubject<String>()
+    private let codeReceived = PublishRelay<String>()
     private let jdSmartService = container.resolve(JdSmartCloudService.self)!
     private let navigator = container.resolve(NavigatorType.self)!
     override func viewDidLoad() {
@@ -96,7 +97,7 @@ extension BindJdAccountViewController: ReactorKit.View {
 #if !targetEnvironment(simulator)
 extension BindJdAccountViewController: SCMAuthorizedInitManagerDelegate {
     func authorizedSuccessedCode(_ code: String!, state: String!) {
-        self.codeReceived.onNext(code)
+        self.codeReceived.accept(code)
     }
 }
 #endif

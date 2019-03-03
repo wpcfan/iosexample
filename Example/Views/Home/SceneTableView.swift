@@ -8,6 +8,7 @@
 
 import PinLayout
 import RxSwift
+import RxCocoa
 import RxDataSources
 import ReactorKit
 import SHSegmentedControl
@@ -16,9 +17,9 @@ import SwiftReorder
 
 class SceneTableView: SHTableView {
     var disposeBag = DisposeBag()
-    var loadScenes$ = PublishSubject<Void>()
-    var reorder$ = PublishSubject<[String: Int]>()
-    var sceneSelected$ = PublishSubject<HouseScene>()
+    var loadScenes$ = PublishRelay<Void>()
+    var reorder$ = PublishRelay<[String: Int]>()
+    var sceneSelected$ = PublishRelay<HouseScene>()
     let sectionHeaderView = SectionHeaderView()
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -47,7 +48,7 @@ extension SceneTableView: UITableViewDelegate {
 
 extension SceneTableView: TableViewReorderDelegate {
     func tableView(_ tableView: UITableView, reorderRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        self.reorder$.onNext([
+        self.reorder$.accept([
             "sourceIndex": sourceIndexPath.row,
             "targetIndex": destinationIndexPath.row
             ])

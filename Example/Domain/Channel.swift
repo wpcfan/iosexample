@@ -8,16 +8,15 @@
 
 import ObjectMapper
 
-struct Channel: Mappable, Codable {
+class Channel: Mappable, Codable {
     var id: String?
     var imageUrl: String?
     var title: String?
     var link: String?
-    init?(map: Map) {
-        
-    }
     
-    mutating func mapping(map: Map) {
+    required init?(map: Map) { }
+    
+    func mapping(map: Map) {
         id <- map["id"]
         imageUrl <- map["adurl"]
         title <- map["title"]

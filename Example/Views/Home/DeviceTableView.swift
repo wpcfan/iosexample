@@ -17,10 +17,10 @@ import SwiftReorder
 
 class DeviceTableView: SHTableView {
     var disposeBag = DisposeBag()
-    var devices$ = PublishSubject<[Device]>()
-    var reorder$ = PublishSubject<[String: Int]>()
-    var rebind$ = PublishSubject<Device>()
-    var deviceSelected$ = PublishSubject<Device>()
+    var devices$ = PublishRelay<[Device]>()
+    var reorder$ = PublishRelay<[String: Int]>()
+    var rebind$ = PublishRelay<Device>()
+    var deviceSelected$ = PublishRelay<Device>()
     var sectionHeaderView = SectionHeaderView()
     
     override init(frame: CGRect, style: UITableView.Style) {
@@ -44,7 +44,7 @@ class DeviceTableView: SHTableView {
             cell.rebindButton.rx.tap
                 .subscribe { ev in
                     guard ev.error == nil else { return }
-                    self.rebind$.onNext(item)
+                    self.rebind$.accept(item)
                     }
                 .disposed(by: cell.rx.reuseBag)
             cell.onlineStatusLabel.text = item.status == 1 ? "devices.cell.online".localized : "devices.cell.offline".localized
@@ -130,7 +130,7 @@ extension DeviceTableView: UITableViewDelegate {
 
 extension DeviceTableView: TableViewReorderDelegate {
     func tableView(_ tableView: UITableView, reorderRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        self.reorder$.onNext([
+        self.reorder$.accept([
             "sourceIndex": sourceIndexPath.row,
             "targetIndex": destinationIndexPath.row
             ])

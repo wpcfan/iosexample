@@ -8,7 +8,7 @@
 
 import ObjectMapper
 
-struct User: Mappable {
+class User: Mappable {
     var id: String?
     var login: String?
     var password: String?
@@ -18,20 +18,9 @@ struct User: Mappable {
     var avatar: String?
     var authorities: [String]?
     
-    init?(map: Map) {
-        
-    }
+    required init?(map: Map) { }
     
-    init(id: String?, login: String, mobile: String, email: String, name: String, avatar: String) {
-        self.id = id
-        self.login = login
-        self.mobile = mobile
-        self.email = email
-        self.name = name
-        self.avatar = avatar
-    }
-    
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         id <- map["id"]
         login <- map["login"]
         password <- map["password"]

@@ -9,18 +9,16 @@
 import ObjectMapper
 import RxDataSources
 
-struct HomeInfo: Mappable, Codable {
+class HomeInfo: Mappable, Codable {
     var banners: [Banner]?
     var hasMessage: Bool?
     var devices: [Device]?
     var channels: [Channel]?
     var house: House?
     
-    init?(map: Map) {
-        
-    }
+    required init?(map: Map) { }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         banners <- map["banner"]
         hasMessage <- map["hasmessage"]
         devices <- map["devices"]

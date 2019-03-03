@@ -8,16 +8,14 @@
 
 import ObjectMapper
 
-struct APIError: Mappable {
+class APIError: Mappable {
     var title: String?
     var status: Int?
     var detail: String?
     var type: String?
     var stacktrace: [String]?
     
-    init?(map: Map) {
-        
-    }
+    required init?(map: Map) { }
     
     init(title: String?, status: Int, detail: String, type: String, stacktrace: [String]) {
         self.title = title
@@ -27,7 +25,7 @@ struct APIError: Mappable {
         self.stacktrace = stacktrace
     }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         title <- map["title"]
         status <- map["status"]
         detail <- map["detail"]

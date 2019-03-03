@@ -28,7 +28,7 @@ class HomeViewController: BaseViewController {
     
     private let navigator = container.resolve(NavigatorType.self)!
     private let scService = container.resolve(JdSmartCloudService.self)!
-    private var refreshHeaderTrigger = PublishSubject<Void>()
+    private var refreshHeaderTrigger = PublishRelay<Void>()
     private var loadScenes$ = PublishSubject<Void>()
     private var leftDrawerTransition: DrawerTransition?
     private var sideBarVC: SideBarViewController?
@@ -89,7 +89,7 @@ class HomeViewController: BaseViewController {
     fileprivate func buildRefreshHeader() {
         weak var weakSelf = self
         let refreshHeader = MJRefreshNormalHeader() {
-            weakSelf?.refreshHeaderTrigger.onNext(())
+            weakSelf?.refreshHeaderTrigger.accept(())
         }
         self.segTableView.refreshHeader = refreshHeader
     }
@@ -210,8 +210,18 @@ extension HomeViewController: ReactorKit.View {
                 self.scService.getDeviceH5V2(feedId: String(device.feedId!))
             })
             .subscribe(onNext: {
-                let vc = DeviceV2WebViewController(url: ($0?.h5?.url)!)
+                let vc = DeviceV2WebViewController()
                 vc.deviceUrl = $0
+                self.navigator.push(vc)
+            }, onError: { error in
+                self.view.makeToast(convertErrorToString(error: error))
+            })
+            .disposed(by: disposeBag)
+        
+        sceneTab.rx.sceneSelected
+            .subscribe(onNext: {
+                let vc = AddOrEditSceneViewController()
+                vc.scene = $0
                 self.navigator.push(vc)
             }, onError: { error in
                 self.view.makeToast(convertErrorToString(error: error))
@@ -220,13 +230,14 @@ extension HomeViewController: ReactorKit.View {
         
         sceneTab.rx.addSceneTapped
             .subscribe { ev in
-                print("add scene")
+                let vc = AddOrEditSceneViewController()
+                self.navigator.push(vc)
             }
             .disposed(by: disposeBag)
         
         Observable.merge(
-            headerView.bannerTapped,
-            headerView.channelTapped)
+            headerView!.bannerTapped.asObservable(),
+            headerView!.channelTapped.asObservable())
             .subscribe { ev in
                 guard let url = ev.element else { return }
                 self.navigator.push(url)
@@ -260,7 +271,7 @@ extension HomeViewController: ReactorKit.View {
             .distinctUntilChanged()
             .subscribe{ ev in
                 guard let displayAir = ev.element else { return }
-                headerView.displayAir$.onNext(displayAir)
+                headerView.displayAir$.accept(displayAir)
                 headerView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: displayAir ? 315: 215)
                 self.segTableView.topView = self.headerView
             }
@@ -291,6 +302,35 @@ extension HomeViewController: ReactorKit.View {
                 self.view.makeToast(err)
             }
             .disposed(by: disposeBag)
+        
+        sideBarVC?.rx.menuSelected
+            .subscribe(onNext: {
+                switch($0) {
+                case .myHouses:
+                    let vc = HouseTableViewController()
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    break
+                case .myFamilies:
+                    break
+                case .myDevices:
+                    break
+                case .myScenes:
+                    break
+                case .myGroups:
+                    break
+                case .myCameras:
+                    break
+                case .mall:
+                    break
+                case .forum:
+                    break
+                case .settings:
+                    break
+                }
+            }, onError: { error in
+                self.view.makeToast(convertErrorToString(error: error))
+            })
+            .disposed(by: disposeBag)
     }
 }
 
@@ -299,7 +339,7 @@ extension HomeViewController: SHSegTableViewDelegate {
     func segTableViewDidScroll(_ tableView: UIScrollView!) {}
     func segTableViewDidScrollSub(_ subTableView: UIScrollView!) { }
     func segTableViewDidScrollProgress(_ progress: CGFloat, originalIndex: Int, targetIndex: Int) {
-        if (progress == 1 && targetIndex == 1) {
+        if (progress == 1) {
             //            self.segmentControl.setSegmentSelectedIndex(targetIndex)
         }
     }

@@ -17,6 +17,7 @@ struct AppIcons {
     static let devices = buildIcon(code: "devices", font: .materialIcon, color: .primary)
     static let manualExecute = buildIcon(code: "play.circle.outline", font: .materialIcon, color: .primary)
     static let homePrimary = buildIcon(code: "home", font: .fontAwesome, color: .primary)
+    static let circle = buildIcon(code: "panorama.fish.eye", font: .materialIcon, color: .primary)
     static let social = buildIcon(code: "comments", font: .fontAwesome, color: .black)
     static let user = buildIcon(code: "user", font: .fontAwesome, color: .black)
     static let add = buildIcon(code: "ios-add", font: .ionicon, color: .primary)

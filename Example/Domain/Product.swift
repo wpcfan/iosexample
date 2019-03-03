@@ -8,7 +8,7 @@
 
 import ObjectMapper
 
-struct Product: Mappable {
+class Product: Mappable {
     var id: String?
     var name: String?
     var imageUrl: String?
@@ -17,11 +17,9 @@ struct Product: Mappable {
     var models: Array<String>?
     var category: ProductCategory?
     
-    init?(map: Map) {
-        
-    }
+    required init?(map: Map) { }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         id <- map["id"]
         name <- map["name"]
         imageUrl <- map["image"]

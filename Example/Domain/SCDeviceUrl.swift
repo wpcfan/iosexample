@@ -7,7 +7,7 @@
 //
 import ObjectMapper
 
-struct SCProduct: Mappable {
+class SCProduct: Mappable {
     var id: Int?
     var desc: String?
     var name: String?
@@ -25,10 +25,9 @@ struct SCProduct: Mappable {
     var imageUrl: String?
     var typeName: String?
     
-    init?(map: Map) {
-    }
+    required init?(map: Map) { }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         isShowResetJoinnet <- map["is_show_resetjoinnet"]
         desc <- map["p_description"]
         lancon <- map["lancon"]
@@ -48,12 +47,10 @@ struct SCProduct: Mappable {
     }
 }
 
-struct SharedInfo: Mappable {
-    init?(map: Map) {
-        
-    }
+class SharedInfo: Mappable {
+    required init?(map: Map) { }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         sharedCount <- map["shared_count"]
         isShared <- map["isShared"]
     }
@@ -62,12 +59,10 @@ struct SharedInfo: Mappable {
     var isShared: Bool?
 }
 
-struct H5: Mappable {
-    init?(map: Map) {
-        
-    }
+class H5: Mappable {
+    required init?(map: Map) { }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         version <- map["version"]
         url <- map["url"]
     }
@@ -76,12 +71,10 @@ struct H5: Mappable {
     var url: String?
 }
 
-struct SCDevice: Mappable {
-    init?(map: Map) {
-        
-    }
+class SCDevice: Mappable {
+    required init?(map: Map) { }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         name <- map["device_name"]
         status <- map["status"]
         active_time <- map["active_time"]
@@ -100,7 +93,7 @@ struct SCDevice: Mappable {
     var mainSubType: Int?
 }
 
-struct SCDeviceUrl: Mappable {
+class SCDeviceUrl: Mappable {
     var product: SCProduct?
     var sharedInfo: SharedInfo?
     var h5: H5?
@@ -108,10 +101,10 @@ struct SCDeviceUrl: Mappable {
     var streams: [Stream]?
     var newDesc: String?
     
-    init?(map: Map) {
+    required init?(map: Map) {
     }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         product <- map["product"]
         sharedInfo <- map["shared_info"]
         h5 <- map["h5"]

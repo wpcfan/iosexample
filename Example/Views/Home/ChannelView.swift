@@ -8,12 +8,13 @@
 
 import ReactorKit
 import RxSwift
+import RxCocoa
 import RxDataSources
 import Layout
 
 class ChannelView: BaseView {
-    var tappedIndex = PublishSubject<Int>()
-    var channels$ = PublishSubject<[Channel]>()
+    var tappedIndex = PublishRelay<Int>()
+    var channels$ = PublishRelay<[Channel]>()
     @objc weak var collectionView: UICollectionView!
     
     override init(frame: CGRect) {
@@ -47,7 +48,7 @@ class ChannelView: BaseView {
 
 extension ChannelView: UICollectionViewDelegate {
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        tappedIndex.onNext(indexPath.row)
+        tappedIndex.accept(indexPath.row)
     }
 }
 

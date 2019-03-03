@@ -110,6 +110,9 @@ PODS:
   - RxSwiftExt/RxCocoa (3.4.0):
     - RxCocoa (~> 4.0)
     - RxSwiftExt/Core
+  - RxSwiftUtilities (2.1.0):
+    - RxCocoa (~> 4.0)
+    - RxSwift (~> 4.0)
   - RxWebKit (0.3.7):
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
@@ -177,6 +180,7 @@ DEPENDENCIES:
   - RxReachability
   - RxSwift (~> 4.0)
   - RxSwiftExt
+  - RxSwiftUtilities
   - RxWebKit
   - SHSegmentedControl
   - SVGKit
@@ -241,6 +245,7 @@ SPEC REPOS:
     - RxReachability
     - RxSwift
     - RxSwiftExt
+    - RxSwiftUtilities
     - RxWebKit
     - SHSegmentedControl
     - SnapKit
@@ -306,6 +311,7 @@ SPEC CHECKSUMS:
   RxReachability: 053f2d913db44998242ade488ccaef558f3ce7cb
   RxSwift: 92fcf68dfef21f3e2ab1965363d9e7b3d787597e
   RxSwiftExt: 01f8ecbeeb355698e9c75365ebe908b00dacf45d
+  RxSwiftUtilities: b486df7454cc867c3ea626ce24110511159e7044
   RxWebKit: e39e220919e5e24546c837f5f60689036a1e5920
   SHSegmentedControl: a7f6ffc1678f2ee5f18e2a4c11d992c3af0800cc
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
@@ -322,6 +328,6 @@ SPEC CHECKSUMS:
   UMCCommonLog: 05a2d5de21858e3d870551562cff405c1366d244
   URLNavigator: e8cea3835b3456d7876eb728831e742273c8d209
 
-PODFILE CHECKSUM: cf8980af4e5dd6cfadac4650f791fe140a978904
+PODFILE CHECKSUM: 7726bcbdc1847d2791247bae95dbe50feeeda504
 
 COCOAPODS: 1.6.1

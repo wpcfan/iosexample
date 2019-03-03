@@ -31,12 +31,11 @@ class HouseTableViewController: BaseViewController, LayoutLoading {
     }
 }
 
-
 extension HouseTableViewController: UITableViewDelegate {
     
 }
 
-extension HouseTableViewController: StoryboardView {
+extension HouseTableViewController: ReactorKit.View {
     typealias Reactor = HouseTableViewControllerReactor
     
     func bind(reactor: Reactor) {
@@ -76,7 +75,7 @@ extension HouseTableViewController: StoryboardView {
                     #if !targetEnvironment(simulator)
                     self.scService.changeToken()
                     #endif
-                    CURRENT_HOUSE.onNext($0)
+                    CURRENT_HOUSE.accept($0)
                 }
                 self.navigationController?.popViewController(animated: true)
             })

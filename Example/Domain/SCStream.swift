@@ -8,7 +8,7 @@
 
 import ObjectMapper
 
-struct SCStream: Mappable {
+class SCStream: Mappable {
     var id: String?
     var value: String?
     var type: String?
@@ -20,11 +20,9 @@ struct SCStream: Mappable {
     var valueDesc: String?
     var valueDict: Dictionary<String, String>?
     
-    init?(map: Map) {
-        
-    }
+    required init?(map: Map) { }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         id <- map["stream_id"]
         value <- map["current_value"]
         type <- map["stream_type"]

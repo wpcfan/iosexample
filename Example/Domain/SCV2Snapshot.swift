@@ -8,15 +8,15 @@
 
 import ObjectMapper
 
-struct SCV2Snapshot: Mappable {
+class SCV2Snapshot: Mappable {
     var status: String?
     var digest: String?
     var streams: [SCStream]?
     
-    init?(map: Map) {
+    required init?(map: Map) {
     }
     
-    mutating func mapping(map: Map) {
+    func mapping(map: Map) {
         status <- map["status"]
         digest <- map["digest"]
         streams <- map["streams"]

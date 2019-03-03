@@ -8,23 +8,11 @@
 
 import Layout
 import NVActivityIndicatorView
-import URLNavigator
 
 class UIWebViewController: BaseViewController, LayoutLoading {
     @objc weak var webView: UIWebView!
     @objc weak var activityIndicatorView: NVActivityIndicatorView!
     @objc weak var loadingLabel: UILabel!
-    var url: URLConvertible
-    
-    // MARK: Initializing
-    init(url: URLConvertible) {
-        self.url = url
-        super.init()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +29,7 @@ class UIWebViewController: BaseViewController, LayoutLoading {
     }
     
     func layoutDidLoad(_: LayoutNode) {
-        webView.load(url)
+        
     }
 }
 
