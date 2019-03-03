@@ -18,6 +18,7 @@ class SceneTableView: SHTableView {
     var disposeBag = DisposeBag()
     var loadScenes$ = PublishSubject<Void>()
     var reorder$ = PublishSubject<[String: Int]>()
+    var sceneSelected$ = PublishSubject<HouseScene>()
     let sectionHeaderView = SectionHeaderView()
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -120,6 +121,14 @@ extension SceneTableView: ReactorKit.View {
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
         
+        self.rx.itemSelected
+            .map { idx in idx.row }
+            .withLatestFrom(scenes$) { (row, scenes) in
+                scenes[row]
+            }
+            .bind(to: sceneSelected$)
+            .disposed(by: disposeBag)
+        
         self.rx.setDelegate(self)
             .disposed(by: disposeBag)
     }
@@ -128,5 +137,8 @@ extension SceneTableView: ReactorKit.View {
 extension Reactive where Base: SceneTableView {
     var addSceneTapped: Observable<Void> {
         return base.sectionHeaderView.rightBtnTapped.asObservable()
+    }
+    var sceneSelected: Observable<HouseScene> {
+        return base.sceneSelected$.asObservable()
     }
 }

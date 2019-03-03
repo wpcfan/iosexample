@@ -1,0 +1,16 @@
+<UIView>
+    <UILabel
+        center.x="parent.center.x"
+        center.y="parent.center.y"
+        height="auto + 20"
+        text="{sceneName}"
+        textAlignment="center"
+        textColor="white"
+        width="parent.width"
+    />
+    <UISwitch
+        isOn="isOn"
+        right="parent.right - 10"
+        top="parent.top + 10"
+    />
+</UIView>
