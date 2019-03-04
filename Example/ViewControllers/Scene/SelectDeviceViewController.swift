@@ -13,6 +13,7 @@ import RxCocoa
 
 class SelectDeviceViewController: BaseViewController {
     var devices$ = PublishRelay<[Device]>()
+    var type: SceneSectionType = .events
     @objc weak var tableView: UITableView?
     override func viewDidLoad() {
         super.viewDidLoad()

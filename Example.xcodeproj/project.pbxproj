@@ -217,8 +217,8 @@
 		AA9D25092228FB2100DB3118 /* UIView+Corners.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D25082228FB2100DB3118 /* UIView+Corners.swift */; };
 		AA9D250D2229330900DB3118 /* SceneNameHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D250C2229330900DB3118 /* SceneNameHeaderView.swift */; };
 		AA9D2510222938A500DB3118 /* SceneNameHeaderView.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA9D250F222938A500DB3118 /* SceneNameHeaderView.xml */; };
-		AA9D251422293D9C00DB3118 /* SceneFormSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D251322293D9C00DB3118 /* SceneFormSectionHeader.swift */; };
-		AA9D251622293DB300DB3118 /* SceneFormSectionHeader.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA9D251522293DB300DB3118 /* SceneFormSectionHeader.xml */; };
+		AA9D251422293D9C00DB3118 /* SceneSectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA9D251322293D9C00DB3118 /* SceneSectionHeader.swift */; };
+		AA9D251622293DB300DB3118 /* SceneSectionHeader.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA9D251522293DB300DB3118 /* SceneSectionHeader.xml */; };
 		AAA6E6A12213062A0032A489 /* SendSmsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA6E6A02213062A0032A489 /* SendSmsService.swift */; };
 		AAA6E6A3221315B40032A489 /* SetPasswordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA6E6A2221315B40032A489 /* SetPasswordService.swift */; };
 		AAA6E6A5221317EF0032A489 /* SetPasswordViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA6E6A4221317EF0032A489 /* SetPasswordViewControllerReactor.swift */; };
@@ -249,6 +249,7 @@
 		AAC5EB9E215E7EB4008EBA1F /* UIColor+Hex.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC5EB9D215E7EB4008EBA1F /* UIColor+Hex.swift */; };
 		AAC5EBA1215E7F10008EBA1F /* AuthViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AAC5EBA0215E7F10008EBA1F /* AuthViewController.xml */; };
 		AAC5EBA3215E808D008EBA1F /* OAuth2Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC5EBA2215E808D008EBA1F /* OAuth2Service.swift */; };
+		AAD605A8222BCFCC0003F173 /* AddOrEditSceneViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AAD605A7222BCFCC0003F173 /* AddOrEditSceneViewController.xml */; };
 		AAD7E0B821F1A412000D8D6A /* SCMSDK.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AAD7E0B721F1A412000D8D6A /* SCMSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AAD7E0E721F1AEB1000D8D6A /* UIButton+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD7E0C021F1AEB1000D8D6A /* UIButton+XS.m */; };
 		AAD7E0E821F1AEB1000D8D6A /* XSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD7E0C121F1AEB1000D8D6A /* XSAlertView.m */; };
@@ -555,8 +556,8 @@
 		AA9D25082228FB2100DB3118 /* UIView+Corners.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Corners.swift"; sourceTree = "<group>"; };
 		AA9D250C2229330900DB3118 /* SceneNameHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneNameHeaderView.swift; sourceTree = "<group>"; };
 		AA9D250F222938A500DB3118 /* SceneNameHeaderView.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SceneNameHeaderView.xml; sourceTree = "<group>"; };
-		AA9D251322293D9C00DB3118 /* SceneFormSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneFormSectionHeader.swift; sourceTree = "<group>"; };
-		AA9D251522293DB300DB3118 /* SceneFormSectionHeader.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SceneFormSectionHeader.xml; sourceTree = "<group>"; };
+		AA9D251322293D9C00DB3118 /* SceneSectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneSectionHeader.swift; sourceTree = "<group>"; };
+		AA9D251522293DB300DB3118 /* SceneSectionHeader.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SceneSectionHeader.xml; sourceTree = "<group>"; };
 		AAA6E6A02213062A0032A489 /* SendSmsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendSmsService.swift; sourceTree = "<group>"; };
 		AAA6E6A2221315B40032A489 /* SetPasswordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordService.swift; sourceTree = "<group>"; };
 		AAA6E6A4221317EF0032A489 /* SetPasswordViewControllerReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswordViewControllerReactor.swift; sourceTree = "<group>"; };
@@ -593,6 +594,7 @@
 		AAC5EBA0215E7F10008EBA1F /* AuthViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AuthViewController.xml; sourceTree = "<group>"; };
 		AAC5EBA2215E808D008EBA1F /* OAuth2Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2Service.swift; sourceTree = "<group>"; };
 		AAC5EBAB215F6A9E008EBA1F /* Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Example-Bridging-Header.h"; sourceTree = "<group>"; };
+		AAD605A7222BCFCC0003F173 /* AddOrEditSceneViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AddOrEditSceneViewController.xml; sourceTree = "<group>"; };
 		AAD7E0B721F1A412000D8D6A /* SCMSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SCMSDK.framework; path = libs/SCMSDK/SCMSDK.framework; sourceTree = "<group>"; };
 		AAD7E0BE21F1AEB1000D8D6A /* XSGetIpAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSGetIpAddress.h; sourceTree = "<group>"; };
 		AAD7E0BF21F1AEB1000D8D6A /* XSQRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSQRCode.h; sourceTree = "<group>"; };
@@ -1102,8 +1104,8 @@
 			children = (
 				AA9D250C2229330900DB3118 /* SceneNameHeaderView.swift */,
 				AA9D250F222938A500DB3118 /* SceneNameHeaderView.xml */,
-				AA9D251322293D9C00DB3118 /* SceneFormSectionHeader.swift */,
-				AA9D251522293DB300DB3118 /* SceneFormSectionHeader.xml */,
+				AA9D251322293D9C00DB3118 /* SceneSectionHeader.swift */,
+				AA9D251522293DB300DB3118 /* SceneSectionHeader.xml */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -1412,6 +1414,7 @@
 			isa = PBXGroup;
 			children = (
 				AAE22D442228F1E300032CB5 /* AddOrEditSceneViewController.swift */,
+				AAD605A7222BCFCC0003F173 /* AddOrEditSceneViewController.xml */,
 				AA024B7C222B672000070BFB /* SelectDeviceViewController.swift */,
 				AA024B7E222B673700070BFB /* SelectDeviceViewController.xml */,
 			);
@@ -1589,9 +1592,10 @@
 				AAA6E6A92213197A0032A489 /* SetPasswordViewController.xml in Resources */,
 				AA5724102216CA0900D26244 /* HeaderView.xml in Resources */,
 				AAF961B4220EEC3100E17A65 /* HouseTableViewController.xml in Resources */,
+				AAD605A8222BCFCC0003F173 /* AddOrEditSceneViewController.xml in Resources */,
 				AAE49EF82169D315004BDBD7 /* TourViewController.xml in Resources */,
 				AAAD777E2212E2D000EDBF09 /* VerifySmsViewController.xml in Resources */,
-				AA9D251622293DB300DB3118 /* SceneFormSectionHeader.xml in Resources */,
+				AA9D251622293DB300DB3118 /* SceneSectionHeader.xml in Resources */,
 				AA866273221267110065568A /* SignUpViewController.xml in Resources */,
 				AA46D4072219102B00931526 /* WebKitViewController.xml in Resources */,
 				AA9AB58521FEEB2A0052B3FF /* scene.svg in Resources */,
@@ -1924,7 +1928,7 @@
 				AAF961AE220DAF7100E17A65 /* SceneTableView.swift in Sources */,
 				AA5723E822155D7000D26244 /* Channel.swift in Sources */,
 				AA72B7052221898300C72E33 /* NVActivityIndicatorView+Layout.swift in Sources */,
-				AA9D251422293D9C00DB3118 /* SceneFormSectionHeader.swift in Sources */,
+				AA9D251422293D9C00DB3118 /* SceneSectionHeader.swift in Sources */,
 				AAF9617A220674FA00E17A65 /* BaseCollectionCell.swift in Sources */,
 				AA0ACFD121ECB49E00CE6D1D /* AppDelegate+SmartCloud.swift in Sources */,
 				AAD7E17221F1F42D000D8D6A /* HttpClientError.swift in Sources */,

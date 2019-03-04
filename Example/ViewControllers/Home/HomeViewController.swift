@@ -231,7 +231,7 @@ extension HomeViewController: ReactorKit.View {
         sceneTab.rx.addSceneTapped
             .subscribe { ev in
                 let vc = AddOrEditSceneViewController()
-                self.navigator.push(vc)
+                self.navigationController?.pushViewController(vc, animated: true)
             }
             .disposed(by: disposeBag)
         

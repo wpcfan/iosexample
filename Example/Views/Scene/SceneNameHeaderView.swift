@@ -8,17 +8,17 @@
 
 import Layout
 import RxSwift
+import RxCocoa
 
 class SceneNameHeaderView: BaseView {
-    var sceneName: String?
-    var sceneActive: Bool?
-    weak var scene: HouseScene? {
+    @objc var sceneName: String? = "未命名" {
         didSet {
-            guard let scene = scene?.scene else { return }
-            layoutNode?.setState([
-                "sceneName": scene.displayName ?? "",
-                "isOn": scene.scriptStatus ?? true
-                ])
+            layoutNode?.setState(["sceneName": sceneName])
+        }
+    }
+    @objc var sceneActive: Bool = true {
+        didSet {
+            layoutNode?.setState(["sceneActive": sceneActive])
         }
     }
     @objc weak var sceneNameField: UITextField!
@@ -27,29 +27,20 @@ class SceneNameHeaderView: BaseView {
         super.init(frame: frame)
         
         loadLayout(named: "SceneNameHeaderView.xml", state: [
-            "sceneName": "未命名",
-            "isOn": true])
+            "sceneName": sceneName!,
+            "sceneActive": sceneActive])
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    override func layoutDidLoad(_ layoutNode: LayoutNode) {
-        super.layoutDidLoad(layoutNode)
-        
-        sceneNameField.rx.text
-            .subscribe { ev in
-                guard let ev = ev.element else { return }
-                self.sceneName = ev
-            }
-            .disposed(by: disposeBag)
-        
-        sceneActiveSwitch.rx.value
-            .subscribe { ev in
-                guard let ev = ev.element else { return }
-                self.sceneActive = ev
-            }
-            .disposed(by: disposeBag)
+}
+
+extension Reactive where Base: SceneNameHeaderView {
+    var sceneName: ControlProperty<String?> {
+        return base.sceneNameField.rx.text
+    }
+    var sceneActive: ControlProperty<Bool> {
+        return base.sceneActiveSwitch.rx.value
     }
 }

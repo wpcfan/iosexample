@@ -191,4 +191,13 @@ class JdSmartCloudService {
             return Disposables.create()
         }
     }
+    
+    func getDevicesOfScene(scriptId: String, logicId: String) -> Void {
+        print("enter getDevicesOfScene")
+        #if !targetEnvironment(simulator)
+        SCMIFTTTManager.getIFTTTDevices(scriptId, logicId: logicId, extend: nil) { (result) in
+            print(result)
+        }
+        #endif
+    }
 }

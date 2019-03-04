@@ -11,7 +11,11 @@ import RxSwift
 
 @objc enum SceneSectionType: Int {
     case events
-    case action
+    case actions
+}
+
+@objc protocol SceneSectionHeaderDelegate {
+    func addButtonClick(type: SceneSectionType)
 }
 
 class SceneSectionHeader: BaseView {
@@ -22,12 +26,13 @@ class SceneSectionHeader: BaseView {
                 ])
         }
     }
+    @objc weak var delegate: SceneSectionHeaderDelegate?
     @objc weak var leftBadgeView: UIView!
     @objc weak var addButton: UIButton!
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        loadLayout(named: "SceneFormSectionHeader.xml",
+        loadLayout(named: "SceneSectionHeader.xml",
                    state: [
                     "sectionName": ""],
                    constants: [
@@ -42,12 +47,11 @@ class SceneSectionHeader: BaseView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        leftBadgeView.roundCorners(corners: [.topRight, .bottomRight], radius: 0.5 * leftBadgeView.height)
+        leftBadgeView.roundCorners(
+            corners: [.topRight, .bottomRight],
+            radius: 0.5 * leftBadgeView.height)
     }
-}
-
-extension Reactive where Base: SceneSectionHeader {
-    var tapAdd: Observable<SceneSectionType> {
-        return base.addButton.rx.tap.map{ _ in self.base.sectionType }
+    @objc func add() {
+        delegate!.addButtonClick(type: sectionType)
     }
 }

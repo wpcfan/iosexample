@@ -1,4 +1,4 @@
-<UIView>
+<UIView backgroundColor="clear">
     <UITextField
         center.x="parent.center.x"
         center.y="parent.center.y"
@@ -10,7 +10,7 @@
         width="parent.width"
     />
     <UISwitch
-        isOn="isOn"
+        isOn="sceneActive"
         outlet="sceneActiveSwitch"
         right="parent.right - 10"
         top="parent.top + 10"

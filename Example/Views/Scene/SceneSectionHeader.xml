@@ -28,7 +28,7 @@
     <UIButton
         center.y="parent.center.y"
         contentMode="scaleAspectFill"
-        height="40"
+        height="30"
         normalImage="{setting}"
         right="#addBtn.left - 5"
         width="height"
@@ -41,6 +41,7 @@
         normalImage="{add}"
         outlet="addButton"
         right="parent.right - 5"
+        touchUpInside="add"
         width="height"
     />
 </UIView>

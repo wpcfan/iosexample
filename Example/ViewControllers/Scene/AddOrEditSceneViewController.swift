@@ -6,63 +6,78 @@
 //  Copyright © 2019 twigcodes. All rights reserved.
 //
 
-import Eureka
+import Layout
 import RxSwift
+import RxDataSources
 
-class AddOrEditSceneViewController: FormViewController {
+class AddOrEditSceneViewController: BaseViewController, LayoutLoading {
     weak var scene: HouseScene?
-    var disposeBag = DisposeBag()
+    @objc weak var tableView: UITableView?
+    @objc weak var sceneNameField: UITextField?
+    @objc weak var sceneActiveSwitch: UISwitch?
+    @objc weak var leftBadgeView: UIView?
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        weak var `self`: AddOrEditSceneViewController! = self
         title = scene?.scene?.script == nil ? "新建场景" : "编辑场景"
-        form +++ Section(){ section in
-                var header = HeaderFooterView<SceneNameHeaderView>(.class)
-                header.height = { 100 }
-                header.onSetupView = { view, _ in
-                    view.scene = self.scene
-                    view.backgroundColor = .primary
-                }
-                section.header = header
-            }
-            +++ Section(){ section in
-                var header = HeaderFooterView<SceneFormSectionHeader>(.class)
-                header.height = { 50 }
-                header.onSetupView = { view, _ in
-                    view.sectionName = "设置条件"
-                    view.backgroundColor = .white
-                    view.addNew = {() -> Void in
-                        self.navigationController?.pushViewController(SelectDeviceViewController(), animated: true)
-                    }
-                }
-                section.header = header
-            }
-            <<< TextRow(){ row in
-                row.title = "Text Row"
-                row.placeholder = "Enter text here"
-                }.cellSetup({ (cell, row) in
-                    cell.imageView?.image = AppIcons.menuDevices
-                })
+        
+        loadLayout(named: "AddOrEditSceneViewController.xml",
+                   state: [
+                    "sceneName": scene?.scene?.displayName ?? "未命名",
+                    "sceneActive": scene?.scene?.scriptStatus ?? true
+                    ],
+                   constants: [
+                    "circle": AppIcons.circle,
+                    "setting": AppIcons.menuSettings,
+                    "add": AppIcons.add
+                    ])
+    }
+    
+    func layoutDidLoad(_ layoutNode: LayoutNode) {
+        
+        weak var `self`: AddOrEditSceneViewController! = self
+        let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Script>>(configureCell: { ds, tv, ip, item in
+            let node = tv.dequeueReusableCellNode(withIdentifier: "cell")!
             
-            <<< PushRow<String>() { row in
-                row.title = ""
-                }.cellSetup({ (cell, row) in
-                    cell.imageView?.image = AppIcons.menuDevices
-                })
-            
-            +++ Section(){ section in
-                var header = HeaderFooterView<SceneFormSectionHeader>(.class)
-                header.height = { 50 }
-                header.onSetupView = { view, _ in
-                    view.sectionName = "执行任务"
-                    view.backgroundColor = .white
-                }
-                section.header = header
+            node.setState([
+                "deviceIcon": AppIcons.devices,
+                "row": ip.row
+                ])
+            return node.view as! UITableViewCell
+        })
+        Observable.of([])
+            .map { (scripts) -> [SectionModel<String, Script>] in
+                [
+                    SectionModel(model: "条件", items: scripts),
+                    SectionModel(model: "条件", items: scripts)
+                ]
             }
-            <<< DateRow(){
-                $0.title = "Date Row"
-                $0.value = Date(timeIntervalSinceReferenceDate: 0)
-            }
+            .bind(to: (self.tableView!.rx.items(dataSource: dataSource)))
+            .disposed(by: disposeBag)
+    }
+}
+
+extension AddOrEditSceneViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let node = tableView.dequeueReusableHeaderFooterNode(withIdentifier: "sectionHeader")
+        let vc = SelectDeviceViewController()
+        vc.type = SceneSectionType(rawValue: section) ?? .events
+        weak var `self`: AddOrEditSceneViewController! = self
+        node?.setState([
+            "sectionType": section,
+            "sectionDelegate": self
+            ])
+        return node?.view
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 50
+    }
+}
+
+extension AddOrEditSceneViewController: SceneSectionHeaderDelegate {
+    func addButtonClick(type: SceneSectionType) {
+        let vc = SelectDeviceViewController()
+        vc.type = type
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
