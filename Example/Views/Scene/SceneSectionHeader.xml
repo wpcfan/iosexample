@@ -39,8 +39,8 @@
         height="40"
         id="addBtn"
         normalImage="{add}"
+        outlet="addButton"
         right="parent.right - 5"
-        touchUpInside="add"
         width="height"
     />
 </UIView>

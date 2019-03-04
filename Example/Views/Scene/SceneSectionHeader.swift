@@ -9,22 +9,27 @@ import Layout
 import RxCocoa
 import RxSwift
 
-class SceneFormSectionHeader: BaseView {
-    var addNew: (()->Void)!
-    var sectionName: String? {
+@objc enum SceneSectionType: Int {
+    case events
+    case action
+}
+
+class SceneSectionHeader: BaseView {
+    @objc var sectionType: SceneSectionType = .events {
         didSet {
             layoutNode?.setState([
-                "sectionName": sectionName ?? ""
+                "sectionName": sectionType == .events ? "设置条件" : "设置动作"
                 ])
         }
     }
-    @objc weak var leftBadgeView: UIView?
+    @objc weak var leftBadgeView: UIView!
+    @objc weak var addButton: UIButton!
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         loadLayout(named: "SceneFormSectionHeader.xml",
                    state: [
-                    "sectionName": sectionName ?? ""],
+                    "sectionName": ""],
                    constants: [
                     "circle": AppIcons.circle,
                     "setting": AppIcons.menuSettings,
@@ -37,12 +42,12 @@ class SceneFormSectionHeader: BaseView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        leftBadgeView!.roundCorners(corners: [.topRight, .bottomRight], radius: 10)
-    }
-    @objc func add() {
-        if addNew != nil {
-            addNew()
-        }
+        leftBadgeView.roundCorners(corners: [.topRight, .bottomRight], radius: 0.5 * leftBadgeView.height)
     }
 }
 
+extension Reactive where Base: SceneSectionHeader {
+    var tapAdd: Observable<SceneSectionType> {
+        return base.addButton.rx.tap.map{ _ in self.base.sectionType }
+    }
+}
