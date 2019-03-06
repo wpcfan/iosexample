@@ -73,7 +73,7 @@ extension SplashViewController: ReactorKit.View {
             .take(1)
         
         splashEndStream
-            .flatMapLatest({ (_) -> Observable<Reactor.State> in
+            .flatMapFirst({ (_) -> Observable<Reactor.State> in
                 reactor.state
             })
             .take(1)

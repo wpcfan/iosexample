@@ -95,7 +95,7 @@ extension VerifySmsViewController: ReactorKit.View {
             .takeWhile{ (count) -> Bool in count >= 0 }
             .takeUntil(self.nextButton.rx.tap)
         
-        let countDownStream = sendTrigger.startWith(()).flatMap { (_) -> Observable<Int> in  timerStream }
+        let countDownStream = sendTrigger.startWith(()).flatMapFirst { (_) -> Observable<Int> in  timerStream }
         
         countDownStream
             .map{ countDown in countDown > 0 ? "\(countDown) 秒" : "重发短信"}

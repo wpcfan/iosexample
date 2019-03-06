@@ -76,9 +76,9 @@ class JdSmartCloudService {
         print("exit bindJdAccount")
     }
     
-    public func deviceSnapshotV2(feedId: String) -> Observable<SCV2Snapshot?> {
+    public func deviceSnapshotV2(feedId: String) -> Observable<JdV2Snapshot?> {
         print("enter deviceSnapshot")
-        return Observable<SCV2Snapshot?>.create{ (observer) -> Disposable in
+        return Observable<JdV2Snapshot?>.create{ (observer) -> Disposable in
             #if !targetEnvironment(simulator)
             SCMCloudControlManager.getSnapShot(
                 withVersion: ProductVersion.two.verVal,
@@ -87,13 +87,13 @@ class JdSmartCloudService {
                 guid: nil,
                 success: { (res) in
                     let res = res as! [String: Any]
-                    let result = Mapper<SmartCloudResult>().map(JSON: res)
+                    let result = Mapper<JdCloudResult>().map(JSON: res)
                     guard result?.status == 0 else {
                         printError(result?.error)
                         observer.onError(SCError.JdSmartError(result?.error?.errorCode, result?.error?.errorInfo, result?.error?.debugMe))
                         return
                     }
-                    let snapshot = Mapper<SCV2Snapshot>().map(JSONString: (result?.result)!)
+                    let snapshot = Mapper<JdV2Snapshot>().map(JSONString: (result?.result)!)
                     print(snapshot?.toDictionary())
                     observer.onNext(snapshot)
                     observer.onCompleted()
@@ -141,9 +141,9 @@ class JdSmartCloudService {
         print("exit unsubscribeSnapshotV2")
     }
     
-    func getDeviceH5V2(feedId: String) -> Observable<SCDeviceUrl?> {
+    func getDeviceH5V2(feedId: String) -> Observable<JdDeviceUrl?> {
         print("enter getDeviceH5V2")
-        return Observable<SCDeviceUrl?>.create{ (observer) -> Disposable in
+        return Observable<JdDeviceUrl?>.create{ (observer) -> Disposable in
             #if !targetEnvironment(simulator)
             SCMCloudControlManager.getDeviceUrl(
                 withVersion: ProductVersion.two.verVal,
@@ -152,13 +152,13 @@ class JdSmartCloudService {
                 service: nil,
                 success: { (data) in
                     let res = data as! [String: Any]
-                    let result = Mapper<SmartCloudResult>().map(JSON: res)
+                    let result = Mapper<JdCloudResult>().map(JSON: res)
                     guard result?.status == 0 else {
                         printError(result?.error)
                         observer.onError(SCError.JdSmartError(result?.error?.errorCode, result?.error?.errorInfo, result?.error?.debugMe))
                         return
                     }
-                    let deviceUrl = Mapper<SCDeviceUrl>().map(JSONString: (result?.result)!)
+                    let deviceUrl = Mapper<JdDeviceUrl>().map(JSONString: (result?.result)!)
                     observer.onNext(deviceUrl)
                     observer.onCompleted()
                     print("exit getDeviceH5V2")
@@ -177,7 +177,7 @@ class JdSmartCloudService {
             #if !targetEnvironment(simulator)
             SCMIFTTTManager.getIFTTTList(page, pageSize: pageSize, extend: nil) { (dict) in
                 let res = dict as! [String: Any]
-                let result = Mapper<SmartCloudStructureResult<SceneCollection>>().map(JSON: res)
+                let result = Mapper<JdCloudStructureResult<SceneCollection>>().map(JSON: res)
                 guard result?.status == 0 else {
                     printError(result?.error)
                     observer.onError(SCError.JdSmartError(result?.error?.errorCode, result?.error?.errorInfo, result?.error?.debugMe))
@@ -199,5 +199,76 @@ class JdSmartCloudService {
             print(result)
         }
         #endif
+    }
+    
+    func getDevicesWithSceneSupport(type: SceneSectionType) -> Observable<[JdDeviceWithSceneSupport]> {
+        print("enter getDevicesOfScene")
+        return Observable<[JdDeviceWithSceneSupport]>.create{ (observer) -> Disposable in
+            #if !targetEnvironment(simulator)
+            SCMIFTTTManager.getIFTTTDeviceList(type.rawValue, extend: nil) { (dict) in
+                let res = dict as! [String: Any]
+                let result = Mapper<JdCloudStructureResult<JdDeviceWithSceneSupportCollection>>().map(JSON: res)
+                guard result?.status == 0 else {
+                    printError(result?.error)
+                    observer.onError(SCError.JdSmartError(result?.error?.errorCode, result?.error?.errorInfo, result?.error?.debugMe))
+                    return
+                }
+                let data = result?.result?.list ?? []
+                observer.onNext(data)
+                observer.onCompleted()
+                print("exit getDevicesOfScene")
+            }
+            #endif
+            return Disposables.create()
+        }
+    }
+    
+    func getProductInfo(productUUID: String, qrCode: String) -> Observable<JdProductInfo> {
+        print("enter getProductInfo")
+        return Observable<JdProductInfo>.create{ (observer) -> Disposable in
+            #if !targetEnvironment(simulator)
+            SCMCloudActivateManager.getProductInfo(withPuid: productUUID, qrString: qrCode, success: { (dict) in
+                let res = dict as! [String: Any]
+                let result = Mapper<JdCloudStructureResult<JdProductInfo>>().map(JSON: res)
+                guard result?.status == 0 else {
+                    printError(result?.error)
+                    observer.onError(SCError.JdSmartError(result?.error?.errorCode, result?.error?.errorInfo, result?.error?.debugMe))
+                    return
+                }
+                let data = result?.result
+                data?.uuid = productUUID
+                observer.onNext(data!)
+                observer.onCompleted()
+            }) { (error) in
+                printError(error)
+                observer.onError(error!)
+            }
+            #endif
+            return Disposables.create()
+        }
+    }
+    
+    func getProductDescV2(productUUID: String, configType: Int) -> Observable<JdProductDesc> {
+        print("enter getProductInfo")
+        return Observable<JdProductDesc>.create{ (observer) -> Disposable in
+            #if !targetEnvironment(simulator)
+            SCMCloudActivateManager.getProductDesc(withVersion: "2.0", puid: productUUID, success: { (dict) in
+                let res = dict as! [String: Any]
+                let result = Mapper<JdCloudResult>().map(JSON: res)
+                guard result?.status == 0 else {
+                    printError(result?.error)
+                    observer.onError(SCError.JdSmartError(result?.error?.errorCode, result?.error?.errorInfo, result?.error?.debugMe))
+                    return
+                }
+                let data = Mapper<JdProductDesc>().map(JSONString: (result?.result)!)
+                observer.onNext(data!)
+                observer.onCompleted()
+            }) { (error) in
+                printError(error)
+                observer.onError(error!)
+            }
+            #endif
+            return Disposables.create()
+        }
     }
 }

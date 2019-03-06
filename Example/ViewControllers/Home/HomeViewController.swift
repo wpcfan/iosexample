@@ -189,11 +189,19 @@ extension HomeViewController: ReactorKit.View {
             .disposed(by: disposeBag)
         
         deviceTab.rx.addDeviceTapped
-            .flatMapLatest { (_) -> Observable<String?> in
+            .flatMapFirst { (_) -> Observable<String?> in
                 RxQRUtil().scanQR(self)
             }
-            .subscribe{
-                print($0)
+            .filterNil()
+            .flatMapFirst{ (url) -> Observable<JdProductInfo> in
+                let qrResult = RxQRUtil().parseJdQR(qrCode: url)
+                return self.scService.getProductInfo(
+                    productUUID: (qrResult?.productUUID!)!,
+                    qrCode: (qrResult?.originQRCode?.urlStringValue)!)
+            }
+            .subscribe{ ev in
+                guard let product = ev.element else { return }
+                self.navigationController?.pushViewController(AddDeviceViewController(productInfo: product), animated: true)
             }
             .disposed(by: disposeBag)
         
@@ -206,7 +214,7 @@ extension HomeViewController: ReactorKit.View {
         
         deviceTab.rx.deviceSelected
             .filter { device in device.version == ProductVersion.two.verVal }
-            .flatMap({ (device) -> Observable<SCDeviceUrl?> in
+            .flatMapFirst({ (device) -> Observable<JdDeviceUrl?> in
                 self.scService.getDeviceH5V2(feedId: String(device.feedId!))
             })
             .subscribe(onNext: {

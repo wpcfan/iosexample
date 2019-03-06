@@ -33,7 +33,7 @@ class DeviceInfo: Mappable {
     var mainSubType: Int?
     var ownedFlag: Bool?
     var from: Int?
-    var serviceInfos: [ServiceInfo]?
+    var serviceInfos: [JdServiceInfo]?
     
     required init?(map: Map) { }
     

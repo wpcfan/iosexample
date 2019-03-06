@@ -41,3 +41,16 @@ class JdDeviceWithSceneSupport: Mappable {
     var version: String?
     var streams: [JdStream]?
 }
+
+class JdDeviceWithSceneSupportCollection: Mappable {
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        list <- map["list"]
+    }
+    
+    var list: [JdDeviceWithSceneSupport]?
+    
+}

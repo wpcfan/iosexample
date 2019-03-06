@@ -65,6 +65,12 @@
 		AA30C05F2167555C00B9E0EB /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30C05E2167555C00B9E0EB /* RootViewController.swift */; };
 		AA30C0612167561E00B9E0EB /* SplashViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA30C0602167561E00B9E0EB /* SplashViewController.xml */; };
 		AA30C0682167AA3600B9E0EB /* UINavigationController+Bar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30C0672167AA3600B9E0EB /* UINavigationController+Bar.swift */; };
+		AA34422F222F93CA00A9BB3F /* JdProduct.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA34422E222F93CA00A9BB3F /* JdProduct.swift */; };
+		AA344231222F954000A9BB3F /* JdProductInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA344230222F954000A9BB3F /* JdProductInfo.swift */; };
+		AA344233222FA1C100A9BB3F /* AddDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA344232222FA1C100A9BB3F /* AddDeviceViewController.swift */; };
+		AA344235222FA22F00A9BB3F /* AddDeviceViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA344234222FA22F00A9BB3F /* AddDeviceViewController.xml */; };
+		AA344239222FB28A00A9BB3F /* UIDevice+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA344238222FB28A00A9BB3F /* UIDevice+.swift */; };
+		AA34423B222FCE5500A9BB3F /* JdProductDesc.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA34423A222FCE5500A9BB3F /* JdProductDesc.swift */; };
 		AA38DCA5217EF41F0046D82D /* RxUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA38DCA4217EF41F0046D82D /* RxUtil.swift */; };
 		AA38DCA7217EF4D70046D82D /* Reactive+StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA38DCA6217EF4D70046D82D /* Reactive+StatusBar.swift */; };
 		AA3AB88E21841ABA00470276 /* SplashViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3AB88D21841ABA00470276 /* SplashViewControllerReactor.swift */; };
@@ -88,10 +94,9 @@
 		AA3CA5F32204610500551C87 /* HouseTableViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3CA5F22204610500551C87 /* HouseTableViewControllerReactor.swift */; };
 		AA3CA5F5220462DF00551C87 /* MyHouseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3CA5F4220462DF00551C87 /* MyHouseService.swift */; };
 		AA3E0E7A21704E6F00958937 /* House.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E7921704E6F00958937 /* House.swift */; };
-		AA3E0E7C217053BD00958937 /* Deivce.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E7B217053BD00958937 /* Deivce.swift */; };
+		AA3E0E7C217053BD00958937 /* JdDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E7B217053BD00958937 /* JdDevice.swift */; };
 		AA3E0E7E2170540F00958937 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E7D2170540F00958937 /* Product.swift */; };
 		AA3E0E802170543D00958937 /* ProductCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E7F2170543D00958937 /* ProductCategory.swift */; };
-		AA3E0E822170589F00958937 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E812170589F00958937 /* Scene.swift */; };
 		AA3E0E8A2170841700958937 /* HomeInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0E892170841700958937 /* HomeInfo.swift */; };
 		AA3E0E9B2171176300958937 /* data.json in Resources */ = {isa = PBXBuildFile; fileRef = AA3E0E9A2171176300958937 /* data.json */; };
 		AA3E0EA52172328100958937 /* UIStackView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3E0EA42172328100958937 /* UIStackView+.swift */; };
@@ -109,7 +114,7 @@
 		AA433F09218C4AB300BA60A1 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA433F08218C4AB300BA60A1 /* Global.swift */; };
 		AA433F0B218C4B2D00BA60A1 /* AppDelegate+Debug.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA433F0A218C4B2D00BA60A1 /* AppDelegate+Debug.swift */; };
 		AA433F13218C8D9700BA60A1 /* NotificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA433F12218C8D9700BA60A1 /* NotificationService.swift */; };
-		AA46D3FC22181E9B00931526 /* SCDeviceUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46D3FB22181E9A00931526 /* SCDeviceUrl.swift */; };
+		AA46D3FC22181E9B00931526 /* JdDeviceUrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46D3FB22181E9A00931526 /* JdDeviceUrl.swift */; };
 		AA46D40322190F5E00931526 /* WebKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46D40222190F5D00931526 /* WebKitViewController.swift */; };
 		AA46D4072219102B00931526 /* WebKitViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA46D4062219102B00931526 /* WebKitViewController.xml */; };
 		AA46D40A2219128E00931526 /* DeviceV2WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA46D4092219128E00931526 /* DeviceV2WebViewController.swift */; };
@@ -147,9 +152,8 @@
 		AA5723EC22155DD900D26244 /* Version.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5723EB22155DD900D26244 /* Version.swift */; };
 		AA5723EE22155E0600D26244 /* SplashAd.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5723ED22155E0600D26244 /* SplashAd.swift */; };
 		AA5723F022155E9C00D26244 /* EmptyResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5723EF22155E9C00D26244 /* EmptyResult.swift */; };
-		AA5723F222155ED500D26244 /* SCV2Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5723F122155ED500D26244 /* SCV2Snapshot.swift */; };
-		AA5723F422155F0300D26244 /* SCStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5723F322155F0300D26244 /* SCStream.swift */; };
-		AA5723F622155F3900D26244 /* SmartCloudError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5723F522155F3900D26244 /* SmartCloudError.swift */; };
+		AA5723F422155F0300D26244 /* JdStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5723F322155F0300D26244 /* JdStream.swift */; };
+		AA5723F622155F3900D26244 /* JdCloudError.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5723F522155F3900D26244 /* JdCloudError.swift */; };
 		AA5723F822157CEF00D26244 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5723F722157CEF00D26244 /* Weather.swift */; };
 		AA5723FA22157E3100D26244 /* IndoorAir.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5723F922157E3100D26244 /* IndoorAir.swift */; };
 		AA5724002215A72000D26244 /* UICollectionViewFlexLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA5723FF2215A72000D26244 /* UICollectionViewFlexLayout.swift */; };
@@ -231,7 +235,7 @@
 		AAA6E6BB2213DD4B0032A489 /* DiskUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA6E6BA2213DD4B0032A489 /* DiskUtil.swift */; };
 		AAA6E6BD2213EBE40032A489 /* BindJdAccountViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA6E6BC2213EBE40032A489 /* BindJdAccountViewControllerReactor.swift */; };
 		AAA6E6C22213EF9E0032A489 /* SocialService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA6E6C12213EF9E0032A489 /* SocialService.swift */; };
-		AAA6E6C4221447AD0032A489 /* SmartCloudResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA6E6C3221447AD0032A489 /* SmartCloudResult.swift */; };
+		AAA6E6C4221447AD0032A489 /* JdCloudResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA6E6C3221447AD0032A489 /* JdCloudResult.swift */; };
 		AAA6E6C622145AA00032A489 /* Array+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA6E6C522145AA00032A489 /* Array+.swift */; };
 		AAA920BA2198289700EFC581 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AAA920B82198289700EFC581 /* InfoPlist.strings */; };
 		AAAD777A2212D92700EDBF09 /* VerifyCapchaService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAD77792212D92700EDBF09 /* VerifyCapchaService.swift */; };
@@ -250,6 +254,11 @@
 		AAC5EBA1215E7F10008EBA1F /* AuthViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AAC5EBA0215E7F10008EBA1F /* AuthViewController.xml */; };
 		AAC5EBA3215E808D008EBA1F /* OAuth2Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAC5EBA2215E808D008EBA1F /* OAuth2Service.swift */; };
 		AAD605A8222BCFCC0003F173 /* AddOrEditSceneViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AAD605A7222BCFCC0003F173 /* AddOrEditSceneViewController.xml */; };
+		AAD605AB222D53FE0003F173 /* JdServiceInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD605AA222D53FE0003F173 /* JdServiceInfo.swift */; };
+		AAD605AD222D55AA0003F173 /* JdScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD605AC222D55AA0003F173 /* JdScene.swift */; };
+		AAD605AF222D56270003F173 /* JdV2Snapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD605AE222D56270003F173 /* JdV2Snapshot.swift */; };
+		AAD605B4222D5F550003F173 /* JdSceneDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD605B3222D5F550003F173 /* JdSceneDevice.swift */; };
+		AAD605B6222E26BD0003F173 /* JdDeviceWithSceneSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD605B5222E26BD0003F173 /* JdDeviceWithSceneSupport.swift */; };
 		AAD7E0B821F1A412000D8D6A /* SCMSDK.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = AAD7E0B721F1A412000D8D6A /* SCMSDK.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		AAD7E0E721F1AEB1000D8D6A /* UIButton+XS.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD7E0C021F1AEB1000D8D6A /* UIButton+XS.m */; };
 		AAD7E0E821F1AEB1000D8D6A /* XSAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = AAD7E0C121F1AEB1000D8D6A /* XSAlertView.m */; };
@@ -401,6 +410,12 @@
 		AA30C05E2167555C00B9E0EB /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
 		AA30C0602167561E00B9E0EB /* SplashViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SplashViewController.xml; sourceTree = "<group>"; };
 		AA30C0672167AA3600B9E0EB /* UINavigationController+Bar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Bar.swift"; sourceTree = "<group>"; };
+		AA34422E222F93CA00A9BB3F /* JdProduct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JdProduct.swift; sourceTree = "<group>"; };
+		AA344230222F954000A9BB3F /* JdProductInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JdProductInfo.swift; sourceTree = "<group>"; };
+		AA344232222FA1C100A9BB3F /* AddDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeviceViewController.swift; sourceTree = "<group>"; };
+		AA344234222FA22F00A9BB3F /* AddDeviceViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AddDeviceViewController.xml; sourceTree = "<group>"; };
+		AA344238222FB28A00A9BB3F /* UIDevice+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+.swift"; sourceTree = "<group>"; };
+		AA34423A222FCE5500A9BB3F /* JdProductDesc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JdProductDesc.swift; sourceTree = "<group>"; };
 		AA38DCA4217EF41F0046D82D /* RxUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxUtil.swift; sourceTree = "<group>"; };
 		AA38DCA6217EF4D70046D82D /* Reactive+StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+StatusBar.swift"; sourceTree = "<group>"; };
 		AA3AB88D21841ABA00470276 /* SplashViewControllerReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewControllerReactor.swift; sourceTree = "<group>"; };
@@ -424,10 +439,9 @@
 		AA3CA5F22204610500551C87 /* HouseTableViewControllerReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HouseTableViewControllerReactor.swift; sourceTree = "<group>"; };
 		AA3CA5F4220462DF00551C87 /* MyHouseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHouseService.swift; sourceTree = "<group>"; };
 		AA3E0E7921704E6F00958937 /* House.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = House.swift; sourceTree = "<group>"; };
-		AA3E0E7B217053BD00958937 /* Deivce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deivce.swift; sourceTree = "<group>"; };
+		AA3E0E7B217053BD00958937 /* JdDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JdDevice.swift; sourceTree = "<group>"; };
 		AA3E0E7D2170540F00958937 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		AA3E0E7F2170543D00958937 /* ProductCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCategory.swift; sourceTree = "<group>"; };
-		AA3E0E812170589F00958937 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		AA3E0E892170841700958937 /* HomeInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInfo.swift; sourceTree = "<group>"; };
 		AA3E0E9A2171176300958937 /* data.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = data.json; sourceTree = "<group>"; };
 		AA3E0EA42172328100958937 /* UIStackView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+.swift"; sourceTree = "<group>"; };
@@ -446,7 +460,7 @@
 		AA433F08218C4AB300BA60A1 /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		AA433F0A218C4B2D00BA60A1 /* AppDelegate+Debug.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Debug.swift"; sourceTree = "<group>"; };
 		AA433F12218C8D9700BA60A1 /* NotificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationService.swift; sourceTree = "<group>"; };
-		AA46D3FB22181E9A00931526 /* SCDeviceUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCDeviceUrl.swift; sourceTree = "<group>"; };
+		AA46D3FB22181E9A00931526 /* JdDeviceUrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JdDeviceUrl.swift; sourceTree = "<group>"; };
 		AA46D40222190F5D00931526 /* WebKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebKitViewController.swift; sourceTree = "<group>"; };
 		AA46D4062219102B00931526 /* WebKitViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = WebKitViewController.xml; sourceTree = "<group>"; };
 		AA46D4092219128E00931526 /* DeviceV2WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceV2WebViewController.swift; sourceTree = "<group>"; };
@@ -486,9 +500,8 @@
 		AA5723EB22155DD900D26244 /* Version.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Version.swift; sourceTree = "<group>"; };
 		AA5723ED22155E0600D26244 /* SplashAd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashAd.swift; sourceTree = "<group>"; };
 		AA5723EF22155E9C00D26244 /* EmptyResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResult.swift; sourceTree = "<group>"; };
-		AA5723F122155ED500D26244 /* SCV2Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCV2Snapshot.swift; sourceTree = "<group>"; };
-		AA5723F322155F0300D26244 /* SCStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCStream.swift; sourceTree = "<group>"; };
-		AA5723F522155F3900D26244 /* SmartCloudError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartCloudError.swift; sourceTree = "<group>"; };
+		AA5723F322155F0300D26244 /* JdStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JdStream.swift; sourceTree = "<group>"; };
+		AA5723F522155F3900D26244 /* JdCloudError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JdCloudError.swift; sourceTree = "<group>"; };
 		AA5723F722157CEF00D26244 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		AA5723F922157E3100D26244 /* IndoorAir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndoorAir.swift; sourceTree = "<group>"; };
 		AA5723FF2215A72000D26244 /* UICollectionViewFlexLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewFlexLayout.swift; sourceTree = "<group>"; };
@@ -570,7 +583,7 @@
 		AAA6E6BA2213DD4B0032A489 /* DiskUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskUtil.swift; sourceTree = "<group>"; };
 		AAA6E6BC2213EBE40032A489 /* BindJdAccountViewControllerReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindJdAccountViewControllerReactor.swift; sourceTree = "<group>"; };
 		AAA6E6C12213EF9E0032A489 /* SocialService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialService.swift; sourceTree = "<group>"; };
-		AAA6E6C3221447AD0032A489 /* SmartCloudResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartCloudResult.swift; sourceTree = "<group>"; };
+		AAA6E6C3221447AD0032A489 /* JdCloudResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JdCloudResult.swift; sourceTree = "<group>"; };
 		AAA6E6C522145AA00032A489 /* Array+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+.swift"; sourceTree = "<group>"; };
 		AAA920B92198289700EFC581 /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Example/Base.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
 		AAA920BC219828F200EFC581 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "../zh-Hans.lproj/InfoPlist.strings"; sourceTree = "<group>"; };
@@ -595,6 +608,11 @@
 		AAC5EBA2215E808D008EBA1F /* OAuth2Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OAuth2Service.swift; sourceTree = "<group>"; };
 		AAC5EBAB215F6A9E008EBA1F /* Example-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Example-Bridging-Header.h"; sourceTree = "<group>"; };
 		AAD605A7222BCFCC0003F173 /* AddOrEditSceneViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AddOrEditSceneViewController.xml; sourceTree = "<group>"; };
+		AAD605AA222D53FE0003F173 /* JdServiceInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JdServiceInfo.swift; sourceTree = "<group>"; };
+		AAD605AC222D55AA0003F173 /* JdScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JdScene.swift; sourceTree = "<group>"; };
+		AAD605AE222D56270003F173 /* JdV2Snapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JdV2Snapshot.swift; sourceTree = "<group>"; };
+		AAD605B3222D5F550003F173 /* JdSceneDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JdSceneDevice.swift; sourceTree = "<group>"; };
+		AAD605B5222E26BD0003F173 /* JdDeviceWithSceneSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JdDeviceWithSceneSupport.swift; sourceTree = "<group>"; };
 		AAD7E0B721F1A412000D8D6A /* SCMSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SCMSDK.framework; path = libs/SCMSDK/SCMSDK.framework; sourceTree = "<group>"; };
 		AAD7E0BE21F1AEB1000D8D6A /* XSGetIpAddress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSGetIpAddress.h; sourceTree = "<group>"; };
 		AAD7E0BF21F1AEB1000D8D6A /* XSQRCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSQRCode.h; sourceTree = "<group>"; };
@@ -917,6 +935,7 @@
 				AAF5CA4821821F3B006DE332 /* UIApplication+StatusBar.swift */,
 				AA99E9B1219B2F3300FD1C6F /* UIColor+.swift */,
 				AAC5EB9D215E7EB4008EBA1F /* UIColor+Hex.swift */,
+				AA344238222FB28A00A9BB3F /* UIDevice+.swift */,
 				AA30C0672167AA3600B9E0EB /* UINavigationController+Bar.swift */,
 				AA99E9B3219B2F6200FD1C6F /* UIScrollView+.swift */,
 				AA3E0EA42172328100958937 /* UIStackView+.swift */,
@@ -985,6 +1004,8 @@
 			children = (
 				AA46D4092219128E00931526 /* DeviceV2WebViewController.swift */,
 				AA46D40D221943DE00931526 /* DeviceSettingViewController.swift */,
+				AA344232222FA1C100A9BB3F /* AddDeviceViewController.swift */,
+				AA344234222FA22F00A9BB3F /* AddDeviceViewController.xml */,
 			);
 			path = Device;
 			sourceTree = "<group>";
@@ -1211,34 +1232,20 @@
 		AAC5EB91215E7DD9008EBA1F /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				AA4B48EF2175E4D000A60C11 /* APIError.swift */,
-				AAE49EF9216A2783004BDBD7 /* AppData.swift */,
-				AA4B48F121761F7400A60C11 /* AuthError.swift */,
+				AAD605B0222D59DF0003F173 /* Common */,
+				AAD605A9222D53E70003F173 /* JD */,
+				AAD605B2222D5D9F0003F173 /* LeanCloud */,
 				AA683A08216F434C00E4097B /* Banner.swift */,
 				AA5723E722155D7000D26244 /* Channel.swift */,
-				AA3E0E7B217053BD00958937 /* Deivce.swift */,
 				AA5724132217194B00D26244 /* DeviceInfo.swift */,
-				AA5723EF22155E9C00D26244 /* EmptyResult.swift */,
 				AA3E0E892170841700958937 /* HomeInfo.swift */,
 				AA3E0E7921704E6F00958937 /* House.swift */,
 				AADE73AB2224368B009D218A /* HouseScene.swift */,
 				AA5723F922157E3100D26244 /* IndoorAir.swift */,
-				AA42D7D621F36BCB00320BD3 /* LeanCloudCollection.swift */,
-				AA4B9AFA219C6BAC00E194CE /* MenuItem.swift */,
 				AA3E0E7D2170540F00958937 /* Product.swift */,
 				AA3E0E7F2170543D00958937 /* ProductCategory.swift */,
-				AA19DC8121F60A9700B70EFE /* TokenInfo.swift */,
-				AA3E0E812170589F00958937 /* Scene.swift */,
-				AA46D3FB22181E9A00931526 /* SCDeviceUrl.swift */,
-				AA5723F122155ED500D26244 /* SCV2Snapshot.swift */,
-				AA5723F322155F0300D26244 /* SCStream.swift */,
-				AA5723F522155F3900D26244 /* SmartCloudError.swift */,
-				AAA6E6C3221447AD0032A489 /* SmartCloudResult.swift */,
-				AA19DC7F21F606D600B70EFE /* SmartHomeResult.swift */,
 				AA5723E922155DAB00D26244 /* SmartUser.swift */,
-				AA5723ED22155E0600D26244 /* SplashAd.swift */,
 				AAC5EB92215E7DE8008EBA1F /* User.swift */,
-				AA5723EB22155DD900D26244 /* Version.swift */,
 				AA5723F722157CEF00D26244 /* Weather.swift */,
 			);
 			path = Domain;
@@ -1296,6 +1303,50 @@
 				AA5723FB2215918C00D26244 /* Tour */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		AAD605A9222D53E70003F173 /* JD */ = {
+			isa = PBXGroup;
+			children = (
+				AA5723F522155F3900D26244 /* JdCloudError.swift */,
+				AAA6E6C3221447AD0032A489 /* JdCloudResult.swift */,
+				AA3E0E7B217053BD00958937 /* JdDevice.swift */,
+				AA46D3FB22181E9A00931526 /* JdDeviceUrl.swift */,
+				AAD605B5222E26BD0003F173 /* JdDeviceWithSceneSupport.swift */,
+				AA34422E222F93CA00A9BB3F /* JdProduct.swift */,
+				AA34423A222FCE5500A9BB3F /* JdProductDesc.swift */,
+				AA344230222F954000A9BB3F /* JdProductInfo.swift */,
+				AAD605AA222D53FE0003F173 /* JdServiceInfo.swift */,
+				AAD605AC222D55AA0003F173 /* JdScene.swift */,
+				AAD605B3222D5F550003F173 /* JdSceneDevice.swift */,
+				AA5723F322155F0300D26244 /* JdStream.swift */,
+				AAD605AE222D56270003F173 /* JdV2Snapshot.swift */,
+			);
+			path = JD;
+			sourceTree = "<group>";
+		};
+		AAD605B0222D59DF0003F173 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				AA4B48EF2175E4D000A60C11 /* APIError.swift */,
+				AAE49EF9216A2783004BDBD7 /* AppData.swift */,
+				AA4B48F121761F7400A60C11 /* AuthError.swift */,
+				AA5723EF22155E9C00D26244 /* EmptyResult.swift */,
+				AA19DC7F21F606D600B70EFE /* SmartHomeResult.swift */,
+				AA5723ED22155E0600D26244 /* SplashAd.swift */,
+				AA19DC8121F60A9700B70EFE /* TokenInfo.swift */,
+				AA5723EB22155DD900D26244 /* Version.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		AAD605B2222D5D9F0003F173 /* LeanCloud */ = {
+			isa = PBXGroup;
+			children = (
+				AA42D7D621F36BCB00320BD3 /* LeanCloudCollection.swift */,
+				AA4B9AFA219C6BAC00E194CE /* MenuItem.swift */,
+			);
+			path = LeanCloud;
 			sourceTree = "<group>";
 		};
 		AAD7E0B921F1A6CB000D8D6A /* Integration */ = {
@@ -1527,6 +1578,9 @@
 						CreatedOnToolsVersion = 10.0;
 						LastSwiftMigration = 1000;
 						SystemCapabilities = {
+							com.apple.AccessWiFi = {
+								enabled = 1;
+							};
 							com.apple.BackgroundModes = {
 								enabled = 1;
 							};
@@ -1596,6 +1650,7 @@
 				AAE49EF82169D315004BDBD7 /* TourViewController.xml in Resources */,
 				AAAD777E2212E2D000EDBF09 /* VerifySmsViewController.xml in Resources */,
 				AA9D251622293DB300DB3118 /* SceneSectionHeader.xml in Resources */,
+				AA344235222FA22F00A9BB3F /* AddDeviceViewController.xml in Resources */,
 				AA866273221267110065568A /* SignUpViewController.xml in Resources */,
 				AA46D4072219102B00931526 /* WebKitViewController.xml in Resources */,
 				AA9AB58521FEEB2A0052B3FF /* scene.svg in Resources */,
@@ -1820,7 +1875,7 @@
 				AA42D7D521F35C8400320BD3 /* Date+.swift in Sources */,
 				AA3E0EA52172328100958937 /* UIStackView+.swift in Sources */,
 				AA96B29321FDF6990093A2E0 /* UITextField+.swift in Sources */,
-				AA5723F422155F0300D26244 /* SCStream.swift in Sources */,
+				AA5723F422155F0300D26244 /* JdStream.swift in Sources */,
 				AA30C05B2167533E00B9E0EB /* SplashViewController.swift in Sources */,
 				AA3AB88E21841ABA00470276 /* SplashViewControllerReactor.swift in Sources */,
 				AA46D40E221943DE00931526 /* DeviceSettingViewController.swift in Sources */,
@@ -1845,8 +1900,8 @@
 				AA3CA5D42202BE0600551C87 /* Extensions.swift in Sources */,
 				AAF961812207174100E17A65 /* SJContentView.swift in Sources */,
 				AA72B709222193DC00C72E33 /* Reactive+UINavigationItem.swift in Sources */,
-				AA5723F222155ED500D26244 /* SCV2Snapshot.swift in Sources */,
 				AAD7E17321F1F42D000D8D6A /* UrlRequestCacheProviderType.swift in Sources */,
+				AAD605B6222E26BD0003F173 /* JdDeviceWithSceneSupport.swift in Sources */,
 				AA1A5EC5221145E20084473E /* PushRegIdService.swift in Sources */,
 				AA4B48F621772EE800A60C11 /* AuthViewControllerReactor.swift in Sources */,
 				AA3CA5C82202BE0600551C87 /* DefaultRefreshView.swift in Sources */,
@@ -1862,7 +1917,7 @@
 				AAD7E17B21F1F42D000D8D6A /* HttpExtensions.swift in Sources */,
 				AA57240A2215D70F00D26244 /* IndoorAirView.swift in Sources */,
 				AA3CA5F5220462DF00551C87 /* MyHouseService.swift in Sources */,
-				AA3E0E7C217053BD00958937 /* Deivce.swift in Sources */,
+				AA3E0E7C217053BD00958937 /* JdDevice.swift in Sources */,
 				AA433F13218C8D9700BA60A1 /* NotificationService.swift in Sources */,
 				AA9D250D2229330900DB3118 /* SceneNameHeaderView.swift in Sources */,
 				AAE49EF62169D2FB004BDBD7 /* TourViewController.swift in Sources */,
@@ -1880,10 +1935,10 @@
 				AA3CA5D12202BE0600551C87 /* RxPullToRefresh+Rx.swift in Sources */,
 				AA3CA5CD2202BE0600551C87 /* Helpers.swift in Sources */,
 				AA5723EE22155E0600D26244 /* SplashAd.swift in Sources */,
-				AA3E0E822170589F00958937 /* Scene.swift in Sources */,
 				AA4B49222178883F00A60C11 /* SwiftyColor.swift in Sources */,
+				AA344233222FA1C100A9BB3F /* AddDeviceViewController.swift in Sources */,
 				AA3CA5CA2202BE0600551C87 /* Debug.swift in Sources */,
-				AAA6E6C4221447AD0032A489 /* SmartCloudResult.swift in Sources */,
+				AAA6E6C4221447AD0032A489 /* JdCloudResult.swift in Sources */,
 				AA1A5EC0220FC7400084473E /* MenuService.swift in Sources */,
 				AA9D25092228FB2100DB3118 /* UIView+Corners.swift in Sources */,
 				AAF961B2220EEC0900E17A65 /* HouseTableViewController.swift in Sources */,
@@ -1905,6 +1960,7 @@
 				AA19DC7121F573AA00B70EFE /* WXApiResponseHandler.m in Sources */,
 				AAD7E15E21F1EF89000D8D6A /* Crudable.swift in Sources */,
 				AAD7E17721F1F42D000D8D6A /* MemoryDataCacheProvider.swift in Sources */,
+				AAD605AF222D56270003F173 /* JdV2Snapshot.swift in Sources */,
 				AA6839DC216E08EC00E4097B /* AppAttributedStrings.swift in Sources */,
 				AADE73AA2224360B009D218A /* SceneListService.swift in Sources */,
 				AA30C05F2167555C00B9E0EB /* RootViewController.swift in Sources */,
@@ -1920,6 +1976,7 @@
 				AA3E0E7E2170540F00958937 /* Product.swift in Sources */,
 				AA4B49212178883F00A60C11 /* Reactive+UIViewController.swift in Sources */,
 				AA46D40C2219188200931526 /* SafariWebViewController.swift in Sources */,
+				AA34422F222F93CA00A9BB3F /* JdProduct.swift in Sources */,
 				AA19DC7C21F57BF000B70EFE /* AppDelegate+MonkeyKing.swift in Sources */,
 				AA4B48F02175E4D000A60C11 /* APIError.swift in Sources */,
 				AA4F078E2222FF0B00E8A643 /* Reactive+MJRefreshHeader.swift in Sources */,
@@ -1936,6 +1993,7 @@
 				AAA6E6A12213062A0032A489 /* SendSmsService.swift in Sources */,
 				AA86627522128B9D0065568A /* SignUpViewControllerReactor.swift in Sources */,
 				AA72B701222187FC00C72E33 /* WKWebView+URL.swift in Sources */,
+				AAD605B4222D5F550003F173 /* JdSceneDevice.swift in Sources */,
 				AA3CA5D72202BE0600551C87 /* Animator.swift in Sources */,
 				AA3CA5D22202BE0600551C87 /* RxPullToRefreshView+Rx.swift in Sources */,
 				AAF9618D2207185C00E17A65 /* SJUtil.swift in Sources */,
@@ -1955,11 +2013,12 @@
 				AA4F078A2222FE4400E8A643 /* Reactive+MJRefreshComponent.swift in Sources */,
 				AA19DC9C21FD46FE00B70EFE /* UIViewController+.swift in Sources */,
 				AAA6E6B52213B7B00032A489 /* PasswordField.swift in Sources */,
+				AA344231222F954000A9BB3F /* JdProductInfo.swift in Sources */,
 				AA4205A6217C9B5F0068ABC0 /* HeaderView.swift in Sources */,
 				AA3CA5F32204610500551C87 /* HouseTableViewControllerReactor.swift in Sources */,
 				AAD7E0F721F1AEB1000D8D6A /* SCMQRCodeUnlockController.m in Sources */,
 				AAC5EBA3215E808D008EBA1F /* OAuth2Service.swift in Sources */,
-				AA46D3FC22181E9B00931526 /* SCDeviceUrl.swift in Sources */,
+				AA46D3FC22181E9B00931526 /* JdDeviceUrl.swift in Sources */,
 				AA3AB8902184828800470276 /* TourViewControllerReactor.swift in Sources */,
 				AA5723FA22157E3100D26244 /* IndoorAir.swift in Sources */,
 				AA024B81222B8C6000070BFB /* BindableObserver.swift in Sources */,
@@ -1989,6 +2048,7 @@
 				AAA6E6A72213195E0032A489 /* SetPasswordViewController.swift in Sources */,
 				AAE22D452228F1E400032CB5 /* AddOrEditSceneViewController.swift in Sources */,
 				AA38DCA7217EF4D70046D82D /* Reactive+StatusBar.swift in Sources */,
+				AA34423B222FCE5500A9BB3F /* JdProductDesc.swift in Sources */,
 				AA42D7D321F306B700320BD3 /* BannerService.swift in Sources */,
 				AA57240E2216799A00D26244 /* WeatherViewReactor.swift in Sources */,
 				AA8978692185759F005A61CA /* Reactive+UIImageView.swift in Sources */,
@@ -2001,14 +2061,16 @@
 				AA8481D121F2E8D600C24D3F /* String+.swift in Sources */,
 				AAA6E6C22213EF9E0032A489 /* SocialService.swift in Sources */,
 				AAF961832207176100E17A65 /* SJSegmentTab.swift in Sources */,
+				AA344239222FB28A00A9BB3F /* UIDevice+.swift in Sources */,
 				AA1A5EC3220FD54D0084473E /* SectionHeaderView.swift in Sources */,
-				AA5723F622155F3900D26244 /* SmartCloudError.swift in Sources */,
+				AA5723F622155F3900D26244 /* JdCloudError.swift in Sources */,
 				AA693DB72160EEB70063D749 /* HomeViewController.swift in Sources */,
 				AA3E0E8A2170841700958937 /* HomeInfo.swift in Sources */,
 				AA19DC7521F573AA00B70EFE /* WXMediaMessage+messageConstruct.m in Sources */,
 				AA01F49F2198828600CE6457 /* AppDelegate+UMeng.swift in Sources */,
 				AADE73A722243268009D218A /* SceneTableViewReactor.swift in Sources */,
 				AAD7E17E21F1F42D000D8D6A /* HttpClientType+Extensions.swift in Sources */,
+				AAD605AD222D55AA0003F173 /* JdScene.swift in Sources */,
 				AAA6E6BD2213EBE40032A489 /* BindJdAccountViewControllerReactor.swift in Sources */,
 				AA3CA5D62202BE0600551C87 /* RxPullToRefreshDelegate.swift in Sources */,
 				AAD7E0E921F1AEB1000D8D6A /* XSQRCode.m in Sources */,
@@ -2049,6 +2111,7 @@
 				AAD7E0E821F1AEB1000D8D6A /* XSAlertView.m in Sources */,
 				AA38DCA5217EF41F0046D82D /* RxUtil.swift in Sources */,
 				AA9B94BB21ECBE82000AE906 /* JdSmartCloudService.swift in Sources */,
+				AAD605AB222D53FE0003F173 /* JdServiceInfo.swift in Sources */,
 				AAD7E17121F1F42D000D8D6A /* StreamDataTask.swift in Sources */,
 				AA5723E4221544DC00D26244 /* Dictionary+.swift in Sources */,
 			);
@@ -2725,7 +2788,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "AppIcon${BUNDLE_ID_SUFFIX}";
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = Example/Example.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = U4F2KFJUHF;
@@ -2900,7 +2963,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.twigcodes.Example;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "match Development com.twigcodes.Example";
+				PROVISIONING_PROFILE_SPECIFIER = "match AdHoc com.twigcodes.Example";
 				SWIFT_OBJC_BRIDGING_HEADER = "Example/Example-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;

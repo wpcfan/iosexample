@@ -1,0 +1,91 @@
+<UIScrollView
+    backgroundColor="white"
+    contentInset.bottom="safeAreaInsets.bottom + 50"
+    contentInset.left="safeAreaInsets.left + 15"
+    contentInset.right="safeAreaInsets.right + 15"
+    contentInset.top="max(safeAreaInsets.top + 5, 15)"
+    contentInsetAdjustmentBehavior="never"
+    scrollIndicatorInsets.bottom="safeAreaInsets.bottom + 50"
+    scrollIndicatorInsets.top="safeAreaInsets.top">
+
+    <UIView
+        height="200"
+        left="parent.left"
+        top="parent.top"
+        width="100%">
+
+        <UIImageView
+            center.x="parent.center.x"
+            contentMode="scaleAspectFit"
+            height="0.7 * parent.height"
+            imgUrl="{imageUrl}"
+            top="parent.top"
+            width="height"
+        />
+        <UILabel
+            center.x="previous.center.x"
+            height="0.3 * parent.height"
+            text="{deviceName}"
+            top="previous.bottom"
+        />
+    </UIView>
+    <UILabel
+        height="30"
+        left="previous.left"
+        text="{strings.addDevice.wifi.label}"
+        top="previous.bottom"
+    />
+    <UIButton
+        height="previous.height"
+        left="previous.left"
+        top="previous.bottom"
+        touchUpInside="openAppSetting"
+        width="parent.width">
+
+        <UILabel
+            height="parent.height"
+            left="parent.left"
+            text="{wifiSSID}"
+            top="parent.top"
+            width="auto + 10"
+        />
+        <UIImageView
+            contentMode="scaleAspectFit"
+            height="parent.height"
+            image="{rightArrow}"
+            right="parent.right - safeAreaInsets.right"
+            width="height"
+        />
+    </UIButton>
+    <PasswordField
+        enableIcon="false"
+        height="previous.height"
+        isEnabled="true"
+        isSecureTextEntry="false"
+        left="previous.left"
+        placeholder="{strings.addDevice.wifi.password}"
+        right="previous.right"
+        top="previous.bottom + 10"
+    />
+    <UILabel
+        height="30"
+        left="previous.left"
+        numberOfLines="0"
+        text="{strings.addDevice.setting.label}"
+        top="previous.bottom"
+    />
+    <WKWebView
+        height="100"
+        left="previous.left"
+        outlet="webView"
+        top="previous.bottom"
+    />
+    <UIButton
+        backgroundColor="primary"
+        layer.cornerRadius="0.5 * height"
+        left="safeAreaInsets.left"
+        right="parent.right - safeAreaInsets.right"
+        title="{strings.addDevice.next}"
+        top="previous.bottom + 15"
+    />
+</UIScrollView>

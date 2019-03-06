@@ -37,11 +37,11 @@ class SceneTableViewReactor: Reactor {
         switch action {
         case .load:
             return self.scenesService.request()
-                .flatMap({ (houseScenes) -> Observable<[HouseScene]> in
+                .flatMapFirst({ (houseScenes) -> Observable<[HouseScene]> in
                     self.scService.getScenes(page: 1, pageSize: 100)
                         .map({ (col) -> [HouseScene] in
                             houseScenes.map{ houseScene in
-                                var newHouseScene = houseScene
+                                let newHouseScene = houseScene
                                 newHouseScene.scene = Dollar.find(col!.scripts!) {
                                     $0.script?.id == houseScene.scriptId
                                 }

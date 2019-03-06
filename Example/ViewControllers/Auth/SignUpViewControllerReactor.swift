@@ -39,7 +39,7 @@ class SignUpViewControllerReactor: Reactor {
         switch action {
         case .getCaptcha:
             return tokenService.handleTokenInfo()
-                .flatMapLatest({ (_) -> Observable<UIImage?> in
+                .flatMapFirst({ (_) -> Observable<UIImage?> in
                      self.captchaService.request()
                 })
                 .map({ (image: UIImage?) -> Mutation in

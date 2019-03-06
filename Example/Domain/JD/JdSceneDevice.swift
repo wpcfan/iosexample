@@ -6,4 +6,19 @@
 //  Copyright © 2019 twigcodes. All rights reserved.
 //
 
-import Foundation
+import ObjectMapper
+
+class JdSceneDevice: Mappable {
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        
+    }
+    
+    var version: String?
+    var type: Int?
+    var feedId: Int64?
+    var productId: String?
+}

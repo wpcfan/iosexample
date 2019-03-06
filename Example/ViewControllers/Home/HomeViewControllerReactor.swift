@@ -52,16 +52,16 @@ class HomeViewControllerReactor: Reactor {
                     Observable.of(.loadFail(convertErrorToString(error: error)))
                 }
             let indoorAirDevice$ = homeStream
-                .map({ $0.devices?.filter({ (device: Device) -> Bool in
+                .map({ $0.devices?.filter({ (device: JdDevice) -> Bool in
                     device.productId == self.INDOOR_ENV_PROD_ID
                 }) ?? []
                 })
                 .filter({ (devices) -> Bool in
                     devices.count > 0
                 })
-                .map { (devices: [Device]) in String(devices[0].feedId!) }
+                .map { (devices: [JdDevice]) in String(devices[0].feedId!) }
             let loadIndoorAir$: Observable<Mutation> = indoorAirDevice$
-                .flatMap { id in
+                .flatMapFirst { id in
                     self.scService.deviceSnapshotV2(feedId: id)
                         .map { (result) -> Mutation in
                             .loadIndoorAirSuccess(Mapper<IndoorAir>().map(JSON: result!.toPlainDict()))

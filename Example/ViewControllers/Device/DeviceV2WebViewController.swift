@@ -11,7 +11,7 @@ import RxCocoa
 import NotificationBannerSwift
 
 class DeviceV2WebViewController: WebKitViewController {
-    var deviceUrl: SCDeviceUrl?
+    var deviceUrl: JdDeviceUrl?
     private let scService = container.resolve(JdSmartCloudService.self)!
     #if !targetEnvironment(simulator)
     private var dataManager: SCMControlDataManager?

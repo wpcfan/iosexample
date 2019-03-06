@@ -36,7 +36,7 @@ class AuthViewControllerReactor: Reactor {
         switch action {
         case let .login(username, password):
             return self.tokenService.handleTokenInfo()
-                .flatMapLatest { (_) -> Observable<Mutation> in
+                .flatMapFirst { (_) -> Observable<Mutation> in
                     self.loginService.mobile = username
                     self.loginService.password = password
                     return self.loginService.request()

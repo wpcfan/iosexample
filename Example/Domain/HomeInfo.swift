@@ -12,7 +12,7 @@ import RxDataSources
 class HomeInfo: Mappable, Codable {
     var banners: [Banner]?
     var hasMessage: Bool?
-    var devices: [Device]?
+    var devices: [JdDevice]?
     var channels: [Channel]?
     var house: House?
     

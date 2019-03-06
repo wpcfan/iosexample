@@ -87,3 +87,10 @@
 "devices.cell.offline"="Offline";
 "devices.section.header"="My Devices";
 "scenes.section.header"="My Scenes";
+"selectDevice.events.title"="Select a condition";
+"selectDevice.actions.title"="Select an action";
+"addDevice.wifi.label"="Select a WI-FI SSID that the device will be connected to";
+"addDevice.wifi.password"="Please type WI-FI password";
+"addDevice.setting.label"="Help";
+"addDevice.next"="Next";
+"addDevice.title"="Add Device";

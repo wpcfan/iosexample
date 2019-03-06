@@ -8,14 +8,23 @@
 
 import Layout
 import RxSwift
+import RxCocoa
 import RxDataSources
 
 class AddOrEditSceneViewController: BaseViewController, LayoutLoading {
-    weak var scene: HouseScene?
+    var scene: HouseScene? {
+        didSet {
+            guard let events = scene?.scene?.script?.events, let actions = scene?.scene?.script?.actions else { return }
+            self.events$.accept(events)
+            self.actions$.accept(actions)
+        }
+    }
     @objc weak var tableView: UITableView?
     @objc weak var sceneNameField: UITextField?
     @objc weak var sceneActiveSwitch: UISwitch?
     @objc weak var leftBadgeView: UIView?
+    let events$ = BehaviorRelay<[ScriptEvent]>(value: [])
+    let actions$ = BehaviorRelay<[ScriptAction]>(value: [])
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -48,8 +57,8 @@ class AddOrEditSceneViewController: BaseViewController, LayoutLoading {
         Observable.of([])
             .map { (scripts) -> [SectionModel<String, Script>] in
                 [
-                    SectionModel(model: "条件", items: scripts),
-                    SectionModel(model: "条件", items: scripts)
+                    SectionModel(model: "设置条件", items: scripts),
+                    SectionModel(model: "执行动作", items: scripts)
                 ]
             }
             .bind(to: (self.tableView!.rx.items(dataSource: dataSource)))
@@ -78,6 +87,18 @@ extension AddOrEditSceneViewController: SceneSectionHeaderDelegate {
     func addButtonClick(type: SceneSectionType) {
         let vc = SelectDeviceViewController()
         vc.type = type
+        vc.delegate = self
         self.navigationController?.pushViewController(vc, animated: true)
+    }
+}
+
+extension AddOrEditSceneViewController: SelectDeviceForSceneDelegate {
+    func handleSelection(deviceCapability: DeviceCapability, type: SceneSectionType) {
+        switch type {
+        case .actions:
+            break
+        case .events:
+            break
+        }
     }
 }

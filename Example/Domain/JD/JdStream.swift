@@ -19,6 +19,11 @@ class JdStream: Mappable {
     var tagId: Int?
     var valueDesc: String?
     var valueDict: Dictionary<String, String>?
+    var maxValue: String?
+    var minValue: String?
+    var symbol: String?
+    var valueType: String?
+    var iftttValueDesc: String?
     
     required init?(map: Map) { }
     
@@ -32,5 +37,10 @@ class JdStream: Mappable {
         paramType <- map["ptype"]
         tagId <- map["tag_id"]
         valueDesc <- map["value_des"]
+        maxValue <- map["max_value"]
+        minValue <- map["min_value"]
+        symbol <- map["symbol"]
+        valueType <- map["value_type"]
+        iftttValueDesc <- map["ifttt_value_desc"]
     }
 }

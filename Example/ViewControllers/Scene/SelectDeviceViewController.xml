@@ -1,52 +1,53 @@
 <UITableView
-    backgroundColor="tintColor"
+    backgroundColor="white"
     contentInset.bottom="safeAreaInsets.bottom"
     contentInset.top="safeAreaInsets.top"
     contentInsetAdjustmentBehavior="never"
     contentOffset.y="-safeAreaInsets.top"
-    estimatedSectionHeaderHeight="20"
     outlet="tableView"
     scrollIndicatorInsets.bottom="safeAreaInsets.bottom"
     scrollIndicatorInsets.top="safeAreaInsets.top"
     style="plain">
 
     <!-- Table header -->
-    <UIView height="auto + 10">
-        <UILabel
-            text="~ A custom table header view ~"
-            textAlignment="center"
-            textColor="white"
+    <UIView height="auto + 10" backgroundColor="primary">
+        <UITextField
+            placeholder="选择下方设备的属性，或在此输入进行筛选"
+            autocapitalizationType="none"
+            autocorrectionType="no"
+            borderStyle="none"
+            clearButtonMode="whileEditing"
             top="10"
             width="100%"
+            textColor="white"
         />
     </UIView>
     
 
     <!-- Section header template -->
     <UITableViewHeaderFooterView
-        backgroundView.backgroundColor="rgba(255, 255, 255, 0.75)"
-        height="auto + 10"
-        reuseIdentifier="templateHeader"
-        textLabel.text="Section header defined as a template in Table.xml"
-    />
+        reuseIdentifier="header"
+    >
+        <UIImageView
+            imgUrl="{imageUrl}"
+            left="20"
+            width="height"
+            height="parent.height"
+            contentMode="scaleAspectFill"
+            />
+        <UILabel
+            text="{deviceName}"
+            left="previous.right + 10"
+            textAlignment="center"
+            center.y="parent.center.y"
+            />
+    </UITableViewHeaderFooterView>
     
 
     <!-- Table cell template -->
     <UITableViewCell
-        detailTextLabel.highlightedTextColor="#fff7"
-        detailTextLabel.text="This cell is defined as a template in Table.xml"
-        detailTextLabel.textColor="#aaa"
-        height="auto + 20"
         reuseIdentifier="cell"
-        selectedBackgroundView.backgroundColor="tintColor"
-        style="subtitle"
-        textLabel.highlightedTextColor="white"
-        textLabel.text="Title #{row}">
+        textLabel.text="{streamName}">
 
-        <UIImageView
-            imgUrl="{imageUrl}"
-            right="20"
-            top="20"
-        />
     </UITableViewCell>
 </UITableView>

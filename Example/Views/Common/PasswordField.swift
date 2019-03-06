@@ -43,7 +43,7 @@ class PasswordField: UITextField {
         self.rightViewMode = enableSecretSwitch ? .always : .never
         self.autocorrectionType = .no
         self.autocapitalizationType = .none
-        self.isSecureTextEntry = true
+        self.eyeButton!.isSelected = !self.isSecureTextEntry
         eyeButton!.rx.tap
             .subscribe{ _ in
                 self.isSecureTextEntry = self.eyeButton!.isSelected

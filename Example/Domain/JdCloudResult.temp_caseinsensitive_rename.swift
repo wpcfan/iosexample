@@ -24,7 +24,7 @@ class JdCloudResult: Mappable {
     }
 }
 
-class JdCloudStructureResult<T: Mappable>: Mappable {
+class SmartCloudStructureResult<T: Mappable>: Mappable {
     var result: T?
     var status: Int?
     var cookie: String?

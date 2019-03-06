@@ -17,10 +17,10 @@ import SwiftReorder
 
 class DeviceTableView: SHTableView {
     var disposeBag = DisposeBag()
-    var devices$ = PublishRelay<[Device]>()
+    var devices$ = PublishRelay<[JdDevice]>()
     var reorder$ = PublishRelay<[String: Int]>()
-    var rebind$ = PublishRelay<Device>()
-    var deviceSelected$ = PublishRelay<Device>()
+    var rebind$ = PublishRelay<JdDevice>()
+    var deviceSelected$ = PublishRelay<JdDevice>()
     var sectionHeaderView = SectionHeaderView()
     
     override init(frame: CGRect, style: UITableView.Style) {
@@ -30,7 +30,7 @@ class DeviceTableView: SHTableView {
         register(UINib(nibName: "DeviceCell", bundle: nil), forCellReuseIdentifier: "cell")
         
         self.reorder.delegate = self
-        let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, Device>>(configureCell: { ds, tv, ip, item in
+        let dataSource = RxTableViewSectionedReloadDataSource<SectionModel<String, JdDevice>>(configureCell: { ds, tv, ip, item in
             if let spacer = self.reorder.spacerCell(for: ip) {
                 return spacer
             }
@@ -98,7 +98,7 @@ class DeviceTableView: SHTableView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func rebindDevice(_ device: Device) {
+    func rebindDevice(_ device: JdDevice) {
         
     }
 }
@@ -141,10 +141,10 @@ extension Reactive where Base: DeviceTableView {
     var addDeviceTapped: Observable<Void> {
         return base.sectionHeaderView.rightBtnTapped.asObservable()
     }
-    var rebind: Observable<Device> {
+    var rebind: Observable<JdDevice> {
         return base.rebind$.asObservable()
     }
-    var deviceSelected: Observable<Device> {
+    var deviceSelected: Observable<JdDevice> {
         return base.deviceSelected$.asObservable()
     }
 }

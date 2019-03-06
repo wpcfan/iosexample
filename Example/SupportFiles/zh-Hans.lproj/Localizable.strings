@@ -87,3 +87,10 @@
 "devices.cell.offline"="设备离线";
 "devices.section.header"="我的设备";
 "scenes.section.header"="我的场景";
+"selectDevice.events.title"="选择场景触发的条件";
+"selectDevice.actions.title"="场景触发后执行的动作";
+"addDevice.wifi.label"="选择设备要接入的 WIFI";
+"addDevice.wifi.password"="请输入 WI-FI 密码";
+"addDevice.setting.label"="配置说明";
+"addDevice.next"="下一步";
+"addDevice.title"="添加设备";
