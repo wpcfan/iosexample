@@ -8,7 +8,7 @@
 
 import ObjectMapper
 
-class SCV2Snapshot: Mappable {
+class JdV2Snapshot: Mappable {
     var status: String?
     var digest: String?
     var streams: [SCStream]?

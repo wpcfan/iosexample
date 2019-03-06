@@ -8,7 +8,7 @@
 
 import ObjectMapper
 
-class SCStream: Mappable {
+class JdStream: Mappable {
     var id: String?
     var value: String?
     var type: String?

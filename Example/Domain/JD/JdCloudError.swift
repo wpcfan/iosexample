@@ -8,7 +8,7 @@
 
 import ObjectMapper
 
-class SmartCloudError: Mappable {
+class JdCloudError: Mappable {
     required init?(map: Map) { }
     
     func mapping(map: Map) {

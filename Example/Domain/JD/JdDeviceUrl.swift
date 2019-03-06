@@ -93,7 +93,7 @@ class SCDevice: Mappable {
     var mainSubType: Int?
 }
 
-class SCDeviceUrl: Mappable {
+class JdDeviceUrl: Mappable {
     var product: SCProduct?
     var sharedInfo: SharedInfo?
     var h5: H5?

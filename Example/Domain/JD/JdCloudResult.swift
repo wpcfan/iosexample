@@ -8,11 +8,11 @@
 
 import ObjectMapper
 
-class SmartCloudResult: Mappable {
+class JdCloudResult: Mappable {
     var result: String?
     var status: Int?
     var cookie: String?
-    var error: SmartCloudError?
+    var error: JdCloudError?
     
     required init?(map: Map) { }
     
@@ -28,7 +28,7 @@ class SmartCloudStructureResult<T: Mappable>: Mappable {
     var result: T?
     var status: Int?
     var cookie: String?
-    var error: SmartCloudError?
+    var error: JdCloudError?
     
     required init?(map: Map) { }
     

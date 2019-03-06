@@ -7,31 +7,8 @@
 //
 
 import ObjectMapper
-import RxDataSources
 
-class ServiceInfo: Mappable, Codable {
-    var port: Int?
-    var isMultipoint: Bool?
-    var version: String?
-    var type: Int?
-    var transType: Int?
-    var ip: String?
-    var name: String?
-    
-    required init?(map: Map) { }
-    
-    func mapping(map: Map) {
-        port <- map["port"]
-        isMultipoint <- map["isMultipoint"]
-        version <- map["version"]
-        type <- map["type"]
-        transType <- map["transType"]
-        ip <- map["ip"]
-        name <- map["name"]
-    }
-}
-
-class Device: Mappable, Codable {
+class JdDevice: Mappable, Codable {
     var id: String?
     var feedId: Int64?
     var guid: String?
@@ -44,7 +21,7 @@ class Device: Mappable, Codable {
     var version: String?
     var status: Int?
     var infoStatus: Int?
-    var serviceInfos: [ServiceInfo]?
+    var serviceInfos: [JdServiceInfo]?
     
     required init?(map: Map) { }
     
