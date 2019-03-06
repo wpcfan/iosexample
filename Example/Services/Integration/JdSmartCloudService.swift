@@ -26,6 +26,7 @@ public enum ProductVersion {
 
 enum SCError: Error {
     case JdSmartError(_ code: Int?, _ message: String?, _ debug: String?)
+    case NetConfigError(_ status: Int?, _ message: String?)
 }
 
 class JdSmartCloudService {
@@ -223,11 +224,15 @@ class JdSmartCloudService {
         }
     }
     
-    func getProductInfo(productUUID: String, qrCode: String) -> Observable<JdProductInfo> {
+    func getProductInfo(productUUID: String, qrResult: JDQRResult) -> Observable<JdProductInfo> {
         print("enter getProductInfo")
         return Observable<JdProductInfo>.create{ (observer) -> Disposable in
             #if !targetEnvironment(simulator)
-            SCMCloudActivateManager.getProductInfo(withPuid: productUUID, qrString: qrCode, success: { (dict) in
+            let qrCode = qrResult.originQRCode?.urlStringValue
+            SCMCloudActivateManager.getProductInfo(
+                withPuid: productUUID,
+                qrString: qrCode,
+                success: { (dict) in
                 let res = dict as! [String: Any]
                 let result = Mapper<JdCloudStructureResult<JdProductInfo>>().map(JSON: res)
                 guard result?.status == 0 else {
@@ -237,6 +242,8 @@ class JdSmartCloudService {
                 }
                 let data = result?.result
                 data?.uuid = productUUID
+                data?.qrCode = qrCode
+                data?.deviceMac =  qrResult.deviceMac
                 observer.onNext(data!)
                 observer.onCompleted()
             }) { (error) in
@@ -270,5 +277,222 @@ class JdSmartCloudService {
             #endif
             return Disposables.create()
         }
+    }
+    
+    func startNativeConfig(productInfo: JdProductInfo, wifiInfo: WifiInfo) -> Observable<SCMLanDeviceModel?> {
+        let model = SCMOneStepNativeModel()
+        model.puid = productInfo.uuid
+        model.qrCode = productInfo.qrCode
+        model.ssid = wifiInfo.ssid
+        model.pwd = wifiInfo.password
+        return Observable<SCMLanDeviceModel?>.create{ (observer) -> Disposable in
+            #if !targetEnvironment(simulator)
+            SCMConfigNetManager.startOneStepConfigNative(model, result: { (arrDevices) in
+                guard let devices = arrDevices as? [SCMLanDeviceModel], devices.count > 0 else {
+                    observer.onNext(nil)
+                    return
+                }
+                if let lanDeviceModel = devices.first(where: { (deviceModel) -> Bool in
+                    deviceModel.puid == model.puid
+                }) {
+                    lanDeviceModel.deviceName = productInfo.name
+                    observer.onNext(lanDeviceModel)
+                    observer.onCompleted()
+                }
+                
+            }) { (error) in
+                printError(error)
+                let err = Mapper<JdNetConfigResult>().map(JSON: error as! [String: Any])
+                observer.onError(SCError.NetConfigError(err?.result?.status, err?.result?.message))
+            }
+            #endif
+            return Disposables.create()
+        }
+        
+    }
+    
+    func startCloudConfig(productInfo: JdProductInfo, wifiInfo: WifiInfo) -> Observable<SCMLanDeviceModel?> {
+        let model = SCMOneStepCloudModel()
+        model.configType = productInfo.configType!
+        model.deviceName = productInfo.name
+        model.puid = productInfo.uuid
+        model.macID = productInfo.deviceMac
+        model.ssid = wifiInfo.ssid
+        model.pwd = wifiInfo.password
+        return Observable<SCMLanDeviceModel?>.create{ (observer) -> Disposable in
+            #if !targetEnvironment(simulator)
+            SCMConfigNetManager.startOneStepConfigCloud(model, result: { (arrDevices) in
+                guard let devices = arrDevices as? [SCMLanDeviceModel], devices.count > 0 else {
+                    observer.onNext(nil)
+                    return
+                }
+                if let lanDeviceModel = devices.first(where: { (deviceModel) -> Bool in
+                    deviceModel.puid == model.puid
+                }) {
+                    lanDeviceModel.deviceName = productInfo.name
+                    observer.onNext(lanDeviceModel)
+                    observer.onCompleted()
+                }
+                
+            }) { (error) in
+                printError(error)
+                let err = Mapper<JdNetConfigResult>().map(JSON: error as! [String: Any])
+                observer.onError(SCError.NetConfigError(err?.result?.status, err?.result?.message))
+            }
+            #endif
+            return Disposables.create()
+        }
+    }
+    
+    func startThridPartyConfig(productInfo: JdProductInfo, wifiInfo: WifiInfo) -> Observable<SCMLanDeviceModel?> {
+        
+        let model = SCMThirdConfigModel()
+        model.puid = productInfo.uuid
+        model.configType = productInfo.configType!
+        model.protocol_version = productInfo.protocolVersion
+        model.ssid = wifiInfo.ssid
+        model.pwd = wifiInfo.password
+        return Observable<SCMLanDeviceModel?>.create{ (observer) -> Disposable in
+            #if !targetEnvironment(simulator)
+            SCMConfigNetManager.startThirdConfig(model, result: { (arrDevices) in
+                guard let devices = arrDevices as? [SCMLanDeviceModel], devices.count > 0 else {
+                    observer.onNext(nil)
+                    return
+                }
+                if let lanDeviceModel = devices.first(where: { (deviceModel) -> Bool in
+                    deviceModel.puid == model.puid
+                }) {
+                    lanDeviceModel.deviceName = productInfo.name
+                    observer.onNext(lanDeviceModel)
+                    observer.onCompleted()
+                }
+                
+            }) { (error) in
+                printError(error)
+                let err = Mapper<JdNetConfigResult>().map(JSON: error as! [String: Any])
+                observer.onError(SCError.NetConfigError(err?.result?.status, err?.result?.message))
+            }
+            #endif
+            return Disposables.create()
+        }
+    }
+    
+    func startSoftApConfig(productInfo: JdProductInfo, wifiInfo: WifiInfo) -> Observable<SCMLanDeviceModel?> {
+        let model = SCMSoftApModel()
+        model.puid = productInfo.uuid
+        model.ssid = wifiInfo.ssid
+        model.pwd = wifiInfo.password
+        return Observable<SCMLanDeviceModel?>.create{ (observer) -> Disposable in
+            #if !targetEnvironment(simulator)
+            SCMConfigNetManager.startSoftApConfig(model, result: { (arrDevices) in
+                guard let devices = arrDevices as? [SCMLanDeviceModel], devices.count > 0 else {
+                    observer.onNext(nil)
+                    return
+                }
+                if let lanDeviceModel = devices.first(where: { (deviceModel) -> Bool in
+                    deviceModel.puid == model.puid
+                }) {
+                    lanDeviceModel.deviceName = productInfo.name
+                    observer.onNext(lanDeviceModel)
+                    observer.onCompleted()
+                }
+                
+            }) { (error) in
+                printError(error)
+                let err = Mapper<JdNetConfigResult>().map(JSON: error as! [String: Any])
+                observer.onError(SCError.NetConfigError(err?.result?.status, err?.result?.message))
+            }
+            #endif
+            return Disposables.create()
+        }
+    }
+    
+    func scanDevices() -> Void {
+        #if !targetEnvironment(simulator)
+        SCMScanDeviceManager.scanDevice()
+        #endif
+    }
+    
+    func scanDevices(productUUID: String) -> Void {
+        #if !targetEnvironment(simulator)
+        SCMScanDeviceManager.scanDevice(withPuid: productUUID)
+        #endif
+    }
+    
+    func scanSubDevices(productUUID: String) -> Void {
+        #if !targetEnvironment(simulator)
+        SCMScanDeviceManager.scanSubDevice(withPuid: productUUID)
+        #endif
+    }
+    
+    func stopNativeConfig() -> Void {
+        #if !targetEnvironment(simulator)
+        SCMConfigNetManager.stopOneStepConfigNative()
+        #endif
+    }
+    
+    func stopCloudConfig() -> Void {
+        #if !targetEnvironment(simulator)
+        SCMConfigNetManager.stopOneStepConfigCloud()
+        #endif
+    }
+    
+    func stopSoftApConfig() -> Void {
+        #if !targetEnvironment(simulator)
+        SCMConfigNetManager.stopSoftApConfig()
+        #endif
+    }
+    
+    func stopThirdPartyConfig() -> Void {
+        #if !targetEnvironment(simulator)
+        SCMConfigNetManager.stopThirdConfig()
+        #endif
+    }
+    
+    func activateDeviceV2(model: SCMLanDeviceModel) -> Void {
+        #if !targetEnvironment(simulator)
+        SCMCloudActivateManager.activateV2Device(model, result: { (dict) in
+            print(dict)
+        }) { (error) in
+            printError(error)
+        }
+        #endif
+    }
+    
+    func startNetConfig(productInfo: JdProductInfo, wifiInfo: WifiInfo, countDown: Int) -> Observable<SCMLanDeviceModel?> {
+        switch productInfo.configType! {
+        case 1001, 1002, 1003:
+            return startThridPartyConfig(productInfo: productInfo, wifiInfo: wifiInfo)
+                .timeout(RxTimeInterval(countDown), scheduler: MainScheduler.instance)
+                .do(onCompleted: {
+                    self.stopThirdPartyConfig()
+                })
+        case 1113: // 本地一键配置
+            return startNativeConfig(productInfo: productInfo, wifiInfo: wifiInfo)
+                .timeout(RxTimeInterval(countDown), scheduler: MainScheduler.instance)
+                .do(onCompleted: {
+                    self.stopNativeConfig()
+                })
+        case 1114: // Soft AP
+            return startSoftApConfig(productInfo: productInfo, wifiInfo: wifiInfo)
+                .timeout(RxTimeInterval(countDown), scheduler: MainScheduler.instance)
+                .do(onCompleted: {
+                    self.stopSoftApConfig()
+                })
+//        case 1115: // 本地配网 + Soft AP
+//        case 1903: // 已入网设备，直接进行设备扫描
+//            scanDevices(productUUID: productInfo.uuid!)
+//            return
+        default:
+            return startCloudConfig(productInfo: productInfo, wifiInfo: wifiInfo)
+                .timeout(RxTimeInterval(countDown), scheduler: MainScheduler.instance)
+                .do(onCompleted: {
+                    self.stopCloudConfig()
+                })
+        }
+    }
+    
+    private func handleDeviceScanned(dict: [SCMLanDeviceModel]) {
+        
     }
 }

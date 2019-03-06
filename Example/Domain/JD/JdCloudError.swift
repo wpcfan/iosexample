@@ -23,3 +23,17 @@ class JdCloudError: Mappable {
     var debugInfo: String?
     var debugMe: String?
 }
+
+class JdNetConfigError: Mappable {
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        status <- map["status"]
+        message <- map["statusMsg"]
+    }
+    
+    var status: Int?
+    var message: String?
+}

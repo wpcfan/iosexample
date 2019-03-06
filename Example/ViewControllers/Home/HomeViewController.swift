@@ -194,10 +194,11 @@ extension HomeViewController: ReactorKit.View {
             }
             .filterNil()
             .flatMapFirst{ (url) -> Observable<JdProductInfo> in
-                let qrResult = RxQRUtil().parseJdQR(qrCode: url)
+                let qrResult = RxQRUtil().parseJdQR(qrCode: url)!
+                let productUUID = qrResult.productUUID!
                 return self.scService.getProductInfo(
-                    productUUID: (qrResult?.productUUID!)!,
-                    qrCode: (qrResult?.originQRCode?.urlStringValue)!)
+                    productUUID: productUUID,
+                    qrResult: qrResult)
             }
             .subscribe{ ev in
                 guard let product = ev.element else { return }

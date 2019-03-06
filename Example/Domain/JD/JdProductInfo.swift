@@ -25,6 +25,8 @@ class JdProductInfo: Mappable {
     var protocolVersion: String?
     var publicFlag: Bool?
     var version: String?
+    var qrCode: String?
+    var deviceMac: String?
     
     required init?(map: Map) { }
     

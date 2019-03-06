@@ -39,3 +39,13 @@ class JdCloudStructureResult<T: Mappable>: Mappable {
         error <- map["error"]
     }
 }
+
+class JdNetConfigResult: Mappable {
+    var result: JdNetConfigError?
+    
+    required init?(map: Map) { }
+    
+    func mapping(map: Map) {
+        result <- map["result"]
+    }
+}

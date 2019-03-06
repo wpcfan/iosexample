@@ -10,8 +10,6 @@
     scrollIndicatorInsets.top="safeAreaInsets.top"
     style="plain">
 
-    
-
     <!-- Table cell template -->
     <UITableViewCell
         height="auto + 20"

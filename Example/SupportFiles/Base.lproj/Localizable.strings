@@ -94,3 +94,4 @@
 "addDevice.setting.label"="Help";
 "addDevice.next"="Next";
 "addDevice.title"="Add Device";
+"bindDevice.title"="Bind Device";

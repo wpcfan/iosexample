@@ -1,0 +1,48 @@
+<UIScrollView
+    backgroundColor="white"
+    contentInset.bottom="safeAreaInsets.bottom + 50"
+    contentInset.left="safeAreaInsets.left + 15"
+    contentInset.right="safeAreaInsets.right + 15"
+    contentInset.top="max(safeAreaInsets.top + 5, 15)"
+    contentInsetAdjustmentBehavior="never"
+    scrollIndicatorInsets.bottom="safeAreaInsets.bottom + 50"
+    scrollIndicatorInsets.top="safeAreaInsets.top">
+
+    <NVActivityIndicatorView.NVActivityIndicatorView
+        center.x="parent.center.x"
+        center.y="parent.center.y"
+        color="darkGray"
+        height="50"
+        outlet="activityIndicatorView"
+        width="100"
+    />
+    <UIView
+        height="200"
+        left="parent.left"
+        top="parent.top"
+        width="100%">
+
+        <UIImageView
+            center.x="parent.center.x"
+            contentMode="scaleAspectFit"
+            height="0.7 * parent.height"
+            imgUrl="{imageUrl}"
+            top="parent.top"
+            width="height"
+        />
+        <UILabel
+            center.x="previous.center.x"
+            height="0.3 * parent.height"
+            text="{deviceName}"
+            top="previous.bottom"
+        />
+    </UIView>
+    <UIButton
+        backgroundColor="primary"
+        layer.cornerRadius="0.5 * height"
+        left="safeAreaInsets.left"
+        right="parent.right - safeAreaInsets.right"
+        title="{strings.addDevice.next}"
+        top="previous.bottom + 15"
+    />
+</UIScrollView>

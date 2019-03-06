@@ -5,6 +5,7 @@
     contentInset.right="safeAreaInsets.right + 15"
     contentInset.top="max(safeAreaInsets.top + 5, 15)"
     contentInsetAdjustmentBehavior="never"
+    outlet="scrollView"
     scrollIndicatorInsets.bottom="safeAreaInsets.bottom + 50"
     scrollIndicatorInsets.top="safeAreaInsets.top">
 
@@ -63,6 +64,7 @@
         isEnabled="true"
         isSecureTextEntry="false"
         left="previous.left"
+        outlet="passwordField"
         placeholder="{strings.addDevice.wifi.password}"
         right="previous.right"
         top="previous.bottom + 10"
@@ -85,7 +87,7 @@
         layer.cornerRadius="0.5 * height"
         left="safeAreaInsets.left"
         right="parent.right - safeAreaInsets.right"
-        title="{strings.addDevice.next}"
+        touchUpInside="nextStep"
         top="previous.bottom + 15"
     />
 </UIScrollView>

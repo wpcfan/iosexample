@@ -7,12 +7,15 @@
 //
 
 import Layout
+import RxKeyboard
 
 class AddDeviceViewController: BaseViewController, LayoutLoading {
     private let htmlHeader = "<header><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'></header>"
     private let scService = container.resolve(JdSmartCloudService.self)!
     private let productInfo: JdProductInfo
     @objc weak var webView: WKWebView!
+    @objc weak var scrollView: UIScrollView!
+    @objc weak var passwordField: UITextField!
     init(productInfo: JdProductInfo) {
         self.productInfo = productInfo
         super.init()
@@ -52,6 +55,12 @@ class AddDeviceViewController: BaseViewController, LayoutLoading {
                 self.webView.loadHTMLString("\(self.htmlHeader)\(renderString)", baseURL: nil)
             }
             .disposed(by: self.disposeBag)
+        
+        RxKeyboard.instance.visibleHeight
+            .drive(onNext: { [scrollView] keyboardVisibleHeight in
+                scrollView!.contentInset.bottom = keyboardVisibleHeight
+            })
+            .disposed(by: self.disposeBag)
     }
     @objc func openAppSetting() -> Void {
         
@@ -62,5 +71,10 @@ class AddDeviceViewController: BaseViewController, LayoutLoading {
         } else {
             UIApplication.shared.openURL(settingsURL)
         }
+    }
+    @objc func nextStep() {
+        let wifiInfo = WifiInfo(ssid: UIDevice().WiFiSSID ?? "", password: self.passwordField.text)
+        let vc = BindDeviceViewController(productInfo: productInfo, wifiInfo: wifiInfo)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

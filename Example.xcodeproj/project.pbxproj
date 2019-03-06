@@ -71,6 +71,8 @@
 		AA344235222FA22F00A9BB3F /* AddDeviceViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA344234222FA22F00A9BB3F /* AddDeviceViewController.xml */; };
 		AA344239222FB28A00A9BB3F /* UIDevice+.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA344238222FB28A00A9BB3F /* UIDevice+.swift */; };
 		AA34423B222FCE5500A9BB3F /* JdProductDesc.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA34423A222FCE5500A9BB3F /* JdProductDesc.swift */; };
+		AA34423D222FED1D00A9BB3F /* BindDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA34423C222FED1D00A9BB3F /* BindDeviceViewController.swift */; };
+		AA34423F222FED3700A9BB3F /* BindDeviceViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA34423E222FED3700A9BB3F /* BindDeviceViewController.xml */; };
 		AA38DCA5217EF41F0046D82D /* RxUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA38DCA4217EF41F0046D82D /* RxUtil.swift */; };
 		AA38DCA7217EF4D70046D82D /* Reactive+StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA38DCA6217EF4D70046D82D /* Reactive+StatusBar.swift */; };
 		AA3AB88E21841ABA00470276 /* SplashViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3AB88D21841ABA00470276 /* SplashViewControllerReactor.swift */; };
@@ -416,6 +418,8 @@
 		AA344234222FA22F00A9BB3F /* AddDeviceViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = AddDeviceViewController.xml; sourceTree = "<group>"; };
 		AA344238222FB28A00A9BB3F /* UIDevice+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIDevice+.swift"; sourceTree = "<group>"; };
 		AA34423A222FCE5500A9BB3F /* JdProductDesc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JdProductDesc.swift; sourceTree = "<group>"; };
+		AA34423C222FED1D00A9BB3F /* BindDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindDeviceViewController.swift; sourceTree = "<group>"; };
+		AA34423E222FED3700A9BB3F /* BindDeviceViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BindDeviceViewController.xml; sourceTree = "<group>"; };
 		AA38DCA4217EF41F0046D82D /* RxUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxUtil.swift; sourceTree = "<group>"; };
 		AA38DCA6217EF4D70046D82D /* Reactive+StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+StatusBar.swift"; sourceTree = "<group>"; };
 		AA3AB88D21841ABA00470276 /* SplashViewControllerReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewControllerReactor.swift; sourceTree = "<group>"; };
@@ -1002,10 +1006,12 @@
 		AA46D4082219120C00931526 /* Device */ = {
 			isa = PBXGroup;
 			children = (
-				AA46D4092219128E00931526 /* DeviceV2WebViewController.swift */,
-				AA46D40D221943DE00931526 /* DeviceSettingViewController.swift */,
 				AA344232222FA1C100A9BB3F /* AddDeviceViewController.swift */,
 				AA344234222FA22F00A9BB3F /* AddDeviceViewController.xml */,
+				AA34423C222FED1D00A9BB3F /* BindDeviceViewController.swift */,
+				AA34423E222FED3700A9BB3F /* BindDeviceViewController.xml */,
+				AA46D4092219128E00931526 /* DeviceV2WebViewController.swift */,
+				AA46D40D221943DE00931526 /* DeviceSettingViewController.swift */,
 			);
 			path = Device;
 			sourceTree = "<group>";
@@ -1631,6 +1637,7 @@
 				AA024B7F222B673700070BFB /* SelectDeviceViewController.xml in Resources */,
 				AAA6E6B1221329C90032A489 /* CaptchaView.xml in Resources */,
 				AA72B6FF222186CA00C72E33 /* UIWebViewController.xml in Resources */,
+				AA34423F222FED3700A9BB3F /* BindDeviceViewController.xml in Resources */,
 				AA86626D2211BF3D0065568A /* BindJdAccountViewController.xml in Resources */,
 				AAC5EB78215E7BB9008EBA1F /* LaunchScreen.storyboard in Resources */,
 				AA5724122216CE4600D26244 /* ChannelView.xml in Resources */,
@@ -1915,6 +1922,7 @@
 				AA4B9B37219F223A00E194CE /* SideBarViewController.swift in Sources */,
 				AAF961A6220D977D00E17A65 /* DeviceCell.swift in Sources */,
 				AAD7E17B21F1F42D000D8D6A /* HttpExtensions.swift in Sources */,
+				AA34423D222FED1D00A9BB3F /* BindDeviceViewController.swift in Sources */,
 				AA57240A2215D70F00D26244 /* IndoorAirView.swift in Sources */,
 				AA3CA5F5220462DF00551C87 /* MyHouseService.swift in Sources */,
 				AA3E0E7C217053BD00958937 /* JdDevice.swift in Sources */,
