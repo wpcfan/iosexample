@@ -74,8 +74,6 @@
 		AA34423D222FED1D00A9BB3F /* BindDeviceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA34423C222FED1D00A9BB3F /* BindDeviceViewController.swift */; };
 		AA34423F222FED3700A9BB3F /* BindDeviceViewController.xml in Resources */ = {isa = PBXBuildFile; fileRef = AA34423E222FED3700A9BB3F /* BindDeviceViewController.xml */; };
 		AA344241223112B600A9BB3F /* JdActivateResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA344240223112B600A9BB3F /* JdActivateResult.swift */; };
-		AA34424322323D0D00A9BB3F /* RxTextFieldDelegateProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA34424222323D0D00A9BB3F /* RxTextFieldDelegateProxy.swift */; };
-		AA34424522323D3E00A9BB3F /* Reactive+UITextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA34424422323D3E00A9BB3F /* Reactive+UITextField.swift */; };
 		AA38DCA5217EF41F0046D82D /* RxUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA38DCA4217EF41F0046D82D /* RxUtil.swift */; };
 		AA38DCA7217EF4D70046D82D /* Reactive+StatusBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA38DCA6217EF4D70046D82D /* Reactive+StatusBar.swift */; };
 		AA3AB88E21841ABA00470276 /* SplashViewControllerReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA3AB88D21841ABA00470276 /* SplashViewControllerReactor.swift */; };
@@ -424,8 +422,6 @@
 		AA34423C222FED1D00A9BB3F /* BindDeviceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindDeviceViewController.swift; sourceTree = "<group>"; };
 		AA34423E222FED3700A9BB3F /* BindDeviceViewController.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = BindDeviceViewController.xml; sourceTree = "<group>"; };
 		AA344240223112B600A9BB3F /* JdActivateResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JdActivateResult.swift; sourceTree = "<group>"; };
-		AA34424222323D0D00A9BB3F /* RxTextFieldDelegateProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxTextFieldDelegateProxy.swift; sourceTree = "<group>"; };
-		AA34424422323D3E00A9BB3F /* Reactive+UITextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+UITextField.swift"; sourceTree = "<group>"; };
 		AA38DCA4217EF41F0046D82D /* RxUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RxUtil.swift; sourceTree = "<group>"; };
 		AA38DCA6217EF4D70046D82D /* Reactive+StatusBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+StatusBar.swift"; sourceTree = "<group>"; };
 		AA3AB88D21841ABA00470276 /* SplashViewControllerReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewControllerReactor.swift; sourceTree = "<group>"; };
@@ -981,8 +977,6 @@
 				AA72B708222193DC00C72E33 /* Reactive+UINavigationItem.swift */,
 				AA8978642185658C005A61CA /* Reactive+UIScrollView.swift */,
 				AA4B491A2178883E00A60C11 /* Reactive+UIViewController.swift */,
-				AA34424222323D0D00A9BB3F /* RxTextFieldDelegateProxy.swift */,
-				AA34424422323D3E00A9BB3F /* Reactive+UITextField.swift */,
 			);
 			path = Rx;
 			sourceTree = "<group>";
@@ -1998,7 +1992,6 @@
 				AA4B48F02175E4D000A60C11 /* APIError.swift in Sources */,
 				AA4F078E2222FF0B00E8A643 /* Reactive+MJRefreshHeader.swift in Sources */,
 				AAA6E6A3221315B40032A489 /* SetPasswordService.swift in Sources */,
-				AA34424522323D3E00A9BB3F /* Reactive+UITextField.swift in Sources */,
 				AA3E905121F41D0200985675 /* Constants.swift in Sources */,
 				AAF961AE220DAF7100E17A65 /* SceneTableView.swift in Sources */,
 				AA5723E822155D7000D26244 /* Channel.swift in Sources */,
@@ -2133,7 +2126,6 @@
 				AAD605AB222D53FE0003F173 /* JdServiceInfo.swift in Sources */,
 				AAD7E17121F1F42D000D8D6A /* StreamDataTask.swift in Sources */,
 				AA5723E4221544DC00D26244 /* Dictionary+.swift in Sources */,
-				AA34424322323D0D00A9BB3F /* RxTextFieldDelegateProxy.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

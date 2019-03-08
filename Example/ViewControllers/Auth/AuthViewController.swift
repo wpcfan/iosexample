@@ -54,9 +54,6 @@ class AuthViewController: BaseViewController {
                 "clear": AppIcons.clear
                 ]
         )
-        usernameField.setBottomBorder(withColor: .lightGray)
-        passwordField.setBottomBorder(withColor: .lightGray)
-        TextFieldResponder.shared.addResponders([usernameField, passwordField])
     }
     
     @objc func register() -> Void {
@@ -115,11 +112,29 @@ extension AuthViewController: View {
             .map { $0.loading }
             .bind(to: self.layoutNode!.rx.state("loading"))
             .disposed(by: self.disposeBag)
+        
+        usernameField.rx.controlEvent(.editingDidEndOnExit)
+            .subscribe {
+                guard let usernameField = self.usernameField else { return }
+                usernameField.resignFirstResponder()
+            }
+            .disposed(by: self.disposeBag)
+        
+        passwordField.rx.controlEvent(.editingDidEndOnExit)
+            .subscribe {
+                guard let passwordField = self.passwordField else { return }
+                passwordField.resignFirstResponder()
+            }
+            .disposed(by: self.disposeBag)
     }
 }
 
 extension AuthViewController: LayoutLoading {
     func layoutDidLoad(_: LayoutNode) {
-        self.reactor = AuthViewControllerReactor()
+        
+        usernameField.setBottomBorder(withColor: .lightGray)
+        passwordField.setBottomBorder(withColor: .lightGray)
+        TextFieldResponder.shared.addResponders([usernameField, passwordField])
+        reactor = AuthViewControllerReactor()
     }
 }
