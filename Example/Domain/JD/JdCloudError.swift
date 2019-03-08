@@ -37,3 +37,8 @@ class JdNetConfigError: Mappable {
     var status: Int?
     var message: String?
 }
+
+enum SCError: Error {
+    case JdSmartError(_ code: Int?, _ message: String?, _ debug: String?)
+    case NetConfigError(_ status: Int?, _ message: String?)
+}

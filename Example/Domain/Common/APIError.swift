@@ -33,3 +33,11 @@ class APIError: Mappable {
         stacktrace <- map["stacktrace"]
     }
 }
+
+enum SmartError: Error {
+    case server(_ code: Int, _ message: String)
+    case tokenInvalid(_ message: String)
+    case jdAccountNotBinded(_ message: String)
+    case jdTokenInvalid(_ message: String)
+    case loginInvalid(_ message: String)
+}

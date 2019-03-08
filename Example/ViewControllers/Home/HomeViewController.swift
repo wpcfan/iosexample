@@ -193,17 +193,24 @@ extension HomeViewController: ReactorKit.View {
                 RxQRUtil().scanQR(self)
             }
             .filterNil()
-            .flatMapFirst{ (url) -> Observable<JdProductInfo> in
-                let qrResult = RxQRUtil().parseJdQR(qrCode: url)!
-                let productUUID = qrResult.productUUID!
-                return self.scService.getProductInfo(
-                    productUUID: productUUID,
-                    qrResult: qrResult)
-            }
-            .subscribe{ ev in
+            .flatMapFirst({ (url) -> Observable<Event<JdProductInfo>> in
+                RxQRUtil().parseJdQR(qrCode: url)
+                    .flatMapFirst{ (qrResult) -> Observable<JdProductInfo> in
+                        let productUUID = qrResult.productUUID!
+                        return self.scService.getProductInfo(
+                            productUUID: productUUID,
+                            qrResult: qrResult)
+                    }
+                    .materialize()
+            })
+            .subscribe(onNext: { (ev) in
+                guard ev.error == nil else {
+                    self.view.makeToast(convertErrorToString(error: ev.error!))
+                    return
+                }
                 guard let product = ev.element else { return }
                 self.navigationController?.pushViewController(AddDeviceViewController(productInfo: product), animated: true)
-            }
+            })
             .disposed(by: disposeBag)
         
         deviceTab.rx.rebind
@@ -215,15 +222,17 @@ extension HomeViewController: ReactorKit.View {
         
         deviceTab.rx.deviceSelected
             .filter { device in device.version == ProductVersion.two.verVal }
-            .flatMapFirst({ (device) -> Observable<JdDeviceUrl?> in
-                self.scService.getDeviceH5V2(feedId: String(device.feedId!))
+            .flatMapFirst({ (device) -> Observable<Event<JdDeviceUrl?>> in
+                self.scService.getDeviceH5V2(feedId: String(device.feedId!)).materialize()
             })
-            .subscribe(onNext: {
+            .subscribe(onNext: { (ev) in
+                guard let deviceUrl = ev.element, ev.error == nil else {
+                    self.view.makeToast(convertErrorToString(error: ev.error!))
+                    return
+                }
                 let vc = DeviceV2WebViewController()
-                vc.deviceUrl = $0
+                vc.deviceUrl = deviceUrl
                 self.navigator.push(vc)
-            }, onError: { error in
-                self.view.makeToast(convertErrorToString(error: error))
             })
             .disposed(by: disposeBag)
         

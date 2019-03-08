@@ -24,11 +24,6 @@ public enum ProductVersion {
     }
 }
 
-enum SCError: Error {
-    case JdSmartError(_ code: Int?, _ message: String?, _ debug: String?)
-    case NetConfigError(_ status: Int?, _ message: String?)
-}
-
 class JdSmartCloudService {
     public func initSmartCloud() {
         print("enter initSmartCloud")
@@ -295,12 +290,14 @@ class JdSmartCloudService {
                 if let lanDeviceModel = devices.first(where: { (deviceModel) -> Bool in
                     deviceModel.puid == model.puid
                 }) {
+                    self.stopNativeConfig()
                     lanDeviceModel.deviceName = productInfo.name
                     observer.onNext(lanDeviceModel)
                     observer.onCompleted()
                 }
                 
             }) { (error) in
+                self.stopNativeConfig()
                 printError(error)
                 let err = Mapper<JdNetConfigResult>().map(JSON: error as! [String: Any])
                 observer.onError(SCError.NetConfigError(err?.result?.status, err?.result?.message))
@@ -329,12 +326,14 @@ class JdSmartCloudService {
                 if let lanDeviceModel = devices.first(where: { (deviceModel) -> Bool in
                     deviceModel.puid == model.puid
                 }) {
+                    self.stopCloudConfig()
                     lanDeviceModel.deviceName = productInfo.name
                     observer.onNext(lanDeviceModel)
                     observer.onCompleted()
                 }
                 
             }) { (error) in
+                self.stopCloudConfig()
                 printError(error)
                 let err = Mapper<JdNetConfigResult>().map(JSON: error as! [String: Any])
                 observer.onError(SCError.NetConfigError(err?.result?.status, err?.result?.message))
@@ -362,12 +361,14 @@ class JdSmartCloudService {
                 if let lanDeviceModel = devices.first(where: { (deviceModel) -> Bool in
                     deviceModel.puid == model.puid
                 }) {
+                    self.stopThirdPartyConfig()
                     lanDeviceModel.deviceName = productInfo.name
                     observer.onNext(lanDeviceModel)
                     observer.onCompleted()
                 }
                 
             }) { (error) in
+                self.stopThirdPartyConfig()
                 printError(error)
                 let err = Mapper<JdNetConfigResult>().map(JSON: error as! [String: Any])
                 observer.onError(SCError.NetConfigError(err?.result?.status, err?.result?.message))
@@ -392,12 +393,14 @@ class JdSmartCloudService {
                 if let lanDeviceModel = devices.first(where: { (deviceModel) -> Bool in
                     deviceModel.puid == model.puid
                 }) {
+                    self.stopSoftApConfig()
                     lanDeviceModel.deviceName = productInfo.name
                     observer.onNext(lanDeviceModel)
                     observer.onCompleted()
                 }
                 
             }) { (error) in
+                self.stopSoftApConfig()
                 printError(error)
                 let err = Mapper<JdNetConfigResult>().map(JSON: error as! [String: Any])
                 observer.onError(SCError.NetConfigError(err?.result?.status, err?.result?.message))
@@ -413,7 +416,7 @@ class JdSmartCloudService {
         #endif
     }
     
-    func scanDevices(productUUID: String) -> Void {
+    func scanDevice(productUUID: String) -> Void {
         #if !targetEnvironment(simulator)
         SCMScanDeviceManager.scanDevice(withPuid: productUUID)
         #endif
@@ -449,14 +452,27 @@ class JdSmartCloudService {
         #endif
     }
     
-    func activateDeviceV2(model: SCMLanDeviceModel) -> Void {
-        #if !targetEnvironment(simulator)
-        SCMCloudActivateManager.activateV2Device(model, result: { (dict) in
-            print(dict)
-        }) { (error) in
-            printError(error)
+    func activateDeviceV2(model: SCMLanDeviceModel) -> Observable<JdActivateResult?> {
+        return Observable<JdActivateResult?>.create{ (observer) -> Disposable in
+            #if !targetEnvironment(simulator)
+            SCMCloudActivateManager.activateV2Device(model, result: { (dict) in
+                let res = dict as! [String: Any]
+                let result = Mapper<JdCloudStructureResult<JdActivateResult>>().map(JSON: res)
+                guard result?.status == 0 else {
+                    printError(result?.error)
+                    observer.onError(SCError.JdSmartError(result?.error?.errorCode, result?.error?.errorInfo, result?.error?.debugMe))
+                    return
+                }
+                observer.onNext(result?.result)
+                observer.onCompleted()
+            }) { (error) in
+                printError(error)
+                let err = Mapper<JdNetConfigResult>().map(JSON: error as! [String: Any])
+                observer.onError(SCError.NetConfigError(err?.result?.status, err?.result?.message))
+            }
+            #endif
+            return Disposables.create()
         }
-        #endif
     }
     
     func startNetConfig(productInfo: JdProductInfo, wifiInfo: WifiInfo, countDown: Int) -> Observable<SCMLanDeviceModel?> {
@@ -464,21 +480,12 @@ class JdSmartCloudService {
         case 1001, 1002, 1003:
             return startThridPartyConfig(productInfo: productInfo, wifiInfo: wifiInfo)
                 .timeout(RxTimeInterval(countDown), scheduler: MainScheduler.instance)
-                .do(onCompleted: {
-                    self.stopThirdPartyConfig()
-                })
         case 1113: // 本地一键配置
             return startNativeConfig(productInfo: productInfo, wifiInfo: wifiInfo)
                 .timeout(RxTimeInterval(countDown), scheduler: MainScheduler.instance)
-                .do(onCompleted: {
-                    self.stopNativeConfig()
-                })
         case 1114: // Soft AP
             return startSoftApConfig(productInfo: productInfo, wifiInfo: wifiInfo)
                 .timeout(RxTimeInterval(countDown), scheduler: MainScheduler.instance)
-                .do(onCompleted: {
-                    self.stopSoftApConfig()
-                })
 //        case 1115: // 本地配网 + Soft AP
 //        case 1903: // 已入网设备，直接进行设备扫描
 //            scanDevices(productUUID: productInfo.uuid!)
@@ -486,9 +493,6 @@ class JdSmartCloudService {
         default:
             return startCloudConfig(productInfo: productInfo, wifiInfo: wifiInfo)
                 .timeout(RxTimeInterval(countDown), scheduler: MainScheduler.instance)
-                .do(onCompleted: {
-                    self.stopCloudConfig()
-                })
         }
     }
     

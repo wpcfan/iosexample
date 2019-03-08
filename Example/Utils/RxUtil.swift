@@ -83,6 +83,14 @@ public func convertErrorToString(error: Error) -> String {
         return "京东云错误: \(message ?? "未知错误")(代码:\(code ?? -1))"
     case RxError.timeout:
         return "请求超时: 网络环境较差，请稍后再试"
+    case QRError.unrecognized:
+        return "该二维码不是京东智能产品"
+    case QRError.dataLength:
+        return "二维码解析错误，数据长度不足"
+    case QRError.unsupportedDevice:
+        return "暂不支持该产品"
+    case QRError.valueNull:
+        return "二维码数据错误"
     default:
         printError(error)
         return "哎呀，好像系统开小差了"

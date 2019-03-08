@@ -68,6 +68,7 @@
         placeholder="{strings.addDevice.wifi.password}"
         right="previous.right"
         top="previous.bottom + 10"
+        returnKeyType="done"
     />
     <UILabel
         height="30"

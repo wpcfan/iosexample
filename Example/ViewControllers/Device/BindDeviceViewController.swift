@@ -45,16 +45,19 @@ class BindDeviceViewController: BaseViewController, LayoutLoading {
         }
         scServie.startNetConfig(productInfo: productInfo, wifiInfo: wifiInfo, countDown: 60)
             .filterNil()
+            .flatMap({device in self.scServie.activateDeviceV2(model: device)})
             .subscribe(onNext: { (device) in
                 self.layoutNode?.setState([
-                    "deviceName": device.deviceName,
+                    "deviceName": device?.deviceName,
                     ])
-            }, onError: { (error) in
-                self.view.makeToast(convertErrorToString(error: error))
-            }, onCompleted: {
                 if(self.activityIndicatorView.isAnimating) {
                     self.activityIndicatorView.stopAnimating()
                 }
+            }, onError: { (error) in
+                if(self.activityIndicatorView.isAnimating) {
+                    self.activityIndicatorView.stopAnimating()
+                }
+                self.view.makeToast(convertErrorToString(error: error))
             })
             .disposed(by: disposeBag)
     }

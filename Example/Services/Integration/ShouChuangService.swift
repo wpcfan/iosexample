@@ -17,14 +17,6 @@ enum AppErr: Error {
     case requiredParamNull(_ paramName: String?)
 }
 
-enum SmartError: Error {
-    case server(_ code: Int, _ message: String)
-    case tokenInvalid(_ message: String)
-    case jdAccountNotBinded(_ message: String)
-    case jdTokenInvalid(_ message: String)
-    case loginInvalid(_ message: String)
-}
-
 class ShouChuangService<T: Mappable>: SmartApiQuery {
     let client = container.resolve(HttpClient.self)!
     let baseUrl = AppEnv.apiBaseUrl

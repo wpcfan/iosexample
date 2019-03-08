@@ -80,6 +80,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         forceSendLogs(application)
         #if !targetEnvironment(simulator)
+        if (DiskUtil.getData()?.houseToken == nil) {
+            return
+        }
         SCMInitManager.sharedInstance().stopLoop()
         #endif
     }
@@ -91,6 +94,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(_ application: UIApplication) {
         #if !targetEnvironment(simulator)
         clearNotification(application)
+        if (DiskUtil.getData()?.houseToken == nil) {
+            return
+        }
         SCMInitManager.sharedInstance().startLoop()
         #endif
     }

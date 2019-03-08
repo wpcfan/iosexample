@@ -8,6 +8,8 @@
 
 import Layout
 import RxKeyboard
+import RxCocoa
+import RxSwift
 
 class AddDeviceViewController: BaseViewController, LayoutLoading {
     private let htmlHeader = "<header><meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0'></header>"
@@ -39,6 +41,7 @@ class AddDeviceViewController: BaseViewController, LayoutLoading {
     }
     func layoutDidLoad(_: LayoutNode) {
         weak var `self`: AddDeviceViewController! = self
+  
         scService.getProductDescV2(productUUID: productInfo.uuid!, configType: productInfo.configType!)
             .subscribe { ev in
                 guard let prodInfo = ev.element else { return }
@@ -60,6 +63,13 @@ class AddDeviceViewController: BaseViewController, LayoutLoading {
             .drive(onNext: { [scrollView] keyboardVisibleHeight in
                 scrollView!.contentInset.bottom = keyboardVisibleHeight
             })
+            .disposed(by: self.disposeBag)
+        
+        passwordField.rx.controlEvent(.editingDidEndOnExit)
+            .subscribe {
+                guard let passwordField = self.passwordField else { return }
+                passwordField.resignFirstResponder()
+            }
             .disposed(by: self.disposeBag)
     }
     @objc func openAppSetting() -> Void {
